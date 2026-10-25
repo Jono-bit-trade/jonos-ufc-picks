@@ -1,19 +1,21 @@
 name: backfill-history
 
-# Collects the full history: every UFC fight's stats from UFCStats, every fighter's
-# opening and closing lines from BestFightOdds, and ESPN's past cards. A full first
-# pass takes several runs; each run picks up where the last one stopped and saves
-# its progress, so it runs every weekday morning until it has everything, then just
-# adds the latest cards. Start it any time from Actions -> backfill-history -> Run workflow.
+# Collects the full history: ESPN's past cards (results, bout order, records, photo ids),
+# then every bout's fight stats and every sportsbook's opening and closing lines from
+# ESPN's core API. A full first pass takes several runs; each run picks up where the last
+# one stopped and saves its progress, so it runs every weekday morning until it has
+# everything, then just adds the latest cards. Start it any time from
+# Actions -> backfill-history -> Run workflow, or by editing .github/backfill-request.txt.
+# (UFCStats now shows automated visitors a browser check, so it's no longer used.)
 on:
   schedule:
     - cron: "0 7 * * 1-5"     # weekday mornings (UTC), away from fight nights
   workflow_dispatch:
   push:
-    paths: [".github/backfill-request.txt"]   # edit this file to start a backfill run
+    paths: [".github/backfill-request.txt"]
 
 concurrency:
-  group: fight-week
+  group: backfill-history
   cancel-in-progress: false
 
 jobs:
@@ -28,45 +30,31 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: |
-          pip install -r requirements.txt
-          pip install "ufcscraper @ git+https://github.com/balaustrada/ufcscraper@0a3d800a18d4a7946f12135e35606da467ffcb9f"
-
-      - name: Check the sites can be reached (saved to data/logs for debugging)
-        continue-on-error: true
-        run: |
-          mkdir -p data/logs
-          for u in http://ufcstats.com/statistics/events/completed http://www.ufcstats.com/statistics/events/completed https://www.bestfightodds.com/ https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard; do
-            echo "$u -> $(curl -s -o /tmp/page -w '%{http_code} %{size_download}B %{time_total}s' -A 'Mozilla/5.0' --max-time 30 "$u")"
-            head -c 300 /tmp/page | tr '\n' ' '; echo
-          done > data/logs/reachability.txt 2>&1
-          cat data/logs/reachability.txt
-
-      - name: UFCStats fights, fighters and round stats (up to 2 hours)
-        continue-on-error: true
-        run: mkdir -p data/ufcscraper && timeout 120m ufcscraper_scrape_ufcstats_data --data-folder data/ufcscraper --n-sessions 4 --delay 1 --log-level INFO 2>&1 | tee data/logs/ufcstats.log | tail -n 400
-
-      - name: Save progress
-        run: 'bash .github/save.sh "Backfill: UFCStats history"'
-
-      - name: BestFightOdds opening and closing lines (up to 2.5 hours)
-        continue-on-error: true
-        run: mkdir -p data/ufcscraper && timeout 150m xvfb-run -a ufcscraper_scrape_bestfightodds_data --data-folder data/ufcscraper --n-sessions 2 --delay 1 --min-date 2010-01-01 --log-level INFO 2>&1 | tee data/logs/bestfightodds.log | tail -n 400
-
-      - name: Save progress
-        run: 'bash .github/save.sh "Backfill: BestFightOdds lines"'
+      - run: pip install -r requirements.txt
+      - run: mkdir -p data/logs
 
       - name: ESPN past cards (up to 30 minutes)
         continue-on-error: true
-        run: timeout 30m python src/espn.py --history 2>&1 | tee data/logs/espn_history.log | tail -n 200
+        run: timeout 30m python src/espn.py --history 2>&1 | tee data/logs/espn_history.log | tail -n 100
+
+      - name: Save progress
+        run: 'bash .github/save.sh "Backfill: ESPN past cards"'
+
+      - name: ESPN fight stats and lines (up to 4.5 hours)
+        continue-on-error: true
+        run: python src/espn_backfill.py 270 2>&1 | tee data/logs/espn_backfill.log | tail -n 100
+
+      - name: Save progress
+        run: 'bash .github/save.sh "Backfill: ESPN fight stats and lines"'
 
       - name: Convert, rebuild, backtest, predict
         run: |
-          python src/import_history.py
+          python src/import_espn_stats.py || echo "stats not converted yet"
           python src/get_data.py --offline
           python src/backtest.py
           python src/predict.py
           python src/site_data.py
+          python src/expert_analysis.py || true
 
       - name: Save
         if: always()

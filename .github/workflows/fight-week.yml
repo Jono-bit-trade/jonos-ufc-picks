@@ -46,7 +46,6 @@ jobs:
         continue-on-error: true
         run: |
           python src/get_data.py
-          python src/scrape_ufcstats.py || echo "UFCStats unreachable: ESPN results still count"
 
       - name: ESPN live feed (card, status, results, ESPN lines)
         if: steps.kind.outputs.kind != 'predict'
@@ -65,10 +64,6 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python src/get_odds.py
 
-      - name: UFCStats next card (fallback when ESPN has no card)
-        if: steps.kind.outputs.kind == 'lines'
-        continue-on-error: true
-        run: python src/scrape_ufcstats.py --upcoming-only
 
       - name: Rebuild the fight history
         run: python src/get_data.py --offline

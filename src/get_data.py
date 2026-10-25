@@ -205,7 +205,11 @@ def build(offline=False):
     sp = read_csv("expert_consensus.csv")   # SplitPicks shows each bout's line: a last resort
     sp = sp.rename(columns={"sp_odds_a": "odds_a", "sp_odds_b": "odds_b"})[["date", "a", "b", "odds_a", "odds_b"]] \
         if not sp.empty else sp
-    fights = attach_lines(fights, [history, espn_hist, sp])
+    eo = read_csv("espn_odds_history.csv")   # every book's opening and closing line, from ESPN's core API
+    if not eo.empty:
+        eo = eo.groupby(["date", "a", "b"], as_index=False)[["open_a", "open_b", "close_a", "close_b"]].median()
+        eo = eo.rename(columns={"close_a": "odds_a", "close_b": "odds_b"})
+    fights = attach_lines(fights, [history, eo, espn_hist, sp])
     fights = fill_logged_odds(fights)
     fights = fights.sort_values(["date", "fight_id"]).reset_index(drop=True)
     fights[COLUMNS].to_csv(path("fights.csv"), index=False)
