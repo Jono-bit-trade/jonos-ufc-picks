@@ -59,7 +59,7 @@ function analystList(e, a, b, winner) {
     const right = done ? (x.side === winner) : null;
     return `<li class="${x.winning ? "winning" : ""}">
       <span class="an">${esc(x.name)}${x.winning ? ` <b class="wtag" title="Winning record: counts in the winning-analyst consensus">W</b>` : ""}</span>
-      <span class="ad">${x.conf ? `<i class="conf c-${esc(x.conf.toLowerCase())}">${esc(x.conf)}</i>` : ""}${x.method ? " " + esc(x.method) : ""}${done ? ` <span class="${right ? "ok" : "no"}">${right ? "✓" : "✗"}</span>` : ""}</span>
+      <span class="ad">${x.conf ? `<i class="conf c-${esc(x.conf.toLowerCase())}">${esc(x.conf)}</i>` : ""}${done ? ` <span class="${right ? "ok" : "no"}">${right ? "✓" : "✗"}</span>` : ""}</span>
       ${x.record ? `<span class="ar">${esc(x.record)}, ${x.units > 0 ? "+" : ""}${(+x.units).toFixed(1)}u</span>` : ""}</li>`;
   };
   const col = (side, name) => `<div><h4>${esc(name)} <span>${list.filter(x => x.side === side).length}</span></h4>
@@ -110,7 +110,6 @@ function bout(f, i, edge) {
     ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
     ${pickHtml}
     <div class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></div>
-    <div class="method">If it ends: KO ${pct(m.KO || 0)}, submission ${pct(m.SUB || 0)}, decision ${pct(m.DEC || 0)}</div>
     ${tapeToggle(f.a_slug, f.b_slug, f.rounds)}
   </article>`;
 }
