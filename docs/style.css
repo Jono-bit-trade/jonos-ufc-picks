@@ -156,3 +156,7 @@ td.n, th.n { text-align: right; }
   .profile { flex-direction: column; align-items: flex-start; }
   .pair .ph { display: none; }
 }
+.vpick { display: inline-block; padding: 1px 8px; border-radius: 4px; background: color-mix(in srgb, var(--gold) 22%, transparent); font: 600 15px "Barlow Condensed", sans-serif; }
+.list li .small { white-space: nowrap; }
+.track { display: flex; flex-direction: column; gap: 2px; background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: 4px; padding: 10px 14px; margin: 0 0 14px; font-size: 14px; color: var(--quiet); }
+.track b { font: 700 18px "Barlow Condensed", sans-serif; color: var(--ink); }

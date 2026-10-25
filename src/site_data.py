@@ -15,8 +15,8 @@ import json, os, re, unicodedata, warnings, datetime as dt
 warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
-from common import path, SITE, no_vig
-from config import GLICKO, WIN_SCORE
+from common import path, SITE, no_vig, payout
+from config import GLICKO, WIN_SCORE, EDGE
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -126,6 +126,27 @@ def style_stats(stats):
     return out
 
 
+def track_record(rows):
+    """The model's record by year and in total: winners picked, and units from betting
+    (1) the model's winner at the moneyline, (2) only value picks, where the model beat the line."""
+    def summary(rs):
+        picks = [r["pick"] for r in rs if r["pick"]]
+        bets = [x for x in picks if x["units"] is not None]
+        vals = [r["value"] for r in rs if r["value"]]
+        return {"picks": len(picks), "right": sum(x["right"] for x in picks),
+                "pct": round(100 * sum(x["right"] for x in picks) / len(picks), 1) if picks else None,
+                "bets": len(bets), "units": round(sum(x["units"] for x in bets), 1),
+                "roi_pct": round(100 * sum(x["units"] for x in bets) / len(bets), 1) if bets else None,
+                "value_bets": len(vals), "value_won": sum(x["right"] for x in vals),
+                "value_pct": round(100 * sum(x["right"] for x in vals) / len(vals), 1) if vals else None,
+                "value_units": round(sum(x["units"] for x in vals), 1),
+                "value_roi_pct": round(100 * sum(x["units"] for x in vals) / len(vals), 1) if vals else None}
+    years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
+    return {"all": summary(rows), "since_2018": summary([r for r in rows if r["date"] >= "2018"]),
+            "years": [{"year": y, **summary([r for r in rows if r["date"].startswith(y)])} for y in years],
+            "edge": EDGE}
+
+
 def expert_lookup():
     """Expert consensus per bout (SplitPicks), keyed by (date, pair)."""
     c = read("expert_consensus.csv")
@@ -144,25 +165,29 @@ def main():
     fights = ratings_through(fights)
     model = read("model_history.csv")
     mp = dict(zip(model["fight_id"], model["p"])) if not model.empty else {}
+    fp = dict(zip(model["fight_id"], model["p_blend"])) if "p_blend" in model else {}
+    fp = {k: v for k, v in fp.items() if v == v}
     log = read("pick_log.csv")
     if not log.empty:   # live predictions made before each fight take precedence
-        mp.update(dict(zip(log["fight_id"], log["p_final"])))
+        mp.update(dict(zip(log["fight_id"], log["p_model"])))
+        fp.update({k: v for k, v in zip(log["fight_id"], log["p_final"]) if v == v})
     ids, recs, ev_names = espn_lookup()
     styles = style_stats(read("fight_stats.csv"))
     experts = expert_lookup()
     profiles = read("fighter_profiles.csv")
     dob = {norm(n): d for n, d in zip(profiles.get("name", []), profiles.get("dob", []))} if not profiles.empty else {}
 
-    # ---- events ----
-    events_index = []
+    # ---- events, with the model's track record ----
+    events_index, graded_rows = [], []
     fights["event_name"] = [e if isinstance(e, str) and e else ev_names.get(d, "") for e, d in zip(fights["event"], fights["date"])]
     for (date, ), card in fights.groupby(["date"], sort=False):
         name = next((n for n in card["event_name"] if n), "") or "UFC card"
         loc = next((l for l in card["location"] if isinstance(l, str) and l), "")
         es = f"{date}-{slug(name)}"
-        bouts, model_right, fav_right, graded = [], 0, 0, 0
+        bouts, fav_right = [], 0
+        rec = {"picks": 0, "right": 0, "bets": 0, "units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0}
         for f in card.itertuples():
-            p = mp.get(f.fight_id)
+            p, pf = mp.get(f.fight_id), fp.get(f.fight_id)
             fair = no_vig(f.odds_a, f.odds_b) if pd.notna(f.odds_a) and pd.notna(f.odds_b) else None
             fair = float(fair) if fair is not None and fair == fair else None
             ex = experts.get((date, frozenset((norm(f.a), norm(f.b)))))
@@ -172,12 +197,34 @@ def main():
                 exp = {"picks_a": int(ex.picks_a if on_a else ex.picks_b), "picks_b": int(ex.picks_b if on_a else ex.picks_a),
                        "high_a": int(ex.high_a if on_a else ex.high_b), "high_b": int(ex.high_b if on_a else ex.high_a),
                        "url": f"https://splitpicks.com/events/{ex.slug}.html"}
+            pick = value = None
             if f.winner in ("a", "b"):
-                if p is not None:
-                    graded += 1
-                    model_right += int((p > 0.5) == (f.winner == "a"))
+                won_a = f.winner == "a"
                 if fair is not None:
-                    fav_right += int((fair > 0.5) == (f.winner == "a"))
+                    fav_right += int((fair > 0.5) == won_a)
+                if p is not None:   # the model's winner, bet at its moneyline
+                    on_a = p > 0.5
+                    right = on_a == won_a
+                    o = f.odds_a if on_a else f.odds_b
+                    u = (float(payout(o)) if right else -1.0) if pd.notna(o) else None
+                    pick = {"side": "a" if on_a else "b", "right": right, "odds": num(o),
+                            "units": round(u, 2) if u is not None else None}
+                    rec["picks"] += 1
+                    rec["right"] += int(right)
+                    if u is not None:
+                        rec["bets"] += 1
+                        rec["units"] += u
+                if pf is not None and fair is not None and abs(pf - fair) > EDGE:   # value pick, as on the live card
+                    on_a = pf > fair
+                    right = on_a == won_a
+                    o = f.odds_a if on_a else f.odds_b
+                    u = float(payout(o)) if right else -1.0
+                    value = {"side": "a" if on_a else "b", "right": right, "odds": num(o), "units": round(u, 2),
+                             "edge": round(abs(pf - fair), 3)}
+                    rec["value_bets"] += 1
+                    rec["value_won"] += int(right)
+                    rec["value_units"] += u
+                graded_rows.append({"date": date, "pick": pick, "value": value})
             bouts.append({"a": f.a, "b": f.b, "a_slug": slug(f.a), "b_slug": slug(f.b),
                           "a_id": ids.get(norm(f.a)), "b_id": ids.get(norm(f.b)),
                           "weight_class": f.weight_class if isinstance(f.weight_class, str) else "",
@@ -185,15 +232,19 @@ def main():
                           "round": num(f.end_round), "odds_a": num(f.odds_a), "odds_b": num(f.odds_b),
                           "line_p_a": round(fair, 3) if fair is not None else None,
                           "model_p_a": round(float(p), 3) if p is not None else None,
+                          "final_p_a": round(float(pf), 3) if pf is not None else None,
+                          "model_pick": pick, "value_pick": value,
                           "rating_a": num(f.pre_a), "rating_b": num(f.pre_b), "experts": exp})
-        bouts_sorted = bouts
-        main = f"{bouts_sorted[0]['a']} vs {bouts_sorted[0]['b']}"
-        write(f"events/{es}.json", {"slug": es, "name": name, "date": date, "location": loc, "bouts": bouts_sorted,
-                                    "model_right": model_right, "graded": graded, "favorites_right": fav_right})
+        rec["units"], rec["value_units"] = round(rec["units"], 2), round(rec["value_units"], 2)
+        main = f"{bouts[0]['a']} vs {bouts[0]['b']}"
+        write(f"events/{es}.json", {"slug": es, "name": name, "date": date, "location": loc, "bouts": bouts,
+                                    "record": rec, "model_right": rec["right"], "graded": rec["picks"],
+                                    "favorites_right": fav_right})
         events_index.append({"slug": es, "name": name, "date": date, "location": loc, "bouts": len(bouts), "main": main,
-                             "model_right": model_right, "graded": graded})
+                             "record": rec, "model_right": rec["right"], "graded": rec["picks"]})
     events_index.sort(key=lambda e: e["date"], reverse=True)
     write("events/index.json", events_index)
+    write("model_record.json", track_record(graded_rows))
 
     # ---- fighters ----
     long = []

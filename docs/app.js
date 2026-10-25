@@ -24,6 +24,9 @@ function photo(id, name, size = "md") {
   return `<span class="ph ${size}"><img loading="lazy" alt="" src="https://a.espncdn.com/i/headshots/mma/players/full/${esc(id)}.png"
     onerror="this.remove()"><span>${ini}</span></span>`;
 }
+const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
+const recLine = r => !r || !r.picks ? "" :
+  `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%) · <span class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</span>`;
 const fighterLink = (name, s) => `<a class="fl" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
 
 // ---------------- the current card ----------------
@@ -97,8 +100,12 @@ async function viewCard() {
   if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(route, 120000);   // fight night: refresh every 2 minutes
   $("#updated").textContent = `Updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}. For fun and research, not betting advice.`;
   if (!p.fights.length) return `<h1>Next card</h1><div class="empty">${esc(p.message || "No bouts listed yet.")}</div>`;
+  const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && mr.since_2018;
+  const track = !mr ? "" : `<div class="track"><b>Model track record</b>
+    <span>${esc(yr.year)}: ${yr.pct}% of winners picked (${yr.right}/${yr.picks}), <span class="${yr.units >= 0 ? "won" : "lost"}">${units(yr.units)}</span> betting every winner, value picks ${yr.value_won}/${yr.value_bets} <span class="${yr.value_units >= 0 ? "won" : "lost"}">${units(yr.value_units)}</span></span>
+    <span>Since 2018: ${all.pct}% (${all.right}/${all.picks}), <span class="${all.units >= 0 ? "won" : "lost"}">${units(all.units)}</span>; value picks ${all.value_won}/${all.value_bets} <span class="${all.value_units >= 0 ? "won" : "lost"}">${units(all.value_units)}</span> · <a href="#/record">by year</a></span></div>`;
   return `<h1>${esc(p.event)}</h1>
-    <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>
+    <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
     <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. A gold pick means the model beats the line by enough to bet.</p>
     ${p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
 }
@@ -128,9 +135,15 @@ async function viewHome() {
     </section>`;
   }
   const past = (ev || []).slice(0, 6).map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}</a>
-    ${e.graded ? `<span class="small">Model ${e.model_right}/${e.graded}</span>` : ""}</li>`).join("");
+    <span class="small">${recLine(e.record)}</span></li>`).join("");
   const top = ex ? ex.analysts.slice(0, 3).map((a, i) => `<li><span class="rk">${i + 1}</span>${esc(a.analyst)}<span class="small">${a.win_pct}% · ${a.won}-${a.bets - a.won} · ${a.roi_pct > 0 ? "+" : ""}${a.roi_pct}% per bet</span></li>`).join("") : "";
-  return `${hero}
+  const mr = await get("model_record.json");
+  const yr = mr && mr.years[0], box = (label, r) => !r ? "" : `<div class="stat"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
+    <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
+    <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
+  const record = mr ? `<h2>Model track record</h2><div class="stats">${box(yr.year, yr)}${box("Since 2018", mr.since_2018)}</div>
+    <p class="note">Every past fight predicted by a model trained only on earlier fights. Flat 1-unit bets at the closing moneyline. <a href="#/record">Full record by year</a></p>` : "";
+  return `${hero}${record}
     <div class="cols">
       <section><h2>Past cards</h2><ul class="list">${past}</ul><a href="#/events">All events</a></section>
       <section><h2>Top analysts</h2>${top ? `<ul class="list">${top}</ul><a href="#/experts">Expert leaderboard and what it's worth</a>` : `<p class="note">Appears once expert picks are collected.</p>`}</section>
@@ -149,7 +162,7 @@ async function viewEvents(q) {
     <h2>Past cards</h2>
     <div class="filters">${["", ...years].map(y => `<a href="#/events${y ? "?year=" + y : ""}" class="${y === year ? "on" : ""}">${y || "All"}</a>`).join("")}</div>
     <ul class="list">${list.map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}<span class="small"> · ${esc(e.main)}</span></a>
-      ${e.graded ? `<span class="small">Model ${e.model_right}/${e.graded}</span>` : ""}</li>`).join("")}</ul>`;
+      <span class="small">${recLine(e.record)}</span></li>`).join("")}</ul>`;
 }
 
 async function viewEvent(s) {
@@ -157,20 +170,27 @@ async function viewEvent(s) {
   if (!e) return `<div class="empty">That card isn't in the history.</div>`;
   const rows = e.bouts.map((b, i) => {
     const won = b.winner === "a" ? b.a : b.winner === "b" ? b.b : null;
-    const call = b.model_p_a == null || !won ? "" :
-      `<span class="tick ${(b.model_p_a > .5) === (b.winner === "a") ? "won" : "lost"}">Model ${(b.model_p_a > .5) === (b.winner === "a") ? "✓" : "✗"}</span>`;
+    const mp = b.model_pick, vp = b.value_pick;
+    const call = !mp ? "" : `<span class="tick ${mp.right ? "won" : "lost"}">Model ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
+    const val = !vp ? "" : `<span class="vpick ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`;
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""}
       <div class="meta">${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
     return `<article class="bout slim${i === 0 ? " main" : ""}">
-      <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${upset}</div>
+      <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
       <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
       ${expertBar(b.experts, b.a, b.b)}
     </article>`;
   }).join("");
   return `<p><a href="#/events">← All events</a></p><h1>${esc(e.name)}</h1>
-    <p class="where">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}${e.graded ? ` · model called ${e.model_right} of ${e.graded}, favorites won ${e.favorites_right}` : ""}</p>
-    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights.</p>${rows}`;
+    <p class="where">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}</p>
+    ${e.record && e.record.picks ? `<div class="stats">
+      <div class="stat"><b>${e.record.right}/${e.record.picks}</b><span>model winners (${Math.round(e.record.right / e.record.picks * 100)}%)</span></div>
+      <div class="stat"><b class="${e.record.units >= 0 ? "won" : "lost"}">${units(e.record.units)}</b><span>betting every model winner</span></div>
+      <div class="stat"><b>${e.record.value_bets ? `${e.record.value_won}/${e.record.value_bets}` : "–"}</b><span>value picks won</span></div>
+      <div class="stat"><b class="${e.record.value_units >= 0 ? "won" : "lost"}">${e.record.value_bets ? units(e.record.value_units) : "–"}</b><span>betting value picks</span></div>
+      <div class="stat"><b>${e.favorites_right}/${e.record.picks}</b><span>betting favorites won</span></div></div>` : ""}
+    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Units are flat 1-unit bets at the closing moneyline. A value pick is a bout where the model, blended with the line, beat the line by 3 points or more: the same rule as live picks.</p>${rows}`;
 }
 
 // ---------------- fighters ----------------
@@ -285,15 +305,30 @@ async function viewRankings() {
     ${r.fighters.map((f, i) => `<tr><td class="n">${i + 1}</td><td>${fighterLink(f.fighter)}</td><td class="n">${f.rating}</td><td class="n hide-sm">${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`).join("")}</tbody></table></div>`;
 }
 
+function yearTable(mr) {
+  if (!mr) return "";
+  const pc = x => x == null ? "–" : x + "%";
+  const row = r => `<tr><td>${esc(r.year || "All years")}</td><td class="n">${r.right}/${r.picks}</td><td class="n">${pc(r.pct)}</td>
+    <td class="n ${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</td><td class="n hide-sm">${pc(r.roi_pct)}</td>
+    <td class="n">${r.value_bets ? `${r.value_won}/${r.value_bets}` : "–"}</td><td class="n ${r.value_units >= 0 ? "won" : "lost"}">${r.value_bets ? units(r.value_units) : "–"}</td>
+    <td class="n hide-sm">${pc(r.value_roi_pct)}</td></tr>`;
+  return `<h2>Model track record by year</h2>
+    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. Value picks start in 2018, when the line blend can first be tested.</p>
+    <div class="tablewrap"><table><thead><tr><th>Year</th><th class="n">Winners</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Per bet</th>
+      <th class="n">Value picks</th><th class="n">Value units</th><th class="n hide-sm">Per bet</th></tr></thead><tbody>
+      ${mr.years.map(row).join("")}${row({...mr.all, year: "All years"})}</tbody></table></div>`;
+}
+
 async function viewRecord() {
-  const rec = await get("results.json", true);
-  if (!rec || !rec.bets) return `<h1>Record</h1><div class="empty">No graded picks yet. Results appear here as each card finishes.</div>`;
-  return `<h1>Record</h1><div class="record"><div><b>${rec.wins}-${rec.bets - rec.wins}</b><span>picks won and lost</span></div>
+  const [rec, mr] = await Promise.all([get("results.json", true), get("model_record.json")]);
+  if (!rec || !rec.bets) return `<h1>Record</h1><h2>Live picks</h2><div class="empty">No graded live picks yet. Results appear here as each card finishes.</div>${yearTable(mr)}`;
+  return `<h1>Record</h1><h2>Live picks</h2><div class="record"><div><b>${rec.wins}-${rec.bets - rec.wins}</b><span>picks won and lost</span></div>
       <div><b>${rec.units > 0 ? "+" : ""}${rec.units}</b><span>units, 1 unit per pick</span></div>
       <div><b>${rec.roi_pct}%</b><span>return per unit bet</span></div>
       ${rec.moved_toward_pct != null ? `<div><b>${rec.moved_toward_pct}%</b><span>of picks the line moved toward</span></div>` : ""}</div>
     <div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Pick</th><th class="n">Odds</th><th class="n">Result</th></tr></thead><tbody>${
-      rec.recent.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.fight)}</td><td>${esc(g.pick)}</td><td class="n">${odds(g.odds)}</td><td class="n ${g.won ? "won" : "lost"}">${g.won ? "Won" : "Lost"} ${g.units > 0 ? "+" : ""}${g.units}</td></tr>`).join("")}</tbody></table></div>`;
+      rec.recent.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.fight)}</td><td>${esc(g.pick)}</td><td class="n">${odds(g.odds)}</td><td class="n ${g.won ? "won" : "lost"}">${g.won ? "Won" : "Lost"} ${g.units > 0 ? "+" : ""}${g.units}</td></tr>`).join("")}</tbody></table></div>
+    ${yearTable(mr)}`;
 }
 
 async function viewHow() {

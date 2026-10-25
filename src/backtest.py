@@ -138,11 +138,14 @@ def main():
     r = keep[best]
     r.to_csv(path("backtest_predictions.csv"), index=False)
     # small copy kept in the repo: each past fight's walk-forward chance, for the site's past cards
-    r[["fight_id", "date", "a", "b", "p"]].round(4).to_csv(path("model_history.csv"), index=False)
     json.dump({"features": best[0], "learner": best[1]}, open(path("model_config.json"), "w"))
     print("\nBest model:", best)
 
     s = market_blend_walk(r)
+    # small copy kept in the repo: each past fight's walk-forward chances (model alone, and
+    # blended with the line where the blend could be tested), for the site's track record
+    mh = r[["fight_id", "date", "a", "b", "p"]].merge(s[["fight_id", "p_blend"]], on="fight_id", how="left")
+    mh.round(4).to_csv(path("model_history.csv"), index=False)
     y = (s["winner"] == "a").astype(int).values
     print(f"\nSTAGE 2: market blend, test years {BLEND_FROM}-{TEST_YEARS.stop - 1}, {len(s)} fights")
     print(pd.DataFrame([{"probability": "betting line", **score(s["fair"].values, y)},
