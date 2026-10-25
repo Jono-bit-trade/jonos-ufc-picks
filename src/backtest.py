@@ -16,7 +16,7 @@ import pandas as pd
 from sklearn.metrics import brier_score_loss, log_loss
 from common import path, no_vig, payout
 from features import build, STYLE
-from model import GROUPS, WinModel, MarketBlend
+from model import GROUPS, WinModel, MarketBlend, situations
 
 from config import BACKTEST_YEARS as TEST_YEARS, TRAIN_FROM, BLEND_FROM_YEAR as BLEND_FROM
 EDGES = [0.0, 0.01, 0.02, 0.03, 0.04, 0.05]
@@ -65,9 +65,9 @@ def market_blend_walk(r):
         tr, te = r["date"] < str(yr), r["date"].str.startswith(str(yr))
         if te.sum() == 0:
             continue
-        b = MarketBlend().fit(r.loc[tr, "fair"], r.loc[tr, "p"], y[tr])
+        b = MarketBlend().fit(r.loc[tr, "fair"], r.loc[tr, "p"], y[tr], situations(r[tr]))
         d = r[te].copy()
-        d["p_blend"] = b.predict(d["fair"], d["p"])
+        d["p_blend"] = b.predict(d["fair"], d["p"], situations(d))
         out.append(d)
     return pd.concat(out)
 
@@ -160,7 +160,7 @@ def main():
                         for yr, d in s.groupby(s["date"].str[:4])]).round(2).to_string(index=False))
 
     rr = r.dropna(subset=["odds_a", "odds_b"])
-    final = MarketBlend().fit(no_vig(rr["odds_a"], rr["odds_b"]), rr["p"], (rr["winner"] == "a").astype(int))
+    final = MarketBlend().fit(no_vig(rr["odds_a"], rr["odds_b"]), rr["p"], (rr["winner"] == "a").astype(int), situations(rr))
     json.dump(final.weights() | {"intercept": float(final.m.intercept_[0])},
               open(path("market_blend.json"), "w"))
     s.to_csv(path("backtest_blend.csv"), index=False)

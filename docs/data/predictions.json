@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T17:21Z",
+ "updated": "2026-10-25T17:30Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -33,9 +33,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.342,
-   "p_a": 0.46,
-   "fair_odds_a": 118,
-   "fair_odds_b": -118,
+   "p_a": 0.465,
+   "fair_odds_a": 115,
+   "fair_odds_b": -115,
    "market_p_a": 0.468,
    "odds_a": 105.0,
    "odds_b": -125.0,
@@ -104,9 +104,14 @@
      "t": "2026-10-25T17:21Z",
      "a": 105.0,
      "b": -125.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": 105.0,
+     "b": -125.0
     }
    ],
-   "edge_a": -0.008,
+   "edge_a": -0.002,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -138,9 +143,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.455,
-   "p_a": 0.546,
-   "fair_odds_a": -120,
-   "fair_odds_b": 120,
+   "p_a": 0.544,
+   "fair_odds_a": -119,
+   "fair_odds_b": 119,
    "market_p_a": 0.532,
    "odds_a": -125.0,
    "odds_b": 105.0,
@@ -209,9 +214,14 @@
      "t": "2026-10-25T17:21Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
-   "edge_a": 0.014,
+   "edge_a": 0.012,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -243,9 +253,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.304,
-   "p_a": 0.283,
-   "fair_odds_a": 253,
-   "fair_odds_b": -253,
+   "p_a": 0.303,
+   "fair_odds_a": 230,
+   "fair_odds_b": -230,
    "market_p_a": 0.304,
    "odds_a": 215.0,
    "odds_b": -265.0,
@@ -314,9 +324,14 @@
      "t": "2026-10-25T17:21Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
-   "edge_a": -0.021,
+   "edge_a": -0.001,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -348,9 +363,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.61,
-   "p_a": 0.737,
-   "fair_odds_a": -280,
-   "fair_odds_b": 280,
+   "p_a": 0.719,
+   "fair_odds_a": -256,
+   "fair_odds_b": 256,
    "market_p_a": 0.698,
    "odds_a": -258.0,
    "odds_b": 220.0,
@@ -419,11 +434,16 @@
      "t": "2026-10-25T17:21Z",
      "a": -258.0,
      "b": 220.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": -258.0,
+     "b": 220.0
     }
    ],
-   "edge_a": 0.039,
-   "pick": "Jean-Paul Lebosnoyani",
-   "our_pick": "Jean-Paul Lebosnoyani",
+   "edge_a": 0.022,
+   "pick": null,
+   "our_pick": null,
    "check_news": false,
    "method": {
     "DEC": 0.539,
@@ -453,9 +473,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.503,
-   "p_a": 0.707,
-   "fair_odds_a": -241,
-   "fair_odds_b": 241,
+   "p_a": 0.691,
+   "fair_odds_a": -223,
+   "fair_odds_b": 223,
    "market_p_a": 0.681,
    "odds_a": -245.0,
    "odds_b": 200.0,
@@ -524,9 +544,14 @@
      "t": "2026-10-25T17:21Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
-   "edge_a": 0.026,
+   "edge_a": 0.01,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -602,9 +627,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.479,
-   "p_a": 0.625,
-   "fair_odds_a": -166,
-   "fair_odds_b": 166,
+   "p_a": 0.615,
+   "fair_odds_a": -160,
+   "fair_odds_b": 160,
    "market_p_a": 0.604,
    "odds_a": -170.0,
    "odds_b": 142.0,
@@ -673,9 +698,14 @@
      "t": "2026-10-25T17:21Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
-   "edge_a": 0.021,
+   "edge_a": 0.011,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -707,9 +737,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.402,
-   "p_a": 0.38,
-   "fair_odds_a": 163,
-   "fair_odds_b": -163,
+   "p_a": 0.443,
+   "fair_odds_a": 126,
+   "fair_odds_b": -126,
    "market_p_a": 0.384,
    "odds_a": 150.0,
    "odds_b": -180.0,
@@ -778,10 +808,15 @@
      "t": "2026-10-25T17:21Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
-   "edge_a": -0.003,
-   "pick": null,
+   "edge_a": 0.059,
+   "pick": "Julian Erosa",
    "our_pick": null,
    "check_news": false,
    "method": {
@@ -812,9 +847,9 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.362,
-   "p_a": 0.26,
-   "fair_odds_a": 284,
-   "fair_odds_b": -284,
+   "p_a": 0.243,
+   "fair_odds_a": 311,
+   "fair_odds_b": -311,
    "market_p_a": 0.274,
    "odds_a": 250.0,
    "odds_b": -310.0,
@@ -883,11 +918,16 @@
      "t": "2026-10-25T17:21Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
-   "edge_a": -0.014,
-   "pick": null,
-   "our_pick": null,
+   "edge_a": -0.031,
+   "pick": "Joe Kropschot",
+   "our_pick": "Joe Kropschot",
    "check_news": false,
    "method": {
     "DEC": 0.395,
@@ -917,9 +957,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.483,
-   "p_a": 0.312,
-   "fair_odds_a": 220,
-   "fair_odds_b": -220,
+   "p_a": 0.332,
+   "fair_odds_a": 201,
+   "fair_odds_b": -201,
    "market_p_a": 0.309,
    "odds_a": 210.0,
    "odds_b": -258.0,
@@ -988,9 +1028,14 @@
      "t": "2026-10-25T17:21Z",
      "a": 210.0,
      "b": -258.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": 210.0,
+     "b": -258.0
     }
    ],
-   "edge_a": 0.003,
+   "edge_a": 0.023,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -1066,9 +1111,9 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.569,
-   "p_a": 0.851,
-   "fair_odds_a": -572,
-   "fair_odds_b": 572,
+   "p_a": 0.874,
+   "fair_odds_a": -692,
+   "fair_odds_b": 692,
    "market_p_a": 0.822,
    "odds_a": -600.0,
    "odds_b": 440.0,
@@ -1137,11 +1182,16 @@
      "t": "2026-10-25T17:21Z",
      "a": -600.0,
      "b": 440.0
+    },
+    {
+     "t": "2026-10-25T17:30Z",
+     "a": -600.0,
+     "b": 440.0
     }
    ],
-   "edge_a": 0.029,
-   "pick": null,
-   "our_pick": null,
+   "edge_a": 0.051,
+   "pick": "Lucia Szabov\u00e1",
+   "our_pick": "Lucia Szabov\u00e1",
    "check_news": false,
    "method": {
     "DEC": 0.549,

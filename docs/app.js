@@ -451,7 +451,15 @@ async function viewHow() {
       + ({logistic: "", boost: ", boosted trees", blend: ", blended learners"}[r.learner] ?? ", " + r.learner);
   const s1 = b.stage1.map(r => row([esc(label(r)), f3(r.log_loss), f3(r.brier), pct(r.accuracy)])).join("");
   const s2 = b.stage2.map(r => row([esc(r.probability), f3(r.log_loss), f3(r.brier), pct(r.accuracy)])).join("");
+  const pct1 = x => x == null ? "–" : x.toFixed(1) + "%";
   const pts = e => Math.round(e * 100) + (Math.round(e * 100) === 1 ? " point" : " points");
+  const ed = await get("edges.json", true);
+  const sg = x => x == null ? "–" : (x > 0 ? "+" : "") + x.toFixed(1) + "%";
+  const edges = !ed ? "" : `<h2>Edges: where the line has been wrong</h2>
+    <p class="note">Each situation is bet flat on the fighter in it, at the closing line, in two separate periods. A real edge shows in both. "Line said" is the line's average chance; "Won" is what happened. Fades in both periods mean betting <em>against</em> that fighter has paid. Layoff returners and +300 underdogs are built into the site's chances.</p>
+    <div class="tablewrap"><table class="bt"><thead>${row(["Situation", ...ed.periods.flatMap(p => [p + " fights", "Won", "Line said", "Per bet"]), "Verdict"], true)}</thead><tbody>${
+    ed.rows.filter(r => r.verdict !== "too few fights").sort((a, b) => (a.verdict > b.verdict ? 1 : -1))
+      .map(r => row([esc(r.situation), ...ed.periods.flatMap(p => [r["n " + p], pct1(r["won " + p]), pct1(r["line said " + p]), sg(r["roi " + p])]), esc(r.verdict)])).join("")}</tbody></table></div>`;
   const roi = b.roi.map(r => row([pts(r.edge), r.bets, r["win_%"] == null ? "–" : r["win_%"].toFixed(1) + "%", (r.units > 0 ? "+" : "") + r.units.toFixed(1), r["roi_%"] == null ? "–" : r["roi_%"].toFixed(1) + "%"])).join("");
   return `<h1>How it works</h1>
     <p class="note">Each test year is predicted by a model trained only on earlier fights, then scored against the closing line on the same fights. Lower log loss and Brier are better. Last run ${esc(b.run_at)}.</p>
@@ -464,6 +472,7 @@ async function viewHow() {
       b.early.map(r => row([pts(r.edge), r.bets_open, r["win_%_open"] == null ? "–" : r["win_%_open"].toFixed(1) + "%", r["roi_%_open"] == null ? "–" : r["roi_%_open"].toFixed(1) + "%",
         r["roi_close_%"] == null ? "–" : r["roi_close_%"].toFixed(1) + "%", r["moved_toward_%"].toFixed(1) + "%"])).join("")}</tbody></table></div>`
       : `<h2>Betting at the opening line</h2><p class="note">Appears once the history backfill has collected opening lines.</p>`}
+    ${edges}
     <p class="note">UFC closing lines are sharp. Treat picks as paper trades until the live record beats the line over a full year.</p>`;
 }
 

@@ -97,21 +97,43 @@ class MethodModel:
 
 
 # ---- market blend: the last step, AFTER the model is built ----
+SITUATIONS = ["layoff", "bigdog"]
+
+
+def situations(df):
+    """Two situations the line has misjudged in both 2013-2019 and 2020-2026 (src/edges.py),
+    and that lowered the blend's log loss in both 2018-2023 and 2024-2026:
+      layoff: back after 15+ months (fighters returning from long layoffs win less than priced)
+      bigdog: +300 or longer underdogs (win less often than their odds imply)
+    Each is +1 for fighter A, -1 for fighter B, 0 for neither or both."""
+    la = pd.to_numeric(df.get("long_layoff_a", 0), errors="coerce").fillna(0)
+    lb = pd.to_numeric(df.get("long_layoff_b", 0), errors="coerce").fillna(0)
+    oa = pd.to_numeric(df.get("odds_a"), errors="coerce")
+    ob = pd.to_numeric(df.get("odds_b"), errors="coerce")
+    return pd.DataFrame({"layoff": (la - lb).values,
+                         "bigdog": ((oa >= 300).astype(int) - (ob >= 300).astype(int)).values})
+
+
 class MarketBlend:
-    """Logistic regression on [market log-odds, model log-odds], fit on walk-forward
-    predictions only. The market stays out of the model itself; this step asks how much
-    of the model's disagreement with the line has historically been right."""
-    def fit(self, p_market, p_model, y):
-        self.m = LogisticRegression(C=10).fit(self._x(p_market, p_model), y)
+    """Logistic regression on [market log-odds, model log-odds, situations], fit on
+    walk-forward predictions only. The market stays out of the model itself; this step asks
+    how much of the model's disagreement with the line has historically been right."""
+    def fit(self, p_market, p_model, y, extra=None):
+        self.m = LogisticRegression(C=1.0).fit(self._x(p_market, p_model, extra), y)
         return self
 
     @staticmethod
-    def _x(pm, pp):
+    def _x(pm, pp, extra=None):
         lg = lambda p: np.log(np.clip(p, 0.01, 0.99) / (1 - np.clip(p, 0.01, 0.99)))
-        return np.c_[lg(np.asarray(pm, float)), lg(np.asarray(pp, float))]
+        x = np.c_[lg(np.asarray(pm, float)), lg(np.asarray(pp, float))]
+        return np.c_[x, np.asarray(extra, float)] if extra is not None else x
 
-    def predict(self, p_market, p_model):
-        return self.m.predict_proba(self._x(p_market, p_model))[:, 1]
+    def predict(self, p_market, p_model, extra=None):
+        return self.m.predict_proba(self._x(p_market, p_model, extra))[:, 1]
 
     def weights(self):
-        return {"market": round(float(self.m.coef_[0][0]), 3), "model": round(float(self.m.coef_[0][1]), 3)}
+        c = self.m.coef_[0]
+        w = {"market": round(float(c[0]), 4), "model": round(float(c[1]), 4)}
+        for i, k in enumerate(SITUATIONS[:len(c) - 2]):
+            w[k] = round(float(c[2 + i]), 4)
+        return w

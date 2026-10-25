@@ -124,11 +124,16 @@ def load_card(fights):
     return card, source
 
 
-def blended(p_market, p_model):
-    """Apply the market blend saved by backtest.py."""
+def blended(p_market, p_model, rows=None):
+    """Apply the market blend saved by backtest.py (with its situation terms)."""
+    from model import situations
     w = json.load(open(path("market_blend.json")))
     lg = lambda p: np.log(np.clip(p, .01, .99) / (1 - np.clip(p, .01, .99)))
     z = w["intercept"] + w["market"] * lg(np.asarray(p_market, float)) + w["model"] * lg(np.asarray(p_model, float))
+    if rows is not None:
+        sit = situations(rows)
+        for k in sit.columns:
+            z = z + w.get(k, 0.0) * sit[k].values
     return 1 / (1 + np.exp(-z))
 
 
@@ -231,7 +236,7 @@ def main():
     has = up["fair_a"].notna()
     up["p_final"] = up["p_model"]
     if MARKET_BLEND and os.path.exists(path("market_blend.json")) and has.any():
-        up.loc[has, "p_final"] = blended(up.loc[has, "fair_a"], up.loc[has, "p_model"])
+        up.loc[has, "p_final"] = blended(up.loc[has, "fair_a"], up.loc[has, "p_model"], up.loc[has])
     up["edge_a"] = up["p_final"] - up["fair_a"]
     up["pick"] = np.where(up["edge_a"] > EDGE, up["a"], np.where(-up["edge_a"] > EDGE, up["b"], None))
     from picks import our_side

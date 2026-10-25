@@ -70,7 +70,9 @@ jobs:
 
       - name: Backtest
         if: steps.kind.outputs.kind == 'full'
-        run: python src/backtest.py
+        run: |
+          python src/backtest.py
+          python src/edges.py
 
       - name: Predict
         run: python src/predict.py
