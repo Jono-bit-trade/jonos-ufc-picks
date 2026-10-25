@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T17:02Z",
+ "updated": "2026-10-25T17:03Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -44,16 +44,16 @@
    "last_fight": "2026-06-14"
   },
   {
-   "fighter": "Michael Morales",
-   "rating": 1866,
-   "rd": 118,
-   "last_fight": "2025-11-15"
-  },
-  {
    "fighter": "Max Holloway",
    "rating": 1866,
    "rd": 86,
    "last_fight": "2026-07-11"
+  },
+  {
+   "fighter": "Michael Morales",
+   "rating": 1866,
+   "rd": 118,
+   "last_fight": "2025-11-15"
   },
   {
    "fighter": "Carlos Prates",
@@ -182,16 +182,16 @@
    "last_fight": "2026-07-11"
   },
   {
-   "fighter": "Lerone Murphy",
-   "rating": 1811,
-   "rd": 114,
-   "last_fight": "2026-03-21"
-  },
-  {
    "fighter": "Tatiana Suarez",
    "rating": 1811,
    "rd": 116,
    "last_fight": "2026-04-11"
+  },
+  {
+   "fighter": "Lerone Murphy",
+   "rating": 1811,
+   "rd": 114,
+   "last_fight": "2026-03-21"
   },
   {
    "fighter": "Movsar Evloev",
@@ -206,22 +206,16 @@
    "last_fight": "2026-06-14"
   },
   {
-   "fighter": "Jean Silva",
-   "rating": 1809,
-   "rd": 113,
-   "last_fight": "2026-09-12"
-  },
-  {
    "fighter": "Mike Malott",
    "rating": 1809,
    "rd": 110,
    "last_fight": "2026-10-17"
   },
   {
-   "fighter": "Caio Borralho",
-   "rating": 1805,
-   "rd": 110,
-   "last_fight": "2026-03-07"
+   "fighter": "Jean Silva",
+   "rating": 1809,
+   "rd": 113,
+   "last_fight": "2026-09-12"
   },
   {
    "fighter": "Ian Machado Garry",
@@ -230,16 +224,22 @@
    "last_fight": "2026-08-15"
   },
   {
-   "fighter": "Dustin Poirier",
-   "rating": 1796,
-   "rd": 91,
-   "last_fight": "2025-07-19"
+   "fighter": "Caio Borralho",
+   "rating": 1805,
+   "rd": 110,
+   "last_fight": "2026-03-07"
   },
   {
    "fighter": "Leon Edwards",
    "rating": 1796,
    "rd": 97,
    "last_fight": "2025-11-15"
+  },
+  {
+   "fighter": "Dustin Poirier",
+   "rating": 1796,
+   "rd": 91,
+   "last_fight": "2025-07-19"
   },
   {
    "fighter": "Umar Nurmagomedov",
