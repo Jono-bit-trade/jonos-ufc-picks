@@ -204,3 +204,5 @@ tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%,
 .gflag.def { background: color-mix(in srgb, var(--blue) 18%, transparent); color: var(--blue); }
 .gflags { list-style: none; padding: 0; margin: 6px 0; font-size: 14px; }
 .gflags li { margin: 3px 0; }
+
+.tt tr.sec th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--quiet); padding-top: 10px; }

@@ -148,7 +148,8 @@ def grappling_sources():
     if not a.empty and "status" in a:
         for r in a[a["status"] == "ok"].itertuples():
             cur = out.get(norm(r.name), {})
-            for col in ("td_per15", "sub_per15", "td_def", "str_def"):
+            for col in ("td_per15", "sub_per15", "td_def", "str_def", "slpm", "sapm", "str_acc", "kd_per15", "avg_time",
+                        "head", "body", "leg", "standing", "clinch", "ground"):
                 v = getattr(r, col, None)
                 if v == v and v is not None:
                     cur[col] = round(float(v), 3)
@@ -169,7 +170,8 @@ def grappling(g, losses, src):
     if n >= 4 and tdd is not None and tdd >= GOOD_TD_DEF and sub_losses / n <= MAX_SUB_LOSS_RATE:
         flags.append({"flag": "Grappling defense",
                       "why": f"stops {round(100 * tdd)}% of takedowns, submitted {sub_losses} time{'s' if sub_losses != 1 else ''} in {n} UFC fights"})
-    return {"td_per15": td, "sub_per15": sub, "td_def": tdd, "str_def": src.get("str_def"), "sub_losses": sub_losses,
+    return {**{k: v for k, v in src.items() if k != "source"},
+            "td_per15": td, "sub_per15": sub, "td_def": tdd, "str_def": src.get("str_def"), "sub_losses": sub_losses,
             "ufc_fights": n, "source": src.get("source"), "flags": flags}
 
 

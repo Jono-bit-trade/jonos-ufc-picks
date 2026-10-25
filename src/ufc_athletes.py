@@ -1,7 +1,9 @@
 """Career grappling numbers from each fighter's UFC.com athlete page.
 
-UFC.com shows takedown defense (which no other free source here has), takedowns and
-submission attempts per 15 minutes, and strike defense. Only those numbers are kept
+UFC.com shows each fighter's career numbers: significant strikes landed and absorbed per
+minute, striking accuracy and defense, takedowns and submission attempts per 15 minutes,
+takedown defense (which no other free source here has), knockdowns, average fight time, and
+where they land strikes (head/body/leg, standing/clinch/ground). Only those numbers are kept
 (data/ufc_athletes.csv), not the pages.
 
 Polite: robots.txt allows /athlete/ pages and asks for 15 seconds between requests, so
@@ -19,12 +21,22 @@ from common import path, SITE
 DELAY = 15            # seconds between requests (UFC.com robots.txt crawl-delay)
 REFRESH_DAYS = 30
 OUT = "ufc_athletes.csv"
-LABELS = {            # our column: the label UFC.com prints under the number
+BEFORE = {            # our column: label UFC.com prints just AFTER the number
+    "slpm": "sig. str. landed",          # per minute
+    "sapm": "sig. str. absorbed",        # per minute
     "td_per15": "takedown avg",
-    "td_def": "takedown defense",
     "sub_per15": "submission avg",
     "str_def": "sig. str. defense",
+    "td_def": "takedown defense",
+    "kd_per15": "knockdown avg",
+    "avg_time": "average fight time",    # m:ss -> minutes
+    "head": "head", "body": "body", "leg": "leg",   # sig. strikes landed by target
 }
+AFTER = {             # label printed just BEFORE the number
+    "sig_landed": "sig. strikes landed", "sig_att": "sig. strikes attempted",
+    "standing": "standing", "clinch": "clinch", "ground": "ground",   # sig. strikes landed by position
+}
+PCT = {"str_def", "td_def"}
 S = requests.Session()
 S.headers["User-Agent"] = "Mozilla/5.0 (compatible; jonos-ufc-picks; +https://github.com/Jono-bit-trade/jonos-ufc-picks)"
 
@@ -35,9 +47,17 @@ def ufc_slug(name):
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 
 
+def _num(tok):
+    tok = tok.strip()
+    m = re.fullmatch(r"(\d+):(\d\d)", tok)
+    if m:
+        return int(m.group(1)) + int(m.group(2)) / 60
+    m = re.match(r"(\d+(?:\.\d+)?)\s*%?(?:\s*\(\d+%\))?$", tok)
+    return float(m.group(1)) if m else None
+
+
 def parse(html):
-    """{column: value} from an athlete page. Each stat is a number followed by its label;
-    percentages come as 0-1."""
+    """{column: value} from an athlete page. Percentages come as 0-1."""
     soup = BeautifulSoup(html, "lxml")
     for t in soup(["script", "style", "noscript"]):
         t.decompose()
@@ -45,19 +65,26 @@ def parse(html):
     toks = [t for t in toks if t]
     low = [t.lower().rstrip(":") for t in toks]
     out = {}
-    for col, label in LABELS.items():
+    for col, label in list(BEFORE.items()) + list(AFTER.items()):
+        before = col in BEFORE
         for i, t in enumerate(low):
             if t != label:
                 continue
-            for j in range(i - 1, max(i - 4, -1), -1):       # the number sits just before its label
-                m = re.fullmatch(r"(\d+(?:\.\d+)?)\s*(%?)", toks[j])
-                if m:
-                    pct = m.group(2) == "%" or (j + 1 < i and toks[j + 1] == "%") or "defense" in label or "accuracy" in label
-                    v = float(m.group(1))
-                    out[col] = v / 100 if pct and v > 1 else v
+            near = range(i - 1, max(i - 4, -1), -1) if before else range(i + 1, min(i + 4, len(toks)))
+            for j in near:
+                v = _num(toks[j])
+                if v is not None:
+                    out[col] = round(v / 100 if col in PCT and v > 1 else v, 4)
                     break
             if col in out:
                 break
+    if out.get("sig_att"):
+        out["str_acc"] = round(out["sig_landed"] / out["sig_att"], 3) if out.get("sig_landed") is not None else None
+    for group in (("head", "body", "leg"), ("standing", "clinch", "ground")):   # counts -> shares
+        tot = sum(out.get(k) or 0 for k in group)
+        for k in group:
+            if k in out:
+                out[k] = round(out[k] / tot, 3) if tot else None
     rec = re.search(r"\b(\d+)-(\d+)-(\d+)\s*\(W-L-D\)", soup.get_text(" "))
     if rec:
         out["record"] = "-".join(rec.groups())
@@ -92,6 +119,8 @@ def todo():
 def main(minutes=8):
     f = path(OUT)
     have = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame(columns=["name", "fetched"])
+    if "slpm" not in have:      # older file without the striking numbers: refetch everyone
+        have = have.iloc[0:0]
     fresh = set(have.loc[pd.to_datetime(have["fetched"]) > pd.Timestamp.now() - pd.Timedelta(days=REFRESH_DAYS), "name"])
     queue = [n for n in todo() if n not in fresh]
     print(f"{len(queue)} fighters to fetch")

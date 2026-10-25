@@ -138,6 +138,9 @@ async function loadTape(el) {
 function tape(a, b, rounds) {
   if (!a && !b) return `<p class="note">Both fighters are making their UFC debut: no UFC history to compare yet.</p>`;
   const A = a || {}, B = b || {}, sa = A.style || {}, sb = B.style || {}, ga = A.grappling || {}, gb = B.grappling || {};
+  const cv = (x, y) => x ?? y ?? null;   // UFC.com career number first, our fight stats second
+  const mix = (G, ks) => ks.every(k => G[k] != null) ? ks.map(k => Math.round(G[k] * 100) + "%").join(" / ") : null;
+  const mmss = m => `${Math.floor(m)}:${String(Math.round((m % 1) * 60)).padStart(2, "0")}`;
   const flagText = F => F.grappling && F.grappling.flags.length ? F.grappling.flags.map(x => x.flag).join(", ") : null;
   const n = v => v == null || v !== v ? null : +v;
   // better: 1 = higher is better, -1 = lower is better, 0 = no judgement
@@ -172,22 +175,24 @@ function tape(a, b, rounds) {
     ${row("Height", A.height_cm, B.height_cm, cm, 1)}${row("Reach", A.reach_cm, B.reach_cm, inch, 1)}${row("Stance", A.stance, B.stance)}
     ${row("Streak", A.streak, B.streak, x => x > 0 ? "W" + x : x < 0 ? "L" + -x : "–", 1)}${row("Finish rate", A.finish_rate, B.finish_rate, p0, 1)}
     ${row("Wins by KO / sub / dec", wb(A), wb(B))}${row("Losses by KO / sub / dec", lb(A), lb(B))}
-    ${row("Sig. strikes landed / min", sa.sig_strikes_landed_per_min, sb.sig_strikes_landed_per_min, d2, 1)}
-    ${row("Sig. strikes absorbed / min", sa.sig_strikes_absorbed_per_min, sb.sig_strikes_absorbed_per_min, d2, -1)}
-    ${row("Striking accuracy", sa.sig_strike_accuracy, sb.sig_strike_accuracy, p0, 1)}
-    ${row("Knockdowns / 15 min", sa.knockdowns_per_15, sb.knockdowns_per_15, d2, 1)}
-    ${row("Takedowns / 15 min", sa.takedowns_per_15, sb.takedowns_per_15, d2, 1)}
-    ${row("Takedown accuracy", sa.takedown_accuracy, sb.takedown_accuracy, p0, 1)}
-    ${row("Takedown defense", sa.takedown_defense, sb.takedown_defense, p0, 1)}
-    ${row("Control time share", sa.control_time_share, sb.control_time_share, p0, 1)}
-    ${row("Submission attempts / 15", sa.submission_attempts_per_15, sb.submission_attempts_per_15, d2, 1)}
     ${row("Grappling", flagText(A), flagText(B))}
-    ${row("Takedowns / 15 (career)", ga.td_per15, gb.td_per15, d2, 1)}
-    ${row("Takedown defense (career)", ga.td_def, gb.td_def, p0, 1)}
-    ${row("Submission attempts / 15 (career)", ga.sub_per15, gb.sub_per15, d2, 1)}
+    <tr class="sec"><th colspan="3">Striking (UFC career)</th></tr>
+    ${row("Sig. strikes landed / min", cv(ga.slpm, sa.sig_strikes_landed_per_min), cv(gb.slpm, sb.sig_strikes_landed_per_min), d2, 1)}
+    ${row("Sig. strikes absorbed / min", cv(ga.sapm, sa.sig_strikes_absorbed_per_min), cv(gb.sapm, sb.sig_strikes_absorbed_per_min), d2, -1)}
+    ${row("Striking accuracy", cv(ga.str_acc, sa.sig_strike_accuracy), cv(gb.str_acc, sb.sig_strike_accuracy), p0, 1)}
+    ${row("Strike defense", ga.str_def, gb.str_def, p0, 1)}
+    ${row("Knockdowns / 15 min", cv(ga.kd_per15, sa.knockdowns_per_15), cv(gb.kd_per15, sb.knockdowns_per_15), d2, 1)}
+    ${row("Strikes to head / body / leg", mix(ga, ["head", "body", "leg"]), mix(gb, ["head", "body", "leg"]))}
+    ${row("Standing / clinch / ground", mix(ga, ["standing", "clinch", "ground"]), mix(gb, ["standing", "clinch", "ground"]))}
+    <tr class="sec"><th colspan="3">Grappling (UFC career)</th></tr>
+    ${row("Takedowns / 15 min", cv(ga.td_per15, sa.takedowns_per_15), cv(gb.td_per15, sb.takedowns_per_15), d2, 1)}
+    ${row("Takedown defense", cv(ga.td_def, sa.takedown_defense), cv(gb.td_def, sb.takedown_defense), p0, 1)}
+    ${row("Submission attempts / 15 min", cv(ga.sub_per15, sa.submission_attempts_per_15), cv(gb.sub_per15, sb.submission_attempts_per_15), d2, 1)}
+    ${row("Control time share", sa.control_time_share, sb.control_time_share, p0, 1)}
     ${row("Times submitted", ga.ufc_fights ? ga.sub_losses : null, gb.ufc_fights ? gb.sub_losses : null, x => x, -1)}
+    ${row("Average fight time", ga.avg_time, gb.avg_time, mmss)}
   </tbody></table>
-  ${!A.style && !B.style ? `<p class="note">Strike and takedown stats appear as the history backfill collects them.</p>` : ""}
+  <p class="note">${ga.source === "UFC.com" || gb.source === "UFC.com" ? "Career numbers from each fighter's UFC.com page." : "Full career numbers appear once UFC.com pages are collected (nightly)."} Green marks the better number.</p>
   ${lines.length ? `<h3>Against this kind of opponent</h3><ul class="vslist">${lines.join("")}</ul>
     <p class="note">Styles come from fight stats where we have them (takedowns and control time make a wrestler, submission attempts a grappler, striking volume or KO wins a striker), otherwise from how the fighter wins. Small samples: a 2-1 record says little.</p>` : ""}`;
 }
@@ -386,14 +391,23 @@ async function viewFighter(s) {
       <section><h2>How they win (${w})</h2>${by(f.wins_by, w)}</section>
       <section><h2>How they lose (${l})</h2>${by(f.losses_by, l)}</section>
     </div>
-    <h2>Fight stats</h2>
-    ${st ? `<div class="stats">
-      ${stat("Sig. strikes landed / min", st.sig_strikes_landed_per_min, n2)}${stat("Sig. strikes absorbed / min", st.sig_strikes_absorbed_per_min, n2)}
-      ${stat("Striking accuracy", st.sig_strike_accuracy, p2)}${stat("Knockdowns / 15 min", st.knockdowns_per_15, n2)}
-      ${stat("Takedowns / 15 min", st.takedowns_per_15, n2)}${stat("Takedown accuracy", st.takedown_accuracy, p2)}
-      ${stat("Takedown defense", st.takedown_defense, p2)}${stat("Submission attempts / 15", st.submission_attempts_per_15, n2)}
-      ${stat("Control time share", st.control_time_share, p2)}${stat("Minutes in the cage", st.minutes, x => Math.round(x))}</div>`
-      : `<p class="note">Strike, takedown and control-time stats appear once the history backfill has collected them.</p>`}
+    <h2>Career stats</h2>
+    ${(() => {
+      const g = f.grappling || {}, c = x => x ?? null, v = (x, y) => x ?? y ?? null, S = st || {};
+      const mix = ks => ks.every(k => g[k] != null) ? ks.map(k => Math.round(g[k] * 100) + "%").join(" / ") : null;
+      const any = [g.slpm, S.sig_strikes_landed_per_min, g.td_per15].some(x => x != null);
+      if (!any) return `<p class="note">Career stats appear once this fighter's UFC.com page is collected (nightly).</p>`;
+      return `<h3>Striking</h3><div class="stats">
+        ${stat("Sig. strikes landed / min", v(g.slpm, S.sig_strikes_landed_per_min), n2)}${stat("Sig. strikes absorbed / min", v(g.sapm, S.sig_strikes_absorbed_per_min), n2)}
+        ${stat("Striking accuracy", v(g.str_acc, S.sig_strike_accuracy), p2)}${stat("Strike defense", c(g.str_def), p2)}
+        ${stat("Knockdowns / 15 min", v(g.kd_per15, S.knockdowns_per_15), n2)}${stat("Head / body / leg", mix(["head", "body", "leg"]), x => x)}
+        ${stat("Standing / clinch / ground", mix(["standing", "clinch", "ground"]), x => x)}${stat("Average fight time", c(g.avg_time), m => `${Math.floor(m)}:${String(Math.round((m % 1) * 60)).padStart(2, "0")}`)}</div>
+        <h3>Grappling</h3><div class="stats">
+        ${stat("Takedowns / 15 min", v(g.td_per15, S.takedowns_per_15), n2)}${stat("Takedown defense", v(g.td_def, S.takedown_defense), p2)}
+        ${stat("Submission attempts / 15", v(g.sub_per15, S.submission_attempts_per_15), n2)}${stat("Times submitted", g.ufc_fights ? g.sub_losses : null, x => x)}
+        ${S.control_time_share != null ? stat("Control time share", S.control_time_share, p2) : ""}</div>
+        <p class="note">${g.source === "UFC.com" ? "From the fighter's UFC.com page." : "Takedown and submission averages from the Ultimate UFC Dataset; the full set arrives with the fighter's UFC.com page."}</p>`;
+    })()}
     <h2>Rating over time</h2>${ratingChart(f.rating_history)}
     <h2>UFC fights</h2>
     <div class="tablewrap"><table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th class="hide-sm">Method</th><th class="n">Odds</th><th class="n">Model</th><th class="n hide-sm">Rating</th></tr></thead><tbody>
