@@ -53,6 +53,11 @@ jobs:
         continue-on-error: true
         run: python src/espn.py
 
+      - name: Expert picks (SplitPicks)
+        if: steps.kind.outputs.kind != 'live'
+        continue-on-error: true
+        run: python src/splitpicks.py
+
       - name: Betting lines (The Odds API)
         if: steps.kind.outputs.kind == 'full' || steps.kind.outputs.kind == 'lines'
         continue-on-error: true
