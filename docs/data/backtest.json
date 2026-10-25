@@ -43,16 +43,16 @@
   {
    "features": "core+form+context",
    "learner": "boost",
-   "log_loss": 0.66,
-   "brier": 0.2337,
-   "accuracy": 0.6111
+   "log_loss": 0.6603,
+   "brier": 0.2338,
+   "accuracy": 0.6113
   },
   {
    "features": "core+form+context",
    "learner": "blend",
-   "log_loss": 0.6545,
-   "brier": 0.2312,
-   "accuracy": 0.615
+   "log_loss": 0.6542,
+   "brier": 0.2311,
+   "accuracy": 0.616
   }
  ],
  "stage2": [
