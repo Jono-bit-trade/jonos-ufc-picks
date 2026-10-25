@@ -1,1 +1,1 @@
-{"features": "core+form", "learner": "logistic"}
+{"features": "core+form+context", "learner": "blend"}
