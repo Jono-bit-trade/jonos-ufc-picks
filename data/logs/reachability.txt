@@ -1,0 +1,8 @@
+http://ufcstats.com/statistics/events/completed -> 200 2998B 0.107141s
+<!doctype html><html><head><meta charset="utf-8"> <title>Loading…</title><meta name="robots" content="noindex"> <style>body{font-family:sans-serif;color:#666;text-align:center;margin-top:25vh}</style> </head><body> <p>Checking your browser…</p> <noscript>This site requires JavaScript.</noscript>
+http://www.ufcstats.com/statistics/events/completed -> 200 2998B 0.088211s
+<!doctype html><html><head><meta charset="utf-8"> <title>Loading…</title><meta name="robots" content="noindex"> <style>body{font-family:sans-serif;color:#666;text-align:center;margin-top:25vh}</style> </head><body> <p>Checking your browser…</p> <noscript>This site requires JavaScript.</noscript>
+https://www.bestfightodds.com/ -> 200 1300498B 0.488111s
+<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  <head>     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">             <title>UFC &amp; MMA Odds &amp; Betting Lines | Best Fight Odds</title>         <meta name="description" content="UFC/MMA odd
+https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard -> 200 48733B 0.077145s
+{"leagues":[{"id":"3321","uid":"s:3301~l:3321","name":"Ultimate Fighting Championship","displayName":"UFC","abbreviation":"UFC","shortName":"UFC","slug":"ufc","season":{"year":2026,"startDate":"2026-01-01T08:00Z","endDate":"2026-12-31T08:00Z","displayName":"2026","type":{"id":"2","type":2,"name":"Re
