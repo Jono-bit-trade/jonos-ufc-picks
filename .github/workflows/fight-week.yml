@@ -1,0 +1,86 @@
+name: fight-week
+
+on:
+  schedule:
+    # Times are UTC; Central is 5 hours behind until early November, then 6.
+    - cron: "0 4 * * 2"             # Monday night: weekend results, UFCStats stats, rebuild, backtest
+    - cron: "0 14 * * *"            # every morning: next card, lines (line-movement history), picks
+    - cron: "0 23 * * 3,4,5"        # Wed-Fri evenings: extra line snapshots (Friday's is after weigh-ins)
+    - cron: "0 17,20 * * 6"         # Saturday midday and afternoon: last lines before the prelims
+    - cron: "*/20 21-23 * * 6"      # Saturday night: live status and results every 20 minutes
+    - cron: "*/20 0-6 * * 0"        #   (continues past midnight UTC)
+  workflow_dispatch:                # adds a "Run workflow" button on the Actions tab
+  push:
+    paths: ["data/name_map.csv"]    # you fixed a name spelling: redo the picks
+
+concurrency:
+  group: fight-week
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Work out which run this is
+        id: kind
+        run: |
+          case "${{ github.event.schedule }}" in
+            "0 4 * * 2") echo "kind=full" >> "$GITHUB_OUTPUT" ;;
+            "*/20 21-23 * * 6"|"*/20 0-6 * * 0") echo "kind=live" >> "$GITHUB_OUTPUT" ;;
+            "") [ "${{ github.event_name }}" = "push" ] && echo "kind=predict" >> "$GITHUB_OUTPUT" || echo "kind=full" >> "$GITHUB_OUTPUT" ;;
+            *) echo "kind=lines" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Results and history (Monday night or a manual run)
+        if: steps.kind.outputs.kind == 'full'
+        continue-on-error: true
+        run: |
+          python src/get_data.py
+          python src/scrape_ufcstats.py || echo "UFCStats unreachable: ESPN results still count"
+
+      - name: ESPN live feed (card, status, results, ESPN lines)
+        if: steps.kind.outputs.kind != 'predict'
+        continue-on-error: true
+        run: python src/espn.py
+
+      - name: Betting lines (The Odds API)
+        if: steps.kind.outputs.kind == 'full' || steps.kind.outputs.kind == 'lines'
+        continue-on-error: true
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python src/get_odds.py
+
+      - name: UFCStats next card (fallback when ESPN has no card)
+        if: steps.kind.outputs.kind == 'lines'
+        continue-on-error: true
+        run: python src/scrape_ufcstats.py --upcoming-only
+
+      - name: Rebuild the fight history
+        run: python src/get_data.py --offline
+
+      - name: Backtest
+        if: steps.kind.outputs.kind == 'full'
+        run: python src/backtest.py
+
+      - name: Predict
+        run: python src/predict.py
+
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          git commit -m "Update ${{ steps.kind.outputs.kind }} $(date -u +%Y-%m-%dT%H:%MZ)" || echo "No changes"
+          git pull --rebase
+          git push

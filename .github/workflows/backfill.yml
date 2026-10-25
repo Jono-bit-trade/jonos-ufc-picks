@@ -1,0 +1,39 @@
+name: backfill-fight-stats
+
+# Manual, once: Actions tab -> backfill-fight-stats -> Run workflow. About 3 hours.
+# Scrapes strike, takedown and control-time stats for every UFC fight since 2010 from
+# UFCStats, then reruns the backtest so you can see whether the STYLE features help.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: fight-week
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python src/scrape_ufcstats.py --backfill
+      - run: |
+          python src/get_data.py --offline
+          python src/backtest.py
+          python src/predict.py
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          git commit -m "Backfill fight stats $(date -u +%Y-%m-%d)" || echo "No changes"
+          git pull --rebase
+          git push
