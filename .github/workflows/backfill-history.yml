@@ -51,6 +51,10 @@ jobs:
       - name: Save progress
         run: 'bash .github/save.sh "Backfill: ESPN fight stats and lines"'
 
+      - name: Grappling numbers for active fighters (UFC.com, up to 45 minutes)
+        continue-on-error: true
+        run: timeout 50m python src/ufc_athletes.py 45 2>&1 | tee data/logs/ufc_athletes.log | tail -n 20
+
       - name: Convert, rebuild, backtest, predict
         run: |
           python src/import_espn_stats.py || echo "stats not converted yet"

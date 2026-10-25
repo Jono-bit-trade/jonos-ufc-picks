@@ -197,3 +197,10 @@ tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%,
 .conf.c-high { color: var(--red); }
 .anl .ok { color: var(--green, #2a8a4a); } .anl .no { color: var(--red); }
 @media (max-width: 520px) { .ancols { grid-template-columns: 1fr; } }
+
+/* grappling flags */
+.gflag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 10px; margin: 3px 4px 0 0; white-space: nowrap; }
+.gflag.off { background: color-mix(in srgb, var(--red) 18%, transparent); color: var(--red); }
+.gflag.def { background: color-mix(in srgb, var(--blue) 18%, transparent); color: var(--blue); }
+.gflags { list-style: none; padding: 0; margin: 6px 0; font-size: 14px; }
+.gflags li { margin: 3px 0; }

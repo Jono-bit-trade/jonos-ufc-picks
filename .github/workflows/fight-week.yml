@@ -65,6 +65,11 @@ jobs:
         run: python src/get_odds.py
 
 
+      - name: Grappling numbers (UFC.com athlete pages, 15 seconds apart)
+        if: steps.kind.outputs.kind != 'live'
+        continue-on-error: true
+        run: timeout 12m python src/ufc_athletes.py 8
+
       - name: Rebuild the fight history
         run: python src/get_data.py --offline
 

@@ -105,3 +105,17 @@ assert r.loc["Colby Thicknesse", "finish"] == "S-DEC" and r.loc["Abus Magomedov"
 assert r.loc["Iasmin Lucindo", "weight_class"] == "Women's Strawweight" and r.loc["Iasmin Lucindo", "gender"] == "F"
 assert espn.next_event_date(json.load(open(os.path.join(HERE, "espn_real_ufc333.json")))) is not None
 print("real ESPN response parsed")
+
+
+def test_ufc_athlete_page():
+    from ufc_athletes import parse, ufc_slug
+    html = ("<div><div class='c-stat-compare__number'>3.22</div><div class='c-stat-compare__label'>Takedown avg</div>"
+            "<div class='c-stat-compare__label-suffix'>Per 15 Min</div></div>"
+            "<div><div class='c-stat-compare__number'>91 <div class='c-stat-compare__percent'>%</div></div>"
+            "<div class='c-stat-compare__label'>Takedown Defense</div></div>"
+            "<div><div class='c-stat-compare__number'>0.87</div><div class='c-stat-compare__label'>Submission avg</div></div>")
+    got = parse(html)
+    assert got["td_per15"] == 3.22 and abs(got["td_def"] - 0.91) < 1e-9 and got["sub_per15"] == 0.87, got
+    assert ufc_slug("Jiří Procházka") == "jiri-prochazka" and ufc_slug("Sean O'Malley") == "sean-omalley"
+    print("UFC.com athlete page parsed")
+test_ufc_athlete_page()

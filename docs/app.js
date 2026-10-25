@@ -69,6 +69,14 @@ function analystList(e, a, b, winner) {
     <p class="note">Each analyst's overall record and units on SplitPicks bouts. <b class="wtag">W</b> marks analysts with a winning record. Shown for reference: expert picks are not used in our chances because they haven't improved them in testing.</p></details>`;
 }
 
+// grappling flags (site_data.py): slug -> ["Big grappler", "Grappling defense"]
+let GRAP = {};
+async function loadGrap() { GRAP = (await get("grappling_flags.json", true)) || {}; }
+function grapChips(slug) {
+  return (GRAP[slug] || []).map(f => `<span class="gflag ${f === "Big grappler" ? "off" : "def"}" title="${f === "Big grappler"
+    ? "Takes fights to the mat: 2.5+ takedowns or 1+ submission attempts per 15 minutes" : "Stops 80%+ of takedowns and rarely gets submitted"}">${f === "Big grappler" ? "Grappler" : "Grappling D"}</span>`).join("");
+}
+
 function expertBar(e, a, b, winner) {
   if (!e || !(e.picks_a + e.picks_b)) return "";
   const n = e.picks_a + e.picks_b, sa = e.picks_a / n;
@@ -97,9 +105,9 @@ function bout(f, i, edge) {
   return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}">
     ${status(f)}
     <div class="corners">
-      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${tag(f.debut_a, f.rating_a, f.record_a)}</div></div></div>
+      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
       <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}</div>
-      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${tag(f.debut_b, f.rating_b, f.record_b)}</div></div>${photo(f.b_id, f.b)}</div>
+      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
     </div>
     <div class="pct"><span class="pa">${pa100}%</span><span class="lbl">Model</span><span class="pb">${100 - pa100}%</span></div>
     <div class="bar" role="img" aria-label="Model ${pct(pa)} for ${esc(f.a)}${line != null ? ", line " + pct(line) : ""}">
@@ -129,7 +137,8 @@ async function loadTape(el) {
 
 function tape(a, b, rounds) {
   if (!a && !b) return `<p class="note">Both fighters are making their UFC debut: no UFC history to compare yet.</p>`;
-  const A = a || {}, B = b || {}, sa = A.style || {}, sb = B.style || {};
+  const A = a || {}, B = b || {}, sa = A.style || {}, sb = B.style || {}, ga = A.grappling || {}, gb = B.grappling || {};
+  const flagText = F => F.grappling && F.grappling.flags.length ? F.grappling.flags.map(x => x.flag).join(", ") : null;
   const n = v => v == null || v !== v ? null : +v;
   // better: 1 = higher is better, -1 = lower is better, 0 = no judgement
   const row = (label, va, vb, fmt = x => x, better = 0) => {
@@ -172,6 +181,11 @@ function tape(a, b, rounds) {
     ${row("Takedown defense", sa.takedown_defense, sb.takedown_defense, p0, 1)}
     ${row("Control time share", sa.control_time_share, sb.control_time_share, p0, 1)}
     ${row("Submission attempts / 15", sa.submission_attempts_per_15, sb.submission_attempts_per_15, d2, 1)}
+    ${row("Grappling", flagText(A), flagText(B))}
+    ${row("Takedowns / 15 (career)", ga.td_per15, gb.td_per15, d2, 1)}
+    ${row("Takedown defense (career)", ga.td_def, gb.td_def, p0, 1)}
+    ${row("Submission attempts / 15 (career)", ga.sub_per15, gb.sub_per15, d2, 1)}
+    ${row("Times submitted", ga.ufc_fights ? ga.sub_losses : null, gb.ufc_fights ? gb.sub_losses : null, x => x, -1)}
   </tbody></table>
   ${!A.style && !B.style ? `<p class="note">Strike and takedown stats appear as the history backfill collects them.</p>` : ""}
   ${lines.length ? `<h3>Against this kind of opponent</h3><ul class="vslist">${lines.join("")}</ul>
@@ -179,7 +193,7 @@ function tape(a, b, rounds) {
 }
 
 async function viewCard() {
-  const p = await get("predictions.json", true);
+  const [p] = await Promise.all([get("predictions.json", true), loadGrap()]);
   if (!p) return `<div class="empty">No predictions yet: the first scheduled run fills this in.</div>`;
   clearTimeout(window.refresh);
   if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(route, 120000);   // fight night: refresh every 2 minutes
@@ -281,7 +295,7 @@ function eventsSummary(mr, year) {
 }
 
 async function viewEvent(s) {
-  const e = await get(`events/${s}.json`);
+  const [e] = await Promise.all([get(`events/${s}.json`), loadGrap()]);
   if (!e) return `<div class="empty">That card isn't in the history.</div>`;
   const rows = e.bouts.map((b, i) => {
     const won = b.winner === "a" ? b.a : b.winner === "b" ? b.b : null;
@@ -291,7 +305,7 @@ async function viewEvent(s) {
     const val = op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
       : !vp ? "" : `<span class="vpick ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`;
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
-    const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""}
+    const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
       <div class="meta">${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
     return `<article class="bout slim${i === 0 ? " main" : ""}">
       <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
@@ -360,6 +374,7 @@ async function viewFighter(s) {
     <section class="profile">${photo(f.espn_id, f.name, "xl")}<div>
       <h1>${esc(f.name)}</h1>
       <p class="where">${esc(f.weight_class)}${f.stance ? " · " + esc(f.stance) : ""}${f.age ? ` · age ${f.age}` : ""}</p>
+      ${f.grappling && f.grappling.flags.length ? `<ul class="gflags">${f.grappling.flags.map(x => `<li><span class="gflag ${x.flag === "Big grappler" ? "off" : "def"}">${esc(x.flag)}</span> ${esc(x.why)}</li>`).join("")}</ul>` : ""}
       <div class="stats">
         ${stat("UFC record", f.ufc_record, x => x)}${stat("Pro record", f.pro_record, x => x)}
         ${stat("Rating", f.rating, x => x + ` ±${f.rd}`)}${stat("Peak rating", f.peak_rating, x => x)}

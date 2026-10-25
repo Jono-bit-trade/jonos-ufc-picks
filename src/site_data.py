@@ -127,6 +127,52 @@ def style_stats(stats):
     return out
 
 
+# ---- grappling flags ----
+BIG_TD, BIG_SUB = 2.5, 1.0        # per 15 min: about the top 15% of UFC fighters (3+ fights)
+GOOD_TD_DEF, MAX_SUB_LOSS_RATE = 0.80, 0.10
+
+
+def grappling_sources():
+    """Career grappling numbers per fighter: UFC.com (takedown defense included) first,
+    the Ultimate UFC Dataset's career averages as a fallback for takedowns and submissions."""
+    out = {}
+    raw = path("raw", "ufc-master.csv")
+    if os.path.exists(raw):
+        u = pd.read_csv(raw, usecols=lambda c: c in ("date", "R_fighter", "B_fighter", "R_avg_TD_landed", "B_avg_TD_landed",
+                                                     "R_avg_SUB_ATT", "B_avg_SUB_ATT"))
+        for c in ("R", "B"):
+            d = u[["date", f"{c}_fighter", f"{c}_avg_TD_landed", f"{c}_avg_SUB_ATT"]].sort_values("date")
+            for r in d.itertuples(index=False):
+                out[norm(r[1])] = {"td_per15": num(r[2], 2), "sub_per15": num(r[3], 2), "source": "dataset"}
+    a = read("ufc_athletes.csv")
+    if not a.empty and "status" in a:
+        for r in a[a["status"] == "ok"].itertuples():
+            cur = out.get(norm(r.name), {})
+            for col in ("td_per15", "sub_per15", "td_def", "str_def"):
+                v = getattr(r, col, None)
+                if v == v and v is not None:
+                    cur[col] = round(float(v), 3)
+            cur["source"] = "UFC.com"
+            out[norm(r.name)] = cur
+    return out
+
+
+def grappling(g, losses, src):
+    """Grappling numbers and flags for one fighter. Flags need 3+ UFC fights (4+ for defense)."""
+    n = int(g["result"].isin(["W", "L", "D"]).sum())
+    sub_losses = int((losses["method"] == "SUB").sum())
+    td, sub, tdd = src.get("td_per15"), src.get("sub_per15"), src.get("td_def")
+    flags = []
+    if n >= 3 and ((td or 0) >= BIG_TD or (sub or 0) >= BIG_SUB):
+        why = [f"{td:.1f} takedowns" if (td or 0) >= BIG_TD else None, f"{sub:.1f} sub attempts" if (sub or 0) >= BIG_SUB else None]
+        flags.append({"flag": "Big grappler", "why": " and ".join(x for x in why if x) + " per 15 min"})
+    if n >= 4 and tdd is not None and tdd >= GOOD_TD_DEF and sub_losses / n <= MAX_SUB_LOSS_RATE:
+        flags.append({"flag": "Grappling defense",
+                      "why": f"stops {round(100 * tdd)}% of takedowns, submitted {sub_losses} time{'s' if sub_losses != 1 else ''} in {n} UFC fights"})
+    return {"td_per15": td, "sub_per15": sub, "td_def": tdd, "str_def": src.get("str_def"), "sub_losses": sub_losses,
+            "ufc_fights": n, "source": src.get("source"), "flags": flags}
+
+
 def track_record(rows):
     """The model's record by year and in total: winners picked, and units from betting
     (1) the model's winner at the moneyline, (2) only value picks, where the model beat the line."""
@@ -368,7 +414,8 @@ def main():
     for name, g in long.groupby("name", sort=False):
         w = g[g["result"] == "W"]
         labels[norm(name)] = style_label(styles.get(norm(name)), w["method"].value_counts().to_dict(), len(w))
-    index = []
+    index, grap_all = [], {}
+    gsrc = grappling_sources()
     today = dt.date.today()
     for name, g in long.groupby("name", sort=False):
         k = norm(name)
@@ -414,15 +461,19 @@ def main():
             "title_fights": int(g["title"].fillna(False).astype(bool).sum()),
             "finish_rate": round((wins["method"].isin(["KO", "SUB"])).mean(), 3) if len(wins) else None,
             "style": styles.get(k), "style_label": labels.get(k),
+            "grappling": grappling(g, losses, gsrc.get(k, {})),
             "splits": splits(g, labels),
             "rating_history": [[d, num(r)] for d, r in zip(g["date"], g["after"])],
             "fights": hist,
         }
         write(f"fighters/{prof['slug']}.json", prof)
+        if prof["grappling"]["flags"]:
+            grap_all[prof["slug"]] = [f["flag"] for f in prof["grappling"]["flags"]]
         index.append({"name": name, "slug": prof["slug"], "espn_id": prof["espn_id"], "record": prof["ufc_record"],
                       "rating": prof["rating"], "weight_class": prof["weight_class"], "last_fight": prof["last_fight"]})
     index.sort(key=lambda x: -(x["rating"] or 0))
     write("fighters/index.json", index)
+    write("grappling_flags.json", grap_all)   # slug -> flags, for the fight cards
     print(f"site data: {len(index)} fighters, {len(events_index)} past cards")
 
 
