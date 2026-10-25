@@ -10,7 +10,7 @@ The first raw responses are kept in data/raw/espn_core_samples.json for debuggin
 
 Run:  python src/espn_backfill.py [minutes]   (default 300)
 """
-import json, os, sys, time
+import json, os, subprocess, sys, time
 import requests
 import pandas as pd
 from common import path
@@ -111,6 +111,8 @@ def main(minutes=300):
         if (i + 1) % 100 == 0:
             flush()
             print(f"{i + 1} bouts fetched")
+        if os.environ.get("CI") and (i + 1) % 1000 == 0:   # on GitHub: commit progress every 1,000 bouts
+            subprocess.run(["bash", ".github/save.sh", "Backfill: ESPN stats progress"], check=False)
     flush()
 
 

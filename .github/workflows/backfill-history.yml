@@ -16,7 +16,7 @@ on:
 
 concurrency:
   group: backfill-history
-  cancel-in-progress: false
+  cancel-in-progress: true    # safe: every run resumes where the last one stopped
 
 jobs:
   backfill:
