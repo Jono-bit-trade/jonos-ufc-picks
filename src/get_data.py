@@ -13,7 +13,7 @@ attached to every fight that lacks them.
 Run:  python src/get_data.py            (download + merge)
       python src/get_data.py --offline  (merge files already in data/raw)
 """
-import os, sys, requests, pandas as pd
+import os, sys, requests, numpy as np, pandas as pd
 from common import path
 
 RAW = path("raw")
@@ -164,7 +164,12 @@ def attach_lines(fights, sources, days=2):
         for c in ["open_a", "open_b", "odds_a", "odds_b"]:
             if c not in src:
                 src[c] = None
+        ok = lambda x: pd.notna(x) and abs(float(x)) >= 100     # a usable American moneyline
         for r in src.itertuples():
+            if not (ok(r.odds_a) and ok(r.odds_b)):
+                r = r._replace(odds_a=None, odds_b=None)
+            if not (ok(r.open_a) and ok(r.open_b)):
+                r = r._replace(open_a=None, open_b=None)
             k = frozenset((norm(r.a), norm(r.b)))
             lut.setdefault(k, []).append((pd.Timestamp(r.date), norm(r.a), r.open_a, r.open_b, r.odds_a, r.odds_b))
     filled = {"open": 0, "close": 0}
@@ -212,7 +217,14 @@ def build(offline=False):
         if not sp.empty else sp
     eo = read_csv("espn_odds_history.csv")   # every book's opening and closing line, from ESPN's core API
     if not eo.empty:
+        # median across books in probability space: a plain median of American odds breaks
+        # across even money (the median of -110 and +110 is 0)
+        from common import implied, to_american
+        for c in ["open_a", "open_b", "close_a", "close_b"]:
+            eo[c] = implied(pd.to_numeric(eo[c], errors="coerce"))
         eo = eo.groupby(["date", "a", "b"], as_index=False)[["open_a", "open_b", "close_a", "close_b"]].median()
+        for c in ["open_a", "open_b", "close_a", "close_b"]:
+            eo[c] = [to_american(x) if x == x else np.nan for x in eo[c]]
         eo = eo.rename(columns={"close_a": "odds_a", "close_b": "odds_b"})
     fights = attach_lines(fights, [history, eo, espn_hist, sp])
     fights = fill_logged_odds(fights)
