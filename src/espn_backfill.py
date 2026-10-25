@@ -11,6 +11,7 @@ The first raw responses are kept in data/raw/espn_core_samples.json for debuggin
 Run:  python src/espn_backfill.py [minutes]   (default 300)
 """
 import json, os, subprocess, sys, time
+from collections import Counter
 import requests
 import pandas as pd
 from common import path
@@ -20,20 +21,33 @@ BASE = "https://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/{e}/co
 S = requests.Session()
 S.headers["User-Agent"] = "Mozilla/5.0"
 SAMPLES = {}
+SEEN = Counter()      # what ESPN answered: status codes, timeouts, other errors
+FAILED = False        # set when a request failed for a reason other than "not found"
 
 
 def get(url):
+    """JSON from ESPN, or None. 404 means ESPN has no such data (fine); anything else that
+    fails sets FAILED so the bout is retried on a later run instead of marked done."""
+    global FAILED
     url = url.replace("http://", "https://")
-    for attempt in range(3):
+    for attempt in range(2):
+        t = time.time()
         try:
-            r = S.get(url, timeout=30)
+            r = S.get(url, timeout=15)
+            SEEN[str(r.status_code)] += 1
+            SEEN["slow (5s+)"] += time.time() - t > 5
             if r.status_code == 404:
                 return None
+            if r.status_code == 429:
+                time.sleep(60)
+                continue
             r.raise_for_status()
             time.sleep(0.2)
             return r.json()
-        except requests.RequestException:
-            time.sleep(3 * (attempt + 1))
+        except (requests.RequestException, ValueError) as e:
+            SEEN[type(e).__name__] += 1
+            time.sleep(5 * (attempt + 1))
+    FAILED = True
     return None
 
 
@@ -96,7 +110,10 @@ def main(minutes=300):
             json.dump(SAMPLES, open(path("raw", "espn_core_samples.json"), "w"), indent=1)
         stats.clear(), odds.clear(), finished.clear()
 
+    global FAILED
+    t0, retry = time.time(), 0
     for i, r in enumerate(todo.to_dict("records")):
+        FAILED = False
         if time.time() > stop:
             print("time limit reached: the next run carries on from here")
             break
@@ -107,13 +124,17 @@ def main(minutes=300):
                 SAMPLES["stats"] = js
             stats += stats_rows(js, r["espn_fight"], r[side])
         odds += odds_rows(get(f"{base}/odds"), r)
-        finished.append(r["espn_fight"])
+        if FAILED:
+            retry += 1          # not marked done: tried again next run
+        else:
+            finished.append(r["espn_fight"])
         if (i + 1) % 100 == 0:
             flush()
-            print(f"{i + 1} bouts fetched")
+            print(f"{i + 1} bouts fetched, {retry} to retry, {(time.time() - t0) / (i + 1):.1f}s per bout | ESPN answered: {dict(SEEN)}", flush=True)
         if os.environ.get("CI") and (i + 1) % 1000 == 0:   # on GitHub: commit progress every 1,000 bouts
             subprocess.run(["bash", ".github/save.sh", "Backfill: ESPN stats progress"], check=False)
     flush()
+    print(f"done: {retry} bouts to retry | ESPN answered: {dict(SEEN)}")
 
 
 if __name__ == "__main__":

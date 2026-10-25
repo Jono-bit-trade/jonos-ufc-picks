@@ -11,6 +11,10 @@ on:
   schedule:
     - cron: "0 7 * * 1-5"     # weekday mornings (UTC), away from fight nights
   workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutes to spend on fight stats and lines"
+        default: "270"
   push:
     paths: [".github/backfill-request.txt"]
 
@@ -42,7 +46,7 @@ jobs:
 
       - name: ESPN fight stats and lines (up to 4.5 hours)
         continue-on-error: true
-        run: python src/espn_backfill.py 270 2>&1 | tee data/logs/espn_backfill.log | tail -n 100
+        run: python src/espn_backfill.py ${{ inputs.minutes || '270' }} 2>&1 | tee data/logs/espn_backfill.log | tail -n 100
 
       - name: Save progress
         run: 'bash .github/save.sh "Backfill: ESPN fight stats and lines"'
