@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T16:31Z",
+ "updated": "2026-10-25T16:36Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -15,8 +15,8 @@
   },
   {
    "fighter": "Alexander Volkanovski",
-   "rating": 1909,
-   "rd": 94,
+   "rating": 1925,
+   "rd": 91,
    "last_fight": "2026-10-24"
   },
   {
@@ -98,27 +98,21 @@
    "last_fight": "2025-11-22"
   },
   {
-   "fighter": "Arman Tsarukyan",
-   "rating": 1823,
-   "rd": 108,
-   "last_fight": "2025-11-22"
-  },
-  {
    "fighter": "Magomed Ankalaev",
    "rating": 1823,
    "rd": 103,
    "last_fight": "2025-10-04"
   },
   {
-   "fighter": "Merab Dvalishvili",
-   "rating": 1821,
-   "rd": 91,
-   "last_fight": "2026-10-24"
+   "fighter": "Arman Tsarukyan",
+   "rating": 1823,
+   "rd": 108,
+   "last_fight": "2025-11-22"
   },
   {
-   "fighter": "Alexander Volkov",
-   "rating": 1819,
-   "rd": 94,
+   "fighter": "Merab Dvalishvili",
+   "rating": 1822,
+   "rd": 91,
    "last_fight": "2026-10-24"
   },
   {
@@ -134,10 +128,10 @@
    "last_fight": "2026-01-24"
   },
   {
-   "fighter": "Ian Machado Garry",
-   "rating": 1814,
-   "rd": 117,
-   "last_fight": "2025-11-22"
+   "fighter": "Alexander Volkov",
+   "rating": 1819,
+   "rd": 94,
+   "last_fight": "2026-10-24"
   },
   {
    "fighter": "Nassourdine Imavov",
@@ -146,9 +140,9 @@
    "last_fight": "2025-09-06"
   },
   {
-   "fighter": "Alexander Volkov",
-   "rating": 1815,
-   "rd": 95,
+   "fighter": "Grant Dawson",
+   "rating": 1814,
+   "rd": 101,
    "last_fight": "2026-10-24"
   },
   {
@@ -164,28 +158,10 @@
    "last_fight": "2025-10-04"
   },
   {
-   "fighter": "Lerone Murphy",
-   "rating": 1809,
-   "rd": 114,
-   "last_fight": "2026-03-21"
-  },
-  {
-   "fighter": "Natalia Silva",
-   "rating": 1807,
-   "rd": 119,
-   "last_fight": "2026-01-24"
-  },
-  {
    "fighter": "Robert Whittaker",
-   "rating": 1806,
+   "rating": 1807,
    "rd": 93,
    "last_fight": "2025-07-26"
-  },
-  {
-   "fighter": "Manon Fiorot",
-   "rating": 1802,
-   "rd": 116,
-   "last_fight": "2025-10-18"
   },
   {
    "fighter": "Erin Blanchfield",
@@ -194,10 +170,28 @@
    "last_fight": "2025-11-15"
   },
   {
-   "fighter": "Grant Dawson",
-   "rating": 1801,
-   "rd": 102,
-   "last_fight": "2026-10-24"
+   "fighter": "Natalia Silva",
+   "rating": 1806,
+   "rd": 120,
+   "last_fight": "2026-01-24"
+  },
+  {
+   "fighter": "Lerone Murphy",
+   "rating": 1805,
+   "rd": 114,
+   "last_fight": "2026-03-21"
+  },
+  {
+   "fighter": "Zhang Weili",
+   "rating": 1800,
+   "rd": 111,
+   "last_fight": "2025-11-15"
+  },
+  {
+   "fighter": "Tatiana Suarez",
+   "rating": 1799,
+   "rd": 120,
+   "last_fight": "2025-09-13"
   },
   {
    "fighter": "Sean Brady",
@@ -236,22 +230,16 @@
    "last_fight": "2025-12-06"
   },
   {
-   "fighter": "Joe Pyfer",
-   "rating": 1794,
-   "rd": 117,
-   "last_fight": "2026-03-28"
-  },
-  {
-   "fighter": "Tatiana Suarez",
-   "rating": 1791,
-   "rd": 120,
-   "last_fight": "2025-09-13"
-  },
-  {
    "fighter": "Brendan Allen",
    "rating": 1789,
-   "rd": 95,
+   "rd": 96,
    "last_fight": "2025-10-18"
+  },
+  {
+   "fighter": "Sean O'Malley",
+   "rating": 1789,
+   "rd": 102,
+   "last_fight": "2026-01-24"
   },
   {
    "fighter": "Movsar Evloev",
@@ -266,12 +254,6 @@
    "last_fight": "2025-11-22"
   },
   {
-   "fighter": "Sean O'Malley",
-   "rating": 1787,
-   "rd": 102,
-   "last_fight": "2026-01-24"
-  },
-  {
    "fighter": "Carlos Ulberg",
    "rating": 1785,
    "rd": 111,
@@ -284,16 +266,16 @@
    "last_fight": "2026-01-31"
   },
   {
-   "fighter": "Caio Borralho",
-   "rating": 1779,
-   "rd": 115,
-   "last_fight": "2026-03-07"
-  },
-  {
    "fighter": "Paddy Pimblett",
    "rating": 1779,
    "rd": 119,
    "last_fight": "2026-01-24"
+  },
+  {
+   "fighter": "Caio Borralho",
+   "rating": 1779,
+   "rd": 115,
+   "last_fight": "2026-03-07"
   },
   {
    "fighter": "Sean Strickland",
@@ -306,18 +288,6 @@
    "rating": 1776,
    "rd": 98,
    "last_fight": "2025-06-21"
-  },
-  {
-   "fighter": "Paddy Pimblett",
-   "rating": 1776,
-   "rd": 120,
-   "last_fight": "2026-01-24"
-  },
-  {
-   "fighter": "Zhang Weili",
-   "rating": 1776,
-   "rd": 116,
-   "last_fight": "2025-11-15"
   },
   {
    "fighter": "Jean Silva",
