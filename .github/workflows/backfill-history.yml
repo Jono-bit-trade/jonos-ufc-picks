@@ -53,8 +53,9 @@ jobs:
           python src/get_data.py --offline
           python src/backtest.py
           python src/predict.py
-          python src/site_data.py
           python src/expert_analysis.py || true
+          python src/expert_model.py || true
+          python src/site_data.py
 
       - name: Save
         if: always()

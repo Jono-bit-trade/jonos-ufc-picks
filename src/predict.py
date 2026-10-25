@@ -32,7 +32,9 @@ def read(name):
 
 def publish_common(fights, log, G):
     """Record, rankings and backtest pages: published on every run, card or not."""
-    json.dump(grade(log, fights), open(os.path.join(OUT, "results.json"), "w"), indent=1)
+    res = grade(log, fights)
+    res["ours"] = grade(log, fights, "our_pick")
+    json.dump(res, open(os.path.join(OUT, "results.json"), "w"), indent=1)
     rt = table(G, NOW.date().isoformat())
     cutoff = (NOW.date() - dt.timedelta(days=550)).isoformat()
     json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"),
@@ -71,9 +73,12 @@ def experts_for(date, a, b):
     if r is None:
         return None
     on_a = norm(r.a) == norm(a)
-    return {"picks_a": int(r.picks_a if on_a else r.picks_b), "picks_b": int(r.picks_b if on_a else r.picks_a),
-            "high_a": int(r.high_a if on_a else r.high_b), "high_b": int(r.high_b if on_a else r.high_a),
-            "url": f"https://splitpicks.com/events/{r.slug}.html"}
+    out = {"picks_a": int(r.picks_a if on_a else r.picks_b), "picks_b": int(r.picks_b if on_a else r.picks_a),
+           "high_a": int(r.high_a if on_a else r.high_b), "high_b": int(r.high_b if on_a else r.high_a),
+           "url": f"https://splitpicks.com/events/{r.slug}.html"}
+    from site_data import winning_counts
+    out.update(winning_counts(r.slug, r.bout, on_a))
+    return out
 
 
 def load_card(fights):
@@ -136,11 +141,12 @@ def model_features():
     return feats, {"features": "+".join(g.lower() for g in FEATURE_GROUPS), "learner": LEARNER}
 
 
-def grade(log, fights):
+def grade(log, fights, col="pick"):
     """Match logged picks to results; grade at the logged (closing) line and track line movement."""
     empty = {"bets": 0, "wins": 0, "units": 0.0, "roi_pct": None, "moved_toward_pct": None, "recent": []}
-    if log.empty or "pick" not in log:
+    if log.empty or col not in log:
         return empty
+    log = log.assign(pick=log[col])
     res = {}
     for f in fights[fights["winner"].isin(["a", "b"])].itertuples():
         w = f.a if f.winner == "a" else f.b
@@ -228,6 +234,9 @@ def main():
         up.loc[has, "p_final"] = blended(up.loc[has, "fair_a"], up.loc[has, "p_model"])
     up["edge_a"] = up["p_final"] - up["fair_a"]
     up["pick"] = np.where(up["edge_a"] > EDGE, up["a"], np.where(-up["edge_a"] > EDGE, up["b"], None))
+    from picks import our_side
+    sides = [our_side(pf, fa, oa, ob) for pf, fa, oa, ob in zip(up["p_final"], up["fair_a"], up["odds_a"], up["odds_b"])]
+    up["our_pick"] = [a if s_ == "a" else b if s_ == "b" else None for s_, a, b in zip(sides, up["a"], up["b"])]
 
     # freeze fights that have started: keep their last pre-fight prediction
     logf = path("pick_log.csv")
@@ -236,13 +245,13 @@ def main():
     if not log.empty:
         lg = log.set_index("fight_id")
         frozen = up.index[started & up.index.isin(lg.index)]
-        for c in ["p_model", "p_final", "fair_a", "odds_a", "odds_b", "edge_a", "pick"]:
+        for c in ["p_model", "p_final", "fair_a", "odds_a", "odds_b", "edge_a", "pick", "our_pick"]:
             if c in lg:
                 up.loc[frozen, c] = lg.loc[frozen, c]
     fresh = up[~started].reset_index()
     if len(fresh):
         cols = ["fight_id", "date", "a", "b", "p_model", "p_final", "fair_a", "odds_a", "odds_b",
-                "open_a", "open_b", "edge_a", "pick"]
+                "open_a", "open_b", "edge_a", "pick", "our_pick"]
         new = fresh[cols].assign(run=NOW.strftime("%Y-%m-%dT%H:%MZ"))
         log = pd.concat([log, new]) if not log.empty else new
         log = log.drop_duplicates("fight_id", keep="last")
@@ -252,6 +261,7 @@ def main():
     for fid, f in up.iterrows():
         c = card.loc[fid]
         pick = f["pick"] if isinstance(f["pick"], str) else None
+        our_pick = f["our_pick"] if isinstance(f.get("our_pick"), str) else None
         edge = num(f["edge_a"])
         res = None
         if c.get("state") == "post":
@@ -278,7 +288,7 @@ def main():
             "best_a": num(f["best_a"], 0), "best_b": num(f["best_b"], 0),
             "open_a": num(f["open_a"], 0), "open_b": num(f["open_b"], 0), "books": num(f["books"], 0),
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
-            "edge_a": edge, "pick": pick,
+            "edge_a": edge, "pick": pick, "our_pick": our_pick,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "method": {k: round(float(meth.loc[fid, k]), 3) for k in meth.columns},
         })

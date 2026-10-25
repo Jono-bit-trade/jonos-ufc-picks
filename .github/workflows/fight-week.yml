@@ -77,8 +77,9 @@ jobs:
 
       - name: Fighter profiles, past cards and the expert test
         run: |
-          python src/site_data.py
           python src/expert_analysis.py || echo "no expert picks yet"
+          python src/expert_model.py || echo "not enough expert picks yet"
+          python src/site_data.py
 
       - name: Save
         if: always()

@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
+from picks import our_side
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -133,6 +134,7 @@ def track_record(rows):
         picks = [r["pick"] for r in rs if r["pick"]]
         bets = [x for x in picks if x["units"] is not None]
         vals = [r["value"] for r in rs if r["value"]]
+        ours = [r["our"] for r in rs if r.get("our")]
         return {"picks": len(picks), "right": sum(x["right"] for x in picks),
                 "pct": round(100 * sum(x["right"] for x in picks) / len(picks), 1) if picks else None,
                 "bets": len(bets), "units": round(sum(x["units"] for x in bets), 1),
@@ -140,9 +142,15 @@ def track_record(rows):
                 "value_bets": len(vals), "value_won": sum(x["right"] for x in vals),
                 "value_pct": round(100 * sum(x["right"] for x in vals) / len(vals), 1) if vals else None,
                 "value_units": round(sum(x["units"] for x in vals), 1),
-                "value_roi_pct": round(100 * sum(x["units"] for x in vals) / len(vals), 1) if vals else None}
+                "value_roi_pct": round(100 * sum(x["units"] for x in vals) / len(vals), 1) if vals else None,
+                "our_bets": len(ours), "our_won": sum(x["right"] for x in ours),
+                "our_pct": round(100 * sum(x["right"] for x in ours) / len(ours), 1) if ours else None,
+                "our_units": round(sum(x["units"] for x in ours), 1),
+                "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None}
     years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
     return {"all": summary(rows), "since_2018": summary([r for r in rows if r["date"] >= "2018"]),
+            "rule_chosen_on": summary([r for r in rows if "2018" <= r["date"] < "2024"]),
+            "rule_checked_on": summary([r for r in rows if r["date"] >= "2024"]),
             "years": [{"year": y, **summary([r for r in rows if r["date"].startswith(y)])} for y in years],
             "edge": EDGE}
 
@@ -180,6 +188,21 @@ def splits(g, labels):
     if len(five):
         out["five_rounds"] = rec(five)
     return out
+
+
+_WIN = None
+
+
+def winning_counts(slug_, bout, on_a):
+    """Picks by analysts with a winning record only (expert_model.py decides who qualifies)."""
+    global _WIN
+    if _WIN is None:
+        w = read("expert_consensus_winning.csv")
+        _WIN = {(r.slug, r.bout): r for r in w.itertuples()} if not w.empty else {}
+    r = _WIN.get((slug_, bout))
+    if r is None:
+        return {"win_a": 0, "win_b": 0}
+    return {"win_a": int(r.win_a if on_a else r.win_b), "win_b": int(r.win_b if on_a else r.win_a)}
 
 
 def expert_lookup():
@@ -220,7 +243,8 @@ def main():
         loc = next((l for l in card["location"] if isinstance(l, str) and l), "")
         es = f"{date}-{slug(name)}"
         bouts, fav_right = [], 0
-        rec = {"picks": 0, "right": 0, "bets": 0, "units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0}
+        rec = {"picks": 0, "right": 0, "bets": 0, "units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0,
+               "our_bets": 0, "our_won": 0, "our_units": 0.0}
         for f in card.itertuples():
             p, pf = mp.get(f.fight_id), fp.get(f.fight_id)
             fair = no_vig(f.odds_a, f.odds_b) if pd.notna(f.odds_a) and pd.notna(f.odds_b) else None
@@ -232,13 +256,15 @@ def main():
                 exp = {"picks_a": int(ex.picks_a if on_a else ex.picks_b), "picks_b": int(ex.picks_b if on_a else ex.picks_a),
                        "high_a": int(ex.high_a if on_a else ex.high_b), "high_b": int(ex.high_b if on_a else ex.high_a),
                        "url": f"https://splitpicks.com/events/{ex.slug}.html"}
-            pick = value = None
+                exp.update(winning_counts(ex.slug, ex.bout, on_a))
+            pick = value = our = None
             if f.winner in ("a", "b"):
                 won_a = f.winner == "a"
                 if fair is not None:
                     fav_right += int((fair > 0.5) == won_a)
-                if p is not None:   # the model's winner, bet at its moneyline
-                    on_a = p > 0.5
+                best = pf if pf is not None else p   # our final chance (model + line) where we have it
+                if best is not None:   # our predicted winner, bet at its moneyline
+                    on_a = best > 0.5
                     right = on_a == won_a
                     o = f.odds_a if on_a else f.odds_b
                     u = (float(payout(o)) if right else -1.0) if pd.notna(o) else None
@@ -249,6 +275,15 @@ def main():
                     if u is not None:
                         rec["bets"] += 1
                         rec["units"] += u
+                ours = our_side(pf, fair, f.odds_a, f.odds_b) if pf is not None and fair is not None else None
+                if ours:   # our pick: value + high confidence + sensible price, as on the live card
+                    right = (ours == "a") == won_a
+                    o = f.odds_a if ours == "a" else f.odds_b
+                    u = float(payout(o)) if right else -1.0
+                    our = {"side": ours, "right": right, "odds": num(o), "units": round(u, 2)}
+                    rec["our_bets"] += 1
+                    rec["our_won"] += int(right)
+                    rec["our_units"] += u
                 if pf is not None and fair is not None and abs(pf - fair) > EDGE:   # value pick, as on the live card
                     on_a = pf > fair
                     right = on_a == won_a
@@ -259,7 +294,7 @@ def main():
                     rec["value_bets"] += 1
                     rec["value_won"] += int(right)
                     rec["value_units"] += u
-                graded_rows.append({"date": date, "pick": pick, "value": value})
+                graded_rows.append({"date": date, "pick": pick, "value": value, "our": our})
             bouts.append({"a": f.a, "b": f.b, "a_slug": slug(f.a), "b_slug": slug(f.b),
                           "a_id": ids.get(norm(f.a)), "b_id": ids.get(norm(f.b)),
                           "weight_class": f.weight_class if isinstance(f.weight_class, str) else "",
@@ -268,9 +303,9 @@ def main():
                           "line_p_a": round(fair, 3) if fair is not None else None,
                           "model_p_a": round(float(p), 3) if p is not None else None,
                           "final_p_a": round(float(pf), 3) if pf is not None else None,
-                          "model_pick": pick, "value_pick": value,
+                          "model_pick": pick, "value_pick": value, "our_pick": our,
                           "rating_a": num(f.pre_a), "rating_b": num(f.pre_b), "experts": exp})
-        rec["units"], rec["value_units"] = round(rec["units"], 2), round(rec["value_units"], 2)
+        rec["units"], rec["value_units"], rec["our_units"] = round(rec["units"], 2), round(rec["value_units"], 2), round(rec["our_units"], 2)
         main = f"{bouts[0]['a']} vs {bouts[0]['b']}"
         write(f"events/{es}.json", {"slug": es, "name": name, "date": date, "location": loc, "bouts": bouts,
                                     "record": rec, "model_right": rec["right"], "graded": rec["picks"],

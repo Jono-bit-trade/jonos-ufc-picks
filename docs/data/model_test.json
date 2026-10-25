@@ -1,0 +1,132 @@
+{
+ "bouts": 201,
+ "cards": 22,
+ "first": "2026-05-16",
+ "last": "2026-10-24",
+ "results": [
+  {
+   "prediction": "Betting line",
+   "bouts": 201,
+   "correct": 143,
+   "pct": 71.1,
+   "units": 4.2,
+   "log_loss": 0.6078,
+   "value_bets": 0,
+   "value_won": 0,
+   "value_units": 0.0
+  },
+  {
+   "prediction": "Our model alone",
+   "bouts": 201,
+   "correct": 135,
+   "pct": 67.2,
+   "units": 4.0,
+   "log_loss": 0.6239,
+   "value_bets": 159,
+   "value_won": 63,
+   "value_units": 4.5
+  },
+  {
+   "prediction": "Our model + line (current site)",
+   "bouts": 201,
+   "correct": 143,
+   "pct": 71.1,
+   "units": 4.6,
+   "log_loss": 0.606,
+   "value_bets": 99,
+   "value_won": 77,
+   "value_units": 6.5
+  },
+  {
+   "prediction": "All experts' consensus",
+   "bouts": 201,
+   "correct": 136,
+   "pct": 67.7,
+   "units": -3.6,
+   "log_loss": 0.6968,
+   "value_bets": 186,
+   "value_won": 123,
+   "value_units": -6.4
+  },
+  {
+   "prediction": "Winning experts' consensus",
+   "bouts": 201,
+   "correct": 129,
+   "pct": 64.2,
+   "units": -12.2,
+   "log_loss": 0.694,
+   "value_bets": 180,
+   "value_won": 111,
+   "value_units": -2.8
+  },
+  {
+   "prediction": "Line + model",
+   "bouts": 201,
+   "correct": 137,
+   "pct": 68.2,
+   "units": -2.0,
+   "log_loss": 0.6192,
+   "value_bets": 136,
+   "value_won": 65,
+   "value_units": -5.5
+  },
+  {
+   "prediction": "Line + winning experts",
+   "bouts": 201,
+   "correct": 136,
+   "pct": 67.7,
+   "units": -3.6,
+   "log_loss": 0.6224,
+   "value_bets": 132,
+   "value_won": 67,
+   "value_units": 0.0
+  },
+  {
+   "prediction": "Line + model + winning experts",
+   "bouts": 201,
+   "correct": 137,
+   "pct": 68.2,
+   "units": -2.0,
+   "log_loss": 0.6219,
+   "value_bets": 142,
+   "value_won": 67,
+   "value_units": -15.4
+  },
+  {
+   "prediction": "Line + model + all experts",
+   "bouts": 201,
+   "correct": 136,
+   "pct": 67.7,
+   "units": -3.6,
+   "log_loss": 0.6229,
+   "value_bets": 141,
+   "value_won": 67,
+   "value_units": -1.0
+  }
+ ],
+ "chosen": "Our model + line (current site)",
+ "uses_experts": false,
+ "winning_analysts": [
+  "Bedtime MMA",
+  "SplitAces_"
+ ],
+ "dropped_analysts": [
+  "138 MMA",
+  "Artem MMA",
+  "BetSam",
+  "Broke by Decision",
+  "DFS By The Numbers",
+  "FALSE PROFIT",
+  "Half The Battle",
+  "HopperoMMA",
+  "JakeGerberMMA",
+  "Kunath",
+  "Lucrative James",
+  "MMA Experts",
+  "Sideswipe MMA",
+  "Slayers Picks",
+  "The MMA Guru",
+  "TheWeasle",
+  "We Want Picks"
+ ]
+}

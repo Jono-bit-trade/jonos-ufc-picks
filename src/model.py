@@ -23,6 +23,17 @@ GROUPS = {
 }
 
 
+def recency_weights(dates):
+    """Recent fights count more: a fight TRAIN_HALF_LIFE_YEARS older than the newest counts half.
+    (Tested 3 and 6 years against equal weights on 2018-2026: 3 years lowered log loss most.)"""
+    from config import TRAIN_HALF_LIFE_YEARS
+    if not TRAIN_HALF_LIFE_YEARS:
+        return None
+    d = pd.to_datetime(dates)
+    age = (d.max() - d).dt.days / 365.25
+    return (0.5 ** (age / TRAIN_HALF_LIFE_YEARS)).values
+
+
 def labelled(t):
     """Fights with a winner, seen from both corners."""
     d = t[t["winner"].isin(["a", "b"])]
@@ -44,11 +55,12 @@ class WinModel:
 
     def fit(self, t):
         X, y = labelled(t)
+        w = recency_weights(X["date"])
         self.m = {}
         if self.kind in ("logistic", "blend"):
-            self.m["logistic"] = make("logistic").fit(X[self.features], y)
+            self.m["logistic"] = make("logistic").fit(X[self.features], y, logisticregression__sample_weight=w)
         if self.kind in ("boost", "blend") and len(self.features) > 1:
-            self.m["boost"] = make("boost").fit(X[self.features], y)
+            self.m["boost"] = make("boost").fit(X[self.features], y, sample_weight=w)
         return self
 
     def _raw(self, X):

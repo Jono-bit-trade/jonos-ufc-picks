@@ -1,0 +1,15 @@
+{
+ "use": false,
+ "name": "Line + model",
+ "inputs": [
+  "line",
+  "model"
+ ],
+ "coef": [
+  0.4053,
+  0.3001
+ ],
+ "intercept": 0.3618,
+ "min_picks": 20,
+ "trained_on_bouts": 267
+}

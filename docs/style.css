@@ -173,3 +173,10 @@ td.n, th.n { text-align: right; }
 .tt td.adv { font-weight: 700; color: var(--green); }
 .tape h3 { font: 700 18px "Barlow Condensed", sans-serif; margin: 14px 0 4px; }
 .vslist { margin: 0 0 6px; padding-left: 18px; font-size: 14px; }
+.pick.ours, .vpick.ours { background: var(--ink); color: var(--gold); }
+.vpick.ours.won, .vpick.ours.lost { background: var(--ink); }
+.vpick.ours.won { color: #6fd68b; } .vpick.ours.lost { color: #ff8a83; }
+.stat.key { border-color: var(--gold); border-width: 2px; }
+.stat b .won, .stat b .lost { font-size: 0.8em; }
+tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%, transparent); }
+.inl { font: 700 15px "Barlow Condensed", sans-serif; color: var(--ink); }
