@@ -1,12 +1,11 @@
-6259 of 6264 bouts to fetch
+5351 of 6264 bouts to fetch
 100 bouts fetched, 0 to retry, 0.6s per bout | ESPN answered: {'200': 300, 'slow (5s+)': 0}
 200 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 600, 'slow (5s+)': 0}
 300 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 900, 'slow (5s+)': 0}
-400 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 1200, 'slow (5s+)': 0}
-500 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 1500, 'slow (5s+)': 0}
-600 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 1800, 'slow (5s+)': 0}
-700 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 2100, 'slow (5s+)': 0}
+400 bouts fetched, 0 to retry, 0.6s per bout | ESPN answered: {'200': 1200, 'slow (5s+)': 0}
+500 bouts fetched, 0 to retry, 0.6s per bout | ESPN answered: {'200': 1500, 'slow (5s+)': 0}
+600 bouts fetched, 0 to retry, 0.6s per bout | ESPN answered: {'200': 1800, 'slow (5s+)': 0}
+700 bouts fetched, 0 to retry, 0.6s per bout | ESPN answered: {'200': 2100, 'slow (5s+)': 0}
 800 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 2400, 'slow (5s+)': 0}
 900 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 2700, 'slow (5s+)': 0}
-time limit reached: the next run carries on from here
-done: 0 bouts to retry | ESPN answered: {'200': 2724, 'slow (5s+)': 0}
+1000 bouts fetched, 0 to retry, 0.7s per bout | ESPN answered: {'200': 3000, 'slow (5s+)': 0}
