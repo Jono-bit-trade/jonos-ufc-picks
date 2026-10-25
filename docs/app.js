@@ -238,17 +238,21 @@ async function viewHome() {
 }
 
 // ---------------- events ----------------
+const RECENT_FROM = "2018";   // the full model (model + line) is tested from here; older cards are results only
 async function viewEvents(q) {
   const [ev, up, mr] = await Promise.all([get("events/index.json"), get("upcoming.json"), get("model_record.json")]);
   const year = q.get("year") || "";
-  const years = [...new Set((ev || []).map(e => e.date.slice(0, 4)))];
-  const list = (ev || []).filter(e => !year || e.date.startsWith(year));
+  const years = [...new Set((ev || []).map(e => e.date.slice(0, 4)))].filter(y => y >= RECENT_FROM);
+  const keep = e => year === "all" ? true : year === "older" ? e.date < RECENT_FROM : year ? e.date.startsWith(year) : e.date >= RECENT_FROM;
+  const list = (ev || []).filter(keep);
   const upcoming = (up || []).map((u, i) => `<li>${i === 0 ? `<a href="#/card">` : "<span>"}<span class="d">${esc(u.date)}</span>${esc(u.name)}${i === 0 ? "</a>" : "</span>"}</li>`).join("");
+  const chip = (y, label) => `<a href="#/events${y ? "?year=" + y : ""}" class="${y === year ? "on" : ""}">${label}</a>`;
   return `<h1>Events</h1>
     ${upcoming ? `<h2>Upcoming</h2><ul class="list">${upcoming}</ul>` : ""}
     <h2>Past cards</h2>
     ${eventsSummary(mr, year)}
-    <div class="filters">${["", ...years].map(y => `<a href="#/events${y ? "?year=" + y : ""}" class="${y === year ? "on" : ""}">${y || "All"}</a>`).join("")}</div>
+    <div class="filters">${chip("", "Since " + RECENT_FROM)}${years.map(y => chip(y, y)).join("")}${chip("older", "Before " + RECENT_FROM)}${chip("all", "All")}</div>
+    ${year === "older" ? `<p class="note">Cards before ${RECENT_FROM} are kept for fighter histories and ratings. The model's picks there come from the model alone (the line blend starts in ${RECENT_FROM}), so they aren't part of the headline record.</p>` : ""}
     <ul class="list">${list.map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}<span class="small"> · ${esc(e.main)}</span></a>
       ${cardBadge(e.record)}</li>`).join("")}</ul>`;
 }
@@ -261,9 +265,9 @@ function cardBadge(r) {
 
 function eventsSummary(mr, year) {
   if (!mr) return "";
-  const r = year ? mr.years.find(y => y.year === year) : mr.all;
+  const r = year === "all" ? mr.all : year === "older" ? null : year ? mr.years.find(y => y.year === year) : (mr.since_2018 || mr.all);
   if (!r) return "";
-  const label = year || "All years";
+  const label = year === "all" ? "All years" : year || "Since " + RECENT_FROM;
   return `<div class="stats">
     <div class="stat key"><b>${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</b><span>${label}: our picks won${r.our_pct ? ` (${r.our_pct}%)` : ""}</span></div>
     <div class="stat key"><b class="${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</b><span>${label}: our picks units${r.our_bets ? ` (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}% per bet)` : ""}</span></div>
