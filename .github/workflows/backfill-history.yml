@@ -9,6 +9,8 @@ on:
   schedule:
     - cron: "0 7 * * 1-5"     # weekday mornings (UTC), away from fight nights
   workflow_dispatch:
+  push:
+    paths: [".github/backfill-request.txt"]   # edit this file to start a backfill run
 
 concurrency:
   group: fight-week
