@@ -7,6 +7,9 @@
   "priority": 1
  },
  "details": "T. Nolan -125",
+ "overUnder": 1.5,
+ "overOdds": -220.0,
+ "underOdds": 170.0,
  "awayAthleteOdds": {
   "favorite": true,
   "underdog": false,
@@ -97,6 +100,32 @@
   {
    "language": "en-US",
    "rel": [
+    "over",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34891968%3Foutcomes%3D0OU86931504O150_1",
+   "text": "Over Odds",
+   "shortText": "Over Odds",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "under",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34891968%3Foutcomes%3D0OU86931504U150_3",
+   "text": "Under Odds",
+   "shortText": "Under Odds",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
     "game",
     "desktop",
     "bets"
@@ -109,5 +138,49 @@
   }
  ],
  "moneylineWinner": false,
- "spreadWinner": false
+ "spreadWinner": false,
+ "open": {
+  "over": {
+   "value": 1.45,
+   "displayValue": "5/11",
+   "alternateDisplayValue": "-220",
+   "decimal": 1.45,
+   "fraction": "5/11",
+   "american": "-220"
+  },
+  "under": {
+   "value": 2.7,
+   "displayValue": "17/10",
+   "alternateDisplayValue": "+170",
+   "decimal": 2.7,
+   "fraction": "17/10",
+   "american": "+170"
+  },
+  "total": {
+   "alternateDisplayValue": "1.5",
+   "american": "1.5"
+  }
+ },
+ "current": {
+  "over": {
+   "value": 1.45,
+   "displayValue": "5/11",
+   "alternateDisplayValue": "-220",
+   "decimal": 1.45,
+   "fraction": "5/11",
+   "american": "-220"
+  },
+  "under": {
+   "value": 2.7,
+   "displayValue": "17/10",
+   "alternateDisplayValue": "+170",
+   "decimal": 2.7,
+   "fraction": "17/10",
+   "american": "+170"
+  },
+  "total": {
+   "alternateDisplayValue": "1.5",
+   "american": "1.5"
+  }
+ }
 }
