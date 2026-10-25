@@ -236,6 +236,11 @@ def core_odds(card):
                 ref = lambda side: str(_get(o, f"{side}AthleteOdds", "athlete", "$ref") or "")
                 if str(r.get("espn_id_b")) and f"/athletes/{r.get('espn_id_b')}" in ref("home"):
                     got["home"], got["away"] = got["away"], got["home"]
+                op = {side: _moneyline(_get(o, f"{side}AthleteOdds", "open", "moneyLine"))
+                      for side in ("home", "away")}
+                if str(r.get("espn_id_b")) and f"/athletes/{r.get('espn_id_b')}" in ref("home"):
+                    op["home"], op["away"] = op["away"], op["home"]
+                card.at[i, "espn_open_a"], card.at[i, "espn_open_b"] = op["home"], op["away"]
                 card.at[i, "espn_odds_a"], card.at[i, "espn_odds_b"] = got["home"], got["away"]
                 card.at[i, "espn_book"] = _get(o, "provider", "name")
                 if "odds" not in SAMPLE_SAVED:

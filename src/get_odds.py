@@ -158,6 +158,10 @@ def attach(card, odds):
             opens.append((None, None))
             hist.append([])
     card[["open_a", "open_b"]] = pd.DataFrame(opens, index=card.index)
+    if "espn_open_a" in card:   # ESPN's opening line (DraftKings), when our own history starts later
+        early = card["espn_open_a"].notna() & card["espn_open_b"].notna()
+        card.loc[early, "open_a"] = card.loc[early, "espn_open_a"]
+        card.loc[early, "open_b"] = card.loc[early, "espn_open_b"]
     card["line_history"] = hist
     missing = card[card["odds_a"].isna()]
     if len(missing):
