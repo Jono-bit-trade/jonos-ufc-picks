@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T17:45Z",
+ "updated": "2026-10-25T21:35Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -117,6 +117,11 @@
     },
     {
      "t": "2026-10-25T17:45Z",
+     "a": 105.0,
+     "b": -125.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
      "a": 105.0,
      "b": -125.0
     }
@@ -239,6 +244,11 @@
      "t": "2026-10-25T17:45Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
    "edge_a": 0.012,
@@ -273,9 +283,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.304,
-   "p_a": 0.303,
-   "fair_odds_a": 230,
-   "fair_odds_b": -230,
+   "p_a": 0.304,
+   "fair_odds_a": 229,
+   "fair_odds_b": -229,
    "market_p_a": 0.304,
    "odds_a": 215.0,
    "odds_b": -265.0,
@@ -359,9 +369,14 @@
      "t": "2026-10-25T17:45Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
-   "edge_a": -0.001,
+   "edge_a": 0.0,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -479,9 +494,14 @@
      "t": "2026-10-25T17:45Z",
      "a": -258.0,
      "b": 220.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": -258.0,
+     "b": 220.0
     }
    ],
-   "edge_a": 0.022,
+   "edge_a": 0.021,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -513,7 +533,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.503,
-   "p_a": 0.691,
+   "p_a": 0.69,
    "fair_odds_a": -223,
    "fair_odds_b": 223,
    "market_p_a": 0.681,
@@ -597,6 +617,11 @@
     },
     {
      "t": "2026-10-25T17:45Z",
+     "a": -245.0,
+     "b": 200.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
      "a": -245.0,
      "b": 200.0
     }
@@ -763,6 +788,11 @@
      "t": "2026-10-25T17:45Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.011,
@@ -797,9 +827,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.402,
-   "p_a": 0.443,
-   "fair_odds_a": 126,
-   "fair_odds_b": -126,
+   "p_a": 0.444,
+   "fair_odds_a": 125,
+   "fair_odds_b": -125,
    "market_p_a": 0.384,
    "odds_a": 150.0,
    "odds_b": -180.0,
@@ -883,9 +913,14 @@
      "t": "2026-10-25T17:45Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
-   "edge_a": 0.059,
+   "edge_a": 0.06,
    "pick": "Julian Erosa",
    "our_pick": null,
    "check_news": false,
@@ -917,9 +952,9 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.362,
-   "p_a": 0.243,
-   "fair_odds_a": 311,
-   "fair_odds_b": -311,
+   "p_a": 0.244,
+   "fair_odds_a": 309,
+   "fair_odds_b": -309,
    "market_p_a": 0.274,
    "odds_a": 250.0,
    "odds_b": -310.0,
@@ -1003,9 +1038,14 @@
      "t": "2026-10-25T17:45Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
-   "edge_a": -0.031,
+   "edge_a": -0.03,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
    "check_news": false,
@@ -1037,9 +1077,9 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.483,
-   "p_a": 0.332,
-   "fair_odds_a": 201,
-   "fair_odds_b": -201,
+   "p_a": 0.333,
+   "fair_odds_a": 200,
+   "fair_odds_b": -200,
    "market_p_a": 0.309,
    "odds_a": 210.0,
    "odds_b": -258.0,
@@ -1123,9 +1163,14 @@
      "t": "2026-10-25T17:45Z",
      "a": 210.0,
      "b": -258.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
+     "a": 210.0,
+     "b": -258.0
     }
    ],
-   "edge_a": 0.023,
+   "edge_a": 0.024,
    "pick": null,
    "our_pick": null,
    "check_news": false,
@@ -1202,8 +1247,8 @@
    "debut_b": false,
    "p_model_a": 0.569,
    "p_a": 0.874,
-   "fair_odds_a": -692,
-   "fair_odds_b": 692,
+   "fair_odds_a": -691,
+   "fair_odds_b": 691,
    "market_p_a": 0.822,
    "odds_a": -600.0,
    "odds_b": 440.0,
@@ -1285,6 +1330,11 @@
     },
     {
      "t": "2026-10-25T17:45Z",
+     "a": -600.0,
+     "b": 440.0
+    },
+    {
+     "t": "2026-10-25T21:35Z",
      "a": -600.0,
      "b": 440.0
     }

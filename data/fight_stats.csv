@@ -1,0 +1,11 @@
+fight_id,date,fighter,opponent,won,kd,sig_landed,sig_att,sig_absorbed,td_landed,td_att,td_allowed,td_faced,sub_att,ctrl_secs,fight_secs
+2026-09-22|Norbert Növényi Jr.|Theo Haig,2026-09-22,Norbert Növényi Jr.,Theo Haig,1,1.0,27.0,48.0,15.0,6.0,9.0,2.0,10.0,1.0,336,900
+2026-09-22|Norbert Növényi Jr.|Theo Haig,2026-09-22,Theo Haig,Norbert Növényi Jr.,0,0.0,15.0,39.0,27.0,2.0,10.0,6.0,9.0,1.0,277,900
+2026-09-22|Jaden Ortega|Alvi Dasuyev,2026-09-22,Alvi Dasuyev,Jaden Ortega,1,2.0,88.0,225.0,76.0,2.0,9.0,0.0,0.0,0.0,83,900
+2026-09-22|Jaden Ortega|Alvi Dasuyev,2026-09-22,Jaden Ortega,Alvi Dasuyev,0,0.0,76.0,134.0,88.0,0.0,0.0,2.0,9.0,0.0,35,900
+2026-09-22|Marcos Degli|Paris Moran,2026-09-22,Marcos Degli,Paris Moran,1,0.0,19.0,28.0,5.0,3.0,6.0,1.0,1.0,3.0,401,586
+2026-09-22|Marcos Degli|Paris Moran,2026-09-22,Paris Moran,Marcos Degli,0,0.0,5.0,20.0,19.0,1.0,1.0,3.0,6.0,0.0,66,586
+2026-09-22|Callum Connor|Piero Guaylupo,2026-09-22,Callum Connor,Piero Guaylupo,0,0.0,265.0,377.0,209.0,0.0,3.0,0.0,0.0,0.0,13,900
+2026-09-22|Callum Connor|Piero Guaylupo,2026-09-22,Piero Guaylupo,Callum Connor,1,1.0,209.0,314.0,265.0,0.0,0.0,0.0,3.0,0.0,32,900
+2026-09-22|Emilio Quissua|Damian Piwowarczyk,2026-09-22,Damian Piwowarczyk,Emilio Quissua,1,2.0,35.0,83.0,37.0,0.0,0.0,0.0,0.0,0.0,11,295
+2026-09-22|Emilio Quissua|Damian Piwowarczyk,2026-09-22,Emilio Quissua,Damian Piwowarczyk,0,0.0,37.0,73.0,35.0,0.0,0.0,0.0,0.0,0.0,62,295
