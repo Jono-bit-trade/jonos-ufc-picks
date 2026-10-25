@@ -160,3 +160,7 @@ td.n, th.n { text-align: right; }
 .list li .small { white-space: nowrap; }
 .track { display: flex; flex-direction: column; gap: 2px; background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--gold); border-radius: 4px; padding: 10px 14px; margin: 0 0 14px; font-size: 14px; color: var(--quiet); }
 .track b { font: 700 18px "Barlow Condensed", sans-serif; color: var(--ink); }
+.cbadge { font-size: 13px; color: var(--quiet); white-space: nowrap; text-align: right; }
+.cbadge b { color: var(--ink); }
+.cbadge b.won { color: var(--green); } .cbadge b.lost { color: var(--red); }
+@media (max-width: 640px) { .list li { flex-direction: column; align-items: flex-start; } .cbadge { white-space: normal; text-align: left; } }

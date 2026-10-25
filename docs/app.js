@@ -152,7 +152,7 @@ async function viewHome() {
 
 // ---------------- events ----------------
 async function viewEvents(q) {
-  const [ev, up] = await Promise.all([get("events/index.json"), get("upcoming.json")]);
+  const [ev, up, mr] = await Promise.all([get("events/index.json"), get("upcoming.json"), get("model_record.json")]);
   const year = q.get("year") || "";
   const years = [...new Set((ev || []).map(e => e.date.slice(0, 4)))];
   const list = (ev || []).filter(e => !year || e.date.startsWith(year));
@@ -160,9 +160,31 @@ async function viewEvents(q) {
   return `<h1>Events</h1>
     ${upcoming ? `<h2>Upcoming</h2><ul class="list">${upcoming}</ul>` : ""}
     <h2>Past cards</h2>
+    ${eventsSummary(mr, year)}
     <div class="filters">${["", ...years].map(y => `<a href="#/events${y ? "?year=" + y : ""}" class="${y === year ? "on" : ""}">${y || "All"}</a>`).join("")}</div>
     <ul class="list">${list.map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}<span class="small"> · ${esc(e.main)}</span></a>
-      <span class="small">${recLine(e.record)}</span></li>`).join("")}</ul>`;
+      ${cardBadge(e.record)}</li>`).join("")}</ul>`;
+}
+
+function cardBadge(r) {
+  if (!r || !r.picks) return "";
+  return `<span class="cbadge"><b>${r.right}/${r.picks}</b> correct · <b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b>${
+    r.value_bets ? ` · value ${r.value_won}/${r.value_bets} <b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b>` : ""}</span>`;
+}
+
+function eventsSummary(mr, year) {
+  if (!mr) return "";
+  const r = year ? mr.years.find(y => y.year === year) : mr.all;
+  if (!r) return "";
+  const label = year || "All years";
+  return `<div class="stats">
+    <div class="stat"><b>${r.right}/${r.picks}</b><span>${label}: fights picked correctly</span></div>
+    <div class="stat"><b>${r.pct}%</b><span>${label}: correct</span></div>
+    <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner (${r.roi_pct > 0 ? "+" : ""}${r.roi_pct}% per bet)</span></div>
+    <div class="stat"><b>${r.value_bets ? `${r.value_won}/${r.value_bets}` : "–"}</b><span>${label}: value picks won</span></div>
+    <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${r.value_bets ? units(r.value_units) : "–"}</b><span>${label}: betting value picks${r.value_bets ? ` (${r.value_roi_pct > 0 ? "+" : ""}${r.value_roi_pct}% per bet)` : ""}</span></div>
+  </div>
+  <p class="note">Each fight predicted by a model trained only on earlier fights. Units are flat 1-unit bets at the closing moneyline.</p>`;
 }
 
 async function viewEvent(s) {

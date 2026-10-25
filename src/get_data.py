@@ -126,6 +126,9 @@ def canonical(df, known):
     return df
 
 
+NOT_UFC = r"contender series|road to ufc|ultimate fighter|tuf |looking for a fight"
+
+
 def espn_results(name="espn_results.csv"):
     """Finished bouts from ESPN, in fights.csv columns (no stats or attributes)."""
     f = path(name)
@@ -135,6 +138,8 @@ def espn_results(name="espn_results.csv"):
     if "winner" not in e:
         return pd.DataFrame()
     e = e[e["winner"].isin(["a", "b", "draw"])].copy()
+    if "event" in e:   # ESPN's UFC calendar also lists the Contender Series and other non-UFC shows
+        e = e[~e["event"].fillna("").str.contains(NOT_UFC, case=False, regex=True)]
     e = e.drop_duplicates(["date", "a", "b"], keep="last")
     e["fight_id"] = e["date"] + "|" + e["a"] + "|" + e["b"]
     e["source"] = "espn"
