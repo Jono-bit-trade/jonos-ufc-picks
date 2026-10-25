@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T17:05Z",
+ "updated": "2026-10-25T17:13Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -50,18 +50,6 @@
    "last_fight": "2026-07-11"
   },
   {
-   "fighter": "Michael Morales",
-   "rating": 1866,
-   "rd": 118,
-   "last_fight": "2025-11-15"
-  },
-  {
-   "fighter": "Carlos Prates",
-   "rating": 1861,
-   "rd": 111,
-   "last_fight": "2026-05-02"
-  },
-  {
    "fighter": "Petr Yan",
    "rating": 1859,
    "rd": 97,
@@ -104,50 +92,14 @@
    "last_fight": "2026-09-19"
   },
   {
-   "fighter": "Merab Dvalishvili",
-   "rating": 1841,
-   "rd": 93,
-   "last_fight": "2026-10-24"
-  },
-  {
-   "fighter": "Charles Oliveira",
-   "rating": 1840,
-   "rd": 85,
-   "last_fight": "2026-03-07"
-  },
-  {
    "fighter": "Magomed Ankalaev",
    "rating": 1840,
    "rd": 100,
    "last_fight": "2026-07-25"
   },
   {
-   "fighter": "Natalia Silva",
-   "rating": 1838,
-   "rd": 115,
-   "last_fight": "2026-10-03"
-  },
-  {
-   "fighter": "Carlos Ulberg",
-   "rating": 1833,
-   "rd": 105,
-   "last_fight": "2026-04-11"
-  },
-  {
-   "fighter": "Brendan Allen",
-   "rating": 1830,
-   "rd": 90,
-   "last_fight": "2026-10-10"
-  },
-  {
-   "fighter": "Valentina Shevchenko",
-   "rating": 1829,
-   "rd": 100,
-   "last_fight": "2025-11-15"
-  },
-  {
-   "fighter": "Alexander Volkov",
-   "rating": 1828,
+   "fighter": "Merab Dvalishvili",
+   "rating": 1839,
    "rd": 93,
    "last_fight": "2026-10-24"
   },
@@ -218,25 +170,13 @@
    "last_fight": "2026-08-29"
   },
   {
-   "fighter": "Paddy Pimblett",
-   "rating": 1815,
-   "rd": 114,
-   "last_fight": "2026-07-11"
-  },
-  {
-   "fighter": "Lerone Murphy",
+   "fighter": "Movsar Evloev",
    "rating": 1811,
-   "rd": 114,
-   "last_fight": "2026-03-21"
+   "rd": 110,
+   "last_fight": "2026-10-24"
   },
   {
    "fighter": "Tatiana Suarez",
-   "rating": 1811,
-   "rd": 116,
-   "last_fight": "2026-04-11"
-  },
-  {
-   "fighter": "Sean O'Malley",
    "rating": 1810,
    "rd": 116,
    "last_fight": "2026-04-11"
@@ -254,13 +194,7 @@
    "last_fight": "2026-06-14"
   },
   {
-   "fighter": "Movsar Evloev",
-   "rating": 1810,
-   "rd": 110,
-   "last_fight": "2026-10-24"
-  },
-  {
-   "fighter": "Jean Silva",
+   "fighter": "Lerone Murphy",
    "rating": 1809,
    "rd": 114,
    "last_fight": "2026-03-21"
@@ -272,16 +206,16 @@
    "last_fight": "2026-06-14"
   },
   {
+   "fighter": "Grant Dawson",
+   "rating": 1807,
+   "rd": 102,
+   "last_fight": "2026-10-24"
+  },
+  {
    "fighter": "Ian Machado Garry",
    "rating": 1800,
    "rd": 113,
    "last_fight": "2026-08-15"
-  },
-  {
-   "fighter": "Caio Borralho",
-   "rating": 1805,
-   "rd": 110,
-   "last_fight": "2026-03-07"
   },
   {
    "fighter": "Leon Edwards",
@@ -291,9 +225,15 @@
   },
   {
    "fighter": "Dustin Poirier",
-   "rating": 1796,
+   "rating": 1795,
    "rd": 91,
    "last_fight": "2025-07-19"
+  },
+  {
+   "fighter": "Joe Pyfer",
+   "rating": 1794,
+   "rd": 117,
+   "last_fight": "2026-03-28"
   },
   {
    "fighter": "Umar Nurmagomedov",
