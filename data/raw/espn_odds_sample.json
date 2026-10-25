@@ -1,0 +1,113 @@
+{
+ "$ref": "http://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061420/competitions/401921310/odds/100?lang=en&region=us",
+ "provider": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/providers/100?lang=en&region=us",
+  "id": "100",
+  "name": "DraftKings",
+  "priority": 1
+ },
+ "details": "T. Nolan -125",
+ "awayAthleteOdds": {
+  "favorite": true,
+  "underdog": false,
+  "moneyLine": -125,
+  "open": {
+   "favorite": false,
+   "moneyLine": {
+    "value": 1.81,
+    "displayValue": "50/61",
+    "alternateDisplayValue": "-122",
+    "decimal": 1.81,
+    "fraction": "50/61",
+    "american": "-122"
+   }
+  },
+  "current": {
+   "moneyLine": {
+    "value": 1.8,
+    "displayValue": "4/5",
+    "alternateDisplayValue": "-125",
+    "decimal": 1.8,
+    "fraction": "4/5",
+    "american": "-125"
+   }
+  },
+  "athlete": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/mma/athletes/5144007?lang=en&region=us"
+  }
+ },
+ "homeAthleteOdds": {
+  "favorite": false,
+  "underdog": true,
+  "moneyLine": 105,
+  "open": {
+   "favorite": false,
+   "moneyLine": {
+    "value": 2.02,
+    "displayValue": "51/50",
+    "alternateDisplayValue": "+102",
+    "decimal": 2.02,
+    "fraction": "51/50",
+    "american": "+102"
+   }
+  },
+  "current": {
+   "moneyLine": {
+    "value": 2.05,
+    "displayValue": "21/20",
+    "alternateDisplayValue": "+105",
+    "decimal": 2.05,
+    "fraction": "21/20",
+    "american": "+105"
+   }
+  },
+  "athlete": {
+   "$ref": "http://sports.core.api.espn.com/v2/sports/mma/athletes/3028863?lang=en&region=us"
+  }
+ },
+ "links": [
+  {
+   "language": "en-US",
+   "rel": [
+    "home",
+    "desktop",
+    "bets",
+    "draftkings"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34891968%3Foutcomes%3D0ML86906549_1",
+   "text": "Home Bet",
+   "shortText": "Home Bet",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "away",
+    "desktop",
+    "bets",
+    "draftkings"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34891968%3Foutcomes%3D0ML86906549_3",
+   "text": "Away Bet",
+   "shortText": "Away Bet",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "game",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34891968",
+   "text": "Game",
+   "shortText": "Game",
+   "isExternal": true,
+   "isPremium": false
+  }
+ ],
+ "moneylineWinner": false,
+ "spreadWinner": false
+}
