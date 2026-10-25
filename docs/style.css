@@ -164,3 +164,12 @@ td.n, th.n { text-align: right; }
 .cbadge b { color: var(--ink); }
 .cbadge b.won { color: var(--green); } .cbadge b.lost { color: var(--red); }
 @media (max-width: 640px) { .list li { flex-direction: column; align-items: flex-start; } .cbadge { white-space: normal; text-align: left; } }
+.tape { margin-top: 10px; border-top: 1px solid var(--rule); padding-top: 8px; }
+.tape summary { cursor: pointer; font: 600 16px "Barlow Condensed", sans-serif; color: var(--blue); }
+.tt { margin-top: 8px; font-size: 14px; }
+.tt td, .tt th { text-align: center; padding: 5px 8px; }
+.tt thead th { font: 700 17px "Barlow Condensed", sans-serif; color: var(--ink); }
+.tt tbody th { font: 500 13px "Barlow", sans-serif; color: var(--quiet); width: 40%; }
+.tt td.adv { font-weight: 700; color: var(--green); }
+.tape h3 { font: 700 18px "Barlow Condensed", sans-serif; margin: 14px 0 4px; }
+.vslist { margin: 0 0 6px; padding-left: 18px; font-size: 14px; }

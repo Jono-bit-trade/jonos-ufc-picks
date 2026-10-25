@@ -90,7 +90,72 @@ function bout(f, i, edge) {
     ${pickHtml}
     <div class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></div>
     <div class="method">If it ends: KO ${pct(m.KO || 0)}, submission ${pct(m.SUB || 0)}, decision ${pct(m.DEC || 0)}</div>
+    ${tapeToggle(f.a_slug, f.b_slug, f.rounds)}
   </article>`;
+}
+
+// ---------------- matchup: tale of the tape ----------------
+function tapeToggle(a, b, rounds) {
+  return `<details class="tape" data-a="${esc(a)}" data-b="${esc(b)}" data-rounds="${rounds || 3}" ontoggle="if(this.open)loadTape(this)">
+    <summary>Matchup: tale of the tape and how each does against the other's style</summary><div class="tapebody">Loading…</div></details>`;
+}
+
+async function loadTape(el) {
+  if (el.dataset.done) return;
+  el.dataset.done = 1;
+  const [a, b] = await Promise.all([get(`fighters/${el.dataset.a}.json`), get(`fighters/${el.dataset.b}.json`)]);
+  el.querySelector(".tapebody").innerHTML = tape(a, b, +el.dataset.rounds);
+}
+
+function tape(a, b, rounds) {
+  if (!a && !b) return `<p class="note">Both fighters are making their UFC debut: no UFC history to compare yet.</p>`;
+  const A = a || {}, B = b || {}, sa = A.style || {}, sb = B.style || {};
+  const n = v => v == null || v !== v ? null : +v;
+  // better: 1 = higher is better, -1 = lower is better, 0 = no judgement
+  const row = (label, va, vb, fmt = x => x, better = 0) => {
+    if ((va == null || va === "") && (vb == null || vb === "")) return "";   // nothing to compare yet
+    const x = n(va), y = n(vb);
+    const ea = better && x != null && y != null && x !== y && ((x > y) === (better > 0));
+    const eb = better && x != null && y != null && x !== y && !ea;
+    const show = v => v == null || v === "" ? "–" : fmt(v);
+    return `<tr><td class="${ea ? "adv" : ""}">${show(va)}</td><th>${label}</th><td class="${eb ? "adv" : ""}">${show(vb)}</td></tr>`;
+  };
+  const p0 = v => Math.round(v * 100) + "%", d2 = v => (+v).toFixed(2);
+  const rec = r => r && (r.w + r.l + r.d) ? `${r.w}-${r.l}${r.d ? "-" + r.d : ""}` : "no fights";
+  const vs = (F, label, key, sub) => F.splits && F.splits[key] && F.splits[key][sub] ? rec(F.splits[key][sub]) : "no fights";
+  const lines = [], plural = st => ({Striker: "strikers", Wrestler: "wrestlers", Grappler: "grapplers", Balanced: "balanced fighters"}[st] || st);
+  if (B.style_label) lines.push(`<li><b>${esc(A.name || "Debut")}</b> against ${plural(B.style_label)}: ${vs(A, "", "vs_style", B.style_label)}</li>`);
+  if (A.style_label) lines.push(`<li><b>${esc(B.name || "Debut")}</b> against ${plural(A.style_label)}: ${vs(B, "", "vs_style", A.style_label)}</li>`);
+  if (B.stance) lines.push(`<li><b>${esc(A.name)}</b> against ${B.stance.toLowerCase()} fighters: ${vs(A, "", "vs_stance", B.stance)}</li>`);
+  if (A.stance) lines.push(`<li><b>${esc(B.name)}</b> against ${A.stance.toLowerCase()} fighters: ${vs(B, "", "vs_stance", A.stance)}</li>`);
+  if (A.reach_cm && B.reach_cm && Math.abs(A.reach_cm - B.reach_cm) >= 5) {
+    const longer = A.reach_cm > B.reach_cm ? A : B, shorter = longer === A ? B : A;
+    lines.push(`<li><b>${esc(shorter.name)}</b> against longer-reach opponents: ${vs(shorter, "", "vs_reach", "longer")}</li>`);
+    lines.push(`<li><b>${esc(longer.name)}</b> against shorter-reach opponents: ${vs(longer, "", "vs_reach", "shorter")}</li>`);
+  }
+  if (rounds === 5) for (const F of [A, B]) if (F.name) lines.push(`<li><b>${esc(F.name)}</b> in five-round fights: ${F.splits && F.splits.five_rounds ? rec(F.splits.five_rounds) : "first one"}</li>`);
+  const wb = F => F.wins_by ? `${F.wins_by.KO} / ${F.wins_by.SUB} / ${F.wins_by.DEC}` : null;
+  const lb = F => F.losses_by ? `${F.losses_by.KO} / ${F.losses_by.SUB} / ${F.losses_by.DEC}` : null;
+  return `<table class="tt"><thead><tr><th>${esc(A.name || "UFC debut")}</th><th></th><th>${esc(B.name || "UFC debut")}</th></tr></thead><tbody>
+    ${row("Style", A.style_label, B.style_label)}
+    ${row("UFC record", A.ufc_record, B.ufc_record)}${row("Pro record", A.pro_record, B.pro_record)}
+    ${row("Rating", A.rating, B.rating, x => x, 1)}${row("Age", A.age, B.age, x => x, -1)}
+    ${row("Height", A.height_cm, B.height_cm, cm, 1)}${row("Reach", A.reach_cm, B.reach_cm, inch, 1)}${row("Stance", A.stance, B.stance)}
+    ${row("Streak", A.streak, B.streak, x => x > 0 ? "W" + x : x < 0 ? "L" + -x : "–", 1)}${row("Finish rate", A.finish_rate, B.finish_rate, p0, 1)}
+    ${row("Wins by KO / sub / dec", wb(A), wb(B))}${row("Losses by KO / sub / dec", lb(A), lb(B))}
+    ${row("Sig. strikes landed / min", sa.sig_strikes_landed_per_min, sb.sig_strikes_landed_per_min, d2, 1)}
+    ${row("Sig. strikes absorbed / min", sa.sig_strikes_absorbed_per_min, sb.sig_strikes_absorbed_per_min, d2, -1)}
+    ${row("Striking accuracy", sa.sig_strike_accuracy, sb.sig_strike_accuracy, p0, 1)}
+    ${row("Knockdowns / 15 min", sa.knockdowns_per_15, sb.knockdowns_per_15, d2, 1)}
+    ${row("Takedowns / 15 min", sa.takedowns_per_15, sb.takedowns_per_15, d2, 1)}
+    ${row("Takedown accuracy", sa.takedown_accuracy, sb.takedown_accuracy, p0, 1)}
+    ${row("Takedown defense", sa.takedown_defense, sb.takedown_defense, p0, 1)}
+    ${row("Control time share", sa.control_time_share, sb.control_time_share, p0, 1)}
+    ${row("Submission attempts / 15", sa.submission_attempts_per_15, sb.submission_attempts_per_15, d2, 1)}
+  </tbody></table>
+  ${!A.style && !B.style ? `<p class="note">Strike and takedown stats appear as the history backfill collects them.</p>` : ""}
+  ${lines.length ? `<h3>Against this kind of opponent</h3><ul class="vslist">${lines.join("")}</ul>
+    <p class="note">Styles come from fight stats where we have them (takedowns and control time make a wrestler, submission attempts a grappler, striking volume or KO wins a striker), otherwise from how the fighter wins. Small samples: a 2-1 record says little.</p>` : ""}`;
 }
 
 async function viewCard() {
@@ -202,6 +267,7 @@ async function viewEvent(s) {
       <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
       <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
       ${expertBar(b.experts, b.a, b.b)}
+      ${tapeToggle(b.a_slug, b.b_slug, b.rounds)}
     </article>`;
   }).join("");
   return `<p><a href="#/events">← All events</a></p><h1>${esc(e.name)}</h1>

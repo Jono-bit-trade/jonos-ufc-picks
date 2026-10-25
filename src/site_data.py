@@ -147,6 +147,41 @@ def track_record(rows):
             "edge": EDGE}
 
 
+def style_label(st, win_methods, wins):
+    """Striker, Wrestler, Grappler or Balanced: from fight stats when we have them,
+    otherwise from how the fighter wins."""
+    ko, sub = win_methods.get("KO", 0), win_methods.get("SUB", 0)
+    if st and st.get("minutes", 0) >= 10:
+        if (st.get("takedowns_per_15") or 0) >= 1.8 or (st.get("control_time_share") or 0) >= 0.22:
+            return "Wrestler"
+        if (st.get("submission_attempts_per_15") or 0) >= 0.9 or (wins >= 3 and sub / wins >= 0.4):
+            return "Grappler"
+        if (st.get("sig_strikes_landed_per_min") or 0) >= 4.0 or (wins >= 3 and ko / wins >= 0.5):
+            return "Striker"
+        return "Balanced"
+    if wins >= 3 and sub / wins >= 0.4:
+        return "Grappler"
+    if wins >= 3 and ko / wins >= 0.5:
+        return "Striker"
+    return "Balanced" if wins >= 3 else None
+
+
+def splits(g, labels):
+    """How a fighter has done against each style, stance, reach and in five-rounders."""
+    g = g[g["result"].isin(["W", "L", "D"])]
+    def rec(d):
+        return {"w": int((d["result"] == "W").sum()), "l": int((d["result"] == "L").sum()), "d": int((d["result"] == "D").sum())}
+    opp_style = g["opp"].map(lambda n: labels.get(norm(n)))
+    out = {"vs_style": {k: rec(g[opp_style == k]) for k in ["Striker", "Wrestler", "Grappler", "Balanced"] if (opp_style == k).any()},
+           "vs_stance": {k: rec(g[g["opp_stance"] == k]) for k in ["Orthodox", "Southpaw", "Switch"] if (g["opp_stance"] == k).any()}}
+    diff = g["reach"] - g["opp_reach"]
+    out["vs_reach"] = {"longer": rec(g[diff <= -5]), "similar": rec(g[diff.abs() < 5]), "shorter": rec(g[diff >= 5])}
+    five = g[pd.to_numeric(g["rounds"], errors="coerce") == 5]
+    if len(five):
+        out["five_rounds"] = rec(five)
+    return out
+
+
 def expert_lookup():
     """Expert consensus per bout (SplitPicks), keyed by (date, pair)."""
     c = read("expert_consensus.csv")
@@ -254,9 +289,15 @@ def main():
                                    f"reach_{s}": "reach", f"stance_{s}": "stance", f"age_{s}": "age"})
         d["result"] = np.select([d["winner"] == s, d["winner"] == o, d["winner"] == "draw"], ["W", "L", "D"], "NC")
         d["side"] = s
+        d["opp_stance"], d["opp_reach"] = fights[f"stance_{o}"], fights[f"reach_{o}"]
         long.append(d[["date", "fight_id", "event_name", "name", "opp", "result", "method", "finish", "end_round",
-                       "weight_class", "before", "after", "rd", "odds", "height", "reach", "stance", "age", "title", "side"]])
+                       "weight_class", "before", "after", "rd", "odds", "height", "reach", "stance", "age", "title", "side",
+                       "opp_stance", "opp_reach", "rounds"]])
     long = pd.concat(long).sort_values(["date"], kind="stable")
+    labels = {}
+    for name, g in long.groupby("name", sort=False):
+        w = g[g["result"] == "W"]
+        labels[norm(name)] = style_label(styles.get(norm(name)), w["method"].value_counts().to_dict(), len(w))
     index = []
     today = dt.date.today()
     for name, g in long.groupby("name", sort=False):
@@ -276,8 +317,9 @@ def main():
         age = None
         if isinstance(dob.get(k), str):
             age = int((pd.Timestamp(today) - pd.Timestamp(dob[k])).days // 365.25)
-        elif pd.notna(last["age"]):
-            age = int(last["age"] + (pd.Timestamp(today) - pd.Timestamp(last["date"])).days // 365.25)
+        elif g["age"].notna().any():   # last known age, carried forward to today
+            ka = g[g["age"].notna()].iloc[-1]
+            age = int(ka["age"] + (pd.Timestamp(today) - pd.Timestamp(ka["date"])).days // 365.25)
         hist = []
         for r in g.iloc[::-1].itertuples():
             p = mp.get(r.fight_id)
@@ -301,7 +343,8 @@ def main():
             "first_fight": g["date"].iloc[0], "last_fight": last["date"],
             "title_fights": int(g["title"].fillna(False).astype(bool).sum()),
             "finish_rate": round((wins["method"].isin(["KO", "SUB"])).mean(), 3) if len(wins) else None,
-            "style": styles.get(k),
+            "style": styles.get(k), "style_label": labels.get(k),
+            "splits": splits(g, labels),
             "rating_history": [[d, num(r)] for d, r in zip(g["date"], g["after"])],
             "fights": hist,
         }
