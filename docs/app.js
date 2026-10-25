@@ -84,6 +84,13 @@ function backtest(b) {
     <h2>The model alone</h2><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s1}</tbody></table>
     <h2>Blended with the line, ${esc(b.years)}</h2><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s2}</tbody></table>
     <h2>Flat 1-unit bets by edge</h2><table class="bt"><thead>${row(["Edge needed", "Bets", "Won", "Units", "Per bet"], true)}</thead><tbody>${roi}</tbody></table>
+    ${b.early ? `<h2>Betting at the opening line</h2>
+      <p class="note">The same blend fitted against the opening line, with bets at opening odds. "Line moved toward" is how often the line then moved to the pick's side before the fight: above 50% means the model spots value the market later agrees with.</p>
+      <table class="bt"><thead>${row(["Edge needed", "Bets", "Won", "Per bet, opening odds", "Per bet, closing odds", "Line moved toward"], true)}</thead><tbody>${
+      b.early.map(r => row([Math.round(r.edge * 100) + (Math.round(r.edge * 100) === 1 ? " point" : " points"), r.bets_open,
+        r["win_%_open"] == null ? "–" : r["win_%_open"].toFixed(1) + "%", r["roi_%_open"] == null ? "–" : r["roi_%_open"].toFixed(1) + "%",
+        r["roi_close_%"] == null ? "–" : r["roi_close_%"].toFixed(1) + "%", r["moved_toward_%"].toFixed(1) + "%"])).join("")}</tbody></table>`
+      : `<h2>Betting at the opening line</h2><p class="note">Appears once the history backfill has collected opening lines.</p>`}
     <p class="note" style="margin-top:16px">UFC closing lines are sharp. Treat picks as paper trades until the live record beats the line over a full year.</p>`;
 }
 
@@ -95,8 +102,8 @@ async function load() {
     window.EDGE = p.edge_threshold;
     $("#event").textContent = p.event;
     const d = new Date(p.date + "T12:00:00");
-    $("#where").textContent = d.toLocaleDateString(undefined, {weekday: "long", month: "long", day: "numeric"}) + (p.location ? ", " + p.location : "");
-    $("#bouts").innerHTML = p.fights.length ? p.fights.map(bout).join("") : `<div class="empty">No bouts listed for this card yet.</div>`;
+    $("#where").textContent = !p.fights.length ? "" : d.toLocaleDateString(undefined, {weekday: "long", month: "long", day: "numeric"}) + (p.location ? ", " + p.location : "");
+    $("#bouts").innerHTML = p.fights.length ? p.fights.map(bout).join("") : `<div class="empty">${esc(p.message || "No bouts listed for this card yet.")}</div>`;
     $("#updated").textContent = `Updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}. For fun and research, not betting advice.`;
     clearTimeout(window.refresh);
     if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(load, 120000);   // fight night: refresh every 2 minutes

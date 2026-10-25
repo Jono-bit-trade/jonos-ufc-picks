@@ -9,7 +9,7 @@ Website: **https://jono-bit-trade.github.io/jonos-ufc-picks/** (live once setup 
 1. **Add your Odds API key as a secret.** Get a free key at https://the-odds-api.com. In this repository go to **Settings → Secrets and variables → Actions → New repository secret**. Name: `ODDS_API_KEY`. Value: your key. Without it the site still works, using ESPN's lines (one book instead of the median of every US book).
 2. **Turn on the website.** Go to **Settings → Pages**. Under "Build and deployment", set Source to **Deploy from a branch**, Branch to **main**, folder **/docs**, then **Save**.
 3. **Run it for the first time.** Go to the **Actions** tab, choose **fight-week**, then **Run workflow**. It takes about 5 minutes. When it finishes, the website shows the next card.
-4. **Optional, once:** run **backfill-fight-stats** from the Actions tab (about 3 hours). It collects strike, takedown and control-time stats for every fight since 2010 and reruns the backtest, so you can see whether style stats improve the model.
+4. **History backfill (starts on its own).** The **backfill-history** workflow runs every weekday morning. It collects stats for every UFC fight since 2010 from UFCStats, opening and closing lines from BestFightOdds, and ESPN's past cards. The first full pass takes a few mornings; each run saves its progress. To start it now: Actions → backfill-history → Run workflow.
 
 After that it runs on its own:
 
@@ -31,6 +31,8 @@ Once a fight starts, its prediction is frozen, so the record is always graded on
 | The Odds API | `ODDS_API_KEY` (free: 500 credits a month, about 60 used) | Every US book's moneyline: median, best price, line history | `src/get_odds.py` |
 | UFCStats | None | Results with per-fight stats, fighter height, reach, stance and age, the next card as a fallback | `src/scrape_ufcstats.py` |
 | Ultimate UFC Dataset | None | 7,000+ fights since 2010 with closing odds, for training and the backtest | `src/get_data.py` |
+| BestFightOdds (history backfill) | None | Opening and closing lines for past fights, so picks can be tested at the opening line | `backfill-history` workflow, `src/import_history.py` |
+| ESPN past cards (history backfill) | None | Results and ESPN's lines for every card since 2020 | `src/espn.py --history` |
 
 ESPN's feed is undocumented. Each run saves its raw response to `data/raw/espn_scoreboard.json`, so if ESPN changes its format the fix is quick.
 
@@ -53,7 +55,7 @@ Committing that file reruns the picks straight away.
 | Ratings | `src/ratings.py` | Glicko-2 ratings; wins count by how they happened (a split decision moves ratings less than a KO) |
 | Features | `src/features.py` | Ratings, age, reach, height, experience, form, finishing rates, durability, layoffs, weight-class moves, five-rounders, altitude, stance, and style stats after the backfill |
 | Model | `src/model.py` | Logistic regression (the backtest picks it over boosted trees), a method-of-victory model, and a final blend with the line |
-| Backtest | `src/backtest.py` | Replays 2016 onward year by year using only earlier fights |
+| Backtest | `src/backtest.py` | Replays 2016 onward year by year using only earlier fights; once opening lines are in, also tests betting at the opening line and how often the line moves toward the pick |
 | Site | `src/predict.py`, `docs/` | The card, rankings, record and backtest pages |
 
 All tunable settings are in `src/config.py`. To test a change, edit a value and run the backtest (or ask Claude to). Keep a change only if it improves results across several years.

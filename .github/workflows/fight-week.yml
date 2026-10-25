@@ -11,7 +11,7 @@ on:
     - cron: "*/20 0-6 * * 0"        #   (continues past midnight UTC)
   workflow_dispatch:                # adds a "Run workflow" button on the Actions tab
   push:
-    paths: ["data/name_map.csv"]    # you fixed a name spelling: redo the picks
+    paths: ["data/name_map.csv", "src/**", ".github/workflows/fight-week.yml"]   # a fix or a code change: refresh the board
 
 concurrency:
   group: fight-week
@@ -37,7 +37,7 @@ jobs:
           case "${{ github.event.schedule }}" in
             "0 4 * * 2") echo "kind=full" >> "$GITHUB_OUTPUT" ;;
             "*/20 21-23 * * 6"|"*/20 0-6 * * 0") echo "kind=live" >> "$GITHUB_OUTPUT" ;;
-            "") [ "${{ github.event_name }}" = "push" ] && echo "kind=predict" >> "$GITHUB_OUTPUT" || echo "kind=full" >> "$GITHUB_OUTPUT" ;;
+            "") [ "${{ github.event_name }}" = "push" ] && echo "kind=lines" >> "$GITHUB_OUTPUT" || echo "kind=full" >> "$GITHUB_OUTPUT" ;;
             *) echo "kind=lines" >> "$GITHUB_OUTPUT" ;;
           esac
 
@@ -77,10 +77,4 @@ jobs:
 
       - name: Save
         if: always()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data docs
-          git commit -m "Update ${{ steps.kind.outputs.kind }} $(date -u +%Y-%m-%dT%H:%MZ)" || echo "No changes"
-          git pull --rebase
-          git push
+        run: bash .github/save.sh "Update ${{ steps.kind.outputs.kind }}"

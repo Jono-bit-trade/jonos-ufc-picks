@@ -1,10 +1,14 @@
 """Step 2: build data/fights.csv (one row per fight, oldest first).
 
-Two sources, merged:
+Sources, merged in this order (an earlier source wins when two have the same fight):
   1. The Ultimate UFC Dataset (GitHub): results, closing odds, method odds,
      fighter attributes, from 2010. Updated by its author every so often.
-  2. Your own UFCStats scrape (scrape_ufcstats.py): any event newer than
-     the dataset, plus the upcoming card. No odds; those come from get_odds.py.
+  2. The history backfill (import_history.py): every UFCStats fight, with
+     BestFightOdds opening and closing lines.
+  3. Your weekly UFCStats scrape (scrape_ufcstats.py).
+  4. ESPN results: the live feed (espn.py) and its history backfill.
+Opening lines from the backfill, and closing lines from any source, are then
+attached to every fight that lacks them.
 
 Run:  python src/get_data.py            (download + merge)
       python src/get_data.py --offline  (merge files already in data/raw)
@@ -19,7 +23,7 @@ URL = "https://raw.githubusercontent.com/shortlikeafox/ultimate_ufc_dataset/main
 COLUMNS = ["fight_id", "date", "event", "location", "weight_class", "gender", "title",
            "rounds", "a", "b", "winner", "method", "finish", "end_round", "fight_secs",
            "odds_a", "odds_b", "dec_odds_a", "dec_odds_b", "ko_odds_a", "ko_odds_b",
-           "sub_odds_a", "sub_odds_b", "age_a", "age_b", "height_a", "height_b",
+           "sub_odds_a", "sub_odds_b", "open_a", "open_b", "age_a", "age_b", "height_a", "height_b",
            "reach_a", "reach_b", "stance_a", "stance_b", "source"]
 
 # The dataset's career-average stat columns are NOT used: they include fights after
@@ -119,17 +123,59 @@ def canonical(df, known):
     return df
 
 
-def espn_results():
-    """Finished bouts from the ESPN live feed, in fights.csv columns (no stats or attributes)."""
-    f = path("espn_results.csv")
+def espn_results(name="espn_results.csv"):
+    """Finished bouts from ESPN, in fights.csv columns (no stats or attributes)."""
+    f = path(name)
     if not os.path.exists(f):
         return pd.DataFrame()
     e = pd.read_csv(f)
+    if "winner" not in e:
+        return pd.DataFrame()
     e = e[e["winner"].isin(["a", "b", "draw"])].copy()
     e["fight_id"] = e["date"] + "|" + e["a"] + "|" + e["b"]
     e["source"] = "espn"
     e["fight_secs"] = None
+    if "espn_odds_a" in e:
+        e["odds_a"], e["odds_b"] = e["espn_odds_a"], e["espn_odds_b"]
     return e
+
+
+def read_csv(name):
+    f = path(name)
+    return pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
+
+
+def attach_lines(fights, sources, days=2):
+    """Fill missing opening and closing lines from other sources, matching the pair within `days`."""
+    from get_odds import norm
+    lut = {}
+    for src in sources:
+        if src.empty:
+            continue
+        for c in ["open_a", "open_b", "odds_a", "odds_b"]:
+            if c not in src:
+                src[c] = None
+        for r in src.itertuples():
+            k = frozenset((norm(r.a), norm(r.b)))
+            lut.setdefault(k, []).append((pd.Timestamp(r.date), norm(r.a), r.open_a, r.open_b, r.odds_a, r.odds_b))
+    filled = {"open": 0, "close": 0}
+    for i, r in fights.iterrows():
+        cands = lut.get(frozenset((norm(r["a"]), norm(r["b"]))), [])
+        d = pd.Timestamp(r["date"])
+        for cd, ca, oa, ob, ca_, cb_ in cands:
+            if abs((cd - d).days) > days:
+                continue
+            same = ca == norm(r["a"])
+            oa, ob, ca_, cb_ = (oa, ob, ca_, cb_) if same else (ob, oa, cb_, ca_)
+            if pd.isna(r["open_a"]) and pd.notna(oa) and pd.notna(ob):
+                fights.at[i, "open_a"], fights.at[i, "open_b"] = oa, ob
+                filled["open"] += 1
+            if pd.isna(r["odds_a"]) and pd.notna(ca_) and pd.notna(cb_):
+                fights.at[i, "odds_a"], fights.at[i, "odds_b"] = ca_, cb_
+                filled["close"] += 1
+            break
+    print(f"attached {filled['open']} opening and {filled['close']} closing lines from other sources")
+    return fights
 
 
 def build(offline=False):
@@ -139,9 +185,10 @@ def build(offline=False):
     hist = normalize_ultimate(pd.read_csv(os.path.join(RAW, "ufc-master.csv")))
     frames = [hist]
     known = hist
-    for name, extra in [("UFCStats", pd.read_csv(path("scraped_fights.csv"))
-                         if os.path.exists(path("scraped_fights.csv")) else pd.DataFrame()),
-                        ("ESPN", espn_results())]:
+    history = read_csv("history_fights.csv")
+    espn_hist = espn_results("espn_history.csv")
+    for name, extra in [("history backfill", history), ("UFCStats", read_csv("scraped_fights.csv")),
+                        ("ESPN live", espn_results()), ("ESPN history", espn_hist)]:
         if extra.empty:
             continue
         extra = drop_known(canonical(extra, known), known)   # earlier sources win on overlap
@@ -152,6 +199,7 @@ def build(offline=False):
     for c in COLUMNS:
         if c not in fights:
             fights[c] = None
+    fights = attach_lines(fights, [history, espn_hist])
     fights = fill_logged_odds(fights)
     fights = fights.sort_values(["date", "fight_id"]).reset_index(drop=True)
     fights[COLUMNS].to_csv(path("fights.csv"), index=False)

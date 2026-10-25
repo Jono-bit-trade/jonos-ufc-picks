@@ -30,6 +30,19 @@ def read(name):
     return pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
 
 
+def publish_common(fights, log, G):
+    """Record, rankings and backtest pages: published on every run, card or not."""
+    json.dump(grade(log, fights), open(os.path.join(OUT, "results.json"), "w"), indent=1)
+    rt = table(G, NOW.date().isoformat())
+    cutoff = (NOW.date() - dt.timedelta(days=550)).isoformat()
+    json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"),
+               "fighters": rt[rt["last_fight"] >= cutoff].head(50).to_dict("records")},
+              open(os.path.join(OUT, "ratings.json"), "w"), indent=1)
+    bt = path("backtest_summary.json")
+    if os.path.exists(bt):
+        json.dump(json.load(open(bt)), open(os.path.join(OUT, "backtest.json"), "w"), indent=1)
+
+
 def load_card(fights):
     """The next card, with names in the history's spelling and the current lines attached."""
     known = {norm(n): n for n in pd.concat([fights["a"], fights["b"]]).unique()}
@@ -140,7 +153,17 @@ def main():
         es = lines()
         if not es.empty:
             snapshot(es)   # no Odds API key: keep ESPN's lines as the line history
-    card, source = load_card(fights)
+    try:
+        card, source = load_card(fights)
+    except SystemExit as e:   # no card yet: keep the site up with a clear message
+        print(e)
+        json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": "Next UFC card", "date": NOW.date().isoformat(),
+                   "location": "", "card_source": "none", "edge_threshold": EDGE, "big_edge": BIG_EDGE,
+                   "message": "The next card isn't listed yet. It appears here as soon as ESPN or UFCStats posts it.",
+                   "fights": []}, open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
+        from ratings import pre_fight_ratings
+        publish_common(fights, read("pick_log.csv"), pre_fight_ratings(fights)[1])
+        return
     from get_data import drop_known
     todo = drop_known(card.drop(columns=["line_history"], errors="ignore"), fights)   # not yet in the history
     t, G = build(fights, todo)
@@ -227,17 +250,7 @@ def main():
                "date": str(first["date"]), "location": str(first.get("location") or ""), "card_source": source,
                "edge_threshold": EDGE, "big_edge": BIG_EDGE, "model": cfg, "fights": out},
               open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
-    json.dump(grade(log, fights), open(os.path.join(OUT, "results.json"), "w"), indent=1)
-
-    rt = table(G, NOW.date().isoformat())
-    cutoff = (NOW.date() - dt.timedelta(days=550)).isoformat()
-    json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"),
-               "fighters": rt[rt["last_fight"] >= cutoff].head(50).to_dict("records")},
-              open(os.path.join(OUT, "ratings.json"), "w"), indent=1)
-
-    bt = path("backtest_summary.json")
-    if os.path.exists(bt):
-        json.dump(json.load(open(bt)), open(os.path.join(OUT, "backtest.json"), "w"), indent=1)
+    publish_common(fights, log, G)
 
     print(f"{len(out)} bouts, {sum(1 for f in out if f['pick'])} picks at a {EDGE:.0%} edge")
     for f in out:

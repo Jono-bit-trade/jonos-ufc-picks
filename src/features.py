@@ -193,7 +193,7 @@ def build(fights, upcoming=None, glicko=None):
                     h.add_stats(stats[(f.date, name)])
     feats = pd.DataFrame(rows)
     keep = ["fight_id", "date", "a", "b", "winner", "method", "end_round", "rounds", "weight_class",
-            "location", "odds_a", "odds_b", "rating_a", "rating_b", "p_glicko",
+            "location", "odds_a", "odds_b", "open_a", "open_b", "rating_a", "rating_b", "p_glicko",
             "dec_odds_a", "dec_odds_b", "ko_odds_a", "ko_odds_b", "sub_odds_a", "sub_odds_b"]
     keep = [c for c in keep if c in df.columns]
     return df[keep].merge(feats, on="fight_id"), G
@@ -212,7 +212,7 @@ STYLE = ["slpm_diff", "sapm_diff", "td15_diff", "td_def_diff", "ctrl_share_diff"
 # columns that change meaning when A and B swap sides
 SWAP = [("rd_a", "rd_b"), ("age_a", "age_b"), ("debut_a", "debut_b"), ("layoff_a", "layoff_b"),
         ("long_layoff_a", "long_layoff_b"), ("wc_change_a", "wc_change_b"),
-        ("southpaw_a", "southpaw_b"), ("odds_a", "odds_b"), ("rating_a", "rating_b"),
+        ("southpaw_a", "southpaw_b"), ("odds_a", "odds_b"), ("open_a", "open_b"), ("rating_a", "rating_b"),
         ("dec_odds_a", "dec_odds_b"), ("ko_odds_a", "ko_odds_b"), ("sub_odds_a", "sub_odds_b"),
         ("a", "b")]
 NEGATE = ["glicko_logit", "age_diff", "reach_diff", "height_diff", "exp_diff", "win_rate_diff",

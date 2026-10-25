@@ -5,6 +5,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "src"))
 os.environ["UFC_OFFLINE"] = "1"
 from bs4 import BeautifulSoup
+import pandas as pd
 
 # ---- ESPN scoreboard -------------------------------------------------------
 tmp = tempfile.mkdtemp()
@@ -62,5 +63,35 @@ FIGHTER = """<span class="b-content__title-highlight">Alex Red</span>
 p = su.parse_fighter(BeautifulSoup(FIGHTER, "lxml"))
 assert p["height_cm"] == 177.8 and p["reach_cm"] == 182.88 and p["stance"] == "Southpaw", p
 assert p["dob"] == "1995-03-03" and p["pro_record"] == "14-3-0", p
+
+# ---- history backfill tables (ufcscraper format) ----------------------------
+import common, import_history as ih
+hist_dir = os.path.join(tmp, "ufcscraper")
+os.makedirs(hist_dir)
+w = lambda n, t: open(os.path.join(hist_dir, n), "w").write(t)
+w("event_data.csv", "event_id,event_name,event_date,event_city,event_state,event_country\n"
+                    "e1,UFC Test,2024-03-02,Las Vegas,Nevada,USA\n")
+w("fight_data.csv", "fight_id,event_id,referee,fighter_1,fighter_2,winner,num_rounds,title_fight,weight_class,gender,"
+                    "result,result_details,finish_round,finish_time,time_format,scores_1,scores_2\n"
+                    "x1,e1,Ref,f1,f2,f2,3,F,Lightweight,M,Decision,Split,3,5:00,3 Rnd (5-5-5),,\n")
+w("fighter_data.csv", "fighter_id,fighter_f_name,fighter_l_name,fighter_nickname,fighter_height_cm,fighter_weight_lbs,"
+                      "fighter_reach_cm,fighter_stance,fighter_dob,fighter_w,fighter_l,fighter_d,fighter_nc_dq\n"
+                      "f1,Alex,Red,,177.8,155,182.88,Orthodox,1994-01-01,10,2,0,0\n"
+                      "f2,Ben,Blue,,180.34,155,185.42,Southpaw,1996-06-01,12,1,0,0\n")
+w("round_data.csv", "fight_id,fighter_id,round,knockdowns,strikes_att,strikes_succ,takedown_att,takedown_succ,"
+                    "submission_att,reversals,ctrl_time\n"
+                    "x1,f1,1,0,30,12,2,1,0,0,1:30\nx1,f1,2,0,25,10,0,0,0,0,0:00\n"
+                    "x1,f2,1,1,40,20,0,0,1,0,0:10\nx1,f2,2,0,35,18,1,1,0,0,2:00\n")
+w("BestFightOdds_odds.csv", "fight_id,fighter_id,opening,closing_range_min,closing_range_max\n"
+                            "x1,f1,-150,-130,-120\nx1,f2,130,100,110\n")
+ih.SRC = hist_dir
+common.DATA = tmp
+ih.path = lambda *p: os.path.join(tmp, *p)
+h = ih.build().iloc[0]
+assert h["a"] == "Alex Red" and h["winner"] == "b" and h["finish"] == "S-DEC" and h["fight_secs"] == 900, h
+assert h["open_a"] == -150 and h["open_b"] == 130 and -130 <= h["odds_a"] <= -120 and h["odds_b"] >= 100, h
+st = pd.read_csv(os.path.join(tmp, "fight_stats.csv")).set_index("fighter")
+assert st.loc["Alex Red", "sig_landed"] == 22 and st.loc["Alex Red", "sig_absorbed"] == 38, st
+assert st.loc["Ben Blue", "ctrl_secs"] == 130 and st.loc["Ben Blue", "td_faced"] == 2, st
 
 print("parser tests passed")

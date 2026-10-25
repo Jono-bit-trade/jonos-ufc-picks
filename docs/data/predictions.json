@@ -1,0 +1,11 @@
+{
+ "updated": "2026-10-25T16:24Z",
+ "event": "Next UFC card",
+ "date": "2026-10-25",
+ "location": "",
+ "card_source": "none",
+ "edge_threshold": 0.03,
+ "big_edge": 0.1,
+ "message": "The next card isn't listed yet. It appears here as soon as ESPN or UFCStats posts it.",
+ "fights": []
+}

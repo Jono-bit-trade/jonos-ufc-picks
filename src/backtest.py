@@ -72,6 +72,47 @@ def market_blend_walk(r):
     return pd.concat(out)
 
 
+def early_line(r):
+    """The same blend fitted against the OPENING line, bets placed at opening odds.
+    Also: how often the line then moved toward the model's side (closing line value)."""
+    r = r.dropna(subset=["open_a", "open_b", "odds_a", "odds_b"]).copy()
+    if len(r) < 300:
+        return None
+    r["fair_open"] = no_vig(r["open_a"], r["open_b"])
+    r["fair_close"] = no_vig(r["odds_a"], r["odds_b"])
+    y = (r["winner"] == "a").astype(int)
+    out = []
+    for yr in range(BLEND_FROM, TEST_YEARS.stop):
+        tr, te = r["date"] < str(yr), r["date"].str.startswith(str(yr))
+        if te.sum() == 0 or tr.sum() < 200:
+            continue
+        b = MarketBlend().fit(r.loc[tr, "fair_open"], r.loc[tr, "p"], y[tr])
+        d = r[te].copy()
+        d["p_open_blend"] = b.predict(d["fair_open"], d["p"])
+        out.append(d)
+    if not out:
+        return None
+    s = pd.concat(out)
+    rows = []
+    for e in EDGES:
+        side_a = s["p_open_blend"] - s["fair_open"] > e
+        side_b = s["fair_open"] - s["p_open_blend"] > e
+        picked = side_a | side_b
+        moved = s["fair_close"] - s["fair_open"]
+        toward = ((side_a & (moved > 0.005)) | (side_b & (moved < -0.005)))[picked]
+        changed = (moved.abs() > 0.005)[picked]
+        at_open = bets(s.assign(odds_a=s["open_a"], odds_b=s["open_b"], p=s["p_open_blend"]), e)
+        at_close = bets(s.assign(p=s["p_open_blend"] + s["fair_close"] - s["fair_open"]), e)   # same picks graded at the close
+        rows.append({"edge": e, **{k + "_open": v for k, v in at_open.items()},
+                     "roi_close_%": at_close["roi_%"],
+                     "moved_toward_%": 100 * toward.sum() / max(changed.sum(), 1)})
+    t = pd.DataFrame(rows)
+    print(f"\nSTAGE 3: early line, {len(s)} fights with opening lines")
+    print(t.round(2).to_string(index=False))
+    s.to_csv(path("backtest_early.csv"), index=False)
+    return t
+
+
 def main():
     t, _ = build(pd.read_csv(path("fights.csv")))
     has_style = t[STYLE].notna().mean().min() > 0.5
@@ -119,6 +160,7 @@ def main():
               open(path("market_blend.json"), "w"))
     s.to_csv(path("backtest_blend.csv"), index=False)
     byyear = [{"year": yr, **bets(d, 0.03, "p_blend")} for yr, d in s.groupby(s["date"].str[:4])]
+    early = early_line(r)
     clean = lambda df: json.loads(df.round(4).to_json(orient="records"))
     json.dump({"run_at": dt.datetime.now().strftime("%Y-%m-%d"), "best": {"features": best[0], "learner": best[1]},
                "stage1": clean(res), "stage2": clean(pd.DataFrame([
@@ -126,7 +168,8 @@ def main():
                    {"probability": "Model alone", **score(s["p"].values, y)},
                    {"probability": "Line + model blend", **score(s["p_blend"].values, y)}])),
                "roi": clean(roi), "by_year": clean(pd.DataFrame(byyear)),
-               "years": f"{BLEND_FROM}-{TEST_YEARS.stop - 1}", "fights": int(len(s))},
+               "years": f"{BLEND_FROM}-{TEST_YEARS.stop - 1}", "fights": int(len(s)),
+               "early": clean(early) if early is not None else None},
               open(path("backtest_summary.json"), "w"), indent=1)
 
     res.insert(0, "run_at", dt.datetime.now().strftime("%Y-%m-%d %H:%M"))
