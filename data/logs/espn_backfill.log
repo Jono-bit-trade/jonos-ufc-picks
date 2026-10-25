@@ -1,6 +1,3 @@
-9404 of 9404 bouts to fetch
-100 bouts fetched
-200 bouts fetched
-300 bouts fetched
-400 bouts fetched
+9399 of 9404 bouts to fetch
 time limit reached: the next run carries on from here
+done: 24 bouts to retry | ESPN answered: {'400': 120, 'slow (5s+)': 0, 'HTTPError': 120, '200': 12}
