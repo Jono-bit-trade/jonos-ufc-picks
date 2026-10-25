@@ -180,3 +180,20 @@ td.n, th.n { text-align: right; }
 .stat b .won, .stat b .lost { font-size: 0.8em; }
 tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%, transparent); }
 .inl { font: 700 15px "Barlow Condensed", sans-serif; color: var(--ink); }
+
+/* analyst picks, SplitPicks-style: who picked whom */
+.analysts { margin-top: 6px; font-size: 13px; }
+.analysts summary { cursor: pointer; color: var(--quiet); }
+.ancols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+.ancols h4 { margin: 0 0 4px; font-size: 13px; }
+.ancols h4 span { color: var(--quiet); font-weight: normal; }
+.anl { list-style: none; margin: 0; padding: 0; }
+.anl li { display: flex; flex-wrap: wrap; gap: 2px 8px; padding: 4px 0; border-top: 1px solid color-mix(in srgb, var(--quiet) 20%, transparent); }
+.anl li .an { font-weight: 600; flex: 1 1 auto; }
+.anl li .ar, .anl li .ad { color: var(--quiet); font-size: 12px; }
+.anl li.none { color: var(--quiet); }
+.wtag { display: inline-block; font-size: 10px; padding: 0 4px; border-radius: 3px; background: color-mix(in srgb, var(--green, #2a8a4a) 25%, transparent); }
+.conf { font-style: normal; font-size: 11px; padding: 0 4px; border-radius: 3px; border: 1px solid currentColor; }
+.conf.c-high { color: var(--red); }
+.anl .ok { color: var(--green, #2a8a4a); } .anl .no { color: var(--red); }
+@media (max-width: 520px) { .ancols { grid-template-columns: 1fr; } }

@@ -205,6 +205,40 @@ def winning_counts(slug_, bout, on_a):
     return {"win_a": int(r.win_a if on_a else r.win_b), "win_b": int(r.win_b if on_a else r.win_a)}
 
 
+_PICKS = _REC = None
+
+
+def analyst_picks(slug_, bout, on_a):
+    """Every analyst's pick on a bout (SplitPicks), with their overall record, for display.
+    side is 'a' or 'b' in the site's orientation; winning = counts toward the winning-analyst consensus."""
+    global _PICKS, _REC
+    if _PICKS is None:
+        p = read("expert_picks.csv")
+        _PICKS = {k: g for k, g in p.groupby(["slug", "bout"])} if not p.empty else {}
+        _REC = {}
+        ef = os.path.join(SITE, "data", "experts.json")
+        if os.path.exists(ef):
+            _REC = {r["analyst"]: r for r in json.load(open(ef)).get("analysts", [])}
+        mt = os.path.join(SITE, "data", "model_test.json")
+        win = set(json.load(open(mt)).get("winning_analysts", [])) if os.path.exists(mt) else set()
+        for k, r in _REC.items():
+            r["_winning"] = k in win
+    g = _PICKS.get((slug_, bout))
+    if g is None:
+        return []
+    out = []
+    for r in g.itertuples():
+        side_a = norm(r.pick) == norm(r.a)
+        rec = _REC.get(r.analyst, {})
+        out.append({"name": r.analyst, "side": "a" if side_a == on_a else "b",
+                    "conf": r.confidence if isinstance(r.confidence, str) else None,
+                    "method": r.method if isinstance(r.method, str) else None,
+                    "record": f"{rec['won']}-{rec['bets'] - rec['won']}" if rec else None,
+                    "units": rec.get("units"), "winning": bool(rec.get("_winning"))})
+    order = {"High": 0, "Med": 1, "Low": 2}
+    return sorted(out, key=lambda x: (not x["winning"], order.get(x["conf"], 3), -(x["units"] or -999)))
+
+
 def expert_lookup():
     """Expert consensus per bout (SplitPicks), keyed by (date, pair)."""
     c = read("expert_consensus.csv")
@@ -257,6 +291,7 @@ def main():
                        "high_a": int(ex.high_a if on_a else ex.high_b), "high_b": int(ex.high_b if on_a else ex.high_a),
                        "url": f"https://splitpicks.com/events/{ex.slug}.html"}
                 exp.update(winning_counts(ex.slug, ex.bout, on_a))
+                exp["analysts"] = analyst_picks(ex.slug, ex.bout, on_a)
             pick = value = our = None
             if f.winner in ("a", "b"):
                 won_a = f.winner == "a"

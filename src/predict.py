@@ -76,8 +76,9 @@ def experts_for(date, a, b):
     out = {"picks_a": int(r.picks_a if on_a else r.picks_b), "picks_b": int(r.picks_b if on_a else r.picks_a),
            "high_a": int(r.high_a if on_a else r.high_b), "high_b": int(r.high_b if on_a else r.high_a),
            "url": f"https://splitpicks.com/events/{r.slug}.html"}
-    from site_data import winning_counts
+    from site_data import winning_counts, analyst_picks
     out.update(winning_counts(r.slug, r.bout, on_a))
+    out["analysts"] = analyst_picks(r.slug, r.bout, on_a)
     return out
 
 

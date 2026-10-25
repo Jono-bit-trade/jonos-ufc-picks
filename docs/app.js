@@ -51,13 +51,32 @@ function status(f) {
   return f.start ? `<div class="status">${new Date(f.start).toLocaleTimeString([], {hour: "numeric", minute: "2-digit"})}${f.segment ? ", " + esc(f.segment) : ""}</div>` : "";
 }
 
-function expertBar(e, a, b) {
+function analystList(e, a, b, winner) {
+  const list = e.analysts || [];
+  if (!list.length) return "";
+  const done = winner === "a" || winner === "b";
+  const item = x => {
+    const right = done ? (x.side === winner) : null;
+    return `<li class="${x.winning ? "winning" : ""}">
+      <span class="an">${esc(x.name)}${x.winning ? ` <b class="wtag" title="Winning record: counts in the winning-analyst consensus">W</b>` : ""}</span>
+      <span class="ad">${x.conf ? `<i class="conf c-${esc(x.conf.toLowerCase())}">${esc(x.conf)}</i>` : ""}${x.method ? " " + esc(x.method) : ""}${done ? ` <span class="${right ? "ok" : "no"}">${right ? "✓" : "✗"}</span>` : ""}</span>
+      ${x.record ? `<span class="ar">${esc(x.record)}, ${x.units > 0 ? "+" : ""}${(+x.units).toFixed(1)}u</span>` : ""}</li>`;
+  };
+  const col = (side, name) => `<div><h4>${esc(name)} <span>${list.filter(x => x.side === side).length}</span></h4>
+    <ul class="anl">${list.filter(x => x.side === side).map(item).join("") || `<li class="none">No picks</li>`}</ul></div>`;
+  return `<details class="analysts"><summary>Analyst picks (${list.length})</summary>
+    <div class="ancols">${col("a", a)}${col("b", b)}</div>
+    <p class="note">Each analyst's overall record and units on SplitPicks bouts. <b class="wtag">W</b> marks analysts with a winning record. Shown for reference: expert picks are not used in our chances because they haven't improved them in testing.</p></details>`;
+}
+
+function expertBar(e, a, b, winner) {
   if (!e || !(e.picks_a + e.picks_b)) return "";
   const n = e.picks_a + e.picks_b, sa = e.picks_a / n;
   return `<div class="experts">
     <div class="exl"><span>Experts: ${e.picks_a} on ${esc(a.split(" ").at(-1))}</span><span>${e.picks_b} on ${esc(b.split(" ").at(-1))}</span></div>
     <div class="exbar" role="img" aria-label="${e.picks_a} of ${n} analysts picked ${esc(a)}"><i style="width:${sa * 100}%"></i></div>
     <div class="exl small"><span>Winning analysts: ${e.win_a ?? 0}</span><a href="${esc(e.url)}" target="_blank" rel="noopener">Data from SplitPicks</a><span>Winning analysts: ${e.win_b ?? 0}</span></div>
+    ${analystList(e, a, b, winner)}
   </div>`;
 }
 
@@ -88,7 +107,7 @@ function bout(f, i, edge) {
       ${line != null ? `<div class="line" style="left:${line * 100}%"></div>` : ""}
     </div>
     <div class="legend"><span>Fair ${odds(f.fair_odds_a)}</span><span class="hide-sm">Line ${line != null ? pct(line) + " / " + pct(1 - line) : "not posted"}</span><span>Fair ${odds(f.fair_odds_b)}</span></div>
-    ${expertBar(f.experts, f.a, f.b)}
+    ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
     ${pickHtml}
     <div class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></div>
     <div class="method">If it ends: KO ${pct(m.KO || 0)}, submission ${pct(m.SUB || 0)}, decision ${pct(m.DEC || 0)}</div>
@@ -274,7 +293,7 @@ async function viewEvent(s) {
     return `<article class="bout slim${i === 0 ? " main" : ""}">
       <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
       <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
-      ${expertBar(b.experts, b.a, b.b)}
+      ${expertBar(b.experts, b.a, b.b, b.winner)}
       ${tapeToggle(b.a_slug, b.b_slug, b.rounds)}
     </article>`;
   }).join("");
