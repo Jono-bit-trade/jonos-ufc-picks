@@ -88,6 +88,8 @@ def odds_rows(js, row):
 
 def main(minutes=300):
     h = pd.read_csv(path("espn_history.csv"), dtype=str).dropna(subset=["espn_fight", "espn_event", "espn_id_a", "espn_id_b"])
+    for c in ("espn_fight", "espn_event", "espn_id_a", "espn_id_b"):   # ids saved as floats ("600061267.0") break the URLs
+        h[c] = h[c].str.replace(r"\.0$", "", regex=True)
     h = h.drop_duplicates("espn_fight").sort_values("date", ascending=False)   # newest first: most useful soonest
     done_f = path("espn_backfill_done.txt")
     done = set(open(done_f).read().split()) if os.path.exists(done_f) else set()

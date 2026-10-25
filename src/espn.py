@@ -22,6 +22,14 @@ from config import OFFLINE
 URL = "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard"
 
 
+
+def ids_as_text(d):
+    """ESPN ids as plain text: pandas reads them back as floats ("600061267.0") once a column has a gap."""
+    for c in ("espn_fight", "espn_event", "espn_id_a", "espn_id_b"):
+        if c in d:
+            d[c] = d[c].astype(str).str.replace(r"\.0$", "", regex=True).replace("nan", pd.NA)
+    return d
+
 def fetch(date=None):
     if OFFLINE:
         f = path("raw", "espn_scoreboard.json")
@@ -276,7 +284,7 @@ def save_results(card):
         f = path("espn_results.csv")
         old = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
         allr = pd.concat([old, done], ignore_index=True)
-        allr["espn_fight"] = allr["espn_fight"].astype(str)
+        allr = ids_as_text(allr)
         allr = allr.drop_duplicates("espn_fight", keep="last")
         allr.to_csv(f, index=False)
     return done
@@ -355,7 +363,7 @@ def history(first_year=2010):
             time.sleep(0.4)
     if rows:
         allr = pd.concat([old] + rows, ignore_index=True)
-        allr["espn_fight"] = allr["espn_fight"].astype(str)
+        allr = ids_as_text(allr)
         allr = allr.drop_duplicates("espn_fight", keep="last").sort_values(["date", "bout_order"])
         allr.to_csv(f, index=False)
         print("espn_history.csv:", len(allr), "finished bouts")
