@@ -95,3 +95,13 @@ assert st.loc["Alex Red", "sig_landed"] == 22 and st.loc["Alex Red", "sig_absorb
 assert st.loc["Ben Blue", "ctrl_secs"] == 130 and st.loc["Ben Blue", "td_faced"] == 2, st
 
 print("parser tests passed")
+
+# ---- A real ESPN response (UFC 333, saved by the first live run) -------------
+real = espn.parse(json.load(open(os.path.join(HERE, "espn_real_ufc333.json"))))
+assert len(real) == 14 and real["state"].eq("post").all(), real
+r = real.set_index("a")
+assert r.loc["Alexander Volkanovski", "finish"] == "KO/TKO" and r.loc["Alexander Volkanovski", "winner"] == "a"
+assert r.loc["Colby Thicknesse", "finish"] == "S-DEC" and r.loc["Abus Magomedov", "method"] == "SUB"
+assert r.loc["Iasmin Lucindo", "weight_class"] == "Women's Strawweight" and r.loc["Iasmin Lucindo", "gender"] == "F"
+assert espn.next_event_date(json.load(open(os.path.join(HERE, "espn_real_ufc333.json")))) is not None
+print("real ESPN response parsed")

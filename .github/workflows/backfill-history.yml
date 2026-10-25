@@ -35,14 +35,14 @@ jobs:
         run: timeout 120m ufcscraper_scrape_ufcstats_data --data-folder data/ufcscraper --n-sessions 4 --delay 1 --log-level WARNING
 
       - name: Save progress
-        run: bash .github/save.sh "Backfill: UFCStats history"
+        run: 'bash .github/save.sh "Backfill: UFCStats history"'
 
       - name: BestFightOdds opening and closing lines (up to 2.5 hours)
         continue-on-error: true
         run: timeout 150m xvfb-run -a ufcscraper_scrape_bestfightodds_data --data-folder data/ufcscraper --n-sessions 2 --delay 1 --min-date 2010-01-01 --log-level WARNING
 
       - name: Save progress
-        run: bash .github/save.sh "Backfill: BestFightOdds lines"
+        run: 'bash .github/save.sh "Backfill: BestFightOdds lines"'
 
       - name: ESPN past cards (up to 30 minutes)
         continue-on-error: true
@@ -57,4 +57,4 @@ jobs:
 
       - name: Save
         if: always()
-        run: bash .github/save.sh "Backfill: rebuild and backtest"
+        run: 'bash .github/save.sh "Backfill: rebuild and backtest"'
