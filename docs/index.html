@@ -9,40 +9,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1 id="event">Next card</h1>
-    <p class="where" id="where">Loading predictions…</p>
-  </header>
-
-  <nav role="tablist">
-    <button role="tab" aria-selected="true" data-tab="card">The card</button>
-    <button role="tab" aria-selected="false" data-tab="ratings">Rankings</button>
-    <button role="tab" aria-selected="false" data-tab="record">Record</button>
-    <button role="tab" aria-selected="false" data-tab="how">How it works</button>
-  </nav>
-
-  <section id="card">
-    <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. A gold pick means the model beats the line by enough to bet.</p>
-    <div id="bouts"></div>
-  </section>
-
-  <section id="ratings" hidden>
-    <p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only. The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs.</p>
-    <table><thead><tr><th class="n">#</th><th>Fighter</th><th class="n">Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody id="rt"></tbody></table>
-  </section>
-
-  <section id="record" hidden>
-    <div class="record" id="totals"></div>
-    <div id="history"></div>
-  </section>
-
-  <section id="how" hidden>
-    <div id="backtest"></div>
-  </section>
-
-  <footer id="updated"></footer>
-</div>
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="#/">Jono's <b>UFC Picks</b></a>
+    <nav aria-label="Sections">
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/card" data-nav="card">This card</a>
+      <a href="#/events" data-nav="events">Events</a>
+      <a href="#/fighters" data-nav="fighters">Fighters</a>
+      <a href="#/experts" data-nav="experts">Experts</a>
+      <a href="#/rankings" data-nav="rankings">Rankings</a>
+      <a href="#/record" data-nav="record">Record</a>
+      <a href="#/how" data-nav="how">How it works</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="view" tabindex="-1"><p class="where">Loading…</p></main>
+<footer class="wrap foot" id="updated"></footer>
 <script src="app.js"></script>
 </body>
 </html>

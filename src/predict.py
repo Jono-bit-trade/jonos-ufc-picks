@@ -43,6 +43,39 @@ def publish_common(fights, log, G):
         json.dump(json.load(open(bt)), open(os.path.join(OUT, "backtest.json"), "w"), indent=1)
 
 
+def slugify(n):
+    from site_data import slug
+    return slug(n)
+
+
+def str_or_none(x):
+    if x is None or (isinstance(x, float) and x != x):
+        return None
+    s = str(x)
+    return s[:-2] if s.endswith(".0") and s[:-2].isdigit() else s
+
+
+_EXPERTS = None
+
+
+def experts_for(date, a, b):
+    """SplitPicks consensus for a bout, oriented to (a, b), or None."""
+    global _EXPERTS
+    if _EXPERTS is None:
+        c = read("expert_consensus.csv")
+        _EXPERTS = {}
+        for r in c.itertuples():
+            for d in pd.date_range(pd.Timestamp(r.date) - pd.Timedelta(days=1), periods=3).strftime("%Y-%m-%d"):
+                _EXPERTS[(d, frozenset((norm(r.a), norm(r.b))))] = r
+    r = _EXPERTS.get((str(date), frozenset((norm(a), norm(b)))))
+    if r is None:
+        return None
+    on_a = norm(r.a) == norm(a)
+    return {"picks_a": int(r.picks_a if on_a else r.picks_b), "picks_b": int(r.picks_b if on_a else r.picks_a),
+            "high_a": int(r.high_a if on_a else r.high_b), "high_b": int(r.high_b if on_a else r.high_a),
+            "url": f"https://splitpicks.com/events/{r.slug}.html"}
+
+
 def load_card(fights):
     """The next card, with names in the history's spelling and the current lines attached."""
     known = {norm(n): n for n in pd.concat([fights["a"], fights["b"]]).unique()}
@@ -227,7 +260,11 @@ def main():
                    "detail": c.get("status_detail") or "", "pick_won": (pick is not None and w in ("a", "b")
                                                                         and pick == (f["a"] if w == "a" else f["b"]))}
         out.append({
-            "a": f["a"], "b": f["b"], "weight_class": c.get("weight_class") or "",
+            "a": f["a"], "b": f["b"], "a_slug": slugify(f["a"]), "b_slug": slugify(f["b"]),
+            "a_id": str_or_none(c.get("espn_id_a")), "b_id": str_or_none(c.get("espn_id_b")),
+            "record_a": str_or_none(c.get("record_a")), "record_b": str_or_none(c.get("record_b")),
+            "experts": experts_for(f["date"], f["a"], f["b"]),
+            "weight_class": c.get("weight_class") or "",
             "rounds": int(f["rounds"]) if f["rounds"] == f["rounds"] else 3,
             "segment": c.get("card_segment") if isinstance(c.get("card_segment"), str) else "",
             "start": c.get("start") if isinstance(c.get("start"), str) else None,

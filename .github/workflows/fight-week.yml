@@ -80,6 +80,11 @@ jobs:
       - name: Predict
         run: python src/predict.py
 
+      - name: Fighter profiles, past cards and the expert test
+        run: |
+          python src/site_data.py
+          python src/expert_analysis.py || echo "no expert picks yet"
+
       - name: Save
         if: always()
         run: bash .github/save.sh "Update ${{ steps.kind.outputs.kind }}"

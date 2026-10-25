@@ -197,6 +197,22 @@ def parse(js):
     return pd.DataFrame(rows)
 
 
+def upcoming_cards(js):
+    """The next few cards on the calendar, for the site's Events page."""
+    from common import SITE
+    now = pd.Timestamp.now(tz="UTC")
+    out = []
+    for c in (_get(js, "leagues", default=[{}]) or [{}])[0].get("calendar", []):
+        start = pd.Timestamp(c.get("startDate"))
+        start = start.tz_localize("UTC") if start.tzinfo is None else start
+        if start > now - pd.Timedelta(hours=8):
+            out.append({"name": c.get("label"), "start": start.strftime("%Y-%m-%dT%H:%MZ"),
+                        "date": start.tz_convert("America/New_York").strftime("%Y-%m-%d")})
+    if out:
+        os.makedirs(os.path.join(SITE, "data"), exist_ok=True)
+        json.dump(out[:8], open(os.path.join(SITE, "data", "upcoming.json"), "w"), indent=1)
+
+
 def next_event_date(js):
     """The next card's date (YYYYMMDD) from the league calendar in a scoreboard response."""
     now = pd.Timestamp.now(tz="UTC")
@@ -259,7 +275,9 @@ def save_results(card):
     if len(done):
         f = path("espn_results.csv")
         old = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
-        allr = pd.concat([old, done], ignore_index=True).drop_duplicates("espn_fight", keep="last")
+        allr = pd.concat([old, done], ignore_index=True)
+        allr["espn_fight"] = allr["espn_fight"].astype(str)
+        allr = allr.drop_duplicates("espn_fight", keep="last")
         allr.to_csv(f, index=False)
     return done
 
@@ -273,6 +291,7 @@ def update(date=None):
         return pd.DataFrame()
     if not card.empty:
         save_results(card)
+    upcoming_cards(js)
     # once a card is over (by the next morning), move on to the next one on the calendar
     over = card.empty or (card["state"].eq("post").all()
                           and card["date"].max() < pd.Timestamp.now(tz="America/New_York").strftime("%Y-%m-%d"))
@@ -297,40 +316,49 @@ def update(date=None):
     return card
 
 
-def history(since="2020-01-01"):
-    """One scoreboard call per past card date: results and ESPN's closing lines."""
+def calendar(year):
+    """[(event id, event date YYYYMMDD)] for every UFC card in a year, from the scoreboard's calendar."""
+    js = fetch(f"{year}0601") if not OFFLINE else {}
+    out = []
+    for c in (_get(js, "leagues", default=[{}]) or [{}])[0].get("calendar", []):
+        ref = _get(c, "event", "$ref") or ""
+        m = re.search(r"/events/(\d+)", ref)
+        start = pd.Timestamp(c.get("startDate"))
+        start = start.tz_localize("UTC") if start.tzinfo is None else start
+        if m and str(start.year) == str(year):
+            out.append((m.group(1), start.tz_convert("America/New_York").strftime("%Y%m%d")))
+    return out
+
+
+def history(first_year=2010):
+    """Every past card, from the yearly ESPN calendar: results, bout order, records,
+    ESPN athlete ids (for photos) and any lines. Resumes where it stopped."""
     import time
     f = path("espn_history.csv")
-    old = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame(columns=["date", "espn_fight"])
-    done_dates = set(old.get("queried", pd.Series(dtype=str)).dropna())
-    fights = pd.read_csv(path("fights.csv"), usecols=["date"])
-    dates = sorted(set(fights["date"][fights["date"] >= since]))
-    # weekly guesses after the dataset ends, so recent cards are found too
-    d = pd.Timestamp(max(dates)) + pd.Timedelta(days=1)
-    while d.date() < dt.date.today():
-        dates.append(d.strftime("%Y-%m-%d"))
-        d += pd.Timedelta(days=1)
+    old = pd.read_csv(f, dtype={"espn_event": str, "espn_fight": str}) if os.path.exists(f) else pd.DataFrame()
+    done = set(old["espn_event"].dropna()) if "espn_event" in old else set()
+    today = dt.date.today().strftime("%Y%m%d")
     rows = []
-    for i, day in enumerate(dates):
-        if day in done_dates:
-            continue
-        try:
-            card = parse(fetch(day.replace("-", "")))
-        except Exception as e:
-            print(day, "failed:", e)
-            continue
-        card = card[card["state"].eq("post")] if len(card) else card
-        rows.append(card.assign(queried=day) if len(card) else pd.DataFrame({"queried": [day]}))
-        time.sleep(0.5)
-        if len(rows) % 50 == 0:
-            print(f"{i + 1}/{len(dates)} dates checked")
+    for year in range(first_year, dt.date.today().year + 1):
+        cal = calendar(year)
+        todo = [(e, d) for e, d in cal if e not in done and d < today]
+        print(year, len(cal), "cards,", len(todo), "to fetch")
+        for eid, day in todo:
+            try:
+                card = parse(fetch(day))
+            except Exception as e:
+                print(day, "failed:", e)
+                continue
+            card = card[card["espn_event"].astype(str).eq(eid) & card["state"].eq("post")] if len(card) else card
+            if len(card):
+                rows.append(card.assign(queried=day))
+            time.sleep(0.4)
     if rows:
         allr = pd.concat([old] + rows, ignore_index=True)
-        has = allr["espn_fight"].notna()
-        allr = pd.concat([allr[has].drop_duplicates("espn_fight", keep="last"), allr[~has]])
+        allr["espn_fight"] = allr["espn_fight"].astype(str)
+        allr = allr.drop_duplicates("espn_fight", keep="last").sort_values(["date", "bout_order"])
         allr.to_csv(f, index=False)
-        print("espn_history.csv:", int(has.sum()), "finished bouts,",
-              int(allr.loc[has, "espn_odds_a"].notna().sum()), "with ESPN lines")
+        print("espn_history.csv:", len(allr), "finished bouts")
 
 
 if __name__ == "__main__":

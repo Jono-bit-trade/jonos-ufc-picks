@@ -22,6 +22,8 @@ o.to_csv("data/odds_upcoming.csv", index=False); get_odds.snapshot(o)
 PY
 python src/get_data.py --offline
 python src/predict.py
+python src/site_data.py
+python src/expert_analysis.py
 python - <<'PY'
 import json
 p = json.load(open("docs/data/predictions.json"))
@@ -38,6 +40,9 @@ assert up["odds_a"] is not None and up["books"] == 3 and up["open_a"] is not Non
 assert done["odds_a"] is not None, "ESPN line should fill fights the Odds API doesn't list"
 assert all(0 < x["p_a"] < 1 for x in p["fights"])
 assert len(r["fighters"]) > 10 and "bets" in res
+import os
+assert os.path.exists("docs/data/fighters/index.json") and os.path.exists("docs/data/events/index.json")
+assert json.load(open("docs/data/experts.json"))["test"]["bouts"] > 100
 print(f"smoke test passed: {len(p['fights'])} bouts, {sum(1 for x in p['fights'] if x['pick'])} picks")
 PY
 rm -rf "$TMP"

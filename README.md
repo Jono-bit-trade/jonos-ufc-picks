@@ -1,6 +1,8 @@
 # Jono's UFC Picks
 
-A UFC prediction model and website. It rates every UFC fighter, predicts each bout on the next card, compares that with the betting line, and publishes the picks. On fight night the site follows the card live: each bout shows when it's on and who won, and every pick is graded as the results come in.
+A UFC prediction model and website. It rates every UFC fighter, predicts each bout on the next card, compares that with the betting line and with what expert analysts are picking, and publishes the picks. On fight night the site follows the card live: each bout shows when it's on and who won, and every pick is graded as the results come in.
+
+The site is laid out like SplitPicks: a home page with the next card and a countdown, every past card with results, a profile for every UFC fighter since 2010 (photo, record, how they win and lose, fight stats, rating history and every fight), and an Experts page that tests whether analyst consensus predicts fights better than the betting line.
 
 Website: **https://jono-bit-trade.github.io/jonos-ufc-picks/** (live once setup step 2 below is done)
 
@@ -30,6 +32,8 @@ Once a fight starts, its prediction is frozen, so the record is always graded on
 | ESPN UFC scoreboard | None | The card, bout order, weight class, rounds, live status, results, ESPN's moneylines | `src/espn.py` |
 | The Odds API | `ODDS_API_KEY` (free: 500 credits a month, about 60 used) | Every US book's moneyline: median, best price, line history | `src/get_odds.py` |
 | UFCStats | None | Results with per-fight stats, fighter height, reach, stance and age, the next card as a fallback | `src/scrape_ufcstats.py` |
+| SplitPicks | None | Which analysts picked which fighter, with confidence, for every card since April 2026 | `src/splitpicks.py`, tested by `src/expert_analysis.py` |
+| ESPN photos | None | Fighter headshots, linked from ESPN by athlete id | `src/site_data.py` |
 | Ultimate UFC Dataset | None | 7,000+ fights since 2010 with closing odds, for training and the backtest | `src/get_data.py` |
 | BestFightOdds (history backfill) | None | Opening and closing lines for past fights, so picks can be tested at the opening line | `backfill-history` workflow, `src/import_history.py` |
 | ESPN past cards (history backfill) | None | Results and ESPN's lines for every card since 2020 | `src/espn.py --history` |

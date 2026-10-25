@@ -137,6 +137,8 @@ def main():
     best = min(keep, key=lambda k: res.set_index(["features", "learner"]).loc[k, "log_loss"])
     r = keep[best]
     r.to_csv(path("backtest_predictions.csv"), index=False)
+    # small copy kept in the repo: each past fight's walk-forward chance, for the site's past cards
+    r[["fight_id", "date", "a", "b", "p"]].round(4).to_csv(path("model_history.csv"), index=False)
     json.dump({"features": best[0], "learner": best[1]}, open(path("model_config.json"), "w"))
     print("\nBest model:", best)
 

@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 data/backtest_predictions.csv
 data/backtest_blend.csv
+data/raw/splitpicks/

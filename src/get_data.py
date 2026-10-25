@@ -21,7 +21,7 @@ URL = "https://raw.githubusercontent.com/shortlikeafox/ultimate_ufc_dataset/main
 
 # columns every fight row carries, whatever its source
 COLUMNS = ["fight_id", "date", "event", "location", "weight_class", "gender", "title",
-           "rounds", "a", "b", "winner", "method", "finish", "end_round", "fight_secs",
+           "rounds", "bout_order", "a", "b", "winner", "method", "finish", "end_round", "fight_secs",
            "odds_a", "odds_b", "dec_odds_a", "dec_odds_b", "ko_odds_a", "ko_odds_b",
            "sub_odds_a", "sub_odds_b", "open_a", "open_b", "age_a", "age_b", "height_a", "height_b",
            "reach_a", "reach_b", "stance_a", "stance_b", "source"]
@@ -57,6 +57,7 @@ def normalize_ultimate(df):
         "event": "", "location": df["location"], "weight_class": df["weight_class"],
         "gender": df["gender"].str.upper().str[0], "title": df["title_bout"].astype(bool),
         "rounds": df["no_of_rounds"], "a": df["R_fighter"], "b": df["B_fighter"],
+        "bout_order": df.groupby("date").cumcount() + 1,   # the dataset lists each card main event first
         "method": df["finish"].map(method_of), "finish": df["finish"],
         "end_round": df.get("finish_round"), "fight_secs": df.get("total_fight_time_secs"),
         "odds_a": df["R_odds"], "odds_b": df["B_odds"],
@@ -101,16 +102,18 @@ def fill_logged_odds(fights):
 
 
 def drop_known(new, known, days=2):
-    """Rows of `new` whose pairing isn't already in `known` within `days` days
-    (sources disagree on dates by a day around midnight and overseas cards)."""
+    """Rows of `new` that aren't already in `known`. A fight counts as known when either
+    fighter already has a fight within `days` days: sources disagree on dates around
+    midnight and overseas cards, and on spellings ("Zhang Weili" / "Weili Zhang")."""
     from get_odds import norm
     seen = {}
     for a, b, d in zip(known["a"], known["b"], pd.to_datetime(known["date"])):
-        seen.setdefault(frozenset((norm(a), norm(b))), []).append(d)
+        for n in (a, b):
+            seen.setdefault(norm(n), []).append(d)
     keep = []
     for a, b, d in zip(new["a"], new["b"], pd.to_datetime(new["date"])):
-        ds = seen.get(frozenset((norm(a), norm(b))), [])
-        keep.append(not any(abs((d - x).days) <= days for x in ds))
+        hit = any(abs((d - x).days) <= days for n in (a, b) for x in seen.get(norm(n), []))
+        keep.append(not hit)
     return new[keep]
 
 
@@ -132,6 +135,7 @@ def espn_results(name="espn_results.csv"):
     if "winner" not in e:
         return pd.DataFrame()
     e = e[e["winner"].isin(["a", "b", "draw"])].copy()
+    e = e.drop_duplicates(["date", "a", "b"], keep="last")
     e["fight_id"] = e["date"] + "|" + e["a"] + "|" + e["b"]
     e["source"] = "espn"
     e["fight_secs"] = None
@@ -167,13 +171,12 @@ def attach_lines(fights, sources, days=2):
                 continue
             same = ca == norm(r["a"])
             oa, ob, ca_, cb_ = (oa, ob, ca_, cb_) if same else (ob, oa, cb_, ca_)
-            if pd.isna(r["open_a"]) and pd.notna(oa) and pd.notna(ob):
+            if pd.isna(fights.at[i, "open_a"]) and pd.notna(oa) and pd.notna(ob):
                 fights.at[i, "open_a"], fights.at[i, "open_b"] = oa, ob
                 filled["open"] += 1
-            if pd.isna(r["odds_a"]) and pd.notna(ca_) and pd.notna(cb_):
+            if pd.isna(fights.at[i, "odds_a"]) and pd.notna(ca_) and pd.notna(cb_):
                 fights.at[i, "odds_a"], fights.at[i, "odds_b"] = ca_, cb_
-                filled["close"] += 1
-            break
+                filled["close"] += 1   # earlier sources win; later ones only fill gaps
     print(f"attached {filled['open']} opening and {filled['close']} closing lines from other sources")
     return fights
 
@@ -199,7 +202,10 @@ def build(offline=False):
     for c in COLUMNS:
         if c not in fights:
             fights[c] = None
-    fights = attach_lines(fights, [history, espn_hist])
+    sp = read_csv("expert_consensus.csv")   # SplitPicks shows each bout's line: a last resort
+    sp = sp.rename(columns={"sp_odds_a": "odds_a", "sp_odds_b": "odds_b"})[["date", "a", "b", "odds_a", "odds_b"]] \
+        if not sp.empty else sp
+    fights = attach_lines(fights, [history, espn_hist, sp])
     fights = fill_logged_odds(fights)
     fights = fights.sort_values(["date", "fight_id"]).reset_index(drop=True)
     fights[COLUMNS].to_csv(path("fights.csv"), index=False)
