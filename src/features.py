@@ -32,7 +32,8 @@ class History:
         self.recent = []   # 1/0 results, last 3
         # fight-stat totals (only for fights with UFCStats stats scraped)
         self.st_mins = self.sig_l = self.sig_a = self.td_l = self.td_att = 0.0
-        self.td_allowed = self.td_faced = self.ctrl = self.kd = 0.0
+        self.td_allowed = self.td_faced = self.ctrl = self.kd = self.sub = 0.0
+        self.last3 = []    # (landed - absorbed) per minute in each of the last 3 fights with stats
 
     def add_stats(self, st):
         mins = st["fight_secs"] / 60 if st["fight_secs"] == st["fight_secs"] else 0
@@ -47,6 +48,8 @@ class History:
         self.td_faced += st["td_faced"]
         self.ctrl += st["ctrl_secs"] / 60
         self.kd += st["kd"]
+        self.sub += st["sub_att"] if st["sub_att"] == st["sub_att"] else 0
+        self.last3 = (self.last3 + [(st["sig_landed"] - st["sig_absorbed"]) / mins])[-3:]
 
     def style(self):
         """Per-minute rates, shrunk toward the league average while minutes are few."""
@@ -57,7 +60,10 @@ class History:
         return {"slpm": (self.sig_l + 4.0 * k) / m, "sapm": (self.sig_a + 4.0 * k) / m,
                 "td15": 15 * (self.td_l + 0.08 * k) / m,
                 "td_def": (self.td_faced - self.td_allowed + 3) / (self.td_faced + 5),
-                "ctrl_share": (self.ctrl + 0.2 * k) / m, "kd15": 15 * (self.kd + 0.01 * k) / m}
+                "ctrl_share": (self.ctrl + 0.2 * k) / m, "kd15": 15 * (self.kd + 0.01 * k) / m,
+                "sub15": 15 * (self.sub + 0.04 * k) / m,
+                # decline: striking margin in the last 3 fights minus the career margin
+                "trend": (np.mean(self.last3) - (self.sig_l - self.sig_a) / self.st_mins) if len(self.last3) >= 2 else 0.0}
 
     def add(self, won, method, secs, date, wc):
         self.n += 1
@@ -120,8 +126,13 @@ def load_stats():
     f = path("fight_stats.csv")
     if not os.path.exists(f):
         return {}
+    from get_odds import norm
     st = pd.read_csv(f)
-    return {(r["date"], r["fighter"]): r for r in st.to_dict("records")}
+    out = {}
+    for r in st.to_dict("records"):      # ESPN dates can be a day off (UTC) and names spelled differently
+        for d in pd.date_range(pd.Timestamp(r["date"]) - pd.Timedelta(days=1), periods=3).strftime("%Y-%m-%d"):
+            out.setdefault((d, norm(r["fighter"])), r)
+    return out
 
 
 def build(fights, upcoming=None, glicko=None):
@@ -138,6 +149,7 @@ def build(fights, upcoming=None, glicko=None):
     df = df.merge(ratings, on="fight_id", how="left")
 
     stats = load_stats()
+    from get_odds import norm as _norm
     H = {}
     rows = []
     for f in df.itertuples():
@@ -179,8 +191,14 @@ def build(fights, upcoming=None, glicko=None):
         }
         # STYLE: per-minute rates from earlier scraped fight stats (blank until you backfill)
         ya, yb = ha.style(), hb.style()
-        for k in ["slpm", "sapm", "td15", "td_def", "ctrl_share", "kd15"]:
+        for k in ["slpm", "sapm", "td15", "td_def", "ctrl_share", "kd15", "sub15", "trend"]:
             row[f"{k}_diff"] = (ya[k] - yb[k]) if (ya and yb) else np.nan
+        # matchups: one side's strength against the other's weakness
+        if ya and yb:
+            row["grapple_edge"] = ya["td15"] * (1 - yb["td_def"]) - yb["td15"] * (1 - ya["td_def"])
+            row["strike_edge"] = (ya["slpm"] - yb["sapm"]) - (yb["slpm"] - ya["sapm"])
+        else:
+            row["grapple_edge"] = row["strike_edge"] = np.nan
         rows.append(row)
         # update histories only for completed fights
         if f.winner in ("a", "b", "draw"):
@@ -189,8 +207,9 @@ def build(fights, upcoming=None, glicko=None):
             ha.add(won_a, f.method, f.fight_secs, d, wc_rank(f.weight_class))
             hb.add(won_b, f.method, f.fight_secs, d, wc_rank(f.weight_class))
             for h, name in ((ha, f.a), (hb, f.b)):
-                if (f.date, name) in stats:
-                    h.add_stats(stats[(f.date, name)])
+                st_ = stats.get((f.date, _norm(name)))
+                if st_ is not None:
+                    h.add_stats(st_)
     feats = pd.DataFrame(rows)
     keep = ["fight_id", "date", "a", "b", "winner", "method", "end_round", "rounds", "weight_class",
             "location", "odds_a", "odds_b", "open_a", "open_b", "rating_a", "rating_b", "p_glicko",
@@ -208,6 +227,7 @@ CONTEXT = ["layoff_a", "layoff_b", "long_layoff_a", "long_layoff_b", "wc_change_
            "southpaw_a", "southpaw_b"]
 # needs data/fight_stats.csv: run  python src/scrape_ufcstats.py --backfill  once
 STYLE = ["slpm_diff", "sapm_diff", "td15_diff", "td_def_diff", "ctrl_share_diff", "kd15_diff"]
+STYLE_MORE = ["sub15_diff", "trend_diff", "grapple_edge", "strike_edge"]   # tested Oct 2026
 
 # columns that change meaning when A and B swap sides
 SWAP = [("rd_a", "rd_b"), ("age_a", "age_b"), ("debut_a", "debut_b"), ("layoff_a", "layoff_b"),
@@ -217,7 +237,7 @@ SWAP = [("rd_a", "rd_b"), ("age_a", "age_b"), ("debut_a", "debut_b"), ("layoff_a
         ("a", "b")]
 NEGATE = ["glicko_logit", "age_diff", "reach_diff", "height_diff", "exp_diff", "win_rate_diff",
           "streak_diff", "recent3_diff", "ko_rate_diff", "sub_rate_diff", "durability_diff",
-          "rating_diff"] + STYLE
+          "rating_diff"] + STYLE + STYLE_MORE
 
 
 def flip(t):

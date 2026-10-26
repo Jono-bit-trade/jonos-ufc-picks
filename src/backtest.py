@@ -18,7 +18,7 @@ from common import path, no_vig, payout
 from features import build, STYLE
 from model import GROUPS, WinModel, MarketBlend, situations
 
-from config import BACKTEST_YEARS as TEST_YEARS, TRAIN_FROM, BLEND_FROM_YEAR as BLEND_FROM
+from config import BACKTEST_YEARS as TEST_YEARS, TRAIN_FROM, BLEND_FROM_YEAR as BLEND_FROM, PINNED_FEATURES
 EDGES = [0.0, 0.01, 0.02, 0.03, 0.04, 0.05]
 
 
@@ -135,6 +135,8 @@ def main():
     print(res.round(4).to_string(index=False))
 
     best = min(keep, key=lambda k: res.set_index(["features", "learner"]).loc[k, "log_loss"])
+    if PINNED_FEATURES and (PINNED_FEATURES, best[1]) in keep:
+        best = (PINNED_FEATURES, best[1])   # see config.py: the lowest log loss alone isn't the test that matters
     r = keep[best]
     r.to_csv(path("backtest_predictions.csv"), index=False)
     # small copy kept in the repo: each past fight's walk-forward chance, for the site's past cards

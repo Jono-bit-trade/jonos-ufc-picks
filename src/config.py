@@ -16,7 +16,13 @@ GLICKO = {"tau": 0.5, "start_rd": 200.0, "days_per_period": 90}   # start_rd 150
 WIN_SCORE = {"KO/TKO": 1.0, "SUB": 1.0, "U-DEC": 0.9, "M-DEC": 0.75, "S-DEC": 0.65}
 
 # ---- Step 6: models ---------------------------------------------------------
-FEATURE_GROUPS = ["CORE", "FORM", "CONTEXT"]   # add "STYLE" after the UFCStats backfill
+FEATURE_GROUPS = ["CORE", "FORM", "CONTEXT"]
+# The backtest reports every feature group but uses this one. Tested Oct 2026 with ESPN fight stats
+# for ~6,250 bouts: adding STYLE (strike/takedown/control rates) made the model alone more accurate
+# (log loss 0.663 -> 0.656 in 2020-22, 0.635 -> 0.630 in 2023-26), but after blending with the line
+# it picked winners no better (66.1% both; 70.2% vs 70.3%) and our picks fell from +30.7u to +9.9u
+# in 2023-26: the line already prices those stats. Matchup terms and a decline trend didn't help either.
+PINNED_FEATURES = "core+form"
 LEARNER = "logistic"          # "logistic", "boost" or "blend" (the backtest overrides via data/model_config.json)
 MARKET_BLEND = True           # final step: blend the model with the no-vig line (fit on past predictions)
 TRAIN_HALF_LIFE_YEARS = 3     # recent fights weigh more (3 beat 6 and equal weights, 2018-2026 log loss 0.6548 -> 0.6536)

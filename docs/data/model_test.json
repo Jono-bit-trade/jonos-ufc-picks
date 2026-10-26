@@ -29,13 +29,13 @@
   {
    "prediction": "Our model + line (current site)",
    "bouts": 201,
-   "correct": 143,
-   "pct": 71.1,
-   "units": 4.7,
-   "log_loss": 0.6098,
-   "value_bets": 102,
-   "value_won": 71,
-   "value_units": -3.7
+   "correct": 142,
+   "pct": 70.6,
+   "units": 2.7,
+   "log_loss": 0.6111,
+   "value_bets": 92,
+   "value_won": 65,
+   "value_units": -5.2
   },
   {
    "prediction": "All experts' consensus",
