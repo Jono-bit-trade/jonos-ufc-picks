@@ -213,3 +213,5 @@ tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%,
 /* finished fights: green ring when our pick (or the model's pick) won, red when it lost */
 .bout.ring-won { border: 3px solid var(--green); box-shadow: 0 0 0 1px color-mix(in srgb, var(--green) 25%, transparent); }
 .bout.ring-lost { border: 3px solid var(--red); box-shadow: 0 0 0 1px color-mix(in srgb, var(--red) 25%, transparent); }
+.hero .ln { display: block; color: #b9bfca; font-size: 14px; margin-top: 2px; }
+.hero .legendline { color: #8f97a5; font-size: 12px; margin: 10px 0 14px; }

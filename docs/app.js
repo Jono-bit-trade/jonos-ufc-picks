@@ -238,10 +238,11 @@ async function viewHome() {
       <div class="when">${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
       <h1>${esc(p.event)}</h1>
       <div class="faceoff">
-        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span><span class="pc a">${pct(m.p_a)}</span></a>
+        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span><span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span><span class="pc b">${pct(1 - m.p_a)}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span><span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
+      <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
     </section>`;
   }
