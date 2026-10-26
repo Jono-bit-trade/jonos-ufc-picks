@@ -206,3 +206,4 @@ tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%,
 .gflags li { margin: 3px 0; }
 
 .tt tr.sec th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--quiet); padding-top: 10px; }
+.stat b .sub { font-size: 0.6em; color: var(--quiet); font-weight: 600; }
