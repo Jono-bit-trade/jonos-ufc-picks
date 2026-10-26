@@ -35,3 +35,16 @@ def our_side(p_final, fair, odds_a, odds_b):
     if OUR_PICKS_MAX_FAVORITE is not None and odds < OUR_PICKS_MAX_FAVORITE:
         return None
     return side
+
+
+def expert_lean(fair_a, picks_a, picks_b):
+    """'a', 'b' or None: a close fight (by the line) where most analysts agree."""
+    from config import EXPERT_LEAN, EXPERT_LEAN_MIN_SHARE, EXPERT_LEAN_MIN_ANALYSTS, EXPERT_LEAN_LINE
+    if not EXPERT_LEAN or fair_a is None or fair_a != fair_a or picks_a is None or picks_b is None:
+        return None
+    n = picks_a + picks_b
+    if n < EXPERT_LEAN_MIN_ANALYSTS or picks_a == picks_b or not (EXPERT_LEAN_LINE[0] < fair_a < EXPERT_LEAN_LINE[1]):
+        return None
+    if max(picks_a, picks_b) / n < EXPERT_LEAN_MIN_SHARE:
+        return None
+    return "a" if picks_a > picks_b else "b"

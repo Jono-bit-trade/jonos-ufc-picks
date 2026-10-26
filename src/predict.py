@@ -243,6 +243,16 @@ def main():
     from picks import our_side
     sides = [our_side(pf, fa, oa, ob) for pf, fa, oa, ob in zip(up["p_final"], up["fair_a"], up["odds_a"], up["odds_b"])]
     up["our_pick"] = [a if s_ == "a" else b if s_ == "b" else None for s_, a, b in zip(sides, up["a"], up["b"])]
+    # expert lean: close fight + most analysts agree -> our pick when the model has none
+    from picks import expert_lean
+    leans = []
+    for i, r in up.iterrows():
+        ex = experts_for(r["date"], r["a"], r["b"])
+        side_ = expert_lean(r["fair_a"], ex["picks_a"], ex["picks_b"]) if ex else None
+        leans.append(r["a"] if side_ == "a" else r["b"] if side_ == "b" else None)
+    up["expert_lean"] = leans
+    no_ours = up["our_pick"].isna() & up["expert_lean"].notna()
+    up.loc[no_ours, "our_pick"] = up.loc[no_ours, "expert_lean"]
 
     # freeze fights that have started: keep their last pre-fight prediction
     logf = path("pick_log.csv")
@@ -251,13 +261,13 @@ def main():
     if not log.empty:
         lg = log.set_index("fight_id")
         frozen = up.index[started & up.index.isin(lg.index)]
-        for c in ["p_model", "p_final", "fair_a", "odds_a", "odds_b", "edge_a", "pick", "our_pick"]:
+        for c in ["p_model", "p_final", "fair_a", "odds_a", "odds_b", "edge_a", "pick", "our_pick", "expert_lean"]:
             if c in lg:
                 up.loc[frozen, c] = lg.loc[frozen, c]
     fresh = up[~started].reset_index()
     if len(fresh):
         cols = ["fight_id", "date", "a", "b", "p_model", "p_final", "fair_a", "odds_a", "odds_b",
-                "open_a", "open_b", "edge_a", "pick", "our_pick"]
+                "open_a", "open_b", "edge_a", "pick", "our_pick", "expert_lean"]
         new = fresh[cols].assign(run=NOW.strftime("%Y-%m-%dT%H:%MZ"))
         log = pd.concat([log, new]) if not log.empty else new
         log = log.drop_duplicates("fight_id", keep="last")
@@ -295,6 +305,7 @@ def main():
             "open_a": num(f["open_a"], 0), "open_b": num(f["open_b"], 0), "books": num(f["books"], 0),
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
             "edge_a": edge, "pick": pick, "our_pick": our_pick,
+            "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "method": {k: round(float(meth.loc[fid, k]), 3) for k in meth.columns},
         })

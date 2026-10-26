@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
-from picks import our_side
+from picks import our_side, expert_lean
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -188,6 +188,7 @@ def track_record(rows):
         bets = [x for x in picks if x["units"] is not None]
         vals = [r["value"] for r in rs if r["value"]]
         ours = [r["our"] for r in rs if r.get("our")]
+        leans = [r["our"] for r in rs if r.get("our") and r["our"].get("from_experts")]
         return {"picks": len(picks), "right": sum(x["right"] for x in picks),
                 "pct": round(100 * sum(x["right"] for x in picks) / len(picks), 1) if picks else None,
                 "bets": len(bets), "units": round(sum(x["units"] for x in bets), 1),
@@ -199,7 +200,9 @@ def track_record(rows):
                 "our_bets": len(ours), "our_won": sum(x["right"] for x in ours),
                 "our_pct": round(100 * sum(x["right"] for x in ours) / len(ours), 1) if ours else None,
                 "our_units": round(sum(x["units"] for x in ours), 1),
-                "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None}
+                "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None,
+                "lean_bets": len(leans), "lean_won": sum(x["right"] for x in leans),
+                "lean_units": round(sum(x["units"] for x in leans), 1)}
     rows = [r for r in rows if r["date"] >= RECORD_FROM]   # the official record starts here
     years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
     return {"from": RECORD_FROM, "all": summary(rows), "since": summary(rows),
@@ -347,6 +350,7 @@ def main():
                 exp.update(winning_counts(ex.slug, ex.bout, on_a))
                 exp["analysts"] = analyst_picks(ex.slug, ex.bout, on_a)
             pick = value = our = None
+            lean = expert_lean(fair, exp["picks_a"], exp["picks_b"]) if exp else None
             if f.winner in ("a", "b"):
                 won_a = f.winner == "a"
                 if fair is not None:
@@ -365,11 +369,14 @@ def main():
                         rec["bets"] += 1
                         rec["units"] += u
                 ours = our_side(pf, fair, f.odds_a, f.odds_b) if pf is not None and fair is not None else None
-                if ours:   # our pick: value + high confidence + sensible price, as on the live card
+                from_experts = False
+                if not ours and lean:   # expert lean fills in where the model has no our pick
+                    ours, from_experts = lean, True
+                if ours:   # our pick, as on the live card
                     right = (ours == "a") == won_a
                     o = f.odds_a if ours == "a" else f.odds_b
                     u = float(payout(o)) if right else -1.0
-                    our = {"side": ours, "right": right, "odds": num(o), "units": round(u, 2)}
+                    our = {"side": ours, "right": right, "odds": num(o), "units": round(u, 2), "from_experts": from_experts}
                     rec["our_bets"] += 1
                     rec["our_won"] += int(right)
                     rec["our_units"] += u
@@ -392,7 +399,7 @@ def main():
                           "line_p_a": round(fair, 3) if fair is not None else None,
                           "model_p_a": round(float(p), 3) if p is not None else None,
                           "final_p_a": round(float(pf), 3) if pf is not None else None,
-                          "model_pick": pick, "value_pick": value, "our_pick": our,
+                          "model_pick": pick, "value_pick": value, "our_pick": our, "expert_lean": lean,
                           "rating_a": num(f.pre_a), "rating_b": num(f.pre_b), "experts": exp})
         rec["units"], rec["value_units"], rec["our_units"] = round(rec["units"], 2), round(rec["value_units"], 2), round(rec["our_units"], 2)
         main = f"{bouts[0]['a']} vs {bouts[0]['b']}"

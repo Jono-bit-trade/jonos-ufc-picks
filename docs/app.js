@@ -92,10 +92,12 @@ function bout(f, i, edge) {
   const pa = f.p_a, line = f.market_p_a, m = f.method || {};
   const tag = (debut, rating, rec) => (debut ? "UFC debut" : "Rating " + rating) + (rec ? ` · ${esc(rec)}` : "");
   let pickHtml;
-  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick: ${esc(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}</span>`
+  const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
+  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick: ${esc(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}</span>${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
+  else if (leanTag) pickHtml = leanTag;
   else pickHtml = `<div class="nopick">${line == null ? "No betting line yet." : "No bet: the model and the line are within " + Math.round(edge * 100) + " points."}</div>`;
   const moved = f.open_a != null && f.odds_a != null && (f.open_a !== f.odds_a)
     ? `Opened ${odds(f.open_a)} / ${odds(f.open_b)}, now ${odds(f.odds_a)} / ${odds(f.odds_b)}`
@@ -211,7 +213,7 @@ async function viewCard() {
     <span>Since ${mr.from || 2020}: ${all.pct}% (${all.right}/${all.picks}), <span class="${all.units >= 0 ? "won" : "lost"}">${units(all.units)}</span>; value picks ${all.value_won}/${all.value_bets} <span class="${all.value_units >= 0 ? "won" : "lost"}">${units(all.value_units)}</span> · <a href="#/record">by year</a></span></div>`;
   return `<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
-    <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). "Value pick" means it beats the line but is an underdog the model isn't confident in.</p>
+    <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. "Value pick" means it beats the line but is an underdog the model isn't confident in.</p>
     ${p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
 }
 
@@ -307,8 +309,8 @@ async function viewEvent(s) {
     const mp = b.model_pick, vp = b.value_pick;
     const call = !mp ? "" : `<span class="tick ${mp.right ? "won" : "lost"}">Model ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
     const op = b.our_pick;
-    const val = op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
-      : !vp ? "" : `<span class="vpick ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`;
+    const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
+      : !vp ? "" : `<span class="vpick ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
       <div class="meta">${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
@@ -329,7 +331,7 @@ async function viewEvent(s) {
       <div class="stat"><b>${e.record.our_bets ? `${e.record.our_won}/${e.record.our_bets}` : "–"}</b><span>our picks won</span></div>
       <div class="stat"><b class="${e.record.our_units >= 0 ? "won" : "lost"}">${e.record.our_bets ? units(e.record.our_units) : "–"}</b><span>our picks units</span></div>
       <div class="stat"><b>${e.favorites_right}/${e.record.picks}</b><span>betting favorites won</span></div></div>` : ""}
-    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Winners picked use our final chance (model blended with the line). Units are flat 1-unit bets at the closing moneyline. Value picks beat the line by 3+ points; our picks also need the fighter to be the favorite or 70%+ likely, and no long underdog: the same rules as the live card.</p>${rows}`;
+    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Winners picked use our final chance (model blended with the line). Units are flat 1-unit bets at the closing moneyline. Value picks beat the line by 3+ points; our picks also need the fighter to be the favorite or 70%+ likely, and no long underdog, or an expert lean in a close fight: the same rules as the live card.</p>${rows}`;
 }
 
 // ---------------- fighters ----------------
@@ -471,7 +473,7 @@ function yearTable(mr) {
     <td class="n hide-sm">${pc(r.value_roi_pct)}</td>
     <td class="n">${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</td><td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td></tr>`;
   return `<h2>Model track record by year</h2>
-    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. The record starts in ${mr.from || 2020}: earlier years are still used to train the model, but its predictions then had too little history behind them to grade fairly. Our picks by period: ${(mr.periods || []).map(p => `${p.label} ${p.our_won}/${p.our_bets} ${units(p.our_units)}`).join(" · ")}.</p>
+    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. The record starts in ${mr.from || 2020}: earlier years are still used to train the model, but its predictions then had too little history behind them to grade fairly. Our picks by period: ${(mr.periods || []).map(p => `${p.label} ${p.our_won}/${p.our_bets} ${units(p.our_units)}`).join(" · ")}. Expert lean picks (close fights where 65%+ of analysts agree and the model has no pick), included above: ${mr.all.lean_won}/${mr.all.lean_bets} ${units(mr.all.lean_units)}, tracked since SplitPicks data began in April 2026.</p>
     <div class="tablewrap"><table><thead><tr><th>Year</th><th class="n">Winners</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Per bet</th>
       <th class="n">Value picks</th><th class="n">Value units</th><th class="n hide-sm">Per bet</th><th class="n">Our picks</th><th class="n">Our units</th></tr></thead><tbody>
       ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;

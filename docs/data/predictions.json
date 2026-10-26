@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T00:56Z",
+ "updated": "2026-10-26T01:11Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -154,11 +154,17 @@
      "t": "2026-10-26T00:56Z",
      "a": -105.0,
      "b": -115.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": -105.0,
+     "b": -115.0
     }
    ],
    "edge_a": 0.002,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.36,
@@ -309,11 +315,17 @@
      "t": "2026-10-26T00:56Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
    "edge_a": 0.014,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.503,
@@ -464,11 +476,17 @@
      "t": "2026-10-26T00:56Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
    "edge_a": 0.001,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.741,
@@ -619,11 +637,17 @@
      "t": "2026-10-26T00:56Z",
      "a": -265.0,
      "b": 215.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": -265.0,
+     "b": 215.0
     }
    ],
    "edge_a": 0.023,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.539,
@@ -774,11 +798,17 @@
      "t": "2026-10-26T00:56Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
    "edge_a": 0.014,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.509,
@@ -823,6 +853,7 @@
    "edge_a": null,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.405,
@@ -973,11 +1004,17 @@
      "t": "2026-10-26T00:56Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.014,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.322,
@@ -1128,11 +1165,17 @@
      "t": "2026-10-26T00:56Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
    "edge_a": 0.062,
    "pick": "Julian Erosa",
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.521,
@@ -1283,11 +1326,17 @@
      "t": "2026-10-26T00:56Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "edge_a": -0.034,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.395,
@@ -1438,11 +1487,17 @@
      "t": "2026-10-26T00:56Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.019,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.738,
@@ -1487,6 +1542,7 @@
    "edge_a": null,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.405,
@@ -1637,11 +1693,17 @@
      "t": "2026-10-26T00:56Z",
      "a": -600.0,
      "b": 440.0
+    },
+    {
+     "t": "2026-10-26T01:11Z",
+     "a": -600.0,
+     "b": 440.0
     }
    ],
    "edge_a": 0.057,
    "pick": "Lucia Szabov\u00e1",
    "our_pick": "Lucia Szabov\u00e1",
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.549,
@@ -1686,6 +1748,7 @@
    "edge_a": null,
    "pick": null,
    "our_pick": null,
+   "expert_lean": null,
    "check_news": false,
    "method": {
     "DEC": 0.468,
