@@ -49,6 +49,11 @@ OUR_PICKS_MAX_FAVORITE = None # e.g. -300 to skip picks shorter than -300; None 
 # either, and those picks went 15-8, -5.1u, 2020-2026. (Debutant vs veteran picks stay.) Oct 2026.
 OUR_PICKS_SKIP_BOTH_DEBUT = True
 
+# Suggested stake for our picks, by price. Tested Oct 2026 against flat 1 unit on 2020-22 and
+# 2023-26: more units in both (+27.9 vs +27.0, +43.0 vs +36.8) with less risked, return per unit
+# risked +11.4% vs +9.4% and +7.8% vs +5.6%. Staking by edge or Kelly risked more for the same return.
+STAKES = [(-199, 1.5), (-399, 1.0), (-100000, 0.5)]   # odds at or above the first number -> stake
+
 # Expert lean: in a close fight (line 40-60%), when 65%+ of 5+ SplitPicks analysts agree, their side
 # becomes our pick (if the model has no our pick there) and the fight is tagged "Expert lean".
 # Apr-Oct 2026: 47 such fights, experts' side won 77% vs the line's 54%, +16.5u. Added Oct 2026 on

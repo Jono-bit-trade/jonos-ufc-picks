@@ -344,6 +344,7 @@ def main():
             "open_a": num(f["open_a"], 0), "open_b": num(f["open_b"], 0), "books": num(f["books"], 0),
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
             "edge_a": edge, "pick": pick, "our_pick": our_pick,
+            "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"]) if our_pick else None,
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "method": {k: round(float(meth.loc[fid, k]), 3) for k in meth.columns},

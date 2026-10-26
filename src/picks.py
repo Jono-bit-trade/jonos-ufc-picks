@@ -37,6 +37,17 @@ def our_side(p_final, fair, odds_a, odds_b):
     return side
 
 
+def stake(odds):
+    """Suggested units for an our pick at these odds (config.STAKES)."""
+    from config import STAKES
+    if odds is None or odds != odds:
+        return 1.0
+    for floor, units in STAKES:
+        if odds >= floor:
+            return units
+    return STAKES[-1][1]
+
+
 def expert_lean(fair_a, picks_a, picks_b):
     """'a', 'b' or None: a close fight (by the line) where most analysts agree."""
     from config import EXPERT_LEAN, EXPERT_LEAN_MIN_SHARE, EXPERT_LEAN_MIN_ANALYSTS, EXPERT_LEAN_LINE

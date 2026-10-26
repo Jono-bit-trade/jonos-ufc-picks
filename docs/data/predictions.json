@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T23:27Z",
+ "updated": "2026-10-26T23:41Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -52,11 +52,6 @@
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T16:27Z",
-     "a": 105.0,
-     "b": -125.0
-    },
     {
      "t": "2026-10-25T16:31Z",
      "a": 105.0,
@@ -251,11 +246,17 @@
      "t": "2026-10-26T23:27Z",
      "a": -110.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": -110.0,
+     "b": -105.0
     }
    ],
    "edge_a": 0.002,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -302,6 +303,7 @@
    "edge_a": null,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -351,11 +353,6 @@
    "open_b": 105.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T16:27Z",
-     "a": -125.0,
-     "b": 105.0
-    },
     {
      "t": "2026-10-25T16:31Z",
      "a": -125.0,
@@ -550,11 +547,17 @@
      "t": "2026-10-26T23:27Z",
      "a": -108.0,
      "b": -112.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": -108.0,
+     "b": -112.0
     }
    ],
    "edge_a": 0.014,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -604,11 +607,6 @@
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T16:27Z",
-     "a": 220.0,
-     "b": -250.0
-    },
     {
      "t": "2026-10-25T16:31Z",
      "a": 220.0,
@@ -803,11 +801,17 @@
      "t": "2026-10-26T23:27Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
    "edge_a": -0.001,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -857,11 +861,6 @@
    "open_b": 200.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T16:27Z",
-     "a": -258.0,
-     "b": 220.0
-    },
     {
      "t": "2026-10-25T16:31Z",
      "a": -258.0,
@@ -1056,11 +1055,17 @@
      "t": "2026-10-26T23:27Z",
      "a": -298.0,
      "b": 240.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": -298.0,
+     "b": 240.0
     }
    ],
    "edge_a": 0.022,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -1111,11 +1116,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T16:27Z",
-     "a": -245.0,
-     "b": 200.0
-    },
-    {
      "t": "2026-10-25T16:31Z",
      "a": -245.0,
      "b": 200.0
@@ -1309,11 +1309,17 @@
      "t": "2026-10-26T23:27Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
    "edge_a": 0.015,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -1360,6 +1366,7 @@
    "edge_a": null,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -1410,11 +1417,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T16:27Z",
-     "a": -170.0,
-     "b": 142.0
-    },
-    {
      "t": "2026-10-25T16:31Z",
      "a": -170.0,
      "b": 142.0
@@ -1608,11 +1610,17 @@
      "t": "2026-10-26T23:27Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.015,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -1662,11 +1670,6 @@
    "open_b": -205.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T16:27Z",
-     "a": 150.0,
-     "b": -180.0
-    },
     {
      "t": "2026-10-25T16:31Z",
      "a": 150.0,
@@ -1861,11 +1864,17 @@
      "t": "2026-10-26T23:27Z",
      "a": 145.0,
      "b": -175.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": 145.0,
+     "b": -175.0
     }
    ],
    "edge_a": 0.059,
    "pick": "Julian Erosa",
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -1915,11 +1924,6 @@
    "open_b": -310.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T16:27Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-10-25T16:31Z",
      "a": 250.0,
@@ -2114,11 +2118,17 @@
      "t": "2026-10-26T23:27Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
    "edge_a": -0.034,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
+   "stake": 1.0,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -2169,11 +2179,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T16:27Z",
-     "a": 210.0,
-     "b": -258.0
-    },
-    {
      "t": "2026-10-25T16:31Z",
      "a": 210.0,
      "b": -258.0
@@ -2367,11 +2372,17 @@
      "t": "2026-10-26T23:27Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.015,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -2422,11 +2433,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T16:27Z",
-     "a": -600.0,
-     "b": 440.0
-    },
-    {
      "t": "2026-10-25T16:31Z",
      "a": -600.0,
      "b": 440.0
@@ -2620,11 +2626,17 @@
      "t": "2026-10-26T23:27Z",
      "a": -650.0,
      "b": 470.0
+    },
+    {
+     "t": "2026-10-26T23:41Z",
+     "a": -650.0,
+     "b": 470.0
     }
    ],
    "edge_a": 0.055,
    "pick": "Lucia Szabov\u00e1",
    "our_pick": "Lucia Szabov\u00e1",
+   "stake": 0.5,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -2671,6 +2683,7 @@
    "edge_a": null,
    "pick": null,
    "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {

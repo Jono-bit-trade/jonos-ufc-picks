@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
-from picks import our_side, expert_lean
+from picks import our_side, expert_lean, stake
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -204,6 +204,8 @@ def track_record(rows):
                 "our_bets": len(ours), "our_won": sum(x["right"] for x in ours),
                 "our_pct": round(100 * sum(x["right"] for x in ours) / len(ours), 1) if ours else None,
                 "our_units": round(sum(x["units"] for x in ours), 1),
+                "our_risked": round(sum(x.get("stake", 1) for x in ours), 1),
+                "our_staked_units": round(sum(x.get("staked_units", x["units"]) for x in ours), 1),
                 "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None,
                 "lean_bets": len(leans), "lean_won": sum(x["right"] for x in leans),
                 "lean_units": round(sum(x["units"] for x in leans), 1)}
@@ -385,7 +387,9 @@ def main():
                     right = (ours == "a") == won_a
                     o = f.odds_a if ours == "a" else f.odds_b
                     u = float(payout(o)) if right else -1.0
-                    our = {"side": ours, "right": right, "odds": num(o), "units": round(u, 2), "from_experts": from_experts}
+                    st = stake(float(o))
+                    our = {"side": ours, "right": right, "odds": num(o), "units": round(u, 2), "from_experts": from_experts,
+                           "stake": st, "staked_units": round(st * u, 2)}
                     rec["our_bets"] += 1
                     rec["our_won"] += int(right)
                     rec["our_units"] += u
