@@ -104,7 +104,11 @@ function bout(f, i, edge) {
     : f.odds_a != null ? `Line ${odds(f.odds_a)} / ${odds(f.odds_b)}` : "";
   const books = f.books ? `${f.books} book${f.books > 1 ? "s" : ""}, best ${odds(f.best_a)} / ${odds(f.best_b)}` : "";
   const pa100 = Math.round(pa * 100);
-  return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}">
+  // ring: did our pick (or, without one, the model's pick) win?
+  const w = f.state === "post" && f.result ? f.result.winner : null;
+  const called = f.our_pick || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
+  const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
+  return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${ring}">
     ${status(f)}
     <div class="corners">
       <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
@@ -314,7 +318,9 @@ async function viewEvent(s) {
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
       <div class="meta">${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
-    return `<article class="bout slim${i === 0 ? " main" : ""}">
+    const graded = op || mp;   // our pick if we made one, otherwise the model's pick
+    const ring = graded && graded.right != null ? (graded.right ? " ring-won" : " ring-lost") : "";
+    return `<article class="bout slim${i === 0 ? " main" : ""}${ring}">
       <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
       <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
       ${expertBar(b.experts, b.a, b.b, b.winner)}
