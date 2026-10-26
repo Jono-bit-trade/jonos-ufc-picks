@@ -18,24 +18,24 @@
   {
    "prediction": "Our model alone",
    "bouts": 201,
-   "correct": 136,
-   "pct": 67.7,
-   "units": 6.5,
-   "log_loss": 0.6277,
-   "value_bets": 166,
-   "value_won": 70,
-   "value_units": -4.7
+   "correct": 135,
+   "pct": 67.2,
+   "units": 4.0,
+   "log_loss": 0.6239,
+   "value_bets": 159,
+   "value_won": 63,
+   "value_units": 4.5
   },
   {
    "prediction": "Our model + line (current site)",
    "bouts": 201,
-   "correct": 143,
-   "pct": 71.1,
-   "units": 4.9,
-   "log_loss": 0.6112,
-   "value_bets": 115,
-   "value_won": 80,
-   "value_units": -4.2
+   "correct": 142,
+   "pct": 70.6,
+   "units": 2.7,
+   "log_loss": 0.6111,
+   "value_bets": 92,
+   "value_won": 65,
+   "value_units": -5.2
   },
   {
    "prediction": "All experts' consensus",
@@ -65,10 +65,10 @@
    "correct": 137,
    "pct": 68.2,
    "units": -2.0,
-   "log_loss": 0.6212,
-   "value_bets": 133,
-   "value_won": 63,
-   "value_units": -0.1
+   "log_loss": 0.6192,
+   "value_bets": 136,
+   "value_won": 65,
+   "value_units": -5.5
   },
   {
    "prediction": "Line + winning experts",
@@ -87,10 +87,10 @@
    "correct": 137,
    "pct": 68.2,
    "units": -2.0,
-   "log_loss": 0.6237,
-   "value_bets": 141,
-   "value_won": 70,
-   "value_units": 1.2
+   "log_loss": 0.6219,
+   "value_bets": 142,
+   "value_won": 67,
+   "value_units": -15.4
   },
   {
    "prediction": "Line + model + all experts",
@@ -98,10 +98,10 @@
    "correct": 136,
    "pct": 67.7,
    "units": -3.6,
-   "log_loss": 0.6246,
-   "value_bets": 133,
-   "value_won": 62,
-   "value_units": 0.6
+   "log_loss": 0.6229,
+   "value_bets": 141,
+   "value_won": 67,
+   "value_units": -1.0
   }
  ],
  "chosen": "Our model + line (current site)",

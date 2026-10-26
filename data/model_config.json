@@ -1,1 +1,1 @@
-{"features": "all", "learner": "logistic"}
+{"features": "core+form", "learner": "logistic"}

@@ -243,8 +243,7 @@ async function viewHome() {
     <span class="small">${recLine(e.record)}</span></li>`).join("");
   const top = ex ? ex.analysts.slice(0, 3).map((a, i) => `<li><span class="rk">${i + 1}</span>${esc(a.analyst)}<span class="small">${a.win_pct}% · ${a.won}-${a.bets - a.won} · ${a.roi_pct > 0 ? "+" : ""}${a.roi_pct}% per bet</span></li>`).join("") : "";
   const mr = await get("model_record.json");
-  const yr = mr && mr.years[0], box = (label, r) => !r ? "" : `<div class="stat key"><b class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</b><span>${label}: our picks units (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}% per bet)</span></div>
-    <div class="stat key"><b>${r.our_pct}% <span class="sub">${r.our_won}/${r.our_bets}</span></b><span>${label}: our picks won</span></div>
+  const yr = mr && mr.years[0], box = (label, r) => !r ? "" : `<div class="stat key"><b>${r.our_won}/${r.our_bets} <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)} (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}%)</span></b><span>${label}: our picks, ${r.our_pct}% won</span></div>
     <div class="stat"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
     <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
     <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
