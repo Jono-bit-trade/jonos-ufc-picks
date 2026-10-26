@@ -26,7 +26,7 @@ function photo(id, name, size = "md") {
 }
 const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
 const recLine = r => !r || !r.picks ? "" :
-  `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
+  `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} (${Math.round(r.our_won / r.our_bets * 100)}%) <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
 const fighterLink = (name, s) => `<a class="fl" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
 
 // ---------------- the current card ----------------
