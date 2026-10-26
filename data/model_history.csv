@@ -5019,7 +5019,7 @@ fight_id,date,a,b,p,p_blend
 2026-04-04|Dione Barbosa|Melissa Gatto,2026-04-04,Dione Barbosa,Melissa Gatto,0.3178,0.5728
 2026-04-04|Ethyn Ewing|Rafael Estevam,2026-04-04,Ethyn Ewing,Rafael Estevam,0.4305,0.5566
 2026-04-04|Guilherme Pat|Thomas Petersen,2026-04-04,Guilherme Pat,Thomas Petersen,0.6546,0.5158
-2026-04-04|Jose Delano|Robert Ruchała,2026-04-04,Jose Delano,Robert Ruchała,0.5,
+2026-04-04|Jose Delano|Robert Ruchała,2026-04-04,Jose Delano,Robert Ruchała,0.5,0.7129
 2026-04-04|Kai Kamaka III|Dakota Hope,2026-04-04,Kai Kamaka III,Dakota Hope,0.6208,0.5681
 2026-04-04|Lando Vannata|Darrius Flowers,2026-04-04,Lando Vannata,Darrius Flowers,0.5371,0.6762
 2026-04-04|Renato Moicano|Chris Duncan,2026-04-04,Renato Moicano,Chris Duncan,0.3682,0.4385
@@ -5060,9 +5060,9 @@ fight_id,date,a,b,p,p_blend
 2026-04-25|Rafa Garcia|Alexander Hernandez,2026-04-25,Rafa Garcia,Alexander Hernandez,0.4703,0.4779
 2026-04-25|Rodolfo Vieira|Eric McConico,2026-04-25,Rodolfo Vieira,Eric McConico,0.6504,0.7158
 2026-04-25|Talita Alencar|Julia Polastri,2026-04-25,Talita Alencar,Julia Polastri,0.4039,0.3146
-2026-05-02|Ben Johnston|Wes Schultz,2026-05-02,Ben Johnston,Wes Schultz,0.5328,
+2026-05-02|Ben Johnston|Wes Schultz,2026-05-02,Ben Johnston,Wes Schultz,0.5328,0.6034
 2026-05-02|Beneil Dariush|Quillan Salkilld,2026-05-02,Beneil Dariush,Quillan Salkilld,0.2339,0.1503
-2026-05-02|Cam Rowston|Robert Bryczek,2026-05-02,Cam Rowston,Robert Bryczek,0.732,
+2026-05-02|Cam Rowston|Robert Bryczek,2026-05-02,Cam Rowston,Robert Bryczek,0.732,0.6588
 2026-05-02|Colby Thicknesse|Vince Morales,2026-05-02,Colby Thicknesse,Vince Morales,0.7644,0.5976
 2026-05-02|Dom Mar Fan|Kody Steele,2026-05-02,Dom Mar Fan,Kody Steele,0.7318,0.4041
 2026-05-02|Jack Della Maddalena|Carlos Prates,2026-05-02,Jack Della Maddalena,Carlos Prates,0.4441,0.4938
@@ -5074,7 +5074,7 @@ fight_id,date,a,b,p,p_blend
 2026-05-02|Tai Tuivasa|Louie Sutherland,2026-05-02,Tai Tuivasa,Louie Sutherland,0.6094,0.6525
 2026-05-02|Tim Elliott|Steve Erceg,2026-05-02,Tim Elliott,Steve Erceg,0.2692,0.2895
 2026-05-09|Alexander Volkov|Waldo Cortes-Acosta,2026-05-09,Alexander Volkov,Waldo Cortes-Acosta,0.5057,0.6167
-2026-05-09|Ateba Gautier|Ozzy Diaz,2026-05-09,Ateba Gautier,Ozzy Diaz,0.8459,
+2026-05-09|Ateba Gautier|Ozzy Diaz,2026-05-09,Ateba Gautier,Ozzy Diaz,0.8459,0.9236
 2026-05-09|Baisangur Susurkaev|Djorden Santos,2026-05-09,Baisangur Susurkaev,Djorden Santos,0.7043,0.8881
 2026-05-09|Clayton Carpenter|Jose Ochoa,2026-05-09,Clayton Carpenter,Jose Ochoa,0.3762,0.3717
 2026-05-09|Grant Dawson|Mateusz Rebecki,2026-05-09,Grant Dawson,Mateusz Rebecki,0.7652,0.6246
@@ -5090,30 +5090,30 @@ fight_id,date,a,b,p,p_blend
 2026-05-16|Arnold Allen|Melquizael Costa,2026-05-16,Arnold Allen,Melquizael Costa,0.4138,0.545
 2026-05-16|Cody Brundage|Andre Petroski,2026-05-16,Cody Brundage,Andre Petroski,0.4943,0.4226
 2026-05-16|Daniel Barez|Luis Gurule,2026-05-16,Daniel Barez,Luis Gurule,0.5566,0.4438
-2026-05-16|Dooho Choi|Daniel Santos,2026-05-16,Dooho Choi,Daniel Santos,0.3824,
+2026-05-16|Dooho Choi|Daniel Santos,2026-05-16,Dooho Choi,Daniel Santos,0.3824,0.3526
 2026-05-16|Ketlen Vieira|Jacqueline Cavalcanti,2026-05-16,Ketlen Vieira,Jacqueline Cavalcanti,0.3189,0.4158
 2026-05-16|Malcolm Wellmaker|Juan Diaz,2026-05-16,Malcolm Wellmaker,Juan Diaz,0.5727,0.7198
 2026-05-16|Modestas Bukauskas|Christian Edwards,2026-05-16,Modestas Bukauskas,Christian Edwards,0.5716,0.7505
 2026-05-16|Nikolay Veretennikov|Khaos Williams,2026-05-16,Nikolay Veretennikov,Khaos Williams,0.327,0.4784
 2026-05-16|Shauna Bannon|Nicolle Caliari,2026-05-16,Shauna Bannon,Nicolle Caliari,0.5015,0.3013
-2026-05-16|Timmy Cuamba|Bernardo Sopaj,2026-05-16,Timmy Cuamba,Bernardo Sopaj,0.6613,
-2026-05-16|Tommy Gantt|Artur Minev,2026-05-16,Tommy Gantt,Artur Minev,0.5,
+2026-05-16|Timmy Cuamba|Bernardo Sopaj,2026-05-16,Timmy Cuamba,Bernardo Sopaj,0.6613,0.4843
+2026-05-16|Tommy Gantt|Artur Minev,2026-05-16,Tommy Gantt,Artur Minev,0.5,0.6537
 2026-05-16|Tuco Tokkos|Ivan Erslan,2026-05-16,Tuco Tokkos,Ivan Erslan,0.5461,0.4222
-2026-05-30|Angela Hill|Jingnan Xiong,2026-05-30,Angela Hill,Jingnan Xiong,0.4319,
+2026-05-30|Angela Hill|Jingnan Xiong,2026-05-30,Angela Hill,Jingnan Xiong,0.4319,0.3737
 2026-05-30|Aori Qileng|Cody Haddon,2026-05-30,Aori Qileng,Cody Haddon,0.3372,0.2971
-2026-05-30|Ding Meng|Jose Henrique,2026-05-30,Ding Meng,Jose Henrique,0.5,
+2026-05-30|Ding Meng|Jose Henrique,2026-05-30,Ding Meng,Jose Henrique,0.5,0.5401
 2026-05-30|Jake Matthews|Carlston Harris,2026-05-30,Jake Matthews,Carlston Harris,0.6621,0.8766
 2026-05-30|Kai Asakura|Cameron Smotherman,2026-05-30,Kai Asakura,Cameron Smotherman,0.3527,0.7025
 2026-05-30|Loma Lookboonmee|Jaqueline Amorim,2026-05-30,Loma Lookboonmee,Jaqueline Amorim,0.3928,0.4698
 2026-05-30|Rei Tsuruya|Luis Gurule,2026-05-30,Rei Tsuruya,Luis Gurule,0.7704,0.7636
 2026-05-30|Sergei Pavlovich|Tallison Teixeira,2026-05-30,Sergei Pavlovich,Tallison Teixeira,0.5847,0.8773
 2026-05-30|Song Yadong|Deiveson Figueiredo,2026-05-30,Song Yadong,Deiveson Figueiredo,0.6638,0.8981
-2026-05-30|Yi Sak Lee|Luis Felipe Dias,2026-05-30,Yi Sak Lee,Luis Felipe Dias,0.5,
+2026-05-30|Yi Sak Lee|Luis Felipe Dias,2026-05-30,Yi Sak Lee,Luis Felipe Dias,0.5,0.4081
 2026-05-30|Zhang Mingyang|Alonzo Menifield,2026-05-30,Zhang Mingyang,Alonzo Menifield,0.7155,0.7292
 2026-05-30|Zhu Kangjie|Rodrigo Vera,2026-05-30,Zhu Kangjie,Rodrigo Vera,0.5,0.5036
 2026-06-06|Belal Muhammad|Gabriel Bonfim,2026-06-06,Belal Muhammad,Gabriel Bonfim,0.3244,0.5063
 2026-06-06|Brendan Allen|Edmen Shahbazyan,2026-06-06,Brendan Allen,Edmen Shahbazyan,0.6808,0.6541
-2026-06-06|Bruno Silva|Edgar Chairez,2026-06-06,Bruno Silva,Edgar Chairez,0.3215,
+2026-06-06|Bruno Silva|Edgar Chairez,2026-06-06,Bruno Silva,Edgar Chairez,0.3215,0.5335
 2026-06-06|Bryce Mitchell|Santiago Luna,2026-06-06,Bryce Mitchell,Santiago Luna,0.4532,0.5496
 2026-06-06|Fares Ziam|Tom Nolan,2026-06-06,Fares Ziam,Tom Nolan,0.624,0.7486
 2026-06-06|Iwo Baraniewski|Junior Tafa,2026-06-06,Iwo Baraniewski,Junior Tafa,0.6951,0.8489
@@ -5132,7 +5132,7 @@ fight_id,date,a,b,p,p_blend
 2026-06-14|Sean O'Malley|Aiemann Zahabi,2026-06-14,Sean O'Malley,Aiemann Zahabi,0.6687,0.8581
 2026-06-20|Allan Nascimento|Mitch Raposo,2026-06-20,Allan Nascimento,Mitch Raposo,0.5769,0.6274
 2026-06-20|Andre Lima|Kevin Borjas,2026-06-20,Andre Lima,Kevin Borjas,0.824,0.8693
-2026-06-20|Bia Mesquita|Melissa Mullins,2026-06-20,Bia Mesquita,Melissa Mullins,0.637,
+2026-06-20|Bia Mesquita|Melissa Mullins,2026-06-20,Bia Mesquita,Melissa Mullins,0.637,0.8788
 2026-06-20|Gaston Bolanos|Michael Aswell Jr.,2026-06-20,Gaston Bolanos,Michael Aswell Jr.,0.2725,0.163
 2026-06-20|Hyder Amil|Christian Rodriguez,2026-06-20,Hyder Amil,Christian Rodriguez,0.3221,0.3549
 2026-06-20|Ion Cutelaba|Navajo Stirling,2026-06-20,Ion Cutelaba,Navajo Stirling,0.2463,0.2645
@@ -5143,7 +5143,7 @@ fight_id,date,a,b,p,p_blend
 2026-06-20|Shane Collins|Otari Tanzilovi,2026-06-20,Shane Collins,Otari Tanzilovi,0.5,0.6561
 2026-06-20|Vinicius Oliveira|Andre Fili,2026-06-20,Vinicius Oliveira,Andre Fili,0.8237,0.7542
 2026-06-27|Abdul Rakhman Yakhyaev|Julius Walker,2026-06-27,Abdul Rakhman Yakhyaev,Julius Walker,0.5862,0.8706
-2026-06-27|Abus Magomedov|Michal Oleksiejczuk,2026-06-27,Abus Magomedov,Michal Oleksiejczuk,0.4243,
+2026-06-27|Abus Magomedov|Michal Oleksiejczuk,2026-06-27,Abus Magomedov,Michal Oleksiejczuk,0.4243,0.5014
 2026-06-27|Asu Almabayev|Charles Johnson,2026-06-27,Asu Almabayev,Charles Johnson,0.6852,0.7195
 2026-06-27|Bekzat Almakhan|Jean Matsumoto,2026-06-27,Bekzat Almakhan,Jean Matsumoto,0.299,0.4099
 2026-06-27|Daniil Donchenko|Theodor Berggren,2026-06-27,Daniil Donchenko,Theodor Berggren,0.7473,0.8811
@@ -5153,7 +5153,7 @@ fight_id,date,a,b,p,p_blend
 2026-06-27|Nazim Sadykhov|Matheus Camilo,2026-06-27,Nazim Sadykhov,Matheus Camilo,0.5173,0.6663
 2026-06-27|Nursulton Ruziboev|Andrey Pulyaev,2026-06-27,Nursulton Ruziboev,Andrey Pulyaev,0.6174,0.6933
 2026-06-27|Rafael Fiziev|Manuel Torres,2026-06-27,Rafael Fiziev,Manuel Torres,0.3979,0.5153
-2026-06-27|Shara Magomedov|Michel Pereira,2026-06-27,Shara Magomedov,Michel Pereira,0.6191,
+2026-06-27|Shara Magomedov|Michel Pereira,2026-06-27,Shara Magomedov,Michel Pereira,0.6191,0.7702
 2026-06-27|Tahir Abdullayev|Jefferson Nascimento,2026-06-27,Tahir Abdullayev,Jefferson Nascimento,0.5,0.5036
 2026-07-11|Alessandro Costa|Cody Durden,2026-07-11,Alessandro Costa,Cody Durden,0.6518,0.7137
 2026-07-11|Benoit Saint Denis|Paddy Pimblett,2026-07-11,Benoit Saint Denis,Paddy Pimblett,0.5626,0.584
@@ -5167,7 +5167,7 @@ fight_id,date,a,b,p,p_blend
 2026-07-11|King Green|Terrance McKinney,2026-07-11,King Green,Terrance McKinney,0.5663,0.4557
 2026-07-11|Luke Riley|Kai Kamaka III,2026-07-11,Luke Riley,Kai Kamaka III,0.6109,0.7363
 2026-07-11|Nikita Krylov|Robert Whittaker,2026-07-11,Nikita Krylov,Robert Whittaker,0.3893,0.4458
-2026-07-11|Ryan Gandra|Zach Reese,2026-07-11,Ryan Gandra,Zach Reese,0.4934,
+2026-07-11|Ryan Gandra|Zach Reese,2026-07-11,Ryan Gandra,Zach Reese,0.4934,0.5675
 2026-07-11|Tracy Cortez|Wang Cong,2026-07-11,Tracy Cortez,Wang Cong,0.5169,0.5105
 2026-07-18|Alden Coria|Stewart Nicoll,2026-07-18,Alden Coria,Stewart Nicoll,0.8318,0.9341
 2026-07-18|Anna Melisano|Dione Barbosa,2026-07-18,Anna Melisano,Dione Barbosa,0.3871,0.1351
@@ -5176,7 +5176,7 @@ fight_id,date,a,b,p,p_blend
 2026-07-18|Dricus Du Plessis|Kamaru Usman,2026-07-18,Dricus Du Plessis,Kamaru Usman,0.6147,0.7013
 2026-07-18|Ezra Elliott|Damien Anderson,2026-07-18,Ezra Elliott,Damien Anderson,0.5,0.4949
 2026-07-18|Jared Cannonier|Christian Leroy Duncan,2026-07-18,Jared Cannonier,Christian Leroy Duncan,0.2069,0.2354
-2026-07-18|Jean-Paul Lebosnoyani|Seokhyeon Ko,2026-07-18,Jean-Paul Lebosnoyani,Seokhyeon Ko,0.4559,
+2026-07-18|Jean-Paul Lebosnoyani|Seokhyeon Ko,2026-07-18,Jean-Paul Lebosnoyani,Seokhyeon Ko,0.4559,0.3737
 2026-07-18|Levi Rodrigues Jr.|Felipe Franco,2026-07-18,Levi Rodrigues Jr.,Felipe Franco,0.3945,0.5839
 2026-07-18|RJ Harris|Alvin Hines,2026-07-18,RJ Harris,Alvin Hines,0.4777,0.4967
 2026-07-18|Tabatha Ricci|Fatima Kline,2026-07-18,Tabatha Ricci,Fatima Kline,0.3377,0.1474
@@ -5203,16 +5203,16 @@ fight_id,date,a,b,p,p_blend
 2026-08-01|Marina Spasić|Stephanie Luciano,2026-08-01,Marina Spasić,Stephanie Luciano,0.3245,0.2871
 2026-08-01|Mateusz Rebecki|Kyle Prepolec,2026-08-01,Mateusz Rebecki,Kyle Prepolec,0.7816,0.875
 2026-08-01|Milos Janicic|Noah Gugnon,2026-08-01,Milos Janicic,Noah Gugnon,0.5,0.5187
-2026-08-01|Nina Milošević|Hailey Cowan,2026-08-01,Nina Milošević,Hailey Cowan,0.6651,
+2026-08-01|Nina Milošević|Hailey Cowan,2026-08-01,Nina Milošević,Hailey Cowan,0.6651,0.8461
 2026-08-01|Oban Elliott|Michael Oliveira,2026-08-01,Oban Elliott,Michael Oliveira,0.6028,0.2983
 2026-08-01|Uros Medic|Daniel Rodriguez,2026-08-01,Uros Medic,Daniel Rodriguez,0.5707,0.7742
 2026-08-01|Vlasto Čepo|Gilbert Urbina,2026-08-01,Vlasto Čepo,Gilbert Urbina,0.6062,0.751
 2026-08-08|Amanda Lemos|Alexia Thainara,2026-08-08,Amanda Lemos,Alexia Thainara,0.2762,0.3095
 2026-08-08|Billy Ray Goff|Ty Miller,2026-08-08,Billy Ray Goff,Ty Miller,0.3083,0.2655
 2026-08-08|Darren Elkins|Yadier del Valle,2026-08-08,Darren Elkins,Yadier del Valle,0.2647,0.0993
-2026-08-08|Diego Ferreira|Billy Quarantillo,2026-08-08,Diego Ferreira,Billy Quarantillo,0.5904,
+2026-08-08|Diego Ferreira|Billy Quarantillo,2026-08-08,Diego Ferreira,Billy Quarantillo,0.5904,0.6884
 2026-08-08|Diyar Nurgozhay|Bruno Lopes,2026-08-08,Diyar Nurgozhay,Bruno Lopes,0.5528,0.6087
-2026-08-08|Gigi Canuto|Carol Foro,2026-08-08,Gigi Canuto,Carol Foro,0.5,
+2026-08-08|Gigi Canuto|Carol Foro,2026-08-08,Gigi Canuto,Carol Foro,0.5,0.3445
 2026-08-08|Juliana Miller|Ravena Oliveira,2026-08-08,Juliana Miller,Ravena Oliveira,0.6451,0.7274
 2026-08-08|Louie Sutherland|José Montanha,2026-08-08,Louie Sutherland,José Montanha,0.5376,
 2026-08-08|Manoel Sousa|Richie Miranda,2026-08-08,Manoel Sousa,Richie Miranda,0.646,0.7131
@@ -5235,7 +5235,7 @@ fight_id,date,a,b,p,p_blend
 2026-08-22|Anthony Wint|Terrance Chatman,2026-08-22,Anthony Wint,Terrance Chatman,0.5,0.9224
 2026-08-22|Carli Judice|Jeisla Chaves,2026-08-22,Carli Judice,Jeisla Chaves,0.6785,0.881
 2026-08-22|Chris Padilla|Nasrat Haqparast,2026-08-22,Chris Padilla,Nasrat Haqparast,0.6158,0.5323
-2026-08-22|Gauge Young|Stan Dorsainvil,2026-08-22,Gauge Young,Stan Dorsainvil,0.6342,
+2026-08-22|Gauge Young|Stan Dorsainvil,2026-08-22,Gauge Young,Stan Dorsainvil,0.6342,0.6338
 2026-08-22|Jamall Emmers|Lerryan Douglas,2026-08-22,Jamall Emmers,Lerryan Douglas,0.3642,0.1698
 2026-08-22|Kennedy Nzechukwu|Shamil Gaziev,2026-08-22,Kennedy Nzechukwu,Shamil Gaziev,0.5774,0.465
 2026-08-22|MarQuel Mederos|Mason Jones,2026-08-22,MarQuel Mederos,Mason Jones,0.3884,0.2924
@@ -5243,13 +5243,13 @@ fight_id,date,a,b,p,p_blend
 2026-08-22|Reinier de Ridder|Roman Dolidze,2026-08-22,Reinier de Ridder,Roman Dolidze,0.6022,0.8482
 2026-08-22|Serghei Spivac|Vitor Petrino,2026-08-22,Serghei Spivac,Vitor Petrino,0.4216,0.4394
 2026-08-22|Shanelle Dyer|Elise Reed,2026-08-22,Shanelle Dyer,Elise Reed,0.8243,0.9365
-2026-08-22|Wes Schultz|Jackson McVey,2026-08-22,Wes Schultz,Jackson McVey,0.4513,
+2026-08-22|Wes Schultz|Jackson McVey,2026-08-22,Wes Schultz,Jackson McVey,0.4513,0.396
 2026-08-29|Alex Perez|Su Mudaerji,2026-08-29,Alex Perez,Su Mudaerji,0.5333,0.3666
 2026-08-29|Aori Qileng|Kai Asakura,2026-08-29,Aori Qileng,Kai Asakura,0.3839,0.1486
 2026-08-29|Bilal Hasan|Nilson Rojas,2026-08-29,Bilal Hasan,Nilson Rojas,0.5,0.9025
-2026-08-29|Ding Meng|Cam Nelson,2026-08-29,Ding Meng,Cam Nelson,0.5909,
+2026-08-29|Ding Meng|Cam Nelson,2026-08-29,Ding Meng,Cam Nelson,0.5909,0.5832
 2026-08-29|Jack Jenkins|Sean Woodson,2026-08-29,Jack Jenkins,Sean Woodson,0.3942,0.4915
-2026-08-29|Jingnan Xiong|Julia Polastri,2026-08-29,Jingnan Xiong,Julia Polastri,0.4724,
+2026-08-29|Jingnan Xiong|Julia Polastri,2026-08-29,Jingnan Xiong,Julia Polastri,0.4724,0.3274
 2026-08-29|Lawrence Lui|Hector Santiago,2026-08-29,Lawrence Lui,Hector Santiago,0.5656,0.7599
 2026-08-29|Liu Ce|Levi Rodrigues Jr.,2026-08-29,Liu Ce,Levi Rodrigues Jr.,0.5504,0.643
 2026-08-29|Namsrai Batbayar|Andre Lima,2026-08-29,Namsrai Batbayar,Andre Lima,0.4046,0.3092
@@ -5273,10 +5273,10 @@ fight_id,date,a,b,p,p_blend
 2026-09-05|Oumar Sy|Modestas Bukauskas,2026-09-05,Oumar Sy,Modestas Bukauskas,0.5639,0.7148
 2026-09-12|Brandon Moreno|Joseph Morales,2026-09-12,Brandon Moreno,Joseph Morales,0.6339,0.5239
 2026-09-12|David Martinez|Dan Ige,2026-09-12,David Martinez,Dan Ige,0.7602,0.8708
-2026-09-12|Drakkar Klose|Tommy Gantt,2026-09-12,Drakkar Klose,Tommy Gantt,0.5758,
+2026-09-12|Drakkar Klose|Tommy Gantt,2026-09-12,Drakkar Klose,Tommy Gantt,0.5758,0.1775
 2026-09-12|Ignacio Bahamondes|Muslim Salikhov,2026-09-12,Ignacio Bahamondes,Muslim Salikhov,0.7807,0.8862
 2026-09-12|JJ Aldrich|Regina Tarin,2026-09-12,JJ Aldrich,Regina Tarin,0.3391,0.289
-2026-09-12|Jean Silva|Jose Miguel Delgado,2026-09-12,Jean Silva,Jose Miguel Delgado,0.7232,
+2026-09-12|Jean Silva|Jose Miguel Delgado,2026-09-12,Jean Silva,Jose Miguel Delgado,0.7232,0.8562
 2026-09-12|Manon Fiorot|Alexa Grasso,2026-09-12,Manon Fiorot,Alexa Grasso,0.5918,0.7029
 2026-09-12|Rafa Garcia|Rong Zhu,2026-09-12,Rafa Garcia,Rong Zhu,0.6472,0.4276
 2026-09-12|Sean King III|Jessie Rosas,2026-09-12,Sean King III,Jessie Rosas,0.5,0.6537

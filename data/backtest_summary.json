@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-25",
+ "run_at": "2026-10-26",
  "best": {
   "features": "core+form",
   "learner": "logistic"
@@ -8,122 +8,122 @@
   {
    "features": "betting line (no-vig)",
    "learner": "market",
-   "log_loss": 0.6044,
-   "brier": 0.2087,
-   "accuracy": 0.6684
+   "log_loss": 0.6042,
+   "brier": 0.2086,
+   "accuracy": 0.6682
   },
   {
    "features": "glicko_only",
    "learner": "logistic",
-   "log_loss": 0.6751,
+   "log_loss": 0.675,
    "brier": 0.2411,
-   "accuracy": 0.5727
+   "accuracy": 0.573
   },
   {
    "features": "core",
    "learner": "logistic",
-   "log_loss": 0.6556,
+   "log_loss": 0.6555,
    "brier": 0.2318,
-   "accuracy": 0.6109
+   "accuracy": 0.6105
   },
   {
    "features": "core+form",
    "learner": "logistic",
    "log_loss": 0.6543,
    "brier": 0.2312,
-   "accuracy": 0.613
+   "accuracy": 0.6126
   },
   {
    "features": "core+form+context",
    "learner": "logistic",
-   "log_loss": 0.6542,
+   "log_loss": 0.6543,
    "brier": 0.2312,
-   "accuracy": 0.6102
+   "accuracy": 0.6097
   },
   {
    "features": "all",
    "learner": "logistic",
    "log_loss": 0.6502,
    "brier": 0.2293,
-   "accuracy": 0.6215
+   "accuracy": 0.6214
   },
   {
    "features": "all",
    "learner": "boost",
-   "log_loss": 0.6585,
-   "brier": 0.2331,
-   "accuracy": 0.6077
+   "log_loss": 0.6579,
+   "brier": 0.2328,
+   "accuracy": 0.6069
   },
   {
    "features": "all",
    "learner": "blend",
-   "log_loss": 0.6512,
-   "brier": 0.2297,
-   "accuracy": 0.6196
+   "log_loss": 0.651,
+   "brier": 0.2296,
+   "accuracy": 0.6201
   }
  ],
  "stage2": [
   {
    "probability": "Betting line",
-   "log_loss": 0.6016,
-   "brier": 0.2075,
-   "accuracy": 0.6722
+   "log_loss": 0.6013,
+   "brier": 0.2073,
+   "accuracy": 0.672
   },
   {
    "probability": "Model alone",
-   "log_loss": 0.6547,
-   "brier": 0.2314,
-   "accuracy": 0.6123
+   "log_loss": 0.6548,
+   "brier": 0.2315,
+   "accuracy": 0.6117
   },
   {
    "probability": "Line + model blend",
-   "log_loss": 0.5995,
-   "brier": 0.207,
+   "log_loss": 0.5992,
+   "brier": 0.2069,
    "accuracy": 0.677
   }
  ],
  "roi": [
   {
    "edge": 0.0,
-   "bets": 4387,
-   "win_%": 58.6506,
-   "units": -133.1544,
-   "roi_%": -3.0352
+   "bets": 4412,
+   "win_%": 58.6582,
+   "units": -133.8898,
+   "roi_%": -3.0347
   },
   {
    "edge": 0.01,
-   "bets": 3570,
-   "win_%": 61.0364,
-   "units": -30.0723,
-   "roi_%": -0.8424
+   "bets": 3594,
+   "win_%": 61.0184,
+   "units": -31.8876,
+   "roi_%": -0.8872
   },
   {
    "edge": 0.02,
-   "bets": 2554,
-   "win_%": 63.3908,
-   "units": 0.3248,
-   "roi_%": 0.0127
+   "bets": 2567,
+   "win_%": 63.3814,
+   "units": -2.3537,
+   "roi_%": -0.0917
   },
   {
    "edge": 0.03,
-   "bets": 1641,
-   "win_%": 68.2511,
-   "units": 12.0779,
-   "roi_%": 0.736
+   "bets": 1651,
+   "win_%": 68.2617,
+   "units": 11.1291,
+   "roi_%": 0.6741
   },
   {
    "edge": 0.04,
-   "bets": 1088,
-   "win_%": 74.4485,
-   "units": 34.2069,
-   "roi_%": 3.144
+   "bets": 1096,
+   "win_%": 74.5438,
+   "units": 35.2581,
+   "roi_%": 3.217
   },
   {
    "edge": 0.05,
-   "bets": 745,
-   "win_%": 75.0336,
-   "units": 22.9716,
-   "roi_%": 3.0834
+   "bets": 750,
+   "win_%": 75.2,
+   "units": 24.2348,
+   "roi_%": 3.2313
   }
  ],
  "by_year": [
@@ -185,14 +185,14 @@
   },
   {
    "year": "2026",
-   "bets": 165,
-   "win_%": 73.9394,
-   "units": -6.82,
-   "roi_%": -4.1334
+   "bets": 175,
+   "win_%": 73.7143,
+   "units": -7.7688,
+   "roi_%": -4.4393
   }
  ],
  "years": "2018-2026",
- "fights": 4387,
+ "fights": 4412,
  "early": [
   {
    "edge": 0.0,
