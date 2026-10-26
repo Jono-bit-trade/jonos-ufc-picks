@@ -211,7 +211,7 @@ async function viewCard() {
     <span>Since 2018: ${all.pct}% (${all.right}/${all.picks}), <span class="${all.units >= 0 ? "won" : "lost"}">${units(all.units)}</span>; value picks ${all.value_won}/${all.value_bets} <span class="${all.value_units >= 0 ? "won" : "lost"}">${units(all.value_units)}</span> · <a href="#/record">by year</a></span></div>`;
   return `<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
-    <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective, high-confidence pick: the model beats the line by 3+ points, gives the fighter a 70%+ chance, and the price isn't a long underdog. "Value pick" means it beats the line but doesn't meet the confidence bar.</p>
+    <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). "Value pick" means it beats the line but is an underdog the model isn't confident in.</p>
     ${p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
 }
 
@@ -329,7 +329,7 @@ async function viewEvent(s) {
       <div class="stat"><b>${e.record.our_bets ? `${e.record.our_won}/${e.record.our_bets}` : "–"}</b><span>our picks won</span></div>
       <div class="stat"><b class="${e.record.our_units >= 0 ? "won" : "lost"}">${e.record.our_bets ? units(e.record.our_units) : "–"}</b><span>our picks units</span></div>
       <div class="stat"><b>${e.favorites_right}/${e.record.picks}</b><span>betting favorites won</span></div></div>` : ""}
-    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Winners picked use our final chance (model blended with the line). Units are flat 1-unit bets at the closing moneyline. Value picks beat the line by 3+ points; our picks also need a 70%+ chance and no long underdog: the same rules as the live card.</p>${rows}`;
+    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Winners picked use our final chance (model blended with the line). Units are flat 1-unit bets at the closing moneyline. Value picks beat the line by 3+ points; our picks also need the fighter to be the favorite or 70%+ likely, and no long underdog: the same rules as the live card.</p>${rows}`;
 }
 
 // ---------------- fighters ----------------
@@ -471,7 +471,7 @@ function yearTable(mr) {
     <td class="n hide-sm">${pc(r.value_roi_pct)}</td>
     <td class="n">${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</td><td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td></tr>`;
   return `<h2>Model track record by year</h2>
-    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. Value and our picks start in 2018, when the line blend can first be tested. The "our picks" rule was chosen on 2018-2023 and checked on 2024 onward: ${mr.rule_chosen_on.our_won}/${mr.rule_chosen_on.our_bets} ${units(mr.rule_chosen_on.our_units)} then ${mr.rule_checked_on.our_won}/${mr.rule_checked_on.our_bets} ${units(mr.rule_checked_on.our_units)}.</p>
+    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. Value and our picks start in 2018, when the line blend can first be tested. Our picks by period: ${(mr.periods || []).map(p => `${p.label} ${p.our_won}/${p.our_bets} ${units(p.our_units)}`).join(" · ")}. Favorites under 70% were added in Oct 2026: they paid from 2020 on but lost in 2018-19, when the line blend had little history to learn from.</p>
     <div class="tablewrap"><table><thead><tr><th>Year</th><th class="n">Winners</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Per bet</th>
       <th class="n">Value picks</th><th class="n">Value units</th><th class="n hide-sm">Per bet</th><th class="n">Our picks</th><th class="n">Our units</th></tr></thead><tbody>
       ${mr.years.map(row).join("")}${row({...mr.all, year: "All years"})}</tbody></table></div>`;

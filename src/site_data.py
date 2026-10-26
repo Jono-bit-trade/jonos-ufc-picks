@@ -197,8 +197,8 @@ def track_record(rows):
                 "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None}
     years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
     return {"all": summary(rows), "since_2018": summary([r for r in rows if r["date"] >= "2018"]),
-            "rule_chosen_on": summary([r for r in rows if "2018" <= r["date"] < "2024"]),
-            "rule_checked_on": summary([r for r in rows if r["date"] >= "2024"]),
+            "periods": [{"label": lbl, **summary([r for r in rows if a <= r["date"] < b])}
+                        for lbl, a, b in (("2018-19", "2018", "2020"), ("2020-22", "2020", "2023"), ("2023 on", "2023", "2100"))],
             "years": [{"year": y, **summary([r for r in rows if r["date"].startswith(y)])} for y in years],
             "edge": EDGE}
 

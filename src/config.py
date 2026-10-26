@@ -31,7 +31,11 @@ MIN_BOOKS = 2                 # need lines from at least this many books before 
 # stay in: value picks at -250 or shorter won about 80% of the time and were the most
 # profitable group in both periods. Set OUR_PICKS_MAX_FAVORITE to e.g. -300 to exclude them.
 OUR_PICKS_MIN_EDGE = 0.03     # beats the fair line by 3+ points (same as value picks)
-OUR_PICKS_MIN_CHANCE = 0.70   # our final chance for the pick is 70% or more
+OUR_PICKS_MIN_CHANCE = 0.70   # our final chance for the pick is 70% or more...
+OUR_PICKS_ANY_FAVORITE = True # ...or the pick is the betting favorite. Value picks on favorites
+                              # below 70% won ~2/3 of the time and paid in 2020-22 (+16u) and
+                              # 2023-26 (+12u); they lost in 2018-19 (-27u), when the line blend
+                              # had only 1-2 years of predictions to learn from. Added Oct 2026.
 OUR_PICKS_MAX_UNDERDOG = 150  # no underdogs longer than +150 (those lost money)
 OUR_PICKS_MAX_FAVORITE = None # e.g. -300 to skip picks shorter than -300; None keeps them
 

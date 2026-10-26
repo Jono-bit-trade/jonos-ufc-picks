@@ -4,7 +4,7 @@
   our pick:   a value pick that is also high-confidence and not a long underdog
               (settings in config.py: OUR_PICKS_*)
 """
-from config import EDGE, OUR_PICKS_MIN_EDGE, OUR_PICKS_MIN_CHANCE, OUR_PICKS_MAX_UNDERDOG, OUR_PICKS_MAX_FAVORITE
+from config import EDGE, OUR_PICKS_MIN_EDGE, OUR_PICKS_MIN_CHANCE, OUR_PICKS_MAX_UNDERDOG, OUR_PICKS_MAX_FAVORITE, OUR_PICKS_ANY_FAVORITE
 
 
 def value_side(p_final, fair, edge=EDGE):
@@ -19,13 +19,16 @@ def value_side(p_final, fair, edge=EDGE):
 
 
 def our_side(p_final, fair, odds_a, odds_b):
-    """'a', 'b' or None: value pick + high confidence + sensible price."""
+    """'a', 'b' or None: a value pick that is either 70%+ likely or the betting favorite,
+    and not an underdog longer than +150."""
     side = value_side(p_final, fair, OUR_PICKS_MIN_EDGE)
     if side is None:
         return None
     chance = p_final if side == "a" else 1 - p_final
     odds = odds_a if side == "a" else odds_b
-    if odds is None or odds != odds or chance < OUR_PICKS_MIN_CHANCE:
+    if odds is None or odds != odds:
+        return None
+    if chance < OUR_PICKS_MIN_CHANCE and not (OUR_PICKS_ANY_FAVORITE and odds < 0):
         return None
     if odds > OUR_PICKS_MAX_UNDERDOG:
         return None
