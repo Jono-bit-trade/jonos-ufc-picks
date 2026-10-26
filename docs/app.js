@@ -106,7 +106,7 @@ function bout(f, i, edge) {
   const pa100 = Math.round(pa * 100);
   // ring: did our pick (or, without one, the model's pick) win?
   const w = f.state === "post" && f.result ? f.result.winner : null;
-  const called = f.our_pick || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
+  const called = f.our_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
   return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${ring}">
     ${status(f)}
@@ -311,7 +311,7 @@ async function viewEvent(s) {
   const rows = e.bouts.map((b, i) => {
     const won = b.winner === "a" ? b.a : b.winner === "b" ? b.b : null;
     const mp = b.model_pick, vp = b.value_pick;
-    const call = !mp ? "" : `<span class="tick ${mp.right ? "won" : "lost"}">Model ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
+    const call = !mp ? "" : `<span class="tick ${mp.right ? "won" : "lost"}">Model${mp.lean ? " (expert lean)" : ""} ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
     const op = b.our_pick;
     const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
       : !vp ? "" : `<span class="vpick ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);

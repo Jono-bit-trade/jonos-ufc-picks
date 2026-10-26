@@ -356,13 +356,13 @@ def main():
                 if fair is not None:
                     fav_right += int((fair > 0.5) == won_a)
                 best = pf if pf is not None else p   # our final chance (model + line) where we have it
-                if best is not None:   # our predicted winner, bet at its moneyline
-                    on_a = best > 0.5
+                if best is not None or lean:   # our predicted winner, bet at its moneyline
+                    on_a = (lean == "a") if lean else best > 0.5   # an expert lean decides close fights
                     right = on_a == won_a
                     o = f.odds_a if on_a else f.odds_b
                     u = (float(payout(o)) if right else -1.0) if pd.notna(o) else None
                     pick = {"side": "a" if on_a else "b", "right": right, "odds": num(o),
-                            "units": round(u, 2) if u is not None else None}
+                            "units": round(u, 2) if u is not None else None, "lean": bool(lean)}
                     rec["picks"] += 1
                     rec["right"] += int(right)
                     if u is not None:
