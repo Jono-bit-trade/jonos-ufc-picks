@@ -2,13 +2,16 @@ name: fight-week
 
 on:
   schedule:
-    # Times are UTC; Central is 5 hours behind until early November, then 6.
-    - cron: "0 4 * * 2"             # Monday night: weekend results, rebuild, backtest
-    - cron: "0 14 * * *"            # every morning: next card, lines (line-movement history), picks
-    - cron: "0 23 * * 3,4,5"        # Wed-Fri evenings: extra line snapshots (Friday's is after weigh-ins)
-    - cron: "0 17,20 * * 6"         # Saturday midday and afternoon: last lines before the prelims
-    - cron: "*/20 21-23 * * 6"      # Saturday night: live status and results every 20 minutes
-    - cron: "*/20 0-6 * * 0"        #   (continues past midnight UTC)
+    # Times are UTC; Central is 5 hours behind until early November, then 6. Off-the-hour minutes:
+    # GitHub delays or drops scheduled runs at :00 when it's busy, so each window also has a backup.
+    - cron: "13 4 * * 2"            # Monday night: weekend results, rebuild, backtest
+    - cron: "43 5 * * 2"            #   backup
+    - cron: "7 14 * * *"            # every morning: next card, lines (line-movement history), picks
+    - cron: "37 19 * * *"           # every afternoon: backup and a second line snapshot
+    - cron: "11 23 * * 3,4,5"       # Wed-Fri evenings: extra line snapshots (Friday's is after weigh-ins)
+    - cron: "7 17,20 * * 6"         # Saturday midday and afternoon: last lines before the prelims
+    - cron: "5-59/20 21-23 * * 6"   # Saturday night: live status and results every 20 minutes
+    - cron: "5-59/20 0-6 * * 0"     #   (continues past midnight UTC)
   workflow_dispatch:                # adds a "Run workflow" button on the Actions tab
   push:
     paths: ["data/name_map.csv", "src/**", ".github/workflows/fight-week.yml"]   # a fix or a code change: refresh the board
@@ -35,8 +38,8 @@ jobs:
         id: kind
         run: |
           case "${{ github.event.schedule }}" in
-            "0 4 * * 2") echo "kind=full" >> "$GITHUB_OUTPUT" ;;
-            "*/20 21-23 * * 6"|"*/20 0-6 * * 0") echo "kind=live" >> "$GITHUB_OUTPUT" ;;
+            "13 4 * * 2"|"43 5 * * 2") echo "kind=full" >> "$GITHUB_OUTPUT" ;;
+            "5-59/20 21-23 * * 6"|"5-59/20 0-6 * * 0") echo "kind=live" >> "$GITHUB_OUTPUT" ;;
             "") [ "${{ github.event_name }}" = "push" ] && echo "kind=lines" >> "$GITHUB_OUTPUT" || echo "kind=full" >> "$GITHUB_OUTPUT" ;;
             *) echo "kind=lines" >> "$GITHUB_OUTPUT" ;;
           esac

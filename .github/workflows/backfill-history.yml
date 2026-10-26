@@ -9,7 +9,7 @@ name: backfill-history
 # (UFCStats now shows automated visitors a browser check, so it's no longer used.)
 on:
   schedule:
-    - cron: "0 7 * * 1-5"     # weekday mornings (UTC), away from fight nights
+    - cron: "23 7 * * 1-5"     # weekday mornings (UTC), away from fight nights
   workflow_dispatch:
     inputs:
       minutes:
