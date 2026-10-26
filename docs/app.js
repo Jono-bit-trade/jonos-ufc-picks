@@ -204,11 +204,11 @@ async function viewCard() {
   if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(route, 120000);   // fight night: refresh every 2 minutes
   $("#updated").textContent = `Updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}. For fun and research, not betting advice.`;
   if (!p.fights.length) return `<h1>Next card</h1><div class="empty">${esc(p.message || "No bouts listed yet.")}</div>`;
-  const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && mr.since_2018;
+  const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && (mr.since || mr.all);
   const track = !mr ? "" : `<div class="track"><b>Model track record</b>
-    <span><b class="inl">Our picks</b> ${esc(yr.year)}: ${yr.our_won}/${yr.our_bets} <span class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</span> · since 2018: ${all.our_won}/${all.our_bets} <span class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</span></span>
+    <span><b class="inl">Our picks</b> ${esc(yr.year)}: ${yr.our_won}/${yr.our_bets} <span class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</span> · since ${mr.from || 2020}: ${all.our_won}/${all.our_bets} <span class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</span></span>
     <span>${esc(yr.year)}: ${yr.pct}% of winners picked (${yr.right}/${yr.picks}), <span class="${yr.units >= 0 ? "won" : "lost"}">${units(yr.units)}</span> betting every winner, value picks ${yr.value_won}/${yr.value_bets} <span class="${yr.value_units >= 0 ? "won" : "lost"}">${units(yr.value_units)}</span></span>
-    <span>Since 2018: ${all.pct}% (${all.right}/${all.picks}), <span class="${all.units >= 0 ? "won" : "lost"}">${units(all.units)}</span>; value picks ${all.value_won}/${all.value_bets} <span class="${all.value_units >= 0 ? "won" : "lost"}">${units(all.value_units)}</span> · <a href="#/record">by year</a></span></div>`;
+    <span>Since ${mr.from || 2020}: ${all.pct}% (${all.right}/${all.picks}), <span class="${all.units >= 0 ? "won" : "lost"}">${units(all.units)}</span>; value picks ${all.value_won}/${all.value_bets} <span class="${all.value_units >= 0 ? "won" : "lost"}">${units(all.value_units)}</span> · <a href="#/record">by year</a></span></div>`;
   return `<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
     <p class="note">The bar is the model's chance for each fighter. The black tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). "Value pick" means it beats the line but is an underdog the model isn't confident in.</p>
@@ -247,7 +247,7 @@ async function viewHome() {
     <div class="stat"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
     <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
     <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
-  const record = mr ? `<h2>Model track record</h2><div class="stats">${box(yr.year, yr)}${box("Since 2018", mr.since_2018)}</div>
+  const record = mr ? `<h2>Model track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
     <p class="note">Every past fight predicted by a model trained only on earlier fights. Flat 1-unit bets at the closing moneyline. <a href="#/record">Full record by year</a></p>` : "";
   return `${hero}${record}
     <div class="cols">
@@ -257,7 +257,7 @@ async function viewHome() {
 }
 
 // ---------------- events ----------------
-const RECENT_FROM = "2018";   // the full model (model + line) is tested from here; older cards are results only
+const RECENT_FROM = "2020";   // the official record starts here; older cards are kept for histories and ratings
 async function viewEvents(q) {
   const [ev, up, mr] = await Promise.all([get("events/index.json"), get("upcoming.json"), get("model_record.json")]);
   const year = q.get("year") || "";
@@ -271,22 +271,22 @@ async function viewEvents(q) {
     <h2>Past cards</h2>
     ${eventsSummary(mr, year)}
     <div class="filters">${chip("", "Since " + RECENT_FROM)}${years.map(y => chip(y, y)).join("")}${chip("older", "Before " + RECENT_FROM)}${chip("all", "All")}</div>
-    ${year === "older" ? `<p class="note">Cards before ${RECENT_FROM} are kept for fighter histories and ratings. The model's picks there come from the model alone (the line blend starts in ${RECENT_FROM}), so they aren't part of the headline record.</p>` : ""}
+    ${year === "older" ? `<p class="note">Cards before ${RECENT_FROM} are kept for fighter histories, ratings and training, but aren't part of the record: the model had too little history behind it then to grade it fairly.</p>` : ""}
     <ul class="list">${list.map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}<span class="small"> · ${esc(e.main)}</span></a>
-      ${cardBadge(e.record)}</li>`).join("")}</ul>`;
+      ${cardBadge(e.record, e.date)}</li>`).join("")}</ul>`;
 }
 
-function cardBadge(r) {
-  if (!r || !r.picks) return "";
+function cardBadge(r, date) {
+  if (!r || !r.picks || (date && date < RECENT_FROM)) return "";
   return `<span class="cbadge"><b>${r.right}/${r.picks}</b> correct · <b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b>${
     r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} <b class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</b>` : ""}</span>`;
 }
 
 function eventsSummary(mr, year) {
   if (!mr) return "";
-  const r = year === "all" ? mr.all : year === "older" ? null : year ? mr.years.find(y => y.year === year) : (mr.since_2018 || mr.all);
+  const r = year === "all" ? mr.all : year === "older" ? null : year ? mr.years.find(y => y.year === year) : (mr.since || mr.all);
   if (!r) return "";
-  const label = year === "all" ? "All years" : year || "Since " + RECENT_FROM;
+  const label = year === "all" ? "Since " + RECENT_FROM : year || "Since " + RECENT_FROM;
   return `<div class="stats">
     <div class="stat key"><b>${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</b><span>${label}: our picks won${r.our_pct ? ` (${r.our_pct}%)` : ""}</span></div>
     <div class="stat key"><b class="${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</b><span>${label}: our picks units${r.our_bets ? ` (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}% per bet)` : ""}</span></div>
@@ -471,10 +471,10 @@ function yearTable(mr) {
     <td class="n hide-sm">${pc(r.value_roi_pct)}</td>
     <td class="n">${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</td><td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td></tr>`;
   return `<h2>Model track record by year</h2>
-    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. Value and our picks start in 2018, when the line blend can first be tested. Our picks by period: ${(mr.periods || []).map(p => `${p.label} ${p.our_won}/${p.our_bets} ${units(p.our_units)}`).join(" · ")}. Favorites under 70% were added in Oct 2026: they paid from 2020 on but lost in 2018-19, when the line blend had little history to learn from.</p>
+    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the closing moneyline with flat 1-unit bets. The record starts in ${mr.from || 2020}: earlier years are still used to train the model, but its predictions then had too little history behind them to grade fairly. Our picks by period: ${(mr.periods || []).map(p => `${p.label} ${p.our_won}/${p.our_bets} ${units(p.our_units)}`).join(" · ")}.</p>
     <div class="tablewrap"><table><thead><tr><th>Year</th><th class="n">Winners</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Per bet</th>
       <th class="n">Value picks</th><th class="n">Value units</th><th class="n hide-sm">Per bet</th><th class="n">Our picks</th><th class="n">Our units</th></tr></thead><tbody>
-      ${mr.years.map(row).join("")}${row({...mr.all, year: "All years"})}</tbody></table></div>`;
+      ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;
 }
 
 async function viewRecord() {

@@ -175,6 +175,11 @@ def grappling(g, losses, src):
             "ufc_fights": n, "source": src.get("source"), "flags": flags}
 
 
+RECORD_FROM = "2020"   # 2016-2019 predictions had too little history behind them (the line blend
+                       # learned from only 1-2 years), so the record starts in 2020. Those years
+                       # are still used for training, ratings and fighter histories.
+
+
 def track_record(rows):
     """The model's record by year and in total: winners picked, and units from betting
     (1) the model's winner at the moneyline, (2) only value picks, where the model beat the line."""
@@ -195,10 +200,11 @@ def track_record(rows):
                 "our_pct": round(100 * sum(x["right"] for x in ours) / len(ours), 1) if ours else None,
                 "our_units": round(sum(x["units"] for x in ours), 1),
                 "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None}
+    rows = [r for r in rows if r["date"] >= RECORD_FROM]   # the official record starts here
     years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
-    return {"all": summary(rows), "since_2018": summary([r for r in rows if r["date"] >= "2018"]),
+    return {"from": RECORD_FROM, "all": summary(rows), "since": summary(rows),
             "periods": [{"label": lbl, **summary([r for r in rows if a <= r["date"] < b])}
-                        for lbl, a, b in (("2018-19", "2018", "2020"), ("2020-22", "2020", "2023"), ("2023 on", "2023", "2100"))],
+                        for lbl, a, b in (("2020-22", "2020", "2023"), ("2023 on", "2023", "2100"))],
             "years": [{"year": y, **summary([r for r in rows if r["date"].startswith(y)])} for y in years],
             "edge": EDGE}
 
