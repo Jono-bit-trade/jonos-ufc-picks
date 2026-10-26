@@ -3,7 +3,7 @@ name: fight-week
 on:
   schedule:
     # Times are UTC; Central is 5 hours behind until early November, then 6.
-    - cron: "0 4 * * 2"             # Monday night: weekend results, UFCStats stats, rebuild, backtest
+    - cron: "0 4 * * 2"             # Monday night: weekend results, rebuild, backtest
     - cron: "0 14 * * *"            # every morning: next card, lines (line-movement history), picks
     - cron: "0 23 * * 3,4,5"        # Wed-Fri evenings: extra line snapshots (Friday's is after weigh-ins)
     - cron: "0 17,20 * * 6"         # Saturday midday and afternoon: last lines before the prelims

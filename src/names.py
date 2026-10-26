@@ -57,7 +57,7 @@ class Index:
 
 
 def reference():
-    frames = [pd.read_csv(path(f))[["date", "a", "b"]] for f in ("fights.csv", "espn_card.csv", "upcoming.csv")
+    frames = [pd.read_csv(path(f))[["date", "a", "b"]] for f in ("fights.csv", "espn_card.csv")
               if os.path.exists(path(f))]
     return Index(pd.concat(frames, ignore_index=True)) if frames else None
 

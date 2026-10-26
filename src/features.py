@@ -30,7 +30,7 @@ class History:
         self.last = None
         self.wc = np.nan
         self.recent = []   # 1/0 results, last 3
-        # fight-stat totals (only for fights with UFCStats stats scraped)
+        # fight-stat totals (fights with ESPN stats)
         self.st_mins = self.sig_l = self.sig_a = self.td_l = self.td_att = 0.0
         self.td_allowed = self.td_faced = self.ctrl = self.kd = self.sub = 0.0
         self.last3 = []    # (landed - absorbed) per minute in each of the last 3 fights with stats
@@ -120,7 +120,7 @@ def fill_attributes(df):
 
 
 def load_stats():
-    """Per-fighter fight totals from your UFCStats scrape, keyed by (date, fighter)."""
+    """Per-fighter fight totals from ESPN (import_espn_stats.py), keyed by (date, normalized name)."""
     import os
     from common import path
     f = path("fight_stats.csv")
@@ -225,7 +225,7 @@ FORM = ["win_rate_diff", "streak_diff", "recent3_diff", "ko_rate_diff", "sub_rat
 CONTEXT = ["layoff_a", "layoff_b", "long_layoff_a", "long_layoff_b", "wc_change_a", "wc_change_b",
            "five_rounds", "title", "women", "heavyweight", "altitude", "stance_mismatch",
            "southpaw_a", "southpaw_b"]
-# needs data/fight_stats.csv: run  python src/scrape_ufcstats.py --backfill  once
+# needs data/fight_stats.csv (espn_backfill.py + import_espn_stats.py); tested and left out: see config.PINNED_FEATURES
 STYLE = ["slpm_diff", "sapm_diff", "td15_diff", "td_def_diff", "ctrl_share_diff", "kd15_diff"]
 STYLE_MORE = ["sub15_diff", "trend_diff", "grapple_edge", "strike_edge"]   # tested Oct 2026
 

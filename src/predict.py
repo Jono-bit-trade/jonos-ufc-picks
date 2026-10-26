@@ -1,7 +1,7 @@
 """Step 8: predict the next card and write the website's data files.
 
-Card, best source first: ESPN live feed (espn.py) -> UFCStats upcoming page
-(scrape_ufcstats.py) -> whatever The Odds API lists in the next few days.
+Card, best source first: ESPN live feed (espn.py) -> whatever The Odds API lists in
+the next few days.
 Lines: The Odds API median across books, else ESPN's line (get_odds.py).
 
 Once a fight starts, its prediction is frozen: the site keeps showing the last
@@ -101,11 +101,9 @@ def load_card(fights):
     """The next card, with names in the history's spelling and the current lines attached."""
     known = {norm(n): n for n in pd.concat([fights["a"], fights["b"]]).unique()}
     yesterday = (NOW - dt.timedelta(days=1)).strftime("%Y-%m-%d")   # keep fight night on the board
-    espn, ufcs, odds = read("espn_card.csv"), read("upcoming.csv"), lines()
+    espn, odds = read("espn_card.csv"), lines()
     if not espn.empty and str(espn["date"].max()) >= yesterday:
         card, source = espn.copy(), "ESPN"
-    elif not ufcs.empty and str(ufcs["date"].iloc[0]) >= yesterday:
-        card, source = ufcs.copy(), "UFCStats"
     elif not odds.empty:
         soon = pd.to_datetime(odds["commence"], utc=True)
         odds = odds[(soon >= NOW - pd.Timedelta(hours=12)) & (soon <= soon[soon >= NOW - pd.Timedelta(hours=12)].min()
@@ -117,7 +115,7 @@ def load_card(fights):
         card["bout_order"] = range(len(card), 0, -1)
         source = "The Odds API"
     else:
-        raise SystemExit("No upcoming card: run src/espn.py, src/scrape_ufcstats.py or src/get_odds.py first")
+        raise SystemExit("No upcoming card: run src/espn.py or src/get_odds.py first")
     if card.empty:
         raise SystemExit("The next card has no bouts listed yet")
     if "state" not in card:
@@ -219,7 +217,7 @@ def main():
         print(e)
         json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": "Next UFC card", "date": NOW.date().isoformat(),
                    "location": "", "card_source": "none", "edge_threshold": EDGE, "big_edge": BIG_EDGE,
-                   "message": "The next card isn't listed yet. It appears here as soon as ESPN or UFCStats posts it.",
+                   "message": "The next card isn't listed yet. It appears here as soon as ESPN posts it.",
                    "fights": []}, open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
         from ratings import pre_fight_ratings
         publish_common(fights, read("pick_log.csv"), pre_fight_ratings(fights)[1])

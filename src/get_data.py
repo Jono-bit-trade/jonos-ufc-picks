@@ -3,12 +3,9 @@
 Sources, merged in this order (an earlier source wins when two have the same fight):
   1. The Ultimate UFC Dataset (GitHub): results, closing odds, method odds,
      fighter attributes, from 2010. Updated by its author every so often.
-  2. The history backfill (import_history.py): every UFCStats fight, with
-     BestFightOdds opening and closing lines.
-  3. Your weekly UFCStats scrape (scrape_ufcstats.py).
-  4. ESPN results: the live feed (espn.py) and its history backfill.
-Opening lines from the backfill, and closing lines from any source, are then
-attached to every fight that lacks them.
+  2. ESPN results: the live feed (espn.py) and its history backfill (espn.py --history).
+Then: one spelling per fighter, impossible lines blanked, and opening and closing lines
+from ESPN's sportsbooks (espn_backfill.py) and SplitPicks attached where a fight lacks them.
 
 Run:  python src/get_data.py            (download + merge)
       python src/get_data.py --offline  (merge files already in data/raw)
@@ -28,7 +25,7 @@ COLUMNS = ["fight_id", "date", "event", "location", "weight_class", "gender", "t
 
 # The dataset's career-average stat columns are NOT used: they include fights after
 # the one being predicted (debut fights already show averages), which leaks the future.
-# Style stats come from your own scrape instead (scrape_ufcstats.py --backfill).
+# Per-fight stats come from ESPN instead (espn_backfill.py -> import_espn_stats.py).
 
 
 def download():
@@ -249,10 +246,8 @@ def build(offline=False):
     hist = normalize_ultimate(pd.read_csv(os.path.join(RAW, "ufc-master.csv")))
     frames = [hist]
     known = hist
-    history = read_csv("history_fights.csv")
     espn_hist = espn_results("espn_history.csv")
-    for name, extra in [("history backfill", history), ("UFCStats", read_csv("scraped_fights.csv")),
-                        ("ESPN live", espn_results()), ("ESPN history", espn_hist)]:
+    for name, extra in [("ESPN live", espn_results()), ("ESPN history", espn_hist)]:
         if extra.empty:
             continue
         extra = drop_known(canonical(extra, known), known)   # earlier sources win on overlap
@@ -279,7 +274,7 @@ def build(offline=False):
         eo = eo.rename(columns={"close_a": "odds_a", "close_b": "odds_b"})
     fights = one_spelling(fights)
     fights = clean_lines(fights)
-    fights = attach_lines(fights, [history, eo, espn_hist, sp])
+    fights = attach_lines(fights, [eo, espn_hist, sp])
     fights = fill_logged_odds(fights)
     fights = clean_lines(fights)
     fights = fights.sort_values(["date", "fight_id"]).reset_index(drop=True)
