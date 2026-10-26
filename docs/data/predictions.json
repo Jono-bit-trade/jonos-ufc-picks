@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T14:53Z",
+ "updated": "2026-10-26T17:46Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -40,14 +40,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.339,
-   "p_a": 0.491,
-   "fair_odds_a": 103,
-   "fair_odds_b": -103,
-   "market_p_a": 0.489,
-   "odds_a": -105.0,
-   "odds_b": -115.0,
-   "best_a": -105.0,
-   "best_b": -115.0,
+   "p_a": 0.508,
+   "fair_odds_a": -103,
+   "fair_odds_b": 103,
+   "market_p_a": 0.506,
+   "odds_a": -110.0,
+   "odds_b": -105.0,
+   "best_a": -110.0,
+   "best_b": -105.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
@@ -236,6 +236,11 @@
      "t": "2026-10-26T14:53Z",
      "a": -105.0,
      "b": -115.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": -110.0,
+     "b": -105.0
     }
    ],
    "edge_a": 0.002,
@@ -247,6 +252,52 @@
     "DEC": 0.361,
     "KO": 0.465,
     "SUB": 0.174
+   }
+  },
+  {
+   "a": "Randy Brown",
+   "b": "Jacobe Smith",
+   "a_slug": "randy-brown",
+   "b_slug": "jacobe-smith",
+   "a_id": "3960071",
+   "b_id": "5149961",
+   "record_a": "20-8-0",
+   "record_b": "13-0-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Welterweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-01T00:00Z",
+   "state": "pre",
+   "status": "Sat, October 31st at 8:00 PM EDT",
+   "result": null,
+   "rating_a": 1691,
+   "rating_b": 1722,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.354,
+   "p_a": 0.354,
+   "fair_odds_a": 183,
+   "fair_odds_b": -183,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "line_history": [],
+   "edge_a": null,
+   "pick": null,
+   "our_pick": null,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.405,
+    "KO": 0.38,
+    "SUB": 0.214
    }
   },
   {
@@ -278,14 +329,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.46,
-   "p_a": 0.546,
-   "fair_odds_a": -120,
-   "fair_odds_b": 120,
-   "market_p_a": 0.532,
-   "odds_a": -125.0,
-   "odds_b": 105.0,
-   "best_a": -125.0,
-   "best_b": 105.0,
+   "p_a": 0.519,
+   "fair_odds_a": -108,
+   "fair_odds_b": 108,
+   "market_p_a": 0.504,
+   "odds_a": -112.0,
+   "odds_b": -108.0,
+   "best_a": -112.0,
+   "best_b": -108.0,
    "open_a": -125.0,
    "open_b": 105.0,
    "books": 1.0,
@@ -474,6 +525,11 @@
      "t": "2026-10-26T14:53Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": -112.0,
+     "b": -108.0
     }
    ],
    "edge_a": 0.014,
@@ -712,6 +768,11 @@
      "t": "2026-10-26T14:53Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
    "edge_a": -0.001,
@@ -754,14 +815,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.612,
-   "p_a": 0.719,
-   "fair_odds_a": -255,
-   "fair_odds_b": 255,
-   "market_p_a": 0.696,
-   "odds_a": -265.0,
-   "odds_b": 215.0,
-   "best_a": -265.0,
-   "best_b": 215.0,
+   "p_a": 0.732,
+   "fair_odds_a": -272,
+   "fair_odds_b": 272,
+   "market_p_a": 0.71,
+   "odds_a": -285.0,
+   "odds_b": 230.0,
+   "best_a": -285.0,
+   "best_b": 230.0,
    "open_a": -245.0,
    "open_b": 200.0,
    "books": 1.0,
@@ -950,9 +1011,14 @@
      "t": "2026-10-26T14:53Z",
      "a": -265.0,
      "b": 215.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": -285.0,
+     "b": 230.0
     }
    ],
-   "edge_a": 0.023,
+   "edge_a": 0.022,
    "pick": null,
    "our_pick": null,
    "expert_lean": null,
@@ -983,9 +1049,9 @@
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-01T00:00Z",
+   "start": "2026-10-31T21:00Z",
    "state": "pre",
-   "status": "Sat, October 31st at 8:00 PM EDT",
+   "status": "Sat, October 31st at 5:00 PM EDT",
    "result": null,
    "rating_a": 1547,
    "rating_b": 1491,
@@ -1186,6 +1252,11 @@
     },
     {
      "t": "2026-10-26T14:53Z",
+     "a": -245.0,
+     "b": 200.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
      "a": -245.0,
      "b": 200.0
     }
@@ -1472,6 +1543,11 @@
      "t": "2026-10-26T14:53Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.015,
@@ -1708,6 +1784,11 @@
     },
     {
      "t": "2026-10-26T14:53Z",
+     "a": 150.0,
+     "b": -180.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
      "a": 150.0,
      "b": -180.0
     }
@@ -1948,6 +2029,11 @@
      "t": "2026-10-26T14:53Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "edge_a": -0.035,
@@ -2186,6 +2272,11 @@
      "t": "2026-10-26T14:53Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.015,
@@ -2197,52 +2288,6 @@
     "DEC": 0.738,
     "KO": 0.125,
     "SUB": 0.137
-   }
-  },
-  {
-   "a": "Randy Brown",
-   "b": "Jacobe Smith",
-   "a_slug": "randy-brown",
-   "b_slug": "jacobe-smith",
-   "a_id": "3960071",
-   "b_id": "5149961",
-   "record_a": "20-8-0",
-   "record_b": "13-0-0",
-   "experts": null,
-   "splits": null,
-   "weight_class": "Welterweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-01T00:00Z",
-   "state": "pre",
-   "status": "Sat, October 31st at 8:00 PM EDT",
-   "result": null,
-   "rating_a": 1691,
-   "rating_b": 1722,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.354,
-   "p_a": 0.354,
-   "fair_odds_a": 183,
-   "fair_odds_b": -183,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.405,
-    "KO": 0.38,
-    "SUB": 0.214
    }
   },
   {
@@ -2274,14 +2319,14 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.567,
-   "p_a": 0.88,
-   "fair_odds_a": -736,
-   "fair_odds_b": 736,
-   "market_p_a": 0.822,
-   "odds_a": -600.0,
-   "odds_b": 440.0,
-   "best_a": -600.0,
-   "best_b": 440.0,
+   "p_a": 0.887,
+   "fair_odds_a": -785,
+   "fair_odds_b": 785,
+   "market_p_a": 0.832,
+   "odds_a": -650.0,
+   "odds_b": 470.0,
+   "best_a": -650.0,
+   "best_b": 470.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
@@ -2470,9 +2515,14 @@
      "t": "2026-10-26T14:53Z",
      "a": -600.0,
      "b": 440.0
+    },
+    {
+     "t": "2026-10-26T17:46Z",
+     "a": -650.0,
+     "b": 470.0
     }
    ],
-   "edge_a": 0.058,
+   "edge_a": 0.055,
    "pick": "Lucia Szabov\u00e1",
    "our_pick": "Lucia Szabov\u00e1",
    "expert_lean": null,
