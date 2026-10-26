@@ -1,12 +1,12 @@
 slug,event,date,bout,a,b,winner,sp_odds_a,sp_odds_b,picks_a,high_a,picks_b,high_b,share_a
-ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f0,Jiří Procházka,Carlos Ulberg,b,-110,-105,12,9,5,0,0.706
+ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f0,Jiri Prochazka,Carlos Ulberg,b,-110,-105,12,9,5,0,0.706
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f1,Azamat Murzakanov,Paulo Costa,b,-230,190,11,7,6,1,0.647
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f10,Kelvin Gastelum,Vicente Luque,b,-275,220,17,6,0,0,1.0
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f11,Charles Radtke,Francisco Prado,a,-180,150,16,3,1,0,0.941
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f2,Curtis Blaydes,Josh Hokit,b,-110,-105,11,2,6,2,0.647
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f3,Dominick Reyes,Johnny Walker,a,-160,135,15,6,2,0,0.882
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f4,Cub Swanson,Nate Landwehr,a,-115,100,12,6,5,0,0.706
-ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f5,Aaron Pico,Patrício Pitbull,a,-270,220,12,5,5,0,0.706
+ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f5,Aaron Pico,Patricio Pitbull,a,-270,220,12,5,5,0,0.706
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f6,Randy Brown,Kevin Holland,b,-110,-110,9,3,8,1,0.529
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f7,Esteban Ribovics,Mateusz Gamrot,b,165,-220,9,0,8,3,0.529
 ufc-327-prochazka-vs-ulberg,UFC 327: Procházka vs. Ulberg,2026-04-11,f8,Tatiana Suarez,Loopy Godinez,a,-155,135,11,5,6,0,0.647
@@ -19,50 +19,50 @@ ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f12,Jos
 ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f2,Alexander Volkov,Waldo Cortes-Acosta,a,-174,136,12,4,4,1,0.75
 ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f3,Joaquin Buckley,Sean Brady,b,140,-180,9,5,7,4,0.562
 ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f4,King Green,Jeremy Stephens,a,-330,240,13,6,3,2,0.812
-ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f5,Ateba Gautier,Osman Diaz,a,-1100,600,15,15,1,0,0.938
-ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f6,Yaroslav Amosov,Joel Álvarez,a,-186,144,11,6,5,3,0.688
-ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f7,Mateusz Rębecki,Grant Dawson,b,122,-156,9,2,7,2,0.562
+ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f5,Ateba Gautier,Ozzy Diaz,a,-1100,600,15,15,1,0,0.938
+ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f6,Yaroslav Amosov,Joel Alvarez,a,-186,144,11,6,5,3,0.688
+ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f7,Mateusz Rebecki,Grant Dawson,b,122,-156,9,2,7,2,0.562
 ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f8,Jared Gordon,Jim Miller,b,-330,240,16,2,0,0,1.0
 ufc-328-chimaev-vs-strickland,UFC 328: Chimaev vs. Strickland,2026-05-09,f9,Marco Tulio,Roman Kopylov,b,-194,150,9,2,7,1,0.562
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f0,Max Holloway,Conor McGregor,a,-235,182,17,13,0,0,1.0
-ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f1,Paddy Pimblett,Benoît Saint Denis,a,114,-146,13,6,4,1,0.765
-ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f10,Damian Pinas,César Almeida,a,-225,172,14,8,2,0,0.875
+ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f1,Paddy Pimblett,Benoit Saint Denis,a,114,-146,13,6,4,1,0.765
+ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f10,Damian Pinas,Cesar Almeida,a,-225,172,14,8,2,0,0.875
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f11,Farid Basharat,John Garza,a,-670,430,9,3,0,0,1.0
-ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f12,Ryan Gandra,Zachary Reese,a,-140,110,10,7,7,0,0.588
+ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f12,Ryan Gandra,Zach Reese,a,-140,110,10,7,7,0,0.588
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f13,Alessandro Costa,Cody Durden,a,-265,200,14,8,3,0,0.824
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f2,Cory Sandhagen,Mario Bautista,b,-156,122,10,3,7,0,0.588
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f3,Lone'er Kavanagh,Brandon Royval,b,-230,176,17,11,0,0,1.0
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f4,Terrance McKinney,King Green,b,-154,120,10,3,7,2,0.588
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f5,Robert Whittaker,Nikita Krylov,a,-148,114,13,6,4,0,0.765
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f6,Gable Steveson,Elisha Ellison,,-4000,1100,17,15,0,0,1.0
-ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f7,Adrian Yañez,Cody Garbrandt,a,-440,310,17,9,0,0,1.0
+ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f7,Adrian Yanez,Cody Garbrandt,a,-440,310,17,9,0,0,1.0
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f8,Luke Riley,Kai Kamaka III,a,-310,230,17,7,0,0,1.0
 ufc-329-mcgregor-vs-holloway-2,UFC 329: McGregor vs. Holloway 2,2026-07-11,f9,Wang Cong,Tracy Cortez,a,-118,-108,11,5,6,1,0.647
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f0,Islam Makhachev,Ian Machado Garry,a,-385,290,15,8,3,0,0.833
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f1,Mackenzie Dern,Gillian Robertson,a,-210,168,15,9,3,0,0.833
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f10,Ramiz Brahimaj,Neil Magny,b,-138,118,10,3,8,1,0.556
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f11,Myktybek Orolbai,Jeremiah Wells,b,-1150,730,18,11,0,0,1.0
-ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f2,Jalin Turner,Kauê Fernandes,a,-130,106,11,2,7,1,0.611
+ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f2,Jalin Turner,Kaue Fernandes,a,-130,106,11,2,7,1,0.611
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f3,Mansur Abdul-Malik,Dustin Stoltzfus,b,-700,470,18,11,0,0,1.0
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f4,Esteban Ribovics,Edson Barboza,a,-650,440,18,11,0,0,1.0
-ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f5,Joel Álvarez,Chidi Njokuani,b,-300,235,17,5,1,0,0.944
+ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f5,Joel Alvarez,Chidi Njokuani,b,-300,235,17,5,1,0,0.944
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f6,Charles Johnson,Eduardo Henrique,a,-128,104,4,0,1,0,0.8
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f7,Donte Johnson,Eric McConico,a,-300,235,11,3,7,0,0.611
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f8,Tresean Gore,Vicente Luque,a,-114,-106,12,2,6,1,0.667
 ufc-330-makhachev-vs-machado-garry,UFC 330: Makhachev vs. Machado Garry,2026-08-15,f9,Lucas Fernando,Rafael Tobias,,-295,240,17,5,1,0,0.944
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f0,Joshua Van,Alexandre Pantoja,a,-140,114,12,7,5,1,0.706
-ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f1,Arman Tsarukyan,Maurício Ruffy,a,-320,245,13,7,4,0,0.765
+ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f1,Arman Tsarukyan,Mauricio Ruffy,a,-320,245,13,7,4,0,0.765
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f10,Casey O'Neill,Eduarda Moura,a,-230,184,17,5,0,0,1.0
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f11,Joanderson Brito,Giga Chikadze,a,-390,310,16,9,1,0,0.941
-ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f2,Choi Doo-ho,Patrício Pitbull,b,-265,200,14,4,3,0,0.824
+ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f2,Dooho Choi,Patricio Pitbull,b,-265,200,14,4,3,0,0.824
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f3,Gable Steveson,Sean Sharaf,b,-2500,1040,17,13,0,0,1.0
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f4,Iwo Baraniewski,Alonzo Menifield,b,-250,205,16,5,1,0,0.941
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f5,Charles Jourdain,Marlon Vera,b,-210,168,12,3,5,0,0.706
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f6,Robelis Despaigne,Tai Tuivasa,a,-590,410,16,9,1,0,0.941
-ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f7,Yoo Joo-sang,Michael Aswell Jr.,b,-210,168,11,1,6,0,0.647
-ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f8,Ryan Gandra,Osman Diaz,a,-550,390,17,11,0,0,1.0
+ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f7,JooSang Yoo,Michael Aswell Jr.,b,-210,168,11,1,6,0,0.647
+ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f8,Ryan Gandra,Ozzy Diaz,a,-550,390,17,11,0,0,1.0
 ufc-331-van-vs-pantoja-2,UFC 331: Van vs. Pantoja 2,2026-09-19,f9,Edmen Shahbazyan,Brunno Ferreira,a,-194,156,11,0,6,1,0.647
-ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f0,Natália Silva,Wang Cong,a,-205,164,14,4,3,1,0.824
+ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f0,Natalia Silva,Wang Cong,a,-205,164,14,4,3,1,0.824
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f1,Payton Talbott,Deiveson Figueiredo,a,-750,490,17,14,0,0,1.0
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f10,Jacobe Smith,Bruce Whitehead,a,-950,590,15,11,0,0,1.0
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f11,Alexander Hernandez,Rafael Dos Anjos,a,-265,210,15,7,2,0,0.882
@@ -71,7 +71,7 @@ ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f13,Eric Nolan,Court Mc
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f2,Esteban Ribovics,King Green,a,-240,190,11,1,6,1,0.647
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f3,Roberto Soldić,Khaos Williams,,-265,210,12,3,5,2,0.706
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f4,Ateba Gautier,Roman Kopylov,b,-245,194,15,4,2,0,0.882
-ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f5,Imanol Rodríguez,Alden Coria,a,-152,124,10,4,7,0,0.588
+ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f5,Imanol Rodriguez,Alden Coria,a,-152,124,10,4,7,0,0.588
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f6,Damian Pinas,Andrey Pulyaev,a,-590,410,17,14,0,0,1.0
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f7,Marcus McGhee,Anthony Romero,a,-590,410,4,1,0,0,1.0
 ufc-332-silva-vs-wang,UFC 332: Silva vs. Wang,2026-10-03,f8,Anthony Wint,Lucas Armand,a,-550,390,17,14,0,0,1.0
@@ -81,33 +81,33 @@ ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f1,Petr
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f10,Abubakar Vagaev,Jacob Malkoun,a,-188,146,15,2,2,1,0.882
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f11,Daniel Santos,Bolaji Oki,a,-120,-106,11,1,6,0,0.647
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f12,Kody Steele,Noah Gugnon,a,-172,134,11,4,4,0,0.733
-ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f13,Iasmin Lucindo,Nicole Caliari,a,-400,285,2,2,1,0,0.667
+ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f13,Iasmin Lucindo,Nicolle Caliari,a,-400,285,2,2,1,0,0.667
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f2,Ramazan Temirov,Lone'er Kavanagh,b,-113,-113,9,4,8,0,0.529
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f3,Alexander Volkov,Rizvan Kuniev,a,-122,-104,13,5,4,0,0.765
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f4,Aaron Pico,Losene Keita,a,-122,-104,9,1,8,3,0.529
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f5,Azamat Murzakanov,Dominick Reyes,b,-220,168,14,6,3,0,0.824
-ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f6,Abdul-Rakhman Yakhyaev,Nikita Krylov,a,-500,340,17,12,0,0,1.0
-ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f7,Cameron Rowston,Abusupiyan Magomedov,b,-106,-120,9,1,8,1,0.529
+ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f6,Abdul Rakhman Yakhyaev,Nikita Krylov,a,-500,340,17,12,0,0,1.0
+ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f7,Cam Rowston,Abus Magomedov,b,-106,-120,9,1,8,1,0.529
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f8,Grant Dawson,Nurullo Aliev,a,-132,104,13,2,4,1,0.765
 ufc-333-volkanovski-vs-evloev,UFC 333: Volkanovski vs. Evloev,2026-10-24,f9,Asaf Chopurov,Colby Thicknesse,b,-520,350,15,8,1,0,0.938
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f0,Arnold Allen,Melquizael Costa,a,-126,108,12,2,4,2,0.75
-ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f1,Daniel Santos,Choi Doo-ho,b,-170,140,11,1,5,2,0.688
+ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f1,Daniel Santos,Dooho Choi,b,-170,140,11,1,5,2,0.688
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f10,Alice Ardelean,Polyana Viana,a,-200,168,13,1,3,0,0.812
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f11,Luis Gurule,Daniel Barez,a,-154,130,9,0,7,1,0.562
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f12,Nicolle Caliari,Shauna Bannon,a,-295,240,13,3,3,0,0.812
-ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f2,Malcolm Wellmaker,Juan Díaz,,-270,220,13,7,3,0,0.812
+ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f2,Malcolm Wellmaker,Juan Diaz,,-270,220,13,7,3,0,0.812
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f3,Modestas Bukauskas,Christian Edwards,a,-320,260,13,3,2,0,0.867
-ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f4,Bernardo Sopaj,Timothy Cuamba,a,-136,116,11,1,5,0,0.688
+ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f4,Bernardo Sopaj,Timmy Cuamba,a,-136,116,11,1,5,0,0.688
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f5,Nikolay Veretennikov,Khaos Williams,b,100,-118,9,0,7,2,0.562
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f6,Tuco Tokkos,Ivan Erslan,b,142,-168,9,1,7,0,0.562
-ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f7,Thomas Gantt,Artur Minev,,-198,166,14,3,0,0,1.0
+ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f7,Tommy Gantt,Artur Minev,,-198,166,14,3,0,0,1.0
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f8,Jacqueline Cavalcanti,Ketlen Vieira,b,-154,130,14,3,2,0,0.875
 ufc-allen-vs-costa,UFC Fight Night: Allen vs. Costa,2026-05-16,f9,Cody Brundage,Andre Petroski,a,138,-164,9,1,7,1,0.562
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f0,Brendan Allen,Christian Leroy Duncan,a,-134,110,11,2,5,0,0.688
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f1,Matheus Camilo,Jai Herbert,b,-194,158,12,3,4,1,0.75
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f10,Darya Zheleznyakova,Alice Pereira,b,118,-144,8,0,8,1,0.5
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f11,Ernesta Kareckaitė,Melissa Gatto,,-105,-115,12,1,4,0,0.75
-ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f2,Loopy Godínez,Ketlen Souza,a,-235,190,13,1,3,0,0.812
+ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f2,Loopy Godinez,Ketlen Souza,a,-235,190,13,1,3,0,0.812
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f3,Andre Fili,Kai Kamaka III,a,-154,126,13,1,3,0,0.812
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f4,Malcolm Wellmaker,Otari Tanzilovi,b,-230,184,13,3,3,0,0.812
 ufc-allen-vs-duncan,UFC Fight Night: Allen vs. Duncan,2026-10-10,f5,Julius Walker,Gerald Meerschaert,a,-310,235,12,3,4,0,0.75
@@ -131,13 +131,13 @@ ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f0,Joaquin 
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f1,Erin Blanchfield,Jasmine Jasudavicius,b,-330,265,16,8,0,0,1.0
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f10,Steven Koslow,Chad Anheliger,a,-166,140,12,1,4,1,0.75
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f11,Melissa Croden,Chelsea Chandler,b,-335,270,15,5,1,0,0.938
-ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f12,Cody Chovancek,You Su-young,b,-126,108,11,4,4,0,0.733
+ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f12,Cody Chovancek,SuYoung You,b,-126,108,11,4,4,0,0.733
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f2,Cristian Pérez,Kyle Nelson,a,-340,275,16,9,0,0,1.0
-ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f3,Kyle Daukaus,Marc-André Barriault,b,-196,164,12,0,4,0,0.75
-ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f4,Louis Jourdain,Timothy Cuamba,b,-166,140,16,4,0,0,1.0
+ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f3,Kyle Daukaus,Marc-Andre Barriault,b,-196,164,12,0,4,0,0.75
+ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f4,Louis Jourdain,Timmy Cuamba,b,-166,140,16,4,0,0,1.0
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f5,Mandel Nallo,Nate Landwehr,a,-290,235,14,5,2,1,0.875
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f6,Jhonata Diniz,Tanner Boser,b,-220,184,16,6,0,0,1.0
-ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f7,Nick Galanti,Julien Leblanc,,-650,480,16,12,0,0,1.0
+ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f7,Nick Galanti,Julien LeBlanc,,-650,480,16,12,0,0,1.0
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f8,Javad Mahjoub,Joel Faglier,,112,-132,8,2,8,1,0.5
 ufc-buckley-vs-malott,UFC Fight Night: Buckley vs. Malott,2026-10-17,f9,Katlyn Cerminara,Mackenzie Stiller,a,-250,205,14,2,2,0,0.875
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f0,Mike Malott,Gilbert Burns,a,-275,225,13,7,2,0,0.867
@@ -146,9 +146,9 @@ ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f10,Mark Vologd
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f11,Jamie Siraj,John Yannis,b,-260,215,11,4,2,1,0.846
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f2,Mandel Nallo,Jai Herbert,b,-170,140,14,6,1,0,0.933
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f3,Jasmine Jasudavicius,Karine Silva,a,-320,260,15,8,0,0,1.0
-ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f4,Gauge Young,Thiago Moisés,a,-160,135,11,1,4,1,0.733
-ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f5,Márcio Barbosa,Dennis Buzukja,a,-390,295,14,12,1,0,0.933
-ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f6,Robert Valentin,Julien Leblanc,a,-175,145,11,2,3,3,0.786
+ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f4,Gauge Young,Thiago Moises,a,-160,135,11,1,4,1,0.733
+ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f5,Marcio Barbosa,Dennis Buzukja,a,-390,295,14,12,1,0,0.933
+ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f6,Robert Valentin,Julien LeBlanc,a,-175,145,11,2,3,3,0.786
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f7,Gökhan Sarıçam,Tanner Boser,,-145,125,14,3,0,0,1.0
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f8,Melissa Croden,Darya Zheleznyakova,a,-140,115,9,2,5,0,0.643
 ufc-burns-vs-malott,UFC Fight Night: Burns vs. Malott,2026-04-18,f9,Jamey-Lyn Horth,JJ Aldrich,b,-175,150,13,5,1,0,0.929
@@ -157,13 +157,13 @@ ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-0
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f10,Jonathan Micallef,Themba Gorimbo,a,-265,200,16,9,0,0,1.0
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f11,Kody Steele,Dom Mar Fan,a,-215,164,10,0,6,0,0.625
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f2,Steve Erceg,Tim Elliott,a,-295,220,14,3,2,0,0.875
-ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f3,Brando Peričić,Shamil Gaziev,a,-130,102,13,10,3,0,0.812
+ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f3,Brando Pericic,Shamil Gaziev,a,-130,102,13,10,3,0,0.812
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f4,Tai Tuivasa,Louie Sutherland,b,-196,152,13,3,3,1,0.812
-ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f5,Cameron Rowston,Robert Bryczek,a,-180,150,13,2,3,0,0.812
+ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f5,Cam Rowston,Robert Bryczek,a,-180,150,13,2,3,0,0.812
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f6,Junior Tafa,Kevin Christian,a,-196,152,13,4,3,1,0.812
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f7,Jacob Malkoun,Gerald Meerschaert,a,-1600,750,15,12,0,0,1.0
 ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f8,Colby Thicknesse,Vince Morales,a,-138,108,10,1,6,1,0.625
-ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f9,Ben Johnston,Wesley Schultz,b,-155,130,10,1,6,0,0.625
+ufc-della-maddalena-vs-prates,UFC Fight Night: Della Maddalena vs. Prates,2026-05-02,f9,Ben Johnston,Wes Schultz,b,-155,130,10,1,6,0,0.625
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f0,Dricus Du Plessis,Kamaru Usman,a,-245,194,15,8,1,0,0.938
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f1,Christian Leroy Duncan,Jared Cannonier,a,-360,290,15,5,1,0,0.938
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f10,Alvin Hines,RJ Harris,,-118,100,10,0,5,1,0.667
@@ -172,58 +172,58 @@ ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f2,Chas
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f3,Fatima Kline,Tabatha Ricci,a,-490,380,16,10,0,0,1.0
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f4,Tommy McMillen,Alberto Montes,a,-166,140,12,1,4,1,0.75
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f5,Jose Miguel Delgado,Austin Bashi,a,-102,-116,10,2,6,1,0.625
-ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f6,Ko Seok-hyeon,Jean-Paul Lebosnoyani,b,-200,168,12,2,4,0,0.75
+ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f6,Seokhyeon Ko,Jean-Paul Lebosnoyani,b,-200,168,12,2,4,0,0.75
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f7,Felipe Franco,Levi Rodrigues Jr.,a,128,-152,9,1,7,1,0.562
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f8,Ezra Elliott,Damien Anderson,a,102,-120,3,0,1,1,0.75
 ufc-du-plessis-vs-usman,UFC Fight Night: du Plessis vs. Usman,2026-07-18,f9,Alden Coria,Stewart Nicoll,a,-1150,730,16,13,0,0,1.0
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f0,Manuel Torres,Rafael Fiziev,b,-106,-114,9,2,6,0,0.6
-ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f1,Sharabutdin Magomedov,Michel Pereira,a,-370,280,15,8,0,0,1.0
+ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f1,Shara Magomedov,Michel Pereira,a,-370,280,15,8,0,0,1.0
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f10,Daniil Donchenko,Theodor Berggren,a,-520,400,14,9,0,0,1.0
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f11,Jean Matsumoto,Bekzat Almakhan,a,-156,132,9,0,5,1,0.643
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f12,Jefferson Nascimento,Tahir Abdullayev,,-116,-102,6,2,4,0,0.6
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f2,Nazim Sadykhov,Matheus Camilo,b,-215,172,14,4,0,0,1.0
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f3,Asu Almabayev,Charles Johnson,a,-260,205,15,5,0,0,1.0
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f4,Ikram Aliskerov,Brunno Ferreira,a,-300,235,13,2,2,1,0.867
-ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f5,Michał Oleksiejczuk,Abusupiyan Magomedov,b,-114,-106,10,1,5,0,0.667
+ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f5,Michal Oleksiejczuk,Abus Magomedov,b,-114,-106,10,1,5,0,0.667
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f6,Farman Hasanov,Eric Nolan,,-180,146,11,4,3,2,0.786
-ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f7,Abdul-Rakhman Yakhyaev,Julius Walker,a,-550,390,15,12,0,0,1.0
+ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f7,Abdul Rakhman Yakhyaev,Julius Walker,a,-550,390,15,12,0,0,1.0
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f8,Nursulton Ruziboev,Andrey Pulyaev,a,-235,186,12,3,2,0,0.857
 ufc-fiziev-vs-torres,UFC Fight Night: Fiziev vs. Torres,2026-06-27,f9,Javier Reyes,Kaan Ofli,b,-200,168,10,2,4,1,0.714
 ufc-freedom-250,UFC Freedom 250,2026-06-14,f0,Ilia Topuria,Justin Gaethje,b,-460,360,17,14,0,0,1.0
 ufc-freedom-250,UFC Freedom 250,2026-06-14,f1,Alex Pereira,Ciryl Gane,b,-112,-104,11,6,6,2,0.647
 ufc-freedom-250,UFC Freedom 250,2026-06-14,f2,Sean O'Malley,Aiemann Zahabi,a,-430,340,17,13,0,0,1.0
 ufc-freedom-250,UFC Freedom 250,2026-06-14,f3,Josh Hokit,Derrick Lewis,a,-405,320,16,13,1,0,0.941
-ufc-freedom-250,UFC Freedom 250,2026-06-14,f4,Maurício Ruffy,Michael Chandler,a,-550,410,17,15,0,0,1.0
+ufc-freedom-250,UFC Freedom 250,2026-06-14,f4,Mauricio Ruffy,Michael Chandler,a,-550,410,17,15,0,0,1.0
 ufc-freedom-250,UFC Freedom 250,2026-06-14,f5,Bo Nickal,Kyle Daukaus,a,-310,250,13,5,4,0,0.765
 ufc-freedom-250,UFC Freedom 250,2026-06-14,f6,Diego Lopes,Steve Garcia,a,-146,126,13,6,4,1,0.765
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f0,Quillan Salkilld,Mateusz Gamrot,a,-154,120,9,3,7,2,0.562
-ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f1,Carlos Diego Ferreira,Billy Quarantillo,a,-186,144,11,3,5,2,0.688
+ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f1,Diego Ferreira,Billy Quarantillo,a,-186,144,11,3,5,2,0.688
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f10,Juliana Miller,Ravena Oliveira,a,-290,215,15,3,1,0,0.938
-ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f11,Carol Foro,Giovanna Canuto,,-240,194,3,0,0,0,1.0
-ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f2,Yadier Del Valle,Darren Elkins,a,-720,450,15,9,1,0,0.938
+ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f11,Carol Foro,Gigi Canuto,,-240,194,3,0,0,0,1.0
+ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f2,Yadier del Valle,Darren Elkins,a,-720,450,15,9,1,0,0.938
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f3,Alexia Thainara,Amanda Lemos,a,-265,200,15,5,1,0,0.938
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f4,Ty Miller,Billy Ray Goff,a,-350,255,16,8,0,0,1.0
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f5,Steven Asplund,Guilherme Pat,a,-265,200,14,6,2,0,0.875
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f6,Diyar Nurgozhay,Bruno Lopes,a,-164,128,13,2,3,0,0.812
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f7,Louie Sutherland,José Luiz,b,-218,180,8,0,8,2,0.5
 ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f8,Manoel Sousa,Richie Miranda,a,-265,200,11,2,4,0,0.733
-ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f9,Gianni Vázquez,Miles Johns,b,132,-170,3,0,2,0,0.6
+ufc-gamrot-vs-salkilld,UFC Fight Night: Gamrot vs. Salkilld,2026-08-08,f9,Gianni Vazquez,Miles Johns,b,132,-170,3,0,2,0,0.6
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f0,Anthony Hernandez,Gregory Rodrigues,b,-188,152,10,2,6,1,0.625
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f1,Serghei Spivac,Vitor Petrino,b,122,-150,9,1,7,1,0.562
-ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f10,Gauge Young,Stanley Dorsainvil,b,-168,142,9,0,5,1,0.643
-ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f11,Jackson McVey,Wesley Schultz,a,-180,152,11,1,5,1,0.688
+ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f10,Gauge Young,Stan Dorsainvil,b,-168,142,9,0,5,1,0.643
+ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f11,Jackson McVey,Wes Schultz,a,-180,152,11,1,5,1,0.688
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f12,Shanelle Dyer,Elise Reed,a,-900,610,16,11,0,0,1.0
-ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f2,Reinier De Ridder,Roman Dolidze,a,-430,320,16,5,0,0,1.0
+ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f2,Reinier de Ridder,Roman Dolidze,a,-430,320,16,5,0,0,1.0
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f3,Mason Jones,MarQuel Mederos,b,-300,235,15,5,1,0,0.938
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f4,Carli Judice,Jeisla Chaves,a,-590,410,16,7,0,0,1.0
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f5,Anthony Wint,Terrance Chatman,,-1300,730,15,11,0,0,1.0
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f6,Lerryan Douglas,Jamall Emmers,b,-430,320,15,10,1,0,0.938
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f7,Kennedy Nzechukwu,Shamil Gaziev,b,120,-142,9,1,7,0,0.562
 ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f8,Chris Padilla,Nasrat Haqparast,a,-108,-108,13,2,3,0,0.812
-ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f9,Márcio Barbosa,Ryan Kuse,a,-900,610,15,12,0,0,1.0
+ufc-hernandez-vs-rodrigues,UFC Fight Night: Hernandez vs. Rodrigues,2026-08-22,f9,Marcio Barbosa,Ryan Kuse,a,-900,610,15,12,0,0,1.0
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f0,Salahdine Parnasse,Dan Hooker,,-620,400,15,7,2,1,0.882
-ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f1,Axel Sola,Farès Ziam,a,126,-162,10,3,7,0,0.588
-ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f10,Michael Aljarouj,Fabià Sintes,,-148,114,12,1,3,0,0.8
+ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f1,Axel Sola,Fares Ziam,a,126,-162,10,3,7,0,0.588
+ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f10,Michael Aljarouj,Fabia Sintes,,-148,114,12,1,3,0,0.8
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f11,Klaudia Syguła,Nora Cornolle,b,106,-136,12,1,5,0,0.706
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f12,Luis Felipe Dias,Matthieu Letho Duclos,,-112,-112,10,1,7,1,0.588
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f13,Sofia Montenegro,Delphine Benouaich,,126,-162,11,1,6,0,0.647
@@ -231,45 +231,45 @@ ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f2,Nursul
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f3,Daniil Donchenko,Punahele Soriano,a,-250,190,10,2,7,1,0.588
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f4,Kurtis Campbell,Trevor Peek,a,-370,265,16,5,1,0,0.941
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f5,Losene Keita,Muhammad Naimov,a,-390,280,16,8,1,0,0.941
-ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f6,Felipe Lima,Morgan Charrière,a,-194,150,15,4,2,0,0.882
-ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f7,Mário Pinto,Ryan Spann,a,-295,220,16,8,1,0,0.941
+ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f6,Felipe Lima,Morgan Charriere,a,-194,150,15,4,2,0,0.882
+ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f7,Mario Pinto,Ryan Spann,a,-295,220,16,8,1,0,0.941
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f8,Oumar Sy,Modestas Bukauskas,b,-215,164,12,0,5,1,0.706
 ufc-hooker-vs-parnasse,UFC Fight Night: Hooker vs. Parnasse,2026-09-05,f9,Nathaniel Wood,Pavel Andrusca,,-330,240,8,4,1,0,0.889
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f0,Kyoji Horiguchi,Manel Kape,b,130,-160,9,3,6,3,0.6
-ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f1,Navajo Stirling,Ion Cuțelaba,a,-325,250,15,7,0,0,1.0
+ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f1,Navajo Stirling,Ion Cutelaba,a,-325,250,15,7,0,0,1.0
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f10,Luana Santos,Karol Rosa,a,102,-120,14,2,1,0,0.933
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f11,Shane Collins,Otari Tanzilovi,,-200,168,12,3,1,0,0.923
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f2,Christian Rodriguez,Hyder Amil,a,-210,168,13,3,2,0,0.867
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f3,Murtazali Magomedov,Melsik Baghdasaryan,,-355,270,15,10,0,0,1.0
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f4,Vinicius Oliveira,Andre Fili,a,-290,225,13,5,2,0,0.867
-ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f5,André Lima,Kevin Borjas,b,-600,420,14,8,1,0,0.933
-ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f6,Beatriz Mesquita,Melissa Mullins,a,-590,410,15,13,0,0,1.0
+ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f5,Andre Lima,Kevin Borjas,b,-600,420,14,8,1,0,0.933
+ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f6,Bia Mesquita,Melissa Mullins,a,-590,410,15,13,0,0,1.0
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f7,Allan Nascimento,Mitch Raposo,b,-172,140,10,4,5,0,0.667
-ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f8,Michael Aswell Jr.,Gastón Bolaños,b,-430,320,15,3,0,0,1.0
+ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f8,Michael Aswell Jr.,Gaston Bolanos,b,-430,320,15,3,0,0,1.0
 ufc-kape-vs-horiguchi,UFC Fight Night: Kape vs. Horiguchi,2026-06-20,f9,Levan Chokheli,Leon Shahbazyan,,-420,310,14,5,0,0,1.0
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f0,Uroš Medić,Daniel Rodriguez,a,-410,290,14,11,1,0,0.933
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f0,Uros Medic,Daniel Rodriguez,a,-410,290,14,11,1,0,0.933
 ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f1,Navajo Stirling,Jan Błachowicz,a,-350,255,8,2,7,1,0.533
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f10,Mateusz Rębecki,Kyle Prepolec,a,-530,360,13,8,2,1,0.867
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f11,Nina Nikolija Milošević,Hailey Cowan,,-430,300,15,9,0,0,1.0
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f10,Mateusz Rebecki,Kyle Prepolec,a,-530,360,13,8,2,1,0.867
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f11,Nina Milošević,Hailey Cowan,,-430,300,15,9,0,0,1.0
 ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f12,Jovan Leka,Alexander Poppeck,,-225,172,13,8,1,0,0.929
 ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f13,Stephanie Luciano,Marina Spasić,a,-310,230,14,6,1,0,0.933
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f2,Aleksandar Rakić,Marcin Tybura,a,-350,255,15,8,0,0,1.0
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f3,Robert Valentin,Duško Todorović,a,-162,126,14,2,1,0,0.933
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f2,Aleksandar Rakic,Marcin Tybura,a,-350,255,15,8,0,0,1.0
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f3,Robert Valentin,Dusko Todorovic,a,-162,126,14,2,1,0,0.933
 ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f4,Vlasto Čepo,Gilbert Urbina,b,-340,250,13,7,2,0,0.867
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f5,Miloš Janičić,Noah Gugnon,,-113,-113,7,4,7,1,0.5
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f6,Ľudovít Klein,Tofiq Musayev,b,-235,180,11,1,4,0,0.733
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f5,Milos Janicic,Noah Gugnon,,-113,-113,7,4,7,1,0.5
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f6,Ludovit Klein,Tofiq Musayev,b,-235,180,11,1,4,0,0.733
 ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f7,Michael Oliveira,Oban Elliott,,-340,250,14,8,1,0,0.933
-ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f8,Borislav Nikolić,Mark Vologdin,,-186,144,12,5,2,0,0.857
+ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f8,Borislav Nikolic,Mark Vologdin,,-186,144,12,5,2,0,0.857
 ufc-medic-vs-rodriguez,UFC Fight Night: Medić vs. Rodriguez,2026-08-01,f9,Bogdan Grad,Dennis Buzukja,a,-196,152,14,2,1,1,0.933
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f0,Chris Duncan,Renato Moicano,b,-145,120,11,5,5,1,0.688
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f1,Virna Jandiroba,Tabatha Ricci,a,-125,105,9,2,7,3,0.562
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f10,Azamat Bekoev,Tresean Gore,b,-650,450,16,9,0,0,1.0
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f11,Dione Barbosa,Melissa Gatto,a,-120,100,11,2,5,1,0.688
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f12,Kai Kamaka III,Dakota Hope,a,-160,135,4,0,4,1,0.5
-ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f2,Abdul-Rakhman Yakhyaev,Brendson Ribeiro,a,-1400,800,16,15,0,0,1.0
+ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f2,Abdul Rakhman Yakhyaev,Brendson Ribeiro,a,-1400,800,16,15,0,0,1.0
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f3,Ethyn Ewing,Rafael Estevam,a,-135,110,12,5,4,1,0.75
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f4,Tommy McMillen,Manolo Zecchini,,-800,550,15,11,0,0,1.0
-ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f5,José Mauro Delano,Robert Ruchała,,-270,220,15,9,0,0,1.0
+ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f5,Jose Delano,Robert Ruchała,,-270,220,15,9,0,0,1.0
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f6,Thomas Petersen,Guilherme Pat,a,-120,100,9,1,6,0,0.6
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f7,Alessandro Costa,Stewart Nicoll,a,-410,320,16,8,0,0,1.0
 ufc-moicano-vs-duncan,UFC Fight Night: Moicano vs. Duncan,2026-04-04,f8,Darrius Flowers,Lando Vannata,a,180,-220,9,0,7,0,0.562
@@ -278,30 +278,30 @@ ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f0,Belal 
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f1,Brendan Allen,Edmen Shahbazyan,a,-180,152,16,6,0,0,1.0
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f10,Jeisla Chaves,Yuneisy Duben,,-280,230,13,3,3,0,0.812
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f11,Ketlen Souza,Ariane Carnelossi,a,-320,260,16,4,0,0,1.0
-ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f2,Farès Ziam,Tom Nolan,b,-310,250,15,7,1,0,0.938
+ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f2,Fares Ziam,Tom Nolan,b,-310,250,15,7,1,0,0.938
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f3,Bryce Mitchell,Santiago Luna,a,-126,108,9,4,6,1,0.6
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f4,Iwo Baraniewski,Junior Tafa,a,-390,310,15,9,1,0,0.938
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f5,Alessandro Costa,Matt Schnell,a,-480,370,14,12,1,0,0.933
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f6,Marcus McGhee,John Yannis,a,-450,350,15,6,1,0,0.938
-ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f7,Bruno Gustavo Da Silva,Édgar Cháirez,b,-126,108,9,0,7,0,0.562
+ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f7,Bruno Silva,Edgar Chairez,b,-126,108,9,0,7,0,0.562
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f8,Priscila Cachoeira,Chelsea Chandler,b,106,-124,9,0,7,0,0.562
 ufc-muhammad-vs-bonfim,UFC Fight Night: Muhammad vs. Bonfim,2026-06-06,f9,Joanderson Brito,Jordan Leavitt,a,-178,150,11,3,5,3,0.688
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f0,Umar Nurmagomedov,Song Yadong,b,-620,460,16,13,1,0,0.941
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f1,Yan Xiaonan,Denise Gomes,b,-154,130,11,3,6,3,0.647
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f10,Lawrence Lui,Hector Santiago,b,-340,275,14,5,2,0,0.875
-ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f11,Julia Polastri,Xiong Jingnan,a,-250,210,12,4,5,0,0.706
-ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f12,Cameron Nelson,Ding Meng,,114,-140,11,3,6,1,0.647
+ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f11,Julia Polastri,Jingnan Xiong,a,-250,210,12,4,5,0,0.706
+ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f12,Cam Nelson,Ding Meng,,114,-140,11,3,6,1,0.647
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f2,Kai Asakura,Aori Qileng,a,-500,385,17,10,0,0,1.0
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f3,Su Mudaerji,Alex Perez,a,-215,180,15,7,2,0,0.882
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f4,Liu Ce,Levi Rodrigues Jr.,,-184,154,14,5,3,0,0.824
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f5,Bilal Hasan,Nilson Rojas,,-820,570,16,13,1,0,0.941
-ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f6,André Lima,Namsrai Batbayar,a,-270,220,17,5,0,0,1.0
+ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f6,Andre Lima,Namsrai Batbayar,a,-270,220,17,5,0,0,1.0
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f7,Rei Tsuruya,Kevin Borjas,a,-900,610,17,8,0,0,1.0
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f8,Xiao Long,Francesco Nuzzi,,-180,150,11,3,5,0,0.688
 ufc-nurmagomedov-vs-song,UFC Fight Night: Nurmagomedov vs. Song,2026-08-29,f9,Jack Jenkins,Sean Woodson,b,124,-146,10,1,7,2,0.588
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f0,Raoni Barcelos,Raul Rosas Jr.,b,130,-155,12,3,3,0,0.8
-ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f1,Ailín Pérez,Norma Dumont,a,-155,130,13,0,2,1,0.867
-ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f10,John Castañeda,Alateng Heili,b,-395,310,15,5,0,0,1.0
+ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f1,Ailin Perez,Norma Dumont,a,-155,130,13,0,2,1,0.867
+ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f10,John Castaneda,Alatengheili,b,-395,310,15,5,0,0,1.0
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f11,Yazmin Jauregui,Vanessa Demopoulos,a,-1050,675,13,6,2,0,0.867
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f2,Luis Hernandez,Sedriques Dumas,,-238,195,5,0,0,0,1.0
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f3,Mehemmedeli Osmanli,Ilimbek Akylbek Uulu,,-298,240,14,4,0,0,1.0
@@ -310,20 +310,20 @@ ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f5,R
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f6,Robert Bryczek,Rodolfo Vieira,b,140,-166,9,2,6,0,0.6
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f7,Rodolfo Bellato,Christian Edwards,b,-185,154,14,2,1,0,0.933
 ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f8,Elves Brener,Josiah Harrell,a,102,-122,11,0,4,1,0.733
-ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f9,Montel Jackson,Ricky Simón,a,-218,180,14,0,1,1,0.933
-ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f0,Jean Silva,Jose Delgado,a,-430,320,16,10,1,0,0.941
+ufc-rosas-jr-vs-barcelos,UFC Fight Night: Rosas Jr. vs. Barcelos,2026-09-26,f9,Montel Jackson,Ricky Simon,a,-218,180,14,0,1,1,0.933
+ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f0,Jean Silva,Jose Miguel Delgado,a,-430,320,16,10,1,0,0.941
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f1,Joseph Morales,Brandon Moreno,b,-115,-105,9,2,8,0,0.529
-ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f10,Rong Zhu,Rafa García,a,-175,145,12,2,5,0,0.706
+ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f10,Rong Zhu,Rafa Garcia,a,-175,145,12,2,5,0,0.706
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f11,Sean King III,Jessie Rosas,,-198,166,11,1,3,0,0.786
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f12,Regina Tarin,JJ Aldrich,a,-290,235,16,5,1,0,0.941
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f2,Tommy McMillen,Marwan Rahiki,a,-162,132,16,5,1,0,0.941
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f3,Manon Fiorot,Alexa Grasso,b,-250,198,11,3,6,1,0.647
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f4,Waldo Cortes-Acosta,Curtis Blaydes,b,-210,176,16,7,1,0,0.941
-ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f5,David Martínez,Dan Ige,a,-460,360,17,10,0,0,1.0
-ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f6,Édgar Cháirez,Tim Elliott,b,-215,180,13,7,4,0,0.765
+ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f5,David Martinez,Dan Ige,a,-460,360,17,10,0,0,1.0
+ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f6,Edgar Chairez,Tim Elliott,b,-215,180,13,7,4,0,0.765
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f7,Ignacio Bahamondes,Muslim Salikhov,a,-550,410,17,11,0,0,1.0
 ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f8,Yousri Belgaroui,Djorden Santos,a,-850,590,17,14,0,0,1.0
-ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f9,Thomas Gantt,Drakkar Klose,a,-430,340,16,6,1,0,0.941
+ufc-silva-vs-delgado,UFC Fight Night: Silva vs. Delgado,2026-09-12,f9,Tommy Gantt,Drakkar Klose,a,-430,340,16,6,1,0,0.941
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f0,Song Yadong,Deiveson Figueiredo,a,-700,500,13,10,0,0,1.0
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f1,Zhang Mingyang,Alonzo Menifield,b,-260,215,11,7,2,0,0.846
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f10,Zhu Kangjie,Rodrigo Vera,,-102,-116,7,2,3,1,0.7
@@ -331,18 +331,18 @@ ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f11,Loma 
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f2,Sergei Pavlovich,Tallison Teixeira,a,-560,420,13,13,0,0,1.0
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f3,Kai Asakura,Cameron Smotherman,a,-275,225,13,8,0,0,1.0
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f4,Jake Matthews,Carlston Harris,a,-405,320,12,5,0,0,1.0
-ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f5,Luis Felipe Dias,Lee Yi-sak,,-180,145,10,4,2,0,0.833
-ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f6,Ding Meng,José Henrique Souza,b,-120,100,9,4,3,1,0.75
+ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f5,Luis Felipe Dias,Yi Sak Lee,,-180,145,10,4,2,0,0.833
+ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f6,Ding Meng,Jose Henrique,b,-120,100,9,4,3,1,0.75
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f7,Cody Haddon,Aori Qileng,a,-350,285,12,7,0,0,1.0
 ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f8,Rei Tsuruya,Luis Gurule,a,-310,250,10,5,2,0,0.833
-ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f9,Xiong Jingnan,Angela Hill,b,-200,165,9,3,3,0,0.75
+ufc-song-vs-figueiredo,UFC Fight Night: Song vs. Figueiredo,2026-05-30,f9,Jingnan Xiong,Angela Hill,b,-200,165,9,3,3,0,0.75
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f0,Aljamain Sterling,Youssef Zalal,a,112,-138,8,1,5,2,0.615
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f1,Norma Dumont,Joselyne Edwards,b,-215,172,12,6,1,0,0.923
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f10,Francis Marshall,Lucas Brennan,a,-520,390,7,2,1,0,0.875
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f11,Victor Valenzuela,Max Griffin,a,-142,120,8,1,4,0,0.667
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f12,Julia Polastri,Talita Alencar,b,-260,215,8,2,5,0,0.615
-ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f2,Alexander Hernandez,Rafa García,b,-130,106,11,2,2,0,0.846
-ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f3,Davey Grant,Adrián Luna Martinetti,a,-135,114,9,0,4,2,0.692
+ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f2,Alexander Hernandez,Rafa Garcia,b,-130,106,11,2,2,0,0.846
+ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f3,Davey Grant,Adrian Luna Martinetti,a,-135,114,9,0,4,2,0.692
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f4,Raoni Barcelos,Montel Jackson,a,160,-200,7,0,6,1,0.538
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f5,Ryan Spann,Marcus Buchecha,a,114,-140,9,5,4,1,0.692
 ufc-sterling-vs-zalal,UFC Fight Night: Sterling vs. Zalal,2026-04-25,f6,Rodolfo Vieira,Eric McConico,b,-260,205,11,2,2,0,0.846

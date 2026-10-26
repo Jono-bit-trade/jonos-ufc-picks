@@ -29,12 +29,12 @@ ALIASES = name_map()
 
 
 def norm(name):
-    """'José Aldo Jr.' -> 'jose aldo'. Used to match names across sites."""
+    """'José Aldo Jr.' -> 'josealdo'. Used to match names across sites."""
     name = ALIASES.get(name, name)
     s = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode().lower()
     for junk in [" jr.", " jr", " sr.", ".", "'", "-"]:
         s = s.replace(junk, " " if junk == "-" else "")
-    return " ".join(s.split())
+    return "".join(ch for ch in s if ch.isalnum())   # spacing differs between sites ("Aori Qileng" / "Aoriqileng")
 
 
 def to_american(decimal):

@@ -462,12 +462,18 @@ async function viewExperts() {
 }
 
 // ---------------- rankings, record, how it works ----------------
-async function viewRankings() {
+async function viewRankings(q) {
   const r = await get("ratings.json", true);
   if (!r) return `<div class="empty">Rankings appear after the first run.</div>`;
-  return `<h1>Rankings</h1><p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only. The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs.</p>
-    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th><th class="n">Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
-    ${r.fighters.map((f, i) => `<tr><td class="n">${i + 1}</td><td>${fighterLink(f.fighter)}</td><td class="n">${f.rating}</td><td class="n hide-sm">${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`).join("")}</tbody></table></div>`;
+  const div = q && q.get("div") || "";
+  const d = (r.divisions || []).find(x => x.division === div);
+  const list = d ? d.fighters : r.fighters;
+  const chip = (v, label) => `<a href="#/rankings${v ? "?div=" + encodeURIComponent(v) : ""}" class="${v === div ? "on" : ""}">${esc(label)}</a>`;
+  return `<h1>Rankings</h1><p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
+    <div class="filters">${chip("", "Pound for pound")}${(r.divisions || []).map(x => chip(x.division, x.division.replace("Women's ", "W ").replace("Light Heavyweight", "Light Heavy"))).join("")}</div>
+    <h2>${esc(d ? d.division : "Pound for pound")}</h2>
+    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th class="n">Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
+    ${list.map((f, i) => `<tr><td class="n">${i + 1}</td><td>${fighterLink(f.fighter)}</td>${d ? "" : `<td class="hide-sm">${esc(f.division || "")}</td>`}<td class="n">${esc(f.record || "")}</td><td class="n">${f.rating}</td><td class="n hide-sm">${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`).join("")}</tbody></table></div>`;
 }
 
 function yearTable(mr) {
@@ -543,7 +549,7 @@ async function route() {
   document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: viewRankings, record: viewRecord, how: viewHow};
+    rankings: () => viewRankings(q), record: viewRecord, how: viewHow};
   const html = await (views[page] || viewHome)();
   const keepFocus = document.activeElement && document.activeElement.id === "fsearch";
   $("#view").innerHTML = html;

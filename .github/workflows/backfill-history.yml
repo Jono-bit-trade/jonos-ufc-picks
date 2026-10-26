@@ -55,6 +55,9 @@ jobs:
         continue-on-error: true
         run: timeout 50m python src/ufc_athletes.py 45 2>&1 | tee data/logs/ufc_athletes.log | tail -n 20
 
+      - name: Use the latest code (a long run may have started before a fix was pushed)
+        run: git fetch -q origin main && git checkout origin/main -- src
+
       - name: Convert, rebuild, backtest, predict
         run: |
           python src/import_espn_stats.py || echo "stats not converted yet"

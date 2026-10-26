@@ -37,8 +37,23 @@ def publish_common(fights, log, G):
     json.dump(res, open(os.path.join(OUT, "results.json"), "w"), indent=1)
     rt = table(G, NOW.date().isoformat())
     cutoff = (NOW.date() - dt.timedelta(days=550)).isoformat()
+    active = rt[rt["last_fight"] >= cutoff].copy()
+    # each fighter's division: their latest fight that wasn't at catch weight
+    long = pd.concat([fights[["date", "a", "weight_class", "winner"]].rename(columns={"a": "fighter"}).assign(won=fights["winner"] == "a",
+                                                                                                         lost=fights["winner"] == "b"),
+                      fights[["date", "b", "weight_class", "winner"]].rename(columns={"b": "fighter"}).assign(won=fights["winner"] == "b",
+                                                                                                         lost=fights["winner"] == "a")])
+    long = long.sort_values("date")
+    div = long[~long["weight_class"].fillna("").str.contains("Catch|Open", case=False)].groupby("fighter")["weight_class"].last()
+    rec = long.groupby("fighter").agg(w=("won", "sum"), l=("lost", "sum"))
+    active["division"] = active["fighter"].map(div)
+    active["record"] = [f"{int(rec.loc[n, 'w'])}-{int(rec.loc[n, 'l'])}" if n in rec.index else "" for n in active["fighter"]]
+    order = ["Heavyweight", "Light Heavyweight", "Middleweight", "Welterweight", "Lightweight", "Featherweight",
+             "Bantamweight", "Flyweight", "Women's Featherweight", "Women's Bantamweight", "Women's Flyweight", "Women's Strawweight"]
+    divisions = [{"division": d, "fighters": active[active["division"] == d].head(15).to_dict("records")}
+                 for d in order if (active["division"] == d).any()]
     json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"),
-               "fighters": rt[rt["last_fight"] >= cutoff].head(50).to_dict("records")},
+               "fighters": active.head(50).to_dict("records"), "divisions": divisions},
               open(os.path.join(OUT, "ratings.json"), "w"), indent=1)
     bt = path("backtest_summary.json")
     if os.path.exists(bt):

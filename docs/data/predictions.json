@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T01:36Z",
+ "updated": "2026-10-26T01:38Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -32,7 +32,7 @@
    "rating_b": 1648,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.342,
+   "p_model_a": 0.339,
    "p_a": 0.491,
    "fair_odds_a": 104,
    "fair_odds_b": -104,
@@ -169,6 +169,11 @@
      "t": "2026-10-26T01:36Z",
      "a": -105.0,
      "b": -115.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": -105.0,
+     "b": -115.0
     }
    ],
    "edge_a": 0.002,
@@ -177,9 +182,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.36,
-    "KO": 0.467,
-    "SUB": 0.173
+    "DEC": 0.361,
+    "KO": 0.465,
+    "SUB": 0.174
    }
   },
   {
@@ -199,11 +204,11 @@
    "state": "pre",
    "status": "Sat, October 31st at 8:00 PM EDT",
    "result": null,
-   "rating_a": 1427,
-   "rating_b": 1459,
+   "rating_a": 1428,
+   "rating_b": 1457,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.455,
+   "p_model_a": 0.46,
    "p_a": 0.546,
    "fair_odds_a": -120,
    "fair_odds_b": 120,
@@ -340,6 +345,11 @@
      "t": "2026-10-26T01:36Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
    "edge_a": 0.014,
@@ -348,8 +358,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.503,
-    "KO": 0.322,
+    "DEC": 0.504,
+    "KO": 0.321,
     "SUB": 0.175
    }
   },
@@ -371,13 +381,13 @@
    "status": "Sat, October 31st at 8:00 PM EDT",
    "result": null,
    "rating_a": 1616,
-   "rating_b": 1702,
+   "rating_b": 1703,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.304,
-   "p_a": 0.305,
-   "fair_odds_a": 228,
-   "fair_odds_b": -228,
+   "p_model_a": 0.297,
+   "p_a": 0.304,
+   "fair_odds_a": 229,
+   "fair_odds_b": -229,
    "market_p_a": 0.304,
    "odds_a": 215.0,
    "odds_b": -265.0,
@@ -511,9 +521,14 @@
      "t": "2026-10-26T01:36Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
-   "edge_a": 0.001,
+   "edge_a": -0.001,
    "pick": null,
    "our_pick": null,
    "expert_lean": null,
@@ -545,7 +560,7 @@
    "rating_b": 1549,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.61,
+   "p_model_a": 0.612,
    "p_a": 0.718,
    "fair_odds_a": -255,
    "fair_odds_b": 255,
@@ -682,6 +697,11 @@
      "t": "2026-10-26T01:36Z",
      "a": -265.0,
      "b": 215.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": -265.0,
+     "b": 215.0
     }
    ],
    "edge_a": 0.023,
@@ -690,8 +710,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.539,
-    "KO": 0.321,
+    "DEC": 0.544,
+    "KO": 0.316,
     "SUB": 0.14
    }
   },
@@ -716,10 +736,10 @@
    "rating_b": 1491,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.503,
-   "p_a": 0.694,
-   "fair_odds_a": -227,
-   "fair_odds_b": 227,
+   "p_model_a": 0.512,
+   "p_a": 0.695,
+   "fair_odds_a": -228,
+   "fair_odds_b": 228,
    "market_p_a": 0.681,
    "odds_a": -245.0,
    "odds_b": 200.0,
@@ -853,16 +873,21 @@
      "t": "2026-10-26T01:36Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
-   "edge_a": 0.014,
+   "edge_a": 0.015,
    "pick": null,
    "our_pick": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.509,
-    "KO": 0.337,
+    "DEC": 0.513,
+    "KO": 0.333,
     "SUB": 0.154
    }
   },
@@ -887,10 +912,10 @@
    "rating_b": 1543,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.597,
-   "p_a": 0.597,
-   "fair_odds_a": -148,
-   "fair_odds_b": 148,
+   "p_model_a": 0.588,
+   "p_a": 0.588,
+   "fair_odds_a": -143,
+   "fair_odds_b": 143,
    "market_p_a": null,
    "odds_a": null,
    "odds_b": null,
@@ -907,7 +932,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.405,
-    "KO": 0.378,
+    "KO": 0.377,
     "SUB": 0.218
    }
   },
@@ -932,7 +957,7 @@
    "rating_b": 1446,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.479,
+   "p_model_a": 0.481,
    "p_a": 0.618,
    "fair_odds_a": -162,
    "fair_odds_b": 162,
@@ -1069,6 +1094,11 @@
      "t": "2026-10-26T01:36Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.014,
@@ -1077,9 +1107,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.322,
-    "KO": 0.446,
-    "SUB": 0.232
+    "DEC": 0.324,
+    "KO": 0.442,
+    "SUB": 0.234
    }
   },
   {
@@ -1099,14 +1129,14 @@
    "state": "pre",
    "status": "Sat, October 31st at 5:00 PM EDT",
    "result": null,
-   "rating_a": 1542,
+   "rating_a": 1537,
    "rating_b": 1477,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.402,
-   "p_a": 0.445,
-   "fair_odds_a": 125,
-   "fair_odds_b": -125,
+   "p_model_a": 0.393,
+   "p_a": 0.443,
+   "fair_odds_a": 126,
+   "fair_odds_b": -126,
    "market_p_a": 0.384,
    "odds_a": 150.0,
    "odds_b": -180.0,
@@ -1240,16 +1270,21 @@
      "t": "2026-10-26T01:36Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
-   "edge_a": 0.062,
+   "edge_a": 0.059,
    "pick": "Julian Erosa",
    "our_pick": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.521,
-    "KO": 0.305,
+    "DEC": 0.522,
+    "KO": 0.304,
     "SUB": 0.174
    }
   },
@@ -1274,10 +1309,10 @@
    "rating_b": 1500,
    "debut_a": false,
    "debut_b": true,
-   "p_model_a": 0.362,
-   "p_a": 0.241,
-   "fair_odds_a": 316,
-   "fair_odds_b": -316,
+   "p_model_a": 0.358,
+   "p_a": 0.239,
+   "fair_odds_a": 318,
+   "fair_odds_b": -318,
    "market_p_a": 0.274,
    "odds_a": 250.0,
    "odds_b": -310.0,
@@ -1411,9 +1446,14 @@
      "t": "2026-10-26T01:36Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
-   "edge_a": -0.034,
+   "edge_a": -0.035,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
    "expert_lean": null,
@@ -1445,10 +1485,10 @@
    "rating_b": 1574,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.483,
-   "p_a": 0.309,
-   "fair_odds_a": 224,
-   "fair_odds_b": -224,
+   "p_model_a": 0.481,
+   "p_a": 0.306,
+   "fair_odds_a": 226,
+   "fair_odds_b": -226,
    "market_p_a": 0.29,
    "odds_a": 230.0,
    "odds_b": -285.0,
@@ -1582,9 +1622,14 @@
      "t": "2026-10-26T01:36Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
-   "edge_a": 0.019,
+   "edge_a": 0.016,
    "pick": null,
    "our_pick": null,
    "expert_lean": null,
@@ -1616,8 +1661,8 @@
    "rating_b": 1722,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.353,
-   "p_a": 0.353,
+   "p_model_a": 0.354,
+   "p_a": 0.354,
    "fair_odds_a": 183,
    "fair_odds_b": -183,
    "market_p_a": null,
@@ -1636,7 +1681,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.405,
-    "KO": 0.381,
+    "KO": 0.38,
     "SUB": 0.214
    }
   },
@@ -1661,10 +1706,10 @@
    "rating_b": 1495,
    "debut_a": true,
    "debut_b": false,
-   "p_model_a": 0.569,
+   "p_model_a": 0.567,
    "p_a": 0.88,
-   "fair_odds_a": -731,
-   "fair_odds_b": 731,
+   "fair_odds_a": -730,
+   "fair_odds_b": 730,
    "market_p_a": 0.822,
    "odds_a": -600.0,
    "odds_b": 440.0,
@@ -1798,6 +1843,11 @@
      "t": "2026-10-26T01:36Z",
      "a": -600.0,
      "b": 440.0
+    },
+    {
+     "t": "2026-10-26T01:38Z",
+     "a": -600.0,
+     "b": 440.0
     }
    ],
    "edge_a": 0.057,
@@ -1806,8 +1856,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.549,
-    "KO": 0.192,
+    "DEC": 0.548,
+    "KO": 0.194,
     "SUB": 0.258
    }
   },
@@ -1832,10 +1882,10 @@
    "rating_b": 1481,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.668,
-   "p_a": 0.668,
-   "fair_odds_a": -201,
-   "fair_odds_b": 201,
+   "p_model_a": 0.662,
+   "p_a": 0.662,
+   "fair_odds_a": -196,
+   "fair_odds_b": 196,
    "market_p_a": null,
    "odds_a": null,
    "odds_b": null,
@@ -1852,8 +1902,8 @@
    "check_news": false,
    "method": {
     "DEC": 0.468,
-    "KO": 0.341,
-    "SUB": 0.191
+    "KO": 0.34,
+    "SUB": 0.192
    }
   }
  ]

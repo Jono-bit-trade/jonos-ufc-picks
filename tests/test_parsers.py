@@ -28,7 +28,7 @@ o = get_odds.parse(json.load(open(os.path.join(tmp, "tests", "odds_api_sample.js
 assert len(o) == 2 and set(o["books"]) == {3}, o
 r = o[o["a"] == "Renato Moicano"].iloc[0]
 assert r["odds_a"] > 0 > r["odds_b"] and r["best_a"] >= r["odds_a"], r
-assert get_odds.norm("José Aldo Jr.") == "jose aldo"
+assert get_odds.norm("José Aldo Jr.") == "josealdo" and get_odds.norm("Aori Qileng") == get_odds.norm("Aoriqileng")
 assert get_odds.to_american(2.5) == 150 and get_odds.to_american(1.5) == -200
 
 # ---- UFCStats pages --------------------------------------------------------

@@ -117,6 +117,58 @@ def drop_known(new, known, days=2):
     return new[keep]
 
 
+def valid_line(oa, ob):
+    """A believable two-way moneyline: both numbers real (|odds| >= 100), the bookmaker's
+    margin between -3% and +30%, and not both fighters priced as clear favorites."""
+    from common import implied
+    try:
+        oa, ob = float(oa), float(ob)
+    except (TypeError, ValueError):
+        return False
+    if oa != oa or ob != ob or abs(oa) < 100 or abs(ob) < 100:
+        return False
+    over = float(implied(oa)) + float(implied(ob))
+    return 0.97 <= over <= 1.30 and not (oa < -130 and ob < -130)
+
+
+def clean_lines(fights):
+    """Blank lines that can't be right, so better sources can fill them; drop opening lines
+    that differ from the close by 25+ points (almost always the two sides swapped)."""
+    from common import no_vig
+    bad = [not valid_line(a, b) if (pd.notna(a) or pd.notna(b)) else False for a, b in zip(fights["odds_a"], fights["odds_b"])]
+    fights.loc[bad, ["odds_a", "odds_b"]] = np.nan
+    bado = [not valid_line(a, b) if (pd.notna(a) or pd.notna(b)) else False for a, b in zip(fights["open_a"], fights["open_b"])]
+    fights.loc[bado, ["open_a", "open_b"]] = np.nan
+    mv = (no_vig(pd.to_numeric(fights["odds_a"], errors="coerce"), pd.to_numeric(fights["odds_b"], errors="coerce"))
+          - no_vig(pd.to_numeric(fights["open_a"], errors="coerce"), pd.to_numeric(fights["open_b"], errors="coerce")))
+    swapped = np.abs(np.nan_to_num(mv)) > 0.25
+    fights.loc[swapped, ["open_a", "open_b"]] = np.nan
+    print(f"lines: blanked {sum(bad)} closing and {sum(bado) + int(swapped.sum())} opening lines that can't be right")
+    return fights
+
+
+def one_spelling(fights):
+    """Each fighter under one spelling everywhere ("Kai Kara-France" / "Kai Kara France"),
+    so ratings and records aren't split. Uses the most recent spelling."""
+    import re, unicodedata
+    key = lambda n: re.sub(r"[^a-z]", "", unicodedata.normalize("NFKD", str(n)).encode("ascii", "ignore").decode().lower())
+    for s_ in "ab":
+        fights[s_] = fights[s_].astype(str).str.strip()
+    long = pd.concat([fights[["date", "a"]].rename(columns={"a": "n"}), fights[["date", "b"]].rename(columns={"b": "n"})])
+    long = long.sort_values("date")
+    best = {}
+    for n in long["n"]:
+        best[key(n)] = n     # latest wins
+    changed = 0
+    for s_ in "ab":
+        new = fights[s_].map(lambda n: best.get(key(n), n))
+        changed += int((new != fights[s_]).sum())
+        fights[s_] = new
+    fights["fight_id"] = fights["date"] + "|" + fights["a"] + "|" + fights["b"]
+    print(f"names: unified {changed} spellings")
+    return fights
+
+
 def canonical(df, known):
     """Use the history's spelling of each fighter's name."""
     from get_odds import norm
@@ -164,11 +216,10 @@ def attach_lines(fights, sources, days=2):
         for c in ["open_a", "open_b", "odds_a", "odds_b"]:
             if c not in src:
                 src[c] = None
-        ok = lambda x: pd.notna(x) and abs(float(x)) >= 100     # a usable American moneyline
         for r in src.itertuples():
-            if not (ok(r.odds_a) and ok(r.odds_b)):
+            if not valid_line(r.odds_a, r.odds_b):
                 r = r._replace(odds_a=None, odds_b=None)
-            if not (ok(r.open_a) and ok(r.open_b)):
+            if not valid_line(r.open_a, r.open_b):
                 r = r._replace(open_a=None, open_b=None)
             k = frozenset((norm(r.a), norm(r.b)))
             lut.setdefault(k, []).append((pd.Timestamp(r.date), norm(r.a), r.open_a, r.open_b, r.odds_a, r.odds_b))
@@ -226,8 +277,11 @@ def build(offline=False):
         for c in ["open_a", "open_b", "close_a", "close_b"]:
             eo[c] = [to_american(x) if x == x else np.nan for x in eo[c]]
         eo = eo.rename(columns={"close_a": "odds_a", "close_b": "odds_b"})
+    fights = one_spelling(fights)
+    fights = clean_lines(fights)
     fights = attach_lines(fights, [history, eo, espn_hist, sp])
     fights = fill_logged_odds(fights)
+    fights = clean_lines(fights)
     fights = fights.sort_values(["date", "fight_id"]).reset_index(drop=True)
     fights[COLUMNS].to_csv(path("fights.csv"), index=False)
     print(f"fights.csv: {len(fights)} fights, {fights.date.min()} to {fights.date.max()}")

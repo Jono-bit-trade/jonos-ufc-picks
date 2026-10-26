@@ -489,6 +489,17 @@ def main():
     index.sort(key=lambda x: -(x["rating"] or 0))
     write("fighters/index.json", index)
     write("grappling_flags.json", grap_all)   # slug -> flags, for the fight cards
+    # remove pages from earlier runs that no longer exist (renamed cards, merged name spellings)
+    import glob
+    keep = {"events": {e["slug"] for e in events_index}, "fighters": {f["slug"] for f in index}}
+    gone = 0
+    for folder, slugs in keep.items():
+        for f_ in glob.glob(os.path.join(OUT, folder, "*.json")):
+            s_ = os.path.basename(f_)[:-5]
+            if s_ != "index" and s_ not in slugs:
+                os.remove(f_)
+                gone += 1
+    print(f"removed {gone} stale pages")
     print(f"site data: {len(index)} fighters, {len(events_index)} past cards")
 
 

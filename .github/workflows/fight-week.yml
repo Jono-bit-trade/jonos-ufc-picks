@@ -55,7 +55,9 @@ jobs:
       - name: Expert picks (SplitPicks)
         if: steps.kind.outputs.kind != 'live'
         continue-on-error: true
-        run: python src/splitpicks.py
+        run: |
+          python src/splitpicks.py
+          python src/names.py
 
       - name: Betting lines (The Odds API)
         if: steps.kind.outputs.kind == 'full' || steps.kind.outputs.kind == 'lines'
@@ -69,6 +71,9 @@ jobs:
         if: steps.kind.outputs.kind != 'live'
         continue-on-error: true
         run: timeout 12m python src/ufc_athletes.py 8
+
+      - name: Use the latest code (a long run may have started before a fix was pushed)
+        run: git fetch -q origin main && git checkout origin/main -- src
 
       - name: Rebuild the fight history
         run: python src/get_data.py --offline
