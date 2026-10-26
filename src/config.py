@@ -45,6 +45,10 @@ OUR_PICKS_ANY_FAVORITE = True # ...or the pick is the betting favorite. Value pi
 OUR_PICKS_MAX_UNDERDOG = 150  # no underdogs longer than +150 (those lost money)
 OUR_PICKS_MAX_FAVORITE = None # e.g. -300 to skip picks shorter than -300; None keeps them
 
+# No our picks when both fighters are making their UFC debut: the model has no UFC information on
+# either, and those picks went 15-8, -5.1u, 2020-2026. (Debutant vs veteran picks stay.) Oct 2026.
+OUR_PICKS_SKIP_BOTH_DEBUT = True
+
 # Expert lean: in a close fight (line 40-60%), when 65%+ of 5+ SplitPicks analysts agree, their side
 # becomes our pick (if the model has no our pick there) and the fight is tagged "Expert lean".
 # Apr-Oct 2026: 47 such fights, experts' side won 77% vs the line's 54%, +16.5u. Added Oct 2026 on

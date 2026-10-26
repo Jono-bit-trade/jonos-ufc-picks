@@ -266,6 +266,10 @@ def main():
     up["expert_lean"] = leans
     no_ours = up["our_pick"].isna() & up["expert_lean"].notna()
     up.loc[no_ours, "our_pick"] = up.loc[no_ours, "expert_lean"]
+    from config import OUR_PICKS_SKIP_BOTH_DEBUT
+    if OUR_PICKS_SKIP_BOTH_DEBUT:
+        both_new = (up["debut_a"] == 1) & (up["debut_b"] == 1)
+        up.loc[both_new, "our_pick"] = None
 
     # freeze fights that have started: keep their last pre-fight prediction
     logf = path("pick_log.csv")

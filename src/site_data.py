@@ -328,6 +328,9 @@ def main():
 
     # ---- events, with the model's track record ----
     events_index, graded_rows = [], []
+    from config import OUR_PICKS_SKIP_BOTH_DEBUT as SKIP_BOTH_DEBUT
+    first_fight = pd.concat([fights[["date", "a"]].rename(columns={"a": "n"}), fights[["date", "b"]].rename(columns={"b": "n"})]) \
+        .groupby("n")["date"].min().to_dict()
     fights["event_name"] = [e if isinstance(e, str) and e else ev_names.get(d, "") for e, d in zip(fights["event"], fights["date"])]
     for (date, ), card in fights.groupby(["date"], sort=False):
         name = next((n for n in card["event_name"] if n), "") or "UFC card"
@@ -372,6 +375,8 @@ def main():
                 from_experts = False
                 if not ours and lean:   # expert lean fills in where the model has no our pick
                     ours, from_experts = lean, True
+                if ours and SKIP_BOTH_DEBUT and first_fight.get(f.a) == f.date and first_fight.get(f.b) == f.date:
+                    ours = None   # both making their UFC debut: no our pick (config.OUR_PICKS_SKIP_BOTH_DEBUT)
                 if ours:   # our pick, as on the live card
                     right = (ours == "a") == won_a
                     o = f.odds_a if ours == "a" else f.odds_b
