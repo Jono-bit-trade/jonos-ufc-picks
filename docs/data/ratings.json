@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T01:11Z",
+ "updated": "2026-10-26T01:22Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -50,16 +50,16 @@
    "last_fight": "2026-07-11"
   },
   {
-   "fighter": "Petr Yan",
-   "rating": 1859,
-   "rd": 97,
-   "last_fight": "2026-10-24"
-  },
-  {
    "fighter": "Michael Morales",
    "rating": 1859,
    "rd": 122,
    "last_fight": "2025-11-15"
+  },
+  {
+   "fighter": "Petr Yan",
+   "rating": 1859,
+   "rd": 97,
+   "last_fight": "2026-10-24"
   },
   {
    "fighter": "Carlos Prates",
@@ -188,21 +188,15 @@
    "last_fight": "2026-07-11"
   },
   {
-   "fighter": "Sean O'Malley",
-   "rating": 1809,
-   "rd": 99,
-   "last_fight": "2026-06-14"
-  },
-  {
    "fighter": "Lerone Murphy",
    "rating": 1809,
    "rd": 114,
    "last_fight": "2026-03-21"
   },
   {
-   "fighter": "Diego Lopes",
-   "rating": 1807,
-   "rd": 109,
+   "fighter": "Sean O'Malley",
+   "rating": 1809,
+   "rd": 99,
    "last_fight": "2026-06-14"
   },
   {
@@ -212,16 +206,16 @@
    "last_fight": "2026-10-24"
   },
   {
+   "fighter": "Diego Lopes",
+   "rating": 1807,
+   "rd": 109,
+   "last_fight": "2026-06-14"
+  },
+  {
    "fighter": "Ian Machado Garry",
    "rating": 1800,
    "rd": 113,
    "last_fight": "2026-08-15"
-  },
-  {
-   "fighter": "Leon Edwards",
-   "rating": 1795,
-   "rd": 97,
-   "last_fight": "2025-11-15"
   },
   {
    "fighter": "Dustin Poirier",
@@ -230,22 +224,28 @@
    "last_fight": "2025-07-19"
   },
   {
+   "fighter": "Leon Edwards",
+   "rating": 1795,
+   "rd": 97,
+   "last_fight": "2025-11-15"
+  },
+  {
    "fighter": "Joe Pyfer",
    "rating": 1794,
    "rd": 117,
    "last_fight": "2026-03-28"
   },
   {
-   "fighter": "Umar Nurmagomedov",
-   "rating": 1792,
-   "rd": 110,
-   "last_fight": "2026-08-29"
-  },
-  {
    "fighter": "Jean Silva",
    "rating": 1792,
    "rd": 117,
    "last_fight": "2026-09-12"
+  },
+  {
+   "fighter": "Umar Nurmagomedov",
+   "rating": 1792,
+   "rd": 110,
+   "last_fight": "2026-08-29"
   },
   {
    "fighter": "Mike Malott",
