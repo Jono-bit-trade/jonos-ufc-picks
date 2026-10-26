@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T02:32Z",
+ "updated": "2026-10-26T02:41Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -21,7 +21,13 @@
    "record_a": "21-7-1",
    "record_b": "11-1-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.7,
+    "handle_b": 0.3,
+    "bets_a": 0.7,
+    "bets_b": 0.3,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Lightweight",
    "rounds": 5,
    "segment": "",
@@ -220,6 +226,11 @@
      "t": "2026-10-26T02:32Z",
      "a": -105.0,
      "b": -115.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": -105.0,
+     "b": -115.0
     }
    ],
    "edge_a": 0.002,
@@ -243,7 +254,13 @@
    "record_a": "13-10-0",
    "record_b": "18-11-1",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.3,
+    "handle_b": 0.7,
+    "bets_a": 0.22,
+    "bets_b": 0.78,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Flyweight",
    "rounds": 3,
    "segment": "",
@@ -442,6 +459,11 @@
      "t": "2026-10-26T02:32Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
    "edge_a": 0.014,
@@ -465,7 +487,13 @@
    "record_a": "17-8-0",
    "record_b": "11-2-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.67,
+    "handle_b": 0.33,
+    "bets_a": 0.5,
+    "bets_b": 0.5,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
    "segment": "",
@@ -664,6 +692,11 @@
      "t": "2026-10-26T02:32Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
    "edge_a": -0.001,
@@ -687,7 +720,13 @@
    "record_a": "11-2-0",
    "record_b": "6-0-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.35,
+    "handle_b": 0.65,
+    "bets_a": 0.64,
+    "bets_b": 0.36,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
@@ -886,6 +925,11 @@
      "t": "2026-10-26T02:32Z",
      "a": -265.0,
      "b": 215.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": -265.0,
+     "b": 215.0
     }
    ],
    "edge_a": 0.023,
@@ -909,7 +953,13 @@
    "record_a": "10-3-0",
    "record_b": "11-2-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.36,
+    "handle_b": 0.64,
+    "bets_a": 0.7,
+    "bets_b": 0.3,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
@@ -1108,6 +1158,11 @@
      "t": "2026-10-26T02:32Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
    "edge_a": 0.015,
@@ -1177,7 +1232,13 @@
    "record_a": "9-2-0",
    "record_b": "8-4-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.47,
+    "handle_b": 0.53,
+    "bets_a": 0.43,
+    "bets_b": 0.57,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
@@ -1376,6 +1437,11 @@
      "t": "2026-10-26T02:32Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.014,
@@ -1399,7 +1465,13 @@
    "record_a": "31-14-0",
    "record_b": "11-3-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.19,
+    "handle_b": 0.81,
+    "bets_a": 0.78,
+    "bets_b": 0.22,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
@@ -1598,6 +1670,11 @@
      "t": "2026-10-26T02:32Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
    "edge_a": 0.059,
@@ -1621,7 +1698,13 @@
    "record_a": "6-3-0",
    "record_b": "9-3-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.06,
+    "handle_b": 0.94,
+    "bets_a": 0.31,
+    "bets_b": 0.69,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Middleweight",
    "rounds": 3,
    "segment": "",
@@ -1820,6 +1903,11 @@
      "t": "2026-10-26T02:32Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "edge_a": -0.035,
@@ -1843,7 +1931,13 @@
    "record_a": "8-1-1",
    "record_b": "12-2-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.23,
+    "handle_b": 0.77,
+    "bets_a": 0.3,
+    "bets_b": 0.7,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Women's Strawweight",
    "rounds": 3,
    "segment": "",
@@ -2042,6 +2136,11 @@
      "t": "2026-10-26T02:32Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.016,
@@ -2111,7 +2210,13 @@
    "record_a": "12-0-0",
    "record_b": "7-4-0",
    "experts": null,
-   "splits": null,
+   "splits": {
+    "handle_a": 0.01,
+    "handle_b": 0.99,
+    "bets_a": 0.22,
+    "bets_b": 0.78,
+    "at": "2026-10-26T02:33Z"
+   },
    "weight_class": "Women's Flyweight",
    "rounds": 3,
    "segment": "",
@@ -2308,6 +2413,11 @@
     },
     {
      "t": "2026-10-26T02:32Z",
+     "a": -600.0,
+     "b": 440.0
+    },
+    {
+     "t": "2026-10-26T02:41Z",
      "a": -600.0,
      "b": 440.0
     }
