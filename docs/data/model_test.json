@@ -32,10 +32,10 @@
    "correct": 159,
    "pct": 69.4,
    "units": -0.7,
-   "log_loss": 0.6131,
-   "value_bets": 103,
-   "value_won": 70,
-   "value_units": -9.1
+   "log_loss": 0.613,
+   "value_bets": 111,
+   "value_won": 77,
+   "value_units": -6.3
   },
   {
    "prediction": "All experts' consensus",

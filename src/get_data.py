@@ -239,6 +239,26 @@ def attach_lines(fights, sources, days=2):
     return fights
 
 
+def average_book_close(fights, eo, days=2):
+    """Replace the closing line with the average across 3+ sportsbooks (ESPN's book-by-book lines)."""
+    from get_odds import norm
+    lut = {}
+    for r in eo.itertuples():
+        lut.setdefault(frozenset((norm(r.a), norm(r.b))), []).append(r)
+    n = 0
+    for i, r in fights.iterrows():
+        d = pd.Timestamp(r["date"])
+        for c in lut.get(frozenset((norm(r["a"]), norm(r["b"]))), []):
+            if abs((pd.Timestamp(c.date) - d).days) > days or not valid_line(c.odds_a, c.odds_b):
+                continue
+            same = norm(c.a) == norm(r["a"])
+            fights.at[i, "odds_a"], fights.at[i, "odds_b"] = (c.odds_a, c.odds_b) if same else (c.odds_b, c.odds_a)
+            n += 1
+            break
+    print(f"closing lines: {n} fights use the average of 3+ books")
+    return fights
+
+
 def build(offline=False):
     from config import OFFLINE
     if not (offline or OFFLINE):
@@ -263,17 +283,28 @@ def build(offline=False):
         if not sp.empty else sp
     eo = read_csv("espn_odds_history.csv")   # every book's opening and closing line, from ESPN's core API
     if not eo.empty:
-        # median across books in probability space: a plain median of American odds breaks
-        # across even money (the median of -110 and +110 is 0)
-        from common import implied, to_american
+        # the average price across books, as decimal payouts (a plain average of American odds
+        # breaks across even money): what you'd get at a typical book, not the best one
+        from common import payout
+        okc = [valid_line(x, y) for x, y in zip(eo["close_a"], eo["close_b"])]
+        oko = [valid_line(x, y) for x, y in zip(eo["open_a"], eo["open_b"])]
+        eo.loc[[not k for k in okc], ["close_a", "close_b"]] = np.nan   # one bad book shouldn't move the average
+        eo.loc[[not k for k in oko], ["open_a", "open_b"]] = np.nan
         for c in ["open_a", "open_b", "close_a", "close_b"]:
-            eo[c] = implied(pd.to_numeric(eo[c], errors="coerce"))
-        eo = eo.groupby(["date", "a", "b"], as_index=False)[["open_a", "open_b", "close_a", "close_b"]].median()
+            v = pd.to_numeric(eo[c], errors="coerce")
+            eo[c] = np.where(v.abs() >= 100, 1 + payout(v.where(v.abs() >= 100, 100)), np.nan)
+        eo["books"] = eo["close_a"].notna().astype(int)
+        eo = eo.groupby(["date", "a", "b"], as_index=False).agg(open_a=("open_a", "mean"), open_b=("open_b", "mean"),
+                                                               close_a=("close_a", "mean"), close_b=("close_b", "mean"),
+                                                               books=("books", "sum"))
+        dec_to_us = lambda d: np.nan if d != d or d <= 1 else (round((d - 1) * 100) if d >= 2 else round(-100 / (d - 1)))
         for c in ["open_a", "open_b", "close_a", "close_b"]:
-            eo[c] = [to_american(x) if x == x else np.nan for x in eo[c]]
+            eo[c] = [dec_to_us(x) for x in eo[c]]
         eo = eo.rename(columns={"close_a": "odds_a", "close_b": "odds_b"})
     fights = one_spelling(fights)
     fights = clean_lines(fights)
+    if not eo.empty:   # where 3+ books' closing lines exist, grade at their average: what a typical book paid
+        fights = average_book_close(fights, eo[eo["books"] >= 3])
     fights = attach_lines(fights, [eo, espn_hist, sp])
     fights = fill_logged_odds(fights)
     fights = clean_lines(fights)

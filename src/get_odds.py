@@ -2,7 +2,7 @@
 
 Sources, best first:
   1. The Odds API (free key, 500 credits a month; each run costs 1 credit per region):
-     every US book's line, the median used as the market and the best price shown.
+     every US book's line, the average price used as the market and the best price shown.
   2. ESPN's scoreboard odds (no key), from espn.py, when no Odds API line exists.
 
 Every run also appends a snapshot to data/line_history.csv, so the site can show
@@ -42,7 +42,9 @@ def to_american(decimal):
 
 
 def parse(events):
-    """The Odds API response -> one row per fight with median and best lines."""
+    """The Odds API response -> one row per fight with the average and best lines. The average is
+    over decimal prices (the payout you'd get at a typical book), not the best: you won't always
+    get the best line."""
     rows = []
     for ev in events:
         a, b = ev["home_team"], ev["away_team"]
@@ -56,8 +58,8 @@ def parse(events):
         if not prices[a] or not prices[b]:
             continue
         rows.append({"commence": ev["commence_time"], "a": a, "b": b,
-                     "odds_a": to_american(pd.Series(prices[a]).median()),
-                     "odds_b": to_american(pd.Series(prices[b]).median()),
+                     "odds_a": to_american(pd.Series(prices[a]).mean()),
+                     "odds_b": to_american(pd.Series(prices[b]).mean()),
                      "best_a": to_american(max(prices[a])), "best_b": to_american(max(prices[b])),
                      "books": min(len(prices[a]), len(prices[b])), "source": "odds-api"})
     return pd.DataFrame(rows)
