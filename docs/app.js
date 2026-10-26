@@ -6,7 +6,7 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&
 const cache = {};
 const get = (f, fresh) => {
   if (!fresh && cache[f]) return cache[f];
-  return cache[f] = fetch("data/" + f + (fresh ? "?t=" + Date.now() : "")).then(r => r.ok ? r.json() : null).catch(() => null);
+  return cache[f] = fetch("data/" + f + "?t=" + (fresh ? Date.now() : Math.floor(Date.now() / 60000)), {cache: "no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
 };
 const fair = (a, b) => {
   const imp = o => o < 0 ? -o / (-o + 100) : 100 / (o + 100);
