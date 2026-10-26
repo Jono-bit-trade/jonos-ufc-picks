@@ -25,8 +25,8 @@ def same_fighter(x, y):
         return False
     if "".join(px) == "".join(py) or sorted(px) == sorted(py):
         return True
-    if px[-1] == py[-1] and (px[0].startswith(py[0][:3]) or py[0].startswith(px[0][:3])):
-        return True          # same surname, first name shortened (Zach/Zachary, Cam/Cameron)
+    if px[-1] == py[-1] and len(px) > 1 and len(py) > 1 and px[0][:2] == py[0][:2]:
+        return True          # same surname, first name shortened (Zach/Zachary, Joe/Joseph, Cam/Cameron)
     return False
 
 

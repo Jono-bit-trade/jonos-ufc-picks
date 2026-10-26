@@ -37,6 +37,9 @@ AFTER = {             # label printed just BEFORE the number
     "standing": "standing", "clinch": "clinch", "ground": "ground",   # sig. strikes landed by position
 }
 PCT = {"str_def", "td_def"}
+TEXT = {              # bio facts: the text right after the label
+    "birthplace": "place of birth", "trains_at": "trains at", "fighting_style": "fighting style",
+}
 S = requests.Session()
 S.headers["User-Agent"] = "Mozilla/5.0 (compatible; jonos-ufc-picks; +https://github.com/Jono-bit-trade/jonos-ufc-picks)"
 
@@ -85,6 +88,11 @@ def parse(html):
         for k in group:
             if k in out:
                 out[k] = round(out[k] / tot, 3) if tot else None
+    for col, label in TEXT.items():
+        if label in low:
+            i = low.index(label)
+            if i + 1 < len(toks) and low[i + 1] not in TEXT.values() and len(toks[i + 1]) < 80:
+                out[col] = toks[i + 1]
     rec = re.search(r"\b(\d+)-(\d+)-(\d+)\s*\(W-L-D\)", soup.get_text(" "))
     if rec:
         out["record"] = "-".join(rec.groups())
@@ -121,6 +129,8 @@ def main(minutes=8):
     have = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame(columns=["name", "fetched"])
     if "slpm" not in have:      # older file without the striking numbers: refetch everyone
         have = have.iloc[0:0]
+    if "trains_at" not in have and len(have):   # no hometown/gym yet: refetch, keeping the numbers meanwhile
+        have["fetched"] = "2000-01-01"
     fresh = set(have.loc[pd.to_datetime(have["fetched"]) > pd.Timestamp.now() - pd.Timedelta(days=REFRESH_DAYS), "name"])
     queue = [n for n in todo() if n not in fresh]
     print(f"{len(queue)} fighters to fetch")

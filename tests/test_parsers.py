@@ -53,6 +53,16 @@ assert picks.our_side(0.45, 0.40, 150, -170) is None       # value underdog, not
 assert picks.expert_lean(0.52, 9, 3) == "a" and picks.expert_lean(0.52, 6, 5) is None
 assert picks.expert_lean(0.70, 10, 1) is None              # not a close fight
 
+# ---- DraftKings splits and UFC.com bio ----------------------------------------
+import dk_splits
+dk = dk_splits.parse("<h3>Nick Klein vs Joseph Kropschot</h3><span>10/31, 05:45PM</span><table><tr><th>Moneyline</th><th>Odds</th>"
+                     "<th>% Handle</th><th>% Bets</th></tr><tr><td>Nick Klein</td><td>+250</td><td>6%</td><td>31%</td></tr>"
+                     "<tr><td>Joseph Kropschot</td><td>−310</td><td>94%</td><td>69%</td></tr></table>")
+assert len(dk) == 2 and dk.iloc[1]["odds"] == -310 and dk.iloc[1]["handle"] == 0.94 and dk.iloc[0]["bets"] == 0.31, dk
+import ufc_athletes
+bio = ufc_athletes.parse("<div>Place of Birth</div><div>Makhachkala, Russia</div><div>Trains at</div><div>AKA</div>")
+assert bio["birthplace"] == "Makhachkala, Russia" and bio["trains_at"] == "AKA", bio
+
 print("parser tests passed")
 
 # ---- A real ESPN response (UFC 333, saved by the first live run) -------------

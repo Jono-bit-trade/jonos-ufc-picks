@@ -148,6 +148,10 @@ def grappling_sources():
     if not a.empty and "status" in a:
         for r in a[a["status"] == "ok"].itertuples():
             cur = out.get(norm(r.name), {})
+            for col in ("birthplace", "trains_at", "fighting_style"):
+                v = getattr(r, col, None)
+                if isinstance(v, str) and v.strip():
+                    cur[col] = v.strip()
             for col in ("td_per15", "sub_per15", "td_def", "str_def", "slpm", "sapm", "str_acc", "kd_per15", "avg_time",
                         "head", "body", "leg", "standing", "clinch", "ground"):
                 v = getattr(r, col, None)

@@ -67,6 +67,13 @@ jobs:
         run: python src/get_odds.py
 
 
+      - name: Betting splits (DraftKings) and the upcoming-bout log (ESPN)
+        if: steps.kind.outputs.kind != 'live'
+        continue-on-error: true
+        run: |
+          python src/dk_splits.py
+          python src/card_log.py
+
       - name: Grappling numbers (UFC.com athlete pages, 15 seconds apart)
         if: steps.kind.outputs.kind != 'live'
         continue-on-error: true

@@ -97,6 +97,27 @@ def experts_for(date, a, b):
     return out
 
 
+_SPLITS = None
+
+
+def splits_for(a, b):
+    """The latest DraftKings money/bets split for a bout, oriented to (a, b), or None."""
+    global _SPLITS
+    if _SPLITS is None:
+        sp = read("splits_history.csv")
+        _SPLITS = sp[sp["snapshot"] == sp["snapshot"].max()] if not sp.empty else sp
+    if _SPLITS.empty:
+        return None
+    from names import same_fighter
+    ra = _SPLITS[[same_fighter(n, a) for n in _SPLITS["fighter"]]]
+    rb = _SPLITS[[same_fighter(n, b) for n in _SPLITS["fighter"]]]
+    if ra.empty or rb.empty or ra.iloc[-1]["title"] != rb.iloc[-1]["title"]:
+        return None
+    x, y = ra.iloc[-1], rb.iloc[-1]
+    return {"handle_a": float(x["handle"]), "handle_b": float(y["handle"]), "bets_a": float(x["bets"]),
+            "bets_b": float(y["bets"]), "at": x["snapshot"]}
+
+
 def load_card(fights):
     """The next card, with names in the history's spelling and the current lines attached."""
     known = {norm(n): n for n in pd.concat([fights["a"], fights["b"]]).unique()}
@@ -307,6 +328,7 @@ def main():
             "a_id": str_or_none(c.get("espn_id_a")), "b_id": str_or_none(c.get("espn_id_b")),
             "record_a": str_or_none(c.get("record_a")), "record_b": str_or_none(c.get("record_b")),
             "experts": experts_for(f["date"], f["a"], f["b"]),
+            "splits": splits_for(f["a"], f["b"]),
             "weight_class": c.get("weight_class") or "",
             "rounds": int(f["rounds"]) if f["rounds"] == f["rounds"] else 3,
             "segment": c.get("card_segment") if isinstance(c.get("card_segment"), str) else "",

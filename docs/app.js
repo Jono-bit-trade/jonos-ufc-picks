@@ -124,6 +124,8 @@ function bout(f, i, edge) {
     ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
     ${pickHtml}
     <div class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></div>
+    ${f.splits ? `<div class="splits">DraftKings bettors: ${Math.round(f.splits.handle_a * 100)}% of money, ${Math.round(f.splits.bets_a * 100)}% of bets on ${esc(f.a.split(" ").at(-1))} · ${Math.round(f.splits.handle_b * 100)}% / ${Math.round(f.splits.bets_b * 100)}% on ${esc(f.b.split(" ").at(-1))}${
+      Math.abs(f.splits.handle_a - f.splits.bets_a) >= 0.2 ? ` <b class="sharp">Money ≠ bets: bigger bettors on ${esc((f.splits.handle_a > f.splits.bets_a ? f.a : f.b).split(" ").at(-1))}</b>` : ""}</div>` : ""}
     ${tapeToggle(f.a_slug, f.b_slug, f.rounds)}
   </article>`;
 }
@@ -388,6 +390,7 @@ async function viewFighter(s) {
     <section class="profile">${photo(f.espn_id, f.name, "xl")}<div>
       <h1>${esc(f.name)}</h1>
       <p class="where">${esc(f.weight_class)}${f.stance ? " · " + esc(f.stance) : ""}${f.age ? ` · age ${f.age}` : ""}</p>
+      ${f.grappling && (f.grappling.birthplace || f.grappling.trains_at) ? `<p class="where small">${f.grappling.birthplace ? "From " + esc(f.grappling.birthplace) : ""}${f.grappling.birthplace && f.grappling.trains_at ? " · " : ""}${f.grappling.trains_at ? "Trains at " + esc(f.grappling.trains_at) : ""}${f.grappling.fighting_style ? " · " + esc(f.grappling.fighting_style) : ""}</p>` : ""}
       ${f.grappling && f.grappling.flags.length ? `<ul class="gflags">${f.grappling.flags.map(x => `<li><span class="gflag ${x.flag === "Big grappler" ? "off" : "def"}">${esc(x.flag)}</span> ${esc(x.why)}</li>`).join("")}</ul>` : ""}
       <div class="stats">
         ${stat("UFC record", f.ufc_record, x => x)}${stat("Pro record", f.pro_record, x => x)}
