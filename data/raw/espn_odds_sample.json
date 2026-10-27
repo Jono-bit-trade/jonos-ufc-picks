@@ -8,8 +8,8 @@
  },
  "details": "R. Moicano -118",
  "overUnder": 1.5,
- "overOdds": -210.0,
- "underOdds": 160.0,
+ "overOdds": -188.0,
+ "underOdds": 145.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
@@ -163,20 +163,20 @@
  },
  "current": {
   "over": {
-   "value": 1.47,
-   "displayValue": "10/21",
-   "alternateDisplayValue": "-210",
-   "decimal": 1.47,
-   "fraction": "10/21",
-   "american": "-210"
+   "value": 1.53,
+   "displayValue": "25/47",
+   "alternateDisplayValue": "-188",
+   "decimal": 1.53,
+   "fraction": "25/47",
+   "american": "-188"
   },
   "under": {
-   "value": 2.6,
-   "displayValue": "8/5",
-   "alternateDisplayValue": "+160",
-   "decimal": 2.6,
-   "fraction": "8/5",
-   "american": "+160"
+   "value": 2.45,
+   "displayValue": "29/20",
+   "alternateDisplayValue": "+145",
+   "decimal": 2.45,
+   "fraction": "29/20",
+   "american": "+145"
   },
   "total": {
    "alternateDisplayValue": "1.5",
