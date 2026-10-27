@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T19:23Z",
+ "updated": "2026-10-27T23:08Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-10-31T21:00Z",
-   "bouts": 8,
+   "bouts": 7,
    "tv": [
     "Paramount+"
    ]
@@ -148,11 +148,6 @@
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": -102.0,
-     "b": -118.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": -102.0,
@@ -347,6 +342,11 @@
      "t": "2026-10-27T19:23Z",
      "a": -122.0,
      "b": 102.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": -122.0,
+     "b": 102.0
     }
    ],
    "edge_a": 0.001,
@@ -458,14 +458,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.354,
-   "p_a": 0.299,
-   "fair_odds_a": 234,
-   "fair_odds_b": -234,
-   "market_p_a": 0.295,
-   "odds_a": 225.0,
-   "odds_b": -278.0,
-   "best_a": 225.0,
-   "best_b": -278.0,
+   "p_a": 0.295,
+   "fair_odds_a": 239,
+   "fair_odds_b": -239,
+   "market_p_a": 0.29,
+   "odds_a": 230.0,
+   "odds_b": -285.0,
+   "best_a": 230.0,
+   "best_b": -285.0,
    "open_a": 225.0,
    "open_b": -278.0,
    "books": 1.0,
@@ -474,6 +474,11 @@
      "t": "2026-10-27T19:23Z",
      "a": 225.0,
      "b": -278.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.004,
@@ -603,11 +608,6 @@
    "open_b": 105.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": -125.0,
-     "b": 105.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": -125.0,
@@ -802,6 +802,11 @@
      "t": "2026-10-27T19:23Z",
      "a": -108.0,
      "b": -112.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": -108.0,
+     "b": -112.0
     }
    ],
    "edge_a": 0.015,
@@ -931,11 +936,6 @@
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": 215.0,
-     "b": -265.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": 215.0,
@@ -1130,6 +1130,11 @@
      "t": "2026-10-27T19:23Z",
      "a": 210.0,
      "b": -258.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": 210.0,
+     "b": -258.0
     }
    ],
    "edge_a": -0.002,
@@ -1152,7 +1157,7 @@
    "a_id": "4629138",
    "b_id": "5350562",
    "record_a": "11-2-0",
-   "record_b": "6-0-0",
+   "record_b": "5-0-0",
    "experts": {
     "picks_a": 6,
     "picks_b": 1,
@@ -1259,11 +1264,6 @@
    "open_b": 200.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": -270.0,
-     "b": 220.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": -270.0,
@@ -1458,6 +1458,11 @@
      "t": "2026-10-27T19:23Z",
      "a": -298.0,
      "b": 240.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": -298.0,
+     "b": 240.0
     }
    ],
    "edge_a": 0.023,
@@ -1587,11 +1592,6 @@
    "open_b": 210.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": -245.0,
-     "b": 200.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": -245.0,
@@ -1786,6 +1786,11 @@
      "t": "2026-10-27T19:23Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.016,
@@ -1798,54 +1803,6 @@
     "DEC": 0.513,
     "KO": 0.333,
     "SUB": 0.154
-   }
-  },
-  {
-   "a": "Azamat Bekoev",
-   "b": "Andre Petroski",
-   "a_slug": "azamat-bekoev",
-   "b_slug": "andre-petroski",
-   "a_id": "5123963",
-   "b_id": "4697476",
-   "record_a": "20-5-0",
-   "record_b": "13-7-0",
-   "experts": null,
-   "splits": null,
-   "why": [],
-   "weight_class": "Middleweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-10-31T21:00Z",
-   "state": "pre",
-   "status": "Sat, October 31st at 5:00 PM EDT",
-   "result": null,
-   "rating_a": 1495,
-   "rating_b": 1543,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.588,
-   "p_a": 0.588,
-   "fair_odds_a": -143,
-   "fair_odds_b": 143,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.405,
-    "KO": 0.377,
-    "SUB": 0.218
    }
   },
   {
@@ -1963,11 +1920,6 @@
    "open_b": 150.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": -170.0,
-     "b": 142.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": -170.0,
@@ -2160,6 +2112,11 @@
     },
     {
      "t": "2026-10-27T19:23Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
      "a": -170.0,
      "b": 142.0
     }
@@ -2279,23 +2236,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.393,
-   "p_a": 0.449,
-   "fair_odds_a": 123,
-   "fair_odds_b": -123,
-   "market_p_a": 0.391,
-   "odds_a": 145.0,
-   "odds_b": -175.0,
-   "best_a": 145.0,
-   "best_b": -175.0,
+   "p_a": 0.455,
+   "fair_odds_a": 120,
+   "fair_odds_b": -120,
+   "market_p_a": 0.396,
+   "odds_a": 142.0,
+   "odds_b": -170.0,
+   "best_a": 142.0,
+   "best_b": -170.0,
    "open_a": 170.0,
    "open_b": -205.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": 150.0,
-     "b": -180.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": 150.0,
@@ -2490,6 +2442,11 @@
      "t": "2026-10-27T19:23Z",
      "a": 145.0,
      "b": -175.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": 0.058,
@@ -2502,6 +2459,142 @@
     "DEC": 0.522,
     "KO": 0.304,
     "SUB": 0.174
+   }
+  },
+  {
+   "a": "Zach Reese",
+   "b": "Mickey Gall",
+   "a_slug": "zach-reese",
+   "b_slug": "mickey-gall",
+   "a_id": "5143223",
+   "b_id": "3960470",
+   "record_a": "10-4-0",
+   "record_b": "7-7-0",
+   "experts": {
+    "picks_a": 7,
+    "picks_b": 0,
+    "high_a": 2,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     }
+    ]
+   },
+   "splits": null,
+   "why": [
+    "Our chance 79% vs the line's 73% (6 points of value)",
+    "7 of 7 analysts agree",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
+   ],
+   "weight_class": "Middleweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-10-31T21:00Z",
+   "state": "pre",
+   "status": "Sat, October 31st at 5:00 PM EDT",
+   "result": null,
+   "rating_a": 1485,
+   "rating_b": 1481,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.662,
+   "p_a": 0.793,
+   "fair_odds_a": -384,
+   "fair_odds_b": 384,
+   "market_p_a": 0.731,
+   "odds_a": -310.0,
+   "odds_b": 260.0,
+   "best_a": -310.0,
+   "best_b": 260.0,
+   "open_a": -305.0,
+   "open_b": 245.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": -310.0,
+     "b": 260.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": -310.0,
+     "b": 260.0
+    }
+   ],
+   "edge_a": 0.062,
+   "pick": "Zach Reese",
+   "our_pick": "Zach Reese",
+   "stake": 1.0,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.468,
+    "KO": 0.34,
+    "SUB": 0.192
    }
   },
   {
@@ -2624,11 +2717,6 @@
    "open_b": -310.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": 250.0,
@@ -2823,6 +2911,11 @@
      "t": "2026-10-27T19:23Z",
      "a": 270.0,
      "b": -340.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
    "edge_a": -0.033,
@@ -2952,11 +3045,6 @@
    "open_b": -258.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": 210.0,
-     "b": -258.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": 210.0,
@@ -3151,6 +3239,11 @@
      "t": "2026-10-27T19:23Z",
      "a": 240.0,
      "b": -298.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": 240.0,
+     "b": -298.0
     }
    ],
    "edge_a": 0.016,
@@ -3283,11 +3376,6 @@
    "open_b": 410.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T23:15Z",
-     "a": -600.0,
-     "b": 440.0
-    },
     {
      "t": "2026-10-26T00:52Z",
      "a": -600.0,
@@ -3482,6 +3570,11 @@
      "t": "2026-10-27T19:23Z",
      "a": -700.0,
      "b": 500.0
+    },
+    {
+     "t": "2026-10-27T23:08Z",
+     "a": -700.0,
+     "b": 500.0
     }
    ],
    "edge_a": 0.053,
@@ -3494,137 +3587,6 @@
     "DEC": 0.548,
     "KO": 0.194,
     "SUB": 0.258
-   }
-  },
-  {
-   "a": "Zach Reese",
-   "b": "Mickey Gall",
-   "a_slug": "zach-reese",
-   "b_slug": "mickey-gall",
-   "a_id": "5143223",
-   "b_id": "3960470",
-   "record_a": "10-4-0",
-   "record_b": "7-7-0",
-   "experts": {
-    "picks_a": 7,
-    "picks_b": 0,
-    "high_a": 2,
-    "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
-    "win_a": 0,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "189-107",
-      "units": -12.49,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "177-119",
-      "units": -22.46,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "185-103",
-      "units": -2.32,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "191-108",
-      "units": -3.92,
-      "winning": false
-     },
-     {
-      "name": "BetSam",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "179-108",
-      "units": -8.9,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Low",
-      "method": null,
-      "record": "180-116",
-      "units": -4.68,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "Low",
-      "method": null,
-      "record": "186-108",
-      "units": -17.37,
-      "winning": false
-     }
-    ]
-   },
-   "splits": null,
-   "why": [
-    "Our chance 79% vs the line's 73% (6 points of value)",
-    "7 of 7 analysts agree",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
-   ],
-   "weight_class": "Middleweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-10-31T21:00Z",
-   "state": "pre",
-   "status": "Sat, October 31st at 5:00 PM EDT",
-   "result": null,
-   "rating_a": 1485,
-   "rating_b": 1481,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.662,
-   "p_a": 0.793,
-   "fair_odds_a": -384,
-   "fair_odds_b": 384,
-   "market_p_a": 0.731,
-   "odds_a": -310.0,
-   "odds_b": 260.0,
-   "best_a": -310.0,
-   "best_b": 260.0,
-   "open_a": -305.0,
-   "open_b": 245.0,
-   "books": 1.0,
-   "line_history": [
-    {
-     "t": "2026-10-27T19:23Z",
-     "a": -310.0,
-     "b": 260.0
-    }
-   ],
-   "edge_a": 0.062,
-   "pick": "Zach Reese",
-   "our_pick": "Zach Reese",
-   "stake": 1.0,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.468,
-    "KO": 0.34,
-    "SUB": 0.192
    }
   }
  ]

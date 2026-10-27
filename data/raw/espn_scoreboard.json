@@ -489,133 +489,6 @@
    },
    "competitions": [
     {
-     "id": "401931617",
-     "uid": "s:3301~l:3321~e:600061420~c:401931617",
-     "date": "2026-10-31T21:00Z",
-     "endDate": "2026-10-31T21:00Z",
-     "type": {
-      "id": "972",
-      "abbreviation": "Middleweight"
-     },
-     "timeValid": true,
-     "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
-     "venue": {
-      "id": "6176",
-      "fullName": "Meta APEX",
-      "address": {
-       "city": "Las Vegas",
-       "state": "NV",
-       "country": "USA"
-      },
-      "indoor": true
-     },
-     "competitors": [
-      {
-       "id": "3960470",
-       "uid": "s:3301~a:3960470",
-       "type": "athlete",
-       "order": 2,
-       "winner": false,
-       "athlete": {
-        "fullName": "Mickey Gall",
-        "displayName": "Mickey Gall",
-        "shortName": "M. Gall",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-         "alt": "USA",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "7-7-0"
-        }
-       ]
-      },
-      {
-       "id": "5143223",
-       "uid": "s:3301~a:5143223",
-       "type": "athlete",
-       "order": 1,
-       "winner": false,
-       "athlete": {
-        "fullName": "Zach Reese",
-        "displayName": "Zach Reese",
-        "shortName": "Z. Reese",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-         "alt": "USA",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "10-4-0"
-        }
-       ]
-      }
-     ],
-     "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
-      "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 5:00 PM EDT",
-       "shortDetail": "10/31 - 5:00 PM EDT"
-      }
-     },
-     "broadcasts": [
-      {
-       "market": "national",
-       "names": [
-        "Paramount+"
-       ]
-      }
-     ],
-     "format": {
-      "regulation": {
-       "periods": 3
-      }
-     },
-     "startDate": "2026-10-31T21:00Z",
-     "broadcast": "Paramount+",
-     "geoBroadcasts": [
-      {
-       "type": {
-        "id": "4",
-        "shortName": "Streaming"
-       },
-       "market": {
-        "id": "1",
-        "type": "National"
-       },
-       "media": {
-        "shortName": "Paramount+"
-       },
-       "lang": "en",
-       "region": "us"
-      }
-     ],
-     "highlights": []
-    },
-    {
      "id": "401914105",
      "uid": "s:3301~l:3321~e:600061420~c:401914105",
      "date": "2026-10-31T21:00Z",
@@ -997,6 +870,133 @@
      "highlights": []
     },
     {
+     "id": "401931617",
+     "uid": "s:3301~l:3321~e:600061420~c:401931617",
+     "date": "2026-10-31T21:00Z",
+     "endDate": "2026-10-31T21:00Z",
+     "type": {
+      "id": "972",
+      "abbreviation": "Middleweight"
+     },
+     "timeValid": true,
+     "neutralSite": false,
+     "playByPlayAvailable": false,
+     "recent": false,
+     "venue": {
+      "id": "6176",
+      "fullName": "Meta APEX",
+      "address": {
+       "city": "Las Vegas",
+       "state": "NV",
+       "country": "USA"
+      },
+      "indoor": true
+     },
+     "competitors": [
+      {
+       "id": "3960470",
+       "uid": "s:3301~a:3960470",
+       "type": "athlete",
+       "order": 2,
+       "winner": false,
+       "athlete": {
+        "fullName": "Mickey Gall",
+        "displayName": "Mickey Gall",
+        "shortName": "M. Gall",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+         "alt": "USA",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "7-7-0"
+        }
+       ]
+      },
+      {
+       "id": "5143223",
+       "uid": "s:3301~a:5143223",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Zach Reese",
+        "displayName": "Zach Reese",
+        "shortName": "Z. Reese",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+         "alt": "USA",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "10-4-0"
+        }
+       ]
+      }
+     ],
+     "status": {
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 0,
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sat, October 31st at 5:00 PM EDT",
+       "shortDetail": "10/31 - 5:00 PM EDT"
+      }
+     },
+     "broadcasts": [
+      {
+       "market": "national",
+       "names": [
+        "Paramount+"
+       ]
+      }
+     ],
+     "format": {
+      "regulation": {
+       "periods": 3
+      }
+     },
+     "startDate": "2026-10-31T21:00Z",
+     "broadcast": "Paramount+",
+     "geoBroadcasts": [
+      {
+       "type": {
+        "id": "4",
+        "shortName": "Streaming"
+       },
+       "market": {
+        "id": "1",
+        "type": "National"
+       },
+       "media": {
+        "shortName": "Paramount+"
+       },
+       "lang": "en",
+       "region": "us"
+      }
+     ],
+     "highlights": []
+    },
+    {
      "id": "401928109",
      "uid": "s:3301~l:3321~e:600061420~c:401928109",
      "date": "2026-10-31T21:00Z",
@@ -1251,133 +1251,6 @@
      "highlights": []
     },
     {
-     "id": "401928108",
-     "uid": "s:3301~l:3321~e:600061420~c:401928108",
-     "date": "2026-10-31T21:00Z",
-     "endDate": "2026-10-31T21:00Z",
-     "type": {
-      "id": "972",
-      "abbreviation": "Middleweight"
-     },
-     "timeValid": true,
-     "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
-     "venue": {
-      "id": "6176",
-      "fullName": "Meta APEX",
-      "address": {
-       "city": "Las Vegas",
-       "state": "NV",
-       "country": "USA"
-      },
-      "indoor": true
-     },
-     "competitors": [
-      {
-       "id": "4697476",
-       "uid": "s:3301~a:4697476",
-       "type": "athlete",
-       "order": 2,
-       "winner": false,
-       "athlete": {
-        "fullName": "Andre Petroski",
-        "displayName": "Andre Petroski",
-        "shortName": "A. Petroski",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-         "alt": "USA",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "13-7-0"
-        }
-       ]
-      },
-      {
-       "id": "5123963",
-       "uid": "s:3301~a:5123963",
-       "type": "athlete",
-       "order": 1,
-       "winner": false,
-       "athlete": {
-        "fullName": "Azamat Bekoev",
-        "displayName": "Azamat Bekoev",
-        "shortName": "A. Bekoev",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/rus.png",
-         "alt": "Russia",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "20-5-0"
-        }
-       ]
-      }
-     ],
-     "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
-      "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 5:00 PM EDT",
-       "shortDetail": "10/31 - 5:00 PM EDT"
-      }
-     },
-     "broadcasts": [
-      {
-       "market": "national",
-       "names": [
-        "Paramount+"
-       ]
-      }
-     ],
-     "format": {
-      "regulation": {
-       "periods": 3
-      }
-     },
-     "startDate": "2026-10-31T21:00Z",
-     "broadcast": "Paramount+",
-     "geoBroadcasts": [
-      {
-       "type": {
-        "id": "4",
-        "shortName": "Streaming"
-       },
-       "market": {
-        "id": "1",
-        "type": "National"
-       },
-       "media": {
-        "shortName": "Paramount+"
-       },
-       "lang": "en",
-       "region": "us"
-      }
-     ],
-     "highlights": []
-    },
-    {
      "id": "401931615",
      "uid": "s:3301~l:3321~e:600061420~c:401931615",
      "date": "2026-10-31T21:00Z",
@@ -1578,7 +1451,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "6-0-0"
+         "summary": "5-0-0"
         }
        ]
       }
