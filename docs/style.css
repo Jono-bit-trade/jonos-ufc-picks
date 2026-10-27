@@ -703,5 +703,5 @@ td.rbar i { background: linear-gradient(90deg, #2d5fae, var(--blue)); }
 tr.top1 td.rk { color: var(--gold); }
 .lb-bar .track i { background: linear-gradient(90deg, #2d5fae, var(--blue)); } .lb-bar .track em { background: var(--silver); }
 .filters a.on, .viewtoggle button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
-.btn { background: linear-gradient(90deg, var(--red), var(--blue)); color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
+.btn { background: var(--blue); color: #fff; }
 .btn:hover { filter: brightness(1.1); }
