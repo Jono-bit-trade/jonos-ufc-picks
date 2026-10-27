@@ -23,7 +23,7 @@ SPECIAL = {   # names pycountry doesn't resolve the way the flags need
     "north korea": "kp", "republic of korea": "kr", "iran": "ir", "moldova": "md", "czech republic": "cz",
     "czechia": "cz", "bolivia": "bo", "venezuela": "ve", "vietnam": "vn", "taiwan": "tw", "syria": "sy",
     "palestine": "ps", "kosovo": "xk", "laos": "la", "tanzania": "tz", "turkey": "tr", "türkiye": "tr",
-    "dr congo": "cd", "democratic republic of the congo": "cd", "congo": "cg", "ivory coast": "ci",
+    "dr congo": "cd", "democratic republic of congo": "cd", "democratic republic of the congo": "cd", "congo": "cg", "ivory coast": "ci",
     "cote d'ivoire": "ci", "macau": "mo", "hong kong": "hk", "brasil": "br", "the netherlands": "nl",
     "holland": "nl", "bosnia": "ba", "bosnia and herzegovina": "ba", "cape verde": "cv",
 }
@@ -53,7 +53,7 @@ def from_scoreboard(js):
             for c in comp.get("competitors") or []:
                 a = c.get("athlete") or {}
                 country = (a.get("flag") or {}).get("alt")
-                if country and c.get("id"):
+                if country and country.lower() != "default" and c.get("id"):
                     out.append((str(c["id"]), a.get("displayName") or a.get("fullName"), country))
     return out
 
@@ -63,7 +63,7 @@ def main(minutes=12):
     f = path(OUT)
     have = pd.read_csv(f, dtype={"espn_id": str}) if os.path.exists(f) else pd.DataFrame(columns=["name", "espn_id", "country", "iso", "source"])
     espn_rows = have[have["source"] == "espn"]
-    found = {r.espn_id: (r.name, r.country) for r in espn_rows.itertuples()}
+    found = {r.espn_id: (r.name, r.country) for r in espn_rows.itertuples() if str(r.country).lower() != "default"}
     # 1) countries the live feed already saved on the cards
     for fn in ("espn_card.csv", "espn_history.csv"):
         p = path(fn)
@@ -72,7 +72,7 @@ def main(minutes=12):
             for s in "ab":
                 if f"country_{s}" in d:
                     for i, n, c in zip(d[f"espn_id_{s}"], d[s], d[f"country_{s}"]):
-                        if isinstance(c, str) and isinstance(i, str):
+                        if isinstance(c, str) and isinstance(i, str) and c.lower() != "default":
                             found[i] = (n, c)
     # 2) past card dates not yet looked at, a few hundred light requests in all
     done = set(open(path(DONE)).read().split()) if os.path.exists(path(DONE)) else set()

@@ -282,7 +282,6 @@ Trevor Peek,5048900,USA,us,espn
 Kurtis Campbell,5310075,England,gb-eng,espn
 Punahele Soriano,4423214,USA,us,espn
 Daniil Donchenko,5289841,Ukraine,ua,espn
-Michael Page,3022067,default,,espn
 Nursulton Ruziboev,4422103,Uzbekistan,uz,espn
 Farés Ziam,4083018,France,fr,espn
 Axel Sola,5245078,France,fr,espn
@@ -366,7 +365,6 @@ Logan Paxton,5139609,USA,us,espn
 Trent Miller,5216997,USA,us,espn
 Douglas Rodrigues,5369435,Brazil,br,espn
 Kaik Brito,5056138,Brazil,br,espn
-Namo Fazil,5215178,default,,espn
 Jeremiah Wells,3970873,USA,us,espn
 Myktybek Orolbai,5050129,Kyrgyzstan,kg,espn
 Neil Magny,3001914,USA,us,espn
@@ -392,7 +390,7 @@ Islam Makhachev,3332412,Russia,ru,espn
 Ian Machado Garry,4738092,Ireland,ie,espn
 Jon Kunneman,5282317,USA,us,espn
 Tom Pagliarulo,5116823,USA,us,espn
-Ananias Mulumba,5310573,Democratic Republic of Congo,,espn
+Ananias Mulumba,5310573,Democratic Republic of Congo,cd,espn
 Mridul Saikia,5277466,India,in,espn
 Abe Alsaghir,5364833,Lebanon,lb,espn
 Fabrizio Escarrega,5364834,Mexico,mx,espn
@@ -482,7 +480,6 @@ Jared Cannonier,3154860,USA,us,espn
 Kamaru Usman,3088812,Nigeria,ng,espn
 Dricus Du Plessis,3166126,South Africa,za,espn
 Alessandro Costa,5074121,Brazil,br,espn
-Farid Basharat,5016786,default,,espn
 John Garza,5369414,USA,us,espn
 Cesar Almeida,5144068,Brazil,br,espn
 Tracy Cortez,4243624,USA,us,espn
@@ -769,12 +766,12 @@ Khalil Rountree Jr.,4028627,USA,us,espn
 Rashid Vagabov,5174604,Russia,ru,espn
 Paulo Henrique,5310076,Brazil,br,espn
 Demba Seck,5110465,Senegal,sn,espn
-Eliezer Kubanza,5110297,Democratic Republic of Congo,,espn
+Eliezer Kubanza,5110297,Democratic Republic of Congo,cd,espn
 Christopher Alvidrez,5310077,USA,us,espn
 Magno Dias,5278268,Brazil,br,espn
 Vitor Costa,5144075,Brazil,br,espn
 Luana Carolina,4372194,Brazil,br,espn
-Josias Musasa,5212850,Democratic Republic of Congo,,espn
+Josias Musasa,5212850,Democratic Republic of Congo,cd,espn
 Rolando Bedoya,5125178,Peru,pe,espn
 Charlie Campbell,4786358,USA,us,espn
 Ramon Taveras,5152409,USA,us,espn
@@ -850,7 +847,7 @@ Kai Kara-France,4243885,New Zealand,nz,espn
 Mohammed Usman,2312150,Nigeria,ng,espn
 Nikolas Motta,3897242,USA,us,espn
 Jamahal Hill,4425355,USA,us,espn
-Ange Loosa,4875506,Democratic Republic of Congo,,espn
+Ange Loosa,4875506,Democratic Republic of Congo,cd,espn
 Miranda Maverick,4065598,USA,us,espn
 Mark Choinski,5289736,USA,us,espn
 Yanal Ashmouz,4917145,Israel,il,espn
@@ -1095,7 +1092,7 @@ Shannon Ross,4812389,Australia,au,espn
 Wellington Turman,4426282,Brazil,br,espn
 Nick Aguirre,5123586,USA,us,espn
 Mark O. Madsen,4409220,Denmark,dk,espn
-Marc Diakiese,4056004,Democratic Republic of Congo,,espn
+Marc Diakiese,4056004,Democratic Republic of Congo,cd,espn
 Jinh Yu Frey,3136288,USA,us,espn
 Mike Breeden,4684468,USA,us,espn
 Abu Azaitar,3094635,Morocco,ma,espn
@@ -1221,7 +1218,7 @@ Glover Teixeira,2504929,Brazil,br,espn
 Sergey Morozov,3960665,Kazakhstan,kz,espn
 Saidyokub Kakhramonov,4571945,Uzbekistan,uz,espn
 Cheyanne Vlismas,4683396,USA,us,espn
-Dalcha Lungiambula,4217382,Democratic Republic of Congo,,espn
+Dalcha Lungiambula,4217382,Democratic Republic of Congo,cd,espn
 Jay Perrin,4062287,USA,us,espn
 Darren Till,3897436,England,gb-eng,espn
 Marcelo Rojo,4030644,Argentina,ar,espn
@@ -1482,7 +1479,6 @@ Walt Harris,3023815,USA,us,espn
 Victor Rodriguez,4700271,Mexico,mx,espn
 Kevin Aguilar,2555540,USA,us,espn
 Jacare Souza,2431314,Brazil,br,espn
-Christian Aguilera,3953379,default,,espn
 Gregor Gillespie,4021934,USA,us,espn
 Maurice Greene,3154884,USA,us,espn
 Luke Sanders,2546733,USA,us,espn
@@ -1531,9 +1527,11 @@ Michael Aswell Jr.,,USA,us,ufc.com birthplace
 Waldo Cortes-Acosta,,Dominican Republic,do,ufc.com birthplace
 Fares Ziam,,France,fr,ufc.com birthplace
 Morgan Charriere,,France,fr,ufc.com birthplace
+Michael Page,,United Kingdom,gb,ufc.com birthplace
 Dusko Todorovic,,Montenegro,me,ufc.com birthplace
 Mateusz Rebecki,,Poland,pl,ufc.com birthplace
 Uros Medic,,Serbia,rs,ufc.com birthplace
+Farid Basharat,,Afghanistan,af,ufc.com birthplace
 Benoit Saint Denis,,France,fr,ufc.com birthplace
 Gaston Bolanos,,Peru,pe,ufc.com birthplace
 Joel Alvarez,,Spain,es,ufc.com birthplace
