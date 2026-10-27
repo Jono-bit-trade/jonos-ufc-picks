@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T23:52Z",
+ "updated": "2026-10-27T00:02Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -172,7 +172,7 @@
   {
    "fighter": "Robert Whittaker",
    "rating": 1820,
-   "rd": 91,
+   "rd": 92,
    "last_fight": "2026-07-11",
    "division": "Light Heavyweight",
    "record": "18-7"
@@ -542,7 +542,7 @@
     {
      "fighter": "Robert Whittaker",
      "rating": 1820,
-     "rd": 91,
+     "rd": 92,
      "last_fight": "2026-07-11",
      "division": "Light Heavyweight",
      "record": "18-7"
