@@ -616,3 +616,68 @@ body { background: transparent; }
 @media (max-width: 760px) { .about { grid-template-columns: 1fr; } }
 .hero::before { opacity: .55; -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.9) 100%);
   mask-image: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.9) 100%); }
+
+
+/* ================= polish pass ================= */
+/* 3. a warmer, neutral charcoal so the red, blue and gold read like broadcast graphics */
+:root {
+  --mat: #141519; --paper: #1c1e24; --ink: #eef0f3; --quiet: #a9b0bc; --rule: #2e3139; --night: #0d0e11;
+  --teal: #2fbfae; --silver: #d9dde4;
+}
+body::after { background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(70,74,86,.55), rgba(20,21,25,0) 70%),
+                          radial-gradient(ellipse 60% 40% at 50% 100%, rgba(224,178,58,.04), rgba(20,21,25,0) 70%); }
+body::before { background:
+    repeating-linear-gradient(45deg, rgba(190,195,205,.07) 0 1.5px, transparent 1.5px 26px),
+    repeating-linear-gradient(-45deg, rgba(190,195,205,.07) 0 1.5px, transparent 1.5px 26px); }
+.top { background: rgba(13,14,17,.94); }
+.hero { background: linear-gradient(90deg, rgba(229,72,77,.24), rgba(13,14,17,0) 38%, rgba(13,14,17,0) 62%, rgba(61,132,232,.26)), var(--night); }
+.sbar .track, .lb-bar .track, .lb-u .ub, .ta-u .ub, td.rbar span, .mbt { background: #2a2d35; }
+.ph, .ph img { background: #2a2d35; }
+.evrow:hover, .recap:hover { background-color: #23262d; }
+.nx-d { background: #262931; }
+.lchart { background: #17191e; }
+
+/* 1. gold means "our pick" (and our record): structure uses neutral silver instead */
+.hero, .fhero, .panel, .hw-step, .about section { border-top-color: var(--silver); }
+.hero { border-top-width: 2px; }
+.bout.main { box-shadow: inset 0 3px 0 var(--silver); }
+.site-foot h4, .nx-d span, .tvsched .tv b { color: var(--silver); }
+.hero .when b { color: #fff; }
+.hw-n { background: var(--silver); }
+.byrow i { background: linear-gradient(90deg, #c9ced8, #8e96a5); }
+td.rbar i { background: var(--silver); } tr.top1 td { background: rgba(255,255,255,.04); } tr.top1 td.rk { color: #fff; }
+.lb-bar .track i { background: var(--silver); }
+.ta:first-child .ta-rk, .lbrow.winning .lb-rk { color: #fff; }
+.lbrow.winning { border-left-color: var(--green); } .lb-nm .wtag { background: rgba(61,190,108,.16); color: var(--green); }
+.filters a.on, .viewtoggle button[aria-pressed="true"] { background: var(--silver); border-color: var(--silver); color: #111216; }
+.btn { background: #fff; color: #111216; }
+.list .rk { color: var(--quiet); }
+.dots li::before, .why li::before { background: var(--gold); }
+.top nav a.on { border-bottom-color: #fff; }
+.uchart .staked, .uchart .k.staked { stroke: var(--gold); }
+
+/* 2. value picks get their own color: teal, distinct from our gold picks */
+.pick.value { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); -webkit-mask: none; mask: none; padding: 4px 14px 3px; }
+.vpick.value { background: rgba(47,191,174,.14); color: var(--teal); }
+.vpick.value.won, .vpick.value.lost { background: rgba(47,191,174,.14); }
+
+/* 4. readable small text */
+.small, .meta, .legend, .exl, .moves, .status, .splits { font-size: 14px; }
+.note { font-size: 15.5px; color: #b3bac6; }
+.stat span, .fchip span, .ev-t .small, .ta-nm span, .nx-t span, .lb-nm small, .rc-s span, .rc-best small, .tvsched .tv small,
+.hw-stats span, .uchart figcaption, .lchart figcaption, .fextras span, .ev-chip small { font-size: 13px; }
+.analysts, .anl li .ar, .anl li .ad, .gflag, .lean, .shop, .conf, .wtag { font-size: 12.5px; }
+.ticket .tk-opp, .ticket .tk-best, .ticket .tk-why { font-size: 13px; }
+.uchart text, .lchart text { font-size: 12px; }
+
+/* 5. one spacing rhythm: 32px between sections, 12px under section headings */
+h2 { margin: 32px 0 12px; }
+.lw-h h2, .panel h2 { margin: 0 0 12px; }
+.lower { margin-top: 36px; }
+.stats { margin: 12px 0; }
+.bout { margin-bottom: 12px; }
+.recap { margin-top: 20px; }
+.hero { margin-top: 20px; }
+.slip { margin: 0 0 8px; }
+.evlist, .compact, .lb { gap: 6px; }
+.panel { margin-bottom: 16px; }
