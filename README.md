@@ -1,4 +1,4 @@
-# Jono's UFC Picks
+# Octagon Edge
 
 A UFC prediction model and website. It rates every UFC fighter, predicts each bout on the next card, compares that with the betting line and with what expert analysts are picking, and publishes the picks. On fight night the site follows the card live: each bout shows when it's on and who won, and every pick is graded as the results come in.
 

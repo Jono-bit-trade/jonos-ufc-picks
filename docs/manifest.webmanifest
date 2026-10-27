@@ -1,7 +1,7 @@
 {
-  "name": "Jono's UFC Picks",
-  "short_name": "UFC Picks",
-  "description": "Every UFC card predicted, value against the betting line, and a locked record.",
+  "name": "Octagon Edge",
+  "short_name": "Octagon Edge",
+  "description": "Every MMA card predicted, value against the betting line, and a locked record.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

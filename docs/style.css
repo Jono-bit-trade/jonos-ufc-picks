@@ -555,3 +555,9 @@ td.rbar i { display: block; height: 100%; background: var(--gold); } td.rbar b {
 .tech { margin: 18px 0; } .tech > summary { cursor: pointer; font: 800 19px var(--display); color: #7fb0ff; padding: 10px 0; }
 @media (max-width: 760px) { .hw, .hw-stats { grid-template-columns: 1fr 1fr; } .hw-step::after { display: none; } }
 .empty a { display: inline-block; margin-top: 8px; }
+
+/* Octagon Edge mark: an upward edge inside the octagon */
+.emblem .mono { stroke-linejoin: miter; stroke-width: 4.5; }
+.emblem .mono2 { fill: none; stroke: var(--gold); stroke-width: 3.5; }
+.wordmark .w1 { letter-spacing: .2em; }
+.wordmark .w2 { font-size: 30px; letter-spacing: .04em; }

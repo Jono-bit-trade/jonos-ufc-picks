@@ -1,4 +1,4 @@
-// Jono's UFC Picks: a small single-page site. Each view reads JSON files from docs/data/.
+// Octagon Edge: a small single-page site. Each view reads JSON files from docs/data/.
 const $ = s => document.querySelector(s);
 const pct = p => p == null ? "–" : Math.round(p * 100) + "%";
 const odds = o => o == null ? "–" : (o > 0 ? "+" : "") + Math.round(o);
