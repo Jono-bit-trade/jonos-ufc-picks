@@ -238,7 +238,7 @@ async function viewCard() {
   if (!p) return `<div class="empty">No predictions yet: the first scheduled run fills this in.</div>`;
   clearTimeout(window.refresh);
   if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(route, 120000);   // fight night: refresh every 2 minutes
-  $("#updated").textContent = `Updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}. For fun and research, not betting advice.`;
+  $("#updated").textContent = `Data updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}.`;
   if (!p.fights.length) return `<h1>Next card</h1><div class="empty">${esc(p.message || "No bouts listed yet.")}</div>`;
   const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && (mr.since || mr.all);
   const track = !mr ? "" : `<div class="rstrip">
@@ -323,6 +323,7 @@ function ledgerCurve(rows) {
 async function liveBar() {
   const el = $("#livebar"); if (!el) return;
   const p = await get("predictions.json", true);
+  if (p && p.updated) $("#updated").textContent = `Data updated ${new Date(p.updated).toLocaleString([], {weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"})}.`;
   const fights = p && p.fights || [];
   const now = fights.filter(f => f.state === "in"), done = fights.filter(f => f.state === "post");
   const today = new Date().toISOString().slice(0, 10), y = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
@@ -340,6 +341,27 @@ async function liveBar() {
     <span class="lb-now">${now.length ? now.map(f => `${esc(f.a.split(" ").at(-1))} vs ${esc(f.b.split(" ").at(-1))}`).join(" · ") : "Between fights"}</span>
     <span class="lb-score">Our picks tonight <b>${w}-${l}</b> <b class="${u >= 0 ? "won" : "lost"}">${units(Math.round(u * 100) / 100)}</b></span>
     <a href="#/card">Card</a></div>`;
+}
+
+// the last card's results, shown on the home page for a week afterwards
+async function recapBanner(ev) {
+  const e0 = (ev || [])[0];
+  if (!e0 || (Date.now() - new Date(e0.date + "T23:59:00")) / 864e5 > 7) return "";
+  const e = await get(`events/${e0.slug}.json`);
+  if (!e) return "";
+  const r = e.record || {};
+  let best = null;
+  for (const b of e.bouts) {
+    const op = b.our_pick, mp = b.model_pick;
+    for (const [k, pk] of [["our", op], ["model", mp]]) if (pk && pk.right && pk.odds != null && (!best || pk.odds > best.odds))
+      best = {name: pk.side === "a" ? b.a : b.b, odds: pk.odds, kind: k, id: pk.side === "a" ? b.a_id : b.b_id};
+  }
+  return `<a class="recap" href="#/event/${esc(e.slug)}">
+    <span class="rc-l"><b>Last card</b><span>${esc(e.name)}</span></span>
+    ${r.our_bets ? `<span class="rc-s"><b>${r.our_won}-${r.our_bets - r.our_won}</b><span>our picks</span></span><span class="rc-s"><b class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</b><span>units</span></span>` : ""}
+    <span class="rc-s"><b>${r.right}/${r.picks}</b><span>winners picked</span></span>
+    ${best ? `<span class="rc-best">${photo(best.id, best.name, "sm")}<span><small>Best call</small><b>${esc(best.name)} ${odds(best.odds)}</b></span></span>` : ""}
+  </a>`;
 }
 
 // ---------------- home ----------------
@@ -377,11 +399,11 @@ async function viewHome() {
     <div class="stat"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
     <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
     <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
-  const L = await get("ledger.json", true);
+  const L = await get("ledger.json", true), recap = await recapBanner(ev);
   const live = `<h2>Live record (locked)</h2>${ledgerBoxes(L)}`;
   const record = mr ? `${live}<h2>Backtest track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
     <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
-  return `${hero}${record}
+  return `${recap}${hero}${record}
     <div class="cols">
       <section><h2>Past cards</h2><ul class="list">${past}</ul><a href="#/events">All events</a></section>
       <section><h2>Top analysts</h2>${top ? `<ul class="list">${top}</ul><a href="#/experts">Expert leaderboard and what it's worth</a>` : `<p class="note">Appears once expert picks are collected.</p>`}</section>
@@ -727,6 +749,7 @@ async function viewHow() {
 }
 
 // ---------------- router ----------------
+const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
 async function route() {
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
@@ -735,12 +758,13 @@ async function route() {
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
     rankings: () => viewRankings(q), record: viewRecord, how: viewHow};
+  const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
+  clearTimeout(skel);
   const keepFocus = document.activeElement && document.activeElement.id === "fsearch";
   $("#view").innerHTML = html;
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
-  if (!$("#updated").textContent) $("#updated").textContent = "For fun and research, not betting advice.";
   liveBar();
 }
 window.addEventListener("hashchange", () => { const m = document.querySelector(".tabbar .more"); if (m) m.open = false; route(); });
