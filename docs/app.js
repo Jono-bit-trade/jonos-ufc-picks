@@ -401,7 +401,7 @@ async function viewHome() {
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
     </section>
-    <h2>This week's picks</h2>${picksStrip(p)}`;
+    <h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
   }
   const past = (ev || []).slice(0, 6).map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}</a>
     <span class="small">${recLine(e.record)}</span></li>`).join("");
@@ -412,8 +412,9 @@ async function viewHome() {
     <div class="stat model"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
     <div class="stat value"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
   const L = await get("ledger.json", true), recap = await recapBanner(ev);
-  const live = `<h2>Live record (locked)</h2>${ledgerBoxes(L)}`;
-  const record = mr ? `${live}<h2>Backtest track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
+  const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
+  const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
+  const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
     <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
   return `${recap}${hero}${record}
     ${homeLower(ev, ex, up, p)}`;
@@ -434,10 +435,10 @@ function homeLower(ev, ex, up, p) {
       <span class="ta-nm"><b>${esc(a.analyst)}</b><span>${a.won}-${a.bets - a.won}, ${a.win_pct}% won</span></span>
       <span class="ta-u"><b class="${a.units >= 0 ? "won" : "lost"}">${units(a.units)}</b><span class="ub"><i class="${a.units >= 0 ? "pos" : "neg"}" style="width:${Math.abs(a.units) / maxU * 100}%"></i></span></span></li>`).join("") : "";
   return `<div class="lower">
-    <section class="lw-main"><div class="lw-h"><h2>Recent cards</h2><a href="#/events">All events</a></div><div class="evlist">${recent}</div></section>
+    <section class="lw-main"><div class="lw-h"><h2>${kick("Results")}Recent cards</h2><a href="#/events">All events</a></div><div class="evlist">${recent}</div></section>
     <aside class="lw-side">
-      ${next ? `<section class="panel"><div class="lw-h"><h2>Coming up</h2><a href="#/events">Schedule</a></div><ul class="nxl">${next}</ul></section>` : ""}
-      <section class="panel"><div class="lw-h"><h2>Top analysts</h2><a href="#/experts">Leaderboard</a></div>
+      ${next ? `<section class="panel"><div class="lw-h"><h2>${kick("Schedule")}Coming up</h2><a href="#/events">Schedule</a></div><ul class="nxl">${next}</ul></section>` : ""}
+      <section class="panel"><div class="lw-h"><h2>${kick("Experts", "blue")}Top analysts</h2><a href="#/experts">Leaderboard</a></div>
         ${top ? `<ul class="tal">${top}</ul><p class="small">Units betting each analyst's picks at the posted odds, from SplitPicks.</p>` : `<p class="note">Appears once expert picks are collected.</p>`}</section>
     </aside></div>`;
 }
@@ -759,13 +760,28 @@ function yearTable(mr) {
       ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;
 }
 
-function ledgerBoxes(L) {
-  if (!L || !L.fights) return `<div class="empty">The live record starts with the ${esc(dateLong(L ? L.from : "2026-10-31"))} card. Each pick is locked when the fight ends and never recalculated.</div>`;
+const kick = (t, c) => `<span class="kicker${c ? " " + c : ""}">${t}</span>`;
+// time left until an ISO start, as broadcast-style blocks; ticks via tickClocks()
+const clock = iso => `<div class="cd" data-cd="${esc(iso)}" aria-label="Countdown"></div>`;
+function tickClocks() {
+  document.querySelectorAll("[data-cd]").forEach(el => {
+    const ms = new Date(el.dataset.cd) - Date.now();
+    if (ms <= 0) { el.innerHTML = `<span class="cd-live">Picks locked: fights underway</span>`; return; }
+    const t = [Math.floor(ms / 864e5), Math.floor(ms / 36e5) % 24, Math.floor(ms / 6e4) % 60];
+    el.innerHTML = t.map((v, i) => `<span><b>${String(v).padStart(2, "0")}</b><small>${["days", "hrs", "min"][i]}</small></span>`).join("");
+  });
+}
+setInterval(tickClocks, 15000);
+function ledgerBoxes(L, start) {
+  if (!L || !L.fights) return `<div class="lr-wait"><div><span class="kicker">Starts ${esc(dateLong(L ? L.from : "2026-10-31"))}</span>
+    <b>The live record opens with this card</b><p>Every pick is locked before the fight at the average sportsbook price, graded when it ends, and never recalculated. This is the record to judge us by.</p></div>${start ? clock(start) : ""}</div>`;
+  const last = (L.rows || []).filter(g => g.our_pick && g.our_units).slice(-10);
+  const strip = last.length ? `<div class="form lr-form" aria-label="Our last ${last.length} picks, oldest first">${last.map(g => `<span class="fm ${g.our_units > 0 ? "W" : "L"}" title="${esc(g.our_pick)} ${odds(g.our_odds)}, ${esc(g.date)}">${g.our_units > 0 ? "W" : "L"}</span>`).join("")}<span class="small">our last ${last.length} picks, oldest first</span></div>` : "";
   const u = x => `<b class="${x >= 0 ? "won" : "lost"}">${units(x)}</b>`;
   return `<div class="stats">
     <div class="stat key"><b>${L.our_won}/${L.our_bets} ${L.our_bets ? `<span class="${L.our_units >= 0 ? "won" : "lost"}">${units(L.our_units)}</span>` : ""}</b><span>our picks${L.our_bets ? `, ${Math.round(100 * L.our_won / L.our_bets)}% won` : ""}</span></div>
     <div class="stat key">${u(L.our_staked_units)}<span>suggested stakes${L.our_risked ? ` (${L.our_staked_units >= 0 ? "+" : ""}${(100 * L.our_staked_units / L.our_risked).toFixed(1)}% return)` : ""}, on ${L.our_risked}u risked</span></div>
-    <div class="stat"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div></div>`;
+    <div class="stat model"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div></div>${strip}`;
 }
 
 async function viewRecord() {
@@ -859,6 +875,7 @@ async function route() {
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
   liveBar();
+  tickClocks();
   if (page === "home" && !window.countedUp) { window.countedUp = true; countUp(); }
 }
 

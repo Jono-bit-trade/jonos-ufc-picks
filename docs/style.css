@@ -714,3 +714,46 @@ tr.top1 td.rk { color: var(--gold); }
 .faceoff .ctry { display: flex; justify-content: center; margin: 2px 0 4px; font-size: 14px; color: #c9d0dc; }
 .rkname .ctry { margin: 0 2px 0 0; }
 .bout .b .meta { justify-content: flex-end; }
+
+/* section kickers: a small broadcast label over each home heading */
+.kicker { display: block; font: 800 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-bottom: 5px; }
+.kicker.gold { color: var(--gold); } .kicker.blue { color: #7fb0ff; } .kicker.teal { color: var(--teal); }
+
+/* track record: two clean rows of four */
+.stats.four { grid-template-columns: repeat(4, 1fr); margin: 0; }
+.stats.four + .stats.four { margin-top: 6px; }
+@media (max-width: 640px) { .stats.four { grid-template-columns: 1fr 1fr; } }
+
+/* live record before the first graded card: banner with a countdown */
+.lr-wait { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; background: linear-gradient(90deg, rgba(229,72,77,.12), var(--paper) 45%); border: 1px solid var(--rule); border-left: 3px solid var(--red); padding: 16px 18px; border-radius: 2px; }
+.lr-wait > div:first-child { max-width: 560px; } .lr-wait b { display: block; font: 800 24px/1.1 var(--display); color: #fff; }
+.lr-wait p { margin: 6px 0 0; font-size: 14px; color: #c3cad6; }
+.cd { display: flex; gap: 6px; }
+.cd > span { display: flex; flex-direction: column; align-items: center; min-width: 58px; padding: 8px 6px 6px; background: var(--night); border: 1px solid var(--rule); border-radius: 2px; }
+.cd b { font: 900 30px/1 var(--display); color: #fff; font-variant-numeric: tabular-nums; } .cd small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--quiet); margin-top: 3px; }
+.cd-live { font: 800 16px var(--display); color: var(--red); letter-spacing: .06em; text-transform: uppercase; }
+.lr-form { margin-top: 8px; } .lr-form .fm { cursor: default; }
+
+/* corner rings on fighter photos: red corner, blue corner, neutral elsewhere */
+.ph { box-sizing: border-box; padding: 3px; background: #3a3f4a; }
+.ph.sm { padding: 2px; }
+.ph > span { inset: 3px; clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); background: #2b3242; }
+.ph.sm > span { inset: 2px; }
+.ph img { clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+.faceoff a:first-child .ph, .corners .a .ph, .pair .side:first-child .ph { background: var(--red); }
+.faceoff a:last-child .ph, .corners .b .ph, .pair .side:last-child .ph { background: var(--blue); }
+.faceoff .ph.xl { padding: 4px; } .faceoff .ph.xl > span { inset: 4px; }
+.faceoff a:first-child .ph > span, .faceoff a:first-child .ph img { background: linear-gradient(180deg, #3a2328, #2b3242); }
+.faceoff a:last-child .ph > span, .faceoff a:last-child .ph img { background: linear-gradient(180deg, #213049, #2b3242); }
+
+/* phone pass */
+@media (max-width: 640px) {
+  .corners .meta .ctry { display: flex; margin-bottom: 2px; } .corners .meta .ctry::after { content: none; }
+  .corners .b .meta .ctry { justify-content: flex-end; }
+  td.rbar { min-width: 0; } td.rbar span { display: none; } td.rbar b { width: auto; font-size: 16px; }
+  td.rk, td.rbar, td.n, th.n, th { padding-left: 6px; padding-right: 6px; }
+  .rkname .ctry img { width: 16px; height: 12px; } .rkname .ph { display: none; } .rkname { gap: 7px; } .rkname .fl { font-size: 16px; }
+  .stats > .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .lr-wait b { font-size: 21px; } .cd > span { min-width: 52px; } .cd b { font-size: 26px; }
+  .kicker { font-size: 11px; }
+}
