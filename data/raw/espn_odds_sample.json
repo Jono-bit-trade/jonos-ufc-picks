@@ -6,14 +6,14 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "R. Moicano -118",
+ "details": "R. Moicano -122",
  "overUnder": 1.5,
  "overOdds": -188.0,
  "underOdds": 145.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": -102,
+  "moneyLine": 102,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -27,12 +27,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 1.98,
-    "displayValue": "50/51",
-    "alternateDisplayValue": "-102",
-    "decimal": 1.98,
-    "fraction": "50/51",
-    "american": "-102"
+    "value": 2.02,
+    "displayValue": "51/50",
+    "alternateDisplayValue": "+102",
+    "decimal": 2.02,
+    "fraction": "51/50",
+    "american": "+102"
    }
   },
   "athlete": {
@@ -42,7 +42,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -118,
+  "moneyLine": -122,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -56,12 +56,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 1.84,
-    "displayValue": "50/59",
-    "alternateDisplayValue": "-118",
-    "decimal": 1.84,
-    "fraction": "50/59",
-    "american": "-118"
+    "value": 1.81,
+    "displayValue": "50/61",
+    "alternateDisplayValue": "-122",
+    "decimal": 1.81,
+    "fraction": "50/61",
+    "american": "-122"
    }
   },
   "athlete": {

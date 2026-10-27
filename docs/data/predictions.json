@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T13:34Z",
+ "updated": "2026-10-27T19:23Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -38,7 +38,80 @@
    "b_id": "5144007",
    "record_a": "21-7-1",
    "record_b": "11-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 6,
+    "picks_b": 1,
+    "high_a": 3,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.7,
     "handle_b": 0.3,
@@ -46,7 +119,11 @@
     "bets_b": 0.3,
     "at": "2026-10-26T02:33Z"
    },
-   "why": [],
+   "why": [
+    "Our chance 53% vs the line's 53%",
+    "Close fight and 6 of 7 analysts pick Moicano",
+    "Rated 76 points higher"
+   ],
    "weight_class": "Lightweight",
    "rounds": 5,
    "segment": "",
@@ -59,23 +136,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.339,
-   "p_a": 0.518,
-   "fair_odds_a": -107,
-   "fair_odds_b": 107,
-   "market_p_a": 0.517,
-   "odds_a": -118.0,
-   "odds_b": -102.0,
-   "best_a": -118.0,
-   "best_b": -102.0,
+   "p_a": 0.527,
+   "fair_odds_a": -111,
+   "fair_odds_b": 111,
+   "market_p_a": 0.526,
+   "odds_a": -122.0,
+   "odds_b": 102.0,
+   "best_a": -122.0,
+   "best_b": 102.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T22:22Z",
-     "a": -102.0,
-     "b": -118.0
-    },
     {
      "t": "2026-10-25T23:15Z",
      "a": -102.0,
@@ -270,13 +342,18 @@
      "t": "2026-10-27T13:34Z",
      "a": -118.0,
      "b": -102.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": -122.0,
+     "b": 102.0
     }
    ],
    "edge_a": 0.001,
    "pick": null,
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
+   "our_pick": "Renato Moicano",
+   "stake": 1.5,
+   "expert_lean": "Renato Moicano",
    "check_news": false,
    "method": {
     "DEC": 0.361,
@@ -293,7 +370,80 @@
    "b_id": "5149961",
    "record_a": "20-8-0",
    "record_b": "13-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 7,
+    "high_a": 0,
+    "high_b": 2,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Welterweight",
@@ -308,19 +458,25 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.354,
-   "p_a": 0.354,
-   "fair_odds_a": 183,
-   "fair_odds_b": -183,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
+   "p_a": 0.299,
+   "fair_odds_a": 234,
+   "fair_odds_b": -234,
+   "market_p_a": 0.295,
+   "odds_a": 225.0,
+   "odds_b": -278.0,
+   "best_a": 225.0,
+   "best_b": -278.0,
+   "open_a": 225.0,
+   "open_b": -278.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": 225.0,
+     "b": -278.0
+    }
+   ],
+   "edge_a": 0.004,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -341,7 +497,80 @@
    "b_id": "4686725",
    "record_a": "13-9-0",
    "record_b": "18-11-1",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 4,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.3,
     "handle_b": 0.7,
@@ -375,11 +604,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T22:22Z",
-     "a": -125.0,
-     "b": 105.0
-    },
-    {
      "t": "2026-10-25T23:15Z",
      "a": -125.0,
      "b": 105.0
@@ -571,6 +795,11 @@
     },
     {
      "t": "2026-10-27T13:34Z",
+     "a": -108.0,
+     "b": -112.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
      "a": -108.0,
      "b": -112.0
     }
@@ -596,7 +825,80 @@
    "b_id": "5110469",
    "record_a": "17-8-0",
    "record_b": "11-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 7,
+    "high_a": 0,
+    "high_b": 1,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.67,
     "handle_b": 0.33,
@@ -617,23 +919,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.297,
-   "p_a": 0.302,
-   "fair_odds_a": 231,
-   "fair_odds_b": -231,
-   "market_p_a": 0.304,
-   "odds_a": 215.0,
-   "odds_b": -265.0,
-   "best_a": 215.0,
-   "best_b": -265.0,
+   "p_a": 0.307,
+   "fair_odds_a": 225,
+   "fair_odds_b": -225,
+   "market_p_a": 0.309,
+   "odds_a": 210.0,
+   "odds_b": -258.0,
+   "best_a": 210.0,
+   "best_b": -258.0,
    "open_a": 185.0,
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T22:22Z",
-     "a": 215.0,
-     "b": -265.0
-    },
     {
      "t": "2026-10-25T23:15Z",
      "a": 215.0,
@@ -828,6 +1125,11 @@
      "t": "2026-10-27T13:34Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": 210.0,
+     "b": -258.0
     }
    ],
    "edge_a": -0.002,
@@ -851,7 +1153,80 @@
    "b_id": "5350562",
    "record_a": "11-2-0",
    "record_b": "6-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 6,
+    "picks_b": 1,
+    "high_a": 5,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.35,
     "handle_b": 0.65,
@@ -885,11 +1260,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T22:22Z",
-     "a": -270.0,
-     "b": 220.0
-    },
-    {
      "t": "2026-10-25T23:15Z",
      "a": -270.0,
      "b": 220.0
@@ -1081,6 +1451,11 @@
     },
     {
      "t": "2026-10-27T13:34Z",
+     "a": -298.0,
+     "b": 240.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
      "a": -298.0,
      "b": 240.0
     }
@@ -1106,7 +1481,80 @@
    "b_id": "4898914",
    "record_a": "10-3-0",
    "record_b": "11-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 7,
+    "picks_b": 0,
+    "high_a": 3,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.36,
     "handle_b": 0.64,
@@ -1127,23 +1575,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.512,
-   "p_a": 0.696,
-   "fair_odds_a": -229,
-   "fair_odds_b": 229,
-   "market_p_a": 0.681,
-   "odds_a": -245.0,
-   "odds_b": 200.0,
-   "best_a": -245.0,
-   "best_b": 200.0,
+   "p_a": 0.685,
+   "fair_odds_a": -218,
+   "fair_odds_b": 218,
+   "market_p_a": 0.669,
+   "odds_a": -230.0,
+   "odds_b": 190.0,
+   "best_a": -230.0,
+   "best_b": 190.0,
    "open_a": -258.0,
    "open_b": 210.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T22:22Z",
-     "a": -245.0,
-     "b": 200.0
-    },
     {
      "t": "2026-10-25T23:15Z",
      "a": -245.0,
@@ -1338,6 +1781,11 @@
      "t": "2026-10-27T13:34Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.016,
@@ -1409,7 +1857,80 @@
    "b_id": "5085010",
    "record_a": "9-2-0",
    "record_b": "8-4-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 5,
+    "picks_b": 2,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.47,
     "handle_b": 0.53,
@@ -1443,11 +1964,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T22:22Z",
-     "a": -170.0,
-     "b": 142.0
-    },
-    {
      "t": "2026-10-25T23:15Z",
      "a": -170.0,
      "b": 142.0
@@ -1641,6 +2157,11 @@
      "t": "2026-10-27T13:34Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.015,
@@ -1664,7 +2185,80 @@
    "b_id": "5068724",
    "record_a": "31-14-0",
    "record_b": "11-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 4,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 1,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "BetSam",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.19,
     "handle_b": 0.81,
@@ -1698,11 +2292,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-25T22:22Z",
-     "a": 150.0,
-     "b": -180.0
-    },
-    {
      "t": "2026-10-25T23:15Z",
      "a": 150.0,
      "b": -180.0
@@ -1894,6 +2483,11 @@
     },
     {
      "t": "2026-10-27T13:34Z",
+     "a": 145.0,
+     "b": -175.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
      "a": 145.0,
      "b": -175.0
     }
@@ -1919,7 +2513,80 @@
    "b_id": "4687604",
    "record_a": "6-3-0",
    "record_b": "9-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 6,
+    "high_a": 0,
+    "high_b": 4,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.06,
     "handle_b": 0.94,
@@ -1928,10 +2595,10 @@
     "at": "2026-10-26T02:33Z"
    },
    "why": [
-    "Our chance 77% vs the line's 73% (4 points of value)",
+    "Our chance 77% vs the line's 74% (3 points of value)",
+    "6 of 7 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
-    "Rated 131 points higher",
-    "Bigger bettors on him: 94% of DraftKings money from 69% of bets"
+    "Rated 131 points higher"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -1945,23 +2612,18 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.358,
-   "p_a": 0.232,
-   "fair_odds_a": 331,
-   "fair_odds_b": -331,
-   "market_p_a": 0.266,
-   "odds_a": 260.0,
-   "odds_b": -325.0,
-   "best_a": 260.0,
-   "best_b": -325.0,
+   "p_a": 0.226,
+   "fair_odds_a": 343,
+   "fair_odds_b": -343,
+   "market_p_a": 0.259,
+   "odds_a": 270.0,
+   "odds_b": -340.0,
+   "best_a": 270.0,
+   "best_b": -340.0,
    "open_a": 250.0,
    "open_b": -310.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T22:22Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-10-25T23:15Z",
      "a": 250.0,
@@ -2156,9 +2818,14 @@
      "t": "2026-10-27T13:34Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
-   "edge_a": -0.034,
+   "edge_a": -0.033,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
    "stake": 1.0,
@@ -2179,7 +2846,80 @@
    "b_id": "4816066",
    "record_a": "8-1-1",
    "record_b": "12-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 7,
+    "high_a": 0,
+    "high_b": 3,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.23,
     "handle_b": 0.77,
@@ -2200,23 +2940,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.481,
-   "p_a": 0.307,
-   "fair_odds_a": 226,
-   "fair_odds_b": -226,
-   "market_p_a": 0.29,
-   "odds_a": 230.0,
-   "odds_b": -285.0,
-   "best_a": 230.0,
-   "best_b": -285.0,
+   "p_a": 0.298,
+   "fair_odds_a": 236,
+   "fair_odds_b": -236,
+   "market_p_a": 0.282,
+   "odds_a": 240.0,
+   "odds_b": -298.0,
+   "best_a": 240.0,
+   "best_b": -298.0,
    "open_a": 210.0,
    "open_b": -258.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T22:22Z",
-     "a": 210.0,
-     "b": -258.0
-    },
     {
      "t": "2026-10-25T23:15Z",
      "a": 210.0,
@@ -2411,6 +3146,11 @@
      "t": "2026-10-27T13:34Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": 240.0,
+     "b": -298.0
     }
    ],
    "edge_a": 0.016,
@@ -2434,7 +3174,80 @@
    "b_id": "4418809",
    "record_a": "12-0-0",
    "record_b": "7-4-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 7,
+    "picks_b": 0,
+    "high_a": 6,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.01,
     "handle_b": 0.99,
@@ -2443,7 +3256,8 @@
     "at": "2026-10-26T02:33Z"
    },
    "why": [
-    "Our chance 89% vs the line's 83% (6 points of value)"
+    "Our chance 89% vs the line's 84% (5 points of value)",
+    "7 of 7 analysts agree"
    ],
    "weight_class": "Women's Flyweight",
    "rounds": 3,
@@ -2457,23 +3271,18 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.567,
-   "p_a": 0.887,
-   "fair_odds_a": -783,
-   "fair_odds_b": 783,
-   "market_p_a": 0.832,
-   "odds_a": -650.0,
-   "odds_b": 470.0,
-   "best_a": -650.0,
-   "best_b": 470.0,
+   "p_a": 0.893,
+   "fair_odds_a": -832,
+   "fair_odds_b": 832,
+   "market_p_a": 0.84,
+   "odds_a": -700.0,
+   "odds_b": 500.0,
+   "best_a": -700.0,
+   "best_b": 500.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-25T22:22Z",
-     "a": -600.0,
-     "b": 440.0
-    },
     {
      "t": "2026-10-25T23:15Z",
      "a": -600.0,
@@ -2668,9 +3477,14 @@
      "t": "2026-10-27T13:34Z",
      "a": -650.0,
      "b": 470.0
+    },
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": -700.0,
+     "b": 500.0
     }
    ],
-   "edge_a": 0.055,
+   "edge_a": 0.053,
    "pick": "Lucia Szabov\u00e1",
    "our_pick": "Lucia Szabov\u00e1",
    "stake": 0.5,
@@ -2691,9 +3505,86 @@
    "b_id": "3960470",
    "record_a": "10-4-0",
    "record_b": "7-7-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 7,
+    "picks_b": 0,
+    "high_a": 2,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "189-107",
+      "units": -12.49,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "177-119",
+      "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "185-103",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "191-108",
+      "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "BetSam",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "179-108",
+      "units": -8.9,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "180-116",
+      "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "186-108",
+      "units": -17.37,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
-   "why": [],
+   "why": [
+    "Our chance 79% vs the line's 73% (6 points of value)",
+    "7 of 7 analysts agree",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
+   ],
    "weight_class": "Middleweight",
    "rounds": 3,
    "segment": "",
@@ -2706,22 +3597,28 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.662,
-   "p_a": 0.662,
-   "fair_odds_a": -196,
-   "fair_odds_b": 196,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "stake": null,
+   "p_a": 0.793,
+   "fair_odds_a": -384,
+   "fair_odds_b": 384,
+   "market_p_a": 0.731,
+   "odds_a": -310.0,
+   "odds_b": 260.0,
+   "best_a": -310.0,
+   "best_b": 260.0,
+   "open_a": -305.0,
+   "open_b": 245.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-10-27T19:23Z",
+     "a": -310.0,
+     "b": 260.0
+    }
+   ],
+   "edge_a": 0.062,
+   "pick": "Zach Reese",
+   "our_pick": "Zach Reese",
+   "stake": 1.0,
    "expert_lean": null,
    "check_news": false,
    "method": {
