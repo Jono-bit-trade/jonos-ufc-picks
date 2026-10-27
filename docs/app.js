@@ -438,10 +438,15 @@ async function viewEvents(q) {
   const years = [...new Set((ev || []).map(e => e.date.slice(0, 4)))].filter(y => y >= RECENT_FROM);
   const keep = e => year === "all" ? true : year === "older" ? e.date < RECENT_FROM : year ? e.date.startsWith(year) : e.date >= RECENT_FROM;
   const list = (ev || []).filter(keep);
-  const upcoming = (up || []).map((u, i) => `<li>${i === 0 ? `<a href="#/card">` : "<span>"}<span class="d">${esc(u.date)}</span>${esc(u.name)}${i === 0 ? "</a>" : "</span>"}</li>`).join("");
+  const upcoming = (up || []).map((u, i) => {
+    const [title, sub] = String(u.name).split(/:\s*/), d = new Date(u.start || u.date + "T12:00:00");
+    const inner = `<span class="nx-d"><b>${d.toLocaleDateString(undefined, {day: "numeric"})}</b><span>${d.toLocaleDateString(undefined, {month: "short"})}</span></span>
+      <span class="nx-t"><b>${esc(sub || title)}</b><span>${esc(title)}${u.start ? ", " + d.toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : ""}${i === 0 ? " · picks are up" : ""}</span></span>`;
+    return i === 0 ? `<li class="nx"><a class="nx-a" href="#/card">${inner}</a></li>` : `<li class="nx">${inner}</li>`;
+  }).join("");
   const chip = (y, label) => `<a href="#/events${y ? "?year=" + y : ""}" class="${y === year ? "on" : ""}">${label}</a>`;
   return `<h1>Events</h1>
-    ${upcoming ? `<h2>Upcoming</h2><ul class="list">${upcoming}</ul>` : ""}
+    ${upcoming ? `<h2>Upcoming</h2><ul class="nxl panel">${upcoming}</ul>` : ""}
     <h2>Past cards</h2>
     ${eventsSummary(mr, year)}
     <div class="filters">${chip("", "Since " + RECENT_FROM)}${years.map(y => chip(y, y)).join("")}${chip("older", "Before " + RECENT_FROM)}${chip("all", "All")}</div>

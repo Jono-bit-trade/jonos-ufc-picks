@@ -583,3 +583,18 @@ td.rbar i { display: block; height: 100%; background: var(--gold); } td.rbar b {
 .ta-u .ub i.pos { background: var(--green); } .ta-u .ub i.neg { background: var(--red); }
 .panel .small { margin: 8px 0 2px; }
 @media (max-width: 760px) { .lower { grid-template-columns: 1fr; } .lower .evrow { grid-template-columns: auto 1fr; } }
+
+/* background: the cage. A faint chain-link fence behind the top of every page, fading into the arena dark */
+body { position: relative; }
+body::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 900px; z-index: -1; pointer-events: none;
+  background:
+    repeating-linear-gradient(45deg, rgba(170,185,210,.075) 0 1.5px, transparent 1.5px 26px),
+    repeating-linear-gradient(-45deg, rgba(170,185,210,.075) 0 1.5px, transparent 1.5px 26px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.55) 35%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.55) 35%, transparent 100%); }
+body::after { content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(58,72,104,.55), rgba(21,25,34,0) 70%),
+              radial-gradient(ellipse 60% 40% at 50% 100%, rgba(224,178,58,.05), rgba(21,25,34,0) 70%); }
+html { background: var(--mat); }
+body { background: transparent; }
+.nx-a { display: flex; gap: 12px; align-items: center; color: inherit; text-decoration: none; width: 100%; } .nx-a .nx-t span { color: var(--gold); }
