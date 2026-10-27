@@ -215,10 +215,11 @@ async function viewCard() {
   $("#updated").textContent = `Updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}. For fun and research, not betting advice.`;
   if (!p.fights.length) return `<h1>Next card</h1><div class="empty">${esc(p.message || "No bouts listed yet.")}</div>`;
   const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && (mr.since || mr.all);
-  const track = !mr ? "" : `<div class="track"><b>Model track record</b>
-    <span><b class="inl">Our picks</b> ${esc(yr.year)}: ${yr.our_won}/${yr.our_bets} <span class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</span> · since ${mr.from || 2020}: ${all.our_won}/${all.our_bets} <span class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</span></span>
-    <span>${esc(yr.year)}: ${yr.pct}% of winners picked (${yr.right}/${yr.picks}), <span class="${yr.units >= 0 ? "won" : "lost"}">${units(yr.units)}</span> betting every winner, value picks ${yr.value_won}/${yr.value_bets} <span class="${yr.value_units >= 0 ? "won" : "lost"}">${units(yr.value_units)}</span></span>
-    <span>Since ${mr.from || 2020}: ${all.pct}% (${all.right}/${all.picks}), <span class="${all.units >= 0 ? "won" : "lost"}">${units(all.units)}</span>; value picks ${all.value_won}/${all.value_bets} <span class="${all.value_units >= 0 ? "won" : "lost"}">${units(all.value_units)}</span> · <a href="#/record">by year</a></span></div>`;
+  const track = !mr ? "" : `<div class="rstrip">
+    <span><b>Our picks ${esc(yr.year)}</b> ${yr.our_won}/${yr.our_bets} <em class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</em></span>
+    <span><b>Since ${mr.from || 2020}</b> ${all.our_won}/${all.our_bets} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em></span>
+    <span><b>Winners ${esc(yr.year)}</b> ${yr.pct}%</span>
+    <a href="#/record">Full record</a></div>`;
   return `<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in.</p></details>
@@ -375,8 +376,19 @@ async function viewEvents(q) {
     ${eventsSummary(mr, year)}
     <div class="filters">${chip("", "Since " + RECENT_FROM)}${years.map(y => chip(y, y)).join("")}${chip("older", "Before " + RECENT_FROM)}${chip("all", "All")}</div>
     ${year === "older" ? `<p class="note">Cards before ${RECENT_FROM} are kept for fighter histories, ratings and training, but aren't part of the record: the model had too little history behind it then to grade it fairly.</p>` : ""}
-    <ul class="list">${list.map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}<span class="small"> · ${esc(e.main)}</span></a>
-      ${cardBadge(e.record, e.date)}</li>`).join("")}</ul>`;
+    <div class="evlist">${list.map(e => evRow(e)).join("")}</div>`;
+}
+
+function evRow(e) {
+  const r = e.record || {}, graded = e.date >= RECENT_FROM && r.picks;
+  const ids = e.main_ids || [];
+  const [title, sub] = String(e.name).split(/:\s*/);
+  return `<a class="evrow" href="#/event/${esc(e.slug)}">
+    <span class="ev-ph">${photo(ids[0], e.main_a || "", "md")}${photo(ids[1], e.main_b || "", "md")}</span>
+    <span class="ev-t"><b>${esc(title)}</b><span>${sub ? esc(sub) : esc(e.main || "")}</span><span class="small">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}</span></span>
+    ${graded ? `<span class="ev-r">${r.our_bets ? `<span class="ev-chip ${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}<small>our picks ${r.our_won}/${r.our_bets}</small></span>` : `<span class="ev-chip none">No picks</span>`}
+      <span class="small">Model ${r.right}/${r.picks}</span></span>` : ""}
+  </a>`;
 }
 
 function cardBadge(r, date) {
@@ -472,48 +484,65 @@ function ratingChart(h) {
 }
 
 async function viewFighter(s) {
-  const f = await get(`fighters/${s}.json`);
+  const [f, avgs] = await Promise.all([get(`fighters/${s}.json`), get("division_avg.json")]);
   if (!f) return `<div class="empty">No UFC fights found for that fighter.</div>`;
   const by = (o, total) => ["KO", "SUB", "DEC"].map(k => `<div class="byrow"><span>${{KO: "KO/TKO", SUB: "Submission", DEC: "Decision"}[k]}</span>
     <i style="width:${total ? o[k] / total * 100 : 0}%"></i><b>${o[k]}</b></div>`).join("");
   const w = f.wins_by.KO + f.wins_by.SUB + f.wins_by.DEC, l = f.losses_by.KO + f.losses_by.SUB + f.losses_by.DEC;
-  const st = f.style;
-  const stat = (label, v, fmt) => `<div class="stat"><b>${v == null ? "–" : fmt(v)}</b><span>${label}</span></div>`;
-  const p2 = v => (v * 100).toFixed(0) + "%", n2 = v => v.toFixed(2);
+  const st = f.style || {}, g = f.grappling || {}, A = (avgs || {})[f.weight_class] || {};
+  const p2 = v => (v * 100).toFixed(0) + "%", n2 = v => (+v).toFixed(2);
+  const recent = (f.fights || []).filter(x => ["W", "L", "D"].includes(x.result)).slice(0, 10).reverse();
+  const chip = (big, small) => `<div class="fchip"><b>${big}</b><span>${small}</span></div>`;
+  // one stat as a bar against the division median; better = 1 when higher is better, -1 when lower is
+  const bar = (label, v, avg, fmt, better) => {
+    if (v == null) return "";
+    const top = Math.max(v, avg ?? 0) * 1.3 || 1, good = avg == null ? null : better * (v - avg) > 0;
+    return `<div class="sbar"><span class="sl">${label}</span>
+      <span class="track"><i class="${good == null ? "" : good ? "good" : "bad"}" style="width:${Math.min(100, v / top * 100)}%"></i>${avg != null ? `<em style="left:${Math.min(100, avg / top * 100)}%" title="Division median ${fmt(avg)}"></em>` : ""}</span>
+      <b>${fmt(v)}</b></div>`;
+  };
+  const val = (x, y) => x ?? y ?? null;
+  const striking = [
+    bar("Sig. strikes landed / min", val(g.slpm, st.sig_strikes_landed_per_min), A.slpm, n2, 1),
+    bar("Sig. strikes absorbed / min", val(g.sapm, st.sig_strikes_absorbed_per_min), A.sapm, n2, -1),
+    bar("Striking accuracy", val(g.str_acc, st.sig_strike_accuracy), A.str_acc, p2, 1),
+    bar("Strike defense", g.str_def, A.str_def, p2, 1),
+    bar("Knockdowns / 15 min", val(g.kd_per15, st.knockdowns_per_15), A.kd_per15, n2, 1)].join("");
+  const grappling = [
+    bar("Takedowns / 15 min", val(g.td_per15, st.takedowns_per_15), A.td_per15, n2, 1),
+    bar("Takedown defense", val(g.td_def, st.takedown_defense), A.td_def, p2, 1),
+    bar("Submission attempts / 15", val(g.sub_per15, st.submission_attempts_per_15), A.sub_per15, n2, 1),
+    bar("Control time share", st.control_time_share, null, p2, 1)].join("");
+  const mix = ks => ks.every(k => g[k] != null) ? ks.map(k => Math.round(g[k] * 100) + "%").join(" / ") : null;
+  const extras = [["Strikes to head / body / leg", mix(["head", "body", "leg"])], ["Standing / clinch / ground", mix(["standing", "clinch", "ground"])],
+    ["Average fight time", g.avg_time != null ? `${Math.floor(g.avg_time)}:${String(Math.round((g.avg_time % 1) * 60)).padStart(2, "0")}` : null],
+    ["Times submitted", g.ufc_fights ? `${g.sub_losses} in ${g.ufc_fights} fights` : null]].filter(x => x[1]);
   return `<p><a href="#/fighters">← Fighters</a></p>
-    <section class="profile">${photo(f.espn_id, f.name, "xl")}<div>
-      <h1>${esc(f.name)}</h1>
-      <p class="where">${esc(f.weight_class)}${f.stance ? " · " + esc(f.stance) : ""}${f.age ? ` · age ${f.age}` : ""}</p>
-      ${f.grappling && (f.grappling.birthplace || f.grappling.trains_at) ? `<p class="where small">${f.grappling.birthplace ? "From " + esc(f.grappling.birthplace) : ""}${f.grappling.birthplace && f.grappling.trains_at ? " · " : ""}${f.grappling.trains_at ? "Trains at " + esc(f.grappling.trains_at) : ""}${f.grappling.fighting_style ? " · " + esc(f.grappling.fighting_style) : ""}</p>` : ""}
-      ${f.grappling && f.grappling.flags.length ? `<ul class="gflags">${f.grappling.flags.map(x => `<li><span class="gflag ${x.flag === "Big grappler" ? "off" : "def"}">${esc(x.flag)}</span> ${esc(x.why)}</li>`).join("")}</ul>` : ""}
-      <div class="stats">
-        ${stat("UFC record", f.ufc_record, x => x)}${stat("Pro record", f.pro_record, x => x)}
-        ${stat("Rating", f.rating, x => x + ` ±${f.rd}`)}${stat("Peak rating", f.peak_rating, x => x)}
-        ${stat("Height", f.height_cm, cm)}${stat("Reach", f.reach_cm, inch)}
-        ${stat("Streak", f.streak, x => x > 0 ? `W${x}` : x < 0 ? `L${-x}` : "–")}${stat("Finish rate", f.finish_rate, p2)}
-        ${stat("Title fights", f.title_fights, x => x)}${stat("UFC since", f.first_fight, x => x.slice(0, 4))}
-      </div></div></section>
+    <section class="fhero">
+      ${photo(f.espn_id, f.name, "xl")}
+      <div class="fh-main">
+        <h1>${esc(f.name)}</h1>
+        <p class="fh-sub">${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
+        ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
+        <div class="fchips">
+          ${chip(esc(f.ufc_record), "UFC record")}${f.pro_record ? chip(esc(f.pro_record), "Pro record") : ""}
+          ${chip(f.rating ?? "–", `Rating, peak ${f.peak_rating ?? "–"}`)}
+          ${chip(f.streak > 0 ? "W" + f.streak : f.streak < 0 ? "L" + -f.streak : "–", "Streak")}
+          ${chip(f.finish_rate != null ? p2(f.finish_rate) : "–", "Finish rate")}
+        </div>
+        ${recent.length ? `<div class="form" aria-label="Last ${recent.length} fights, oldest first">${recent.map(x => `<a href="#/event/${esc(x.event_slug)}" class="fm ${x.result}" title="${esc(x.result)} vs ${esc(x.opp)}, ${esc(x.date)}">${x.result}</a>`).join("")}<span class="small">last ${recent.length}, oldest first</span></div>` : ""}
+        ${g.flags && g.flags.length ? `<ul class="gflags">${g.flags.map(x => `<li><span class="gflag ${x.flag === "Big grappler" ? "off" : "def"}">${esc(x.flag)}</span> ${esc(x.why)}</li>`).join("")}</ul>` : ""}
+      </div>
+    </section>
     <div class="cols">
       <section><h2>How they win (${w})</h2>${by(f.wins_by, w)}</section>
       <section><h2>How they lose (${l})</h2>${by(f.losses_by, l)}</section>
     </div>
     <h2>Career stats</h2>
-    ${(() => {
-      const g = f.grappling || {}, c = x => x ?? null, v = (x, y) => x ?? y ?? null, S = st || {};
-      const mix = ks => ks.every(k => g[k] != null) ? ks.map(k => Math.round(g[k] * 100) + "%").join(" / ") : null;
-      const any = [g.slpm, S.sig_strikes_landed_per_min, g.td_per15].some(x => x != null);
-      if (!any) return `<p class="note">Career stats appear once this fighter's UFC.com page is collected (nightly).</p>`;
-      return `<h3>Striking</h3><div class="stats">
-        ${stat("Sig. strikes landed / min", v(g.slpm, S.sig_strikes_landed_per_min), n2)}${stat("Sig. strikes absorbed / min", v(g.sapm, S.sig_strikes_absorbed_per_min), n2)}
-        ${stat("Striking accuracy", v(g.str_acc, S.sig_strike_accuracy), p2)}${stat("Strike defense", c(g.str_def), p2)}
-        ${stat("Knockdowns / 15 min", v(g.kd_per15, S.knockdowns_per_15), n2)}${stat("Head / body / leg", mix(["head", "body", "leg"]), x => x)}
-        ${stat("Standing / clinch / ground", mix(["standing", "clinch", "ground"]), x => x)}${stat("Average fight time", c(g.avg_time), m => `${Math.floor(m)}:${String(Math.round((m % 1) * 60)).padStart(2, "0")}`)}</div>
-        <h3>Grappling</h3><div class="stats">
-        ${stat("Takedowns / 15 min", v(g.td_per15, S.takedowns_per_15), n2)}${stat("Takedown defense", v(g.td_def, S.takedown_defense), p2)}
-        ${stat("Submission attempts / 15", v(g.sub_per15, S.submission_attempts_per_15), n2)}${stat("Times submitted", g.ufc_fights ? g.sub_losses : null, x => x)}
-        ${S.control_time_share != null ? stat("Control time share", S.control_time_share, p2) : ""}</div>
-        <p class="note">${g.source === "UFC.com" ? "From the fighter's UFC.com page." : "Takedown and submission averages from the Ultimate UFC Dataset; the full set arrives with the fighter's UFC.com page."}</p>`;
-    })()}
+    ${striking || grappling ? `<p class="note">Bars compare with the ${esc(f.weight_class)} median (the white mark). Green is better than the median, red worse.</p>
+      <div class="cols"><section><h3>Striking</h3>${striking}</section><section><h3>Grappling</h3>${grappling}</section></div>
+      ${extras.length ? `<div class="fextras">${extras.map(([k, v]) => `<div><span>${k}</span><b>${esc(v)}</b></div>`).join("")}</div>` : ""}`
+      : `<p class="note">Career stats appear once this fighter's UFC.com page is collected (nightly).</p>`}
     <h2>Rating over time</h2>${ratingChart(f.rating_history)}
     <h2>UFC fights</h2>
     <div class="tablewrap"><table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th class="hide-sm">Method</th><th class="n">Odds</th><th class="n">Model</th><th class="n hide-sm">Rating</th></tr></thead><tbody>
@@ -561,7 +590,8 @@ async function viewExperts() {
 
 // ---------------- rankings, record, how it works ----------------
 async function viewRankings(q) {
-  const r = await get("ratings.json", true);
+  const [r, fx] = await Promise.all([get("ratings.json", true), get("fighters/index.json")]);
+  const ix = {}; (fx || []).forEach(x => { ix[x.name] = x; });
   if (!r) return `<div class="empty">Rankings appear after the first run.</div>`;
   const div = q && q.get("div") || "";
   const d = (r.divisions || []).find(x => x.division === div);
@@ -570,8 +600,10 @@ async function viewRankings(q) {
   return `<h1>Rankings</h1><p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
     <div class="filters">${chip("", "Pound for pound")}${(r.divisions || []).map(x => chip(x.division, x.division.replace("Women's ", "W ").replace("Light Heavyweight", "Light Heavy"))).join("")}</div>
     <h2>${esc(d ? d.division : "Pound for pound")}</h2>
-    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th class="n">Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
-    ${list.map((f, i) => `<tr><td class="n">${i + 1}</td><td>${fighterLink(f.fighter)}</td>${d ? "" : `<td class="hide-sm">${esc(f.division || "")}</td>`}<td class="n">${esc(f.record || "")}</td><td class="n">${f.rating}</td><td class="n hide-sm">${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`).join("")}</tbody></table></div>`;
+    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th>Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
+    ${list.map((f, i) => { const x = ix[f.fighter] || {}, lo = 1500, hi = Math.max(...list.map(y => y.rating));
+      return `<tr class="${i === 0 ? "top1" : ""}"><td class="n rk">${i + 1}</td><td><span class="rkname">${photo(x.espn_id, f.fighter, "sm")}${fighterLink(f.fighter, x.slug)}</span></td>${d ? "" : `<td class="hide-sm">${esc(f.division || "")}</td>`}<td class="n">${esc(f.record || "")}</td>
+        <td class="rbar"><span><i style="width:${Math.max(4, (f.rating - lo) / Math.max(1, hi - lo) * 100)}%"></i></span><b>${f.rating}</b></td><td class="n hide-sm">±${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`; }).join("")}</tbody></table></div>`;
 }
 
 function yearTable(mr) {

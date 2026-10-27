@@ -427,6 +427,7 @@ def main():
                                     "record": rec, "model_right": rec["right"], "graded": rec["picks"],
                                     "favorites_right": fav_right})
         events_index.append({"slug": es, "name": name, "date": date, "location": loc, "bouts": len(bouts), "main": main,
+                             "main_a": bouts[0]["a"], "main_b": bouts[0]["b"], "main_ids": [bouts[0]["a_id"], bouts[0]["b_id"]],
                              "record": rec, "model_right": rec["right"], "graded": rec["picks"]})
     events_index.sort(key=lambda e: e["date"], reverse=True)
     write("events/index.json", events_index)
@@ -509,6 +510,23 @@ def main():
     index.sort(key=lambda x: -(x["rating"] or 0))
     write("fighters/index.json", index)
     write("grappling_flags.json", grap_all)   # slug -> flags, for the fight cards
+    # division averages of the career numbers, for the bars on fighter pages (active fighters, 3+ UFC fights)
+    cutoff_ = (dt.date.today() - dt.timedelta(days=730)).isoformat()
+    keys_ = ["slpm", "sapm", "str_acc", "str_def", "kd_per15", "td_per15", "td_def", "sub_per15"]
+    pool = {}
+    for row_ in index:
+        fp = os.path.join(OUT, "fighters", row_["slug"] + ".json")
+        if row_["last_fight"] < cutoff_ or not os.path.exists(fp):
+            continue
+        pr = json.load(open(fp))
+        g_ = pr.get("grappling") or {}
+        if (g_.get("ufc_fights") or 0) < 3 or not pr.get("weight_class"):
+            continue
+        for k in keys_:
+            if g_.get(k) is not None:
+                pool.setdefault(pr["weight_class"], {}).setdefault(k, []).append(float(g_[k]))
+    write("division_avg.json", {wc: {k: round(float(np.median(v)), 3) for k, v in d.items() if len(v) >= 8}
+                                for wc, d in pool.items()})
     # remove pages from earlier runs that no longer exist (renamed cards, merged name spellings)
     import glob
     keep = {"events": {e["slug"] for e in events_index}, "fighters": {f["slug"] for f in index}}
