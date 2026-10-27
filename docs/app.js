@@ -466,7 +466,7 @@ function eventsSummary(mr, year) {
 
 async function viewEvent(s) {
   const [e] = await Promise.all([get(`events/${s}.json`), loadGrap()]);
-  if (!e) return `<div class="empty">That card isn't in the history.</div>`;
+  if (!e) return `<h1>Card not found</h1><div class="empty">That card isn't in the history. <a href="#/events">See all events</a></div>`;
   const rows = e.bouts.map((b, i) => {
     const won = b.winner === "a" ? b.a : b.winner === "b" ? b.b : null;
     const mp = b.model_pick, vp = b.value_pick;
@@ -535,7 +535,7 @@ function ratingChart(h) {
 
 async function viewFighter(s) {
   const [f, avgs] = await Promise.all([get(`fighters/${s}.json`), get("division_avg.json")]);
-  if (!f) return `<div class="empty">No UFC fights found for that fighter.</div>`;
+  if (!f) return `<h1>Fighter not found</h1><div class="empty">We don't have UFC fights for that fighter yet. Debut fighters get a page after their first UFC fight.<br><a href="#/fighters">Search all fighters</a></div>`;
   const by = (o, total) => ["KO", "SUB", "DEC"].map(k => `<div class="byrow"><span>${{KO: "KO/TKO", SUB: "Submission", DEC: "Decision"}[k]}</span>
     <i style="width:${total ? o[k] / total * 100 : 0}%"></i><b>${o[k]}</b></div>`).join("");
   const w = f.wins_by.KO + f.wins_by.SUB + f.wins_by.DEC, l = f.losses_by.KO + f.losses_by.SUB + f.losses_by.DEC;
@@ -714,7 +714,8 @@ async function viewRecord() {
 }
 
 async function viewHow() {
-  const b = await get("backtest.json", true);
+  const [b, mr] = await Promise.all([get("backtest.json", true), get("model_record.json")]);
+  const S = mr ? (mr.since || mr.all) : null;
   if (!b) return `<h1>How it works</h1><div class="empty">The backtest summary appears after the first full run.</div>`;
   const row = (cells, head) => `<tr>${cells.map((c, i) => `<${head ? "th" : "td"}${i ? ' class="n"' : ""}>${c}</${head ? "th" : "td"}>`).join("")}</tr>`;
   const f3 = x => x == null ? "–" : Number(x).toFixed(3);
@@ -733,8 +734,23 @@ async function viewHow() {
     ed.rows.filter(r => r.verdict !== "too few fights").sort((a, b) => (a.verdict > b.verdict ? 1 : -1))
       .map(r => row([esc(r.situation), ...ed.periods.flatMap(p => [r["n " + p], pct1(r["won " + p]), pct1(r["line said " + p]), sg(r["roi " + p])]), esc(r.verdict)])).join("")}</tbody></table></div>`;
   const roi = b.roi.map(r => row([pts(r.edge), r.bets, r["win_%"] == null ? "–" : r["win_%"].toFixed(1) + "%", (r.units > 0 ? "+" : "") + r.units.toFixed(1), r["roi_%"] == null ? "–" : r["roi_%"].toFixed(1) + "%"])).join("");
+  const step = (n, t, d) => `<div class="hw-step"><span class="hw-n">${n}</span><b>${t}</b><p>${d}</p></div>`;
   return `<h1>How it works</h1>
-    <p class="note">Each test year is predicted by a model trained only on earlier fights, then scored against the closing line on the same fights. Lower log loss and Brier are better. Last run ${esc(b.run_at)}.</p>
+    <p class="lede">Every fight gets a chance for each fighter. Where that chance beats the betting line on the right kind of fight, it becomes one of our picks, and every pick is graded and kept.</p>
+    <div class="hw">
+      ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating that rises and falls with results, weighted by how each fight ended and how strong the opponent was.")}
+      ${step(2, "Predict the fight", "Ratings, recent form, experience, age, reach and finishing history give the model its own chance for each fighter, learned only from earlier fights.")}
+      ${step(3, "Blend with the line", "The betting line knows a lot (injuries, camps, news), so the model's chance is blended with it. Long layoffs and long-shot underdogs get extra adjustments the line tends to miss.")}
+      ${step(4, "Find the value", "When our chance beats the line's by 3+ points on a favorite or a 70%+ fighter, or the experts agree in a close fight, it's one of our picks, sized by price.")}
+    </div>
+    ${S ? `<div class="hw-stats">
+      <div><b>${S.our_pct}%</b><span>of our picks won since ${mr.from || 2020}</span></div>
+      <div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets, ${S.our_roi_pct > 0 ? "+" : ""}${S.our_roi_pct}% per bet</span></div>
+      <div><b>${S.pct}%</b><span>of all fights' winners picked</span></div>
+      <div><b>${S.our_bets}</b><span>picks graded at the average sportsbook's price</span></div></div>` : ""}
+    <p class="note">These are backtest numbers: each past fight predicted only from fights before it. The <a href="#/record">locked live record</a> starts with the Oct 31, 2026 card and is never recalculated.</p>
+    <details class="tech"><summary>Technical detail: model tests, betting by edge, and situational edges</summary>
+    <p class="note">Each test year is predicted by a model trained only on earlier fights, then scored against the closing line on the same fights. Log loss and Brier measure how good the chances are (lower is better). Last run ${esc(b.run_at)}.</p>
     <h2>The model alone</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s1}</tbody></table></div>
     <h2>Blended with the line, ${esc(b.years)}</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s2}</tbody></table></div>
     <h2>Flat 1-unit bets by edge</h2><div class="tablewrap"><table class="bt"><thead>${row(["Edge needed", "Bets", "Won", "Units", "Per bet"], true)}</thead><tbody>${roi}</tbody></table></div>
@@ -745,7 +761,8 @@ async function viewHow() {
         r["roi_close_%"] == null ? "–" : r["roi_close_%"].toFixed(1) + "%", r["moved_toward_%"].toFixed(1) + "%"])).join("")}</tbody></table></div>`
       : `<h2>Betting at the opening line</h2><p class="note">Appears once the history backfill has collected opening lines.</p>`}
     ${edges}
-    <p class="note">UFC closing lines are sharp. Treat picks as paper trades until the live record beats the line over a full year.</p>`;
+    </details>
+    <p class="note">UFC betting lines are sharp, and past results don't guarantee future ones. Judge the picks by the locked live record as it builds.</p>`;
 }
 
 // ---------------- router ----------------

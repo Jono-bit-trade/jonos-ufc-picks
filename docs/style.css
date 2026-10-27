@@ -540,3 +540,18 @@ td.rbar i { display: block; height: 100%; background: var(--gold); } td.rbar b {
 .site-foot a { display: block; color: #aeb6c4; text-decoration: none; font-size: 14px; padding: 2px 0; } .site-foot a:hover { color: #fff; }
 .site-foot .disc { grid-column: 1 / -1; margin: 0; padding-top: 14px; border-top: 1px solid var(--rule); }
 @media (max-width: 640px) { .fgrid { grid-template-columns: 1fr 1fr; } .fbrand { grid-column: 1 / -1; } .site-foot { margin-bottom: 0; } }
+
+/* how it works */
+.lede { font-size: 19px; line-height: 1.45; color: #d6dce6; max-width: 62ch; margin: 4px 0 18px; }
+.hw { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; counter-reset: s; }
+.hw-step { position: relative; background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--gold); padding: 14px 14px 12px; border-radius: 2px; }
+.hw-step:not(:last-child)::after { content: ""; position: absolute; right: -8px; top: 26px; width: 8px; height: 2px; background: var(--gold); }
+.hw-n { display: inline-flex; width: 30px; height: 30px; align-items: center; justify-content: center; font: 900 18px var(--display); color: #14171d; background: var(--gold);
+  clip-path: polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%); margin-bottom: 8px; }
+.hw-step b { display: block; font: 800 20px var(--display); margin-bottom: 4px; } .hw-step p { margin: 0; font-size: 14px; color: #c3cad6; }
+.hw-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 6px 0 10px; }
+.hw-stats div { background: var(--paper); border: 1px solid var(--rule); padding: 10px 12px; border-radius: 2px; }
+.hw-stats b { display: block; font: 900 32px/1 var(--display); } .hw-stats span { font-size: 13px; color: var(--quiet); }
+.tech { margin: 18px 0; } .tech > summary { cursor: pointer; font: 800 19px var(--display); color: #7fb0ff; padding: 10px 0; }
+@media (max-width: 760px) { .hw, .hw-stats { grid-template-columns: 1fr 1fr; } .hw-step::after { display: none; } }
+.empty a { display: inline-block; margin-top: 8px; }
