@@ -30,10 +30,10 @@ TRAIN_HALF_LIFE_YEARS = 3     # recent fights weigh more (3 beat 6 and equal wei
 # ---- Picks ------------------------------------------------------------------
 EDGE = 0.03                   # pick only when the final chance beats the fair line by this much (0.03 = 3 points)
 BIG_EDGE = 0.10               # edges this big usually mean news the model can't see: labelled "check the news"
-MIN_BOOKS = 2                 # need lines from at least this many books before trusting the median
+MIN_BOOKS = 2                 # need lines from at least this many books before trusting the average
 
 # ---- Our picks: the selective, high-confidence subset of value picks -------------
-# Chosen on 2018-2023 and checked on 2024-2026 (see the How it works page). Heavy favorites
+# Chosen on 2018-2023, checked on 2024-2026, then widened to value favorites (below). Heavy favorites
 # stay in: value picks at -250 or shorter won about 80% of the time and were the most
 # profitable group in both periods. Set OUR_PICKS_MAX_FAVORITE to e.g. -300 to exclude them.
 OUR_PICKS_MIN_EDGE = 0.03     # beats the fair line by 3+ points (same as value picks)

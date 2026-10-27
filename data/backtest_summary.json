@@ -50,16 +50,16 @@
   {
    "features": "all",
    "learner": "boost",
-   "log_loss": 0.6572,
-   "brier": 0.2325,
-   "accuracy": 0.6096
+   "log_loss": 0.6577,
+   "brier": 0.2327,
+   "accuracy": 0.6098
   },
   {
    "features": "all",
    "learner": "blend",
-   "log_loss": 0.6503,
-   "brier": 0.2293,
-   "accuracy": 0.6219
+   "log_loss": 0.6506,
+   "brier": 0.2294,
+   "accuracy": 0.62
   }
  ],
  "stage2": [

@@ -8,7 +8,7 @@ Website: **https://jono-bit-trade.github.io/jonos-ufc-picks/** (live once setup 
 
 ## One-time setup (about 5 minutes)
 
-1. **Add your Odds API key as a secret.** Get a free key at https://the-odds-api.com. In this repository go to **Settings → Secrets and variables → Actions → New repository secret**. Name: `ODDS_API_KEY`. Value: your key. Without it the site still works, using ESPN's lines (one book instead of the median of every US book).
+1. **Add your Odds API key as a secret.** Get a free key at https://the-odds-api.com. In this repository go to **Settings → Secrets and variables → Actions → New repository secret**. Name: `ODDS_API_KEY`. Value: your key. Without it the site still works, using ESPN's lines (one book instead of the average of every US book).
 2. **Turn on the website.** Go to **Settings → Pages**. Under "Build and deployment", set Source to **Deploy from a branch**, Branch to **main**, folder **/docs**, then **Save**.
 3. **Run it for the first time.** Go to the **Actions** tab, choose **fight-week**, then **Run workflow**. It takes about 5 minutes. When it finishes, the website shows the next card.
 4. **History backfill (done; keeps itself current).** The **backfill-history** workflow runs every weekday morning. It adds ESPN's newest past cards, each bout's fight stats and every sportsbook's opening and closing line, and about 180 fighters' UFC.com career stats. Each run picks up where the last stopped. To start it now: Actions → backfill-history → Run workflow.
@@ -30,10 +30,12 @@ Once a fight starts, its prediction is frozen, so the record is always graded on
 | Source | Key | What it gives | Script |
 | --- | --- | --- | --- |
 | ESPN UFC scoreboard | None | The card, bout order, weight class, rounds, live status, results, ESPN's moneylines | `src/espn.py` |
-| The Odds API | `ODDS_API_KEY` (free: 500 credits a month, about 60 used) | Every US book's moneyline: median, best price, line history | `src/get_odds.py` |
+| The Odds API | `ODDS_API_KEY` (free: 500 credits a month, about 60 used) | Every US book's moneyline: average price, best price, line history | `src/get_odds.py` |
 | ESPN core API (history backfill) | None | Per-fight strikes, takedowns, control time, submission attempts; every book's opening and closing line | `src/espn_backfill.py`, `src/import_espn_stats.py` |
 | UFC.com athlete pages | None | Career stats incl. takedown defense, for the fighter pages, matchups and grappling flags (15 s between requests, per robots.txt) | `src/ufc_athletes.py` |
 | SplitPicks | None | Which analysts picked which fighter, with confidence, for every card since April 2026 | `src/splitpicks.py`, tested by `src/expert_analysis.py` |
+| DraftKings Network splits | None | Share of money and of bets on each fighter, logged every run (history starts Oct 2026) | `src/dk_splits.py` |
+| ESPN upcoming cards | None | When each bout first appears and its weight class, for short-notice and missed-weight tests (log starts Oct 2026) | `src/card_log.py` |
 | ESPN photos | None | Fighter headshots, linked from ESPN by athlete id | `src/site_data.py` |
 | Ultimate UFC Dataset | None | 7,000+ fights since 2010 with closing odds, for training and the backtest | `src/get_data.py` |
 | ESPN past cards (history backfill) | None | Results and ESPN's lines for every card since 2020 | `src/espn.py --history` |
@@ -59,7 +61,8 @@ Committing that file reruns the picks straight away.
 | Ratings | `src/ratings.py` | Glicko-2 ratings; wins count by how they happened (a split decision moves ratings less than a KO) |
 | Features | `src/features.py` | Ratings, age, reach, height, experience, form, finishing rates, durability. Style stats (strikes, takedowns, control) are built too, but tested and left out: the line already prices them |
 | Model | `src/model.py` | Logistic regression on ratings + form (pinned in `config.py`), then a blend with the closing line that also adjusts for long layoffs and +300 underdogs |
-| Picks | `src/picks.py` | Value pick: 3+ points over the line. Our pick: a value pick on the favorite or a 70%+ chance (no underdog past +150), or an expert lean: a close fight (line 40-60%) where 65%+ of 5+ analysts agree |
+| Picks | `src/picks.py` | Value pick: 3+ points over the line. Our pick: a value pick on the favorite or a 70%+ chance (no underdog past +150), or an expert lean: a close fight (line 40-60%) where 65%+ of 5+ analysts agree; none when both fighters debut. Suggested stake by price: 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter |
+| Grading | `src/site_data.py` | Every pick graded at the average sportsbook's closing line (3+ books where available), never the best price |
 | Backtest | `src/backtest.py` | Replays 2016 onward year by year using only earlier fights; once opening lines are in, also tests betting at the opening line and how often the line moves toward the pick |
 | Site | `src/predict.py`, `docs/` | The card, rankings, record and backtest pages |
 

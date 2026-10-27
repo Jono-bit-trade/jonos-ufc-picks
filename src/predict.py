@@ -2,7 +2,7 @@
 
 Card, best source first: ESPN live feed (espn.py) -> whatever The Odds API lists in
 the next few days.
-Lines: The Odds API median across books, else ESPN's line (get_odds.py).
+Lines: The Odds API average across books, else ESPN's line (get_odds.py).
 
 Once a fight starts, its prediction is frozen: the site keeps showing the last
 pre-fight numbers next to the live status and result.

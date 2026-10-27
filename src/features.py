@@ -189,7 +189,7 @@ def build(fights, upcoming=None, glicko=None):
             "southpaw_a": int(str(f.stance_a) == "Southpaw"),
             "southpaw_b": int(str(f.stance_b) == "Southpaw"),
         }
-        # STYLE: per-minute rates from earlier scraped fight stats (blank until you backfill)
+        # STYLE: per-minute rates from earlier ESPN fight stats (built, tested, not used: config.PINNED_FEATURES)
         ya, yb = ha.style(), hb.style()
         for k in ["slpm", "sapm", "td15", "td_def", "ctrl_share", "kd15", "sub15", "trend"]:
             row[f"{k}_diff"] = (ya[k] - yb[k]) if (ya and yb) else np.nan

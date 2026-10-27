@@ -1,6 +1,6 @@
 """Per-fight stats and lines for every past bout, from ESPN's open core API (no key).
 
-UFCStats now shows automated visitors a browser check, so this replaces it as the
+UFCStats shows automated visitors a browser check, so ESPN is the
 source of strike, takedown and control-time stats. For every bout in
 data/espn_history.csv it fetches:
   - each fighter's fight statistics   -> data/espn_stats_long.csv.gz (fight, fighter, stat, value)
