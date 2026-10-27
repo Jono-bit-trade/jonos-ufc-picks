@@ -1,621 +1,1555 @@
 name,espn_id,country,iso,source
-Renato Moicano,,Brazil,br,ufc.com birthplace
-Ode' Osbourne,,Jamaica,jm,ufc.com birthplace
-Yana Santos,,Russia,ru,ufc.com birthplace
-Jean-Paul Lebosnoyani,,USA,us,ufc.com birthplace
-Francis Marshall,,USA,us,ufc.com birthplace
-Azamat Bekoev,,Russia,ru,ufc.com birthplace
-Rodrigo Sezinando,,Brazil,br,ufc.com birthplace
-Julian Erosa,,USA,us,ufc.com birthplace
-Nick Klein,,USA,us,ufc.com birthplace
-Talita Alencar,,Brazil,br,ufc.com birthplace
-Randy Brown,,Jamaica,jm,ufc.com birthplace
-Zach Reese,,USA,us,ufc.com birthplace
-Tom Nolan,,Australia,au,ufc.com birthplace
-Cody Durden,,USA,us,ufc.com birthplace
-Luana Santos,,Brazil,br,ufc.com birthplace
-Farman Hasanov,,Azerbaijan,az,ufc.com birthplace
-Dakota Hope,,USA,us,ufc.com birthplace
-Andre Petroski,,USA,us,ufc.com birthplace
-Theodor Berggren,,Sweden,se,ufc.com birthplace
-JeongYeong Lee,,South Korea,kr,ufc.com birthplace
-Piera Rodriguez,,Venezuela,ve,ufc.com birthplace
-Jacobe Smith,,USA,us,ufc.com birthplace
-Tainara Lisboa,,Brazil,br,ufc.com birthplace
-Mickey Gall,,USA,us,ufc.com birthplace
-Petr Yan,,Russia,ru,ufc.com birthplace
-Bolaji Oki,,Belgium,be,ufc.com birthplace
-Aaron Pico,,USA,us,ufc.com birthplace
-Abubakar Vagaev,,Russia,ru,ufc.com birthplace
-Abus Magomedov,,Russia,ru,ufc.com birthplace
-Alexander Volkanovski,,Australia,au,ufc.com birthplace
-Azamat Murzakanov,,Russia,ru,ufc.com birthplace
-Alexander Volkov,,Russia,ru,ufc.com birthplace
-Colby Thicknesse,,Australia,au,ufc.com birthplace
-Grant Dawson,,USA,us,ufc.com birthplace
-Iasmin Lucindo,,Brazil,br,ufc.com birthplace
-Kody Steele,,USA,us,ufc.com birthplace
-Lone'er Kavanagh,,England,gb-eng,ufc.com birthplace
-Nikita Krylov,,Ukraine,ua,ufc.com birthplace
-Katlyn Cerminara,,USA,us,ufc.com birthplace
-Chad Anheliger,,Canada,ca,ufc.com birthplace
-Cody Chovancek,,Canada,ca,ufc.com birthplace
-Erin Blanchfield,,USA,us,ufc.com birthplace
-Javad Mahjoub,,Iran,ir,ufc.com birthplace
-Joaquin Buckley,,USA,us,ufc.com birthplace
-Julien LeBlanc,,Canada,ca,ufc.com birthplace
-Melissa Croden,,Canada,ca,ufc.com birthplace
-Kyle Nelson,,Canada,ca,ufc.com birthplace
-Louis Jourdain,,Canada,ca,ufc.com birthplace
-Mandel Nallo,,Canada,ca,ufc.com birthplace
-Marc-Andre Barriault,,Canada,ca,ufc.com birthplace
-Tanner Boser,,Canada,ca,ufc.com birthplace
-Francisco Prado,,Argentina,ar,ufc.com birthplace
-Alice Pereira,,Brazil,br,ufc.com birthplace
-Allen Frye Jr.,,USA,us,ufc.com birthplace
-Andre Fili,,USA,us,ufc.com birthplace
-Felipe Franco,,Brazil,br,ufc.com birthplace
-Brendan Allen,,USA,us,ufc.com birthplace
-Julius Walker,,USA,us,ufc.com birthplace
-Malcolm Wellmaker,,USA,us,ufc.com birthplace
-Matheus Camilo,,Brazil,br,ufc.com birthplace
-Niko Price,,USA,us,ufc.com birthplace
+Renato Moicano,3028863,Brazil,br,espn
+Randy Brown,3960071,Jamaica,jm,espn
+Ode' Osbourne,4424224,Jamaica,jm,espn
+Yana Santos,3154898,Russia,ru,espn
+Jean-Paul Lebosnoyani,4629138,USA,us,espn
+Francis Marshall,5060394,USA,us,espn
+Azamat Bekoev,5123963,Russia,ru,espn
+Rodrigo Sezinando,5289853,Brazil,br,espn
+Julian Erosa,3955577,USA,us,espn
+Nick Klein,5134399,USA,us,espn
+Talita Alencar,5139556,Brazil,br,espn
+Lucia Szabová,5130185,Slovakia,sk,espn
+Zach Reese,5143223,USA,us,espn
+Tom Nolan,5144007,Australia,au,espn
+Jacobe Smith,5149961,USA,us,espn
+Cody Durden,4686725,USA,us,espn
+Luana Santos,5110469,Brazil,br,espn
+Farman Hasanov,5350562,Azerbaijan,az,espn
+Dakota Hope,4898914,USA,us,espn
+Andre Petroski,4697476,USA,us,espn
+Theodor Berggren,5085010,Sweden,se,espn
+JeongYeong Lee,5068724,South Korea,kr,espn
+Joe Kropschot,4687604,USA,us,espn
+Piera Rodriguez,4816066,Venezuela,ve,espn
+Tainara Lisboa,4418809,Brazil,br,espn
+Mickey Gall,3960470,USA,us,espn
+Nicolle Caliari,4239113,Brazil,br,espn
+Iasmin Lucindo,5080935,Brazil,br,espn
+Noah Gugnon,5145777,France,fr,espn
+Kody Steele,5212351,USA,us,espn
+Daniel Santos,4881997,Brazil,br,espn
+Bolaji Oki,5145682,Belgium,be,espn
+Abubakar Vagaev,3960340,Russia,ru,espn
+Jacob Malkoun,4687434,Australia,au,espn
+Colby Thicknesse,5264462,Australia,au,espn
+Asaf Chopurov,5454811,Russia,ru,espn
+Grant Dawson,3931156,USA,us,espn
+Nurullo Aliev,5092398,Tajikistan,tj,espn
+Abus Magomedov,3077822,Germany,de,espn
+Cam Rowston,4694832,Australia,au,espn
+Nikita Krylov,3026263,Russia,ru,espn
+Abdul-Rakhman Yakhyaev,5291025,Türkiye,tr,espn
+Azamat Murzakanov,4227265,Russia,ru,espn
+Dominick Reyes,4233039,USA,us,espn
+Aaron Pico,4199009,USA,us,espn
+Losene Keita,5192314,Belgium,be,espn
+Alexander Volkov,2993650,Russia,ru,espn
+Rizvan Kuniev,4001837,Russia,ru,espn
+Ramazan Temirov,4895691,Uzbekistan,uz,espn
+Lone'er Kavanagh,5147737,England,gb-eng,espn
+Merab Dvalishvili,3948572,Georgia,ge,espn
+Petr Yan,4293517,Russia,ru,espn
+Alexander Volkanovski,3949584,Australia,au,espn
+Movsar Evloev,4029275,Russia,ru,espn
+SuYoung You,5044361,South Korea,kr,espn
+Cody Chovancek,5282412,Canada,ca,espn
+Chelsea Chandler,4319785,USA,us,espn
+Melissa Croden,4947922,Canada,ca,espn
+Chad Anheliger,4816062,Canada,ca,espn
+Steven Koslow,5119740,USA,us,espn
+Katlyn Cerminara,4026490,USA,us,espn
+Mackenzie Stiller,5130806,USA,us,espn
+Javad Mahjoub,5405986,Canada,ca,espn
+Joel Faglier,5454260,USA,us,espn
+Julien LeBlanc,4807973,Canada,ca,espn
+Nick Galanti,5296770,USA,us,espn
+Tanner Boser,4232775,Canada,ca,espn
+Jhonata Diniz,5145497,Brazil,br,espn
+Nate Landwehr,3821549,USA,us,espn
+Mandel Nallo,4063786,Canada,ca,espn
+Louis Jourdain,4877916,Canada,ca,espn
+Timmy Cuamba,5123311,USA,us,espn
+Kyle Daukaus,4329444,USA,us,espn
+Marc-Andre Barriault,4415883,Canada,ca,espn
+Kyle Nelson,4408436,Canada,ca,espn
+Cristian Pérez,5180489,Mexico,mx,espn
+Erin Blanchfield,4350796,USA,us,espn
+Jasmine Jasudavicius,4835135,Canada,ca,espn
+Mike Malott,3165120,Canada,ca,espn
+Joaquin Buckley,4024714,USA,us,espn
+Jason Asher,5454992,USA,us,espn
+Greg Foster,5455116,USA,us,espn
+Davi Cabral,5367388,Brazil,br,espn
+Douglas da Lapa,5401598,Brazil,br,espn
+Will Rentz,5310099,USA,us,espn
+Luis Francischinelli,5401060,Brazil,br,espn
+Aline Pereira,5110864,Brazil,br,espn
+Smilla Sundell,5402155,Sweden,se,espn
+Ilias Bulaid,4886803,Morocco,ma,espn
+Erick Visconde,5077314,Brazil,br,espn
+Melissa Gatto,4420893,Brazil,br,espn
+Ernesta Kareckaite,5149147,Lithuania,lt,espn
+Daria Zhelezniakova,4894780,Russia,ru,espn
+Alice Pereira,5261515,Brazil,br,espn
+Allen Frye Jr.,5327626,USA,us,espn
+RJ Harris,5369555,USA,us,espn
+Brendson Ribeiro,4379328,Brazil,br,espn
+Felipe Franco,5292014,Brazil,br,espn
+Niko Price,4077451,USA,us,espn
+Leon Shahbazyan,4423215,Armenia,am,espn
+Ismael Bonfim,3093513,Brazil,br,espn
+Francisco Prado,5123216,Argentina,ar,espn
+Gerald Meerschaert,2553261,USA,us,espn
+Julius Walker,5264398,USA,us,espn
+Otari Tanzilovi,5212853,Georgia,ge,espn
+Malcolm Wellmaker,5212854,USA,us,espn
+Andre Fili,3074464,USA,us,espn
+Kai Kamaka III,4688447,USA,us,espn
+Ketlen Souza,4566308,Brazil,br,espn
+Loopy Godínez,4700617,Mexico,mx,espn
+Jai Herbert,4078246,England,gb-eng,espn
+Matheus Camilo,5170144,Brazil,br,espn
+Brendan Allen,4025699,Brazil,br,espn
+Christian Leroy Duncan,4848674,England,gb-eng,espn
+Alivia Bierley,5369445,USA,us,espn
+Summer Onley,5397622,England,gb-eng,espn
+Mateus Soares,5308528,Brazil,br,espn
+Ryuho Miyaguchi,5361793,Japan,jp,espn
+Roque Conceição,5310567,Brazil,br,espn
+Alexander Chavez,5455115,Peru,pe,espn
+Salhahuddin Everett,5392114,USA,us,espn
+Ozzy Martin,5392117,USA,us,espn
+Preston LaGrange,5350158,USA,us,espn
+Nell Ariano,5397620,France,fr,espn
+Court McGee,2504639,USA,us,espn
+Eric Nolan,5290958,USA,us,espn
+Marvin Vettori,4001851,Italy,it,espn
+Ismail Naurdiev,4412813,Morocco,ma,espn
+Rafael Dos Anjos,2335687,Brazil,br,espn
+Alexander Hernandez,4018757,USA,us,espn
+Bruce Whitehead,5311402,USA,us,espn
+Johnny Walker,3146944,Brazil,br,espn
+Mick Parkin,5060505,England,gb-eng,espn
+Anthony Wint,3128853,USA,us,espn
+Lucas Armand,5450121,USA,us,espn
+Anthony Romero,4684470,Canada,ca,espn
+Marcus McGhee,4895760,USA,us,espn
+Andrey Pulyaev,5211225,Russia,ru,espn
+Damian Pinas,5292022,Aruba,aw,espn
+Alden Coria,5099732,USA,us,espn
+Imanol Rodriguez,5289578,Mexico,mx,espn
+Roman Kopylov,4300149,Russia,ru,espn
+Ateba Gautier,5218421,Cameroon,cm,espn
+Roberto Soldić,4274796,Croatia,hr,espn
+Khaos Williams,4612580,USA,us,espn
+King Green,2502364,USA,us,espn
+Esteban Ribovics,5074131,Argentina,ar,espn
+Deiveson Figueiredo,4189320,Brazil,br,espn
+Payton Talbott,5144008,USA,us,espn
+Natalia Silva,4054605,Brazil,br,espn
+Wang Cong,4215200,China,cn,espn
+Camila Reynoso,5345644,Argentina,ar,espn
+Aieza Bertolso,5401056,Brazil,br,espn
+Luca Borando,5311705,Italy,it,espn
+Ian Escuza,5401057,Peru,pe,espn
+Zaurbek Sabanov,5369436,Russia,ru,espn
+Adama Diop,5369444,Senegal,sn,espn
+George Staines,5401045,England,gb-eng,espn
+Loai Abushaar,5401059,USA,us,espn
+Vanessa Demopoulos,4683395,USA,us,espn
+Yazmin Jauregui,5063403,Mexico,mx,espn
+Alatengheili,3154389,China,cn,espn
+John Castaneda,4063869,USA,us,espn
+Ricky Simon,3922491,USA,us,espn
+Montel Jackson,4339130,USA,us,espn
+Elves Brener,5110006,Brazil,br,espn
+Josiah Harrell,5149546,USA,us,espn
+Christian Edwards,4799517,USA,us,espn
+Rodolfo Bellato,5060489,Brazil,br,espn
+Robert Bryczek,4341572,Poland,pl,espn
+Rodolfo Vieira,4426250,Brazil,br,espn
+Brady Hiestand,4815974,USA,us,espn
+Rinya Nakamura,5068624,Japan,jp,espn
+Tina Black,4836549,Brazil,br,espn
+Melissa Amaya,5169699,USA,us,espn
+Ilimbek Akylbek Uulu,5345639,Kyrgyzstan,kg,espn
+Mehemmedeli Osmanli,5345640,Azerbaijan,az,espn
+Sedriques Dumas,5060467,USA,us,espn
+Luis Hernandez,5369427,USA,us,espn
+Norma Dumont,4418784,Brazil,br,espn
+Ailin Perez,5075333,Argentina,ar,espn
+Raoni Barcelos,3075570,Brazil,br,espn
+Raul Rosas Jr.,5088844,Mexico,mx,espn
+Damian Piwowarczyk,5122908,Poland,pl,espn
+Emilio Quissua,5369434,Germany,de,espn
+Callum Connor,5369733,England,gb-eng,espn
+Piero Guaylupo,5369736,Peru,pe,espn
+Paris Moran,5060520,USA,us,espn
+Marcos Degli,5143890,Brazil,br,espn
+Jaden Ortega,5310774,USA,us,espn
+Alvi Dasuyev,5369732,Belgium,be,espn
+Norbert Növényi Jr.,4588646,Hungary,hu,espn
+Theo Haig,4977642,USA,us,espn
+Giga Chikadze,3957071,Georgia,ge,espn
+Joanderson Brito,4422355,Brazil,br,espn
+Casey O'Neill,4699589,Australia,au,espn
+Eduarda Moura,5143888,Brazil,br,espn
+Edmen Shahbazyan,4354318,USA,us,espn
+Brunno Ferreira,5077131,Brazil,br,espn
+Ozzy Diaz,4944080,USA,us,espn
+Ryan Gandra,5291085,Brazil,br,espn
+Michael Aswell,5212738,USA,us,espn
+JooSang Yoo,5282139,South Korea,kr,espn
+Tai Tuivasa,3722422,Australia,au,espn
+Robelis Despaigne,5189560,Cuba,cu,espn
+Marlon Vera,3155424,Ecuador,ec,espn
+Charles Jourdain,4421978,Canada,ca,espn
+Alonzo Menifield,3948876,USA,us,espn
+Iwo Baraniewski,5307810,Poland,pl,espn
+Gable Steveson,5214652,USA,us,espn
+Sean Sharaf,5240957,USA,us,espn
+Patricio Pitbull,2532870,Brazil,br,espn
+Dooho Choi,3093026,South Korea,kr,espn
+Arman Tsarukyan,4419372,Armenia,am,espn
+Mauricio Ruffy,5122238,Brazil,br,espn
+Alexandre Pantoja,2560746,Brazil,br,espn
+Joshua Van,5120301,Myanmar,mm,espn
+Antonio Monteiro,5057385,Brazil,br,espn
+Tyshawn Williams,5369685,USA,us,espn
+Hugo Guillon,5369426,France,fr,espn
+Ednilson Santos,5113920,Brazil,br,espn
+Akbar Abdullaev,5210077,Kyrgyzstan,kg,espn
+Oscar Ravello,4872704,Peru,pe,espn
+Igor Cavalcanti,5214599,Brazil,br,espn
+Zevan Hunt,5369672,USA,us,espn
+Mayton Perea,5369676,Ecuador,ec,espn
+JJ Aldrich,3136289,USA,us,espn
+Regina Tarin,5338118,Mexico,mx,espn
+Jessie Rosas,5387599,Mexico,mx,espn
+Sean King III,5401058,USA,us,espn
+Rafa Garcia,4690549,Mexico,mx,espn
+Rongzhu,4773371,China,cn,espn
+Drakkar Klose,4079621,USA,us,espn
+Tommy Gantt,5307814,USA,us,espn
+Yousri Belgaroui,5149815,Netherlands,nl,espn
+Djorden Santos,5211247,Brazil,br,espn
+Muslim Salikhov,3132513,Russia,ru,espn
+Ignacio Bahamondes,4038116,Chile,cl,espn
+Tim Elliott,2614020,USA,us,espn
+Édgar Cháirez,5076027,Mexico,mx,espn
+Dan Ige,4074001,USA,us,espn
+David Martinez,4503229,Mexico,mx,espn
+Curtis Blaydes,3922557,USA,us,espn
+Waldo Cortes Acosta,4903365,Dominican Republic,do,espn
+Alexa Grasso,3136287,Mexico,mx,espn
+Manon Fiorot,4608674,France,fr,espn
+Tommy McMillen,5212849,USA,us,espn
+Marwan Rahiki,5302274,Morocco,ma,espn
+Brandon Moreno,3027545,Mexico,mx,espn
+Joseph Morales,4238229,USA,us,espn
+Jean Silva,5145766,Brazil,br,espn
+Jose Miguel Delgado,5223435,Mexico,mx,espn
+Colton Loud,5362761,USA,us,espn
+Christian Natividad,5445622,USA,us,espn
+Kwon Won Il,4907790,South Korea,kr,espn
+Apollo Gomes,5369425,Brazil,br,espn
+Christian Echols,4816065,USA,us,espn
+Martin Kozák,5364366,Slovakia,sk,espn
+Isaac Moreno,5264395,USA,us,espn
+Reginaldo Junior,5291155,Brazil,br,espn
+Quentin Pasley,5307124,USA,us,espn
+Arlind Berisha,5369721,Albania,al,espn
+Sofia Montenegro,5308770,Argentina,ar,espn
+Delphine Benouaich,5345643,France,fr,espn
+Luis Felipe Dias,4693161,Brazil,br,espn
+Matthieu Letho Duclos,5013686,France,fr,espn
+Nora Cornolle,4916974,France,fr,espn
+Klaudia Syguła,5122175,Poland,pl,espn
+Michael Aljarouj,5142304,France,fr,espn
+Fabia Sintes,5401055,Spain,es,espn
+Nathaniel Wood,3950354,England,gb-eng,espn
+Pavel Andrusca,5445620,Moldova,md,espn
+Modestas Bukauskas,4279621,Lithuania,lt,espn
+Oumar Sy,5074120,France,fr,espn
+Ryan Spann,3887606,USA,us,espn
+Mario Pinto,5218817,Portugal,pt,espn
+Morgan Charrière,4324622,France,fr,espn
+Felipe Lima,5101694,Brazil,br,espn
+Muhammad Naimov,4690540,Tajikistan,tj,espn
+Trevor Peek,5048900,USA,us,espn
+Kurtis Campbell,5310075,England,gb-eng,espn
+Punahele Soriano,4423214,USA,us,espn
+Daniil Donchenko,5289841,Ukraine,ua,espn
+Michael Page,3022067,default,,espn
+Nursulton Ruziboev,4422103,Uzbekistan,uz,espn
+Farés Ziam,4083018,France,fr,espn
+Axel Sola,5245078,France,fr,espn
+Dan Hooker,3109135,New Zealand,nz,espn
+Salahdine Parnasse,4312859,France,fr,espn
+Adam Livingston,5307815,USA,us,espn
+Hunter Smith,5364357,USA,us,espn
+Gabriel Lorenço,5215710,Brazil,br,espn
+Charlie Cleveland,5369424,USA,us,espn
+Liam McCracken,5125221,England,gb-eng,espn
+Silvestre Sanchez,5369437,Mexico,mx,espn
+Brandon Holmes,5296762,USA,us,espn
+Modestino Rodrigues,5364355,Brazil,br,espn
+Patrick Rivera,4791642,USA,us,espn
+Adam Darby,5369446,Ireland,ie,espn
+Ding Meng,4813565,China,cn,espn
+Cam Nelson,5393007,Canada,ca,espn
+Jingnan Xiong,3956295,China,cn,espn
+Julia Polastri,4686723,Brazil,br,espn
+Lawrence Lui,5220183,New Zealand,nz,espn
+Hector Santiago,5401062,Brazil,br,espn
+Xiao Long,4894864,China,cn,espn
+Francesco Nuzzi,5080560,Italy,it,espn
+Sean Woodson,4566991,USA,us,espn
+Jack Jenkins,5088885,Australia,au,espn
+Rei Tsuruya,5137012,Japan,jp,espn
+Kevin Borjas,5144066,Peru,pe,espn
+Namsrai Batbayar,5145018,Mongolia,mn,espn
+Andre Lima,5157669,Brazil,br,espn
+Bilal Hasan,5264405,Indonesia,id,espn
+Nilson Rojas,5399264,Chile,cl,espn
+Liu Ce,5292011,China,cn,espn
+Levi Rodrigues Jr.,5312089,Brazil,br,espn
+Alex Perez,3155425,USA,us,espn
+Sumudaerji,4405109,China,cn,espn
+Kai Asakura,4336757,Japan,jp,espn
+Aoriqileng,4389085,China,cn,espn
+Yan Xiaonan,4275487,China,cn,espn
+Denise Gomes,4963343,Brazil,br,espn
+Song Yadong,3151289,China,cn,espn
+Umar Nurmagomedov,4569549,Russia,ru,espn
+Carlos Petruzzella,5264647,Argentina,ar,espn
+Ronald Humphrey,5361909,USA,us,espn
+Alexis Miranda,5364354,Mexico,mx,espn
+Gary Balletto,4351084,USA,us,espn
+Sean Clancy Jr.,5364353,Scotland,gb-sct,espn
+Mario Piazzon,5149190,Brazil,br,espn
+Guilherme Uriel,5220468,Brazil,br,espn
+Bella Mir,5369428,USA,us,espn
+Alex Apodaca,5394582,USA,us,espn
+Elise Reed,4836482,USA,us,espn
+Shanelle Dyer,5157674,England,gb-eng,espn
+Wes Schultz,5057023,USA,us,espn
+Jackson McVey,5291733,USA,us,espn
+Gauge Young,5085318,USA,us,espn
+Stan Dorsainvil,5397038,Haiti,ht,espn
+Marcio Barbosa,5099679,Brazil,br,espn
+Ryan Kuse,5243186,USA,us,espn
+Chris Padilla,3163772,USA,us,espn
+Nasrat Haqparast,4277795,Morocco,ma,espn
+Kennedy Nzechukwu,4245094,Nigeria,ng,espn
+Shamil Gaziev,5145498,Bahrain,bh,espn
+Jamall Emmers,3915502,USA,us,espn
+Lerryan Douglas,4958170,Brazil,br,espn
+Terrance Chatman,5397621,USA,us,espn
+Carli Judice,5172179,USA,us,espn
+Jeisla Chaves,5308769,Brazil,br,espn
+Mason Jones,4419470,Wales,gb-wls,espn
+MarQuel Mederos,5157668,USA,us,espn
+Roman Dolidze,4411508,Georgia,ge,espn
+Reinier de Ridder,4423880,Netherlands,nl,espn
+Serghei Spivac,4421246,Moldova,md,espn
+Vitor Petrino,5060483,Brazil,br,espn
+Anthony Hernandez,4290956,USA,us,espn
+Gregory Rodrigues,4690541,Brazil,br,espn
+Roman Puga,5116187,USA,us,espn
+Taner Trembley,5369439,USA,us,espn
+Alik Lorenz,5220971,USA,us,espn
+Mahamed Aly,5307811,Brazil,br,espn
+Logan Paxton,5139609,USA,us,espn
+Trent Miller,5216997,USA,us,espn
+Douglas Rodrigues,5369435,Brazil,br,espn
+Kaik Brito,5056138,Brazil,br,espn
+Namo Fazil,5215178,default,,espn
+Jeremiah Wells,3970873,USA,us,espn
+Myktybek Orolbai,5050129,Kyrgyzstan,kg,espn
+Neil Magny,3001914,USA,us,espn
+Ramiz Brahimaj,4297311,USA,us,espn
+Lucas Fernando,5119021,Brazil,br,espn
+Rafael Tobias,5308871,Brazil,br,espn
+Vicente Luque,3045887,Brazil,br,espn
+Tresean Gore,4815999,USA,us,espn
+Eric McConico,2478987,USA,us,espn
+Donte Johnson,5302831,USA,us,espn
+Charles Johnson,4375156,USA,us,espn
+Eduardo Chapolin,5150021,Brazil,br,espn
+Chidi Njokuani,2959422,USA,us,espn
+Joel Álvarez,4411888,Spain,es,espn
+Edson Barboza,2526299,Brazil,br,espn
+Dustin Stoltzfus,4685871,USA,us,espn
+Mansur Abdul-Malik,5211221,USA,us,espn
+Jalin Turner,4339490,USA,us,espn
+Kauê Fernandes,5172124,Brazil,br,espn
+Mackenzie Dern,4021217,Brazil,br,espn
+Gillian Robertson,4089026,Canada,ca,espn
+Islam Makhachev,3332412,Russia,ru,espn
+Ian Machado Garry,4738092,Ireland,ie,espn
+Jon Kunneman,5282317,USA,us,espn
+Tom Pagliarulo,5116823,USA,us,espn
+Ananias Mulumba,5310573,Democratic Republic of Congo,,espn
+Mridul Saikia,5277466,India,in,espn
+Abe Alsaghir,5364833,Lebanon,lb,espn
+Fabrizio Escarrega,5364834,Mexico,mx,espn
+Matt Adams,5364347,USA,us,espn
+Gigi Canuto,5097909,Brazil,br,espn
+Carol Foro,5278269,Brazil,br,espn
+Juliana Miller,4912582,USA,us,espn
+Ravena Oliveira,5159959,Brazil,br,espn
+Miles Johns,4010864,USA,us,espn
+Gianni Vazquez,4887310,Mexico,mx,espn
+Manoel Sousa,5085291,Brazil,br,espn
+Richie Miranda,5092208,USA,us,espn
+Louie Sutherland,5080572,England,gb-eng,espn
+José Montanha,5351808,Brazil,br,espn
+Bruno Lopes,4691323,Brazil,br,espn
+Diyar Nurgozhay,5213352,Kazakhstan,kz,espn
+Steven Asplund,5239615,USA,us,espn
+Guilherme Pat,5282610,Brazil,br,espn
+Billy Ray Goff,4706975,USA,us,espn
+Ty Miller,5290957,USA,us,espn
+Amanda Lemos,4233196,Brazil,br,espn
+Alexia Thainara,5075992,Brazil,br,espn
+Darren Elkins,2504168,USA,us,espn
+Yadier del Valle,5213179,Cuba,cu,espn
+Diego Ferreira,3026133,Brazil,br,espn
+Billy Quarantillo,3900088,USA,us,espn
+Mateusz Gamrot,3068125,Poland,pl,espn
+Quillan Salkilld,5157667,Australia,au,espn
+Stephanie Luciano,5145495,Brazil,br,espn
+Marina Spasić,5364788,Serbia,rs,espn
+Alexander Poppeck,4064714,Germany,de,espn
+Jovan Leka,5312090,Serbia,rs,espn
+Hailey Cowan,4374742,USA,us,espn
+Nina Milošević,5361791,Serbia,rs,espn
+Kyle Prepolec,3084914,Canada,ca,espn
+Mateusz Rębecki,4689965,Poland,pl,espn
+Dennis Buzukja,4686735,USA,us,espn
+Bogdan Grad,5144006,Austria,at,espn
+Borislav Nikolic,5131951,Serbia,rs,espn
+Mark Vologdin,5310571,Russia,ru,espn
+Oban Elliott,4900808,Wales,gb-wls,espn
+Michael Oliveira,5282411,Brazil,br,espn
+Ludovit Klein,4193694,Slovakia,sk,espn
+Tofiq Musayev,4423264,Azerbaijan,az,espn
+Milos Janicic,4708540,Montenegro,me,espn
+Gilbert Urbina,4375574,USA,us,espn
+Vlasto Čepo,5351430,Serbia,rs,espn
+Duško Todorović,4421517,Serbia,rs,espn
+Robert Valentin,4686237,Switzerland,ch,espn
+Marcin Tybura,3093559,Poland,pl,espn
+Aleksandar Rakic,4079314,Serbia,rs,espn
+Jan Blachowicz,2506250,Poland,pl,espn
+Navajo Stirling,5216713,New Zealand,nz,espn
+Daniel Rodriguez,4426312,USA,us,espn
+Uroš Medić,4685870,Serbia,rs,espn
+Cody Gibson,2591306,USA,us,espn
+Abdul Hussein,4905308,Finland,fi,espn
+Mike Davis,4339145,USA,us,espn
+Magomed Tuchalov,5360467,Russia,ru,espn
+Santiago Ponzinibbio,3043484,Argentina,ar,espn
+Sam Patterson,5088916,England,gb-eng,espn
+Dustin Jacoby,2594871,USA,us,espn
+Muhammad Said,5369438,Russia,ru,espn
+Thomas Petersen,4869702,USA,us,espn
+Valter Walker,5147389,Brazil,br,espn
+Saygid Izagakhmaev,4276646,Russia,ru,espn
+Tyrell Fortune,4065006,USA,us,espn
+Magomed Zaynukov,5311034,Russia,ru,espn
+Damian Rzepecki,5364334,Poland,pl,espn
+Steve Erceg,4997217,Australia,au,espn
+Magomed Ankalaev,4273399,Russia,ru,espn
+Bogdan Guskov,5152109,Uzbekistan,uz,espn
+Dione Barbosa,4801725,Brazil,br,espn
+Anna Melisano,5334916,USA,us,espn
+Alvin Hines,5229339,USA,us,espn
+Stewart Nicoll,5218177,Australia,au,espn
+Damien Anderson,5369722,USA,us,espn
+Ezra Elliott,5369723,USA,us,espn
+Seokhyeon Ko,4701954,South Korea,kr,espn
+Austin Bashi,5120304,USA,us,espn
+Alberto Montes,4571450,Venezuela,ve,espn
+Tabatha Ricci,4868095,Brazil,br,espn
+Fatima Kline,5028019,USA,us,espn
+Chase Hooper,4354421,USA,us,espn
+Mitch Ramirez,4816283,USA,us,espn
+Jared Cannonier,3154860,USA,us,espn
+Kamaru Usman,3088812,Nigeria,ng,espn
+Dricus Du Plessis,3166126,South Africa,za,espn
+Alessandro Costa,5074121,Brazil,br,espn
+Farid Basharat,5016786,default,,espn
+John Garza,5369414,USA,us,espn
+Cesar Almeida,5144068,Brazil,br,espn
+Tracy Cortez,4243624,USA,us,espn
+Luke Riley,5146696,England,gb-eng,espn
+Cody Garbrandt,3163637,USA,us,espn
+Adrian Yañez,3998248,USA,us,espn
+Elisha Ellison,5293987,USA,us,espn
+Robert Whittaker,3009717,Australia,au,espn
+Terrance McKinney,4425604,USA,us,espn
+Brandon Royval,4239928,USA,us,espn
+Cory Sandhagen,4294504,USA,us,espn
+Mario Bautista,4410868,USA,us,espn
+Paddy Pimblett,4008549,England,gb-eng,espn
+Benoît Saint Denis,4895362,France,fr,espn
+Max Holloway,2614933,USA,us,espn
+Conor McGregor,3022677,Ireland,ie,espn
+Tahir Abdullayev,4394753,Azerbaijan,az,espn
+Jefferson Nascimento,5362725,Brazil,br,espn
+Jean Matsumoto,5149439,Brazil,br,espn
+Bekzat Almakhan,5196459,Kazakhstan,kz,espn
+Javier Reyes,4687104,Colombia,co,espn
+Kaan Ofli,5204223,Australia,au,espn
+Michal Oleksiejczuk,4012999,Poland,pl,espn
+Ikram Aliskerov,4684776,Russia,ru,espn
+Asu Almabayev,4294926,Kazakhstan,kz,espn
+Nazim Sadykhov,5074130,Azerbaijan,az,espn
+Michel Pereira,4418962,Brazil,br,espn
+Shara Magomedov,4421784,Russia,ru,espn
+Rafael Fiziev,4339488,Azerbaijan,az,espn
+Manuel Torres,4896616,Mexico,mx,espn
+Shane Collins,5362337,USA,us,espn
+Karol Rosa,4292349,Brazil,br,espn
+Levan Chokheli,4867651,Georgia,ge,espn
+Gaston Bolaños,4393818,Peru,pe,espn
+Allan Nascimento,3020408,Brazil,br,espn
+Mitch Raposo,4815978,USA,us,espn
+Melissa Mullins,5127984,England,gb-eng,espn
+Bia Mesquita,5310274,Brazil,br,espn
+Vinicius Oliveira,4884877,Brazil,br,espn
+Melsik Baghdasaryan,4686734,Armenia,am,espn
+Murtazali Magomedov,5308768,Kyrgyzstan,kg,espn
+Christian Rodriguez,4875511,USA,us,espn
+Hyder Amil,5027356,Philippines,ph,espn
+Ion Cutelaba,3994033,Moldova,md,espn
+Kyoji Horiguchi,2613374,Japan,jp,espn
+Manel Kape,4236504,Portugal,pt,espn
+Steve Garcia,3023804,USA,us,espn
+Diego Lopes,4881999,Brazil,br,espn
+Bo Nickal,5061870,USA,us,espn
+Michael Chandler,2504988,USA,us,espn
+Derrick Lewis,2560713,USA,us,espn
+Josh Hokit,4049391,USA,us,espn
+Aiemann Zahabi,4079149,Canada,ca,espn
+Sean O'Malley,4205093,USA,us,espn
+Ciryl Gane,4426000,France,fr,espn
+Alex Pereira,4705658,Brazil,br,espn
+Justin Gaethje,3022345,USA,us,espn
+Ilia Topuria,4350812,Georgia,ge,espn
+Ariane Carnelossi,4565903,Brazil,br,espn
+Yuneisy Duben,5211223,Venezuela,ve,espn
+Jordan Leavitt,4686565,USA,us,espn
+Priscila Cachoeira,4277049,Brazil,br,espn
+Bruno Silva,3895544,Brazil,br,espn
+John Yannis,5145575,USA,us,espn
+Matt Schnell,2994349,USA,us,espn
+Junior Tafa,5122234,Australia,au,espn
+Bryce Mitchell,3953381,USA,us,espn
+Santiago Luna,5307799,Mexico,mx,espn
+Belal Muhammad,3172112,Palestine,ps,espn
+Gabriel Bonfim,4921516,Brazil,br,espn
+Loma Lookboonmee,4292347,Thailand,th,espn
+Jaqueline Amorim,4901883,Brazil,br,espn
+Rodrigo Vera,4422430,Peru,pe,espn
+Zhu Kangjie,5145405,China,cn,espn
+Angela Hill,3115931,USA,us,espn
+Luis Gurule,5218137,USA,us,espn
+Cody Haddon,5001014,Australia,au,espn
+Jose Henrique,5080485,Brazil,br,espn
+Yi Sak Lee,5341761,South Korea,kr,espn
+Jake Matthews,3089915,Australia,au,espn
+Carlston Harris,3901011,Guyana,gy,espn
+Cameron Smotherman,5144320,USA,us,espn
+Sergei Pavlovich,4217395,Russia,ru,espn
+Tallison Teixeira,5212856,Brazil,br,espn
+Zhang Mingyang,4845284,China,cn,espn
+Shauna Bannon,5102627,Ireland,ie,espn
+Daniel Barez,4236496,Spain,es,espn
+Alice Ardelean,3977988,Romania,ro,espn
+Polyana Viana,4227055,Brazil,br,espn
+Cody Brundage,4684474,USA,us,espn
+Ketlen Vieira,4039865,Brazil,br,espn
+Jacqueline Cavalcanti,4916251,Portugal,pt,espn
+Artur Minev,5350560,Ukraine,ua,espn
+Tuco Tokkos,4410698,England,gb-eng,espn
+Ivan Erslan,4698417,Croatia,hr,espn
+Nikolay Veretennikov,4700616,Kazakhstan,kz,espn
+Bernardo Sopaj,5080883,Albania,al,espn
+Juan Diaz,5310574,Peru,pe,espn
+Arnold Allen,3902098,England,gb-eng,espn
+Melquizael Costa,4425763,Brazil,br,espn
+Clayton Carpenter,4904998,USA,us,espn
+Jose Ochoa,5213200,Peru,pe,espn
+Baisangur Susurkaev,5296753,Russia,ru,espn
+Pat Sabatini,4085967,USA,us,espn
+William Gomis,4324623,Senegal,sn,espn
+Marco Tulio,5138111,Brazil,br,espn
+Jim Miller,2335718,USA,us,espn
+Jared Gordon,3894823,USA,us,espn
+Yaroslav Amosov,4275020,Ukraine,ua,espn
+Jeremy Stephens,2335673,USA,us,espn
+Sean Brady,4295192,USA,us,espn
+Tatsuro Taira,4917772,Japan,jp,espn
+Sean Strickland,3093653,USA,us,espn
+Khamzat Chimaev,4684751,United Arab Emirates,ae,espn
+Dom Mar Fan,5157806,Australia,au,espn
+Themba Gorimbo,4963269,Zimbabwe,zw,espn
+Jonathan Micallef,5236142,Australia,au,espn
+Ben Johnston,5344659,Australia,au,espn
+Vince Morales,4349153,USA,us,espn
+Kevin Christian,5216849,Brazil,br,espn
+Brando Peričić,5293988,Australia,au,espn
+Ollie Schmid,5346907,New Zealand,nz,espn
+Beneil Dariush,3085551,USA,us,espn
+Carlos Prates,4294832,Brazil,br,espn
+Jack Della Maddalena,4828707,Australia,au,espn
+Max Griffin,3040385,USA,us,espn
+Victor Valenzuela,5310564,Chile,cl,espn
+Lucas Brennan,4795284,USA,us,espn
+Jafel Filho,3896934,Brazil,br,espn
+Mayra Bueno Silva,4371001,Brazil,br,espn
+Michelle Montague,4916259,New Zealand,nz,espn
+Marcus Buchecha,4711604,Brazil,br,espn
+Davey Grant,3070984,England,gb-eng,espn
+Adrian Luna Martinetti,5310570,Ecuador,ec,espn
+Joselyne Edwards,4397782,Panama,pa,espn
+Aljamain Sterling,3031559,USA,us,espn
+Youssef Zalal,4351319,Morocco,ma,espn
+Jamie Siraj,4421489,Canada,ca,espn
+Jamey-Lyn Horth,4689227,Canada,ca,espn
+Gokhan Saricam,4588192,Türkiye,tr,espn
+Thiago Moisés,3955778,Brazil,br,espn
+Karine Silva,3309918,Brazil,br,espn
+Kyler Phillips,4237015,USA,us,espn
+Gilbert Burns,3090197,Brazil,br,espn
+Charles Radtke,4416297,USA,us,espn
+Kelvin Gastelum,3026011,USA,us,espn
+Tatiana Suarez,4020435,USA,us,espn
+Kevin Holland,3943695,USA,us,espn
+Cub Swanson,2354087,USA,us,espn
+Paulo Costa,4080826,Brazil,br,espn
+Jiří Procházka,3156612,Czechia,cz,espn
+Carlos Ulberg,4695736,New Zealand,nz,espn
+Lando Vannata,3949555,USA,us,espn
+Darrius Flowers,4358252,USA,us,espn
+Jose Delano,4969974,Brazil,br,espn
+Robert Ruchała,5100571,Poland,pl,espn
+Manolo Zecchini,5157247,Italy,it,espn
+Ethyn Ewing,4917037,USA,us,espn
+Rafael Estevam,5076593,Brazil,br,espn
+Virna Jandiroba,4289516,Brazil,br,espn
+Chris Duncan,4867356,Scotland,gb-sct,espn
+Bruna Brasil,4394200,Brazil,br,espn
+Gabriella Fernandes,4871203,Brazil,br,espn
+Lance Gibson Jr.,4687537,Canada,ca,espn
+Michael Chiesa,2960681,USA,us,espn
+Maycee Barber,4246307,USA,us,espn
+Israel Adesanya,4285679,Nigeria,ng,espn
+Joe Pyfer,4684135,USA,us,espn
+Abdul-Kareem Al-Selwady,4695485,Palestine,ps,espn
+Shem Rock,4913882,Ireland,ie,espn
+Antonio Trocoli,3955820,Brazil,br,espn
+Mantas Kondratavičius,5264925,Lithuania,lt,espn
+Danny Silva,4702589,USA,us,espn
+Austen Lane,2223033,USA,us,espn
+Lerone Murphy,4576101,England,gb-eng,espn
+Sam Hughes,4348673,USA,us,espn
+Luan Lacerda,4410005,Brazil,br,espn
+Hecher Sosa,5236383,Spain,es,espn
+Montse Rendon,5093484,Mexico,mx,espn
+Brad Tavares,2504643,USA,us,espn
+Eryk Anders,4082125,USA,us,espn
+Elijah Smith,5144797,USA,us,espn
+Chris Curtis,2984770,USA,us,espn
+Harry Hardwick,4396363,England,gb-eng,espn
+Josh Emmett,4011299,USA,us,espn
+Kevin Vallejos,5145681,Argentina,ar,espn
+Luke Fernandez,5310572,USA,us,espn
+Jesus Aguilar,5074274,Mexico,mx,espn
+Nyamjargal Tumendemberel,5140897,Mongolia,mn,espn
+Ricky Turcios,3928693,USA,us,espn
+Michael Johnson,2488476,USA,us,espn
+Drew Dober,2951202,USA,us,espn
+Rob Font,3090451,Puerto Rico,pr,espn
+Caio Borralho,4835137,Brazil,br,espn
+Charles Oliveira,2504169,Brazil,br,espn
+Erik Silva,5075335,Venezuela,ve,espn
+Douglas Silva de Andrade,3090893,Brazil,br,espn
+Kris Moutinho,4409219,USA,us,espn
+Cristian Quiñonez,4884868,Mexico,mx,espn
+Macy Chiasson,4334306,USA,us,espn
+Jose Daniel Medina,5157817,Bolivia,bo,espn
+Angel Pacheco,4893608,USA,us,espn
+Felipe Bunes,4916248,Brazil,br,espn
+Daniel Zellhuber,4863327,Mexico,mx,espn
+Phil Rowe,3924096,USA,us,espn
+Alibi Idiris,5264470,Kazakhstan,kz,espn
+Carlos Leal,3146349,Brazil,br,espn
+Ante Delija,3041315,Croatia,hr,espn
+Geoff Neal,3111997,USA,us,espn
+Muin Gafurov,3960072,Tajikistan,tj,espn
+Jakub Wikłacz,4371005,Poland,pl,espn
+Javid Basharat,4867357,England,gb-eng,espn
+Alex Morono,3088232,USA,us,espn
+Jailton Almeida,4873640,Brazil,br,espn
+Amir Albazi,4684848,Iraq,iq,espn
+Sulangrangbo,5278267,China,cn,espn
+Sebastian Szalay,5277351,Australia,au,espn
+Keiichiro Nakamura,5327937,Japan,jp,espn
+Sangwook Kim,5138448,South Korea,kr,espn
+Yizha,4894925,China,cn,espn
+Torrez Finney,4050996,USA,us,espn
+Billy Elekana,5078114,USA,us,espn
+Jamie Mullarkey,4064883,Australia,au,espn
+Adam Fugitt,4408375,USA,us,espn
+Denzel Freeman,4848646,USA,us,espn
+Rose Namajunas,3032973,USA,us,espn
+Tereza Bleda,5056144,Czechia,cz,espn
+Isaac Thomson,5210642,Australia,au,espn
+Cezary Oleksiejczuk,5216978,Poland,pl,espn
+Mairon Santos,4914573,Brazil,br,espn
+Ibo Aslan,4684240,Türkiye,tr,espn
+Henry Cejudo,3023388,USA,us,espn
+Marek Bujlo,5324401,Poland,pl,espn
+Ryan Loder,5204226,USA,us,espn
+Aleksandre Topuria,5185662,Georgia,ge,espn
+Raffael Cerqueira,5212598,Brazil,br,espn
+Nicolas Dalby,3026267,Denmark,dk,espn
+Tagir Ulanbekov,4294924,Russia,ru,espn
+Jack Hermansson,3074102,Norway,no,espn
+Volkan Oezdemir,3110836,Switzerland,ch,espn
+Viacheslav Borshchev,4877915,Russia,ru,espn
+Chepe Mariscal,4040926,USA,us,espn
+Leon Edwards,3152929,England,gb-eng,espn
+Michael Morales,4869426,Ecuador,ec,espn
+Valentina Shevchenko,2554705,Kyrgyzstan,kg,espn
+Zhang Weili,4350762,China,cn,espn
+Daniel Marcos,5088886,Peru,pe,espn
+Tecia Pennington,3032972,USA,us,espn
+Max Gimenis,5316622,Brazil,br,espn
+Montserrat Conejo Ruiz,4399703,Mexico,mx,espn
+ChangHo Lee,5137013,South Korea,kr,espn
+Daniel Frunza,5153082,Romania,ro,espn
+Isaac Dulgarian,4918083,USA,us,espn
+David Onama,4897850,Uganda,ug,espn
+Mizuki,3027998,Japan,jp,espn
+Azat Maksum,5141967,Kazakhstan,kz,espn
+Chris Barnett,2960757,Spain,es,espn
+Hamdy Abdelwahab,5078213,Egypt,eg,espn
+JunYong Park,4275043,South Korea,kr,espn
+Tom Aspinall,4010976,England,gb-eng,espn
+Danny Barlow,5152138,USA,us,espn
+HyunSung Park,5068545,South Korea,kr,espn
+Matt Frevola,4081024,USA,us,espn
+Mario Mingaj,5296254,Albania,al,espn
+Azamat Nuftillaev,5101133,Uzbekistan,uz,espn
+Freddy Vidal,5307524,USA,us,espn
+Saimon Oliveira,4875505,Brazil,br,espn
+Karolina Kowalkiewicz,3102702,Poland,pl,espn
+Lucas Rocha,5146278,Brazil,br,espn
+Irina Alekseeva,4711407,Russia,ru,espn
+Lucas Almeida,4863328,Brazil,br,espn
+Ricardo Ramos,3571515,Brazil,br,espn
+Rafael Pergentino,5295167,Brazil,br,espn
+Donavon Hedrick,5311771,USA,us,espn
+Lucas Caldas,5311046,Brazil,br,espn
+Brogan Walker,4024488,Guam,gu,espn
+Veronica Hardy,4044708,Venezuela,ve,espn
+Austin Vanderford,4290344,USA,us,espn
+Chris Gutierrez,3961293,USA,us,espn
+Andre Muniz,3091099,Brazil,br,espn
+Patchy Mix,4350925,USA,us,espn
+Tre'ston Vines,4910400,USA,us,espn
+Khalil Rountree Jr.,4028627,USA,us,espn
+Rashid Vagabov,5174604,Russia,ru,espn
+Paulo Henrique,5310076,Brazil,br,espn
+Demba Seck,5110465,Senegal,sn,espn
+Eliezer Kubanza,5110297,Democratic Republic of Congo,,espn
+Christopher Alvidrez,5310077,USA,us,espn
+Magno Dias,5278268,Brazil,br,espn
+Vitor Costa,5144075,Brazil,br,espn
+Luana Carolina,4372194,Brazil,br,espn
+Josias Musasa,5212850,Democratic Republic of Congo,,espn
+Rolando Bedoya,5125178,Peru,pe,espn
+Charlie Campbell,4786358,USA,us,espn
+Ramon Taveras,5152409,USA,us,espn
+Jimmy Crute,4354420,Australia,au,espn
+Jair de Oliveira,5308872,Brazil,br,espn
+Justice Torres,5277050,USA,us,espn
+Brahyam Zurcher,4916608,Mexico,mx,espn
+Djani Barbir,5282616,Croatia,hr,espn
+Raphael Uchegbu,5086848,England,gb-eng,espn
+Paddy McCorry,5109011,Ireland,ie,espn
+In Soo Hwang,5293566,South Korea,kr,espn
+Mackson Lee,5307813,Brazil,br,espn
+Joaquim Silva,3897005,Brazil,br,espn
+Claudio Puelles,4070701,Peru,pe,espn
+Quang Le,5138563,Vietnam,vn,espn
+Chasen Blair,5193167,USA,us,espn
+Samuel Sanches,5293557,Brazil,br,espn
+Cam Teague,5222338,USA,us,espn
+Anthony Guarascio,5292023,USA,us,espn
+Rinat Fakhretdinov,4712980,Russia,ru,espn
+Andreas Gustafsson,4738749,Sweden,se,espn
+Trey Waters,5092403,USA,us,espn
+Rhys McKee,4078243,Ireland,ie,espn
+Paul Craig,3946951,Scotland,gb-sct,espn
+Nassourdine Imavov,4690539,France,fr,espn
+David Mgoyan,5295176,Armenia,am,espn
+An Tuan Ho,5200305,Vietnam,vn,espn
+Samuel Silva,5124146,Brazil,br,espn
+Jack Congdon,5228596,USA,us,espn
+Darion Abbey,4413642,USA,us,espn
+Damon Wilson,4915407,USA,us,espn
+Uran Satybaldiev,5206516,Kyrgyzstan,kg,espn
+Westin Wilson,4305514,USA,us,espn
+Austin Hubbard,4397797,USA,us,espn
+Maheshate,4895360,China,cn,espn
+Kiefer Crosbie,4425962,Ireland,ie,espn
+Taiyilake Nueraji,5138994,China,cn,espn
+Brian Ortega,3045737,USA,us,espn
+Tommy Cuozzi,5290789,USA,us,espn
+Ramiro Jimenez,5290796,Mexico,mx,espn
+Louis Lee Scott,5212852,England,gb-eng,espn
+Kaushik Saikumar,5292169,India,in,espn
+Manuel Exposito,5219928,Argentina,ar,espn
+Jessica Andrade,3024395,Brazil,br,espn
+Yuri Panferov,5147207,Russia,ru,espn
+Chris Ewert,5282842,Chile,cl,espn
+Radley da Silva,5265556,Canada,ca,espn
+George Mangos,5279283,Australia,au,espn
+Murtaza Talha,5149437,Bahrain,bh,espn
+Jimmy Drago,5264471,USA,us,espn
+Ilian Bouafia,5287881,France,fr,espn
+Neemias Santana,5287948,Brazil,br,espn
+Julija Stoliarenko,3157454,Lithuania,lt,espn
+Toshiomi Kazama,5068617,Japan,jp,espn
+Nathan Fletcher,4848675,England,gb-eng,espn
+Elizeu Zaleski dos Santos,3039886,Brazil,br,espn
+Martin Buday,4406574,Slovakia,sk,espn
+Mohammad Yahya,4330061,United Arab Emirates,ae,espn
+Steven Nguyen,4426305,USA,us,espn
+Amanda Ribas,4221863,Brazil,br,espn
+Da'Mon Blackshear,4409558,USA,us,espn
+Said Nurmagomedov,3903378,Russia,ru,espn
+Lukasz Brzeski,4710386,Poland,pl,espn
+Marcin Prachnio,3998068,Poland,pl,espn
+Islam Dulatov,5212748,Germany,de,espn
+Dustin Poirier,2506549,USA,us,espn
+Melissa Martinez,4751726,Mexico,mx,espn
+Lauren Murphy,3075001,USA,us,espn
+Calvin Kattar,3164030,USA,us,espn
+Stephen Thompson,2615077,USA,us,espn
+Viviane Araújo,4379362,Brazil,br,espn
+Kai Kara-France,4243885,New Zealand,nz,espn
+Mohammed Usman,2312150,Nigeria,ng,espn
+Nikolas Motta,3897242,USA,us,espn
+Jamahal Hill,4425355,USA,us,espn
+Ange Loosa,4875506,Democratic Republic of Congo,,espn
+Miranda Maverick,4065598,USA,us,espn
+Mark Choinski,5289736,USA,us,espn
+Yanal Ashmouz,4917145,Israel,il,espn
+Jeka Saragih,5070502,Indonesia,id,espn
+Ariane Lipski da Silva,4227318,Brazil,br,espn
+Julianna Peña,2951361,USA,us,espn
+Kayla Harrison,4332765,USA,us,espn
+Rayanne dos Santos,4601333,Brazil,br,espn
+Kurt Holobaugh,3019246,USA,us,espn
+Luana Pinheiro,4689229,Brazil,br,espn
+Carlos Hernandez,3249894,USA,us,espn
+Connor Matthews,5044438,USA,us,espn
+Gabe Green,4306125,USA,us,espn
+Sodiq Yusuff,4289274,Nigeria,ng,espn
+Brad Katona,4350871,Canada,ca,espn
+Bruno Silva,4333158,Brazil,br,espn
+José Aldo,2447641,Brazil,br,espn
+Ivana Petrovic,5132151,Croatia,hr,espn
+Don'Tale Mayes,4249193,USA,us,espn
+Marina Rodriguez,4379258,Brazil,br,espn
+Miesha Tate,2553021,USA,us,espn
+Serhiy Sidey,5146229,Ukraine,ua,espn
+Roberto Romero,5252475,Mexico,mx,espn
+Cameron Saaiman,5077399,South Africa,za,espn
+Evan Elder,5037883,USA,us,espn
+Jimmy Flick,2989380,USA,us,espn
+Anthony Smith,2512976,USA,us,espn
+Yair Rodriguez,3155420,Mexico,mx,espn
+Victor Henry,3114234,USA,us,espn
+Pedro Falcão,3936279,Brazil,br,espn
+Istela Nunes,4195518,Brazil,br,espn
+Diana Belbita,3977987,Romania,ro,espn
+Cortavious Romious,4775129,USA,us,espn
+Gabriel Miranda,2558526,Brazil,br,espn
+Vinc Pichel,2960679,USA,us,espn
+Ronaldo Rodríguez,4685888,Mexico,mx,espn
+CJ Vergara,4396359,USA,us,espn
+Guram Kutateladze,4226626,Georgia,ge,espn
+Caolán Loughran,5077789,Ireland,ie,espn
+Puja Tomar,4292760,India,in,espn
+Felipe dos Santos,5143333,Brazil,br,espn
+Jordan Vucenic,4712353,England,gb-eng,espn
+Molly McCann,4200455,England,gb-eng,espn
+Gunnar Nelson,2968990,Iceland,is,espn
+Josiane Nunes,4801267,Brazil,br,espn
+Carlos Vera,4684059,Ecuador,ec,espn
+AJ Cunningham,4685730,USA,us,espn
+SeungWoo Choi,4420412,South Korea,kr,espn
+Armen Petrosyan,4894791,Armenia,am,espn
+Andrea Lee,3153106,USA,us,espn
+Julian Marquez,4077475,USA,us,espn
+Julia Avila,3117376,USA,us,espn
+Dylan Budka,5032015,USA,us,espn
+Anshul Jubli,5068811,India,in,espn
+Kevin Jousset,4830364,France,fr,espn
+Gabriel Santos,5109762,Brazil,br,espn
+Justin Tafa,4566145,Australia,au,espn
+Jamal Pogues,4565641,USA,us,espn
+Lucas Alexander,5077398,Brazil,br,espn
+Damir Hadzovic,3077807,Denmark,dk,espn
+Jairzinho Rozenstruik,4410084,Suriname,sr,espn
+Joe Solecki,4423876,USA,us,espn
+Viktoriia Dudakova,5060398,Russia,ru,espn
+Magomed Gadzhiyasulov,5149440,Bahrain,bh,espn
+Preston Parsons,4038105,USA,us,espn
+Trey Ogden,4294378,USA,us,espn
+Ihor Potieria,4873642,Ukraine,ua,espn
+Jose Johnson,4360028,USA,us,espn
+Abdul Razak Alhassan,3926500,Ghana,gh,espn
+Josefine Knutsson,5007635,Sweden,se,espn
+Fernando Padilla,4239738,Mexico,mx,espn
+Ottman Azaitar,4424020,Morocco,ma,espn
+Colby Covington,3088810,USA,us,espn
+Clay Guida,2335674,USA,us,espn
+Chris Weidman,2553993,USA,us,espn
+Bryan Battle,4815998,USA,us,espn
+Kron Gracie,4032401,Brazil,br,espn
+Shavkat Rakhmonov,4020699,Kazakhstan,kz,espn
+Feng Xiaocan,4820964,China,cn,espn
+Shi Ming,5207665,China,cn,espn
+Kiru Sahota,4906182,England,gb-eng,espn
+DongHun Choi,5207629,South Korea,kr,espn
+Baergeng Jieleyisi,5138205,China,cn,espn
+Song Kenan,4284870,China,cn,espn
+Bassil Hafez,4351085,USA,us,espn
+Damon Jackson,3099187,USA,us,espn
+Jonathan Martinez,3928690,USA,us,espn
+James Llontop,5075748,Peru,pe,espn
+Jon Jones,2335639,USA,us,espn
+Stipe Miocic,2504951,USA,us,espn
+Cody Stamann,4046059,USA,us,espn
+Matthew Semelsberger,4688408,USA,us,espn
+Zach Scroggin,5248207,USA,us,espn
+Garrett Armfield,4686270,USA,us,espn
+Alexandr Romanov,4421473,Moldova,md,espn
+Rodrigo Nascimento,4426192,Brazil,br,espn
+Jack Shore,4319793,Wales,gb-wls,espn
+Pedro Munhoz,3045734,Brazil,br,espn
+Trevin Giles,4024732,USA,us,espn
+Caio Machado,5007668,Brazil,br,espn
+Victor Hugo,4293183,Brazil,br,espn
+Jessica Penne,2989128,USA,us,espn
+Tamires Vidal,4434010,Brazil,br,espn
+Matheus Nicolau,3020090,Brazil,br,espn
+Daniel Pineda,2514828,USA,us,espn
+Jake Hadley,4705600,England,gb-eng,espn
+Mohamed Ado,5218668,Niger,ne,espn
+Leslie Hernandez,5223853,USA,us,espn
+Julieta Martinez,5223854,Argentina,ar,espn
+Nick Piccininni,5195917,USA,us,espn
+Heraldo Souza,5147552,Brazil,br,espn
+Dan Argueta,4815973,USA,us,espn
+Cory McKenna,4565671,Wales,gb-wls,espn
+Jonathan Pearce,4245092,USA,us,espn
+Jared Gooden,4375621,USA,us,espn
+Sean Gauci,5001017,Australia,au,espn
+Anthony Drilich,5218814,Australia,au,espn
+Vanilto Antunes,4896556,Brazil,br,espn
+Lucas Camacho,5218818,Brazil,br,espn
+Islem Masraf,5217455,France,fr,espn
+Artem Vakhitov,5217935,Russia,ru,espn
+Tim Means,2500946,USA,us,espn
+Carla Esparza,2559934,USA,us,espn
+Ovince Saint Preux,2500735,Haiti,ht,espn
+Raquel Pennington,2995167,USA,us,espn
+Christien Savoie,5150152,Canada,ca,espn
+Abdellah Er-Ramy,5130607,Spain,es,espn
+Xavier Franklin,5235875,USA,us,espn
+Carlos Calderon,5125484,USA,us,espn
+Bartosz Szewczyk,5081274,Poland,pl,espn
+Victor Altamirano,4713584,Mexico,mx,espn
+Taylor Lapilus,3151934,France,fr,espn
+Roosevelt Roberts,4354423,USA,us,espn
+Da Woon Jung,4389252,South Korea,kr,espn
+Rose Conceição,5142277,Brazil,br,espn
+Francesco Mazzeo,5220883,Italy,it,espn
+Vadym Kutsyi,4082400,Belarus,by,espn
+Bailey Schoenfelder,4047571,USA,us,espn
+Danylo Voievodkin,5216851,Ukraine,ua,espn
+Dylan Mantello,4935217,USA,us,espn
+Ahmad Hassanzada,5074129,Afghanistan,af,espn
+Yura Naito,5218420,Japan,jp,espn
+Benjamin Bennett,5218815,USA,us,espn
+Joey Hart,5218816,USA,us,espn
+Arthur Lopes,5212857,Brazil,br,espn
+Aaron Tau,5215272,New Zealand,nz,espn
+Irene Aldana,3136286,Mexico,mx,espn
+Corinne Laframboise,4690484,Canada,ca,espn
+Taiga Iwasaki,5224461,Japan,jp,espn
+Phil Latu,5228275,USA,us,espn
+Zygimantas Ramaska,5204220,Lithuania,lt,espn
+Brendon Marotte,4425603,USA,us,espn
+Shannon Clark,5211222,Canada,ca,espn
+Dorian Ramos,5172335,USA,us,espn
+Will Currie,4848673,England,gb-eng,espn
+Jack Duffy,5211224,USA,us,espn
+Adam Bramhald,4421157,England,gb-eng,espn
+Liam Anderson,4705665,USA,us,espn
+Victoria Leonardo,4374740,USA,us,espn
+Billy Brand,5144174,USA,us,espn
+Michael Imperato,4245470,Canada,ca,espn
+Hugo Cunha,4863329,Brazil,br,espn
+Pat Pytlik,5212851,Canada,ca,espn
+Ricky Glenn,3030256,USA,us,espn
+Alex Reyes,4221609,USA,us,espn
+Herbert Burns,3089633,Brazil,br,espn
+Josh Culibao,4616087,Australia,au,espn
+Li Jingliang,3095328,China,cn,espn
+Ernie Juarez,5212749,USA,us,espn
+Mikheil Sazhiniani,5149722,Georgia,ge,espn
+Rami Hamed,4295666,Lebanon,lb,espn
+Jarno Errens,5093447,Netherlands,nl,espn
+Karl Williams,4915907,Virgin Islands,vg,espn
+Pannie Kianzad,3104720,Sweden,se,espn
+Charalampos Grigoriou,4878592,Cyprus,cy,espn
+Denis Tiuliulin,4969973,Russia,ru,espn
+Tony Ferguson,2560085,USA,us,espn
+Muhammad Mokaev,4905261,England,gb-eng,espn
+Lucie Pudilova,4040197,Czechia,cz,espn
+Loik Radzhabov,4419434,Tajikistan,tj,espn
+Brian Kelleher,2517186,USA,us,espn
+Bill Algeo,4076472,USA,us,espn
+Kaynan Kruschewsky,4868702,Brazil,br,espn
+Josh Fremd,4523403,USA,us,espn
+Mariya Agapova,4426285,Kazakhstan,kz,espn
+Andrei Arlovski,2354269,USA,us,espn
+Michelle Waterson-Gomez,2951504,USA,us,espn
+Yanis Ghemmouri,5152931,France,fr,espn
+Kyung Ho Kang,2504566,South Korea,kr,espn
+Shayilan Nuerdanbieke,4781218,China,cn,espn
+Nate Maness,4685988,USA,us,espn
+Josh Quinlan,4788300,USA,us,espn
+Montana De La Rosa,4046629,USA,us,espn
+Jesse Butler,4397795,USA,us,espn
+Miguel Baeza,4423448,USA,us,espn
+Emily Ducote,4034272,USA,us,espn
+Kleydson Rodrigues,4875509,Brazil,br,espn
+Warlley Alves,3108775,Brazil,br,espn
+Victor Martinez,4252258,USA,us,espn
+Vinicius Salvador,4869425,Brazil,br,espn
+Alex Caceres,2552906,USA,us,espn
+Gabriel Benitez,3032218,Mexico,mx,espn
+Liang Na,4295932,China,cn,espn
+Marnic Mann,4891678,USA,us,espn
+Michal Figlak,4900807,Poland,pl,espn
+Rani Yahya,2503659,Brazil,br,espn
+Holly Holm,3028404,USA,us,espn
+Germaine de Randamie,2552777,Netherlands,nl,espn
+Christos Giagos,3089069,USA,us,espn
+Anton Turkalj,4875513,Sweden,se,espn
+Julio Arce,4227122,USA,us,espn
+Igor Severino,5145496,Brazil,br,espn
+Luis Pajuelo,5144312,Peru,pe,espn
+AJ Dobson,4374436,USA,us,espn
+Natan Levy,4702563,Israel,il,espn
+Bryan Barberena,3111927,USA,us,espn
+Joanne Wood,3028064,Scotland,gb-sct,espn
+Maryna Moroz,3281606,Ukraine,ua,espn
+Josh Parisian,4276994,USA,us,espn
+Philipe Lins,2959588,Brazil,br,espn
+Claudio Ribeiro,5074126,Brazil,br,espn
+Jamie Pickett,4237148,USA,us,espn
+Tyson Pedro,4071969,Australia,au,espn
+Denys Bondar,4713086,Ukraine,ua,espn
+Daniel Lacerda,4895772,Brazil,br,espn
+Mateus Mendonca,5088891,Brazil,br,espn
+Val Woodburn,4926991,Jamaica,jm,espn
+Marcos Rogerio de Lima,2558075,Brazil,br,espn
+Fernie Garcia,4880596,USA,us,espn
+Zac Pauga,4896541,USA,us,espn
+Devin Clark,3971496,USA,us,espn
+Landon Quiñones,4690546,USA,us,espn
+Blake Bilder,5080936,USA,us,espn
+Pete Rodriguez,4914568,USA,us,espn
+Aliaskhab Khizriev,4045420,Russia,ru,espn
+Makhmud Muradov,4426130,Uzbekistan,uz,espn
+Malcolm Gordon,3153250,Canada,ca,espn
+Yohan Lainesse,4880807,Canada,ca,espn
+Phil Hawes,3913473,USA,us,espn
+Stephanie Egger,4065597,Switzerland,ch,espn
+Shannon Ross,4812389,Australia,au,espn
+Wellington Turman,4426282,Brazil,br,espn
+Nick Aguirre,5123586,USA,us,espn
+Mark O. Madsen,4409220,Denmark,dk,espn
+Marc Diakiese,4056004,Democratic Republic of Congo,,espn
+Jinh Yu Frey,3136288,USA,us,espn
+Mike Breeden,4684468,USA,us,espn
+Abu Azaitar,3094635,Morocco,ma,espn
+Ashley Yoder,3924442,USA,us,espn
+TJ Brown,4063667,USA,us,espn
+Jennifer Maia,3022348,Brazil,br,espn
+Davi Bittencourt,5149442,Brazil,br,espn
+Issa Isakov,4683526,Luxembourg,lu,espn
+Jair Farias,5157670,Brazil,br,espn
+Rickson Zenidim,5147579,Brazil,br,espn
+Johnny Munoz,4687003,USA,us,espn
+Kanako Murata,4078674,Japan,jp,espn
+Raimond Magomedaliev,4565683,Russia,ru,espn
+Eduardo Torres Caut,5119536,Chile,cl,espn
+Victor Madrigal,4688624,Mexico,mx,espn
+Alexander Soldatkin,5119702,Germany,de,espn
+Raheam Forest,5088544,USA,us,espn
+Hannah Goldy,4289255,USA,us,espn
+Jake Collier,2988175,USA,us,espn
+Andre Fialho,4010740,Portugal,pt,espn
+AJ Fletcher,4869424,USA,us,espn
+Jhonata Silva,5126213,Brazil,br,espn
+Daniel Allen,4977643,USA,us,espn
+Jacobi Jones,5077056,USA,us,espn
+Greg Velasco,5121866,USA,us,espn
+Terrence Mitchell,5148677,USA,us,espn
+Kasey Tanner,5149436,USA,us,espn
+Patricia Alujas,5145494,Paraguay,py,espn
+Eduardo Neves,5053878,Brazil,br,espn
+Malik Lewis,5092399,USA,us,espn
+Shane Young,3983481,New Zealand,nz,espn
+Blood Diamond,4899729,Zimbabwe,zw,espn
+John Makdessi,2529520,Canada,ca,espn
+Rainn Guerrero,5144319,USA,us,espn
+Chad Hanekom,5068827,South Africa,za,espn
+Zarah Fairn,4078218,France,fr,espn
+Dylan Salvador,4914335,France,fr,espn
+Chandler Cole,4358022,USA,us,espn
+Mateo Vogel,5079262,Canada,ca,espn
+Yusaku Kinoshita,5085249,Japan,jp,espn
+Parker Porter,2354264,USA,us,espn
+Taila Santos,3170347,Brazil,br,espn
+Chan Sung Jung,2501685,Korea,kr,espn
+Robbie Ring,5147245,USA,us,espn
+Isis Verbeek,4403762,Netherlands,nl,espn
+Eli Aronov,5143224,Israel,il,espn
+Janaina Silva,5143887,Brazil,br,espn
+Emrah Sonmez,5115163,Türkiye,tr,espn
+Paulo Renato Jr.,5007669,Brazil,br,espn
+George Hardwick,4764301,England,gb-eng,espn
+Rico DiSciullo,4252349,USA,us,espn
+JP Buys,4249185,South Africa,za,espn
+Tafon Nchukwi,4600143,Cameroon,cm,espn
+Chris Daukaus,4341598,USA,us,espn
+Hakeem Dawodu,3165010,Canada,ca,espn
+Victor Dias,4788298,Brazil,br,espn
+Reyes Cortez Jr.,4892422,USA,us,espn
+Kevin Szaflarski,5075334,Poland,pl,espn
+Jason Knight,3955317,USA,us,espn
+Aleksa Camur,4426299,Bosnia & Herzegovina,ba,espn
+Gavin Tucker,4081475,Canada,ca,espn
+Danny Roberts,2968419,England,gb-eng,espn
+Jonny Parsons,4880114,USA,us,espn
+Ashlee Evans-Smith,3046022,USA,us,espn
+Carl Deaton,3136321,USA,us,espn
+Alexander Munoz,4355664,USA,us,espn
+Tyson Nam,2976026,USA,us,espn
+Genaro Valdez,4874988,Mexico,mx,espn
+Austin Lingo,4570669,USA,us,espn
+Tucker Lutz,4684678,USA,us,espn
+Albert Duraev,3088682,Russia,ru,espn
+Kamuela Kirk,3939270,USA,us,espn
+Robbie Lawler,2431258,USA,us,espn
+Blagoy Ivanov,2556638,Bulgaria,bg,espn
+Kevin Lee,3084459,USA,us,espn
+Damir Ismagulov,4215563,Kazakhstan,kz,espn
+Zhalgas Zhumagulov,4321051,Kazakhstan,kz,espn
+Ronnie Lawrence,4231391,USA,us,espn
+Maria Oliveira,4348793,Brazil,br,espn
+David Dvorak,4601431,Czechia,cz,espn
+Amanda Nunes,2516131,Brazil,br,espn
+Maxim Grishin,2558492,Russia,ru,espn
+Abubakar Nurmagomedov,3895515,Russia,ru,espn
+Takashi Sato,4355731,Japan,jp,espn
+Nick Fiore,5122794,USA,us,espn
+Ilir Latifi,2957596,Albania,al,espn
+Orion Cosce,4687126,USA,us,espn
+Jessica-Rose Clark,3902226,Australia,au,espn
+Ji Yeon Kim,3155846,South Korea,kr,espn
+Mandy Bohm,4668069,Germany,de,espn
+Chase Sherman,3952937,USA,us,espn
+Matt Brown,2335666,USA,us,espn
+Joseph Holmes,4783385,USA,us,espn
+Braxton Smith,4008506,USA,us,espn
+Journey Newson,4251462,USA,us,espn
+Batgerel Danaa,4389093,Mongolia,mn,espn
+Aaron Phillips,3098802,USA,us,espn
+Ed Herman,2335754,USA,us,espn
+Zak Cummings,2512055,USA,us,espn
+Steven Peterson,3041138,USA,us,espn
+Omar Morales,4372245,Venezuela,ve,espn
+Makwan Amirkhani,3162105,Finland,fi,espn
+Tony Gravely,4084453,USA,us,espn
+Raphael Assuncao,2354364,Brazil,br,espn
+Guido Cannetti,2989857,Argentina,ar,espn
+Mana Martinez,4684237,USA,us,espn
+Derek Brunson,2560056,USA,us,espn
+Trevin Jones,4012408,Guam,gu,espn
+Rafael Alves,3120449,Brazil,br,espn
+Erick Gonzalez,4335947,USA,us,espn
+Augusto Sakai,3900464,Brazil,br,espn
+Juancamilo Ronderos,4851339,Colombia,co,espn
+Khusein Askhabov,4218576,United Arab Emirates,ae,espn
+Lina Lansberg,3157441,Sweden,se,espn
+William Knight,4255766,USA,us,espn
+Jordan Wright,4339150,USA,us,espn
+Zubaira Tukhugov,3083644,Russia,ru,espn
+Don Shainis,4893607,USA,us,espn
+Shamil Abdurakhimov,2558062,Russia,ru,espn
+Mounir Lazzez,4683892,Tunisia,tn,espn
+Mauricio Rua,2335514,Brazil,br,espn
+Glover Teixeira,2504929,Brazil,br,espn
+Sergey Morozov,3960665,Kazakhstan,kz,espn
+Saidyokub Kakhramonov,4571945,Uzbekistan,uz,espn
+Cheyanne Vlismas,4683396,USA,us,espn
+Dalcha Lungiambula,4217382,Democratic Republic of Congo,,espn
+Jay Perrin,4062287,USA,us,espn
+Darren Till,3897436,England,gb-eng,espn
+Marcelo Rojo,4030644,Argentina,ar,espn
+Scott Holtzman,3025285,USA,us,espn
+Kevin Natividad,4426319,USA,us,espn
+Nicolae Negumereanu,4417235,Romania,ro,espn
+Michael Trizano,4294918,USA,us,espn
+Silvana Gomez Juarez,4064999,Argentina,ar,espn
+Brad Riddell,4575873,New Zealand,nz,espn
+Frankie Edgar,2335694,USA,us,espn
+Ramona Pascual,4337435,Hong Kong,hk,espn
+Carlos Candelario,4013049,USA,us,espn
+Liudvik Sholinian,4570597,Ukraine,ua,espn
+Benito Lopez,4249184,USA,us,espn
+Shanna Young,4065617,USA,us,espn
+Darrick Minner,3121961,USA,us,espn
+Joshua Weems,4425728,USA,us,espn
+Carlos Mota,4713585,Brazil,br,espn
+Jared Vanderaa,4227709,USA,us,espn
+Gadzhi Omargadzhiev,4896529,Russia,ru,espn
+TJ Dillashaw,2611719,USA,us,espn
+Mike Jackson,3960472,USA,us,espn
+Nick Maximov,4700964,USA,us,espn
+Brandon Davis,3960440,USA,us,espn
+Misha Cirkunov,2504818,Canada,ca,espn
+Randy Costa,3250441,USA,us,espn
+Krzysztof Jotko,3074465,Poland,pl,espn
+Jesse Ronson,3001923,Canada,ca,espn
+Aleksei Oleinik,2335844,Russia,ru,espn
+Francisco Trinaldo,2516135,Brazil,br,espn
+Ashiek Ajim,4795255,Trinidad,tt,espn
+Joao Elias,4871197,Brazil,br,espn
+Emiliano Linares,5088846,Ecuador,ec,espn
+Vinicius Cenci,5088845,Brazil,br,espn
+Donovan Beard,5088537,USA,us,espn
+Roybert Echeverria,5075937,Venezuela,ve,espn
+Josh Wick,3128474,USA,us,espn
+Richard Jacobi,5076594,Brazil,br,espn
+Mando Gutierrez,4876401,USA,us,espn
+Leon Aliu,4584163,Albania,al,espn
+Cameron VanCamp,4416295,USA,us,espn
+Louis Cosce,4685887,USA,us,espn
+Alen Amedovski,4411394,Macedonia,mk,espn
+Brandon Lewis,4875507,USA,us,espn
+Mario Sousa,4684923,Brazil,br,espn
+Allan Begosso,4903519,Brazil,br,espn
+Darian Weeks,4873639,USA,us,espn
+Danyelle Wolf,4375603,USA,us,espn
+Nate Diaz,2335679,USA,us,espn
+Nayara Maia,5056143,Brazil,br,espn
+Nariman Abbasov,4294871,Azerbaijan,az,espn
+Jimmy Lawson,4701186,USA,us,espn
+Khalid Taha,4283575,Lebanon,lb,espn
+Alessio Di Chirico,3962563,Italy,it,espn
+Alexander Morgan,4213329,Canada,ca,espn
+Maria Silva,4869428,Brazil,br,espn
+Rodrigo Lidio,5044376,Brazil,br,espn
+Matej Penaz,5060472,Czechia,cz,espn
+Josh Wang-Kim,5077400,USA,us,espn
+Erisson Ferreira,4895769,Brazil,br,espn
+Amiran Gogoladze,4963260,Georgia,ge,espn
+Francisco Figueiredo,4708819,Brazil,br,espn
+Luis Saldana,3074813,USA,us,espn
+Leonardo Santos,2500425,Brazil,br,espn
+Harry Hunsucker,4251497,USA,us,espn
+Wu Yanan,4065639,China,cn,espn
+Luke Rockhold,2519811,USA,us,espn
+Claudia Leite,5030324,Brazil,br,espn
+Jack Cartwright,4584150,England,gb-eng,espn
+Ivan Valenzuela,5065494,Mexico,mx,espn
+Thomas Paull,5074276,England,gb-eng,espn
+Jason Witt,3913466,USA,us,espn
+Charlie Ontiveros,3099958,USA,us,espn
+Nina Nunes,3024357,USA,us,espn
+Cynthia Calvillo,4085155,USA,us,espn
+Dominick Cruz,2335888,USA,us,espn
+Karolina Wojcik,4683551,Poland,pl,espn
+Sandra Lavado,5044439,Peru,pe,espn
+Anvar Boynazarov,5060511,Uzbekistan,uz,espn
+Zachary Borrego,5078230,USA,us,espn
+Miranda Granger,4567897,USA,us,espn
+Sam Alvey,2559758,USA,us,espn
+Thiago Santos,3045798,Brazil,br,espn
+Shimon Smotritsky,4892412,Israel,il,espn
+Danilo Suzart,5060387,Brazil,br,espn
+Juan Andres Luna,5060382,Ecuador,ec,espn
+Kaleio Romero,4879763,USA,us,espn
+Acácio Dos Santos,4687113,Brazil,br,espn
+Claudio Silva,3085303,Brazil,br,espn
+Charles Rosa,3153125,USA,us,espn
+Alexander Gustafsson,2500771,Sweden,se,espn
+Kaytlin Neil,4244337,USA,us,espn
+Dwight Grant,4339149,USA,us,espn
+Shane Burgos,4076470,USA,us,espn
+Eduardo Perez,4917676,USA,us,espn
+Karl Roberson,4236954,USA,us,espn
+Cortney Casey,3910104,USA,us,espn
+Antonina Shevchenko,4339152,Kyrgyzstan,kg,espn
+Laura Gallardo,4950355,USA,us,espn
+Jessica Eye,3005099,USA,us,espn
+Uriah Hall,2553996,Jamaica,jm,espn
+Donald Cerrone,2479918,USA,us,espn
+Raulian Paiva,4372195,Brazil,br,espn
+Alan Baudot,4422319,France,fr,espn
+Deron Winn,4400662,USA,us,espn
+Eddie Wineland,2504561,USA,us,espn
+Gloria de Paula,4566310,Brazil,br,espn
+Danny Chavez,3890629,USA,us,espn
+Tony Kelley,3112000,USA,us,espn
+Ramazan Emeev,3010042,Russia,ru,espn
+Joanna Jedrzejczyk,3106617,Poland,pl,espn
+Andreas Michailidis,3171474,Greece,gr,espn
+Jeff Molina,4684238,USA,us,espn
+Niklas Stolze,4217612,Germany,de,espn
+Alex da Silva,4420801,Brazil,br,espn
+Felice Herrig,2512985,USA,us,espn
+Askar Mozharov,4217396,Ukraine,ua,espn
+Zarrukh Adashev,4683807,Uzbekistan,uz,espn
+Poliana Botelho,4064994,Brazil,br,espn
+Felipe Colares,4411886,Brazil,br,espn
+Alan Patrick,3060122,Brazil,br,espn
+Frank Camacho,3115841,Guam,gu,espn
+Louis Smolka,3087023,USA,us,espn
+Gina Mazany,4082113,USA,us,espn
+Tristan Connelly,4585587,Canada,ca,espn
+Dean Barry,3127966,Ireland,ie,espn
+Cameron Else,3991050,England,gb-eng,espn
+Ike Villanueva,2618069,USA,us,espn
+Sergey Khandozhko,4289873,Russia,ru,espn
+Kevin Croom,2517087,USA,us,espn
+Brandon Jenkins,4284270,USA,us,espn
+TJ Laramie,4422029,Canada,ca,espn
+Kay Hansen,4289517,USA,us,espn
+Aspen Ladd,3167160,USA,us,espn
+Bruno Souza,4687105,Brazil,br,espn
+Sara McMann,2569886,USA,us,espn
+Askar Askarov,4064692,Russia,ru,espn
+Timur Valiev,3112007,Russia,ru,espn
+Mike Grundy,3734391,England,gb-eng,espn
+Kazula Vargas,3088809,Mexico,mx,espn
+Sabina Mazo,4265846,Colombia,co,espn
+Marlon Moraes,2553310,Brazil,br,espn
+Devonte Smith,4354425,USA,us,espn
+Greg Hardy,2220951,USA,us,espn
+Alex Oliveira,3417396,Brazil,br,espn
+Jorge Masvidal,2500857,USA,us,espn
+Micheal Gillmore,4473738,USA,us,espn
+Alejandro Perez,3128373,Mexico,mx,espn
+Jesse Strader,4715407,USA,us,espn
+Chas Skelly,2514827,USA,us,espn
+Mark Striegl,3039672,Philippines,ph,espn
+Fabio Cherant,4426301,USA,us,espn
+Roxanne Modafferi,2504943,USA,us,espn
+Danilo Marques,4205213,Brazil,br,espn
+Alexis Davis,2563797,Canada,ca,espn
+Francis Ngannou,3933168,Cameroon,cm,espn
+Dakota Bush,4372290,USA,us,espn
+Rogerio Bontorin,4280789,Brazil,br,espn
+Matt Sayles,3122837,USA,us,espn
+Andre Ewell,4350771,USA,us,espn
+Sijara Eubanks,3676024,USA,us,espn
+Ryan Hall,3956260,USA,us,espn
+Chris Gruetzemacher,2951241,USA,us,espn
+Mallory Martin,4141265,USA,us,espn
+Maki Pitolo,4016050,USA,us,espn
+Sean Soriano,3083637,USA,us,espn
+Liana Jojua,4295833,Georgia,ge,espn
+Collin Anglin,4686739,USA,us,espn
+Felicia Spencer,3923488,Canada,ca,espn
+Leah Letson,4080406,USA,us,espn
+Ben Rothwell,2473720,USA,us,espn
+John Allan,4372193,Brazil,br,espn
+Gian Villante,2552660,USA,us,espn
+Jordan Williams,4040956,USA,us,espn
+Al Iaquinta,2960680,USA,us,espn
+Juan Puerta,4204320,USA,us,espn
+Shang Zhifa,4286781,China,cn,espn
+Canaan Kawaihae,4354422,USA,us,espn
+Jonas Bilharinho,4884867,Brazil,br,espn
+Qiulun,4895361,China,cn,espn
+Justin Burlinson,4848687,England,gb-eng,espn
+Achilles Estremadura,4875499,Canada,ca,espn
+Hu Yaozong,4287236,China,cn,espn
+Shamil Gamzatov,3955238,Russia,ru,espn
+Xie Bin,4892415,China,cn,espn
+Olivier Murad,4892416,Haiti,ht,espn
+Kolton Englund,4218124,USA,us,espn
+Yan Qihui,4568503,China,cn,espn
+Oron Kahlon,4021216,Israel,il,espn
+Jansey Silva,4896540,Brazil,br,espn
+Zviad Lazishvili,4688449,Georgia,ge,espn
+Randa Markos,3031587,Canada,ca,espn
+Livinha Souza,3599515,Brazil,br,espn
+Khama Worthy,3132345,USA,us,espn
+Laureano Staropoli,4399701,Argentina,ar,espn
+James Barnes,3924102,USA,us,espn
+Kaloyan Kolev,4875514,Bulgaria,bg,espn
+Jesse Murray,4336424,USA,us,espn
+Solomon Renfro,4878384,USA,us,espn
+Andrew Sanchez,3104854,USA,us,espn
+Carlos Felipe,4257695,Brazil,br,espn
+Kathryn Paprocki,4403763,USA,us,espn
+Lorenzo Hood,2502713,USA,us,espn
+Patrik White,4874989,USA,us,espn
+Shonte Barnes,4875515,USA,us,espn
+Johnny Eduardo,2500422,Brazil,br,espn
+Gaetano Pirrello,3902208,Belgium,be,espn
+Bethe Correia,3081041,Brazil,br,espn
+Edivan Santos,4848663,Brazil,br,espn
+Aaron Jeffery,4255574,Canada,ca,espn
+Lucasz Sudolski,4873641,Poland,pl,espn
+Martin Sano,3112785,USA,us,espn
+Nick Diaz,2335709,USA,us,espn
+Jacob Rosales,4239743,USA,us,espn
+Santo Curatolo,4683418,USA,us,espn
+Theo Rlayang,4875510,USA,us,espn
+Hashem Arkhagha,4835136,Jordan,jo,espn
+Emily Whitmire,4034282,USA,us,espn
+Gustavo Lopez,3154766,USA,us,espn
+Impa Kasanganay,4573208,USA,us,espn
+Sarah Alpar,3115959,USA,us,espn
+Mike Rodriguez,4081550,USA,us,espn
+Antonio Arroyo,4371002,Brazil,br,espn
+Dylan Potter,4336003,USA,us,espn
+Caio Bittencourt,3120454,Brazil,br,espn
+Mo Miller,4875508,USA,us,espn
+Nasrudin Nasrudinov,4684857,Russia,ru,espn
+Bruno Korea,3896935,Brazil,br,espn
+Jose Alday,3962309,Mexico,mx,espn
+Logan Urban,4888600,USA,us,espn
+Luigi Vendramini,4391266,Brazil,br,espn
+David Zawada,3161786,Germany,de,espn
+Leonardo Damiani,4410116,Italy,it,espn
+Matheus Scheffel,3110833,Brazil,br,espn
+Darren Stewart,4064854,England,gb-eng,espn
+Sasha Palatnikov,4683980,Hong Kong,hk,espn
+Bea Malecki,4420423,Sweden,se,espn
+Domingo Pilarte,3041157,USA,us,espn
+Vince Murdock,3147489,USA,us,espn
+Jamey Simmons,4684018,USA,us,espn
+Anderson Dos Santos,3090895,Brazil,br,espn
+Drako Rodriguez,4412279,USA,us,espn
+Casey Kenney,4030197,USA,us,espn
+Ryan Benoit,2992191,USA,us,espn
+Ian Heinisch,4202873,USA,us,espn
+Marion Reneau,3117374,USA,us,espn
+Jerome Rivera,4222369,USA,us,espn
+Omari Akhmedov,3070416,Russia,ru,espn
+Carlos Condit,2335243,USA,us,espn
+Yancy Medeiros,2504257,USA,us,espn
+Justin Jaynes,3112009,USA,us,espn
+Michel Prazeres,3028712,Brazil,br,espn
+Lara Procopio,4567688,Brazil,br,espn
+Roque Martinez,4380809,Guam,gu,espn
+Dhiego Lima,2591297,Brazil,br,espn
+Demian Maia,2335778,Brazil,br,espn
+Walt Harris,3023815,USA,us,espn
+Victor Rodriguez,4700271,Mexico,mx,espn
+Kevin Aguilar,2555540,USA,us,espn
+Jacare Souza,2431314,Brazil,br,espn
+Christian Aguilera,3953379,default,,espn
+Gregor Gillespie,4021934,USA,us,espn
+Maurice Greene,3154884,USA,us,espn
+Luke Sanders,2546733,USA,us,espn
+KB Bhullar,4689219,Canada,ca,espn
+Stefan Sekulic,4360358,Serbia,rs,espn
+Anthony Birchak,2557518,USA,us,espn
+Bartosz Fabinski,3152443,Poland,pl,espn
+Juan Espino,3039196,Spain,es,espn
+Luis Pena,4350772,USA,us,espn
+Justine Kish,3028441,USA,us,espn
+Jordan Griffin,3150681,USA,us,espn
+Hunter Azure,4425706,USA,us,espn
+Jarjis Danho,3958094,Germany,de,espn
+Yorgan De Castro,4423213,Cape Verde,cv,espn
+Mike Perry,4038110,USA,us,espn
+Thomas Almeida,3071362,Brazil,br,espn
+Tyron Woodley,2501926,USA,us,espn
+Ray Rodriguez,3119811,USA,us,espn
+Aalon Cruz,4043437,USA,us,espn
+Jordan Espinosa,4054622,USA,us,espn
+Joseph Benavidez,2500457,USA,us,espn
+Megan Anderson,3923484,Australia,au,espn
+Vince Cachero,4375203,USA,us,espn
+Jimmie Rivera,3003458,Puerto Rico,pr,espn
+Shana Dobson,4287764,USA,us,espn
+Martin Day,4038127,USA,us,espn
+Alistair Overeem,2335516,Netherlands,nl,espn
+Nik Lentz,2504229,USA,us,espn
+Antonio Carlos Jr.,3108772,Brazil,br,espn
+Markus Perez,4246212,Brazil,br,espn
+Tom Breese,3140871,England,gb-eng,espn
+Vinicius Moreira,4372196,Brazil,br,espn
+Jacob Kilburn,4354426,USA,us,espn
+Sarah Moras,3041848,Canada,ca,espn
+Vanessa Melo,3097030,Brazil,br,espn
+Carlton Minus,4377048,USA,us,espn
+Anthony Pettis,2504171,USA,us,espn
+Peter Barrett,4388465,USA,us,espn
+Junior Dos Santos,2335725,Brazil,br,espn
+Jose Quiñonez,3154228,Mexico,mx,espn
+Matt Wiman,2354218,USA,us,espn
+Rachael Ostovich,3154908,USA,us,espn
+Spike Carlyle,4618110,USA,us,espn
 Loopy Godinez,,Mexico,mx,ufc.com birthplace
-Johnny Walker,,Brazil,br,ufc.com birthplace
-Anthony Wint,,USA,us,ufc.com birthplace
-Court McGee,,USA,us,ufc.com birthplace
-Damian Pinas,,Suriname,sr,ufc.com birthplace
-Deiveson Figueiredo,,Brazil,br,ufc.com birthplace
-Imanol Rodriguez,,Mexico,mx,ufc.com birthplace
-Ateba Gautier,,Cameroon,cm,ufc.com birthplace
-King Green,,USA,us,ufc.com birthplace
-Marcus McGhee,,USA,us,ufc.com birthplace
-Marvin Vettori,,Italy,it,ufc.com birthplace
-Natalia Silva,,Brazil,br,ufc.com birthplace
-Rafael Dos Anjos,,Brazil,br,ufc.com birthplace
-Roberto Soldić,,Bosnia &amp; Herzegovina,ba,ufc.com birthplace
-Brady Hiestand,,USA,us,ufc.com birthplace
-Elves Brener,,Brazil,br,ufc.com birthplace
-John Castaneda,,USA,us,ufc.com birthplace
-Luis Hernandez,,USA,us,ufc.com birthplace
-Mehemmedeli Osmanli,,Azerbaijan,az,ufc.com birthplace
-Melissa Amaya,,USA,us,ufc.com birthplace
-Montel Jackson,,USA,us,ufc.com birthplace
-Norma Dumont,,Brazil,br,ufc.com birthplace
-Raul Rosas Jr.,,USA,us,ufc.com birthplace
-Rodolfo Bellato,,Brazil,br,ufc.com birthplace
-Rodolfo Vieira,,Brazil,br,ufc.com birthplace
-Vanessa Demopoulos,,USA,us,ufc.com birthplace
-Giga Chikadze,,Georgia,ge,ufc.com birthplace
-Alonzo Menifield,,USA,us,ufc.com birthplace
-Arman Tsarukyan,,Georgia,ge,ufc.com birthplace
-Casey O'Neill,,Scotland,gb-sct,ufc.com birthplace
-Edmen Shahbazyan,,USA,us,ufc.com birthplace
-Gable Steveson,,USA,us,ufc.com birthplace
-Joshua Van,,Myanmar,mm,ufc.com birthplace
 Michael Aswell Jr.,,USA,us,ufc.com birthplace
-Marlon Vera,,Ecuador,ec,ufc.com birthplace
-Ryan Gandra,,Brazil,br,ufc.com birthplace
-Tai Tuivasa,,Australia,au,ufc.com birthplace
-Jean Silva,,Brazil,br,ufc.com birthplace
-Brandon Moreno,,Mexico,mx,ufc.com birthplace
-David Martinez,,Mexico,mx,ufc.com birthplace
-Drakkar Klose,,USA,us,ufc.com birthplace
-Ignacio Bahamondes,,Chile,cl,ufc.com birthplace
-JJ Aldrich,,USA,us,ufc.com birthplace
-Manon Fiorot,,France,fr,ufc.com birthplace
-Rafa Garcia,,USA,us,ufc.com birthplace
-Sean King III,,USA,us,ufc.com birthplace
-Tim Elliott,,USA,us,ufc.com birthplace
-Tommy McMillen,,USA,us,ufc.com birthplace
 Waldo Cortes-Acosta,,Dominican Republic,do,ufc.com birthplace
-Yousri Belgaroui,,Netherlands,nl,ufc.com birthplace
-Matthieu Letho Duclos,,France,fr,ufc.com birthplace
-Daniil Donchenko,,Ukraine,ua,ufc.com birthplace
-Delphine Benouaich,,France,fr,ufc.com birthplace
 Fares Ziam,,France,fr,ufc.com birthplace
-Kurtis Campbell,,England,gb-eng,ufc.com birthplace
-Losene Keita,,Guinea,gn,ufc.com birthplace
-Mario Pinto,,Portugal,pt,ufc.com birthplace
-Dan Hooker,,New Zealand,nz,ufc.com birthplace
-Michael Aljarouj,,Syria,sy,ufc.com birthplace
 Morgan Charriere,,France,fr,ufc.com birthplace
-Nathaniel Wood,,England,gb-eng,ufc.com birthplace
-Nora Cornolle,,France,fr,ufc.com birthplace
-Oumar Sy,,France,fr,ufc.com birthplace
-Michael Page,,United Kingdom,gb,ufc.com birthplace
-Lawrence Lui,,Hong Kong,hk,ufc.com birthplace
-Bilal Hasan,,USA,us,ufc.com birthplace
-Ding Meng,,China,cn,ufc.com birthplace
-Jack Jenkins,,Australia,au,ufc.com birthplace
-Jingnan Xiong,,China,cn,ufc.com birthplace
-Alex Perez,,USA,us,ufc.com birthplace
-Liu Ce,,China,cn,ufc.com birthplace
-Rei Tsuruya,,Japan,jp,ufc.com birthplace
-Umar Nurmagomedov,,Russia,ru,ufc.com birthplace
-Xiao Long,,China,cn,ufc.com birthplace
-Yan Xiaonan,,China,cn,ufc.com birthplace
-Namsrai Batbayar,,Mongolia,mn,ufc.com birthplace
-Kennedy Nzechukwu,,USA,us,ufc.com birthplace
-Anthony Hernandez,,USA,us,ufc.com birthplace
-Carli Judice,,USA,us,ufc.com birthplace
-Chris Padilla,,USA,us,ufc.com birthplace
-Gauge Young,,USA,us,ufc.com birthplace
-Jamall Emmers,,USA,us,ufc.com birthplace
-MarQuel Mederos,,USA,us,ufc.com birthplace
-Marcio Barbosa,,Brazil,br,ufc.com birthplace
-Reinier de Ridder,,Netherlands,nl,ufc.com birthplace
-Serghei Spivac,,Moldova,md,ufc.com birthplace
-Shanelle Dyer,,England,gb-eng,ufc.com birthplace
-Wes Schultz,,USA,us,ufc.com birthplace
-Jalin Turner,,USA,us,ufc.com birthplace
-Charles Johnson,,USA,us,ufc.com birthplace
-Chidi Njokuani,,USA,us,ufc.com birthplace
-Donte Johnson,,USA,us,ufc.com birthplace
-Edson Barboza,,Brazil,br,ufc.com birthplace
-Islam Makhachev,,Russia,ru,ufc.com birthplace
-Mansur Abdul-Malik,,USA,us,ufc.com birthplace
-Jeremiah Wells,,USA,us,ufc.com birthplace
-Mackenzie Dern,,USA,us,ufc.com birthplace
-Neil Magny,,USA,us,ufc.com birthplace
-Rafael Tobias,,Brazil,br,ufc.com birthplace
-Vicente Luque,,USA,us,ufc.com birthplace
-Juliana Miller,,USA,us,ufc.com birthplace
-Amanda Lemos,,Brazil,br,ufc.com birthplace
-Darren Elkins,,USA,us,ufc.com birthplace
-Diego Ferreira,,Brazil,br,ufc.com birthplace
-Diyar Nurgozhay,,Kazakhstan,kz,ufc.com birthplace
-Gigi Canuto,,Brazil,br,ufc.com birthplace
-Louie Sutherland,,England,gb-eng,ufc.com birthplace
-Manoel Sousa,,Brazil,br,ufc.com birthplace
-Mateusz Gamrot,,Poland,pl,ufc.com birthplace
-Miles Johns,,USA,us,ufc.com birthplace
-Steven Asplund,,USA,us,ufc.com birthplace
-Marina Spasić,,Serbia,rs,ufc.com birthplace
-Borislav Nikolic,,Serbia,rs,ufc.com birthplace
-Dennis Buzukja,,USA,us,ufc.com birthplace
 Dusko Todorovic,,Montenegro,me,ufc.com birthplace
-Jan Blachowicz,,Poland,pl,ufc.com birthplace
-Jovan Leka,,Serbia,rs,ufc.com birthplace
-Ludovit Klein,,Slovakia,sk,ufc.com birthplace
-Aleksandar Rakic,,Austria,at,ufc.com birthplace
 Mateusz Rebecki,,Poland,pl,ufc.com birthplace
-Oban Elliott,,England,gb-eng,ufc.com birthplace
 Uros Medic,,Serbia,rs,ufc.com birthplace
-Vlasto Čepo,,Serbia,rs,ufc.com birthplace
-Milos Janicic,,Montenegro,me,ufc.com birthplace
-Magomed Zaynukov,,Russia,ru,ufc.com birthplace
-Cody Gibson,,USA,us,ufc.com birthplace
-Dustin Jacoby,,USA,us,ufc.com birthplace
-Ismael Bonfim,,Brazil,br,ufc.com birthplace
-Magomed Ankalaev,,Russia,ru,ufc.com birthplace
-Magomed Tuchalov,,Russia,ru,ufc.com birthplace
-Nurullo Aliev,,Tajikistan,tj,ufc.com birthplace
-Santiago Ponzinibbio,,Argentina,ar,ufc.com birthplace
-Steve Erceg,,Australia,au,ufc.com birthplace
-Valter Walker,,Brazil,br,ufc.com birthplace
-Rizvan Kuniev,,Russia,ru,ufc.com birthplace
-Jared Cannonier,,USA,us,ufc.com birthplace
-Alden Coria,,USA,us,ufc.com birthplace
-Anna Melisano,,USA,us,ufc.com birthplace
-Austin Bashi,,USA,us,ufc.com birthplace
-Chase Hooper,,USA,us,ufc.com birthplace
-Dricus Du Plessis,,South Africa,za,ufc.com birthplace
-Levi Rodrigues Jr.,,Brazil,br,ufc.com birthplace
-RJ Harris,,USA,us,ufc.com birthplace
-Tabatha Ricci,,Brazil,br,ufc.com birthplace
-Farid Basharat,,Afghanistan,af,ufc.com birthplace
 Benoit Saint Denis,,France,fr,ufc.com birthplace
-Brandon Royval,,USA,us,ufc.com birthplace
-Cody Garbrandt,,USA,us,ufc.com birthplace
-Alessandro Costa,,Brazil,br,ufc.com birthplace
-Cory Sandhagen,,USA,us,ufc.com birthplace
-Conor McGregor,,Ireland,ie,ufc.com birthplace
-Tracy Cortez,,USA,us,ufc.com birthplace
-Luke Riley,,England,gb-eng,ufc.com birthplace
-Kaan Ofli,,Australia,au,ufc.com birthplace
-Bekzat Almakhan,,Kazakhstan,kz,ufc.com birthplace
-Ikram Aliskerov,,Russia,ru,ufc.com birthplace
-Nazim Sadykhov,,Russia,ru,ufc.com birthplace
-Tahir Abdullayev,,Azerbaijan,az,ufc.com birthplace
-Nursulton Ruziboev,,Uzbekistan,uz,ufc.com birthplace
-Asu Almabayev,,Kazakhstan,kz,ufc.com birthplace
-Shara Magomedov,,Russia,ru,ufc.com birthplace
-Rafael Fiziev,,Kyrgyzstan,kg,ufc.com birthplace
-Ion Cutelaba,,Moldova,md,ufc.com birthplace
-Allan Nascimento,,Brazil,br,ufc.com birthplace
-Andre Lima,,Brazil,br,ufc.com birthplace
-Bia Mesquita,,Brazil,br,ufc.com birthplace
 Gaston Bolanos,,Peru,pe,ufc.com birthplace
-Hyder Amil,,Philippines,ph,ufc.com birthplace
-Leon Shahbazyan,,USA,us,ufc.com birthplace
-Karol Rosa,,Brazil,br,ufc.com birthplace
-Manel Kape,,Angola,ao,ufc.com birthplace
-Melsik Baghdasaryan,,Armenia,am,ufc.com birthplace
-Shane Collins,,USA,us,ufc.com birthplace
-Vinicius Oliveira,,Brazil,br,ufc.com birthplace
-Alex Pereira,,Brazil,br,ufc.com birthplace
-Bo Nickal,,USA,us,ufc.com birthplace
-Diego Lopes,,Brazil,br,ufc.com birthplace
-Ilia Topuria,,Germany,de,ufc.com birthplace
-Josh Hokit,,USA,us,ufc.com birthplace
-Mauricio Ruffy,,Brazil,br,ufc.com birthplace
-Sean O'Malley,,USA,us,ufc.com birthplace
-Jeisla Chaves,,Brazil,br,ufc.com birthplace
-Belal Muhammad,,USA,us,ufc.com birthplace
-Bruno Silva,,Brazil,br,ufc.com birthplace
-Bryce Mitchell,,USA,us,ufc.com birthplace
-Iwo Baraniewski,,Poland,pl,ufc.com birthplace
-Jordan Leavitt,,USA,us,ufc.com birthplace
-Ketlen Souza,,Brazil,br,ufc.com birthplace
-Matt Schnell,,USA,us,ufc.com birthplace
-Priscila Cachoeira,,Brazil,br,ufc.com birthplace
-Loma Lookboonmee,,Thailand,th,ufc.com birthplace
-Angela Hill,,USA,us,ufc.com birthplace
-Jake Matthews,,Australia,au,ufc.com birthplace
-Kai Asakura,,Japan,jp,ufc.com birthplace
-Zhang Mingyang,,China,cn,ufc.com birthplace
-Sergei Pavlovich,,Russia,ru,ufc.com birthplace
-Song Yadong,,China,cn,ufc.com birthplace
-Yi Sak Lee,,South Korea,kr,ufc.com birthplace
-Zhu Kangjie,,China,cn,ufc.com birthplace
-Ketlen Vieira,,Brazil,br,ufc.com birthplace
-Alice Ardelean,,Romania,ro,ufc.com birthplace
-Arnold Allen,,England,gb-eng,ufc.com birthplace
-Cody Brundage,,USA,us,ufc.com birthplace
-Daniel Barez,,Spain,es,ufc.com birthplace
-Dooho Choi,,South Korea,kr,ufc.com birthplace
-Nikolay Veretennikov,,Ukraine,ua,ufc.com birthplace
-Shauna Bannon,,Ireland,ie,ufc.com birthplace
-Timmy Cuamba,,USA,us,ufc.com birthplace
-Tuco Tokkos,,England,gb-eng,ufc.com birthplace
-Modestas Bukauskas,,Lithuania,lt,ufc.com birthplace
 Joel Alvarez,,Spain,es,ufc.com birthplace
-Baisangur Susurkaev,,Russia,ru,ufc.com birthplace
-Clayton Carpenter,,USA,us,ufc.com birthplace
-Jim Miller,,USA,us,ufc.com birthplace
-Pat Sabatini,,USA,us,ufc.com birthplace
-Roman Kopylov,,Russia,ru,ufc.com birthplace
-Sean Brady,,USA,us,ufc.com birthplace
-Jacob Malkoun,,Australia,au,ufc.com birthplace
-Beneil Dariush,,Iran,ir,ufc.com birthplace
-Dom Mar Fan,,Australia,au,ufc.com birthplace
-Jack Della Maddalena,,Australia,au,ufc.com birthplace
-Cam Rowston,,Australia,au,ufc.com birthplace
-Jonathan Micallef,,Australia,au,ufc.com birthplace
-Junior Tafa,,Australia,au,ufc.com birthplace
-Marwan Rahiki,,Morocco,ma,ufc.com birthplace
-Shamil Gaziev,,Russia,ru,ufc.com birthplace
-Aljamain Sterling,,USA,us,ufc.com birthplace
-Davey Grant,,England,gb-eng,ufc.com birthplace
-Jackson McVey,,USA,us,ufc.com birthplace
-Jafel Filho,,Brazil,br,ufc.com birthplace
-Max Griffin,,USA,us,ufc.com birthplace
-Marcus Buchecha,,Brazil,br,ufc.com birthplace
-Mayra Bueno Silva,,Brazil,br,ufc.com birthplace
-Gilbert Burns,,Brazil,br,ufc.com birthplace
-Jamie Siraj,,Canada,ca,ufc.com birthplace
-Jasmine Jasudavicius,,Canada,ca,ufc.com birthplace
-Kyler Phillips,,USA,us,ufc.com birthplace
 Thiago Moises,,Brazil,br,ufc.com birthplace
 Jiri Prochazka,,Czechia,cz,ufc.com birthplace
-Charles Radtke,,USA,us,ufc.com birthplace
-Cub Swanson,,USA,us,ufc.com birthplace
-Curtis Blaydes,,USA,us,ufc.com birthplace
-Dominick Reyes,,USA,us,ufc.com birthplace
-Kelvin Gastelum,,USA,us,ufc.com birthplace
-Kevin Holland,,USA,us,ufc.com birthplace
-Tatiana Suarez,,USA,us,ufc.com birthplace
-Guilherme Pat,,Brazil,br,ufc.com birthplace
-Dione Barbosa,,Brazil,br,ufc.com birthplace
-Ethyn Ewing,,USA,us,ufc.com birthplace
-Jose Delano,,Brazil,br,ufc.com birthplace
-Kai Kamaka III,,USA,us,ufc.com birthplace
-Lando Vannata,,USA,us,ufc.com birthplace
-Virna Jandiroba,,Brazil,br,ufc.com birthplace
-Alexa Grasso,,Mexico,mx,ufc.com birthplace
-Alexia Thainara,,Brazil,br,ufc.com birthplace
-Israel Adesanya,,Nigeria,ng,ufc.com birthplace
-Marcin Tybura,,Poland,pl,ufc.com birthplace
-Michael Chiesa,,USA,us,ufc.com birthplace
-Navajo Stirling,,New Zealand,nz,ufc.com birthplace
-Ricky Simon,,USA,us,ufc.com birthplace
-Terrance McKinney,,USA,us,ufc.com birthplace
 Mantas Kondratavicius,,Lithuania,lt,ufc.com birthplace
-Mason Jones,,Wales,gb-wls,ufc.com birthplace
-Movsar Evloev,,Russia,ru,ufc.com birthplace
-Roman Dolidze,,Georgia,ge,ufc.com birthplace
-Shem Rock,,England,gb-eng,ufc.com birthplace
-Brad Tavares,,USA,us,ufc.com birthplace
-Chris Curtis,,USA,us,ufc.com birthplace
-Elijah Smith,,USA,us,ufc.com birthplace
-Josh Emmett,,USA,us,ufc.com birthplace
-Luan Lacerda,,Brazil,br,ufc.com birthplace
-Vitor Petrino,,Brazil,br,ufc.com birthplace
-Luke Fernandez,,USA,us,ufc.com birthplace
-Caio Borralho,,Brazil,br,ufc.com birthplace
-Drew Dober,,USA,us,ufc.com birthplace
-Gregory Rodrigues,,Brazil,br,ufc.com birthplace
-Max Holloway,,USA,us,ufc.com birthplace
-Ricky Turcios,,USA,us,ufc.com birthplace
-Rob Font,,USA,us,ufc.com birthplace
 Su Mudaerji,,China,cn,ufc.com birthplace
-Douglas Silva de Andrade,,Brazil,br,ufc.com birthplace
-Ailin Perez,,Argentina,ar,ufc.com birthplace
 Cristian Quinonez,,Mexico,mx,ufc.com birthplace
-Daniel Zellhuber,,Mexico,mx,ufc.com birthplace
 Edgar Chairez,,Mexico,mx,ufc.com birthplace
-Erik Silva,,Venezuela,ve,ufc.com birthplace
-Santiago Luna,,USA,us,ufc.com birthplace
-Dan Ige,,USA,us,ufc.com birthplace
-Geoff Neal,,USA,us,ufc.com birthplace
 Ode Osbourne,,Jamaica,jm,ufc.com birthplace
-Ramiz Brahimaj,,USA,us,ufc.com birthplace
-Sean Strickland,,USA,us,ufc.com birthplace
-Phil Rowe,,USA,us,ufc.com birthplace
-Jean Matsumoto,,Brazil,br,ufc.com birthplace
-Alex Morono,,USA,us,ufc.com birthplace
-Bruna Brasil,,Brazil,br,ufc.com birthplace
-Jailton Almeida,,Brazil,br,ufc.com birthplace
-Javid Basharat,,Afghanistan,af,ufc.com birthplace
-Amir Albazi,,Iraq,iq,ufc.com birthplace
 Klaudia Sygula,,Poland,pl,ufc.com birthplace
-Michal Oleksiejczuk,,Poland,pl,ufc.com birthplace
-Muin Gafurov,,Tajikistan,tj,ufc.com birthplace
-Wang Cong,,China,cn,ufc.com birthplace
-Mario Bautista,,USA,us,ufc.com birthplace
-Keiichiro Nakamura,,Japan,jp,ufc.com birthplace
-Quillan Salkilld,,Australia,au,ufc.com birthplace
-Sangwook Kim,,South Korea,kr,ufc.com birthplace
-Justin Gaethje,,USA,us,ufc.com birthplace
-Adam Fugitt,,USA,us,ufc.com birthplace
-Cesar Almeida,,Brazil,br,ufc.com birthplace
-Jamey-Lyn Horth,,Canada,ca,ufc.com birthplace
-Joanderson Brito,,Brazil,br,ufc.com birthplace
-Melquizael Costa,,Brazil,br,ufc.com birthplace
-Sean Sharaf,,USA,us,ufc.com birthplace
-Alexandre Pantoja,,Brazil,br,ufc.com birthplace
-Henry Cejudo,,USA,us,ufc.com birthplace
-Maycee Barber,,USA,us,ufc.com birthplace
-Merab Dvalishvili,,Georgia,ge,ufc.com birthplace
-Muhammad Naimov,,Tajikistan,tj,ufc.com birthplace
-Ismail Naurdiev,,Morocco,ma,ufc.com birthplace
-Bogdan Grad,,Romania,ro,ufc.com birthplace
-Jack Hermansson,,Sweden,se,ufc.com birthplace
-Nicolas Dalby,,Denmark,dk,ufc.com birthplace
-Tagir Ulanbekov,,Russia,ru,ufc.com birthplace
-Volkan Oezdemir,,Switzerland,ch,ufc.com birthplace
-Marek Bujlo,,Poland,pl,ufc.com birthplace
-Leon Edwards,,Jamaica,jm,ufc.com birthplace
-Kyle Daukaus,,USA,us,ufc.com birthplace
-Valentina Shevchenko,,Kyrgyzstan,kg,ufc.com birthplace
-Viacheslav Borshchev,,Russia,ru,ufc.com birthplace
-Tecia Pennington,,USA,us,ufc.com birthplace
-Muslim Salikhov,,Russia,ru,ufc.com birthplace
-Christian Leroy Duncan,,United Kingdom,gb,ufc.com birthplace
-Gabriel Bonfim,,Brazil,br,ufc.com birthplace
-Billy Elekana,,USA,us,ufc.com birthplace
-Isaac Dulgarian,,USA,us,ufc.com birthplace
-Steve Garcia,,USA,us,ufc.com birthplace
-Azat Maksum,,Kazakhstan,kz,ufc.com birthplace
-Hamdy Abdelwahab,,Egypt,eg,ufc.com birthplace
-Jaqueline Amorim,,Brazil,br,ufc.com birthplace
-Nasrat Haqparast,,Germany,de,ufc.com birthplace
-Tom Aspinall,,England,gb-eng,ufc.com birthplace
-Charles Jourdain,,Canada,ca,ufc.com birthplace
-Danny Barlow,,USA,us,ufc.com birthplace
-Kyle Prepolec,,Canada,ca,ufc.com birthplace
-Julia Polastri,,Brazil,br,ufc.com birthplace
-Charles Oliveira,,Brazil,br,ufc.com birthplace
-Jhonata Diniz,,Brazil,br,ufc.com birthplace
-Lucas Almeida,,Brazil,br,ufc.com birthplace
-Lucas Rocha,,Brazil,br,ufc.com birthplace
-Ricardo Ramos,,Brazil,br,ufc.com birthplace
-Chris Gutierrez,,USA,us,ufc.com birthplace
-Daniel Santos,,Brazil,br,ufc.com birthplace
-Veronica Hardy,,Venezuela,ve,ufc.com birthplace
-Macy Chiasson,,USA,us,ufc.com birthplace
-Punahele Soriano,,USA,us,ufc.com birthplace
 Brando Pericic,,Australia,au,ufc.com birthplace
-Carlos Ulberg,,New Zealand,nz,ufc.com birthplace
-Jamie Mullarkey,,Australia,au,ufc.com birthplace
-Michelle Montague,,New Zealand,nz,ufc.com birthplace
-Jimmy Crute,,Australia,au,ufc.com birthplace
-Alexander Hernandez,,USA,us,ufc.com birthplace
-Claudio Puelles,,Peru,pe,ufc.com birthplace
-Jesus Aguilar,,Mexico,mx,ufc.com birthplace
-Jose Daniel Medina,,Bolivia,bo,ufc.com birthplace
-Andreas Gustafsson,,Sweden,se,ufc.com birthplace
-Harry Hardwick,,England,gb-eng,ufc.com birthplace
-Axel Sola,,France,fr,ufc.com birthplace
-Sam Patterson,,England,gb-eng,ufc.com birthplace
-William Gomis,,France,fr,ufc.com birthplace
-Nassourdine Imavov,,Russia,ru,ufc.com birthplace
-Maheshate,,China,cn,ufc.com birthplace
-Michel Pereira,,Brazil,br,ufc.com birthplace
 Rong Zhu,,China,cn,ufc.com birthplace
-Brian Ortega,,USA,us,ufc.com birthplace
-Taiyilake Nueraji,,China,cn,ufc.com birthplace
-Uran Satybaldiev,,Kyrgyzstan,kg,ufc.com birthplace
-Alibi Idiris,,Kazakhstan,kz,ufc.com birthplace
-Gerald Meerschaert,,USA,us,ufc.com birthplace
-Jessica Andrade,,Brazil,br,ufc.com birthplace
-Karine Silva,,Brazil,br,ufc.com birthplace
-Lerone Murphy,,England,gb-eng,ufc.com birthplace
-Eryk Anders,,USA,us,ufc.com birthplace
-Gabriella Fernandes,,Brazil,br,ufc.com birthplace
-Joselyne Edwards,,Panama,pa,ufc.com birthplace
-Danny Silva,,USA,us,ufc.com birthplace
-Rafael Estevam,,Brazil,br,ufc.com birthplace
-Rinya Nakamura,,Japan,jp,ufc.com birthplace
-Tatsuro Taira,,Japan,jp,ufc.com birthplace
-Martin Buday,,Slovakia,sk,ufc.com birthplace
-Amanda Ribas,,Brazil,br,ufc.com birthplace
-Ibo Aslan,,Türkiye,tr,ufc.com birthplace
-Mohammad Yahya,,England,gb-eng,ufc.com birthplace
-Robert Whittaker,,Australia,au,ufc.com birthplace
-Brunno Ferreira,,Brazil,br,ufc.com birthplace
-Ryan Spann,,USA,us,ufc.com birthplace
-Michael Johnson,,USA,us,ufc.com birthplace
-Paulo Costa,,Brazil,br,ufc.com birthplace
-Calvin Kattar,,USA,us,ufc.com birthplace
-Derrick Lewis,,USA,us,ufc.com birthplace
-Fatima Kline,,USA,us,ufc.com birthplace
-Lauren Murphy,,USA,us,ufc.com birthplace
-Mitch Ramirez,,USA,us,ufc.com birthplace
-Nate Landwehr,,USA,us,ufc.com birthplace
-Stephen Thompson,,USA,us,ufc.com birthplace
-Payton Talbott,,USA,us,ufc.com birthplace
 Viviane Araujo,,Brazil,br,ufc.com birthplace
-Irina Alekseeva,,Kazakhstan,kz,ufc.com birthplace
-Jamahal Hill,,USA,us,ufc.com birthplace
-Seokhyeon Ko,,South Korea,kr,ufc.com birthplace
-Tofiq Musayev,,Azerbaijan,az,ufc.com birthplace
-Kamaru Usman,,Nigeria,ng,ufc.com birthplace
-Rose Namajunas,,USA,us,ufc.com birthplace
-Paul Craig,,Scotland,gb-sct,ufc.com birthplace
-Khaos Williams,,USA,us,ufc.com birthplace
-Jeka Saragih,,Indonesia,id,ufc.com birthplace
 Julianna Pena,,USA,us,ufc.com birthplace
 Ariane da Silva,,Brazil,br,ufc.com birthplace
-Kurt Holobaugh,,USA,us,ufc.com birthplace
-Rayanne dos Santos,,Brazil,br,ufc.com birthplace
-Jared Gordon,,USA,us,ufc.com birthplace
-Elise Reed,,USA,us,ufc.com birthplace
-Dustin Stoltzfus,,USA,us,ufc.com birthplace
-Gabe Green,,USA,us,ufc.com birthplace
-HyunSung Park,,South Korea,kr,ufc.com birthplace
-Sodiq Yusuff,,Nigeria,ng,ufc.com birthplace
-Yadier del Valle,,Cuba,cu,ufc.com birthplace
-Brad Katona,,Canada,ca,ufc.com birthplace
 Jose Aldo,,Brazil,br,ufc.com birthplace
-Mike Malott,,USA,us,ufc.com birthplace
-Cameron Smotherman,,USA,us,ufc.com birthplace
-Jeremy Stephens,,USA,us,ufc.com birthplace
-Marina Rodriguez,,Brazil,br,ufc.com birthplace
-Ryan Loder,,USA,us,ufc.com birthplace
-Thomas Petersen,,USA,us,ufc.com birthplace
-Chelsea Chandler,,USA,us,ufc.com birthplace
-Da'Mon Blackshear,,USA,us,ufc.com birthplace
-Evan Elder,,USA,us,ufc.com birthplace
-Ian Machado Garry,,Ireland,ie,ufc.com birthplace
-Anthony Smith,,USA,us,ufc.com birthplace
-Michael Chandler,,USA,us,ufc.com birthplace
-Sedriques Dumas,,USA,us,ufc.com birthplace
-Tresean Gore,,USA,us,ufc.com birthplace
-Yair Rodriguez,,Mexico,mx,ufc.com birthplace
-Cortavious Romious,,USA,us,ufc.com birthplace
-Diana Belbita,,Romania,ro,ufc.com birthplace
-Rhys McKee,,Ireland,ie,ufc.com birthplace
-Torrez Finney,,USA,us,ufc.com birthplace
-Victor Henry,,USA,us,ufc.com birthplace
-Christian Rodriguez,,USA,us,ufc.com birthplace
-Manuel Torres,,Mexico,mx,ufc.com birthplace
-Gunnar Nelson,,Iceland,is,ufc.com birthplace
-Guram Kutateladze,,Georgia,ge,ufc.com birthplace
-Jai Herbert,,England,gb-eng,ufc.com birthplace
-Jordan Vucenic,,England,gb-eng,ufc.com birthplace
-Molly McCann,,United Kingdom,gb,ufc.com birthplace
-Nathan Fletcher,,England,gb-eng,ufc.com birthplace
-Josiane Nunes,,Brazil,br,ufc.com birthplace
-Carlos Vera,,Ecuador,ec,ufc.com birthplace
-SeungWoo Choi,,South Korea,kr,ufc.com birthplace
-SuYoung You,,South Korea,kr,ufc.com birthplace
-Yuneisy Duben,,Venezuela,ve,ufc.com birthplace
-Djorden Santos,,Brazil,br,ufc.com birthplace
-Andrea Lee,,USA,us,ufc.com birthplace
-Austen Lane,,USA,us,ufc.com birthplace
-Connor Matthews,,USA,us,ufc.com birthplace
-Don'Tale Mayes,,USA,us,ufc.com birthplace
-Julia Avila,,USA,us,ufc.com birthplace
-Vince Morales,,USA,us,ufc.com birthplace
-Justin Tafa,,New Zealand,nz,ufc.com birthplace
-Zhang Weili,,China,cn,ufc.com birthplace
-Said Nurmagomedov,,Russia,ru,ufc.com birthplace
-Bogdan Guskov,,Uzbekistan,uz,ufc.com birthplace
-Ernesta Kareckaite,,Lithuania,lt,ufc.com birthplace
-Jose Johnson,,USA,us,ufc.com birthplace
-Magomed Gadzhiyasulov,,Russia,ru,ufc.com birthplace
-Marco Tulio,,Brazil,br,ufc.com birthplace
-Preston Parsons,,USA,us,ufc.com birthplace
 Adrian Yanez,,USA,us,ufc.com birthplace
-Colby Covington,,USA,us,ufc.com birthplace
-Josefine Knutsson,,Sweden,se,ufc.com birthplace
-Miranda Maverick,,USA,us,ufc.com birthplace
-Sean Woodson,,USA,us,ufc.com birthplace
-Chris Weidman,,USA,us,ufc.com birthplace
-Ciryl Gane,,France,fr,ufc.com birthplace
-Clay Guida,,USA,us,ufc.com birthplace
-Shavkat Rakhmonov,,Uzbekistan,uz,ufc.com birthplace
-Shi Ming,,China,cn,ufc.com birthplace
-Nyamjargal Tumendemberel,,Mongolia,mn,ufc.com birthplace
-Song Kenan,,China,cn,ufc.com birthplace
-Jonathan Martinez,,USA,us,ufc.com birthplace
-Bassil Hafez,,USA,us,ufc.com birthplace
-David Onama,,Uganda,ug,ufc.com birthplace
-Jon Jones,,USA,us,ufc.com birthplace
-Cody Stamann,,USA,us,ufc.com birthplace
-Elizeu Zaleski dos Santos,,Brazil,br,ufc.com birthplace
-Karolina Kowalkiewicz,,Poland,pl,ufc.com birthplace
-Luana Pinheiro,,Brazil,br,ufc.com birthplace
-Matthew Semelsberger,,USA,us,ufc.com birthplace
-Melissa Mullins,,England,gb-eng,ufc.com birthplace
-Caio Machado,,Brazil,br,ufc.com birthplace
-Alexandr Romanov,,Moldova,md,ufc.com birthplace
-Jack Shore,,Wales,gb-wls,ufc.com birthplace
-Serhiy Sidey,,Ukraine,ua,ufc.com birthplace
-Aiemann Zahabi,,Canada,ca,ufc.com birthplace
-Asaf Chopurov,,Georgia,ge,ufc.com birthplace
-Nicolle Caliari,,Brazil,br,ufc.com birthplace
-Noah Gugnon,,France,fr,ufc.com birthplace
-Ramazan Temirov,,Uzbekistan,uz,ufc.com birthplace
-Mackenzie Stiller,,USA,us,ufc.com birthplace
-Steven Koslow,,USA,us,ufc.com birthplace
-Joel Faglier,,USA,us,ufc.com birthplace
-Nick Galanti,,USA,us,ufc.com birthplace
-Brendson Ribeiro,,Brazil,br,ufc.com birthplace
-Otari Tanzilovi,,Georgia,ge,ufc.com birthplace
-Mick Parkin,,England,gb-eng,ufc.com birthplace
-Lucas Armand,,USA,us,ufc.com birthplace
-Eric Nolan,,USA,us,ufc.com birthplace
-Andrey Pulyaev,,Russia,ru,ufc.com birthplace
-Bruce Whitehead,,USA,us,ufc.com birthplace
-Esteban Ribovics,,Argentina,ar,ufc.com birthplace
-Anthony Romero,,Canada,ca,ufc.com birthplace
-Josiah Harrell,,USA,us,ufc.com birthplace
-Alatengheili,,China,cn,ufc.com birthplace
-Ilimbek Akylbek Uulu,,Kyrgyzstan,kg,ufc.com birthplace
-Tina Black,,Brazil,br,ufc.com birthplace
-Raoni Barcelos,,Brazil,br,ufc.com birthplace
-Christian Edwards,,USA,us,ufc.com birthplace
-Robert Bryczek,,Poland,pl,ufc.com birthplace
-Yazmin Jauregui,,Mexico,mx,ufc.com birthplace
-Eduarda Moura,,Brazil,br,ufc.com birthplace
-JooSang Yoo,,South Korea,kr,ufc.com birthplace
-Ozzy Diaz,,USA,us,ufc.com birthplace
-Robelis Despaigne,,Cuba,cu,ufc.com birthplace
-Jose Miguel Delgado,,USA,us,ufc.com birthplace
-Joseph Morales,,USA,us,ufc.com birthplace
-Jessie Rosas,,USA,us,ufc.com birthplace
-Luis Felipe Dias,,Brazil,br,ufc.com birthplace
-Sofia Montenegro,,Argentina,ar,ufc.com birthplace
-Trevor Peek,,USA,us,ufc.com birthplace
-Salahdine Parnasse,,France,fr,ufc.com birthplace
-Fabia Sintes,,Spain,es,ufc.com birthplace
-Felipe Lima,,Brazil,br,ufc.com birthplace
-Pavel Andrusca,,Moldova,md,ufc.com birthplace
-Nilson Rojas,,Peru,pe,ufc.com birthplace
-Cam Nelson,,Canada,ca,ufc.com birthplace
-Kevin Borjas,,Peru,pe,ufc.com birthplace
-Francesco Nuzzi,,Italy,it,ufc.com birthplace
-Denise Gomes,,Brazil,br,ufc.com birthplace
-Terrance Chatman,,USA,us,ufc.com birthplace
-Stan Dorsainvil,,USA,us,ufc.com birthplace
-Lerryan Douglas,,Brazil,br,ufc.com birthplace
-Ryan Kuse,,USA,us,ufc.com birthplace
 Kaue Fernandes,,Brazil,br,ufc.com birthplace
-Eduardo Chapolin,,Brazil,br,ufc.com birthplace
-Eric McConico,,USA,us,ufc.com birthplace
-Gillian Robertson,,Canada,ca,ufc.com birthplace
-Myktybek Orolbai,,Kyrgyzstan,kg,ufc.com birthplace
-Lucas Fernando,,Brazil,br,ufc.com birthplace
