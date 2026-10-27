@@ -8,7 +8,7 @@
 <title>Jono's UFC Picks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261026k">
+<link rel="stylesheet" href="style.css?v=20261026l">
 </head>
 <body>
 <header class="top">
@@ -36,6 +36,14 @@
 <div id="livebar" class="livebar" hidden aria-live="polite"></div>
 <main class="wrap" id="view" tabindex="-1"><p class="where">Loading…</p></main>
 <footer class="wrap foot" id="updated"></footer>
-<script src="app.js?v=20261026k"></script>
+<nav class="tabbar" aria-label="Sections">
+  <a href="#/" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Home</a>
+  <a href="#/card" data-nav="card"><svg viewBox="0 0 24 24"><polygon points="8,2 16,2 22,8 22,16 16,22 8,22 2,16 2,8"/></svg>Card</a>
+  <a href="#/events" data-nav="events"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Events</a>
+  <a href="#/record" data-nav="record"><svg viewBox="0 0 24 24"><path d="M3 19 9 12l4 4 8-9"/></svg>Record</a>
+  <details class="more"><summary><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>More</summary>
+    <div class="sheet"><a href="#/fighters" data-nav="fighters">Fighters</a><a href="#/rankings" data-nav="rankings">Rankings</a><a href="#/experts" data-nav="experts">Experts</a><a href="#/how" data-nav="how">How it works</a></div></details>
+</nav>
+<script src="app.js?v=20261026l"></script>
 </body>
 </html>

@@ -442,3 +442,75 @@ td.rbar i { display: block; height: 100%; background: var(--gold); } td.rbar b {
 .rstrip b { font: 800 16px var(--display); color: var(--quiet); margin-right: 4px; }
 .rstrip em { font: 900 18px var(--display); font-style: normal; margin-left: 4px; }
 .rstrip a { margin-left: auto; font: 700 15px var(--display); }
+
+/* why this pick */
+.why { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 3px; font-size: 14px; color: #d3d9e3; }
+.why li::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 8px 1px 0; background: var(--gold); clip-path: polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%); }
+.ticket .tk-why { font-size: 12px; font-weight: 600; opacity: .8; margin-top: 4px; line-height: 1.3; }
+
+/* TV schedule in the hero */
+.tvsched { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 18px 0 2px; }
+.tvsched .tv { display: flex; flex-direction: column; align-items: center; min-width: 150px; padding: 8px 14px; background: rgba(255,255,255,.04); border: 1px solid #2c3446; border-radius: 2px; }
+.tvsched .tv b { font: 800 15px var(--display); color: var(--gold); letter-spacing: .03em; }
+.tvsched .tv span { font: 800 22px/1.1 var(--display); color: #fff; }
+.tvsched .tv small { color: #9aa3b4; font-size: 12px; }
+
+/* tale of the tape: mirrored bars */
+.tt tr.mb td { padding: 6px 8px; }
+.tt tr.mb td:first-child { text-align: right; } .tt tr.mb td:last-child { text-align: left; }
+.mbv { display: inline-block; min-width: 48px; font: 800 17px var(--display); color: #c9d0dc; vertical-align: middle; }
+.mbv.adv { color: #fff; }
+.mbt { display: inline-block; width: calc(100% - 56px); height: 9px; vertical-align: middle; background: #262d3b; position: relative; }
+.mbt i { position: absolute; top: 0; bottom: 0; }
+.mbt.l i { right: 0; background: rgba(229,72,77,.45); } .mbt.l i.adv { background: var(--red); }
+.mbt.r i { left: 0; background: rgba(61,132,232,.45); } .mbt.r i.adv { background: var(--blue); }
+.tt tr.mb td:first-child .mbv { margin-right: 8px; } .tt tr.mb td:last-child .mbv { margin-left: 8px; }
+.tt thead th:first-child { color: var(--red); } .tt thead th:last-child { color: var(--blue); }
+
+/* line movement */
+.moves-d > summary { list-style: none; cursor: pointer; } .moves-d > summary::-webkit-details-marker { display: none; }
+.moves-d > summary .moves::after { content: "Line chart"; margin-left: auto; font: 700 14px var(--display); color: #7fb0ff; }
+.lchart { margin: 8px 0 4px; background: #181d28; border: 1px solid var(--rule); border-radius: 2px; padding: 6px 8px; }
+.lchart svg { width: 100%; height: auto; display: block; }
+.lchart .mid { stroke: #3a4356; stroke-dasharray: 4 4; } .lchart .ln { fill: none; stroke: var(--red); stroke-width: 2.4; }
+.lchart .area { fill: rgba(229,72,77,.10); } .lchart .dot { fill: #fff; } .lchart .dot.now { fill: var(--gold); }
+.lchart text { fill: var(--quiet); font: 600 11px "Barlow", sans-serif; }
+.lchart figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 13px; color: var(--quiet); padding-top: 4px; }
+.lchart figcaption b { color: var(--ink); } .lchart .mv { color: var(--gold); font-weight: 600; }
+
+/* experts leaderboard */
+.lb { display: flex; flex-direction: column; gap: 4px; }
+.lbrow { background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; }
+.lbrow.winning { border-left: 4px solid var(--gold); }
+.lbrow > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 34px 1fr 150px 130px; gap: 12px; align-items: center; padding: 10px 14px; }
+.lbrow > summary::-webkit-details-marker { display: none; }
+.lb-rk { font: 900 24px var(--display); color: var(--quiet); } .lbrow.winning .lb-rk { color: var(--gold); }
+.lb-nm { font: 800 19px var(--display); display: flex; flex-direction: column; } .lb-nm small { font: 500 12px "Barlow", sans-serif; color: var(--quiet); }
+.lb-nm .wtag { font: 700 11px "Barlow", sans-serif; background: rgba(224,178,58,.18); color: var(--gold); padding: 1px 7px; border-radius: 8px; margin-left: 6px; vertical-align: middle; }
+.lb-bar, .lb-u { display: flex; flex-direction: column; gap: 3px; } .lb-bar small, .lb-u small { font-size: 11px; color: var(--quiet); }
+.lb-bar .track { position: relative; height: 8px; background: #2a3141; } .lb-bar .track i { position: absolute; inset: 0 auto 0 0; background: var(--gold); }
+.lb-bar .track em { position: absolute; top: -3px; bottom: -3px; width: 2px; background: #fff; }
+.lb-u b { font: 900 22px var(--display); }
+.lb-u .ub { position: relative; height: 6px; background: #2a3141; } .lb-u .ub i { position: absolute; top: 0; bottom: 0; }
+.lb-u .ub i.pos { left: 50%; background: var(--green); } .lb-u .ub i.neg { right: 50%; background: var(--red); }
+.lb-week { padding: 8px 14px 12px 60px; font-size: 14px; color: #c9d0dc; border-top: 1px solid var(--rule); }
+@media (max-width: 640px) { .lbrow > summary { grid-template-columns: 28px 1fr 96px; } .lb-bar { display: none; } .lb-week { padding-left: 14px; } }
+
+/* phone tab bar */
+.tabbar { display: none; }
+@media (max-width: 640px) {
+  .top nav { display: none; }
+  body { padding-bottom: 64px; }
+  .tabbar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(14,17,24,.97); border-top: 2px solid var(--gold);
+    padding: 4px 4px calc(4px + env(safe-area-inset-bottom)); justify-content: space-around; }
+  .tabbar > a, .tabbar .more > summary { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; padding: 4px 0; color: #9aa3b4;
+    text-decoration: none; font: 700 13px var(--display); letter-spacing: .02em; list-style: none; cursor: pointer; }
+  .tabbar .more { flex: 1; display: flex; } .tabbar .more > summary::-webkit-details-marker { display: none; }
+  .tabbar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .tabbar a.on, .tabbar .more[open] > summary { color: var(--gold); }
+  .tabbar .sheet { position: fixed; left: 8px; right: 8px; bottom: 66px; background: #1b2030; border: 1px solid var(--rule); border-top: 3px solid var(--gold);
+    display: flex; flex-direction: column; padding: 4px 0; }
+  .tabbar .sheet a { padding: 12px 18px; color: var(--ink); text-decoration: none; font: 800 20px var(--display); border-bottom: 1px solid var(--rule); }
+  .tabbar .sheet a:last-child { border-bottom: 0; } .tabbar .sheet a.on { color: var(--gold); }
+}
+.lb-nm .wtag { align-self: flex-start; margin: 2px 0 1px; }

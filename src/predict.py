@@ -172,6 +172,60 @@ def splits_for(a, b):
             "bets_b": float(y["bets"]), "at": x["snapshot"]}
 
 
+def schedule(card):
+    """When each part of the card starts, and where to watch: the latest start time is the main card,
+    the one before it the prelims, anything earlier the early prelims."""
+    if card is None or card.empty or "start" not in card:
+        return []
+    c = card[card["start"].notna()].copy()
+    if c.empty:
+        return []
+    groups = sorted(c["start"].astype(str).unique())
+    names = ["Main card", "Prelims", "Early prelims"]
+    out = []
+    for i, st in enumerate(reversed(groups)):
+        g = c[c["start"].astype(str) == st]
+        seg = next((x for x in g.get("card_segment", pd.Series(dtype=str)).dropna() if str(x).strip()), None)
+        tv = sorted({x for v in g.get("broadcast", pd.Series(dtype=str)).dropna() for x in str(v).split(", ") if x})
+        out.append({"segment": seg or (names[i] if i < 3 else "Early prelims"), "start": st, "bouts": int(len(g)), "tv": tv})
+    return list(reversed(out))   # earliest first
+
+
+def why(f, ex, sp, pick):
+    """Plain reasons behind an our pick, strongest first (shown under the pick on the site)."""
+    if not pick:
+        return []
+    on_a = pick == f["a"]
+    me, opp = ("a", "b") if on_a else ("b", "a")
+    out = []
+    him = "her" if str(f.get("gender", "M")).upper().startswith("F") else "him"
+    pf, fair = f.get("p_final"), f.get("fair_a")
+    if pf == pf and fair == fair and pf is not None and fair is not None:
+        mine, line = (pf, fair) if on_a else (1 - pf, 1 - fair)
+        m_, l_ = round(100 * mine), round(100 * line)
+        out.append(f"Our chance {m_}% vs the line's {l_}%" + (f" ({m_ - l_} points of value)" if m_ - l_ >= 1 else ""))
+    if isinstance(f.get("expert_lean"), str) and f["expert_lean"] == pick and ex:
+        k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]
+        out.append(f"Close fight and {k} of {n} analysts pick {pick.split()[-1]}")
+    elif ex and ex["picks_a"] + ex["picks_b"] >= 5:
+        k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]
+        if k / n >= 0.65:
+            out.append(f"{k} of {n} analysts agree")
+    if f.get(f"long_layoff_{opp}") == 1:
+        out.append("Opponent is back from a 15+ month layoff (those fighters win less than priced)")
+    if f.get(f"debut_{opp}") and not f.get(f"debut_{me}"):
+        out.append("Opponent is making " + ("her" if him == "her" else "his") + " UFC debut")
+    if f.get("rating_a") == f.get("rating_a") and f.get("rating_b") == f.get("rating_b"):
+        diff = (f["rating_a"] - f["rating_b"]) * (1 if on_a else -1)
+        if diff >= 75:
+            out.append(f"Rated {round(diff)} points higher")
+    if sp:
+        h, b = sp[f"handle_{me}"], sp[f"bets_{me}"]
+        if h - b >= 0.2:
+            out.append(f"Bigger bettors on {him}: {round(100 * h)}% of DraftKings money from {round(100 * b)}% of bets")
+    return out[:4]
+
+
 def load_card(fights):
     """The next card, with names in the history's spelling and the current lines attached."""
     known = {norm(n): n for n in pd.concat([fights["a"], fights["b"]]).unique()}
@@ -381,8 +435,9 @@ def main():
             "a": f["a"], "b": f["b"], "a_slug": slugify(f["a"]), "b_slug": slugify(f["b"]),
             "a_id": str_or_none(c.get("espn_id_a")), "b_id": str_or_none(c.get("espn_id_b")),
             "record_a": str_or_none(c.get("record_a")), "record_b": str_or_none(c.get("record_b")),
-            "experts": experts_for(f["date"], f["a"], f["b"]),
-            "splits": splits_for(f["a"], f["b"]),
+            "experts": (ex_ := experts_for(f["date"], f["a"], f["b"])),
+            "splits": (sp_ := splits_for(f["a"], f["b"])),
+            "why": why(f, ex_, sp_, our_pick),
             "weight_class": c.get("weight_class") or "",
             "rounds": int(f["rounds"]) if f["rounds"] == f["rounds"] else 3,
             "segment": c.get("card_segment") if isinstance(c.get("card_segment"), str) else "",
@@ -406,7 +461,7 @@ def main():
     first = card.iloc[0]
     json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": str(first.get("event") or "Next UFC card"),
                "date": str(first["date"]), "location": str(first.get("location") or ""), "card_source": source,
-               "edge_threshold": EDGE, "big_edge": BIG_EDGE, "model": cfg, "fights": out},
+               "edge_threshold": EDGE, "big_edge": BIG_EDGE, "model": cfg, "schedule": schedule(card), "fights": out},
               open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
     publish_common(fights, log, G)
 

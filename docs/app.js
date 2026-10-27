@@ -30,6 +30,26 @@ const recLine = r => !r || !r.picks ? "" :
 const fighterLink = (name, s) => `<a class="fl" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
 
 // ---------------- the current card ----------------
+function lineChart(hist, f) {
+  const pts = (hist || []).map(h => ({t: new Date(h.t).getTime(), p: fair(h.a, h.b), a: h.a, b: h.b})).filter(x => x.p != null);
+  if (pts.length < 2) return "";
+  const W = 560, H = 120, P = {l: 8, r: 8, t: 14, b: 18};
+  const lo = Math.min(...pts.map(x => x.p), 0.5) - 0.03, hi = Math.max(...pts.map(x => x.p), 0.5) + 0.03;
+  const t0 = pts[0].t, t1 = Math.max(pts.at(-1).t, t0 + 1);
+  const X = t => P.l + (t - t0) / (t1 - t0) * (W - P.l - P.r), Y = p => P.t + (hi - p) / (hi - lo) * (H - P.t - P.b);
+  const d = pts.map((x, i) => (i ? "L" : "M") + X(x.t).toFixed(1) + " " + Y(x.p).toFixed(1)).join("");
+  const area = d + ` L${X(pts.at(-1).t).toFixed(1)} ${Y(lo).toFixed(1)} L${X(t0).toFixed(1)} ${Y(lo).toFixed(1)} Z`;
+  const first = pts[0], last = pts.at(-1), day = t => new Date(t).toLocaleDateString(undefined, {month: "short", day: "numeric"});
+  const toward = last.p > first.p ? f.a : last.p < first.p ? f.b : null;
+  return `<figure class="lchart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(f.a)}'s chance by the line moved from ${pct(first.p)} to ${pct(last.p)}">
+      <line x1="${P.l}" x2="${W - P.r}" y1="${Y(0.5)}" y2="${Y(0.5)}" class="mid"/>
+      <path d="${area}" class="area"/><path d="${d}" class="ln"/>
+      <circle cx="${X(first.t)}" cy="${Y(first.p)}" r="3.5" class="dot"/><circle cx="${X(last.t)}" cy="${Y(last.p)}" r="4.5" class="dot now"/>
+      <text x="${P.l}" y="${H - 4}">${day(first.t)}</text><text x="${W - P.r}" y="${H - 4}" text-anchor="end">${day(last.t)}</text>
+    </svg><figcaption><span>Line for ${esc(f.a.split(" ").at(-1))}: <b>${odds(first.a)}</b> → <b>${odds(last.a)}</b> (${pct(first.p)} → ${pct(last.p)})</span>${
+      toward ? `<span class="mv">Moving toward ${esc(toward.split(" ").at(-1))}${f.our_pick ? (toward === f.our_pick ? " · with our pick" : " · against our pick") : ""}</span>` : `<span class="mv">No movement</span>`}</figcaption></figure>`;
+}
+
 function spark(hist) {
   const pts = hist.map(h => fair(h.a, h.b)).filter(p => p != null);
   if (pts.length < 2) return "";
@@ -101,6 +121,7 @@ function bout(f, i, edge) {
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (leanTag) pickHtml = leanTag;
   else pickHtml = `<div class="nopick">${line == null ? "No betting line yet." : "No bet: the model and the line are within " + Math.round(edge * 100) + " points."}</div>`;
+  if (f.our_pick && f.why && f.why.length) pickHtml += `<ul class="why">${f.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
   const moved = f.open_a != null && f.odds_a != null && (f.open_a !== f.odds_a)
     ? `Opened ${odds(f.open_a)} / ${odds(f.open_b)}, now ${odds(f.odds_a)} / ${odds(f.odds_b)}`
     : f.odds_a != null ? `Line ${odds(f.odds_a)} / ${odds(f.odds_b)}` : "";
@@ -125,7 +146,7 @@ function bout(f, i, edge) {
     <div class="legend"><span>Fair ${odds(f.fair_odds_a)}</span><span class="hide-sm">Line ${line != null ? pct(line) + " / " + pct(1 - line) : "not posted"}</span><span>Fair ${odds(f.fair_odds_b)}</span></div>
     ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
     ${pickHtml}
-    <div class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></div>
+    <details class="moves-d"><summary><span class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
     ${f.splits ? `<div class="splits">DraftKings bettors: ${Math.round(f.splits.handle_a * 100)}% of money, ${Math.round(f.splits.bets_a * 100)}% of bets on ${esc(f.a.split(" ").at(-1))} · ${Math.round(f.splits.handle_b * 100)}% / ${Math.round(f.splits.bets_b * 100)}% on ${esc(f.b.split(" ").at(-1))}${
       Math.abs(f.splits.handle_a - f.splits.bets_a) >= 0.2 ? ` <b class="sharp">Money ≠ bets: bigger bettors on ${esc((f.splits.handle_a > f.splits.bets_a ? f.a : f.b).split(" ").at(-1))}</b>` : ""}</div>` : ""}
     ${tapeToggle(f.a_slug, f.b_slug, f.rounds)}
@@ -160,6 +181,11 @@ function tape(a, b, rounds) {
     const ea = better && x != null && y != null && x !== y && ((x > y) === (better > 0));
     const eb = better && x != null && y != null && x !== y && !ea;
     const show = v => v == null || v === "" ? "–" : fmt(v);
+    if (better && x != null && y != null && Math.max(x, y) > 0) {   // a number on both sides: mirrored bars
+      const m = Math.max(x, y), wa = x / m * 100, wb = y / m * 100;
+      return `<tr class="mb"><td><span class="mbv ${ea ? "adv" : ""}">${show(va)}</span><span class="mbt l"><i class="${ea ? "adv" : ""}" style="width:${wa}%"></i></span></td>
+        <th>${label}</th><td><span class="mbt r"><i class="${eb ? "adv" : ""}" style="width:${wb}%"></i></span><span class="mbv ${eb ? "adv" : ""}">${show(vb)}</span></td></tr>`;
+    }
     return `<tr><td class="${ea ? "adv" : ""}">${show(va)}</td><th>${label}</th><td class="${eb ? "adv" : ""}">${show(vb)}</td></tr>`;
   };
   const p0 = v => Math.round(v * 100) + "%", d2 = v => (+v).toFixed(2);
@@ -263,6 +289,7 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
+      ${f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
     </a>`;
   }).join("")}</div>`;
@@ -336,6 +363,7 @@ async function viewHome() {
         <span class="vs">VS</span>
         <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span><span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
+      ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
     </section>
@@ -554,7 +582,7 @@ async function viewFighter(s) {
 
 // ---------------- experts ----------------
 async function viewExperts() {
-  const [e, mt] = await Promise.all([get("experts.json"), get("model_test.json")]);
+  const [e, mt, pr] = await Promise.all([get("experts.json"), get("model_test.json"), get("predictions.json", true)]);
   if (!e) return `<h1>Experts</h1><div class="empty">Expert picks appear after the next run collects them.</div>`;
   const t = e.test, r = x => x.roi_pct == null ? "–" : (x.roi_pct > 0 ? "+" : "") + x.roi_pct + "%";
   return `<h1>Experts</h1>
@@ -581,10 +609,24 @@ async function viewExperts() {
       <p class="note">Used on the site: <b>${esc(mt.chosen)}</b>. ${mt.uses_experts ? "Expert picks are part of it." : "Adding expert picks didn't improve it, so they're shown for reference but not used in our chances."}
       Analysts with a winning record (a profit betting their picks, ${20}+ picks): <b>${esc(mt.winning_analysts.join(", ") || "none yet")}</b>. Everyone else is left out of the "winning analysts" count.</p>` : ""}
     <h2>Analyst leaderboard</h2>
-    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Analyst</th><th class="n">Record</th><th class="n">Win %</th><th class="n">Per bet</th><th class="n hide-sm">Underdogs won</th><th class="n hide-sm">High confidence</th></tr></thead><tbody>
-    ${e.analysts.map((a, i) => `<tr><td class="n">${i + 1}</td><td>${esc(a.analyst)}</td><td class="n">${a.won}-${a.bets - a.won}</td><td class="n">${a.win_pct}%</td>
-      <td class="n ${a.roi_pct > 0 ? "won" : "lost"}">${r(a)}</td><td class="n hide-sm">${a.underdogs_won}/${a.underdog_picks}</td>
-      <td class="n hide-sm">${a.high_confidence.bets ? `${a.high_confidence.won}-${a.high_confidence.bets - a.high_confidence.won}, ${r(a.high_confidence)}` : "–"}</td></tr>`).join("")}</tbody></table></div>
+    ${(() => {
+      const win = new Set(mt ? mt.winning_analysts : []);
+      const week = {};   // each analyst's picks on the upcoming card
+      for (const f of (pr && pr.fights) || []) for (const x of (f.experts && f.experts.analysts) || []) {
+        (week[x.name] = week[x.name] || []).push({who: x.side === "a" ? f.a : f.b, conf: x.conf});
+      }
+      const maxU = Math.max(1, ...e.analysts.map(a => Math.abs(a.units)));
+      return `<div class="lb">${e.analysts.map((a, i) => {
+        const w = week[a.analyst] || [];
+        return `<details class="lbrow ${win.has(a.analyst) ? "winning" : ""}"><summary>
+          <span class="lb-rk">${i + 1}</span>
+          <span class="lb-nm">${esc(a.analyst)}${win.has(a.analyst) ? ` <b class="wtag">Winning record</b>` : ""}<small>${a.won}-${a.bets - a.won}, ${a.win_pct}% won${a.high_confidence.bets ? `, high confidence ${a.high_confidence.won}-${a.high_confidence.bets - a.high_confidence.won}` : ""}</small></span>
+          <span class="lb-bar"><span class="track"><i style="width:${a.win_pct}%"></i><em style="left:50%"></em></span><small>Win %</small></span>
+          <span class="lb-u ${a.units >= 0 ? "won" : "lost"}"><b>${units(a.units)}</b><span class="ub"><i class="${a.units >= 0 ? "pos" : "neg"}" style="width:${Math.abs(a.units) / maxU * 50}%"></i></span><small>${r(a)} per bet</small></span>
+        </summary>
+        <div class="lb-week">${w.length ? `<b>This week (${w.length} picks):</b> ${w.map(x => `${esc(x.who)}${x.conf ? ` <i class="conf c-${esc(x.conf.toLowerCase())}">${esc(x.conf)}</i>` : ""}`).join(" · ")}` : "No picks posted for this week's card yet."}</div></details>`;
+      }).join("")}</div>`;
+    })()}
     <p class="note">A few hundred picks is a small sample: a leaderboard this short-term is mostly luck. Watch whether the leaders hold up.</p>`;
 }
 
@@ -701,5 +743,5 @@ async function route() {
   if (!$("#updated").textContent) $("#updated").textContent = "For fun and research, not betting advice.";
   liveBar();
 }
-window.addEventListener("hashchange", route);
+window.addEventListener("hashchange", () => { const m = document.querySelector(".tabbar .more"); if (m) m.open = false; route(); });
 route();

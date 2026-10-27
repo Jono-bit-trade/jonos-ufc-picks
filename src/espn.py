@@ -196,6 +196,7 @@ def parse(js):
                 "rounds": int(periods) if periods else (5 if i == n - 1 else 3),   # main event is last
                 "bout_order": n - i,   # 1 = main event
                 "card_segment": _get(comp, "cardSegment", "description") or _get(comp, "cardSegment", "name") or "",
+                "broadcast": ", ".join(dict.fromkeys(n for b_ in (comp.get("broadcasts") or []) for n in (b_.get("names") or []))),
                 "state": state, "status_detail": detail.strip(), "winner": winner,
                 "method": (how or method_of(detail)) if state == "post" else None,
                 "finish": (finish or finish_of(detail)) if state == "post" else None,
