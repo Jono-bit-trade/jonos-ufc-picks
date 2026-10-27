@@ -222,7 +222,96 @@ async function viewCard() {
   return `<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in.</p></details>
-    ${p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
+    ${cardToggle()}
+    ${cardView() === "compact" ? `<div class="compact">${p.fights.map((f, i) => compactRow(f, i, p.edge_threshold)).join("")}</div>`
+      : p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
+}
+
+function cardView() { try { return localStorage.getItem("cardView") || "full"; } catch (e) { return "full"; } }
+function setCardView(v) { try { localStorage.setItem("cardView", v); } catch (e) {} route(); }
+function cardToggle() {
+  const v = cardView();
+  return `<div class="viewtoggle" role="group" aria-label="Card view"><button type="button" aria-pressed="${v === "full"}" onclick="setCardView('full')">Full cards</button><button type="button" aria-pressed="${v === "compact"}" onclick="setCardView('compact')">Compact</button></div>`;
+}
+function compactRow(f, i, edge) {
+  const pa = f.p_a, line = f.market_p_a;
+  const w = f.state === "post" && f.result ? f.result.winner : null;
+  const called = f.our_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
+  const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
+  const sideA = pa >= 0.5, last = n => esc(n.split(" ").slice(-1)[0]);
+  return `<details class="crow${ring}"><summary>
+      <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
+      <span class="cr-p"><b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b></span>
+      <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
+      <span class="cr-pick">${f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
+    </summary>${bout(f, i, edge)}</details>`;
+}
+
+// ---------------- this week's picks, units chart, fight-night bar ----------------
+const pay = o => o > 0 ? o / 100 : 100 / -o;
+function picksStrip(p) {
+  const ours = (p.fights || []).filter(f => f.our_pick);
+  if (!ours.length) return `<div class="slip empty-slip">No picks yet for this card. Picks appear as lines and expert picks come in during fight week.</div>`;
+  return `<div class="slip">${ours.map(f => {
+    const o = f.our_pick === f.a ? f.odds_a : f.odds_b, best = f.our_pick === f.a ? f.best_a : f.best_b;
+    const opp = f.our_pick === f.a ? f.b : f.a;
+    const done = f.state === "post" && f.result && f.result.winner;
+    const res = done ? (f.result.winner === f.our_pick ? "won" : "lost") : "";
+    return `<a class="ticket ${res}" href="#/card">
+      <span class="tk-name">${esc(f.our_pick)}</span>
+      <span class="tk-opp">vs ${esc(opp)}</span>
+      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
+      ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
+      ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
+    </a>`;
+  }).join("")}</div>`;
+}
+
+function unitsChart(curve) {
+  if (!curve || curve.length < 2) return "";
+  const W = 860, H = 220, P = {l: 44, r: 14, t: 14, b: 26};
+  const t = d => new Date(d).getTime(), t0 = t(curve[0][0]), t1 = t(curve.at(-1)[0]);
+  const ys = curve.flatMap(c => [c[1], c[2]]), lo = Math.min(0, ...ys), hi = Math.max(0, ...ys);
+  const X = d => P.l + (t(d) - t0) / Math.max(1, t1 - t0) * (W - P.l - P.r), Y = v => P.t + (hi - v) / Math.max(1, hi - lo) * (H - P.t - P.b);
+  const path = k => curve.map((c, i) => (i ? "L" : "M") + X(c[0]).toFixed(1) + " " + Y(c[k]).toFixed(1)).join("");
+  const years = [...new Set(curve.map(c => c[0].slice(0, 4)))];
+  const step = hi - lo > 60 ? 20 : 10, grid = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) grid.push(v);
+  const last = curve.at(-1);
+  return `<figure class="uchart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Our picks, cumulative units: ${units(last[1])} flat, ${units(last[2])} with suggested stakes">
+    ${grid.map(v => `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(v)}" y2="${Y(v)}" class="${v === 0 ? "zero" : "g"}"/><text x="${P.l - 6}" y="${Y(v) + 4}" class="yl">${v > 0 ? "+" : ""}${v}</text>`).join("")}
+    ${years.map(y => { const x = X(`${y}-01-01` < curve[0][0] ? curve[0][0] : `${y}-01-01`); return `<line x1="${x}" x2="${x}" y1="${P.t}" y2="${H - P.b}" class="g"/><text x="${x + 3}" y="${H - 8}" class="xl">${y}</text>`; }).join("")}
+    <path d="${path(1)}" class="flat"/><path d="${path(2)}" class="staked"/>
+  </svg><figcaption><span class="k staked"></span>Suggested stakes ${units(last[2])} <span class="k flat"></span>Flat 1 unit ${units(last[1])}</figcaption></figure>`;
+}
+
+function ledgerCurve(rows) {
+  const r = (rows || []).filter(g => g.our_pick).sort((a, b) => a.date < b.date ? -1 : 1);
+  let f = 0, st = 0; const by = {};
+  for (const g of r) { f += g.our_units || 0; st += g.our_staked_units || 0; by[g.date] = [g.date, +f.toFixed(2), +st.toFixed(2)]; }
+  return Object.values(by);
+}
+
+async function liveBar() {
+  const el = $("#livebar"); if (!el) return;
+  const p = await get("predictions.json", true);
+  const fights = p && p.fights || [];
+  const now = fights.filter(f => f.state === "in"), done = fights.filter(f => f.state === "post");
+  const today = new Date().toISOString().slice(0, 10), y = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+  const on = now.length || (done.length && fights.some(f => f.state === "pre") && (p.date === today || p.date === y));
+  clearTimeout(window.liveRefresh);
+  if (!on) { el.hidden = true; el.innerHTML = ""; return; }
+  window.liveRefresh = setTimeout(route, 120000);
+  let w = 0, l = 0, u = 0;
+  for (const f of done) if (f.our_pick && f.result && f.result.winner) {
+    const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1;
+    if (f.result.winner === f.our_pick) { w++; u += st * pay(o); } else { l++; u -= st; }
+  }
+  el.hidden = false;
+  el.innerHTML = `<div class="lbin"><span class="live">Live</span>
+    <span class="lb-now">${now.length ? now.map(f => `${esc(f.a.split(" ").at(-1))} vs ${esc(f.b.split(" ").at(-1))}`).join(" · ") : "Between fights"}</span>
+    <span class="lb-score">Our picks tonight <b>${w}-${l}</b> <b class="${u >= 0 ? "won" : "lost"}">${units(Math.round(u * 100) / 100)}</b></span>
+    <a href="#/card">Card</a></div>`;
 }
 
 // ---------------- home ----------------
@@ -248,7 +337,8 @@ async function viewHome() {
       </div>
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
-    </section>`;
+    </section>
+    <h2>This week's picks</h2>${picksStrip(p)}`;
   }
   const past = (ev || []).slice(0, 6).map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}</a>
     <span class="small">${recLine(e.record)}</span></li>`).join("");
@@ -515,12 +605,14 @@ async function viewRecord() {
     <h2>Live record, locked</h2>
     <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, exactly as it stood before the fight (pick, average sportsbook price, stake), graded when the fight ends and never changed afterwards, whatever the model or data later get.</p>
     ${ledgerBoxes(L)}
+    ${unitsChart(ledgerCurve(rows))}
     ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
       rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.expert_lean && g.expert_lean === g.our_pick ? " (lean)" : "") : "–"}</td>
         <td class="n">${g.our_pick ? odds(g.our_odds) : ""}</td><td class="n">${g.stake ? g.stake + "u" : ""}</td>
         <td class="n ${g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : ""}">${g.our_pick ? (g.our_units > 0 ? "Won " : g.our_units < 0 ? "Lost " : "Push ") + units(g.our_staked_units) : ""}</td>
         <td class="hide-sm ${g.model_pick === g.winner ? "won" : "lost"}">${esc(g.model_pick)} ${g.model_pick === g.winner ? "✓" : "✗"}</td></tr>`).join("")}</tbody></table></div>` : ""}
     <h2>Backtest, ${mr ? mr.from || 2020 : 2020} on</h2>
+    ${mr ? unitsChart(mr.curve) : ""}
     <p class="note">What the current method would have picked on every past card, each fight predicted only from earlier fights. It's recalculated when the method or data improve, so it is a simulation, not a record of real picks: the locked live record above is the one to judge by.</p>
     ${yearTable(mr)}`;
 }
@@ -575,6 +667,7 @@ async function route() {
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
   if (!$("#updated").textContent) $("#updated").textContent = "For fun and research, not betting advice.";
+  liveBar();
 }
 window.addEventListener("hashchange", route);
 route();

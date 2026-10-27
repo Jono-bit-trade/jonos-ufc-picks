@@ -323,3 +323,64 @@ h1, .hero h1 { text-wrap: balance; }
 .wordmark .w2 { font: 900 27px var(--display); color: #fff; letter-spacing: .02em; text-transform: uppercase; }
 .brand:hover .emblem .oct-out { fill: #f0c552; }
 @media (max-width: 640px) { .emblem { width: 34px; height: 34px; } .wordmark .w2 { font-size: 23px; } }
+
+/* this week's picks: a row of gold tickets */
+.slip { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 6px 0 8px; }
+.ticket { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 12px 18px 12px; text-decoration: none; color: #14171d;
+  background: var(--gold);
+  -webkit-mask: radial-gradient(circle 9px at 0 50%, transparent 8.5px, #000 9px) left / 51% 100% no-repeat,
+                radial-gradient(circle 9px at 100% 50%, transparent 8.5px, #000 9px) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 9px at 0 50%, transparent 8.5px, #000 9px) left / 51% 100% no-repeat,
+                radial-gradient(circle 9px at 100% 50%, transparent 8.5px, #000 9px) right / 51% 100% no-repeat; }
+.ticket::after { content: ""; position: absolute; left: 14px; right: 14px; top: 50%; border-top: 1px dashed rgba(20,23,29,.25); pointer-events: none; display: none; }
+.ticket .tk-name { font: 900 24px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.ticket .tk-opp { font-size: 13px; opacity: .75; }
+.ticket .tk-row { display: flex; gap: 10px; align-items: baseline; margin-top: 4px; font: 800 19px var(--display); }
+.ticket .tk-row i { font: 600 12px "Barlow", sans-serif; font-style: normal; background: rgba(20,23,29,.14); padding: 1px 7px; border-radius: 8px; }
+.ticket .tk-best { font-size: 12px; font-weight: 600; opacity: .8; }
+.ticket .tk-res { position: absolute; top: 10px; right: 18px; font: 900 16px var(--display); text-transform: uppercase; }
+.ticket.won { background: var(--green); } .ticket.lost { background: var(--red); color: #fff; }
+.ticket:hover { filter: brightness(1.06); }
+.empty-slip { display: block; color: var(--quiet); padding: 14px 16px; border: 1px dashed var(--rule); border-radius: 3px; }
+
+/* cumulative units chart */
+.uchart { margin: 10px 0 18px; background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 8px 8px 10px; }
+.uchart svg { width: 100%; height: auto; display: block; }
+.uchart .g { stroke: #2b3242; stroke-width: 1; } .uchart .zero { stroke: #5b6578; stroke-width: 1.2; }
+.uchart .flat { fill: none; stroke: #8d97aa; stroke-width: 1.8; } .uchart .staked { fill: none; stroke: var(--gold); stroke-width: 2.6; }
+.uchart text { fill: var(--quiet); font: 600 12px "Barlow", sans-serif; } .uchart .yl { text-anchor: end; }
+.uchart figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 13px; color: var(--quiet); padding: 6px 4px 0; }
+.uchart .k { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 4px; }
+.uchart .k.staked { background: var(--gold); } .uchart .k.flat { background: #8d97aa; }
+
+/* card view toggle and compact rows */
+.viewtoggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; margin: 0 0 12px; }
+.viewtoggle button { font: 700 16px var(--display); background: var(--paper); color: var(--quiet); border: 0; padding: 6px 14px; cursor: pointer; }
+.viewtoggle button[aria-pressed="true"] { background: var(--gold); color: #14171d; }
+.compact { display: flex; flex-direction: column; gap: 4px; }
+.crow { background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--red); border-right: 4px solid var(--blue); border-radius: 2px; }
+.crow > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto 1fr minmax(120px, auto); align-items: center; gap: 10px; padding: 9px 12px; }
+.crow > summary::-webkit-details-marker { display: none; }
+.crow .cr-a, .crow .cr-b { font: 800 18px/1.05 var(--display); text-transform: uppercase; color: var(--quiet); }
+.crow .cr-b { text-align: right; }
+.crow .cr-a.fav { color: var(--red); } .crow .cr-b.fav { color: var(--blue); }
+.crow .cr-p { display: flex; align-items: baseline; gap: 8px; font: 800 20px var(--display); }
+.crow .cr-p .pa { color: var(--red); } .crow .cr-p .pb { color: var(--blue); }
+.crow .cr-l { font: 500 12px "Barlow", sans-serif; color: var(--quiet); }
+.crow .cr-pick { text-align: right; }
+.mini-ticket { display: inline-block; background: var(--gold); color: #14171d; font: 800 15px var(--display); padding: 2px 10px; border-radius: 2px; white-space: nowrap; }
+.crow[open] > summary { border-bottom: 1px solid var(--rule); }
+.crow > .bout { margin: 0; border: 0; }
+.crow.ring-won { box-shadow: 0 0 0 2px var(--green); } .crow.ring-lost { box-shadow: 0 0 0 2px var(--red); }
+@media (max-width: 640px) {
+  .crow > summary { grid-template-columns: 1fr auto 1fr; }
+  .crow .cr-pick { grid-column: 1 / -1; text-align: left; }
+  .crow .cr-a, .crow .cr-b { font-size: 15px; }
+}
+
+/* fight-night bar */
+.livebar { position: relative; background: #2a1013; border-bottom: 1px solid var(--red); }
+.lbin { max-width: 900px; margin: 0 auto; padding: 7px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; font-size: 14px; }
+.lbin .lb-now { font: 800 17px var(--display); text-transform: uppercase; color: #fff; }
+.lbin .lb-score b { font: 800 17px var(--display); margin-left: 6px; }
+.lbin a { margin-left: auto; color: var(--gold); font: 700 15px var(--display); }

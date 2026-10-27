@@ -211,7 +211,14 @@ def track_record(rows):
                 "lean_units": round(sum(x["units"] for x in leans), 1)}
     rows = [r for r in rows if r["date"] >= RECORD_FROM]   # the official record starts here
     years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
-    return {"from": RECORD_FROM, "all": summary(rows), "since": summary(rows),
+    curve, fu, su = [], 0.0, 0.0   # cumulative our-picks units after each card, flat and staked
+    for d in sorted({r["date"] for r in rows if r.get("our")}):
+        for r in rows:
+            if r["date"] == d and r.get("our"):
+                fu += r["our"]["units"]
+                su += r["our"].get("staked_units", r["our"]["units"])
+        curve.append([d, round(fu, 2), round(su, 2)])
+    return {"from": RECORD_FROM, "curve": curve, "all": summary(rows), "since": summary(rows),
             "periods": [{"label": lbl, **summary([r for r in rows if a <= r["date"] < b])}
                         for lbl, a, b in (("2020-22", "2020", "2023"), ("2023 on", "2023", "2100"))],
             "years": [{"year": y, **summary([r for r in rows if r["date"].startswith(y)])} for y in years],
