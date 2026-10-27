@@ -30,8 +30,62 @@ def read(name):
     return pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
 
 
+def update_ledger(log, fights):
+    """Lock graded live picks into data/ledger.csv: the pick, price and stake logged before the
+    fight, and the result. Rows are only ever added, never changed."""
+    from config import LEDGER_FROM
+    from picks import stake
+    f = path("ledger.csv")
+    led = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
+    done = set(led["fight_id"]) if not led.empty else set()
+    res = {}
+    for r in fights[fights["winner"].isin(["a", "b", "draw", "nc"])].itertuples():
+        for d in pd.date_range(pd.Timestamp(r.date) - pd.Timedelta(days=1), periods=3).strftime("%Y-%m-%d"):
+            res[(d, frozenset((norm(r.a), norm(r.b))))] = (r.a if r.winner == "a" else r.b if r.winner == "b" else None, r.winner)
+    new = []
+    if not log.empty:
+        for p in log[log["date"] >= LEDGER_FROM].itertuples():
+            if p.fight_id in done:
+                continue
+            r = res.get((p.date, frozenset((norm(p.a), norm(p.b)))))
+            if r is None:
+                continue
+            winner, how = r
+            lean = p.expert_lean if isinstance(getattr(p, "expert_lean", None), str) else None
+            mp = lean or (p.a if p.p_final > 0.5 else p.b)   # the model's winner pick, as on the card
+            ours = p.our_pick if isinstance(getattr(p, "our_pick", None), str) else None
+            row = {"fight_id": p.fight_id, "date": p.date, "a": p.a, "b": p.b, "winner": winner, "result": how,
+                   "model_pick": mp, "model_odds": p.odds_a if mp == p.a else p.odds_b, "our_pick": ours,
+                   "our_odds": (p.odds_a if ours == p.a else p.odds_b) if ours else None,
+                   "expert_lean": lean, "logged_at": p.run}
+            for k in ("model", "our"):
+                pk, o = row[f"{k}_pick"], row[f"{k}_odds"]
+                if pk is None or how in ("draw", "nc") or o != o or o is None:
+                    row[f"{k}_units"] = 0.0 if pk else None      # draws and no contests: stake returned
+                    continue
+                row[f"{k}_units"] = round(float(payout(o)) if pk == winner else -1.0, 3)
+            row["stake"] = stake(row["our_odds"]) if ours else None
+            row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
+            new.append(row)
+    if new:
+        led = pd.concat([led, pd.DataFrame(new)], ignore_index=True) if not led.empty else pd.DataFrame(new)
+        led.to_csv(f, index=False)
+    summ = {"from": LEDGER_FROM, "fights": 0, "model_right": 0, "our_bets": 0, "our_won": 0, "our_units": 0.0,
+            "our_risked": 0.0, "our_staked_units": 0.0, "rows": []}
+    if not led.empty:
+        o = led[led["our_pick"].notna()]
+        summ.update({"fights": int(len(led)), "model_right": int((led["model_pick"] == led["winner"]).sum()),
+                     "our_bets": int(len(o)), "our_won": int((o["our_pick"] == o["winner"]).sum()),
+                     "our_units": round(float(o["our_units"].sum()), 2), "our_risked": round(float(o["stake"].sum()), 2),
+                     "our_staked_units": round(float(o["our_staked_units"].sum()), 2),
+                     "rows": json.loads(led.sort_values("date", ascending=False).to_json(orient="records"))})
+    json.dump(summ, open(os.path.join(OUT, "ledger.json"), "w"), indent=1)
+    return summ
+
+
 def publish_common(fights, log, G):
     """Record, rankings and backtest pages: published on every run, card or not."""
+    update_ledger(log, fights)
     res = grade(log, fights)
     res["ours"] = grade(log, fights, "our_pick")
     json.dump(res, open(os.path.join(OUT, "results.json"), "w"), indent=1)

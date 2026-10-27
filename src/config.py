@@ -54,6 +54,10 @@ OUR_PICKS_SKIP_BOTH_DEBUT = True
 # risked +11.4% vs +9.4% and +7.8% vs +5.6%. Staking by edge or Kelly risked more for the same return.
 STAKES = [(-199, 1.5), (-399, 1.0), (-100000, 0.5)]   # odds at or above the first number -> stake
 
+# The live record: picks made before each fight from this date on are written to data/ledger.csv
+# once graded and never recalculated, whatever later changes the model or data get.
+LEDGER_FROM = "2026-10-31"
+
 # Expert lean: in a close fight (line 40-60%), when 65%+ of 5+ SplitPicks analysts agree, their side
 # becomes our pick (if the model has no our pick there) and the fight is tagged "Expert lean".
 # Apr-Oct 2026: 47 such fights, experts' side won 77% vs the line's 54%, +16.5u. Added Oct 2026 on

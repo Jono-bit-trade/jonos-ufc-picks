@@ -258,8 +258,10 @@ async function viewHome() {
     <div class="stat"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
     <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
     <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
-  const record = mr ? `<h2>Model track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
-    <p class="note">Every past fight predicted by a model trained only on earlier fights. Flat 1-unit bets at the closing moneyline. <a href="#/record">Full record by year</a></p>` : "";
+  const L = await get("ledger.json", true);
+  const live = `<h2>Live record (locked)</h2>${ledgerBoxes(L)}`;
+  const record = mr ? `${live}<h2>Backtest track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
+    <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
   return `${hero}${record}
     <div class="cols">
       <section><h2>Past cards</h2><ul class="list">${past}</ul><a href="#/events">All events</a></section>
@@ -497,18 +499,29 @@ function yearTable(mr) {
       ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;
 }
 
+function ledgerBoxes(L) {
+  if (!L || !L.fights) return `<div class="empty">The live record starts with the ${esc(dateLong(L ? L.from : "2026-10-31"))} card. Each pick is locked when the fight ends and never recalculated.</div>`;
+  const u = x => `<b class="${x >= 0 ? "won" : "lost"}">${units(x)}</b>`;
+  return `<div class="stats">
+    <div class="stat key"><b>${L.our_won}/${L.our_bets} ${L.our_bets ? `<span class="${L.our_units >= 0 ? "won" : "lost"}">${units(L.our_units)}</span>` : ""}</b><span>our picks${L.our_bets ? `, ${Math.round(100 * L.our_won / L.our_bets)}% won` : ""}</span></div>
+    <div class="stat key">${u(L.our_staked_units)}<span>suggested stakes, on ${L.our_risked}u risked</span></div>
+    <div class="stat"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div></div>`;
+}
+
 async function viewRecord() {
-  const [rec, mr] = await Promise.all([get("results.json", true), get("model_record.json")]);
-  if (!rec || !rec.bets) return `<h1>Record</h1><h2>Live picks</h2><div class="empty">No graded live picks yet. Results appear here as each card finishes.</div>${yearTable(mr)}`;
-  const ou = rec.ours || {};
-  return `<h1>Record</h1><h2>Our picks, live</h2>${ou.bets ? `<div class="record"><div><b>${ou.wins}-${ou.bets - ou.wins}</b><span>our picks won and lost</span></div>
-      <div><b>${ou.units > 0 ? "+" : ""}${ou.units}</b><span>units</span></div><div><b>${ou.roi_pct}%</b><span>return per unit bet</span></div></div>` : `<div class="empty">No graded live "our picks" yet.</div>`}
-    <h2>All value picks, live</h2><div class="record"><div><b>${rec.wins}-${rec.bets - rec.wins}</b><span>picks won and lost</span></div>
-      <div><b>${rec.units > 0 ? "+" : ""}${rec.units}</b><span>units, 1 unit per pick</span></div>
-      <div><b>${rec.roi_pct}%</b><span>return per unit bet</span></div>
-      ${rec.moved_toward_pct != null ? `<div><b>${rec.moved_toward_pct}%</b><span>of picks the line moved toward</span></div>` : ""}</div>
-    <div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Pick</th><th class="n">Odds</th><th class="n">Result</th></tr></thead><tbody>${
-      rec.recent.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.fight)}</td><td>${esc(g.pick)}</td><td class="n">${odds(g.odds)}</td><td class="n ${g.won ? "won" : "lost"}">${g.won ? "Won" : "Lost"} ${g.units > 0 ? "+" : ""}${g.units}</td></tr>`).join("")}</tbody></table></div>
+  const [L, mr] = await Promise.all([get("ledger.json", true), get("model_record.json")]);
+  const rows = L && L.rows ? L.rows : [];
+  return `<h1>Record</h1>
+    <h2>Live record, locked</h2>
+    <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, exactly as it stood before the fight (pick, average sportsbook price, stake), graded when the fight ends and never changed afterwards, whatever the model or data later get.</p>
+    ${ledgerBoxes(L)}
+    ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
+      rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.expert_lean && g.expert_lean === g.our_pick ? " (lean)" : "") : "–"}</td>
+        <td class="n">${g.our_pick ? odds(g.our_odds) : ""}</td><td class="n">${g.stake ? g.stake + "u" : ""}</td>
+        <td class="n ${g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : ""}">${g.our_pick ? (g.our_units > 0 ? "Won " : g.our_units < 0 ? "Lost " : "Push ") + units(g.our_staked_units) : ""}</td>
+        <td class="hide-sm ${g.model_pick === g.winner ? "won" : "lost"}">${esc(g.model_pick)} ${g.model_pick === g.winner ? "✓" : "✗"}</td></tr>`).join("")}</tbody></table></div>` : ""}
+    <h2>Backtest, ${mr ? mr.from || 2020 : 2020} on</h2>
+    <p class="note">What the current method would have picked on every past card, each fight predicted only from earlier fights. It's recalculated when the method or data improve, so it is a simulation, not a record of real picks: the locked live record above is the one to judge by.</p>
     ${yearTable(mr)}`;
 }
 
