@@ -689,3 +689,19 @@ h2 { margin: 32px 0 12px; }
 .hw-step .hw-n { background: var(--c); color: #111318; }
 .hw-step:not(:last-child)::after { background: var(--c); }
 .hw-step b { color: #fff; }
+
+/* color by meaning instead of white: gold = our picks, blue = the model, teal = value */
+.stat.key > b { color: var(--gold); }
+.stat.key > b .sub { display: block; font-size: .62em; margin-top: 2px; }
+.stat.model { border-top: 3px solid var(--blue); } .stat.model > b:not(.won):not(.lost) { color: #7fb0ff; }
+.stat.value { border-top: 3px solid var(--teal); }
+.hw-stats div:nth-child(1) { border-top: 3px solid var(--gold); } .hw-stats div:nth-child(1) b { color: var(--gold); }
+.hw-stats div:nth-child(2) { border-top: 3px solid var(--gold); }
+.hw-stats div:nth-child(3) { border-top: 3px solid var(--blue); } .hw-stats div:nth-child(3) b { color: #7fb0ff; }
+.hw-stats div:nth-child(4) { border-top: 3px solid var(--silver); }
+td.rbar i { background: linear-gradient(90deg, #2d5fae, var(--blue)); }
+tr.top1 td.rk { color: var(--gold); }
+.lb-bar .track i { background: linear-gradient(90deg, #2d5fae, var(--blue)); } .lb-bar .track em { background: var(--silver); }
+.filters a.on, .viewtoggle button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn { background: linear-gradient(90deg, var(--red), var(--blue)); color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
+.btn:hover { filter: brightness(1.1); }

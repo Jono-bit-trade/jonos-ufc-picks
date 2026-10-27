@@ -404,10 +404,10 @@ async function viewHome() {
     <span class="small">${recLine(e.record)}</span></li>`).join("");
   const top = ex ? ex.analysts.slice(0, 3).map((a, i) => `<li><span class="rk">${i + 1}</span>${esc(a.analyst)}<span class="small">${a.win_pct}% · ${a.won}-${a.bets - a.won} · ${a.roi_pct > 0 ? "+" : ""}${a.roi_pct}% per bet</span></li>`).join("") : "";
   const mr = await get("model_record.json");
-  const yr = mr && mr.years[0], box = (label, r) => !r ? "" : `<div class="stat key"><b>${r.our_won}/${r.our_bets} <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)} (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}%)</span></b><span>${label}: our picks, ${r.our_pct}% won${r.our_risked ? `. Suggested stakes: <b class="${r.our_staked_units >= 0 ? "won" : "lost"}">${units(r.our_staked_units)} (${r.our_staked_units >= 0 ? "+" : ""}${(100 * r.our_staked_units / r.our_risked).toFixed(1)}%)</b> on ${r.our_risked}u risked` : ""}</span></div>
-    <div class="stat"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
-    <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
-    <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
+  const yr = mr && mr.years[0], box = (label, r) => !r ? "" : `<div class="stat key"><b>${r.our_won}/${r.our_bets} <span class="sub ${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)} (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}%)</span></b><span>${label}: our picks, ${r.our_pct}% won${r.our_risked ? `. Suggested stakes: <b class="${r.our_staked_units >= 0 ? "won" : "lost"}">${units(r.our_staked_units)} (${r.our_staked_units >= 0 ? "+" : ""}${(100 * r.our_staked_units / r.our_risked).toFixed(1)}%)</b> on ${r.our_risked}u risked` : ""}</span></div>
+    <div class="stat model"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
+    <div class="stat model"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
+    <div class="stat value"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
   const L = await get("ledger.json", true), recap = await recapBanner(ev);
   const live = `<h2>Live record (locked)</h2>${ledgerBoxes(L)}`;
   const record = mr ? `${live}<h2>Backtest track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
@@ -489,8 +489,8 @@ function eventsSummary(mr, year) {
   return `<div class="stats">
     <div class="stat key"><b>${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</b><span>${label}: our picks won${r.our_pct ? ` (${r.our_pct}%)` : ""}</span></div>
     <div class="stat key"><b class="${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</b><span>${label}: our picks units${r.our_bets ? ` (${r.our_roi_pct > 0 ? "+" : ""}${r.our_roi_pct}% per bet)` : ""}</span></div>
-    <div class="stat"><b>${r.right}/${r.picks}</b><span>${label}: fights picked correctly</span></div>
-    <div class="stat"><b>${r.pct}%</b><span>${label}: correct</span></div>
+    <div class="stat model"><b>${r.right}/${r.picks}</b><span>${label}: fights picked correctly</span></div>
+    <div class="stat model"><b>${r.pct}%</b><span>${label}: correct</span></div>
     <div class="stat"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner (${r.roi_pct > 0 ? "+" : ""}${r.roi_pct}% per bet)</span></div>
     <div class="stat"><b>${r.value_bets ? `${r.value_won}/${r.value_bets}` : "–"}</b><span>${label}: value picks won</span></div>
     <div class="stat"><b class="${r.value_units >= 0 ? "won" : "lost"}">${r.value_bets ? units(r.value_units) : "–"}</b><span>${label}: betting value picks${r.value_bets ? ` (${r.value_roi_pct > 0 ? "+" : ""}${r.value_roi_pct}% per bet)` : ""}</span></div>
