@@ -1,37 +1,6 @@
 name,fetched,td_per15,td_def,sub_per15,str_def,record,status,url,slpm,sapm,kd_per15,avg_time,head,body,leg,sig_landed,sig_att,standing,clinch,ground,str_acc,birthplace,trains_at,fighting_style
 Aoriqileng,2000-01-01,1.05,0.6,0.15,0.47,26-14-0,ok,https://www.ufc.com/athlete/aoriqileng,4.29,5.62,0.45,9.1333,0.64,0.241,0.118,431.0,863.0,0.84,0.053,0.107,0.499,,,
-Chris Curtis,2000-01-01,0.0,0.65,0.0,0.54,32-13-0,ok,https://www.ufc.com/athlete/chris-curtis,5.52,5.75,0.36,13.0,0.698,0.251,0.05,932.0,1840.0,0.918,0.062,0.019,0.507,,,
-Elijah Smith,2000-01-01,2.98,0.53,1.12,0.47,10-1-0,ok,https://www.ufc.com/athlete/elijah-smith,4.18,2.96,0.37,10.0667,0.833,0.083,0.083,168.0,350.0,0.631,0.077,0.292,0.48,,,
-Josh Emmett,2000-01-01,1.07,0.44,0.07,0.6,19-7-0,ok,https://www.ufc.com/athlete/josh-emmett,3.67,4.52,0.85,12.4333,0.64,0.212,0.148,775.0,2167.0,0.844,0.055,0.101,0.358,,,
-Luan Lacerda,2000-01-01,2.82,0.67,0.63,0.49,13-4-0,ok,https://www.ufc.com/athlete/luan-lacerda,4.06,6.15,0.0,11.95,0.49,0.438,0.072,194.0,452.0,0.845,0.093,0.062,0.429,,,
-Vitor Petrino,2000-01-01,2.78,0.81,0.63,0.53,15-2-0,ok,https://www.ufc.com/athlete/vitor-petrino,3.37,2.56,0.51,10.8,0.667,0.185,0.147,400.0,786.0,0.785,0.04,0.175,0.509,,,
-Luke Fernandez,2000-01-01,0.0,0.36,0.0,0.36,6-1-0,ok,https://www.ufc.com/athlete/luke-fernandez,8.14,10.17,5.08,1.4833,0.833,0.125,0.042,24.0,41.0,0.458,0.292,0.25,0.585,,,
-Drew Dober,2000-01-01,0.61,0.58,0.07,0.53,29-15-0,ok,https://www.ufc.com/athlete/drew-dober,4.48,4.33,0.68,7.9333,0.632,0.226,0.142,994.0,2423.0,0.795,0.112,0.094,0.41,,,
-Gregory Rodrigues,2000-01-01,1.57,0.85,0.31,0.5,20-6-0,ok,https://www.ufc.com/athlete/gregory-rodrigues,5.78,4.57,1.15,9.5667,0.716,0.217,0.067,830.0,1555.0,0.828,0.118,0.054,0.534,,,
-Caio Borralho,2000-01-01,1.25,0.76,0.39,0.6,18-2-0,ok,https://www.ufc.com/athlete/caio-borralho,3.47,2.61,0.39,14.15,0.631,0.211,0.157,540.0,958.0,0.785,0.081,0.133,0.564,,,
-Max Holloway,2000-01-01,0.22,0.81,0.28,0.59,27-9-0,ok,https://www.ufc.com/athlete/max-holloway,6.92,4.6,0.34,16.1833,0.647,0.243,0.11,3693.0,7666.0,0.881,0.067,0.053,0.482,,,
-Ricky Turcios,2000-01-01,0.85,0.44,0.34,0.52,13-5-0,ok,https://www.ufc.com/athlete/ricky-turcios,4.68,3.84,0.17,12.5833,0.609,0.201,0.189,412.0,1031.0,0.716,0.172,0.112,0.4,,,
-Rob Font,2000-01-01,0.7,0.37,0.32,0.58,22-10-0,ok,https://www.ufc.com/athlete/rob-font,5.11,3.53,0.38,13.25,0.758,0.175,0.068,1421.0,3133.0,0.891,0.065,0.044,0.454,,,
 Sumudaerji,2000-01-01,,,,,,no stats,https://www.ufc.com/athlete/sumudaerji,,,,,,,,,,,,,,,,
-Ailin Perez,2000-01-01,4.34,0.67,0.14,0.57,14-2-0,ok,https://www.ufc.com/athlete/ailin-perez,2.82,1.79,0.14,12.9667,0.56,0.235,0.205,293.0,540.0,0.519,0.177,0.304,0.543,,,
-Edgar Chairez,2000-01-01,0.0,0.5,1.37,0.52,14-7-0,ok,https://www.ufc.com/athlete/edgar-chairez,3.78,4.64,0.51,9.75,0.614,0.178,0.208,332.0,718.0,0.958,0.015,0.027,0.462,,,
-Cristian Quinonez,2000-01-01,3.14,0.86,0.63,0.56,19-5-0,ok,https://www.ufc.com/athlete/cristian-quinonez,3.67,3.71,0.31,9.55,0.789,0.057,0.154,175.0,400.0,0.909,0.051,0.04,0.438,,,
-Daniel Zellhuber,2000-01-01,0.14,0.82,0.28,0.55,15-4-0,ok,https://www.ufc.com/athlete/daniel-zellhuber,5.45,6.17,0.28,13.55,0.628,0.264,0.108,591.0,1545.0,0.91,0.042,0.047,0.383,,,
-Douglas Silva de Andrade,2000-01-01,0.54,0.72,0.18,0.57,29-7-0,ok,https://www.ufc.com/athlete/douglas-silva-de-andrade,3.54,4.09,0.54,11.9667,0.521,0.229,0.25,593.0,1536.0,0.924,0.056,0.02,0.386,,,
-Erik Silva,2000-01-01,3.26,0.6,0.0,0.4,9-4-0,ok,https://www.ufc.com/athlete/erik-silva,2.06,1.52,0.0,4.6167,0.684,0.184,0.132,38.0,56.0,0.5,0.184,0.316,0.679,,,
-Regina Tarin,2000-01-01,,,,,,no stats,https://www.ufc.com/athlete/regina-tarin,,,,,,,,,,,,,,,,
-Santiago Luna,2000-01-01,2.3,0.57,0.92,0.68,8-1-0,ok,https://www.ufc.com/athlete/santiago-luna,4.74,2.76,0.92,10.8833,0.735,0.226,0.039,155.0,292.0,0.774,0.174,0.052,0.531,,,
-Dan Ige,2000-01-01,0.88,0.55,0.21,0.57,19-10-0,ok,https://www.ufc.com/athlete/dan-ige,3.51,3.56,0.42,12.5667,0.662,0.214,0.124,1014.0,2307.0,0.785,0.075,0.14,0.44,,,
-Geoff Neal,2000-01-01,0.54,0.88,0.11,0.57,16-8-0,ok,https://www.ufc.com/athlete/geoff-neal,5.02,5.5,0.97,9.2833,0.849,0.089,0.063,700.0,1375.0,0.817,0.109,0.074,0.509,,,
-Ode Osbourne,2000-01-01,0.94,0.67,0.4,0.49,13-9-0,ok,https://www.ufc.com/athlete/ode-osbourne,2.94,3.24,0.54,7.9333,0.657,0.205,0.138,327.0,802.0,0.829,0.049,0.122,0.408,,,
-Phil Rowe,2000-01-01,0.46,0.53,0.23,0.51,11-7-0,ok,https://www.ufc.com/athlete/phil-rowe,3.51,4.15,0.46,12.9333,0.753,0.13,0.117,454.0,911.0,0.85,0.099,0.051,0.498,,,
-Ramiz Brahimaj,2000-01-01,1.97,0.47,1.44,0.46,13-7-0,ok,https://www.ufc.com/athlete/ramiz-brahimaj,2.14,3.23,0.18,8.35,0.698,0.223,0.078,179.0,362.0,0.793,0.156,0.05,0.494,,,
-Sean Strickland,2000-01-01,0.66,0.69,0.15,0.61,31-7-0,ok,https://www.ufc.com/athlete/sean-strickland,5.98,4.53,0.26,16.2667,0.808,0.141,0.051,2430.0,5717.0,0.921,0.032,0.047,0.425,,,
-Jean Matsumoto,2000-01-01,2.85,0.56,0.45,0.49,18-2-0,ok,https://www.ufc.com/athlete/jean-matsumoto,5.35,5.29,0.0,14.2833,0.579,0.159,0.262,535.0,1374.0,0.895,0.097,0.007,0.389,,,
-Alex Morono,2000-01-01,0.32,0.48,0.32,0.55,24-13-0,ok,https://www.ufc.com/athlete/alex-morono,4.9,4.88,0.26,11.8667,0.798,0.133,0.069,1396.0,3510.0,0.888,0.072,0.04,0.398,,,
-Bruna Brasil,2000-01-01,1.23,0.57,0.12,0.52,11-7-1,ok,https://www.ufc.com/athlete/bruna-brasil,2.56,3.75,0.12,13.5833,0.425,0.419,0.157,313.0,548.0,0.754,0.214,0.032,0.571,,,
-Jailton Almeida,2000-01-01,5.64,0.6,1.68,0.43,22-5-0,ok,https://www.ufc.com/athlete/jailton-almeida,2.23,1.3,0.0,8.2,0.863,0.105,0.032,219.0,350.0,0.192,0.087,0.721,0.626,,,
-Javid Basharat,2000-01-01,1.83,0.84,0.15,0.64,15-2-0,ok,https://www.ufc.com/athlete/javid-basharat,5.18,2.75,0.15,12.3,0.584,0.275,0.141,510.0,934.0,0.751,0.063,0.186,0.546,,,
 Amir Albazi,2000-01-01,1.18,0.63,0.44,0.59,17-3-0,ok,https://www.ufc.com/athlete/amir-albazi,2.47,3.88,0.3,14.5,0.693,0.175,0.131,251.0,743.0,0.853,0.028,0.12,0.338,,,
 Klaudia Sygula,2000-01-01,0.29,0.42,0.0,0.55,8-3-0,ok,https://www.ufc.com/athlete/klaudia-sygula,5.59,4.56,0.0,12.8333,0.714,0.185,0.101,287.0,612.0,0.934,0.052,0.014,0.469,,,
 Michal Oleksiejczuk,2000-01-01,0.99,0.53,0.0,0.6,22-10-0,ok,https://www.ufc.com/athlete/michal-oleksiejczuk,5.73,4.45,1.11,6.3833,0.666,0.284,0.05,694.0,1315.0,0.814,0.036,0.15,0.528,,,
@@ -117,7 +86,6 @@ Brian Ortega,2000-01-01,0.93,0.55,0.93,0.49,16-5-0,ok,https://www.ufc.com/athlet
 Taiyilake Nueraji,2000-01-01,1.47,1.0,0.0,0.58,12-1-0,ok,https://www.ufc.com/athlete/taiyilake-nueraji,9.82,5.01,1.47,5.1,0.62,0.27,0.11,100.0,188.0,0.74,0.01,0.25,0.532,,,
 Uran Satybaldiev,2000-01-01,0.0,0.5,1.69,0.45,9-1-0,ok,https://www.ufc.com/athlete/uran-satybaldiev,2.14,3.66,0.85,8.8833,0.526,0.158,0.316,38.0,150.0,0.895,0.105,0.0,0.253,,,
 Yizha,2000-01-01,,,,,,no stats,https://www.ufc.com/athlete/yizha,,,,,,,,,,,,,,,,
-Su Mudaerji,2000-01-01,0.68,0.7,0.45,0.64,20-7-0,ok,https://www.ufc.com/athlete/su-mudaerji,4.21,2.1,0.34,11.0833,0.602,0.146,0.252,560.0,1108.0,0.821,0.073,0.105,0.505,,,
 Rong Zhu,2000-01-01,1.18,0.85,0.12,0.54,29-6-0,ok,https://www.ufc.com/athlete/rong-zhu,6.2,5.32,0.59,11.55,0.733,0.142,0.125,787.0,1561.0,0.881,0.039,0.08,0.504,,,
 Alibi Idiris,2000-01-01,3.25,0.67,0.0,0.6,11-1-0,ok,https://www.ufc.com/athlete/alibi-idiris,2.51,2.64,0.0,11.5333,0.534,0.31,0.155,58.0,131.0,0.759,0.138,0.103,0.443,,,
 Gerald Meerschaert,2000-01-01,1.63,0.38,1.44,0.53,37-23-0,ok,https://www.ufc.com/athlete/gerald-meerschaert,2.88,3.48,0.2,8.5,0.729,0.174,0.097,661.0,1461.0,0.808,0.104,0.088,0.452,,,
@@ -551,3 +519,35 @@ Movsar Evloev,2026-10-27,4.77,0.61,0.18,0.6,20-1-0,ok,https://www.ufc.com/athlet
 Roman Dolidze,2026-10-27,1.13,0.32,0.73,0.46,15-6-0,ok,https://www.ufc.com/athlete/roman-dolidze,3.12,4.02,0.32,12.3667,0.632,0.145,0.223,579.0,1393.0,0.81,0.06,0.13,0.416,"Batumi, Georgia","Xtreme Couture - Las Vegas, NV",MMA
 Shem Rock,2026-10-27,1.0,0.89,0.0,0.5,12-3-1,ok,https://www.ufc.com/athlete/shem-rock,3.03,4.4,0.0,15.0,0.385,0.374,0.242,91.0,232.0,0.912,0.077,0.011,0.392,"Liverpool, England",NEXT Generation MMA,
 Brad Tavares,2026-10-27,0.7,0.8,0.0,0.55,21-13-0,ok,https://www.ufc.com/athlete/brad-tavares,3.41,3.32,0.21,13.0167,0.594,0.171,0.235,1243.0,2844.0,0.844,0.121,0.035,0.437,United States,"Xtreme Couture - Las Vegas, NV",MMA
+Chris Curtis,2026-10-27,0.0,0.65,0.0,0.54,32-13-0,ok,https://www.ufc.com/athlete/chris-curtis,5.52,5.75,0.36,13.0,0.698,0.251,0.05,932.0,1840.0,0.918,0.062,0.019,0.507,"Cincinnati, United States","Xtreme Couture - Las Vegas, NV",MMA
+Elijah Smith,2026-10-27,2.98,0.53,1.12,0.47,10-1-0,ok,https://www.ufc.com/athlete/elijah-smith,4.18,2.96,0.37,10.0667,0.833,0.083,0.083,168.0,350.0,0.631,0.077,0.292,0.48,United States,Factory X,Freestyle
+Josh Emmett,2026-10-27,1.07,0.44,0.07,0.6,19-7-0,ok,https://www.ufc.com/athlete/josh-emmett,3.67,4.52,0.85,12.4333,0.64,0.212,0.148,775.0,2167.0,0.844,0.055,0.101,0.358,"Phoenix, United States",Team Alpha Male  (Urijah Faber's Ultimate Fitness),Freestyle
+Luan Lacerda,2026-10-27,2.82,0.67,0.63,0.49,13-4-0,ok,https://www.ufc.com/athlete/luan-lacerda,4.06,6.15,0.0,11.95,0.49,0.438,0.072,194.0,452.0,0.845,0.093,0.062,0.429,"Macapá, Brazil",Nova Uniao - Rio de Janeiro,Freestyle
+Vitor Petrino,2026-10-27,2.78,0.81,0.63,0.53,15-2-0,ok,https://www.ufc.com/athlete/vitor-petrino,3.37,2.56,0.51,10.8,0.667,0.185,0.147,400.0,786.0,0.785,0.04,0.175,0.509,"Santa Luzia, Brazil",CM System,Striker
+Luke Fernandez,2026-10-27,0.0,0.36,0.0,0.36,6-1-0,ok,https://www.ufc.com/athlete/luke-fernandez,8.14,10.17,5.08,1.4833,0.833,0.125,0.042,24.0,41.0,0.458,0.292,0.25,0.585,"Orlando, United States",Dante Rivera BJJ,Boxer
+Caio Borralho,2026-10-27,1.25,0.76,0.39,0.6,18-2-0,ok,https://www.ufc.com/athlete/caio-borralho,3.47,2.61,0.39,14.15,0.631,0.211,0.157,540.0,958.0,0.785,0.081,0.133,0.564,"State of Maranhão, Brazil",The Fighting Nerds,MMA
+Drew Dober,2026-10-27,0.61,0.58,0.07,0.53,29-15-0,ok,https://www.ufc.com/athlete/drew-dober,4.48,4.33,0.68,7.9333,0.632,0.226,0.142,994.0,2423.0,0.795,0.112,0.094,0.41,"Omaha, United States","Elevation Fight Team - Denver, CO",Freestyle
+Gregory Rodrigues,2026-10-27,1.57,0.85,0.31,0.5,20-6-0,ok,https://www.ufc.com/athlete/gregory-rodrigues,5.78,4.57,1.15,9.5667,0.716,0.217,0.067,830.0,1555.0,0.828,0.118,0.054,0.534,Brazil,Kill Cliff FC,Grappler
+Max Holloway,2026-10-27,0.22,0.81,0.28,0.59,27-9-0,ok,https://www.ufc.com/athlete/max-holloway,6.92,4.6,0.34,16.1833,0.647,0.243,0.11,3693.0,7666.0,0.881,0.067,0.053,0.482,"Waianae, United States",Gracie Technics,Muay Thai
+Ricky Turcios,2026-10-27,0.85,0.44,0.34,0.52,13-5-0,ok,https://www.ufc.com/athlete/ricky-turcios,4.68,3.84,0.17,12.5833,0.609,0.201,0.189,412.0,1031.0,0.716,0.172,0.112,0.4,"Houston, United States",,Freestyle
+Rob Font,2026-10-27,0.7,0.37,0.32,0.58,22-10-0,ok,https://www.ufc.com/athlete/rob-font,5.11,3.53,0.38,13.25,0.758,0.175,0.068,1421.0,3133.0,0.891,0.065,0.044,0.454,"Leominster, United States",Sityodtong - Boston,Striker
+Su Mudaerji,2026-10-27,0.68,0.7,0.45,0.64,20-7-0,ok,https://www.ufc.com/athlete/su-mudaerji,4.21,2.1,0.34,11.0833,0.602,0.146,0.252,560.0,1108.0,0.821,0.073,0.105,0.505,"Sichuan, China",Team Alpha Male,Striker
+Douglas Silva de Andrade,2026-10-27,0.54,0.72,0.18,0.57,29-7-0,ok,https://www.ufc.com/athlete/douglas-silva-de-andrade,3.54,4.09,0.54,11.9667,0.521,0.229,0.25,593.0,1536.0,0.924,0.056,0.02,0.386,"Castanhal , Brazil",Academia Corinthians - Sao Paulo,Muay Thai
+Ailin Perez,2026-10-27,4.34,0.67,0.14,0.57,14-2-0,ok,https://www.ufc.com/athlete/ailin-perez,2.82,1.79,0.14,12.9667,0.56,0.235,0.205,293.0,540.0,0.519,0.177,0.304,0.543,"CABA, Argentina",MMA Science Academy,Kung Fu
+Cristian Quinonez,2026-10-27,3.14,0.86,0.63,0.56,19-5-0,ok,https://www.ufc.com/athlete/cristian-quinonez,3.67,3.71,0.31,9.55,0.789,0.057,0.154,175.0,400.0,0.909,0.051,0.04,0.438,"Tlaltenango, Mexico",,Jiu-Jitsu
+Daniel Zellhuber,2026-10-27,0.14,0.82,0.28,0.55,15-4-0,ok,https://www.ufc.com/athlete/daniel-zellhuber,5.45,6.17,0.28,13.55,0.628,0.264,0.108,591.0,1545.0,0.91,0.042,0.047,0.383,"Mexico City, Mexico",Team Zellhuber,Freestyle
+Edgar Chairez,2026-10-27,0.0,0.5,1.37,0.52,14-7-0,ok,https://www.ufc.com/athlete/edgar-chairez,3.78,4.64,0.51,9.75,0.614,0.178,0.208,332.0,718.0,0.958,0.015,0.027,0.462,"Baja California, Mexico",,Freestyle
+Erik Silva,2026-10-27,3.26,0.6,0.0,0.4,9-4-0,ok,https://www.ufc.com/athlete/erik-silva,2.06,1.52,0.0,4.6167,0.684,0.184,0.132,38.0,56.0,0.5,0.184,0.316,0.679,"Caracas, Venezuela",,
+Regina Tarin,2026-10-27,,,,,,no stats,https://www.ufc.com/athlete/regina-tarin,,,,,,,,,,,,,,,,
+Santiago Luna,2026-10-27,2.3,0.57,0.92,0.68,8-1-0,ok,https://www.ufc.com/athlete/santiago-luna,4.74,2.76,0.92,10.8833,0.735,0.226,0.039,155.0,292.0,0.774,0.174,0.052,0.531,"San Diego, United States",Parillo Boxing,MMA
+Dan Ige,2026-10-27,0.88,0.55,0.21,0.57,19-10-0,ok,https://www.ufc.com/athlete/dan-ige,3.51,3.56,0.42,12.5667,0.662,0.214,0.124,1014.0,2307.0,0.785,0.075,0.14,0.44,"San Clemente, United States",,Jiu-Jitsu
+Geoff Neal,2026-10-27,0.54,0.88,0.11,0.57,16-8-0,ok,https://www.ufc.com/athlete/geoff-neal,5.02,5.5,0.97,9.2833,0.849,0.089,0.063,700.0,1375.0,0.817,0.109,0.074,0.509,"Austin, United States",Fortis MMA,Striker
+Ode Osbourne,2026-10-27,0.94,0.67,0.4,0.49,13-9-0,ok,https://www.ufc.com/athlete/ode-osbourne,2.94,3.24,0.54,7.9333,0.657,0.205,0.138,327.0,802.0,0.829,0.049,0.122,0.408,"Kingston, Jamaica",,Striker
+Ramiz Brahimaj,2026-10-27,1.97,0.47,1.44,0.46,13-7-0,ok,https://www.ufc.com/athlete/ramiz-brahimaj,2.14,3.23,0.18,8.35,0.698,0.223,0.078,179.0,362.0,0.793,0.156,0.05,0.494,"The Bronx, United States",Valle Flow Striking Academy,MMA
+Sean Strickland,2026-10-27,0.66,0.69,0.15,0.61,31-7-0,ok,https://www.ufc.com/athlete/sean-strickland,5.98,4.53,0.26,16.2667,0.808,0.141,0.051,2430.0,5717.0,0.921,0.032,0.047,0.425,United States,"Millennia MMA, Rancho, CA",MMA
+Phil Rowe,2026-10-27,0.46,0.53,0.23,0.51,11-7-0,ok,https://www.ufc.com/athlete/phil-rowe,3.51,4.15,0.46,12.9333,0.753,0.13,0.117,454.0,911.0,0.85,0.099,0.051,0.498,"Brooklyn, United States",Fusion Xcel,Boxer
+Jean Matsumoto,2026-10-27,2.85,0.56,0.45,0.49,18-2-0,ok,https://www.ufc.com/athlete/jean-matsumoto,5.35,5.29,0.0,14.2833,0.579,0.159,0.262,535.0,1374.0,0.895,0.097,0.007,0.389,"State of São Paulo, Brazil",,Muay Thai
+Alex Morono,2026-10-27,0.32,0.48,0.32,0.55,24-13-0,ok,https://www.ufc.com/athlete/alex-morono,4.9,4.88,0.26,11.8667,0.798,0.133,0.069,1396.0,3510.0,0.888,0.072,0.04,0.398,"Houston, United States",Gracie Barra The Woodlands,Kickboxer
+Bruna Brasil,2026-10-27,1.23,0.57,0.12,0.52,11-7-1,ok,https://www.ufc.com/athlete/bruna-brasil,2.56,3.75,0.12,13.5833,0.425,0.419,0.157,313.0,548.0,0.754,0.214,0.032,0.571,"Paranavaí, Brazil",The Fighting Nerds,MMA
+Jailton Almeida,2026-10-27,5.64,0.6,1.68,0.43,22-5-0,ok,https://www.ufc.com/athlete/jailton-almeida,2.23,1.3,0.0,8.2,0.863,0.105,0.032,219.0,350.0,0.192,0.087,0.721,0.626,Brazil,,Wrestler
+Javid Basharat,2026-10-27,1.83,0.84,0.15,0.64,15-2-0,ok,https://www.ufc.com/athlete/javid-basharat,5.18,2.75,0.15,12.3,0.584,0.275,0.141,510.0,934.0,0.751,0.063,0.186,0.546,"Paktia, Afghanistan",American Top Team,MMA

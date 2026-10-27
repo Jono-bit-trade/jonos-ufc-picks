@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T00:04Z",
+ "updated": "2026-10-27T00:15Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -66,20 +66,20 @@
    "record": "24-9"
   },
   {
-   "fighter": "Petr Yan",
-   "rating": 1859,
-   "rd": 97,
-   "last_fight": "2026-10-24",
-   "division": "Bantamweight",
-   "record": "12-4"
-  },
-  {
    "fighter": "Michael Morales",
    "rating": 1859,
    "rd": 122,
    "last_fight": "2025-11-15",
    "division": "Welterweight",
    "record": "7-0"
+  },
+  {
+   "fighter": "Petr Yan",
+   "rating": 1859,
+   "rd": 97,
+   "last_fight": "2026-10-24",
+   "division": "Bantamweight",
+   "record": "12-4"
   },
   {
    "fighter": "Carlos Prates",
@@ -130,20 +130,20 @@
    "record": "13-2"
   },
   {
-   "fighter": "Merab Dvalishvili",
-   "rating": 1839,
-   "rd": 93,
-   "last_fight": "2026-10-24",
-   "division": "Bantamweight",
-   "record": "14-4"
-  },
-  {
    "fighter": "Charles Oliveira",
    "rating": 1839,
    "rd": 85,
    "last_fight": "2026-03-07",
    "division": "Lightweight",
    "record": "25-11"
+  },
+  {
+   "fighter": "Merab Dvalishvili",
+   "rating": 1839,
+   "rd": 93,
+   "last_fight": "2026-10-24",
+   "division": "Bantamweight",
+   "record": "14-4"
   },
   {
    "fighter": "Alexander Volkov",
@@ -186,20 +186,20 @@
    "record": "16-4"
   },
   {
-   "fighter": "Carlos Ulberg",
-   "rating": 1816,
-   "rd": 107,
-   "last_fight": "2026-04-11",
-   "division": "Light Heavyweight",
-   "record": "10-1"
-  },
-  {
    "fighter": "Sean Brady",
    "rating": 1816,
    "rd": 107,
    "last_fight": "2026-05-09",
    "division": "Welterweight",
    "record": "9-2"
+  },
+  {
+   "fighter": "Carlos Ulberg",
+   "rating": 1816,
+   "rd": 107,
+   "last_fight": "2026-04-11",
+   "division": "Light Heavyweight",
+   "record": "10-1"
   },
   {
    "fighter": "Quillan Salkilld",
@@ -234,20 +234,20 @@
    "record": "10-1"
   },
   {
-   "fighter": "Tatiana Suarez",
-   "rating": 1810,
-   "rd": 116,
-   "last_fight": "2026-04-11",
-   "division": "Women's Strawweight",
-   "record": "9-1"
-  },
-  {
    "fighter": "Paddy Pimblett",
    "rating": 1810,
    "rd": 114,
    "last_fight": "2026-07-11",
    "division": "Lightweight",
    "record": "8-1"
+  },
+  {
+   "fighter": "Tatiana Suarez",
+   "rating": 1810,
+   "rd": 116,
+   "last_fight": "2026-04-11",
+   "division": "Women's Strawweight",
+   "record": "9-1"
   },
   {
    "fighter": "Lerone Murphy",
@@ -995,20 +995,20 @@
      "record": "13-7"
     },
     {
-     "fighter": "Beneil Dariush",
-     "rating": 1711,
-     "rd": 91,
-     "last_fight": "2026-05-02",
-     "division": "Lightweight",
-     "record": "17-8"
-    },
-    {
      "fighter": "Chris Padilla",
      "rating": 1711,
      "rd": 136,
      "last_fight": "2026-08-22",
      "division": "Lightweight",
      "record": "5-0"
+    },
+    {
+     "fighter": "Beneil Dariush",
+     "rating": 1711,
+     "rd": 91,
+     "last_fight": "2026-05-02",
+     "division": "Lightweight",
+     "record": "17-8"
     },
     {
      "fighter": "Rafael Fiziev",
@@ -1322,20 +1322,20 @@
      "record": "7-1"
     },
     {
-     "fighter": "Kyoji Horiguchi",
-     "rating": 1720,
-     "rd": 117,
-     "last_fight": "2026-06-20",
-     "division": "Flyweight",
-     "record": "9-2"
-    },
-    {
      "fighter": "Brandon Moreno",
      "rating": 1720,
      "rd": 95,
      "last_fight": "2026-09-12",
      "division": "Flyweight",
      "record": "12-7"
+    },
+    {
+     "fighter": "Kyoji Horiguchi",
+     "rating": 1720,
+     "rd": 117,
+     "last_fight": "2026-06-20",
+     "division": "Flyweight",
+     "record": "9-2"
     },
     {
      "fighter": "Amir Albazi",
