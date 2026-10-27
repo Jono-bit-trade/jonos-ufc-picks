@@ -510,6 +510,16 @@ def main():
     index.sort(key=lambda x: -(x["rating"] or 0))
     write("fighters/index.json", index)
     write("grappling_flags.json", grap_all)   # slug -> flags, for the fight cards
+    # freely licensed photos (src/photos.py) and how the site should use them
+    from config import PHOTO_MODE
+    ph = read("photos_commons.csv")
+    photos = {}
+    if not ph.empty:
+        for r in ph.itertuples():
+            photos[slug(r.name)] = {"src": r.thumb, "page": r.page, "author": r.author if isinstance(r.author, str) else "",
+                                    "license": r.license, "license_url": r.license_url if isinstance(r.license_url, str) else "",
+                                    "name": r.name}
+    write("photos.json", {"mode": PHOTO_MODE, "photos": photos})
     # division averages of the career numbers, for the bars on fighter pages (active fighters, 3+ UFC fights)
     cutoff_ = (dt.date.today() - dt.timedelta(days=730)).isoformat()
     keys_ = ["slpm", "sapm", "str_acc", "str_def", "kd_per15", "td_per15", "td_def", "sub_per15"]

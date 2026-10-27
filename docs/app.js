@@ -17,12 +17,21 @@ const dateLong = d => new Date(d + "T12:00:00").toLocaleDateString(undefined, {w
 const cm = c => c == null ? "–" : `${Math.floor(c / 2.54 / 12)}'${Math.round(c / 2.54 % 12)}"`;
 const inch = c => c == null ? "–" : Math.round(c / 2.54) + '"';
 
-// ESPN headshot, with initials when ESPN has no photo
+// fighter photo: ESPN headshot or a freely licensed Wikimedia Commons photo (photos.json says which
+// comes first), with initials underneath when there's none
+let PHOTOS = {mode: "espn_first", photos: {}};
+function photoSrc(id, name) {
+  const c = PHOTOS.photos[slug(name || "")], espn = id ? `https://a.espncdn.com/i/headshots/mma/players/full/${esc(id)}.png` : null;
+  if (PHOTOS.mode === "commons_only") return c ? [c.src] : [];
+  if (PHOTOS.mode === "commons_first") return [c && c.src, espn].filter(Boolean);
+  return [espn, c && c.src].filter(Boolean);
+}
 function photo(id, name, size = "md") {
   const ini = esc(String(name || "?").split(/\s+/).map(w => w[0]).slice(0, 2).join(""));
-  if (!id) return `<span class="ph ${size}" aria-hidden="true"><span>${ini}</span></span>`;
-  return `<span class="ph ${size}"><img loading="lazy" alt="" src="https://a.espncdn.com/i/headshots/mma/players/full/${esc(id)}.png"
-    onerror="this.remove()"><span>${ini}</span></span>`;
+  const srcs = photoSrc(id, name);
+  if (!srcs.length) return `<span class="ph ${size}" aria-hidden="true"><span>${ini}</span></span>`;
+  const next = srcs[1] ? `if(!this.dataset.f){this.dataset.f=1;this.src='${esc(srcs[1])}'}else this.remove()` : "this.remove()";
+  return `<span class="ph ${size}"><img loading="lazy" alt="" src="${esc(srcs[0])}" onerror="${next}"><span>${ini}</span></span>`;
 }
 const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
 const recLine = r => !r || !r.picks ? "" :
@@ -594,7 +603,8 @@ async function viewFighter(s) {
     ["Times submitted", g.ufc_fights ? `${g.sub_losses} in ${g.ufc_fights} fights` : null]].filter(x => x[1]);
   return `<p><a href="#/fighters">← Fighters</a></p>
     <section class="fhero">
-      ${photo(f.espn_id, f.name, "xl")}
+      <figure class="fh-ph">${photo(f.espn_id, f.name, "xl")}${(() => { const c = PHOTOS.photos[f.slug]; const used = c && photoSrc(f.espn_id, f.name)[0] === c.src;
+        return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
       <div class="fh-main">
         <h1>${esc(f.name)}</h1>
         <p class="fh-sub">${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
@@ -675,6 +685,41 @@ async function viewExperts() {
       }).join("")}</div>`;
     })()}
     <p class="note">A few hundred picks is a small sample: a leaderboard this short-term is mostly luck. Watch whether the leaders hold up.</p>`;
+}
+
+// ---------------- about and photo credits ----------------
+async function viewAbout() {
+  const mr = await get("model_record.json"), S = mr ? (mr.since || mr.all) : null;
+  return `<h1>About Octagon Edge</h1>
+    <p class="lede">Octagon Edge is an independent fight-picks project. It predicts every bout on every card, compares that with the betting line, and only calls a pick when the numbers say the line has it wrong.</p>
+    <div class="about">
+      <section><h2>What you get each week</h2><ul class="dots">
+        <li>A chance for every fighter on the card, next to the betting line's</li>
+        <li>Our picks: the few fights where we think the price is off, with a suggested stake and the reasons</li>
+        <li>Expert consensus, betting splits, line movement and a full tale of the tape for every bout</li>
+        <li>Live results on fight night, and a record that's locked once each fight ends</li></ul></section>
+      <section><h2>How we keep it honest</h2><ul class="dots">
+        <li>Every pick is graded at the average sportsbook's price, never the best one</li>
+        <li>The live record can't be edited after a fight; the backtest is labelled as a backtest</li>
+        <li>Ideas only make it into the model if they hold up in two separate stretches of years</li>
+        <li>No paid picks, no affiliate links, no sportsbook sponsorship</li></ul></section>
+    </div>
+    ${S ? `<div class="hw-stats"><div><b>${S.our_pct}%</b><span>our picks won, backtest since ${mr.from || 2020}</span></div><div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets</span></div><div><b>${S.our_bets}</b><span>picks graded</span></div><div><b>7,500+</b><span>UFC fights since 2010 in the data</span></div></div>` : ""}
+    <h2>Who's behind it</h2>
+    <p class="note">Built and run by Jono, a fight fan who wanted picks backed by numbers rather than hype. The model, the data pipeline and this site update themselves through fight week; the method is laid out in full on <a href="#/how">How it works</a>.</p>
+    <h2>Data and credits</h2>
+    <p class="note">Results, cards and lines from ESPN; sportsbook prices from The Odds API; expert picks from SplitPicks; career stats from UFC.com; historical fights from the Ultimate UFC Dataset. Freely licensed fighter photos from Wikimedia Commons are credited on the <a href="#/credits">photo credits</a> page. Octagon Edge isn't affiliated with the UFC, ESPN or any sportsbook.</p>
+    <p class="note">For fun and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>`;
+}
+
+async function viewCredits() {
+  const list = Object.values(PHOTOS.photos || {}).sort((a, b) => a.name < b.name ? -1 : 1);
+  return `<h1>Photo credits</h1>
+    <p class="note">${PHOTOS.mode === "espn_first" ? "Fighter photos come from ESPN where available; the" : "The"} photos below are from Wikimedia Commons, used under the license shown. Thank you to every photographer who shares their work.</p>
+    ${list.length ? `<div class="tablewrap"><table><thead><tr><th>Fighter</th><th>Photographer</th><th>License</th><th class="hide-sm">Source</th></tr></thead><tbody>${list.map(c =>
+      `<tr><td>${fighterLink(c.name)}</td><td>${esc(c.author || "Unknown")}</td><td>${c.license_url ? `<a href="${esc(c.license_url)}" target="_blank" rel="noopener">${esc(c.license)}</a>` : esc(c.license)}</td>
+      <td class="hide-sm"><a href="${esc(c.page)}" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>`).join("")}</tbody></table></div>`
+      : `<div class="empty">Freely licensed photos are collected each weekday morning; credits appear here once they are.</div>`}`;
 }
 
 // ---------------- rankings, record, how it works ----------------
@@ -791,15 +836,17 @@ async function viewHow() {
 }
 
 // ---------------- router ----------------
+let photosLoaded = false;
 const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
 async function route() {
+  if (!photosLoaded) { photosLoaded = true; const ph = await get("photos.json"); if (ph) PHOTOS = ph; }
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
   const page = parts[0] || "home";
   document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), record: viewRecord, how: viewHow};
+    rankings: () => viewRankings(q), record: viewRecord, how: viewHow, about: viewAbout, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);
@@ -808,6 +855,21 @@ async function route() {
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
   liveBar();
+  if (page === "home" && !window.countedUp) { window.countedUp = true; countUp(); }
+}
+
+// the main event's chances count up once when the home page first loads
+function countUp() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const els = document.querySelectorAll(".faceoff .pc");
+  els.forEach(el => {
+    const target = parseFloat(el.textContent); if (!(target >= 0)) return;
+    const t0 = performance.now(), dur = 900;
+    const tick = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(target * e) + "%"; if (k < 1) requestAnimationFrame(tick); };
+    el.textContent = "0%"; requestAnimationFrame(tick);
+  });
+  const hero = document.querySelector(".hero"); if (hero) hero.classList.add("intro");
 }
 window.addEventListener("hashchange", () => { const m = document.querySelector(".tabbar .more"); if (m) m.open = false; route(); });
 route();

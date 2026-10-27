@@ -58,6 +58,11 @@ STAKES = [(-199, 1.5), (-399, 1.0), (-100000, 0.5)]   # odds at or above the fir
 # once graded and never recalculated, whatever later changes the model or data get.
 LEDGER_FROM = "2026-10-31"
 
+# Fighter photos: "espn_first" (ESPN headshots, freely licensed Wikimedia Commons photos where ESPN
+# has none), "commons_first", or "commons_only" (only photos whose license allows reuse with credit;
+# everyone else gets initials). Every Commons photo shown is credited on the site's Photo credits page.
+PHOTO_MODE = "espn_first"
+
 # Expert lean: in a close fight (line 40-60%), when 65%+ of 5+ SplitPicks analysts agree, their side
 # becomes our pick (if the model has no our pick there) and the fight is tagged "Expert lean".
 # Apr-Oct 2026: 47 such fights, experts' side won 77% vs the line's 54%, +16.5u. Added Oct 2026 on

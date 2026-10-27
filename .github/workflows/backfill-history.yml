@@ -58,6 +58,10 @@ jobs:
       - name: Use the latest code (a long run may have started before a fix was pushed)
         run: git fetch -q origin main && git checkout origin/main -- src
 
+      - name: Freely licensed fighter photos (Wikidata / Wikimedia Commons)
+        continue-on-error: true
+        run: timeout 15m python src/photos.py 2>&1 | tail -n 5
+
       - name: Convert, rebuild, backtest, predict
         run: |
           python src/import_espn_stats.py || echo "stats not converted yet"
