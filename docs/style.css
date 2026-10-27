@@ -308,3 +308,18 @@ tbody tr:hover td { background: rgba(255,255,255,.025); }
 h1, .hero h1 { text-wrap: balance; }
 .explain { margin: 4px 0 14px; } .explain summary { cursor: pointer; color: #7fb0ff; font: 700 17px var(--display); }
 .explain .note { margin-top: 8px; }
+
+/* header: octagon emblem, stacked wordmark, red/blue corner stripe */
+.top { border-bottom: 0; }
+.top::after { content: ""; display: block; height: 3px;
+  background: linear-gradient(90deg, var(--red) 0 42%, var(--gold) 42% 58%, var(--blue) 58% 100%); }
+.brand { display: flex; align-items: center; gap: 10px; }
+.emblem { width: 40px; height: 40px; flex-shrink: 0; }
+.emblem .oct-out { fill: var(--gold); }
+.emblem .oct-in { fill: var(--night); stroke: rgba(224,178,58,.35); stroke-width: 1; }
+.emblem .mono { fill: none; stroke: #fff; stroke-width: 4.5; stroke-linecap: square; }
+.wordmark { display: flex; flex-direction: column; line-height: .9; }
+.wordmark .w1 { font: 700 15px var(--display); color: var(--gold); letter-spacing: .14em; text-transform: uppercase; }
+.wordmark .w2 { font: 900 27px var(--display); color: #fff; letter-spacing: .02em; text-transform: uppercase; }
+.brand:hover .emblem .oct-out { fill: #f0c552; }
+@media (max-width: 640px) { .emblem { width: 34px; height: 34px; } .wordmark .w2 { font-size: 23px; } }
