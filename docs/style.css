@@ -681,3 +681,11 @@ h2 { margin: 32px 0 12px; }
 .slip { margin: 0 0 8px; }
 .evlist, .compact, .lb { gap: 6px; }
 .panel { margin-bottom: 16px; }
+
+/* how it works: each step takes a color from the site's own legend, ending on pick gold */
+.hw-step:nth-child(1) { --c: var(--red); } .hw-step:nth-child(2) { --c: var(--blue); }
+.hw-step:nth-child(3) { --c: var(--teal); } .hw-step:nth-child(4) { --c: var(--gold); }
+.hw-step { border-top-color: var(--c); }
+.hw-step .hw-n { background: var(--c); color: #111318; }
+.hw-step:not(:last-child)::after { background: var(--c); }
+.hw-step b { color: #fff; }
