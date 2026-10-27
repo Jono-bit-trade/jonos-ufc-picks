@@ -192,6 +192,7 @@ def parse(js):
                 "location": loc, "a": names[0], "b": names[1],
                 "weight_class": wc, "record_a": record(cs[0]), "record_b": record(cs[1]),
                 "espn_id_a": cs[0].get("id"), "espn_id_b": cs[1].get("id"),
+                "country_a": _get(cs[0], "athlete", "flag", "alt"), "country_b": _get(cs[1], "athlete", "flag", "alt"),
                 "gender": "F" if "women" in wc.lower() else "M", "title": "title" in wc.lower(),
                 "rounds": int(periods) if periods else (5 if i == n - 1 else 3),   # main event is last
                 "bout_order": n - i,   # 1 = main event

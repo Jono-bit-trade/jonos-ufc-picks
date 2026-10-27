@@ -55,6 +55,11 @@ jobs:
         continue-on-error: true
         run: python src/espn.py
 
+      - name: Fighter countries (flags)
+        if: steps.kind.outputs.kind != 'live'
+        continue-on-error: true
+        run: timeout 5m python src/countries.py 3 2>&1 | tail -n 3
+
       - name: Expert picks (SplitPicks)
         if: steps.kind.outputs.kind != 'live'
         continue-on-error: true

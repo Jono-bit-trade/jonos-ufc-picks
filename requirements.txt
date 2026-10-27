@@ -4,3 +4,4 @@ numpy
 scikit-learn
 beautifulsoup4
 lxml
+pycountry

@@ -520,6 +520,20 @@ def main():
                                     "license": r.license, "license_url": r.license_url if isinstance(r.license_url, str) else "",
                                     "name": r.name}
     write("photos.json", {"mode": PHOTO_MODE, "photos": photos})
+    # each fighter's country and flag code (src/countries.py), matched by ESPN id, then by name
+    co = read("fighter_countries.csv")
+    countries = {}
+    if not co.empty:
+        co = co.dropna(subset=["iso"])
+        by_id = {str(i).replace(".0", ""): (c, s) for i, c, s in zip(co["espn_id"], co["country"], co["iso"]) if isinstance(i, (str, float)) and str(i) != "nan"}
+        by_name = {slug(n): (c, s) for n, c, s in zip(co["name"], co["country"], co["iso"])}
+        for row_ in index:
+            hit = by_id.get(str(row_.get("espn_id") or "").replace(".0", "")) or by_name.get(row_["slug"])
+            if hit:
+                countries[row_["slug"]] = [hit[0], hit[1]]
+        for n, c, s in zip(co["name"], co["country"], co["iso"]):   # debutants on the next card
+            countries.setdefault(slug(n), [c, s])
+    write("countries.json", countries)
     # division averages of the career numbers, for the bars on fighter pages (active fighters, 3+ UFC fights)
     cutoff_ = (dt.date.today() - dt.timedelta(days=730)).isoformat()
     keys_ = ["slpm", "sapm", "str_acc", "str_def", "kd_per15", "td_per15", "td_def", "sub_per15"]

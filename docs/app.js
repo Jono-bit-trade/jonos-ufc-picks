@@ -36,6 +36,9 @@ function photo(id, name, size = "md") {
 const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
 const recLine = r => !r || !r.picks ? "" :
   `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} (${Math.round(r.our_won / r.our_bets * 100)}%) <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
+let COUNTRY = {};
+// flag (and country name) for a fighter; flags from flag-icons (MIT)
+const flagOf = (s, name) => { const c = COUNTRY[s]; return !c ? "" : `<span class="ctry" title="${esc(c[0])}"><img src="flags/${esc(c[1])}.svg" alt="${esc(c[0])} flag" width="18" height="13" loading="lazy">${name ? esc(c[0]) : ""}</span>`; };
 const fighterLink = (name, s) => `<a class="fl" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
 
 // ---------------- the current card ----------------
@@ -143,9 +146,9 @@ function bout(f, i, edge) {
   return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${ring}">
     ${status(f)}
     <div class="corners">
-      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
+      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
       <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}</div>
-      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
+      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
     </div>
     <div class="pct"><span class="pa">${pa100}%</span><span class="lbl">Model</span><span class="pb">${100 - pa100}%</span></div>
     <div class="bar" role="img" aria-label="Model ${pct(pa)} for ${esc(f.a)}${line != null ? ", line " + pct(line) : ""}">
@@ -390,9 +393,9 @@ async function viewHome() {
       <div class="when">${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
       <h1>${esc(p.event)}</h1>
       <div class="faceoff">
-        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span><span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span><span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${flagOf(m.b_slug, true)}<span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
@@ -510,7 +513,7 @@ async function viewEvent(s) {
       : !vp ? "" : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
-      <div class="meta">${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
+      <div class="meta">${flagOf(sl, true)}${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
     const graded = op || mp;   // our pick if we made one, otherwise the model's pick
     const ring = graded && graded.right != null ? (graded.right ? " ring-won" : " ring-lost") : "";
     return `<article class="bout slim${i === 0 ? " main" : ""}${ring}">
@@ -607,7 +610,7 @@ async function viewFighter(s) {
         return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
       <div class="fh-main">
         <h1>${esc(f.name)}</h1>
-        <p class="fh-sub">${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
+        <p class="fh-sub">${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
         ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
         <div class="fchips">
           ${chip(esc(f.ufc_record), "UFC record")}${f.pro_record ? chip(esc(f.pro_record), "Pro record") : ""}
@@ -716,6 +719,7 @@ async function viewCredits() {
   const list = Object.values(PHOTOS.photos || {}).sort((a, b) => a.name < b.name ? -1 : 1);
   return `<h1>Photo credits</h1>
     <p class="note">${PHOTOS.mode === "espn_first" ? "Fighter photos come from ESPN where available; the" : "The"} photos below are from Wikimedia Commons, used under the license shown. Thank you to every photographer who shares their work.</p>
+    <p class="note">Country flags: <a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener">flag-icons</a> by Panayiotis Lipiridis, MIT license. Countries are the ones ESPN lists for each fighter, or the country of birth on UFC.com.</p>
     ${list.length ? `<div class="tablewrap"><table><thead><tr><th>Fighter</th><th>Photographer</th><th>License</th><th class="hide-sm">Source</th></tr></thead><tbody>${list.map(c =>
       `<tr><td>${fighterLink(c.name)}</td><td>${esc(c.author || "Unknown")}</td><td>${c.license_url ? `<a href="${esc(c.license_url)}" target="_blank" rel="noopener">${esc(c.license)}</a>` : esc(c.license)}</td>
       <td class="hide-sm"><a href="${esc(c.page)}" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>`).join("")}</tbody></table></div>`
@@ -736,7 +740,7 @@ async function viewRankings(q) {
     <h2>${esc(d ? d.division : "Pound for pound")}</h2>
     <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th>Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
     ${list.map((f, i) => { const x = ix[f.fighter] || {}, lo = 1500, hi = Math.max(...list.map(y => y.rating));
-      return `<tr class="${i === 0 ? "top1" : ""}"><td class="n rk">${i + 1}</td><td><span class="rkname">${photo(x.espn_id, f.fighter, "sm")}${fighterLink(f.fighter, x.slug)}</span></td>${d ? "" : `<td class="hide-sm">${esc(f.division || "")}</td>`}<td class="n">${esc(f.record || "")}</td>
+      return `<tr class="${i === 0 ? "top1" : ""}"><td class="n rk">${i + 1}</td><td><span class="rkname">${photo(x.espn_id, f.fighter, "sm")}${flagOf(x.slug)}${fighterLink(f.fighter, x.slug)}</span></td>${d ? "" : `<td class="hide-sm">${esc(f.division || "")}</td>`}<td class="n">${esc(f.record || "")}</td>
         <td class="rbar"><span><i style="width:${Math.max(4, (f.rating - lo) / Math.max(1, hi - lo) * 100)}%"></i></span><b>${f.rating}</b></td><td class="n hide-sm">±${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`; }).join("")}</tbody></table></div>`;
 }
 
@@ -839,7 +843,7 @@ async function viewHow() {
 let photosLoaded = false;
 const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
 async function route() {
-  if (!photosLoaded) { photosLoaded = true; const ph = await get("photos.json"); if (ph) PHOTOS = ph; }
+  if (!photosLoaded) { photosLoaded = true; const [ph, co] = await Promise.all([get("photos.json"), get("countries.json", true)]); if (ph) PHOTOS = ph; if (co) COUNTRY = co; }
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
   const page = parts[0] || "home";

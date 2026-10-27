@@ -705,3 +705,12 @@ tr.top1 td.rk { color: var(--gold); }
 .filters a.on, .viewtoggle button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
 .btn { background: #1c1e24; color: #fff; border: 1px solid var(--silver); }
 .btn:hover { background: #262931; }
+
+/* country flags */
+.ctry { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--quiet); white-space: nowrap; vertical-align: middle; }
+.ctry img { width: 18px; height: 13px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255,255,255,.18); flex: none; }
+.meta .ctry::after, .fh-sub .ctry::after { content: "·"; margin: 0 6px 0 1px; }
+.side .meta .ctry::after { content: "·"; }
+.faceoff .ctry { display: flex; justify-content: center; margin: 2px 0 4px; font-size: 14px; color: #c9d0dc; }
+.rkname .ctry { margin: 0 2px 0 0; }
+.bout .b .meta { justify-content: flex-end; }
