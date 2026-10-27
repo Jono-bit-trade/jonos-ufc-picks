@@ -404,10 +404,30 @@ async function viewHome() {
   const record = mr ? `${live}<h2>Backtest track record</h2><div class="stats">${box(yr.year, yr)}${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
     <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
   return `${recap}${hero}${record}
-    <div class="cols">
-      <section><h2>Past cards</h2><ul class="list">${past}</ul><a href="#/events">All events</a></section>
-      <section><h2>Top analysts</h2>${top ? `<ul class="list">${top}</ul><a href="#/experts">Expert leaderboard and what it's worth</a>` : `<p class="note">Appears once expert picks are collected.</p>`}</section>
-    </div>`;
+    ${homeLower(ev, ex, up, p)}`;
+}
+
+// the lower half of the home page: recent cards, coming up, top analysts
+function homeLower(ev, ex, up, p) {
+  const recent = (ev || []).slice(0, 4).map(evRow).join("");
+  const next = (up || []).filter(u => !p || u.date !== p.date).slice(0, 4).map(u => {
+    const [title, sub] = String(u.name).split(/:\s*/);
+    const d = new Date(u.start || u.date + "T12:00:00");
+    return `<li class="nx"><span class="nx-d"><b>${d.toLocaleDateString(undefined, {day: "numeric"})}</b><span>${d.toLocaleDateString(undefined, {month: "short"})}</span></span>
+      <span class="nx-t"><b>${esc(sub || title)}</b><span>${esc(title)}${u.start ? ", " + d.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : ""}</span></span></li>`;
+  }).join("");
+  const maxU = ex ? Math.max(1, ...ex.analysts.slice(0, 5).map(a => Math.abs(a.units))) : 1;
+  const top = ex ? ex.analysts.slice(0, 5).map((a, i) => `<li class="ta">
+      <span class="ta-rk">${i + 1}</span>
+      <span class="ta-nm"><b>${esc(a.analyst)}</b><span>${a.won}-${a.bets - a.won}, ${a.win_pct}% won</span></span>
+      <span class="ta-u"><b class="${a.units >= 0 ? "won" : "lost"}">${units(a.units)}</b><span class="ub"><i class="${a.units >= 0 ? "pos" : "neg"}" style="width:${Math.abs(a.units) / maxU * 100}%"></i></span></span></li>`).join("") : "";
+  return `<div class="lower">
+    <section class="lw-main"><div class="lw-h"><h2>Recent cards</h2><a href="#/events">All events</a></div><div class="evlist">${recent}</div></section>
+    <aside class="lw-side">
+      ${next ? `<section class="panel"><div class="lw-h"><h2>Coming up</h2><a href="#/events">Schedule</a></div><ul class="nxl">${next}</ul></section>` : ""}
+      <section class="panel"><div class="lw-h"><h2>Top analysts</h2><a href="#/experts">Leaderboard</a></div>
+        ${top ? `<ul class="tal">${top}</ul><p class="small">Units betting each analyst's picks at the posted odds, from SplitPicks.</p>` : `<p class="note">Appears once expert picks are collected.</p>`}</section>
+    </aside></div>`;
 }
 
 // ---------------- events ----------------
