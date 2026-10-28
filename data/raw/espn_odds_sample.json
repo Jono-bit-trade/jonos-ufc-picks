@@ -9,13 +9,13 @@
  "details": "R. Moicano -122",
  "overUnder": 1.5,
  "spread": -5.5,
- "overOdds": -188.0,
- "underOdds": 145.0,
+ "overOdds": -220.0,
+ "underOdds": 170.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
   "moneyLine": 102,
-  "spreadOdds": -135.0,
+  "spreadOdds": -130.0,
   "open": {
    "favorite": false,
    "pointSpread": {
@@ -71,12 +71,12 @@
     "american": "+5.5"
    },
    "spread": {
-    "value": 1.74,
-    "displayValue": "20/27",
-    "alternateDisplayValue": "-135",
-    "decimal": 1.74,
-    "fraction": "20/27",
-    "american": "-135"
+    "value": 1.76,
+    "displayValue": "10/13",
+    "alternateDisplayValue": "-130",
+    "decimal": 1.76,
+    "fraction": "10/13",
+    "american": "-130"
    },
    "moneyLine": {
     "value": 2.02,
@@ -104,12 +104,12 @@
      "american": "+800"
     },
     "points": {
-     "value": 6.5,
-     "displayValue": "11/2",
-     "alternateDisplayValue": "+550",
-     "decimal": 6.5,
-     "fraction": "11/2",
-     "american": "+550"
+     "value": 8.0,
+     "displayValue": "7/1",
+     "alternateDisplayValue": "+700",
+     "decimal": 8.0,
+     "fraction": "7/1",
+     "american": "+700"
     }
    }
   },
@@ -121,7 +121,7 @@
   "favorite": true,
   "underdog": false,
   "moneyLine": -122,
-  "spreadOdds": 100.0,
+  "spreadOdds": -105.0,
   "open": {
    "favorite": true,
    "pointSpread": {
@@ -177,12 +177,12 @@
     "american": "-5.5"
    },
    "spread": {
-    "value": 2.0,
-    "displayValue": "1/1",
-    "alternateDisplayValue": "+100",
-    "decimal": 2.0,
-    "fraction": "1/1",
-    "american": "+100"
+    "value": 1.95,
+    "displayValue": "20/21",
+    "alternateDisplayValue": "-105",
+    "decimal": 1.95,
+    "fraction": "20/21",
+    "american": "-105"
    },
    "moneyLine": {
     "value": 1.81,
@@ -202,20 +202,20 @@
      "american": "+700"
     },
     "submission": {
-     "value": 2.7,
-     "displayValue": "17/10",
-     "alternateDisplayValue": "+170",
-     "decimal": 2.7,
-     "fraction": "17/10",
-     "american": "+170"
+     "value": 2.65,
+     "displayValue": "33/20",
+     "alternateDisplayValue": "+165",
+     "decimal": 2.65,
+     "fraction": "33/20",
+     "american": "+165"
     },
     "points": {
-     "value": 6.5,
-     "displayValue": "11/2",
-     "alternateDisplayValue": "+550",
-     "decimal": 6.5,
-     "fraction": "11/2",
-     "american": "+550"
+     "value": 7.5,
+     "displayValue": "13/2",
+     "alternateDisplayValue": "+650",
+     "decimal": 7.5,
+     "fraction": "13/2",
+     "american": "+650"
     }
    }
   },
@@ -396,20 +396,20 @@
  },
  "current": {
   "over": {
-   "value": 1.53,
-   "displayValue": "25/47",
-   "alternateDisplayValue": "-188",
-   "decimal": 1.53,
-   "fraction": "25/47",
-   "american": "-188"
+   "value": 1.45,
+   "displayValue": "5/11",
+   "alternateDisplayValue": "-220",
+   "decimal": 1.45,
+   "fraction": "5/11",
+   "american": "-220"
   },
   "under": {
-   "value": 2.45,
-   "displayValue": "29/20",
-   "alternateDisplayValue": "+145",
-   "decimal": 2.45,
-   "fraction": "29/20",
-   "american": "+145"
+   "value": 2.7,
+   "displayValue": "17/10",
+   "alternateDisplayValue": "+170",
+   "decimal": 2.7,
+   "fraction": "17/10",
+   "american": "+170"
   },
   "total": {
    "alternateDisplayValue": "1.5",
