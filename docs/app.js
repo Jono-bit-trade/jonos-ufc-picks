@@ -754,7 +754,13 @@ function yearTable(mr) {
     <td class="n hide-sm">${pc(r.value_roi_pct)}</td>
     <td class="n">${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</td><td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td></tr>`;
   return `<h2>Model track record by year</h2>
-    <p class="note">Every past fight, predicted by a model trained only on earlier fights, graded at the average sportsbook's closing moneyline with flat 1-unit bets. The record starts in ${mr.from || 2020}: earlier years are still used to train the model, but its predictions then had too little history behind them to grade fairly. Our picks by period: ${(mr.periods || []).map(p => `${p.label} ${p.our_won}/${p.our_bets} ${units(p.our_units)}`).join(" · ")}. Expert lean picks (close fights where 65%+ of analysts agree and the model has no pick), included above: ${mr.all.lean_won}/${mr.all.lean_bets} ${units(mr.all.lean_units)}, tracked since SplitPicks data began in April 2026. Suggested stakes size each our pick by price: 1.5 units at -199 or longer odds, 1 unit from -200 to -399, half a unit at -400 or shorter (tested on 2020-22 and 2023-26: more units with less risked than flat bets). Prices are the average sportsbook's, not the best: where 3+ books' closing lines exist (most fights from 2019 on), each pick is graded at their average; otherwise at the single closing line we have. Getting a better price than average is upside the record doesn't count.</p>
+    <p class="note">Flat 1-unit bets at the average sportsbook's closing price, starting ${mr.from || 2020}.</p>
+    <div class="recbits">${(mr.periods || []).map(p => `<span>Our picks ${esc(p.label)} <b>${p.our_won}/${p.our_bets}</b> <b class="${p.our_units >= 0 ? "won" : "lost"}">${units(p.our_units)}</b></span>`).join("")}<span>Expert leans <b>${mr.all.lean_won}/${mr.all.lean_bets}</b> <b class="${mr.all.lean_units >= 0 ? "won" : "lost"}">${units(mr.all.lean_units)}</b></span></div>
+    <details class="fine"><summary>How it's graded</summary><ul>
+      <li><b>Prices:</b> the average of 3+ sportsbooks' closing lines where we have them (most fights from 2019 on), otherwise the one closing line. A better price than average is upside the record doesn't count.</li>
+      <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter.</li>
+      <li><b>Expert leans:</b> close fights where 65%+ of analysts agree and the model has no pick. Tracked since April 2026, included in our picks.</li>
+      <li><b>Why 2020:</b> earlier fights still train the model, but there was too little history before then to grade fairly.</li></ul></details>
     <div class="tablewrap"><table><thead><tr><th>Year</th><th class="n">Winners</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Per bet</th>
       <th class="n">Value picks</th><th class="n">Value units</th><th class="n hide-sm">Per bet</th><th class="n">Our picks</th><th class="n">Our units</th></tr></thead><tbody>
       ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;
@@ -774,7 +780,7 @@ function tickClocks() {
 setInterval(tickClocks, 15000);
 function ledgerBoxes(L, start) {
   if (!L || !L.fights) return `<div class="lr-wait"><div><span class="kicker">Starts ${esc(dateLong(L ? L.from : "2026-10-31"))}</span>
-    <b>The live record opens with this card</b><p>Every pick is locked before the fight at the average sportsbook price, graded when it ends, and never recalculated. This is the record to judge us by.</p></div>${start ? clock(start) : ""}</div>`;
+    <b>The live record opens with this card</b><p>Picks locked before each fight at the average sportsbook price. Never recalculated.</p></div>${start ? clock(start) : ""}</div>`;
   const last = (L.rows || []).filter(g => g.our_pick && g.our_units).slice(-10);
   const strip = last.length ? `<div class="form lr-form" aria-label="Our last ${last.length} picks, oldest first">${last.map(g => `<span class="fm ${g.our_units > 0 ? "W" : "L"}" title="${esc(g.our_pick)} ${odds(g.our_odds)}, ${esc(g.date)}">${g.our_units > 0 ? "W" : "L"}</span>`).join("")}<span class="small">our last ${last.length} picks, oldest first</span></div>` : "";
   const u = x => `<b class="${x >= 0 ? "won" : "lost"}">${units(x)}</b>`;
@@ -789,7 +795,7 @@ async function viewRecord() {
   const rows = L && L.rows ? L.rows : [];
   return `<h1>Record</h1>
     <h2>Live record, locked</h2>
-    <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, exactly as it stood before the fight (pick, average sportsbook price, stake), graded when the fight ends and never changed afterwards, whatever the model or data later get.</p>
+    <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
     ${ledgerBoxes(L)}
     ${unitsChart(ledgerCurve(rows))}
     ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
@@ -799,7 +805,7 @@ async function viewRecord() {
         <td class="hide-sm ${g.model_pick === g.winner ? "won" : "lost"}">${esc(g.model_pick)} ${g.model_pick === g.winner ? "✓" : "✗"}</td></tr>`).join("")}</tbody></table></div>` : ""}
     <h2>Backtest, ${mr ? mr.from || 2020 : 2020} on</h2>
     ${mr ? unitsChart(mr.curve) : ""}
-    <p class="note">What the current method would have picked on every past card, each fight predicted only from earlier fights. It's recalculated when the method or data improve, so it is a simulation, not a record of real picks: the locked live record above is the one to judge by.</p>
+    <p class="note">What today's method would have picked on every past card, using only earlier fights. A simulation that's updated as the method improves; the live record is the one to judge by.</p>
     ${yearTable(mr)}`;
 }
 

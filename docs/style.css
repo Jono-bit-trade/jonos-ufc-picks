@@ -757,3 +757,10 @@ tr.top1 td.rk { color: var(--gold); }
   .lr-wait b { font-size: 21px; } .cd > span { min-width: 52px; } .cd b { font-size: 26px; }
   .kicker { font-size: 11px; }
 }
+
+/* record page: key numbers as chips, details folded away */
+.recbits { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+.recbits span { background: var(--paper); border: 1px solid var(--rule); border-radius: 2px; padding: 5px 10px; font-size: 14px; color: #c3cad6; }
+.recbits b { color: #fff; margin-left: 4px; } .recbits b.won { color: var(--green); } .recbits b.lost { color: var(--red); }
+.fine { margin: 0 0 12px; } .fine > summary { cursor: pointer; color: #7fb0ff; font-size: 14px; padding: 4px 0; }
+.fine ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; color: #c3cad6; } .fine li { margin: 3px 0; }
