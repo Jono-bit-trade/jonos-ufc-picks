@@ -825,40 +825,40 @@ async function viewHow() {
   const ed = await get("edges.json", true);
   const sg = x => x == null ? "–" : (x > 0 ? "+" : "") + x.toFixed(1) + "%";
   const edges = !ed ? "" : `<h2>Edges: where the line has been wrong</h2>
-    <p class="note">Each situation is bet flat on the fighter in it, at the closing line, in two separate periods. A real edge shows in both. "Line said" is the line's average chance; "Won" is what happened. Fades in both periods mean betting <em>against</em> that fighter has paid. Layoff returners and +300 underdogs are built into the site's chances.</p>
+    <p class="note">Flat bets on the fighter in each situation, tested in two separate periods: a real edge shows up in both. Layoff returners and +300 underdogs are already built into our chances.</p>
     <div class="tablewrap"><table class="bt"><thead>${row(["Situation", ...ed.periods.flatMap(p => [p + " fights", "Won", "Line said", "Per bet"]), "Verdict"], true)}</thead><tbody>${
     ed.rows.filter(r => r.verdict !== "too few fights").sort((a, b) => (a.verdict > b.verdict ? 1 : -1))
       .map(r => row([esc(r.situation), ...ed.periods.flatMap(p => [r["n " + p], pct1(r["won " + p]), pct1(r["line said " + p]), sg(r["roi " + p])]), esc(r.verdict)])).join("")}</tbody></table></div>`;
   const roi = b.roi.map(r => row([pts(r.edge), r.bets, r["win_%"] == null ? "–" : r["win_%"].toFixed(1) + "%", (r.units > 0 ? "+" : "") + r.units.toFixed(1), r["roi_%"] == null ? "–" : r["roi_%"].toFixed(1) + "%"])).join("");
   const step = (n, t, d) => `<div class="hw-step"><span class="hw-n">${n}</span><b>${t}</b><p>${d}</p></div>`;
   return `<h1>How it works</h1>
-    <p class="lede">Every fight gets a chance for each fighter. Where that chance beats the betting line on the right kind of fight, it becomes one of our picks, and every pick is graded and kept.</p>
+    <p class="lede">We give every fighter a chance to win. When ours beats the betting line, it's a pick, and every pick is graded.</p>
     <div class="hw">
-      ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating that rises and falls with results, weighted by how each fight ended and how strong the opponent was.")}
-      ${step(2, "Predict the fight", "Ratings, recent form, experience, age, reach and finishing history give the model its own chance for each fighter, learned only from earlier fights.")}
-      ${step(3, "Blend with the line", "The betting line knows a lot (injuries, camps, news), so the model's chance is blended with it. Long layoffs and long-shot underdogs get extra adjustments the line tends to miss.")}
-      ${step(4, "Find the value", "When our chance beats the line's by 3+ points on a favorite or a 70%+ fighter, or the experts agree in a close fight, it's one of our picks, sized by price.")}
+      ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating, weighted by how the fight ended and who it was against.")}
+      ${step(2, "Predict the fight", "Rating, form, experience, age, reach and finishing history give each fighter a chance to win.")}
+      ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs and long shots.")}
+      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price.")}
     </div>
     ${S ? `<div class="hw-stats">
       <div><b>${S.our_pct}%</b><span>of our picks won since ${mr.from || 2020}</span></div>
       <div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets, ${S.our_roi_pct > 0 ? "+" : ""}${S.our_roi_pct}% per bet</span></div>
       <div><b>${S.pct}%</b><span>of all fights' winners picked</span></div>
       <div><b>${S.our_bets}</b><span>picks graded at the average sportsbook's price</span></div></div>` : ""}
-    <p class="note">These are backtest numbers: each past fight predicted only from fights before it. The <a href="#/record">locked live record</a> starts with the Oct 31, 2026 card and is never recalculated.</p>
+    <p class="note">Backtest numbers, each fight predicted only from earlier fights. The <a href="#/record">live record</a> starts Oct 31, 2026.</p>
     <details class="tech"><summary>Technical detail: model tests, betting by edge, and situational edges</summary>
-    <p class="note">Each test year is predicted by a model trained only on earlier fights, then scored against the closing line on the same fights. Log loss and Brier measure how good the chances are (lower is better). Last run ${esc(b.run_at)}.</p>
+    <p class="note">Each year is predicted from earlier fights only. Log loss and Brier score the chances: lower is better. Last run ${esc(b.run_at)}.</p>
     <h2>The model alone</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s1}</tbody></table></div>
     <h2>Blended with the line, ${esc(b.years)}</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s2}</tbody></table></div>
     <h2>Flat 1-unit bets by edge</h2><div class="tablewrap"><table class="bt"><thead>${row(["Edge needed", "Bets", "Won", "Units", "Per bet"], true)}</thead><tbody>${roi}</tbody></table></div>
     ${b.early ? `<h2>Betting at the opening line</h2>
-      <p class="note">"Line moved toward" is how often the line then moved to the pick's side before the fight: above 50% means the model spots value the market later agrees with.</p>
+      <p class="note">"Line moved toward": how often the line later moved our way. Above 50% means the market came around to our pick.</p>
       <div class="tablewrap"><table class="bt"><thead>${row(["Edge needed", "Bets", "Won", "Per bet, opening odds", "Per bet, closing odds", "Line moved toward"], true)}</thead><tbody>${
       b.early.map(r => row([pts(r.edge), r.bets_open, r["win_%_open"] == null ? "–" : r["win_%_open"].toFixed(1) + "%", r["roi_%_open"] == null ? "–" : r["roi_%_open"].toFixed(1) + "%",
         r["roi_close_%"] == null ? "–" : r["roi_close_%"].toFixed(1) + "%", r["moved_toward_%"].toFixed(1) + "%"])).join("")}</tbody></table></div>`
       : `<h2>Betting at the opening line</h2><p class="note">Appears once the history backfill has collected opening lines.</p>`}
     ${edges}
     </details>
-    <p class="note">UFC betting lines are sharp, and past results don't guarantee future ones. Judge the picks by the locked live record as it builds.</p>`;
+    <p class="note">Betting lines are sharp and past results don't guarantee future ones.</p>`;
 }
 
 // ---------------- router ----------------
