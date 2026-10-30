@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T19:11Z",
+ "updated": "2026-10-30T23:11Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -39,7 +39,7 @@
    "record_a": "21-7-1",
    "record_b": "11-1-0",
    "experts": {
-    "picks_a": 9,
+    "picks_a": 10,
     "picks_b": 4,
     "high_a": 5,
     "high_b": 0,
@@ -47,6 +47,15 @@
     "win_a": 0,
     "win_b": 1,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "199-105",
+      "units": 20.99,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
@@ -166,16 +175,10 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.7,
-    "handle_b": 0.3,
-    "bets_a": 0.7,
-    "bets_b": 0.3,
-    "at": "2026-10-26T02:33Z"
-   },
+   "splits": null,
    "why": [
     "Our chance 52% vs the line's 52%",
-    "Close fight and 9 of 13 analysts pick Moicano",
+    "Close fight and 10 of 14 analysts pick Moicano",
     "Rated 76 points higher"
    ],
    "weight_class": "Lightweight",
@@ -202,11 +205,6 @@
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": -105.0,
-     "b": -115.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": -105.0,
@@ -401,6 +399,11 @@
      "t": "2026-10-30T19:11Z",
      "a": -120.0,
      "b": 100.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": -120.0,
+     "b": 100.0
     }
    ],
    "edge_a": 0.001,
@@ -426,7 +429,7 @@
    "record_b": "13-0-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 12,
+    "picks_b": 13,
     "high_a": 0,
     "high_b": 5,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -440,6 +443,15 @@
       "method": "KO/TKO",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -637,6 +649,11 @@
      "t": "2026-10-30T19:11Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
    "edge_a": 0.004,
@@ -662,7 +679,7 @@
    "record_b": "18-11-1",
    "experts": {
     "picks_a": 6,
-    "picks_b": 7,
+    "picks_b": 8,
     "high_a": 0,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -676,6 +693,15 @@
       "method": "Submission",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -789,11 +815,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.3,
-    "handle_b": 0.7,
-    "bets_a": 0.22,
-    "bets_b": 0.78,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.19,
+    "handle_b": 0.81,
+    "bets_a": 0.37,
+    "bets_b": 0.63,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -820,11 +846,6 @@
    "open_b": 105.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": -125.0,
-     "b": 105.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": -125.0,
@@ -1019,6 +1040,11 @@
      "t": "2026-10-30T19:11Z",
      "a": -102.0,
      "b": -118.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": -102.0,
+     "b": -118.0
     }
    ],
    "edge_a": 0.015,
@@ -1044,12 +1070,12 @@
    "record_b": "11-2-0",
    "experts": {
     "picks_a": 3,
-    "picks_b": 10,
+    "picks_b": 11,
     "high_a": 0,
     "high_b": 4,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
-    "win_a": 0,
-    "win_b": 1,
+    "win_a": 1,
+    "win_b": 0,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -1058,6 +1084,15 @@
       "method": "Decision",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -1171,11 +1206,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.67,
-    "handle_b": 0.33,
-    "bets_a": 0.5,
-    "bets_b": 0.5,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.47,
+    "handle_b": 0.53,
+    "bets_a": 0.37,
+    "bets_b": 0.63,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -1202,11 +1237,6 @@
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": 215.0,
-     "b": -265.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": 215.0,
@@ -1401,6 +1431,11 @@
      "t": "2026-10-30T19:11Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
    "edge_a": -0.001,
@@ -1425,7 +1460,7 @@
    "record_a": "11-2-0",
    "record_b": "5-0-0",
    "experts": {
-    "picks_a": 12,
+    "picks_a": 13,
     "picks_b": 1,
     "high_a": 9,
     "high_b": 0,
@@ -1440,6 +1475,15 @@
       "method": "Submission",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -1553,11 +1597,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.35,
-    "handle_b": 0.65,
-    "bets_a": 0.64,
-    "bets_b": 0.36,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.9,
+    "handle_b": 0.1,
+    "bets_a": 0.77,
+    "bets_b": 0.23,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1572,23 +1616,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.612,
-   "p_a": 0.729,
-   "fair_odds_a": -268,
-   "fair_odds_b": 268,
-   "market_p_a": 0.705,
-   "odds_a": -278.0,
-   "odds_b": 225.0,
-   "best_a": -278.0,
-   "best_b": 225.0,
+   "p_a": 0.733,
+   "fair_odds_a": -274,
+   "fair_odds_b": 274,
+   "market_p_a": 0.71,
+   "odds_a": -285.0,
+   "odds_b": 230.0,
+   "best_a": -285.0,
+   "best_b": 230.0,
    "open_a": -245.0,
    "open_b": 200.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": -265.0,
-     "b": 215.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": -265.0,
@@ -1783,9 +1822,14 @@
      "t": "2026-10-30T19:11Z",
      "a": -278.0,
      "b": 225.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": -285.0,
+     "b": 230.0
     }
    ],
-   "edge_a": 0.024,
+   "edge_a": 0.023,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1808,13 +1852,22 @@
    "record_b": "11-2-0",
    "experts": {
     "picks_a": 11,
-    "picks_b": 2,
+    "picks_b": 3,
     "high_a": 3,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 1,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "199-105",
+      "units": 20.99,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "a",
@@ -1935,11 +1988,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.36,
-    "handle_b": 0.64,
-    "bets_a": 0.7,
-    "bets_b": 0.3,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.61,
+    "handle_b": 0.39,
+    "bets_a": 0.72,
+    "bets_b": 0.28,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -1954,23 +2007,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.512,
-   "p_a": 0.674,
-   "fair_odds_a": -207,
-   "fair_odds_b": 207,
-   "market_p_a": 0.657,
-   "odds_a": -218.0,
-   "odds_b": 180.0,
-   "best_a": -218.0,
-   "best_b": 180.0,
+   "p_a": 0.662,
+   "fair_odds_a": -196,
+   "fair_odds_b": 196,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
    "open_a": -258.0,
    "open_b": 210.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": -245.0,
-     "b": 200.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": -245.0,
@@ -2165,9 +2213,14 @@
      "t": "2026-10-30T19:11Z",
      "a": -218.0,
      "b": 180.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
-   "edge_a": 0.016,
+   "edge_a": 0.017,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -2190,13 +2243,22 @@
    "record_b": "8-4-0",
    "experts": {
     "picks_a": 8,
-    "picks_b": 5,
+    "picks_b": 6,
     "high_a": 1,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 0,
     "win_b": 1,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "199-105",
+      "units": 20.99,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
@@ -2317,11 +2379,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.47,
-    "handle_b": 0.53,
-    "bets_a": 0.43,
-    "bets_b": 0.57,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.56,
+    "handle_b": 0.44,
+    "bets_a": 0.48,
+    "bets_b": 0.52,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -2349,11 +2411,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-26T02:30Z",
-     "a": -170.0,
-     "b": 142.0
-    },
-    {
      "t": "2026-10-26T02:31Z",
      "a": -170.0,
      "b": 142.0
@@ -2547,6 +2604,11 @@
      "t": "2026-10-30T19:11Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "edge_a": 0.015,
@@ -2572,12 +2634,12 @@
    "record_b": "11-3-0",
    "experts": {
     "picks_a": 7,
-    "picks_b": 6,
+    "picks_b": 7,
     "high_a": 1,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
-    "win_a": 1,
-    "win_b": 0,
+    "win_a": 0,
+    "win_b": 1,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -2586,6 +2648,15 @@
       "method": "Submission",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -2699,11 +2770,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.19,
-    "handle_b": 0.81,
-    "bets_a": 0.78,
-    "bets_b": 0.22,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.6,
+    "handle_b": 0.4,
+    "bets_a": 0.7,
+    "bets_b": 0.3,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -2718,23 +2789,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.393,
-   "p_a": 0.476,
-   "fair_odds_a": 110,
-   "fair_odds_b": -110,
-   "market_p_a": 0.417,
-   "odds_a": 130.0,
-   "odds_b": -155.0,
-   "best_a": 130.0,
-   "best_b": -155.0,
+   "p_a": 0.487,
+   "fair_odds_a": 105,
+   "fair_odds_b": -105,
+   "market_p_a": 0.428,
+   "odds_a": 124.0,
+   "odds_b": -148.0,
+   "best_a": 124.0,
+   "best_b": -148.0,
    "open_a": 170.0,
    "open_b": -205.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": 150.0,
-     "b": -180.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": 150.0,
@@ -2929,6 +2995,11 @@
      "t": "2026-10-30T19:11Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": 124.0,
+     "b": -148.0
     }
    ],
    "edge_a": 0.059,
@@ -2953,7 +3024,7 @@
    "record_a": "10-4-0",
    "record_b": "7-7-0",
    "experts": {
-    "picks_a": 13,
+    "picks_a": 14,
     "picks_b": 0,
     "high_a": 5,
     "high_b": 0,
@@ -2968,6 +3039,15 @@
       "method": "KO/TKO",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -3080,10 +3160,16 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.99,
+    "handle_b": 0.01,
+    "bets_a": 0.85,
+    "bets_b": 0.15,
+    "at": "2026-10-30T23:11Z"
+   },
    "why": [
     "Our chance 88% vs the line's 78% (10 points of value)",
-    "13 of 13 analysts agree",
+    "14 of 14 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
    ],
    "weight_class": "Middleweight",
@@ -3169,6 +3255,11 @@
      "t": "2026-10-30T19:11Z",
      "a": -425.0,
      "b": 330.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": -425.0,
+     "b": 330.0
     }
    ],
    "edge_a": 0.1,
@@ -3194,7 +3285,7 @@
    "record_b": "9-3-0",
    "experts": {
     "picks_a": 2,
-    "picks_b": 11,
+    "picks_b": 12,
     "high_a": 0,
     "high_b": 4,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -3208,6 +3299,15 @@
       "method": "Decision",
       "record": "191-109",
       "units": 6.05,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "199-105",
+      "units": 20.99,
       "winning": true
      },
      {
@@ -3321,15 +3421,15 @@
     ]
    },
    "splits": {
-    "handle_a": 0.06,
-    "handle_b": 0.94,
-    "bets_a": 0.31,
-    "bets_b": 0.69,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.03,
+    "handle_b": 0.97,
+    "bets_a": 0.23,
+    "bets_b": 0.77,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [
-    "Our chance 76% vs the line's 73% (3 points of value)",
-    "11 of 13 analysts agree",
+    "Our chance 77% vs the line's 73% (4 points of value)",
+    "12 of 14 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 131 points higher"
    ],
@@ -3345,23 +3445,18 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.358,
-   "p_a": 0.239,
-   "fair_odds_a": 318,
-   "fair_odds_b": -318,
-   "market_p_a": 0.274,
-   "odds_a": 250.0,
-   "odds_b": -310.0,
-   "best_a": 250.0,
-   "best_b": -310.0,
+   "p_a": 0.232,
+   "fair_odds_a": 331,
+   "fair_odds_b": -331,
+   "market_p_a": 0.266,
+   "odds_a": 260.0,
+   "odds_b": -325.0,
+   "best_a": 260.0,
+   "best_b": -325.0,
    "open_a": 250.0,
    "open_b": -310.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": 250.0,
@@ -3556,9 +3651,14 @@
      "t": "2026-10-30T19:11Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
-   "edge_a": -0.035,
+   "edge_a": -0.034,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
    "stake": 1.0,
@@ -3581,13 +3681,22 @@
    "record_b": "12-2-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 12,
+    "picks_b": 13,
     "high_a": 0,
     "high_b": 4,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 0,
     "win_b": 1,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "199-105",
+      "units": 20.99,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
@@ -3708,11 +3817,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.23,
-    "handle_b": 0.77,
-    "bets_a": 0.3,
-    "bets_b": 0.7,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.27,
+    "handle_b": 0.73,
+    "bets_a": 0.23,
+    "bets_b": 0.77,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [],
    "weight_class": "Women's Strawweight",
@@ -3740,11 +3849,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-26T02:30Z",
-     "a": 230.0,
-     "b": -285.0
-    },
-    {
      "t": "2026-10-26T02:31Z",
      "a": 230.0,
      "b": -285.0
@@ -3938,6 +4042,11 @@
      "t": "2026-10-30T19:11Z",
      "a": 225.0,
      "b": -278.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
+     "a": 225.0,
+     "b": -278.0
     }
    ],
    "edge_a": 0.016,
@@ -3962,7 +4071,7 @@
    "record_a": "12-0-0",
    "record_b": "7-4-0",
    "experts": {
-    "picks_a": 13,
+    "picks_a": 14,
     "picks_b": 0,
     "high_a": 9,
     "high_b": 0,
@@ -3970,6 +4079,15 @@
     "win_a": 1,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "199-105",
+      "units": 20.99,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "a",
@@ -4090,15 +4208,15 @@
     ]
    },
    "splits": {
-    "handle_a": 0.01,
-    "handle_b": 0.99,
-    "bets_a": 0.22,
-    "bets_b": 0.78,
-    "at": "2026-10-26T02:33Z"
+    "handle_a": 0.67,
+    "handle_b": 0.33,
+    "bets_a": 0.69,
+    "bets_b": 0.31,
+    "at": "2026-10-30T23:11Z"
    },
    "why": [
     "Our chance 89% vs the line's 83% (6 points of value)",
-    "13 of 13 analysts agree"
+    "14 of 14 analysts agree"
    ],
    "weight_class": "Women's Flyweight",
    "rounds": 3,
@@ -4124,11 +4242,6 @@
    "open_b": 410.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:30Z",
-     "a": -600.0,
-     "b": 440.0
-    },
     {
      "t": "2026-10-26T02:31Z",
      "a": -600.0,
@@ -4321,6 +4434,11 @@
     },
     {
      "t": "2026-10-30T19:11Z",
+     "a": -650.0,
+     "b": 470.0
+    },
+    {
+     "t": "2026-10-30T23:11Z",
      "a": -650.0,
      "b": 470.0
     }
