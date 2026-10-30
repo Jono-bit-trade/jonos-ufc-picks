@@ -6,16 +6,16 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "R. Moicano -130",
+ "details": "R. Moicano -120",
  "overUnder": 1.5,
  "spread": -5.5,
- "overOdds": -210.0,
- "underOdds": 160.0,
+ "overOdds": -200.0,
+ "underOdds": 154.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 110,
-  "spreadOdds": -130.0,
+  "moneyLine": 100,
+  "spreadOdds": -120.0,
   "open": {
    "favorite": false,
    "pointSpread": {
@@ -71,20 +71,20 @@
     "american": "+5.5"
    },
    "spread": {
-    "value": 1.76,
-    "displayValue": "10/13",
-    "alternateDisplayValue": "-130",
-    "decimal": 1.76,
-    "fraction": "10/13",
-    "american": "-130"
+    "value": 1.83,
+    "displayValue": "5/6",
+    "alternateDisplayValue": "-120",
+    "decimal": 1.83,
+    "fraction": "5/6",
+    "american": "-120"
    },
    "moneyLine": {
-    "value": 2.1,
-    "displayValue": "11/10",
-    "alternateDisplayValue": "+110",
-    "decimal": 2.1,
-    "fraction": "11/10",
-    "american": "+110"
+    "value": 2.0,
+    "displayValue": "1/1",
+    "alternateDisplayValue": "+100",
+    "decimal": 2.0,
+    "fraction": "1/1",
+    "american": "+100"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -120,8 +120,8 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -130,
-  "spreadOdds": -105.0,
+  "moneyLine": -120,
+  "spreadOdds": -110.0,
   "open": {
    "favorite": true,
    "pointSpread": {
@@ -177,20 +177,20 @@
     "american": "-5.5"
    },
    "spread": {
-    "value": 1.95,
-    "displayValue": "20/21",
-    "alternateDisplayValue": "-105",
-    "decimal": 1.95,
-    "fraction": "20/21",
-    "american": "-105"
+    "value": 1.9,
+    "displayValue": "10/11",
+    "alternateDisplayValue": "-110",
+    "decimal": 1.9,
+    "fraction": "10/11",
+    "american": "-110"
    },
    "moneyLine": {
-    "value": 1.76,
-    "displayValue": "10/13",
-    "alternateDisplayValue": "-130",
-    "decimal": 1.76,
-    "fraction": "10/13",
-    "american": "-130"
+    "value": 1.83,
+    "displayValue": "5/6",
+    "alternateDisplayValue": "-120",
+    "decimal": 1.83,
+    "fraction": "5/6",
+    "american": "-120"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -396,20 +396,20 @@
  },
  "current": {
   "over": {
-   "value": 1.47,
-   "displayValue": "10/21",
-   "alternateDisplayValue": "-210",
-   "decimal": 1.47,
-   "fraction": "10/21",
-   "american": "-210"
+   "value": 1.5,
+   "displayValue": "1/2",
+   "alternateDisplayValue": "-200",
+   "decimal": 1.5,
+   "fraction": "1/2",
+   "american": "-200"
   },
   "under": {
-   "value": 2.6,
-   "displayValue": "8/5",
-   "alternateDisplayValue": "+160",
-   "decimal": 2.6,
-   "fraction": "8/5",
-   "american": "+160"
+   "value": 2.54,
+   "displayValue": "77/50",
+   "alternateDisplayValue": "+154",
+   "decimal": 2.54,
+   "fraction": "77/50",
+   "american": "+154"
   },
   "total": {
    "alternateDisplayValue": "1.5",

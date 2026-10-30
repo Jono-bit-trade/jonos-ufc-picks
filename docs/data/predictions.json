@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T14:20Z",
+ "updated": "2026-10-30T19:11Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -39,9 +39,9 @@
    "record_a": "21-7-1",
    "record_b": "11-1-0",
    "experts": {
-    "picks_a": 8,
-    "picks_b": 3,
-    "high_a": 4,
+    "picks_a": 9,
+    "picks_b": 4,
+    "high_a": 5,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 0,
@@ -72,6 +72,15 @@
       "method": "Submission",
       "record": "180-116",
       "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -129,6 +138,15 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "Lucrative James",
       "side": "b",
       "conf": "Low",
@@ -156,8 +174,8 @@
     "at": "2026-10-26T02:33Z"
    },
    "why": [
-    "Our chance 54% vs the line's 54%",
-    "Close fight and 8 of 11 analysts pick Moicano",
+    "Our chance 52% vs the line's 52%",
+    "Close fight and 9 of 13 analysts pick Moicano",
     "Rated 76 points higher"
    ],
    "weight_class": "Lightweight",
@@ -172,23 +190,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.339,
-   "p_a": 0.543,
-   "fair_odds_a": -119,
-   "fair_odds_b": 119,
-   "market_p_a": 0.543,
-   "odds_a": -130.0,
-   "odds_b": 110.0,
-   "best_a": -130.0,
-   "best_b": 110.0,
+   "p_a": 0.522,
+   "fair_odds_a": -109,
+   "fair_odds_b": 109,
+   "market_p_a": 0.522,
+   "odds_a": -120.0,
+   "odds_b": 100.0,
+   "best_a": -120.0,
+   "best_b": 100.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": -105.0,
-     "b": -115.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": -105.0,
@@ -383,9 +396,14 @@
      "t": "2026-10-30T14:20Z",
      "a": -130.0,
      "b": 110.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -120.0,
+     "b": 100.0
     }
    ],
-   "edge_a": 0.0,
+   "edge_a": 0.001,
    "pick": null,
    "our_pick": "Renato Moicano",
    "stake": 1.5,
@@ -408,9 +426,9 @@
    "record_b": "13-0-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 10,
+    "picks_b": 12,
     "high_a": 0,
-    "high_b": 4,
+    "high_b": 5,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 0,
     "win_b": 1,
@@ -423,6 +441,15 @@
       "record": "191-109",
       "units": 6.05,
       "winning": true
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "18-18",
+      "units": -7.3,
+      "winning": false
      },
      {
       "name": "Kunath",
@@ -513,6 +540,15 @@
       "record": "189-107",
       "units": -12.49,
       "winning": false
+     },
+     {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
      }
     ]
    },
@@ -530,14 +566,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.354,
-   "p_a": 0.313,
-   "fair_odds_a": 219,
-   "fair_odds_b": -219,
-   "market_p_a": 0.309,
-   "odds_a": 210.0,
-   "odds_b": -258.0,
-   "best_a": 210.0,
-   "best_b": -258.0,
+   "p_a": 0.308,
+   "fair_odds_a": 224,
+   "fair_odds_b": -224,
+   "market_p_a": 0.304,
+   "odds_a": 215.0,
+   "odds_b": -265.0,
+   "best_a": 215.0,
+   "best_b": -265.0,
    "open_a": 225.0,
    "open_b": -278.0,
    "books": 1.0,
@@ -596,6 +632,11 @@
      "t": "2026-10-30T14:20Z",
      "a": 210.0,
      "b": -258.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": 215.0,
+     "b": -265.0
     }
    ],
    "edge_a": 0.004,
@@ -620,8 +661,8 @@
    "record_a": "13-9-0",
    "record_b": "18-11-1",
    "experts": {
-    "picks_a": 5,
-    "picks_b": 6,
+    "picks_a": 6,
+    "picks_b": 7,
     "high_a": 0,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -710,12 +751,30 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "b",
       "conf": "Low",
       "method": null,
       "record": "180-116",
       "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -761,11 +820,6 @@
    "open_b": 105.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": -125.0,
-     "b": 105.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": -125.0,
@@ -960,6 +1014,11 @@
      "t": "2026-10-30T14:20Z",
      "a": -102.0,
      "b": -118.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -102.0,
+     "b": -118.0
     }
    ],
    "edge_a": 0.015,
@@ -984,22 +1043,31 @@
    "record_a": "17-8-0",
    "record_b": "11-2-0",
    "experts": {
-    "picks_a": 0,
-    "picks_b": 11,
+    "picks_a": 3,
+    "picks_b": 10,
     "high_a": 0,
-    "high_b": 3,
+    "high_b": 4,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 0,
     "win_b": 1,
     "analysts": [
      {
       "name": "Bedtime MMA",
-      "side": "b",
+      "side": "a",
       "conf": "Med",
       "method": "Decision",
       "record": "191-109",
       "units": 6.05,
       "winning": true
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "18-18",
+      "units": -7.3,
+      "winning": false
      },
      {
       "name": "Kunath",
@@ -1029,6 +1097,15 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "Lucrative James",
       "side": "b",
       "conf": "Med",
@@ -1039,7 +1116,7 @@
      },
      {
       "name": "We Want Picks",
-      "side": "b",
+      "side": "a",
       "conf": "Med",
       "method": "Decision",
       "record": "191-108",
@@ -1084,7 +1161,7 @@
      },
      {
       "name": "BetSam",
-      "side": "b",
+      "side": "a",
       "conf": "Low",
       "method": "Decision",
       "record": "179-108",
@@ -1113,23 +1190,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.297,
-   "p_a": 0.273,
-   "fair_odds_a": 266,
-   "fair_odds_b": -266,
-   "market_p_a": 0.275,
-   "odds_a": 245.0,
+   "p_a": 0.265,
+   "fair_odds_a": 277,
+   "fair_odds_b": -277,
+   "market_p_a": 0.266,
+   "odds_a": 260.0,
    "odds_b": -325.0,
-   "best_a": 245.0,
+   "best_a": 260.0,
    "best_b": -325.0,
    "open_a": 185.0,
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": 215.0,
-     "b": -265.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": 215.0,
@@ -1324,6 +1396,11 @@
      "t": "2026-10-30T14:20Z",
      "a": 245.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
    "edge_a": -0.001,
@@ -1348,9 +1425,9 @@
    "record_a": "11-2-0",
    "record_b": "5-0-0",
    "experts": {
-    "picks_a": 10,
+    "picks_a": 12,
     "picks_b": 1,
-    "high_a": 8,
+    "high_a": 9,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 1,
@@ -1381,6 +1458,15 @@
       "method": "Submission",
       "record": "180-116",
       "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -1426,6 +1512,15 @@
       "method": null,
       "record": "151-113",
       "units": -41.13,
+      "winning": false
+     },
+     {
+      "name": "FALSE PROFIT",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "78-45",
+      "units": -0.05,
       "winning": false
      },
      {
@@ -1489,11 +1584,6 @@
    "open_b": 200.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": -265.0,
-     "b": 215.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": -265.0,
@@ -1688,6 +1778,11 @@
      "t": "2026-10-30T14:20Z",
      "a": -278.0,
      "b": 225.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -278.0,
+     "b": 225.0
     }
    ],
    "edge_a": 0.024,
@@ -1712,8 +1807,8 @@
    "record_a": "10-3-0",
    "record_b": "11-2-0",
    "experts": {
-    "picks_a": 10,
-    "picks_b": 1,
+    "picks_a": 11,
+    "picks_b": 2,
     "high_a": 3,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -1793,6 +1888,15 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "Lucrative James",
       "side": "a",
       "conf": "Low",
@@ -1808,6 +1912,15 @@
       "method": null,
       "record": "191-108",
       "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -1853,11 +1966,6 @@
    "open_b": 210.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": -245.0,
-     "b": 200.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": -245.0,
@@ -2052,6 +2160,11 @@
      "t": "2026-10-30T14:20Z",
      "a": -218.0,
      "b": 180.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -218.0,
+     "b": 180.0
     }
    ],
    "edge_a": 0.016,
@@ -2076,9 +2189,9 @@
    "record_a": "9-2-0",
    "record_b": "8-4-0",
    "experts": {
-    "picks_a": 7,
-    "picks_b": 4,
-    "high_a": 0,
+    "picks_a": 8,
+    "picks_b": 5,
+    "high_a": 1,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 0,
@@ -2092,6 +2205,24 @@
       "record": "191-109",
       "units": 6.05,
       "winning": true
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "18-18",
+      "units": -7.3,
+      "winning": false
+     },
+     {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
      },
      {
       "name": "Lucrative James",
@@ -2218,11 +2349,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-26T02:21Z",
-     "a": -170.0,
-     "b": 142.0
-    },
-    {
      "t": "2026-10-26T02:30Z",
      "a": -170.0,
      "b": 142.0
@@ -2416,6 +2542,11 @@
      "t": "2026-10-30T14:20Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "edge_a": 0.015,
@@ -2441,7 +2572,7 @@
    "record_b": "11-3-0",
    "experts": {
     "picks_a": 7,
-    "picks_b": 4,
+    "picks_b": 6,
     "high_a": 1,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -2539,12 +2670,30 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "a",
       "conf": "Low",
       "method": null,
       "record": "180-116",
       "units": -4.68,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      }
     ]
@@ -2581,11 +2730,6 @@
    "open_b": -205.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": 150.0,
-     "b": -180.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": 150.0,
@@ -2780,6 +2924,11 @@
      "t": "2026-10-30T14:20Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": 130.0,
+     "b": -155.0
     }
    ],
    "edge_a": 0.059,
@@ -2804,9 +2953,9 @@
    "record_a": "10-4-0",
    "record_b": "7-7-0",
    "experts": {
-    "picks_a": 11,
+    "picks_a": 13,
     "picks_b": 0,
-    "high_a": 4,
+    "high_a": 5,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 1,
@@ -2820,6 +2969,15 @@
       "record": "191-109",
       "units": 6.05,
       "winning": true
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "18-18",
+      "units": -7.3,
+      "winning": false
      },
      {
       "name": "JakeGerberMMA",
@@ -2894,6 +3052,15 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "a",
       "conf": "Low",
@@ -2915,8 +3082,8 @@
    },
    "splits": null,
    "why": [
-    "Our chance 87% vs the line's 76% (11 points of value)",
-    "11 of 11 analysts agree",
+    "Our chance 88% vs the line's 78% (10 points of value)",
+    "13 of 13 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
    ],
    "weight_class": "Middleweight",
@@ -2931,14 +3098,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.662,
-   "p_a": 0.866,
-   "fair_odds_a": -647,
-   "fair_odds_b": 647,
-   "market_p_a": 0.76,
-   "odds_a": -380.0,
-   "odds_b": 300.0,
-   "best_a": -380.0,
-   "best_b": 300.0,
+   "p_a": 0.877,
+   "fair_odds_a": -711,
+   "fair_odds_b": 711,
+   "market_p_a": 0.777,
+   "odds_a": -425.0,
+   "odds_b": 330.0,
+   "best_a": -425.0,
+   "best_b": 330.0,
    "open_a": -305.0,
    "open_b": 245.0,
    "books": 1.0,
@@ -2997,12 +3164,17 @@
      "t": "2026-10-30T14:20Z",
      "a": -380.0,
      "b": 300.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -425.0,
+     "b": 330.0
     }
    ],
-   "edge_a": 0.106,
+   "edge_a": 0.1,
    "pick": "Zach Reese",
    "our_pick": "Zach Reese",
-   "stake": 1.0,
+   "stake": 0.5,
    "expert_lean": null,
    "check_news": true,
    "method": {
@@ -3022,7 +3194,7 @@
    "record_b": "9-3-0",
    "experts": {
     "picks_a": 2,
-    "picks_b": 9,
+    "picks_b": 11,
     "high_a": 0,
     "high_b": 4,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -3072,6 +3244,24 @@
       "method": "Submission",
       "record": "177-119",
       "units": -22.46,
+      "winning": false
+     },
+     {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -3139,7 +3329,7 @@
    },
    "why": [
     "Our chance 76% vs the line's 73% (3 points of value)",
-    "9 of 11 analysts agree",
+    "11 of 13 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 131 points higher"
    ],
@@ -3167,11 +3357,6 @@
    "open_b": -310.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": 250.0,
@@ -3366,6 +3551,11 @@
      "t": "2026-10-30T14:20Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "edge_a": -0.035,
@@ -3391,7 +3581,7 @@
    "record_b": "12-2-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 10,
+    "picks_b": 12,
     "high_a": 0,
     "high_b": 4,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
@@ -3444,12 +3634,30 @@
       "winning": false
      },
      {
+      "name": "FALSE PROFIT",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
+     },
+     {
       "name": "Lucrative James",
       "side": "b",
       "conf": "Med",
       "method": "Decision",
       "record": "185-103",
       "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -3532,11 +3740,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-26T02:21Z",
-     "a": 230.0,
-     "b": -285.0
-    },
-    {
      "t": "2026-10-26T02:30Z",
      "a": 230.0,
      "b": -285.0
@@ -3730,6 +3933,11 @@
      "t": "2026-10-30T14:20Z",
      "a": 225.0,
      "b": -278.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": 225.0,
+     "b": -278.0
     }
    ],
    "edge_a": 0.016,
@@ -3754,9 +3962,9 @@
    "record_a": "12-0-0",
    "record_b": "7-4-0",
    "experts": {
-    "picks_a": 11,
+    "picks_a": 13,
     "picks_b": 0,
-    "high_a": 8,
+    "high_a": 9,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-moicano-vs-nolan.html",
     "win_a": 1,
@@ -3787,6 +3995,15 @@
       "method": "KO/TKO",
       "record": "191-108",
       "units": -3.92,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "18-18",
+      "units": -7.3,
       "winning": false
      },
      {
@@ -3860,6 +4077,15 @@
       "record": "151-113",
       "units": -41.13,
       "winning": false
+     },
+     {
+      "name": "FALSE PROFIT",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "78-45",
+      "units": -0.05,
+      "winning": false
      }
     ]
    },
@@ -3871,8 +4097,8 @@
     "at": "2026-10-26T02:33Z"
    },
    "why": [
-    "Our chance 89% vs the line's 84% (5 points of value)",
-    "11 of 11 analysts agree"
+    "Our chance 89% vs the line's 83% (6 points of value)",
+    "13 of 13 analysts agree"
    ],
    "weight_class": "Women's Flyweight",
    "rounds": 3,
@@ -3886,23 +4112,18 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.567,
-   "p_a": 0.891,
-   "fair_odds_a": -814,
-   "fair_odds_b": 814,
-   "market_p_a": 0.837,
-   "odds_a": -675.0,
-   "odds_b": 490.0,
-   "best_a": -675.0,
-   "best_b": 490.0,
+   "p_a": 0.887,
+   "fair_odds_a": -783,
+   "fair_odds_b": 783,
+   "market_p_a": 0.832,
+   "odds_a": -650.0,
+   "odds_b": 470.0,
+   "best_a": -650.0,
+   "best_b": 470.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:21Z",
-     "a": -600.0,
-     "b": 440.0
-    },
     {
      "t": "2026-10-26T02:30Z",
      "a": -600.0,
@@ -4097,9 +4318,14 @@
      "t": "2026-10-30T14:20Z",
      "a": -675.0,
      "b": 490.0
+    },
+    {
+     "t": "2026-10-30T19:11Z",
+     "a": -650.0,
+     "b": 470.0
     }
    ],
-   "edge_a": 0.054,
+   "edge_a": 0.055,
    "pick": "Lucia Szabov\u00e1",
    "our_pick": "Lucia Szabov\u00e1",
    "stake": 0.5,
