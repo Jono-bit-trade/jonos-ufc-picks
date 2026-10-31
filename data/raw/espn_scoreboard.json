@@ -1642,7 +1642,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "8-4-0"
+         "summary": "8-5-0"
         }
        ]
       },
@@ -1670,7 +1670,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "9-2-0"
+         "summary": "10-2-0"
         }
        ]
       }
@@ -1807,7 +1807,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -1878,17 +1878,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 169.0,
+      "displayClock": "2:49",
+      "period": 1,
       "type": {
-       "id": "145",
-       "name": "STATUS_PRE_FIGHT",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
-       "description": "Pre-fight",
-       "detail": "Pre-fight",
-       "shortDetail": "Pre-fight"
+       "description": "In Progress",
+       "detail": "R1, 2:49",
+       "shortDetail": "R1, 2:49"
       }
      },
      "broadcasts": [
@@ -1897,6 +1897,50 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "25833",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "25832",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "25831",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
+      {
+       "id": "25830",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "25816",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "25815",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
