@@ -15,7 +15,7 @@
   "favorite": false,
   "underdog": true,
   "moneyLine": 100,
-  "spreadOdds": -120.0,
+  "spreadOdds": -135.0,
   "open": {
    "favorite": false,
    "pointSpread": {
@@ -71,12 +71,12 @@
     "american": "+5.5"
    },
    "spread": {
-    "value": 1.83,
-    "displayValue": "5/6",
-    "alternateDisplayValue": "-120",
-    "decimal": 1.83,
-    "fraction": "5/6",
-    "american": "-120"
+    "value": 1.74,
+    "displayValue": "20/27",
+    "alternateDisplayValue": "-135",
+    "decimal": 1.74,
+    "fraction": "20/27",
+    "american": "-135"
    },
    "moneyLine": {
     "value": 2.0,
@@ -88,20 +88,20 @@
    },
    "victoryMethod": {
     "koTkoDq": {
-     "value": 3.15,
-     "displayValue": "43/20",
-     "alternateDisplayValue": "+215",
-     "decimal": 3.15,
-     "fraction": "43/20",
-     "american": "+215"
+     "value": 3.0,
+     "displayValue": "2/1",
+     "alternateDisplayValue": "+200",
+     "decimal": 3.0,
+     "fraction": "2/1",
+     "american": "+200"
     },
     "submission": {
-     "value": 9.5,
-     "displayValue": "17/2",
-     "alternateDisplayValue": "+850",
-     "decimal": 9.5,
-     "fraction": "17/2",
-     "american": "+850"
+     "value": 9.0,
+     "displayValue": "8/1",
+     "alternateDisplayValue": "+800",
+     "decimal": 9.0,
+     "fraction": "8/1",
+     "american": "+800"
     },
     "points": {
      "value": 7.5,
@@ -121,7 +121,7 @@
   "favorite": true,
   "underdog": false,
   "moneyLine": -120,
-  "spreadOdds": -110.0,
+  "spreadOdds": 100.0,
   "open": {
    "favorite": true,
    "pointSpread": {
@@ -177,12 +177,12 @@
     "american": "-5.5"
    },
    "spread": {
-    "value": 1.9,
-    "displayValue": "10/11",
-    "alternateDisplayValue": "-110",
-    "decimal": 1.9,
-    "fraction": "10/11",
-    "american": "-110"
+    "value": 2.0,
+    "displayValue": "1/1",
+    "alternateDisplayValue": "+100",
+    "decimal": 2.0,
+    "fraction": "1/1",
+    "american": "+100"
    },
    "moneyLine": {
     "value": 1.83,
@@ -194,20 +194,20 @@
    },
    "victoryMethod": {
     "koTkoDq": {
-     "value": 8.0,
-     "displayValue": "7/1",
-     "alternateDisplayValue": "+700",
-     "decimal": 8.0,
-     "fraction": "7/1",
-     "american": "+700"
+     "value": 8.5,
+     "displayValue": "15/2",
+     "alternateDisplayValue": "+750",
+     "decimal": 8.5,
+     "fraction": "15/2",
+     "american": "+750"
     },
     "submission": {
-     "value": 2.75,
-     "displayValue": "7/4",
-     "alternateDisplayValue": "+175",
-     "decimal": 2.75,
-     "fraction": "7/4",
-     "american": "+175"
+     "value": 2.8,
+     "displayValue": "9/5",
+     "alternateDisplayValue": "+180",
+     "decimal": 2.8,
+     "fraction": "9/5",
+     "american": "+180"
     },
     "points": {
      "value": 7.0,

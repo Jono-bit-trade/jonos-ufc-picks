@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T02:21Z",
+ "updated": "2026-10-31T18:28Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -206,11 +206,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-26T02:31Z",
-     "a": -105.0,
-     "b": -115.0
-    },
-    {
      "t": "2026-10-26T02:32Z",
      "a": -105.0,
      "b": -115.0
@@ -404,6 +399,11 @@
      "t": "2026-10-31T02:21Z",
      "a": -120.0,
      "b": 100.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": -120.0,
+     "b": 100.0
     }
    ],
    "edge_a": 0.001,
@@ -578,14 +578,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.354,
-   "p_a": 0.308,
-   "fair_odds_a": 224,
-   "fair_odds_b": -224,
-   "market_p_a": 0.304,
-   "odds_a": 215.0,
-   "odds_b": -265.0,
-   "best_a": 215.0,
-   "best_b": -265.0,
+   "p_a": 0.304,
+   "fair_odds_a": 229,
+   "fair_odds_b": -229,
+   "market_p_a": 0.3,
+   "odds_a": 220.0,
+   "odds_b": -270.0,
+   "best_a": 220.0,
+   "best_b": -270.0,
    "open_a": 225.0,
    "open_b": -278.0,
    "books": 1.0,
@@ -659,6 +659,11 @@
      "t": "2026-10-31T02:21Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": 220.0,
+     "b": -270.0
     }
    ],
    "edge_a": 0.004,
@@ -822,9 +827,9 @@
    "splits": {
     "handle_a": 0.19,
     "handle_b": 0.81,
-    "bets_a": 0.37,
-    "bets_b": 0.63,
-    "at": "2026-10-31T02:20Z"
+    "bets_a": 0.42,
+    "bets_b": 0.58,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -851,11 +856,6 @@
    "open_b": 105.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": -125.0,
-     "b": 105.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": -125.0,
@@ -1050,6 +1050,11 @@
      "t": "2026-10-31T02:21Z",
      "a": 100.0,
      "b": -120.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "edge_a": 0.015,
@@ -1211,11 +1216,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.47,
-    "handle_b": 0.53,
-    "bets_a": 0.37,
-    "bets_b": 0.63,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.39,
+    "handle_b": 0.61,
+    "bets_a": 0.29,
+    "bets_b": 0.71,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -1230,23 +1235,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.297,
-   "p_a": 0.265,
-   "fair_odds_a": 277,
-   "fair_odds_b": -277,
-   "market_p_a": 0.266,
-   "odds_a": 260.0,
-   "odds_b": -325.0,
-   "best_a": 260.0,
-   "best_b": -325.0,
+   "p_a": 0.258,
+   "fair_odds_a": 288,
+   "fair_odds_b": -288,
+   "market_p_a": 0.259,
+   "odds_a": 270.0,
+   "odds_b": -340.0,
+   "best_a": 270.0,
+   "best_b": -340.0,
    "open_a": 185.0,
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": 215.0,
-     "b": -265.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": 215.0,
@@ -1441,6 +1441,11 @@
      "t": "2026-10-31T02:21Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
    "edge_a": -0.001,
@@ -1602,11 +1607,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.9,
-    "handle_b": 0.1,
-    "bets_a": 0.77,
-    "bets_b": 0.23,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.81,
+    "handle_b": 0.19,
+    "bets_a": 0.83,
+    "bets_b": 0.17,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1621,23 +1626,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.612,
-   "p_a": 0.733,
-   "fair_odds_a": -274,
-   "fair_odds_b": 274,
-   "market_p_a": 0.71,
-   "odds_a": -285.0,
-   "odds_b": 230.0,
-   "best_a": -285.0,
-   "best_b": 230.0,
+   "p_a": 0.741,
+   "fair_odds_a": -286,
+   "fair_odds_b": 286,
+   "market_p_a": 0.718,
+   "odds_a": -298.0,
+   "odds_b": 240.0,
+   "best_a": -298.0,
+   "best_b": 240.0,
    "open_a": -245.0,
    "open_b": 200.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": -265.0,
-     "b": 215.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": -265.0,
@@ -1832,6 +1832,11 @@
      "t": "2026-10-31T02:21Z",
      "a": -285.0,
      "b": 230.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": -298.0,
+     "b": 240.0
     }
    ],
    "edge_a": 0.023,
@@ -1993,11 +1998,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.61,
-    "handle_b": 0.39,
-    "bets_a": 0.72,
-    "bets_b": 0.28,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.74,
+    "handle_b": 0.26,
+    "bets_a": 0.69,
+    "bets_b": 0.31,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -2024,11 +2029,6 @@
    "open_b": 210.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": -245.0,
-     "b": 200.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": -245.0,
@@ -2221,6 +2221,11 @@
     },
     {
      "t": "2026-10-31T02:21Z",
+     "a": -205.0,
+     "b": 170.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
      "a": -205.0,
      "b": 170.0
     }
@@ -2384,11 +2389,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.56,
-    "handle_b": 0.44,
-    "bets_a": 0.48,
-    "bets_b": 0.52,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.73,
+    "handle_b": 0.27,
+    "bets_a": 0.64,
+    "bets_b": 0.36,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -2403,23 +2408,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.481,
-   "p_a": 0.637,
-   "fair_odds_a": -175,
-   "fair_odds_b": 175,
-   "market_p_a": 0.622,
-   "odds_a": -185.0,
-   "odds_b": 154.0,
-   "best_a": -185.0,
-   "best_b": 154.0,
+   "p_a": 0.631,
+   "fair_odds_a": -171,
+   "fair_odds_b": 171,
+   "market_p_a": 0.616,
+   "odds_a": -180.0,
+   "odds_b": 150.0,
+   "best_a": -180.0,
+   "best_b": 150.0,
    "open_a": -180.0,
    "open_b": 150.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": -170.0,
-     "b": 142.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": -170.0,
@@ -2614,6 +2614,11 @@
      "t": "2026-10-31T02:21Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "edge_a": 0.015,
@@ -2775,11 +2780,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.6,
-    "handle_b": 0.4,
-    "bets_a": 0.7,
-    "bets_b": 0.3,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.46,
+    "handle_b": 0.54,
+    "bets_a": 0.6,
+    "bets_b": 0.4,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -2806,11 +2811,6 @@
    "open_b": -205.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": 150.0,
-     "b": -180.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": 150.0,
@@ -3003,6 +3003,11 @@
     },
     {
      "t": "2026-10-31T02:21Z",
+     "a": 124.0,
+     "b": -148.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
      "a": 124.0,
      "b": -148.0
     }
@@ -3166,11 +3171,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.99,
-    "handle_b": 0.01,
-    "bets_a": 0.85,
-    "bets_b": 0.15,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.93,
+    "handle_b": 0.07,
+    "bets_a": 0.9,
+    "bets_b": 0.1,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [
     "Our chance 88% vs the line's 78% (10 points of value)",
@@ -3189,14 +3194,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.662,
-   "p_a": 0.877,
-   "fair_odds_a": -711,
-   "fair_odds_b": 711,
-   "market_p_a": 0.777,
-   "odds_a": -425.0,
-   "odds_b": 330.0,
-   "best_a": -425.0,
-   "best_b": 330.0,
+   "p_a": 0.88,
+   "fair_odds_a": -732,
+   "fair_odds_b": 732,
+   "market_p_a": 0.782,
+   "odds_a": -440.0,
+   "odds_b": 340.0,
+   "best_a": -440.0,
+   "best_b": 340.0,
    "open_a": -305.0,
    "open_b": 245.0,
    "books": 1.0,
@@ -3270,14 +3275,19 @@
      "t": "2026-10-31T02:21Z",
      "a": -425.0,
      "b": 330.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": -440.0,
+     "b": 340.0
     }
    ],
-   "edge_a": 0.1,
+   "edge_a": 0.098,
    "pick": "Zach Reese",
    "our_pick": "Zach Reese",
    "stake": 0.5,
    "expert_lean": null,
-   "check_news": true,
+   "check_news": false,
    "method": {
     "DEC": 0.468,
     "KO": 0.34,
@@ -3431,14 +3441,14 @@
     ]
    },
    "splits": {
-    "handle_a": 0.03,
-    "handle_b": 0.97,
-    "bets_a": 0.23,
-    "bets_b": 0.77,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.08,
+    "handle_b": 0.92,
+    "bets_a": 0.17,
+    "bets_b": 0.83,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [
-    "Our chance 77% vs the line's 73% (4 points of value)",
+    "Our chance 76% vs the line's 73% (3 points of value)",
     "12 of 14 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 131 points higher"
@@ -3455,23 +3465,18 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.358,
-   "p_a": 0.232,
-   "fair_odds_a": 331,
-   "fair_odds_b": -331,
-   "market_p_a": 0.266,
-   "odds_a": 260.0,
-   "odds_b": -325.0,
-   "best_a": 260.0,
-   "best_b": -325.0,
+   "p_a": 0.239,
+   "fair_odds_a": 318,
+   "fair_odds_b": -318,
+   "market_p_a": 0.274,
+   "odds_a": 250.0,
+   "odds_b": -310.0,
+   "best_a": 250.0,
+   "best_b": -310.0,
    "open_a": 250.0,
    "open_b": -310.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": 250.0,
@@ -3666,9 +3671,14 @@
      "t": "2026-10-31T02:21Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
-   "edge_a": -0.034,
+   "edge_a": -0.035,
    "pick": "Joe Kropschot",
    "our_pick": "Joe Kropschot",
    "stake": 1.0,
@@ -3827,11 +3837,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.27,
-    "handle_b": 0.73,
+    "handle_a": 0.49,
+    "handle_b": 0.51,
     "bets_a": 0.23,
     "bets_b": 0.77,
-    "at": "2026-10-31T02:20Z"
+    "at": "2026-10-31T18:27Z"
    },
    "why": [],
    "weight_class": "Women's Strawweight",
@@ -3846,23 +3856,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.481,
-   "p_a": 0.311,
-   "fair_odds_a": 221,
-   "fair_odds_b": -221,
-   "market_p_a": 0.295,
-   "odds_a": 225.0,
-   "odds_b": -278.0,
-   "best_a": 225.0,
-   "best_b": -278.0,
+   "p_a": 0.307,
+   "fair_odds_a": 226,
+   "fair_odds_b": -226,
+   "market_p_a": 0.29,
+   "odds_a": 230.0,
+   "odds_b": -285.0,
+   "best_a": 230.0,
+   "best_b": -285.0,
    "open_a": 210.0,
    "open_b": -258.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": 230.0,
-     "b": -285.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": 230.0,
@@ -4057,6 +4062,11 @@
      "t": "2026-10-31T02:21Z",
      "a": 225.0,
      "b": -278.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.016,
@@ -4218,14 +4228,14 @@
     ]
    },
    "splits": {
-    "handle_a": 0.67,
-    "handle_b": 0.33,
-    "bets_a": 0.69,
-    "bets_b": 0.31,
-    "at": "2026-10-31T02:20Z"
+    "handle_a": 0.66,
+    "handle_b": 0.34,
+    "bets_a": 0.78,
+    "bets_b": 0.22,
+    "at": "2026-10-31T18:27Z"
    },
    "why": [
-    "Our chance 89% vs the line's 83% (6 points of value)",
+    "Our chance 89% vs the line's 84% (5 points of value)",
     "14 of 14 analysts agree"
    ],
    "weight_class": "Women's Flyweight",
@@ -4240,23 +4250,18 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.567,
-   "p_a": 0.887,
-   "fair_odds_a": -783,
-   "fair_odds_b": 783,
-   "market_p_a": 0.832,
-   "odds_a": -650.0,
-   "odds_b": 470.0,
-   "best_a": -650.0,
-   "best_b": 470.0,
+   "p_a": 0.893,
+   "fair_odds_a": -832,
+   "fair_odds_b": 832,
+   "market_p_a": 0.84,
+   "odds_a": -700.0,
+   "odds_b": 500.0,
+   "best_a": -700.0,
+   "best_b": 500.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T02:31Z",
-     "a": -600.0,
-     "b": 440.0
-    },
     {
      "t": "2026-10-26T02:32Z",
      "a": -600.0,
@@ -4451,9 +4456,14 @@
      "t": "2026-10-31T02:21Z",
      "a": -650.0,
      "b": 470.0
+    },
+    {
+     "t": "2026-10-31T18:28Z",
+     "a": -700.0,
+     "b": 500.0
     }
    ],
-   "edge_a": 0.055,
+   "edge_a": 0.053,
    "pick": "Lucia Szabov\u00e1",
    "our_pick": "Lucia Szabov\u00e1",
    "stake": 0.5,
