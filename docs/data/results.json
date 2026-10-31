@@ -1,10 +1,20 @@
 {
- "bets": 2,
- "wins": 2,
- "units": 0.46,
- "roi_pct": 23.0,
+ "bets": 4,
+ "wins": 4,
+ "units": 1.89,
+ "roi_pct": 47.2,
  "moved_toward_pct": 100.0,
  "recent": [
+  {
+   "date": "2026-10-31",
+   "fight": "Zach Reese vs Mickey Gall",
+   "pick": "Zach Reese",
+   "odds": -440,
+   "won": true,
+   "method": "DEC",
+   "units": 0.23,
+   "moved_toward": true
+  },
   {
    "date": "2026-10-31",
    "fight": "Nick Klein vs Joe Kropschot",
@@ -24,15 +34,35 @@
    "method": "KO",
    "units": 0.14,
    "moved_toward": true
+  },
+  {
+   "date": "2026-10-31",
+   "fight": "Julian Erosa vs JeongYeong Lee",
+   "pick": "Julian Erosa",
+   "odds": 120,
+   "won": true,
+   "method": "KO",
+   "units": 1.2,
+   "moved_toward": true
   }
  ],
  "ours": {
-  "bets": 2,
-  "wins": 2,
-  "units": 0.46,
+  "bets": 3,
+  "wins": 3,
+  "units": 0.69,
   "roi_pct": 23.0,
   "moved_toward_pct": 100.0,
   "recent": [
+   {
+    "date": "2026-10-31",
+    "fight": "Zach Reese vs Mickey Gall",
+    "pick": "Zach Reese",
+    "odds": -440,
+    "won": true,
+    "method": "DEC",
+    "units": 0.23,
+    "moved_toward": true
+   },
    {
     "date": "2026-10-31",
     "fight": "Nick Klein vs Joe Kropschot",
