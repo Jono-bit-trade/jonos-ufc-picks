@@ -1,0 +1,4 @@
+fight_id,date,a,b,winner,result,model_pick,model_odds,our_pick,our_odds,expert_lean,logged_at,model_units,our_units,stake,our_staked_units
+2026-10-31|Nick Klein|Joe Kropschot,2026-10-31,Nick Klein,Joe Kropschot,Joe Kropschot,b,Joe Kropschot,-310.0,Joe Kropschot,-310.0,,2026-10-31T20:26Z,0.323,0.323,1.0,0.323
+2026-10-31|Talita Alencar|Piera Rodriguez,2026-10-31,Talita Alencar,Piera Rodriguez,Piera Rodriguez,b,Piera Rodriguez,-298.0,,,,2026-10-31T20:26Z,0.336,,,
+2026-10-31|Lucia Szabová|Tainara Lisboa,2026-10-31,Lucia Szabová,Tainara Lisboa,Lucia Szabová,a,Lucia Szabová,-700.0,Lucia Szabová,-700.0,,2026-10-31T20:26Z,0.143,0.143,0.5,0.071

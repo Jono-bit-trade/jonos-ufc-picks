@@ -499,7 +499,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -530,12 +530,13 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "7-4-0"
+         "summary": "7-5-0"
         }
        ]
       },
@@ -544,7 +545,7 @@
        "uid": "s:3301~a:5130185",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Lucia Szabov\u00e1",
         "displayName": "Lucia Szabov\u00e1",
@@ -557,29 +558,31 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "12-0-0"
+         "summary": "13-0-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 200.0,
+      "displayClock": "3:20",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 5:00 PM EDT",
-       "shortDetail": "10/31 - 5:00 PM EDT"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -587,6 +590,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "25372",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "25371",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "25370",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "25362",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "25361",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25360",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "25359",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "25358",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25357",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25356",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -626,7 +701,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -644,7 +719,7 @@
        "uid": "s:3301~a:4816066",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Piera Rodriguez",
         "displayName": "Piera Rodriguez",
@@ -657,12 +732,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 90.0,
+         "displayValue": "90.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "12-2-0"
+         "summary": "13-2-0"
         }
        ]
       },
@@ -684,29 +784,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 81.0,
+         "displayValue": "81.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "8-1-1"
+         "summary": "8-2-1"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 5:00 PM EDT",
-       "shortDetail": "10/31 - 5:00 PM EDT"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -714,6 +840,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "25510",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "25492",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "25491",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25490",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25472",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25471",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "25470",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25451",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "25450",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25432",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -753,7 +951,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -771,7 +969,7 @@
        "uid": "s:3301~a:4687604",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Joe Kropschot",
         "displayName": "Joe Kropschot",
@@ -784,12 +982,13 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "9-3-0"
+         "summary": "10-3-0"
         }
        ]
       },
@@ -811,29 +1010,31 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "6-3-0"
+         "summary": "6-4-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 85.0,
+      "displayClock": "1:25",
+      "period": 2,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 5:00 PM EDT",
-       "shortDetail": "10/31 - 5:00 PM EDT"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -841,6 +1042,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "25546",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "25545",
+       "type": {
+        "id": "20",
+        "text": "Unofficial Winner Submission"
+       }
+      },
+      {
+       "id": "25544",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "25543",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25542",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "25541",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "25540",
+       "type": {
+        "id": "15",
+        "text": "Reversal"
+       }
+      },
+      {
+       "id": "25539",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "25538",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25537",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
       }
      ],
      "format": {
@@ -880,7 +1153,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -911,6 +1184,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -938,6 +1212,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -949,17 +1224,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 95.0,
+      "displayClock": "1:35",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 5:00 PM EDT",
-       "shortDetail": "10/31 - 5:00 PM EDT"
+       "description": "In Progress",
+       "detail": "R3, 1:35",
+       "shortDetail": "R3, 1:35"
       }
      },
      "broadcasts": [
@@ -968,6 +1243,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "25717",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "25716",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25715",
+       "type": {
+        "id": "11",
+        "text": "Round Unpause"
+       }
+      },
+      {
+       "id": "25714",
+       "type": {
+        "id": "8",
+        "text": "Pause Reason Low Blow"
+       }
+      },
+      {
+       "id": "25713",
+       "type": {
+        "id": "6",
+        "text": "Round Pause"
+       }
+      },
+      {
+       "id": "25712",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25711",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25710",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "25690",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25671",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -2017,13 +2364,26 @@
     {
      "language": "en-US",
      "rel": [
+      "live",
+      "desktop",
+      "event"
+     ],
+     "href": "https://www.espn.com/mma/fightcenter/_/id/600061420",
+     "text": "Gamecast",
+     "shortText": "Gamecast",
+     "isExternal": false,
+     "isPremium": false
+    },
+    {
+     "language": "en-US",
+     "rel": [
       "summary",
       "desktop",
       "event"
      ],
      "href": "https://www.espn.com/mma/fightcenter/_/id/600061420/league/ufc",
-     "text": "Gamecast",
-     "shortText": "Gamecast",
+     "text": "FightCenter",
+     "shortText": "FightCenter",
      "isExternal": false,
      "isPremium": false
     }
@@ -2041,13 +2401,13 @@
    ],
    "status": {
     "type": {
-     "id": "1",
-     "name": "STATUS_SCHEDULED",
-     "state": "pre",
+     "id": "2",
+     "name": "STATUS_IN_PROGRESS",
+     "state": "in",
      "completed": false,
-     "description": "Scheduled",
-     "detail": "Scheduled",
-     "shortDetail": "Scheduled"
+     "description": "In Progress",
+     "detail": "In Progress",
+     "shortDetail": "In Progress"
     }
    }
   }
