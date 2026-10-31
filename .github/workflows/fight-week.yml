@@ -23,7 +23,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 330
     permissions:
       contents: write
     steps:
@@ -111,3 +111,26 @@ jobs:
       - name: Save
         if: always()
         run: bash .github/save.sh "Update ${{ steps.kind.outputs.kind }}"
+
+      # GitHub often skips the every-20-minute Saturday-night schedules, so a run that starts
+      # while a card is under way keeps refreshing results itself until the last fight ends.
+      - name: Keep results live through the card (fight night only)
+        if: steps.kind.outputs.kind != 'full'
+        continue-on-error: true
+        run: |
+          live() { python - <<'PY'
+          import datetime as dt, pandas as pd, sys
+          c = pd.read_csv("data/espn_card.csv")
+          now = pd.Timestamp.now(tz="UTC")
+          st = pd.to_datetime(c["start"], utc=True, errors="coerce")
+          on = c["state"].isin(["pre", "in"]) & (st < now + pd.Timedelta(hours=1)) & (st > now - pd.Timedelta(hours=10))
+          sys.exit(0 if on.any() else 1)
+          PY
+          }
+          end=$(( $(date +%s) + 270*60 ))
+          while live && [ "$(date +%s)" -lt "$end" ]; do
+            sleep 420
+            python src/espn.py || true
+            python src/get_data.py --offline && python src/predict.py && python src/site_data.py || true
+            bash .github/save.sh "Update live" || true
+          done
