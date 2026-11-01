@@ -2320,7 +2320,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "17-8-0"
+         "summary": "17-9-0"
         }
        ]
       },
@@ -2509,7 +2509,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -2584,13 +2584,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "145",
-       "name": "STATUS_PRE_FIGHT",
+       "id": "140",
+       "name": "STATUS_FIGHTERS_INTRODUCTION",
        "state": "in",
        "completed": false,
-       "description": "Pre-fight",
-       "detail": "Pre-fight",
-       "shortDetail": "Pre-fight"
+       "description": "Intros",
+       "detail": "Intros",
+       "shortDetail": "Intros"
       }
      },
      "broadcasts": [
@@ -2599,6 +2599,43 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26053",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26052",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
+      {
+       "id": "26079",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26078",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26077",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
