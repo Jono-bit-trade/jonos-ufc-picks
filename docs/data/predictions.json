@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T18:52Z",
+ "updated": "2026-11-01T21:59Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -53,15 +53,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.48,
-   "p_a": 0.651,
+   "p_a": 0.659,
    "model_pick": "Waldo Cortes-Acosta",
-   "fair_odds_a": -186,
-   "fair_odds_b": 186,
-   "market_p_a": 0.637,
-   "odds_a": -198.0,
-   "odds_b": 164.0,
-   "best_a": -198.0,
-   "best_b": 164.0,
+   "fair_odds_a": -193,
+   "fair_odds_b": 193,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
    "open_a": -192.0,
    "open_b": 160.0,
    "books": 1.0,
@@ -95,6 +95,11 @@
      "t": "2026-11-01T18:52Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.014,
@@ -178,6 +183,11 @@
      "t": "2026-11-01T18:52Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "edge_a": 0.037,
@@ -258,6 +268,11 @@
      "t": "2026-11-01T18:52Z",
      "a": 185.0,
      "b": -225.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 185.0,
+     "b": -225.0
     }
    ],
    "edge_a": -0.018,
@@ -283,11 +298,11 @@
    "record_b": "18-8-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.03,
-    "handle_b": 0.97,
-    "bets_a": 0.5,
-    "bets_b": 0.5,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.9,
+    "handle_b": 0.1,
+    "bets_a": 0.78,
+    "bets_b": 0.22,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [
     "Our chance 91% vs the line's 83% (8 points of value)",
@@ -348,6 +363,11 @@
      "t": "2026-11-01T18:52Z",
      "a": -650.0,
      "b": 470.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -650.0,
+     "b": 470.0
     }
    ],
    "edge_a": 0.08,
@@ -373,11 +393,11 @@
    "record_b": "14-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.97,
-    "handle_b": 0.03,
-    "bets_a": 0.67,
-    "bets_b": 0.33,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.99,
+    "handle_b": 0.01,
+    "bets_a": 0.7,
+    "bets_b": 0.3,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -392,15 +412,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.563,
-   "p_a": 0.333,
+   "p_a": 0.314,
    "model_pick": "Lucas Fernando",
-   "fair_odds_a": 200,
-   "fair_odds_b": -200,
-   "market_p_a": 0.309,
-   "odds_a": 210.0,
-   "odds_b": -258.0,
-   "best_a": 210.0,
-   "best_b": -258.0,
+   "fair_odds_a": 219,
+   "fair_odds_b": -219,
+   "market_p_a": 0.29,
+   "odds_a": 230.0,
+   "odds_b": -285.0,
+   "best_a": 230.0,
+   "best_b": -285.0,
    "open_a": 210.0,
    "open_b": -258.0,
    "books": 1.0,
@@ -434,9 +454,14 @@
      "t": "2026-11-01T18:52Z",
      "a": 210.0,
      "b": -258.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
-   "edge_a": 0.024,
+   "edge_a": 0.023,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -459,11 +484,11 @@
    "record_b": "13-7-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.52,
-    "handle_b": 0.48,
-    "bets_a": 0.6,
-    "bets_b": 0.4,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.97,
+    "handle_b": 0.03,
+    "bets_a": 0.78,
+    "bets_b": 0.22,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [
     "Our chance 75% vs the line's 71% (4 points of value)"
@@ -522,6 +547,11 @@
      "t": "2026-11-01T18:52Z",
      "a": -285.0,
      "b": 230.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -285.0,
+     "b": 230.0
     }
    ],
    "edge_a": 0.038,
@@ -547,11 +577,11 @@
    "record_b": "11-5-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.98,
-    "handle_b": 0.02,
-    "bets_a": 0.88,
-    "bets_b": 0.13,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.99,
+    "handle_b": 0.01,
+    "bets_a": 0.92,
+    "bets_b": 0.08,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -608,6 +638,11 @@
      "t": "2026-11-01T18:52Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": 0.021,
@@ -637,10 +672,10 @@
     "handle_b": 0.52,
     "bets_a": 0.43,
     "bets_b": 0.57,
-    "at": "2026-11-01T18:52Z"
+    "at": "2026-11-01T21:59Z"
    },
    "why": [
-    "Our chance 64% vs the line's 60% (4 points of value)",
+    "Our chance 66% vs the line's 62% (4 points of value)",
     "Rated 153 points higher"
    ],
    "weight_class": "Women's Flyweight",
@@ -655,15 +690,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.709,
-   "p_a": 0.64,
+   "p_a": 0.661,
    "model_pick": "Karine Silva",
-   "fair_odds_a": -177,
-   "fair_odds_b": 177,
-   "market_p_a": 0.6,
-   "odds_a": -166.0,
-   "odds_b": 140.0,
-   "best_a": -166.0,
-   "best_b": 140.0,
+   "fair_odds_a": -195,
+   "fair_odds_b": 195,
+   "market_p_a": 0.622,
+   "odds_a": -185.0,
+   "odds_b": 154.0,
+   "best_a": -185.0,
+   "best_b": 154.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -697,9 +732,14 @@
      "t": "2026-11-01T18:52Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
-   "edge_a": 0.04,
+   "edge_a": 0.039,
    "pick": "Karine Silva",
    "our_pick": "Karine Silva",
    "stake": 1.5,
@@ -722,11 +762,11 @@
    "record_b": "15-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.53,
-    "handle_b": 0.47,
-    "bets_a": 0.75,
-    "bets_b": 0.25,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.11,
+    "handle_b": 0.89,
+    "bets_a": 0.5,
+    "bets_b": 0.5,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -783,6 +823,11 @@
      "t": "2026-11-01T18:52Z",
      "a": 180.0,
      "b": -218.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 180.0,
+     "b": -218.0
     }
    ],
    "edge_a": 0.035,
@@ -808,11 +853,11 @@
    "record_b": "11-0-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.02,
-    "handle_b": 0.98,
-    "bets_a": 0.22,
-    "bets_b": 0.78,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.15,
+    "handle_b": 0.85,
+    "bets_a": 0.38,
+    "bets_b": 0.62,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -827,15 +872,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.457,
-   "p_a": 0.497,
-   "model_pick": "Murtazali Magomedov",
-   "fair_odds_a": 101,
-   "fair_odds_b": -101,
-   "market_p_a": 0.483,
-   "odds_a": -102.0,
-   "odds_b": -118.0,
-   "best_a": -102.0,
-   "best_b": -118.0,
+   "p_a": 0.525,
+   "model_pick": "Jose Delano",
+   "fair_odds_a": -110,
+   "fair_odds_b": 110,
+   "market_p_a": 0.511,
+   "odds_a": -115.0,
+   "odds_b": -105.0,
+   "best_a": -115.0,
+   "best_b": -105.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -869,6 +914,11 @@
      "t": "2026-11-01T18:52Z",
      "a": -102.0,
      "b": -118.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -115.0,
+     "b": -105.0
     }
    ],
    "edge_a": 0.014,
@@ -894,11 +944,11 @@
    "record_b": "4-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.55,
-    "handle_b": 0.45,
-    "bets_a": 0.71,
-    "bets_b": 0.29,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.9,
+    "handle_b": 0.1,
+    "bets_a": 0.85,
+    "bets_b": 0.15,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -913,15 +963,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.782,
+   "p_a": 0.761,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -359,
-   "fair_odds_b": 359,
-   "market_p_a": 0.757,
-   "odds_a": -375.0,
-   "odds_b": 295.0,
-   "best_a": -375.0,
-   "best_b": 295.0,
+   "fair_odds_a": -318,
+   "fair_odds_b": 318,
+   "market_p_a": 0.734,
+   "odds_a": -325.0,
+   "odds_b": 260.0,
+   "best_a": -325.0,
+   "best_b": 260.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -955,9 +1005,14 @@
      "t": "2026-11-01T18:52Z",
      "a": -375.0,
      "b": 295.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -325.0,
+     "b": 260.0
     }
    ],
-   "edge_a": 0.025,
+   "edge_a": 0.027,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1029,11 +1084,11 @@
    "record_b": "9-1-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.5,
-    "handle_b": 0.5,
-    "bets_a": 0.29,
-    "bets_b": 0.71,
-    "at": "2026-11-01T18:52Z"
+    "handle_a": 0.31,
+    "handle_b": 0.69,
+    "bets_a": 0.17,
+    "bets_b": 0.83,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [
     "Our chance 85% vs the line's 78% (7 points of value)",
@@ -1093,6 +1148,11 @@
      "t": "2026-11-01T18:52Z",
      "a": 340.0,
      "b": -440.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 340.0,
+     "b": -440.0
     }
    ],
    "edge_a": -0.064,
@@ -1120,9 +1180,9 @@
    "splits": {
     "handle_a": 0.26,
     "handle_b": 0.74,
-    "bets_a": 0.6,
-    "bets_b": 0.4,
-    "at": "2026-11-01T18:52Z"
+    "bets_a": 0.64,
+    "bets_b": 0.36,
+    "at": "2026-11-01T21:59Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1137,15 +1197,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.535,
-   "p_a": 0.35,
+   "p_a": 0.317,
    "model_pick": "Jose Henrique",
-   "fair_odds_a": 186,
-   "fair_odds_b": -186,
-   "market_p_a": 0.378,
-   "odds_a": 154.0,
-   "odds_b": -185.0,
-   "best_a": 154.0,
-   "best_b": -185.0,
+   "fair_odds_a": 216,
+   "fair_odds_b": -216,
+   "market_p_a": 0.343,
+   "odds_a": 180.0,
+   "odds_b": -218.0,
+   "best_a": 180.0,
+   "best_b": -218.0,
    "open_a": 150.0,
    "open_b": -180.0,
    "books": 1.0,
@@ -1179,9 +1239,14 @@
      "t": "2026-11-01T18:52Z",
      "a": 154.0,
      "b": -185.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 180.0,
+     "b": -218.0
     }
    ],
-   "edge_a": -0.028,
+   "edge_a": -0.026,
    "pick": null,
    "our_pick": null,
    "stake": null,
