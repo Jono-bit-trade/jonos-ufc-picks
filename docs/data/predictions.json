@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T00:00Z",
+ "updated": "2026-11-01T00:08Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -198,24 +198,19 @@
    "rating_b": 1648,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.338,
-   "p_a": 0.527,
-   "fair_odds_a": -111,
-   "fair_odds_b": 111,
-   "market_p_a": 0.526,
-   "odds_a": -122.0,
-   "odds_b": 102.0,
-   "best_a": -122.0,
-   "best_b": 102.0,
+   "p_model_a": 0.339,
+   "p_a": 0.533,
+   "fair_odds_a": -114,
+   "fair_odds_b": 114,
+   "market_p_a": 0.532,
+   "odds_a": -125.0,
+   "odds_b": 105.0,
+   "best_a": -125.0,
+   "best_b": 105.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T23:27Z",
-     "a": -110.0,
-     "b": -105.0
-    },
     {
      "t": "2026-10-26T23:41Z",
      "a": -110.0,
@@ -410,17 +405,22 @@
      "t": "2026-11-01T00:00Z",
      "a": -122.0,
      "b": 102.0
+    },
+    {
+     "t": "2026-11-01T00:08Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
-   "edge_a": 0.0,
+   "edge_a": 0.001,
    "pick": null,
    "our_pick": "Renato Moicano",
    "stake": 1.5,
    "expert_lean": "Renato Moicano",
    "check_news": false,
    "method": {
-    "DEC": 0.361,
-    "KO": 0.465,
+    "DEC": 0.362,
+    "KO": 0.464,
     "SUB": 0.174
    }
   },
@@ -706,6 +706,11 @@
      "t": "2026-11-01T00:00Z",
      "a": 225.0,
      "b": -278.0
+    },
+    {
+     "t": "2026-11-01T00:08Z",
+     "a": 225.0,
+     "b": -278.0
     }
    ],
    "edge_a": 0.004,
@@ -885,7 +890,7 @@
    "rating_b": 1457,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.459,
+   "p_model_a": 0.46,
    "p_a": 0.493,
    "fair_odds_a": 103,
    "fair_odds_b": -103,
@@ -898,11 +903,6 @@
    "open_b": 105.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T23:27Z",
-     "a": -108.0,
-     "b": -112.0
-    },
     {
      "t": "2026-10-26T23:41Z",
      "a": -108.0,
@@ -1097,6 +1097,11 @@
      "t": "2026-11-01T00:00Z",
      "a": 100.0,
      "b": -120.0
+    },
+    {
+     "t": "2026-11-01T00:08Z",
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "edge_a": 0.015,
@@ -1276,10 +1281,10 @@
    "rating_b": 1703,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.299,
+   "p_model_a": 0.3,
    "p_a": 0.258,
-   "fair_odds_a": 288,
-   "fair_odds_b": -288,
+   "fair_odds_a": 287,
+   "fair_odds_b": -287,
    "market_p_a": 0.259,
    "odds_a": 270.0,
    "odds_b": -340.0,
@@ -1289,11 +1294,6 @@
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-26T23:27Z",
-     "a": 215.0,
-     "b": -265.0
-    },
     {
      "t": "2026-10-26T23:41Z",
      "a": 215.0,
@@ -1486,6 +1486,11 @@
     },
     {
      "t": "2026-11-01T00:00Z",
+     "a": 270.0,
+     "b": -340.0
+    },
+    {
+     "t": "2026-11-01T00:08Z",
      "a": 270.0,
      "b": -340.0
     }
@@ -1888,9 +1893,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.545,
-    "KO": 0.315,
-    "SUB": 0.14
+    "DEC": 0.546,
+    "KO": 0.314,
+    "SUB": 0.139
    }
   },
   {
@@ -1900,8 +1905,8 @@
    "b_slug": "dakota-hope",
    "a_id": "5060394",
    "b_id": "4898914",
-   "record_a": "10-3-0",
-   "record_b": "11-2-0",
+   "record_a": "10-4-0",
+   "record_b": "12-2-0",
    "experts": {
     "picks_a": 11,
     "picks_b": 3,
@@ -2051,9 +2056,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-10-31T21:00Z",
-   "state": "in",
-   "status": "End R3",
-   "result": null,
+   "state": "post",
+   "status": "Split decision, round 3 5:00",
+   "result": {
+    "winner": "Dakota Hope",
+    "draw": false,
+    "detail": "Split decision, round 3 5:00",
+    "pick_won": false
+   },
    "rating_a": 1547,
    "rating_b": 1491,
    "debut_a": false,
@@ -2279,8 +2289,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.513,
-    "KO": 0.333,
+    "DEC": 0.515,
+    "KO": 0.332,
     "SUB": 0.154
    }
   },
@@ -2675,8 +2685,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.323,
-    "KO": 0.443,
+    "DEC": 0.324,
+    "KO": 0.442,
     "SUB": 0.234
    }
   },
@@ -3345,7 +3355,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.468,
+    "DEC": 0.469,
     "KO": 0.34,
     "SUB": 0.191
    }
@@ -4523,7 +4533,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.547,
+    "DEC": 0.546,
     "KO": 0.195,
     "SUB": 0.258
    }

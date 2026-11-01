@@ -1825,7 +1825,7 @@
        "uid": "s:3301~a:4898914",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Dakota Hope",
         "displayName": "Dakota Hope",
@@ -1838,13 +1838,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 86.0,
+         "displayValue": "86.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "11-2-0"
+         "summary": "12-2-0"
         }
        ]
       },
@@ -1866,30 +1890,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 85.0,
+         "displayValue": "85.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "10-3-0"
+         "summary": "10-4-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 1.0,
-      "displayClock": "0:01",
+      "clock": 300.0,
+      "displayClock": "5:00",
       "period": 3,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
-       "state": "in",
-       "completed": false,
-       "description": "End of Round",
-       "detail": "End R3",
-       "shortDetail": "End R3"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1900,6 +1949,20 @@
       }
      ],
      "details": [
+      {
+       "id": "25970",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "25950",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "25931",
        "type": {
@@ -1951,20 +2014,6 @@
       },
       {
        "id": "25871",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "25870",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "25820",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
