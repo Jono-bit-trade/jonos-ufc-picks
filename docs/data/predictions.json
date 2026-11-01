@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T03:26Z",
+ "updated": "2026-11-01T03:28Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -559,13 +559,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.24,
-    "handle_b": 0.76,
-    "bets_a": 0.46,
-    "bets_b": 0.54,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -755,13 +749,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.43,
-    "handle_b": 0.57,
-    "bets_a": 0.28,
-    "bets_b": 0.72,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
@@ -951,13 +939,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.8,
-    "handle_b": 0.2,
-    "bets_a": 0.82,
-    "bets_b": 0.18,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1147,13 +1129,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.74,
-    "handle_b": 0.26,
-    "bets_a": 0.69,
-    "bets_b": 0.31,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -1343,13 +1319,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.6,
-    "handle_b": 0.4,
-    "bets_a": 0.62,
-    "bets_b": 0.38,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1539,13 +1509,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.55,
-    "handle_b": 0.45,
-    "bets_a": 0.6,
-    "bets_b": 0.4,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -1735,13 +1699,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.89,
-    "handle_b": 0.11,
-    "bets_a": 0.91,
-    "bets_b": 0.09,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [
     "Our chance 88% vs the line's 78% (10 points of value)",
     "14 of 14 analysts agree",
@@ -1935,13 +1893,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.1,
-    "handle_b": 0.9,
-    "bets_a": 0.17,
-    "bets_b": 0.83,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [
     "Our chance 76% vs the line's 73% (3 points of value)",
     "12 of 14 analysts agree",
@@ -2136,13 +2088,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.5,
-    "handle_b": 0.5,
-    "bets_a": 0.24,
-    "bets_b": 0.76,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Women's Strawweight",
    "rounds": 3,
@@ -2332,13 +2278,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.65,
-    "handle_b": 0.35,
-    "bets_a": 0.8,
-    "bets_b": 0.2,
-    "at": "2026-11-01T03:26Z"
-   },
+   "splits": null,
    "why": [
     "Our chance 89% vs the line's 84% (5 points of value)",
     "14 of 14 analysts agree"
