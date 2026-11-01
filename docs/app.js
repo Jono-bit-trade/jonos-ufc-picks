@@ -36,8 +36,12 @@ function photo(id, name, size = "md") {
 const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
 const recLine = r => !r || !r.picks ? "" :
   `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} (${Math.round(r.our_won / r.our_bets * 100)}%) <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
-let COUNTRY = {};
+let COUNTRY = {}, RANK = {};
 // flag (and country name) for a fighter; flags from flag-icons (MIT)
+// official UFC rank in the fighter's division: gold "C" for a champion, "#5" for ranked
+const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null) return "";
+  const t = r.rank === 0 ? "Champion" : "#" + r.rank;
+  return `<span class="urank${r.rank === 0 ? " champ" : ""}" title="Official UFC ranking: ${esc(t)}, ${esc(r.div)}${r.p4p ? ` · #${r.p4p} pound-for-pound` : ""}">${r.rank === 0 ? (long ? "Champion" : "C") : t}${long ? ` ${esc(r.div)}` : ""}</span>`; };
 const flagOf = (s, name) => { const c = COUNTRY[s]; return !c ? "" : `<span class="ctry" title="${esc(c[0])}"><img src="flags/${esc(c[1])}.svg" alt="${esc(c[0])} flag" width="18" height="13" loading="lazy">${name ? esc(c[0]) : ""}</span>`; };
 const fighterLink = (name, s) => `<a class="fl" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
 
@@ -146,9 +150,9 @@ function bout(f, i, edge) {
   return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${ring}">
     ${status(f)}
     <div class="corners">
-      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
+      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
       <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}</div>
-      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
+      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
     </div>
     <div class="pct"><span class="pa">${pa100}%</span><span class="lbl">Model</span><span class="pb">${100 - pa100}%</span></div>
     <div class="bar" role="img" aria-label="Model ${pct(pa)} for ${esc(f.a)}${line != null ? ", line " + pct(line) : ""}">
@@ -393,9 +397,9 @@ async function viewHome() {
       <div class="when">${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
       <h1>${esc(p.event)}</h1>
       <div class="faceoff">
-        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug, true)}${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${flagOf(m.b_slug, true)}<span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug, true)}${flagOf(m.b_slug, true)}<span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
@@ -611,7 +615,7 @@ async function viewFighter(s) {
         return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
       <div class="fh-main">
         <h1>${esc(f.name)}</h1>
-        <p class="fh-sub">${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
+        <p class="fh-sub">${rankOf(f.slug, true)}${RANK[f.slug] && RANK[f.slug].p4p ? `<span class="urank p4p">#${RANK[f.slug].p4p} P4P</span>` : ""}${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
         ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
         <div class="fchips">
           ${chip(esc(f.ufc_record), "UFC record")}${f.pro_record ? chip(esc(f.pro_record), "Pro record") : ""}
@@ -868,7 +872,7 @@ async function viewHow() {
 let photosLoaded = false;
 const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
 async function route() {
-  if (!photosLoaded) { photosLoaded = true; const [ph, co] = await Promise.all([get("photos.json"), get("countries.json", true)]); if (ph) PHOTOS = ph; if (co) COUNTRY = co; }
+  if (!photosLoaded) { photosLoaded = true; const [ph, co, rk] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true)]); if (ph) PHOTOS = ph; if (co) COUNTRY = co; if (rk && rk.fighters) RANK = rk.fighters; }
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
   const page = parts[0] || "home";

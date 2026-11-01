@@ -55,6 +55,11 @@ jobs:
         continue-on-error: true
         run: python src/espn.py
 
+      - name: Official UFC rankings
+        if: steps.kind.outputs.kind != 'live'
+        continue-on-error: true
+        run: timeout 2m python src/ufc_rankings.py
+
       - name: Fighter countries (flags)
         if: steps.kind.outputs.kind != 'live'
         continue-on-error: true

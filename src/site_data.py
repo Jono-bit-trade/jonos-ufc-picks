@@ -534,6 +534,34 @@ def main():
         for n, c, s in zip(co["name"], co["country"], co["iso"]):   # debutants on the next card
             countries.setdefault(slug(n), [c, s])
     write("countries.json", countries)
+    # official UFC rankings (src/ufc_rankings.py): {slug: {"div", "rank" (0 = champion), "p4p"}}
+    rk = read("ufc_rankings.csv")
+    ranks = {}
+    if not rk.empty:
+        ua = read("ufc_athletes.csv")
+        by_ufc = {}   # UFC.com athlete slug -> our slug, from the athlete pages already read
+        if not ua.empty and "url" in ua:
+            for n, u in zip(ua["name"], ua["url"]):
+                m = re.search(r"/athlete/([^/?#]+)", str(u))
+                if m:
+                    by_ufc[m.group(1)] = slug(n)
+        ours = {r_["slug"] for r_ in index}
+        def who(name, us):
+            s_ = slug(name)
+            if s_ in ours:
+                return s_
+            if isinstance(us, str):
+                return by_ufc.get(us) or (us if us in ours else None)
+            return None
+        for r_ in rk.itertuples():
+            s_ = who(r_.name, r_.ufc_slug) or slug(r_.name)
+            e = ranks.setdefault(s_, {})
+            if "pound" in r_.division.lower():
+                e["p4p"] = int(r_.rank)
+            elif "div" not in e:
+                e["div"], e["rank"] = r_.division, int(r_.rank)
+        ranks = {"as_of": str(rk["as_of"].iloc[0]), "fighters": ranks}
+    write("ufc_ranks.json", ranks)
     # division averages of the career numbers, for the bars on fighter pages (active fighters, 3+ UFC fights)
     cutoff_ = (dt.date.today() - dt.timedelta(days=730)).isoformat()
     keys_ = ["slpm", "sapm", "str_acc", "str_def", "kd_per15", "td_per15", "td_def", "sub_per15"]
