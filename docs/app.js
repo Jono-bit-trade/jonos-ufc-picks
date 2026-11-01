@@ -141,7 +141,7 @@ function bout(f, i, edge) {
   const pa100 = Math.round(pa * 100);
   // ring: did our pick (or, without one, the model's pick) win?
   const w = f.state === "post" && f.result ? f.result.winner : null;
-  const called = f.our_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
+  const called = f.our_pick || f.model_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
   return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${ring}">
     ${status(f)}
@@ -260,7 +260,7 @@ async function viewCard() {
     <a href="#/record">Full record</a></div>`;
   return `<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
-    <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in.</p></details>
+    <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
     ${cardToggle()}
     ${cardView() === "compact" ? `<div class="compact">${p.fights.map((f, i) => compactRow(f, i, p.edge_threshold)).join("")}</div>`
       : p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
@@ -275,7 +275,7 @@ function cardToggle() {
 function compactRow(f, i, edge) {
   const pa = f.p_a, line = f.market_p_a;
   const w = f.state === "post" && f.result ? f.result.winner : null;
-  const called = f.our_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
+  const called = f.our_pick || f.model_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
   const sideA = pa >= 0.5, last = n => esc(n.split(" ").slice(-1)[0]);
   return `<details class="crow${ring}"><summary>

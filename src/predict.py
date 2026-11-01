@@ -52,7 +52,7 @@ def update_ledger(log, fights):
                 continue
             winner, how = r
             lean = p.expert_lean if isinstance(getattr(p, "expert_lean", None), str) else None
-            mp = lean or (p.a if p.p_final > 0.5 else p.b)   # the model's winner pick, as on the card
+            mp = model_pick(p.a, p.b, p.p_final, p.fair_a, lean)   # the model's winner pick, as on the card
             ours = p.our_pick if isinstance(getattr(p, "our_pick", None), str) else None
             vp = p.pick if isinstance(getattr(p, "pick", None), str) else None   # value pick, as on the card
             row = {"fight_id": p.fight_id, "date": p.date, "a": p.a, "b": p.b, "winner": winner, "result": how,
@@ -66,6 +66,7 @@ def update_ledger(log, fights):
                     row[f"{k}_units"] = 0.0 if pk else None      # draws and no contests: stake returned
                     continue
                 row[f"{k}_units"] = round(float(payout(o)) if pk == winner else -1.0, 3)
+            row["model_rule"] = 2
             row["our_source"] = None if not ours else "model" if ours == vp else "experts"   # model pick or expert lean
             row["stake"] = stake(row["our_odds"]) if ours else None
             row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
@@ -88,6 +89,22 @@ def update_ledger(log, fights):
         src_ = np.where(led["our_pick"].isna(), None, np.where(led["our_pick"] == led.get("value_pick"), "model", "experts"))
         led["our_source"] = led["our_source"].fillna(pd.Series(src_, index=led.index)) if "our_source" in led else src_
         led.to_csv(f, index=False)
+    # coin-flip rule (Oct 31, 2026): in a 45-55% fight the value pick is the model's winner. Applied
+    # once to rows locked before it, from the prediction logged before each fight.
+    if not led.empty and not log.empty and ("model_rule" not in led or led["model_rule"].isna().any()):
+        lp = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")
+        if "model_rule" not in led:
+            led["model_rule"] = None
+        for i, r in led[led["model_rule"].isna()].iterrows():
+            if r["fight_id"] in lp.index:
+                q = lp.loc[r["fight_id"]]
+                mp = model_pick(q["a"], q["b"], q["p_final"], q["fair_a"], r.get("expert_lean"))
+                if mp and mp != r["model_pick"]:
+                    o = q["odds_a"] if mp == q["a"] else q["odds_b"]
+                    led.at[i, "model_pick"], led.at[i, "model_odds"] = mp, o
+                    led.at[i, "model_units"] = 0.0 if r["result"] in ("draw", "nc") else round(float(payout(o)) if mp == r["winner"] else -1.0, 3)
+            led.at[i, "model_rule"] = 2
+        led.to_csv(f, index=False)
     if new:
         led = pd.concat([led, pd.DataFrame(new)], ignore_index=True) if not led.empty else pd.DataFrame(new)
         led.to_csv(f, index=False)
@@ -108,6 +125,14 @@ def update_ledger(log, fights):
                      "rows": json.loads(led.sort_values("date", ascending=False).to_json(orient="records"))})
     json.dump(summ, open(os.path.join(OUT, "ledger.json"), "w"), indent=1)
     return summ
+
+
+def model_pick(a, b, p_final, fair_a, lean=None):
+    """The model's winner by name: value side in a coin flip, then an expert lean, then the higher chance."""
+    from picks import winner_side
+    lean = lean if isinstance(lean, str) else None
+    s_ = winner_side(None if p_final != p_final else p_final, fair_a, "a" if lean == a else "b" if lean == b else None)
+    return a if s_ == "a" else b if s_ == "b" else None
 
 
 def publish_common(fights, log, G):
@@ -474,6 +499,7 @@ def main():
             "rating_a": round(f["rating_a"]), "rating_b": round(f["rating_b"]),
             "debut_a": bool(f["debut_a"]), "debut_b": bool(f["debut_b"]),
             "p_model_a": num(f["p_model"]), "p_a": num(f["p_final"]),
+            "model_pick": model_pick(f["a"], f["b"], f["p_final"], f["fair_a"], f.get("expert_lean")),
             "fair_odds_a": to_american(f["p_final"]), "fair_odds_b": to_american(1 - f["p_final"]),
             "market_p_a": num(f["fair_a"]), "odds_a": num(f["odds_a"], 0), "odds_b": num(f["odds_b"], 0),
             "best_a": num(f["best_a"], 0), "best_b": num(f["best_b"], 0),

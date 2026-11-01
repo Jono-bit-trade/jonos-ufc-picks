@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
-from picks import our_side, expert_lean, stake
+from picks import our_side, expert_lean, stake, winner_side
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -373,7 +373,7 @@ def main():
                     fav_right += int((fair > 0.5) == won_a)
                 best = pf if pf is not None else p   # our final chance (model + line) where we have it
                 if best is not None or lean:   # our predicted winner, bet at its moneyline
-                    on_a = (lean == "a") if lean else best > 0.5   # an expert lean decides close fights
+                    on_a = winner_side(best, fair, lean) == "a"   # value side in a coin flip, then an expert lean
                     right = on_a == won_a
                     o = f.odds_a if on_a else f.odds_b
                     u = (float(payout(o)) if right else -1.0) if pd.notna(o) else None

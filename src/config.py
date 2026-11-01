@@ -28,6 +28,7 @@ MARKET_BLEND = True           # final step: blend the model with the no-vig line
 TRAIN_HALF_LIFE_YEARS = 3     # recent fights weigh more (3 beat 6 and equal weights, 2018-2026 log loss 0.6548 -> 0.6536)
 
 # ---- Picks ------------------------------------------------------------------
+COIN_FLIP = 0.05              # the model's winner: in a fight it rates 45-55%, a value pick decides it
 EDGE = 0.03                   # pick only when the final chance beats the fair line by this much (0.03 = 3 points)
 BIG_EDGE = 0.10               # edges this big usually mean news the model can't see: labelled "check the news"
 MIN_BOOKS = 2                 # need lines from at least this many books before trusting the average

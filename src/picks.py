@@ -4,7 +4,7 @@
   our pick:   a value pick that is also high-confidence and not a long underdog
               (settings in config.py: OUR_PICKS_*)
 """
-from config import EDGE, OUR_PICKS_MIN_EDGE, OUR_PICKS_MIN_CHANCE, OUR_PICKS_MAX_UNDERDOG, OUR_PICKS_MAX_FAVORITE, OUR_PICKS_ANY_FAVORITE
+from config import COIN_FLIP, EDGE, OUR_PICKS_MIN_EDGE, OUR_PICKS_MIN_CHANCE, OUR_PICKS_MAX_UNDERDOG, OUR_PICKS_MAX_FAVORITE, OUR_PICKS_ANY_FAVORITE
 
 
 def value_side(p_final, fair, edge=EDGE):
@@ -59,3 +59,15 @@ def expert_lean(fair_a, picks_a, picks_b):
     if max(picks_a, picks_b) / n < EXPERT_LEAN_MIN_SHARE:
         return None
     return "a" if picks_a > picks_b else "b"
+
+
+def winner_side(p_final, fair, lean=None):
+    """The model's predicted winner, 'a' or 'b'. In a coin flip (45-55%) the value side decides it,
+    then an expert lean, then the higher chance."""
+    if p_final is None or p_final != p_final:
+        return lean
+    if abs(p_final - 0.5) <= COIN_FLIP and fair is not None and fair == fair:
+        v = value_side(p_final, fair)
+        if v:
+            return v
+    return lean or ("a" if p_final > 0.5 else "b")
