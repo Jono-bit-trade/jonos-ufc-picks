@@ -2540,6 +2540,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 84.0,
+         "displayValue": "84.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -2555,7 +2579,7 @@
        "uid": "s:3301~a:4686725",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Cody Durden",
         "displayName": "Cody Durden",
@@ -2568,6 +2592,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 87.0,
+         "displayValue": "87.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -2580,18 +2628,19 @@
       }
      ],
      "status": {
-      "clock": 125.0,
-      "displayClock": "2:05",
+      "clock": 300.0,
+      "displayClock": "5:00",
       "period": 3,
       "type": {
-       "id": "2",
-       "name": "STATUS_IN_PROGRESS",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R3, 2:05",
-       "shortDetail": "R3, 2:05"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -2602,6 +2651,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26069",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "26068",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26067",
+       "type": {
+        "id": "15",
+        "text": "Reversal"
+       }
+      },
+      {
+       "id": "26066",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26065",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26091",
        "type": {
@@ -2632,41 +2716,6 @@
       },
       {
        "id": "26087",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26086",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26085",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26084",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "26083",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26082",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
@@ -2741,6 +2790,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2768,6 +2818,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2783,13 +2834,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 8:00 PM EDT",
-       "shortDetail": "10/31 - 8:00 PM EDT"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [

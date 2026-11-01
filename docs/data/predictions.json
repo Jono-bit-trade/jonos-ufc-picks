@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T01:35Z",
+ "updated": "2026-11-01T01:43Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -183,7 +183,7 @@
     "at": "2026-10-31T23:36Z"
    },
    "why": [
-    "Our chance 52% vs the line's 52%",
+    "Our chance 53% vs the line's 53%",
     "Close fight and 10 of 14 analysts pick Moicano",
     "Rated 76 points higher"
    ],
@@ -199,23 +199,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.339,
-   "p_a": 0.522,
-   "fair_odds_a": -109,
-   "fair_odds_b": 109,
-   "market_p_a": 0.522,
-   "odds_a": -120.0,
-   "odds_b": 100.0,
-   "best_a": -120.0,
-   "best_b": 100.0,
+   "p_a": 0.533,
+   "fair_odds_a": -114,
+   "fair_odds_b": 114,
+   "market_p_a": 0.532,
+   "odds_a": -125.0,
+   "odds_b": 105.0,
+   "best_a": -125.0,
+   "best_b": 105.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-27T02:08Z",
-     "a": -118.0,
-     "b": -102.0
-    },
     {
      "t": "2026-10-27T03:55Z",
      "a": -118.0,
@@ -410,6 +405,11 @@
      "t": "2026-11-01T01:35Z",
      "a": -120.0,
      "b": 100.0
+    },
+    {
+     "t": "2026-11-01T01:43Z",
+     "a": -125.0,
+     "b": 105.0
     }
    ],
    "edge_a": 0.001,
@@ -582,8 +582,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-01T00:00Z",
-   "state": "pre",
-   "status": "Sat, October 31st at 8:00 PM EDT",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1691,
    "rating_b": 1722,
@@ -596,11 +596,11 @@
    "market_p_a": 0.29,
    "odds_a": 230.0,
    "odds_b": -285.0,
-   "best_a": 230.0,
-   "best_b": -285.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": 225.0,
    "open_b": -278.0,
-   "books": 1.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-10-27T19:23Z",
@@ -775,7 +775,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.405,
+    "DEC": 0.406,
     "KO": 0.38,
     "SUB": 0.214
    }
@@ -938,9 +938,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-01T00:00Z",
-   "state": "in",
-   "status": "R3, 2:05",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 5:00",
+   "result": {
+    "winner": "Cody Durden",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 5:00",
+    "pick_won": false
+   },
    "rating_a": 1428,
    "rating_b": 1457,
    "debut_a": false,
@@ -3420,7 +3425,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.468,
+    "DEC": 0.469,
     "KO": 0.34,
     "SUB": 0.191
    }
@@ -3817,7 +3822,7 @@
    "method": {
     "DEC": 0.394,
     "KO": 0.369,
-    "SUB": 0.237
+    "SUB": 0.238
    }
   },
   {
