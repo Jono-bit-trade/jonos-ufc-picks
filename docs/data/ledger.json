@@ -7,6 +7,9 @@
  "our_units": -0.31,
  "our_risked": 3.5,
  "our_staked_units": -0.99,
+ "value_bets": 4,
+ "value_won": 4,
+ "value_units": 1.89,
  "rows": [
   {
    "fight_id": "2026-10-31|Nick Klein|Joe Kropschot",
@@ -24,7 +27,10 @@
    "model_units": 0.323,
    "our_units": 0.323,
    "stake": 1.0,
-   "our_staked_units": 0.323
+   "our_staked_units": 0.323,
+   "value_pick": "Joe Kropschot",
+   "value_odds": -310.0,
+   "value_units": 0.323
   },
   {
    "fight_id": "2026-10-31|Talita Alencar|Piera Rodriguez",
@@ -42,7 +48,10 @@
    "model_units": 0.336,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Lucia Szabov\u00e1|Tainara Lisboa",
@@ -60,7 +69,10 @@
    "model_units": 0.143,
    "our_units": 0.143,
    "stake": 0.5,
-   "our_staked_units": 0.071
+   "our_staked_units": 0.071,
+   "value_pick": "Lucia Szabov\u00e1",
+   "value_odds": -700.0,
+   "value_units": 0.143
   },
   {
    "fight_id": "2026-10-31|Zach Reese|Mickey Gall",
@@ -78,7 +90,10 @@
    "model_units": 0.227,
    "our_units": 0.227,
    "stake": 0.5,
-   "our_staked_units": 0.114
+   "our_staked_units": 0.114,
+   "value_pick": "Zach Reese",
+   "value_odds": -440.0,
+   "value_units": 0.227
   },
   {
    "fight_id": "2026-10-31|Rodrigo Sezinando|Theodor Berggren",
@@ -96,7 +111,10 @@
    "model_units": 0.571,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Julian Erosa|JeongYeong Lee",
@@ -114,7 +132,10 @@
    "model_units": -1.0,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": "Julian Erosa",
+   "value_odds": 120.0,
+   "value_units": 1.2
   },
   {
    "fight_id": "2026-10-31|Francis Marshall|Dakota Hope",
@@ -132,7 +153,10 @@
    "model_units": -1.0,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Jean-Paul Lebosnoyani|Farman Hasanov",
@@ -150,7 +174,10 @@
    "model_units": 0.36,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Yana Santos|Luana Santos",
@@ -168,7 +195,10 @@
    "model_units": 0.294,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Ode Osbourne|Cody Durden",
@@ -186,7 +216,10 @@
    "model_units": 0.8,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Randy Brown|Jacobe Smith",
@@ -204,7 +237,10 @@
    "model_units": 0.351,
    "our_units": null,
    "stake": null,
-   "our_staked_units": null
+   "our_staked_units": null,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   },
   {
    "fight_id": "2026-10-31|Renato Moicano|Tom Nolan",
@@ -222,7 +258,10 @@
    "model_units": -1.0,
    "our_units": -1.0,
    "stake": 1.5,
-   "our_staked_units": -1.5
+   "our_staked_units": -1.5,
+   "value_pick": null,
+   "value_odds": null,
+   "value_units": null
   }
  ]
 }

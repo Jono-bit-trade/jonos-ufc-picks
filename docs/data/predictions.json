@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T02:46Z",
+ "updated": "2026-11-01T02:49Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -175,13 +175,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.68,
-    "handle_b": 0.32,
-    "bets_a": 0.63,
-    "bets_b": 0.37,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [
     "Our chance 54% vs the line's 54%",
     "Close fight and 10 of 14 analysts pick Moicano",
@@ -192,11 +186,11 @@
    "segment": "",
    "start": "2026-11-01T00:00Z",
    "state": "post",
-   "status": "KO/TKO, round 3 3:32",
+   "status": "KO/TKO, round 3 1:28",
    "result": {
     "winner": "Tom Nolan",
     "draw": false,
-    "detail": "KO/TKO, round 3 3:32",
+    "detail": "KO/TKO, round 3 1:28",
     "pick_won": false
    },
    "rating_a": 1724,
@@ -374,13 +368,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.35,
-    "handle_b": 0.65,
-    "bets_a": 0.26,
-    "bets_b": 0.74,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -569,13 +557,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.31,
-    "handle_b": 0.69,
-    "bets_a": 0.47,
-    "bets_b": 0.53,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -764,13 +746,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.44,
-    "handle_b": 0.56,
-    "bets_a": 0.27,
-    "bets_b": 0.73,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
@@ -959,13 +935,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.76,
-    "handle_b": 0.24,
-    "bets_a": 0.8,
-    "bets_b": 0.2,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1154,13 +1124,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.68,
-    "handle_b": 0.32,
-    "bets_a": 0.66,
-    "bets_b": 0.34,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -1349,13 +1313,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.62,
-    "handle_b": 0.38,
-    "bets_a": 0.62,
-    "bets_b": 0.38,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1544,13 +1502,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.67,
-    "handle_b": 0.33,
-    "bets_a": 0.56,
-    "bets_b": 0.44,
-    "at": "2026-10-31T23:36Z"
-   },
+   "splits": null,
    "why": [],
    "weight_class": "Featherweight",
    "rounds": 3,
