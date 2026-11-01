@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T01:04Z",
+ "updated": "2026-11-01T01:11Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -183,7 +183,7 @@
     "at": "2026-10-31T23:36Z"
    },
    "why": [
-    "Our chance 53% vs the line's 53%",
+    "Our chance 52% vs the line's 52%",
     "Close fight and 10 of 14 analysts pick Moicano",
     "Rated 76 points higher"
    ],
@@ -199,23 +199,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.339,
-   "p_a": 0.533,
-   "fair_odds_a": -114,
-   "fair_odds_b": 114,
-   "market_p_a": 0.532,
-   "odds_a": -125.0,
-   "odds_b": 105.0,
-   "best_a": -125.0,
-   "best_b": 105.0,
+   "p_a": 0.522,
+   "fair_odds_a": -109,
+   "fair_odds_b": 109,
+   "market_p_a": 0.522,
+   "odds_a": -120.0,
+   "odds_b": 100.0,
+   "best_a": -120.0,
+   "best_b": 100.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-27T01:48Z",
-     "a": -118.0,
-     "b": -102.0
-    },
     {
      "t": "2026-10-27T01:52Z",
      "a": -118.0,
@@ -410,6 +405,11 @@
      "t": "2026-11-01T01:04Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-11-01T01:11Z",
+     "a": -120.0,
+     "b": 100.0
     }
    ],
    "edge_a": 0.001,
@@ -746,6 +746,11 @@
      "t": "2026-11-01T01:04Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-11-01T01:11Z",
+     "a": 230.0,
+     "b": -285.0
     }
    ],
    "edge_a": 0.004,
@@ -918,8 +923,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-01T00:00Z",
-   "state": "pre",
-   "status": "Sat, October 31st at 8:00 PM EDT",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1428,
    "rating_b": 1457,
@@ -932,11 +937,11 @@
    "market_p_a": 0.468,
    "odds_a": 105.0,
    "odds_b": -125.0,
-   "best_a": 105.0,
-   "best_b": -125.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": -125.0,
    "open_b": 105.0,
-   "books": 1.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-10-27T01:48Z",
@@ -1159,7 +1164,7 @@
    "a_id": "3154898",
    "b_id": "5110469",
    "record_a": "17-8-0",
-   "record_b": "11-2-0",
+   "record_b": "12-2-0",
    "experts": {
     "picks_a": 3,
     "picks_b": 11,
@@ -1309,9 +1314,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-01T00:00Z",
-   "state": "in",
-   "status": "R3, 0:50",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 5:00",
+   "result": {
+    "winner": "Luana Santos",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 5:00",
+    "pick_won": false
+   },
    "rating_a": 1616,
    "rating_b": 1703,
    "debut_a": false,
@@ -1538,7 +1548,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.742,
-    "KO": 0.126,
+    "KO": 0.125,
     "SUB": 0.133
    }
   },
@@ -3791,7 +3801,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.394,
-    "KO": 0.368,
+    "KO": 0.369,
     "SUB": 0.237
    }
   },
@@ -4180,9 +4190,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.738,
+    "DEC": 0.739,
     "KO": 0.125,
-    "SUB": 0.137
+    "SUB": 0.136
    }
   },
   {

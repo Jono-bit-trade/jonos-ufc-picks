@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T01:04Z",
+ "updated": "2026-11-01T01:11Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -186,14 +186,6 @@
    "record": "16-4"
   },
   {
-   "fighter": "Carlos Ulberg",
-   "rating": 1816,
-   "rd": 107,
-   "last_fight": "2026-04-11",
-   "division": "Light Heavyweight",
-   "record": "10-1"
-  },
-  {
    "fighter": "Sean Brady",
    "rating": 1816,
    "rd": 107,
@@ -202,12 +194,12 @@
    "record": "9-2"
   },
   {
-   "fighter": "Nassourdine Imavov",
-   "rating": 1813,
-   "rd": 108,
-   "last_fight": "2025-09-06",
-   "division": "Middleweight",
-   "record": "9-2"
+   "fighter": "Carlos Ulberg",
+   "rating": 1816,
+   "rd": 107,
+   "last_fight": "2026-04-11",
+   "division": "Light Heavyweight",
+   "record": "10-1"
   },
   {
    "fighter": "Quillan Salkilld",
@@ -216,6 +208,14 @@
    "last_fight": "2026-08-08",
    "division": "Lightweight",
    "record": "6-0"
+  },
+  {
+   "fighter": "Nassourdine Imavov",
+   "rating": 1813,
+   "rd": 108,
+   "last_fight": "2025-09-06",
+   "division": "Middleweight",
+   "record": "9-2"
   },
   {
    "fighter": "Song Yadong",
@@ -234,20 +234,20 @@
    "record": "10-1"
   },
   {
-   "fighter": "Tatiana Suarez",
-   "rating": 1810,
-   "rd": 116,
-   "last_fight": "2026-04-11",
-   "division": "Women's Strawweight",
-   "record": "9-1"
-  },
-  {
    "fighter": "Paddy Pimblett",
    "rating": 1810,
    "rd": 114,
    "last_fight": "2026-07-11",
    "division": "Lightweight",
    "record": "8-1"
+  },
+  {
+   "fighter": "Tatiana Suarez",
+   "rating": 1810,
+   "rd": 116,
+   "last_fight": "2026-04-11",
+   "division": "Women's Strawweight",
+   "record": "9-1"
   },
   {
    "fighter": "Sean O'Malley",
@@ -266,20 +266,20 @@
    "record": "9-1"
   },
   {
-   "fighter": "Diego Lopes",
-   "rating": 1807,
-   "rd": 109,
-   "last_fight": "2026-06-14",
-   "division": "Featherweight",
-   "record": "7-3"
-  },
-  {
    "fighter": "Grant Dawson",
    "rating": 1807,
    "rd": 102,
    "last_fight": "2026-10-24",
    "division": "Lightweight",
    "record": "13-2"
+  },
+  {
+   "fighter": "Diego Lopes",
+   "rating": 1807,
+   "rd": 109,
+   "last_fight": "2026-06-14",
+   "division": "Featherweight",
+   "record": "7-3"
   },
   {
    "fighter": "Ian Machado Garry",
@@ -314,20 +314,20 @@
    "record": "7-1"
   },
   {
-   "fighter": "Umar Nurmagomedov",
-   "rating": 1792,
-   "rd": 110,
-   "last_fight": "2026-08-29",
-   "division": "Bantamweight",
-   "record": "8-2"
-  },
-  {
    "fighter": "Jean Silva",
    "rating": 1792,
    "rd": 117,
    "last_fight": "2026-09-12",
    "division": "Featherweight",
    "record": "7-1"
+  },
+  {
+   "fighter": "Umar Nurmagomedov",
+   "rating": 1792,
+   "rd": 110,
+   "last_fight": "2026-08-29",
+   "division": "Bantamweight",
+   "record": "8-2"
   },
   {
    "fighter": "Mike Malott",
@@ -394,12 +394,12 @@
    "record": "12-3"
   },
   {
-   "fighter": "Cory Sandhagen",
+   "fighter": "Gabriel Bonfim",
    "rating": 1774,
-   "rd": 95,
-   "last_fight": "2026-07-11",
-   "division": "Bantamweight",
-   "record": "11-6"
+   "rd": 116,
+   "last_fight": "2026-06-06",
+   "division": "Welterweight",
+   "record": "7-1"
   }
  ],
  "divisions": [
@@ -995,20 +995,20 @@
      "record": "13-7"
     },
     {
-     "fighter": "Beneil Dariush",
-     "rating": 1711,
-     "rd": 91,
-     "last_fight": "2026-05-02",
-     "division": "Lightweight",
-     "record": "17-8"
-    },
-    {
      "fighter": "Chris Padilla",
      "rating": 1711,
      "rd": 136,
      "last_fight": "2026-08-22",
      "division": "Lightweight",
      "record": "5-0"
+    },
+    {
+     "fighter": "Beneil Dariush",
+     "rating": 1711,
+     "rd": 91,
+     "last_fight": "2026-05-02",
+     "division": "Lightweight",
+     "record": "17-8"
     },
     {
      "fighter": "Rafael Fiziev",
@@ -1346,20 +1346,20 @@
      "record": "5-2"
     },
     {
-     "fighter": "Brandon Royval",
-     "rating": 1643,
-     "rd": 102,
-     "last_fight": "2026-07-11",
-     "division": "Flyweight",
-     "record": "8-5"
-    },
-    {
      "fighter": "Imanol Rodriguez",
      "rating": 1643,
      "rd": 163,
      "last_fight": "2026-10-03",
      "division": "Flyweight",
      "record": "2-0"
+    },
+    {
+     "fighter": "Brandon Royval",
+     "rating": 1643,
+     "rd": 102,
+     "last_fight": "2026-07-11",
+     "division": "Flyweight",
+     "record": "8-5"
     },
     {
      "fighter": "Allan Nascimento",
@@ -1394,12 +1394,12 @@
      "record": "3-1"
     },
     {
-     "fighter": "Lone'er Kavanagh",
+     "fighter": "Andre Lima",
      "rating": 1616,
-     "rd": 128,
-     "last_fight": "2026-10-24",
+     "rd": 135,
+     "last_fight": "2026-08-29",
      "division": "Flyweight",
-     "record": "4-2"
+     "record": "5-1"
     }
    ]
   },
@@ -1416,11 +1416,11 @@
     },
     {
      "fighter": "Luana Santos",
-     "rating": 1703,
-     "rd": 124,
-     "last_fight": "2026-06-20",
+     "rating": 1724,
+     "rd": 119,
+     "last_fight": "2026-10-31",
      "division": "Women's Bantamweight",
-     "record": "6-1"
+     "record": "7-1"
     },
     {
      "fighter": "Ailin Perez",
@@ -1479,20 +1479,20 @@
      "record": "5-1"
     },
     {
-     "fighter": "Yana Santos",
-     "rating": 1616,
-     "rd": 135,
-     "last_fight": "2025-10-04",
-     "division": "Women's Bantamweight",
-     "record": "3-2"
-    },
-    {
      "fighter": "Joselyne Edwards",
      "rating": 1612,
      "rd": 103,
      "last_fight": "2026-04-25",
      "division": "Women's Bantamweight",
      "record": "9-4"
+    },
+    {
+     "fighter": "Yana Santos",
+     "rating": 1591,
+     "rd": 128,
+     "last_fight": "2026-10-31",
+     "division": "Women's Bantamweight",
+     "record": "3-3"
     },
     {
      "fighter": "Alice Pereira",
