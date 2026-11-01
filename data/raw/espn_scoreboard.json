@@ -2075,7 +2075,7 @@
        "uid": "s:3301~a:4629138",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Jean-Paul Lebosnoyani",
         "displayName": "Jean-Paul Lebosnoyani",
@@ -2128,18 +2128,19 @@
       }
      ],
      "status": {
-      "clock": 197.0,
-      "displayClock": "3:17",
+      "clock": 131.0,
+      "displayClock": "2:11",
       "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R3, 3:17",
-       "shortDetail": "R3, 3:17"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -2150,6 +2151,48 @@
       }
      ],
      "details": [
+      {
+       "id": "26003",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26002",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26001",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26000",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25999",
+       "type": {
+        "id": "10",
+        "text": "Pause Reason Doctor"
+       }
+      },
+      {
+       "id": "25998",
+       "type": {
+        "id": "6",
+        "text": "Round Pause"
+       }
+      },
       {
        "id": "25997",
        "type": {
@@ -2176,48 +2219,6 @@
        "type": {
         "id": "13",
         "text": "Takedown"
-       }
-      },
-      {
-       "id": "25993",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26019",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26018",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26017",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26016",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26015",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
        }
       }
      ],
@@ -2289,6 +2290,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2316,6 +2318,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2331,13 +2334,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 8:00 PM EDT",
-       "shortDetail": "10/31 - 8:00 PM EDT"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [
