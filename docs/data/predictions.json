@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T01:51Z",
+ "updated": "2026-11-01T01:59Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -212,11 +212,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-10-27T04:42Z",
-     "a": -118.0,
-     "b": -102.0
-    },
-    {
      "t": "2026-10-27T04:54Z",
      "a": -118.0,
      "b": -102.0
@@ -410,6 +405,11 @@
      "t": "2026-11-01T01:51Z",
      "a": -130.0,
      "b": 110.0
+    },
+    {
+     "t": "2026-11-01T01:59Z",
+     "a": -130.0,
+     "b": 110.0
     }
    ],
    "edge_a": 0.0,
@@ -583,7 +583,7 @@
    "segment": "",
    "start": "2026-11-01T00:00Z",
    "state": "in",
-   "status": "Walkouts",
+   "status": "R1, 0:24",
    "result": null,
    "rating_a": 1691,
    "rating_b": 1722,
