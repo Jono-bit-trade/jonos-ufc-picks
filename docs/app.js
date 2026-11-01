@@ -365,13 +365,30 @@ async function recapBanner(ev) {
   if (!e0 || (Date.now() - new Date(e0.date + "T23:59:00")) / 864e5 > 7) return "";
   const e = await get(`events/${e0.slug}.json`);
   if (!e) return "";
-  const r = e.record || {};
+  let r = e.record || {};
+  // the live record's locked picks for this card, when it has them, so the recap matches the Record page
+  const L = await get("ledger.json", true);
+  const lr = L && L.rows ? L.rows.filter(g => g.date === e0.date) : [];
+  if (lr.length) {
+    const o = lr.filter(g => g.our_pick), okp = g => g.winner && g.winner === g.our_pick;
+    r = {our_bets: o.length, our_won: o.filter(okp).length, our_units: Math.round(100 * o.reduce((s, g) => s + (g.our_staked_units || 0), 0)) / 100,
+         right: lr.filter(g => g.model_pick === g.winner).length, picks: lr.length};
+    let bestL = null;
+    for (const g of lr) for (const [pk, od] of [[g.our_pick, g.our_odds], [g.model_pick, g.model_odds], [g.value_pick, g.value_odds]])
+      if (pk && pk === g.winner && od != null && (!bestL || od > bestL.odds)) bestL = {name: pk, odds: od};
+    if (bestL) { const b = e.bouts.find(b => b.a === bestL.name || b.b === bestL.name);
+      return recapHtml(e, r, {...bestL, id: b ? (b.a === bestL.name ? b.a_id : b.b_id) : null}); }
+    return recapHtml(e, r, null);
+  }
   let best = null;
   for (const b of e.bouts) {
     const op = b.our_pick, mp = b.model_pick;
     for (const [k, pk] of [["our", op], ["model", mp]]) if (pk && pk.right && pk.odds != null && (!best || pk.odds > best.odds))
       best = {name: pk.side === "a" ? b.a : b.b, odds: pk.odds, kind: k, id: pk.side === "a" ? b.a_id : b.b_id};
   }
+  return recapHtml(e, r, best);
+}
+function recapHtml(e, r, best) {
   return `<a class="recap" href="#/event/${esc(e.slug)}">
     <span class="rc-l"><b>Last card</b><span>${esc(e.name)}</span></span>
     ${r.our_bets ? `<span class="rc-s"><b>${r.our_won}-${r.our_bets - r.our_won}</b><span>our picks</span></span><span class="rc-s"><b class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</b><span>units</span></span>` : ""}
@@ -397,9 +414,9 @@ async function viewHome() {
       <div class="when">${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
       <h1>${esc(p.event)}</h1>
       <div class="faceoff">
-        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug, true)}${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug, true)}${flagOf(m.b_slug, true)}<span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
