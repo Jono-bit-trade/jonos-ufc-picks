@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T03:08Z",
+ "updated": "2026-11-01T03:26Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -199,6 +199,7 @@
    "debut_b": false,
    "p_model_a": 0.339,
    "p_a": 0.543,
+   "model_pick": "Renato Moicano",
    "fair_odds_a": -119,
    "fair_odds_b": 119,
    "market_p_a": 0.543,
@@ -388,6 +389,7 @@
    "debut_b": false,
    "p_model_a": 0.356,
    "p_a": 0.295,
+   "model_pick": "Jacobe Smith",
    "fair_odds_a": 239,
    "fair_odds_b": -239,
    "market_p_a": 0.29,
@@ -557,7 +559,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.24,
+    "handle_b": 0.76,
+    "bets_a": 0.46,
+    "bets_b": 0.54,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -577,6 +585,7 @@
    "debut_b": false,
    "p_model_a": 0.46,
    "p_a": 0.482,
+   "model_pick": "Cody Durden",
    "fair_odds_a": 107,
    "fair_odds_b": -107,
    "market_p_a": 0.468,
@@ -746,7 +755,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.43,
+    "handle_b": 0.57,
+    "bets_a": 0.28,
+    "bets_b": 0.72,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
@@ -766,6 +781,7 @@
    "debut_b": false,
    "p_model_a": 0.3,
    "p_a": 0.258,
+   "model_pick": "Luana Santos",
    "fair_odds_a": 287,
    "fair_odds_b": -287,
    "market_p_a": 0.259,
@@ -935,7 +951,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.8,
+    "handle_b": 0.2,
+    "bets_a": 0.82,
+    "bets_b": 0.18,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -955,6 +977,7 @@
    "debut_b": false,
    "p_model_a": 0.615,
    "p_a": 0.729,
+   "model_pick": "Jean-Paul Lebosnoyani",
    "fair_odds_a": -269,
    "fair_odds_b": 269,
    "market_p_a": 0.705,
@@ -1124,7 +1147,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.74,
+    "handle_b": 0.26,
+    "bets_a": 0.69,
+    "bets_b": 0.31,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -1144,6 +1173,7 @@
    "debut_b": false,
    "p_model_a": 0.512,
    "p_a": 0.662,
+   "model_pick": "Francis Marshall",
    "fair_odds_a": -196,
    "fair_odds_b": 196,
    "market_p_a": 0.645,
@@ -1313,7 +1343,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.6,
+    "handle_b": 0.4,
+    "bets_a": 0.62,
+    "bets_b": 0.38,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1333,6 +1369,7 @@
    "debut_b": false,
    "p_model_a": 0.481,
    "p_a": 0.624,
+   "model_pick": "Rodrigo Sezinando",
    "fair_odds_a": -166,
    "fair_odds_b": 166,
    "market_p_a": 0.609,
@@ -1502,7 +1539,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.55,
+    "handle_b": 0.45,
+    "bets_a": 0.6,
+    "bets_b": 0.4,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -1522,6 +1565,7 @@
    "debut_b": false,
    "p_model_a": 0.392,
    "p_a": 0.495,
+   "model_pick": "Julian Erosa",
    "fair_odds_a": 102,
    "fair_odds_b": -102,
    "market_p_a": 0.437,
@@ -1691,7 +1735,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.89,
+    "handle_b": 0.11,
+    "bets_a": 0.91,
+    "bets_b": 0.09,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [
     "Our chance 88% vs the line's 78% (10 points of value)",
     "14 of 14 analysts agree",
@@ -1715,6 +1765,7 @@
    "debut_b": false,
    "p_model_a": 0.662,
    "p_a": 0.88,
+   "model_pick": "Zach Reese",
    "fair_odds_a": -732,
    "fair_odds_b": 732,
    "market_p_a": 0.782,
@@ -1884,7 +1935,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.1,
+    "handle_b": 0.9,
+    "bets_a": 0.17,
+    "bets_b": 0.83,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [
     "Our chance 76% vs the line's 73% (3 points of value)",
     "12 of 14 analysts agree",
@@ -1909,6 +1966,7 @@
    "debut_b": true,
    "p_model_a": 0.358,
    "p_a": 0.239,
+   "model_pick": "Joe Kropschot",
    "fair_odds_a": 318,
    "fair_odds_b": -318,
    "market_p_a": 0.274,
@@ -2078,7 +2136,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.5,
+    "handle_b": 0.5,
+    "bets_a": 0.24,
+    "bets_b": 0.76,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [],
    "weight_class": "Women's Strawweight",
    "rounds": 3,
@@ -2098,6 +2162,7 @@
    "debut_b": false,
    "p_model_a": 0.481,
    "p_a": 0.298,
+   "model_pick": "Piera Rodriguez",
    "fair_odds_a": 236,
    "fair_odds_b": -236,
    "market_p_a": 0.282,
@@ -2267,7 +2332,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.65,
+    "handle_b": 0.35,
+    "bets_a": 0.8,
+    "bets_b": 0.2,
+    "at": "2026-11-01T03:26Z"
+   },
    "why": [
     "Our chance 89% vs the line's 84% (5 points of value)",
     "14 of 14 analysts agree"
@@ -2290,6 +2361,7 @@
    "debut_b": false,
    "p_model_a": 0.567,
    "p_a": 0.893,
+   "model_pick": "Lucia Szabov\u00e1",
    "fair_odds_a": -832,
    "fair_odds_b": 832,
    "market_p_a": 0.84,
