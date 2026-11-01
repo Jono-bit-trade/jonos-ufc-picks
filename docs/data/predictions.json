@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T02:30Z",
+ "updated": "2026-11-01T02:38Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -192,7 +192,7 @@
    "segment": "",
    "start": "2026-11-01T00:00Z",
    "state": "in",
-   "status": "Intros",
+   "status": "R2, 3:27",
    "result": null,
    "rating_a": 1724,
    "rating_b": 1648,
