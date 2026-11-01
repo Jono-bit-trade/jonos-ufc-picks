@@ -1,7 +1,6 @@
 name,fetched,td_per15,td_def,sub_per15,str_def,record,status,url,slpm,sapm,kd_per15,avg_time,head,body,leg,sig_landed,sig_att,standing,clinch,ground,str_acc,birthplace,trains_at,fighting_style
 Aoriqileng,2000-01-01,1.05,0.6,0.15,0.47,26-14-0,ok,https://www.ufc.com/athlete/aoriqileng,4.29,5.62,0.45,9.1333,0.64,0.241,0.118,431.0,863.0,0.84,0.053,0.107,0.499,,,
 Sumudaerji,2000-01-01,,,,,,no stats,https://www.ufc.com/athlete/sumudaerji,,,,,,,,,,,,,,,,
-Waldo Cortes Acosta,2000-01-01,0.36,0.7,0.09,0.55,17-4-0,ok,https://www.ufc.com/athlete/waldo-cortes-acosta,5.03,3.44,0.64,11.0,0.723,0.137,0.14,830.0,1745.0,0.867,0.041,0.092,0.476,,,
 Rongzhu,2000-01-01,1.18,0.85,0.12,0.54,29-6-0,ok,https://www.ufc.com/athlete/rongzhu,6.2,5.32,0.59,11.55,0.733,0.142,0.125,787.0,1561.0,0.881,0.039,0.08,0.504,,,
 Renato Moicano,2026-10-26,1.68,0.64,0.56,0.6,21-7-1,ok,https://www.ufc.com/athlete/renato-moicano,4.1,3.55,0.16,9.4,0.73,0.097,0.173,771.0,1567.0,0.825,0.032,0.143,0.492,"Brasilia, Brazil",American Top Team,Jiu-Jitsu
 Ode' Osbourne,2026-10-26,0.94,0.67,0.4,0.49,13-9-0,ok,https://www.ufc.com/athlete/ode-osbourne,2.94,3.24,0.54,7.9333,0.657,0.205,0.138,327.0,802.0,0.829,0.049,0.122,0.408,"Kingston, Jamaica",,Striker
@@ -824,3 +823,9 @@ Rodrigo Nascimento,2026-10-27,1.02,0.61,0.51,0.45,11-3-0,ok,https://www.ufc.com/
 Trevin Giles,2026-10-27,1.07,0.72,0.29,0.58,16-7-0,ok,https://www.ufc.com/athlete/trevin-giles,3.17,2.39,0.29,10.9833,0.745,0.094,0.16,487.0,895.0,0.758,0.066,0.177,0.544,"San Antonio, United States",War Training Center,Freestyle
 Garrett Armfield,2026-10-27,1.1,0.65,0.55,0.56,10-5-0,ok,https://www.ufc.com/athlete/garrett-armfield,5.35,3.64,0.55,10.8667,0.766,0.175,0.058,291.0,542.0,0.845,0.055,0.1,0.537,"Eureka, United States",Marathon MMA,Freestyle
 Pedro Munhoz,2026-10-27,0.48,0.82,0.48,0.56,20-10-0,ok,https://www.ufc.com/athlete/pedro-munhoz,5.38,6.29,0.42,11.4667,0.532,0.165,0.303,1358.0,3239.0,0.922,0.042,0.036,0.419,Brazil,Black House MMA,Muay Thai
+Waldo Cortes Acosta,2026-11-01,0.36,0.7,0.09,0.55,17-4-0,ok,https://www.ufc.com/athlete/waldo-cortes-acosta,5.03,3.44,0.64,11.0,0.723,0.137,0.14,830.0,1745.0,0.867,0.041,0.092,0.476,"Fundacion, Barahona, Dominican Republic",UKF Gym,Striker
+Mantas Kondratavičius,2026-11-01,2.8,0.92,0.93,0.57,9-1-0,ok,https://www.ufc.com/athlete/mantas-kondratavicius,4.97,1.3,1.86,8.05,0.812,0.188,0.0,80.0,122.0,0.55,0.225,0.225,0.656,"Kaunas County, Lithuania",,MMA
+Gabriel Lorenço,2026-11-01,0.0,1.0,0.0,0.47,1-0-0,ok,https://www.ufc.com/athlete/gabriel-lorenco,9.84,3.93,14.75,2.0333,0.8,0.1,0.1,20.0,43.0,0.45,0.05,0.5,0.465,"Roca Sales, Brazil",,
+Jonny Parsons,2026-11-01,0.0,0.67,0.0,0.6,9-3-0,ok,https://www.ufc.com/athlete/jonny-parsons,4.65,4.89,1.2,12.4833,0.621,0.224,0.155,116.0,260.0,0.888,0.069,0.043,0.446,"Biloxi, United States",,Muay Thai
+Wellington Turman,2026-11-01,1.55,0.43,0.78,0.45,18-8-0,ok,https://www.ufc.com/athlete/wellington-turman,3.23,4.17,0.0,10.7333,0.587,0.205,0.208,312.0,609.0,0.76,0.163,0.077,0.512,"Curitiba, Brazil","Teixeira MMA & Fitness-Bethel, CT",Jiu-Jitsu
+Marcos Degli,2026-11-01,4.61,0.75,4.61,0.75,1-0-0,ok,https://www.ufc.com/athlete/marcos-degli,1.95,0.51,0.0,9.7667,0.474,0.316,0.211,19.0,28.0,0.421,0.263,0.316,0.679,,,
