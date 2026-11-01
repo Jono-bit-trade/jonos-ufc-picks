@@ -10,7 +10,6 @@
 set -u
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-START=$(git rev-parse HEAD)
 REBUILT="docs/data data/fights.csv data/model_history.csv data/backtest_log.csv data/backtest_summary.json
   data/backtest_early.csv data/market_blend.json data/model_config.json data/final_stack.json
   data/edges.csv data/expert_walkforward.csv"
@@ -18,7 +17,7 @@ REBUILT="docs/data data/fights.csv data/model_history.csv data/backtest_log.csv 
 for i in 1 2 3; do
   git fetch -q origin main || { sleep 5; continue; }
   git reset -q --mixed origin/main          # index = latest main; working tree = this run's files
-  if ! git diff --quiet "$START" origin/main -- src; then
+  if ! git diff --quiet origin/main -- src; then   # the code this run used (it may refresh src mid-run) vs main
     echo "Code changed since this run started: keeping collected data, not rebuilt site files"
     for p in $REBUILT; do git checkout -q origin/main -- "$p" 2>/dev/null || true; done
   fi
