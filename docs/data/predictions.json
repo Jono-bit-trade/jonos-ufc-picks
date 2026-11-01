@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T01:43Z",
+ "updated": "2026-11-01T01:51Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -183,7 +183,7 @@
     "at": "2026-10-31T23:36Z"
    },
    "why": [
-    "Our chance 53% vs the line's 53%",
+    "Our chance 54% vs the line's 54%",
     "Close fight and 10 of 14 analysts pick Moicano",
     "Rated 76 points higher"
    ],
@@ -199,23 +199,18 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.339,
-   "p_a": 0.533,
-   "fair_odds_a": -114,
-   "fair_odds_b": 114,
-   "market_p_a": 0.532,
-   "odds_a": -125.0,
-   "odds_b": 105.0,
-   "best_a": -125.0,
-   "best_b": 105.0,
+   "p_a": 0.543,
+   "fair_odds_a": -119,
+   "fair_odds_b": 119,
+   "market_p_a": 0.543,
+   "odds_a": -130.0,
+   "odds_b": 110.0,
+   "best_a": -130.0,
+   "best_b": 110.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-10-27T03:55Z",
-     "a": -118.0,
-     "b": -102.0
-    },
     {
      "t": "2026-10-27T04:42Z",
      "a": -118.0,
@@ -410,9 +405,14 @@
      "t": "2026-11-01T01:43Z",
      "a": -125.0,
      "b": 105.0
+    },
+    {
+     "t": "2026-11-01T01:51Z",
+     "a": -130.0,
+     "b": 110.0
     }
    ],
-   "edge_a": 0.001,
+   "edge_a": 0.0,
    "pick": null,
    "our_pick": "Renato Moicano",
    "stake": 1.5,
@@ -583,7 +583,7 @@
    "segment": "",
    "start": "2026-11-01T00:00Z",
    "state": "in",
-   "status": "Pre-fight",
+   "status": "Walkouts",
    "result": null,
    "rating_a": 1691,
    "rating_b": 1722,
@@ -787,8 +787,8 @@
    "b_slug": "cody-durden",
    "a_id": "4424224",
    "b_id": "4686725",
-   "record_a": "13-9-0",
-   "record_b": "18-11-1",
+   "record_a": "13-10-0",
+   "record_b": "19-11-1",
    "experts": {
     "picks_a": 6,
     "picks_b": 8,

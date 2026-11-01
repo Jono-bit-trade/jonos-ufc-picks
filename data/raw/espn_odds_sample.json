@@ -6,7 +6,7 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "R. Moicano -125",
+ "details": "R. Moicano -130",
  "overUnder": 1.5,
  "spread": -5.5,
  "overOdds": -210.0,
@@ -14,7 +14,7 @@
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 105,
+  "moneyLine": 110,
   "spreadOdds": -135.0,
   "open": {
    "favorite": false,
@@ -79,12 +79,12 @@
     "american": "-135"
    },
    "moneyLine": {
-    "value": 2.05,
-    "displayValue": "21/20",
-    "alternateDisplayValue": "+105",
-    "decimal": 2.05,
-    "fraction": "21/20",
-    "american": "+105"
+    "value": 2.1,
+    "displayValue": "11/10",
+    "alternateDisplayValue": "+110",
+    "decimal": 2.1,
+    "fraction": "11/10",
+    "american": "+110"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -120,7 +120,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -125,
+  "moneyLine": -130,
   "spreadOdds": 100.0,
   "open": {
    "favorite": true,
@@ -185,12 +185,12 @@
     "american": "+100"
    },
    "moneyLine": {
-    "value": 1.8,
-    "displayValue": "4/5",
-    "alternateDisplayValue": "-125",
-    "decimal": 1.8,
-    "fraction": "4/5",
-    "american": "-125"
+    "value": 1.76,
+    "displayValue": "10/13",
+    "alternateDisplayValue": "-130",
+    "decimal": 1.76,
+    "fraction": "10/13",
+    "american": "-130"
    },
    "victoryMethod": {
     "koTkoDq": {
