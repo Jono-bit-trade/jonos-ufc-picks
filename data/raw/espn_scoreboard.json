@@ -1878,17 +1878,17 @@
       }
      ],
      "status": {
-      "clock": 43.0,
-      "displayClock": "0:43",
-      "period": 2,
+      "clock": 1.0,
+      "displayClock": "0:01",
+      "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
+       "id": "142",
+       "name": "STATUS_END_OF_ROUND",
        "state": "in",
        "completed": false,
-       "description": "In Progress",
-       "detail": "R2, 0:43",
-       "shortDetail": "R2, 0:43"
+       "description": "End of Round",
+       "detail": "End R3",
+       "shortDetail": "End R3"
       }
      },
      "broadcasts": [
@@ -1901,73 +1901,73 @@
      ],
      "details": [
       {
-       "id": "25820",
+       "id": "25931",
        "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
+        "id": "19",
+        "text": "Fight Over"
        }
       },
       {
-       "id": "25819",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "25818",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "25817",
+       "id": "25930",
        "type": {
         "id": "18",
         "text": "Round End"
        }
       },
       {
-       "id": "25851",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "25850",
+       "id": "25910",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "25833",
+       "id": "25890",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25874",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25873",
        "type": {
         "id": "5",
         "text": "Round Start"
        }
       },
       {
-       "id": "25832",
+       "id": "25872",
        "type": {
-        "id": "4",
-        "text": "Staredown"
+        "id": "18",
+        "text": "Round End"
        }
       },
       {
-       "id": "25831",
+       "id": "25871",
        "type": {
-        "id": "3",
-        "text": "Tale of the tape"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "25830",
+       "id": "25870",
        "type": {
-        "id": "2",
-        "text": "Walkout"
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25820",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       }
      ],
@@ -2039,6 +2039,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2066,6 +2067,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2081,13 +2083,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, October 31st at 8:00 PM EDT",
-       "shortDetail": "10/31 - 8:00 PM EDT"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [
