@@ -62,7 +62,7 @@ LEDGER_FROM = "2026-10-31"
 # Fighter photos: "espn_first" (ESPN headshots, freely licensed Wikimedia Commons photos where ESPN
 # has none), "commons_first", or "commons_only" (only photos whose license allows reuse with credit;
 # everyone else gets initials). Every Commons photo shown is credited on the site's Photo credits page.
-PHOTO_MODE = "commons_first"
+PHOTO_MODE = "espn_first"
 
 # Expert lean: in a close fight (line 40-60%), when 65%+ of 5+ SplitPicks analysts agree, their side
 # becomes our pick (if the model has no our pick there) and the fight is tagged "Expert lean".
