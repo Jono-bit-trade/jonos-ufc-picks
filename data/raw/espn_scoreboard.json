@@ -2820,7 +2820,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "20-8-0"
+         "summary": "20-9-0"
         }
        ]
       },
@@ -3084,13 +3084,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "139",
-       "name": "STATUS_FIGHTERS_WALKING",
+       "id": "140",
+       "name": "STATUS_FIGHTERS_INTRODUCTION",
        "state": "in",
        "completed": false,
-       "description": "Walkouts",
-       "detail": "Walkouts",
-       "shortDetail": "Walkouts"
+       "description": "Intros",
+       "detail": "Intros",
+       "shortDetail": "Intros"
       }
      },
      "broadcasts": [
@@ -3102,6 +3102,27 @@
       }
      ],
      "details": [
+      {
+       "id": "26113",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26132",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26131",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
       {
        "id": "26130",
        "type": {

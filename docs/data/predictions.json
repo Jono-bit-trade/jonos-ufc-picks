@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T02:22Z",
+ "updated": "2026-11-01T02:30Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -192,7 +192,7 @@
    "segment": "",
    "start": "2026-11-01T00:00Z",
    "state": "in",
-   "status": "Walkouts",
+   "status": "Intros",
    "result": null,
    "rating_a": 1724,
    "rating_b": 1648,
@@ -230,7 +230,7 @@
    "b_slug": "jacobe-smith",
    "a_id": "3960071",
    "b_id": "5149961",
-   "record_a": "20-8-0",
+   "record_a": "20-9-0",
    "record_b": "14-0-0",
    "experts": {
     "picks_a": 1,
