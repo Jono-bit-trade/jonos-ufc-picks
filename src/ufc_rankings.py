@@ -43,7 +43,7 @@ def parse(html):
             m = re.match(r"\d+", tds[0].get_text(strip=True))
             if m:
                 rows.append({"division": div, "rank": int(m.group()), "name": a.get_text(strip=True), "ufc_slug": athlete_slug(a.get("href"))})
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows).drop_duplicates(["division", "rank", "name"])   # the page repeats each table
 
 
 def main():
