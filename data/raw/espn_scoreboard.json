@@ -3046,7 +3046,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "21-7-1"
+         "summary": "21-8-1"
         }
        ]
       },
@@ -3074,7 +3074,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "11-1-0"
+         "summary": "12-1-0"
         }
        ]
       }
@@ -3205,26 +3205,13 @@
     {
      "language": "en-US",
      "rel": [
-      "live",
-      "desktop",
-      "event"
-     ],
-     "href": "https://www.espn.com/mma/fightcenter/_/id/600061420",
-     "text": "Gamecast",
-     "shortText": "Gamecast",
-     "isExternal": false,
-     "isPremium": false
-    },
-    {
-     "language": "en-US",
-     "rel": [
       "summary",
       "desktop",
       "event"
      ],
      "href": "https://www.espn.com/mma/fightcenter/_/id/600061420/league/ufc",
-     "text": "FightCenter",
-     "shortText": "FightCenter",
+     "text": "Gamecast",
+     "shortText": "Gamecast",
      "isExternal": false,
      "isPremium": false
     }
@@ -3242,13 +3229,13 @@
    ],
    "status": {
     "type": {
-     "id": "2",
-     "name": "STATUS_IN_PROGRESS",
-     "state": "in",
-     "completed": false,
-     "description": "In Progress",
-     "detail": "In Progress",
-     "shortDetail": "In Progress"
+     "id": "3",
+     "name": "STATUS_FINAL",
+     "state": "post",
+     "completed": true,
+     "description": "Final",
+     "detail": "Final",
+     "shortDetail": "Final"
     }
    }
   }

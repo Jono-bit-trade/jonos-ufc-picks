@@ -1,13 +1,13 @@
-fight_id,date,a,b,winner,result,model_pick,model_odds,our_pick,our_odds,expert_lean,logged_at,model_units,our_units,stake,our_staked_units,value_pick,value_odds,value_units
-2026-10-31|Nick Klein|Joe Kropschot,2026-10-31,Nick Klein,Joe Kropschot,Joe Kropschot,b,Joe Kropschot,-310.0,Joe Kropschot,-310.0,,2026-10-31T20:26Z,0.323,0.323,1.0,0.323,Joe Kropschot,-310.0,0.323
-2026-10-31|Talita Alencar|Piera Rodriguez,2026-10-31,Talita Alencar,Piera Rodriguez,Piera Rodriguez,b,Piera Rodriguez,-298.0,,,,2026-10-31T20:26Z,0.336,,,,,,
-2026-10-31|Lucia Szabová|Tainara Lisboa,2026-10-31,Lucia Szabová,Tainara Lisboa,Lucia Szabová,a,Lucia Szabová,-700.0,Lucia Szabová,-700.0,,2026-10-31T20:26Z,0.143,0.143,0.5,0.071,Lucia Szabová,-700.0,0.143
-2026-10-31|Zach Reese|Mickey Gall,2026-10-31,Zach Reese,Mickey Gall,Zach Reese,a,Zach Reese,-440.0,Zach Reese,-440.0,,2026-10-31T20:26Z,0.227,0.227,0.5,0.114,Zach Reese,-440.0,0.227
-2026-10-31|Rodrigo Sezinando|Theodor Berggren,2026-10-31,Rodrigo Sezinando,Theodor Berggren,Rodrigo Sezinando,a,Rodrigo Sezinando,-175.0,,,,2026-10-31T22:49Z,0.571,,,,,,
-2026-10-31|Julian Erosa|JeongYeong Lee,2026-10-31,Julian Erosa,JeongYeong Lee,Julian Erosa,a,JeongYeong Lee,-142.0,,,,2026-10-31T22:49Z,-1.0,,,,Julian Erosa,120.0,1.2
-2026-10-31|Francis Marshall|Dakota Hope,2026-10-31,Francis Marshall,Dakota Hope,Dakota Hope,b,Francis Marshall,-205.0,,,,2026-10-31T22:49Z,-1.0,,,,,,
-2026-10-31|Jean-Paul Lebosnoyani|Farman Hasanov,2026-10-31,Jean-Paul Lebosnoyani,Farman Hasanov,Jean-Paul Lebosnoyani,a,Jean-Paul Lebosnoyani,-278.0,,,,2026-10-31T23:52Z,0.36,,,,,,
-2026-10-31|Yana Santos|Luana Santos,2026-10-31,Yana Santos,Luana Santos,Luana Santos,b,Luana Santos,-340.0,,,,2026-11-01T00:32Z,0.294,,,,,,
-2026-10-31|Ode Osbourne|Cody Durden,2026-10-31,Ode Osbourne,Cody Durden,Cody Durden,b,Cody Durden,-125.0,,,,2026-11-01T01:04Z,0.8,,,,,,
-2026-10-31|Randy Brown|Jacobe Smith,2026-10-31,Randy Brown,Jacobe Smith,Jacobe Smith,b,Jacobe Smith,-285.0,,,,2026-11-01T01:35Z,0.351,,,,,,
-2026-10-31|Renato Moicano|Tom Nolan,2026-10-31,Renato Moicano,Tom Nolan,Tom Nolan,b,Renato Moicano,-130.0,Renato Moicano,-130.0,Renato Moicano,2026-11-01T02:07Z,-1.0,-1.0,1.5,-1.5,,,
+fight_id,date,a,b,winner,result,model_pick,model_odds,our_pick,our_odds,expert_lean,logged_at,model_units,our_units,stake,our_staked_units,value_pick,value_odds,value_units,our_source
+2026-10-31|Nick Klein|Joe Kropschot,2026-10-31,Nick Klein,Joe Kropschot,Joe Kropschot,b,Joe Kropschot,-310.0,Joe Kropschot,-310.0,,2026-10-31T20:26Z,0.323,0.323,1.0,0.323,Joe Kropschot,-310.0,0.323,model
+2026-10-31|Talita Alencar|Piera Rodriguez,2026-10-31,Talita Alencar,Piera Rodriguez,Piera Rodriguez,b,Piera Rodriguez,-298.0,,,,2026-10-31T20:26Z,0.336,,,,,,,
+2026-10-31|Lucia Szabová|Tainara Lisboa,2026-10-31,Lucia Szabová,Tainara Lisboa,Lucia Szabová,a,Lucia Szabová,-700.0,Lucia Szabová,-700.0,,2026-10-31T20:26Z,0.143,0.143,0.5,0.071,Lucia Szabová,-700.0,0.143,model
+2026-10-31|Zach Reese|Mickey Gall,2026-10-31,Zach Reese,Mickey Gall,Zach Reese,a,Zach Reese,-440.0,Zach Reese,-440.0,,2026-10-31T20:26Z,0.227,0.227,0.5,0.114,Zach Reese,-440.0,0.227,model
+2026-10-31|Rodrigo Sezinando|Theodor Berggren,2026-10-31,Rodrigo Sezinando,Theodor Berggren,Rodrigo Sezinando,a,Rodrigo Sezinando,-175.0,,,,2026-10-31T22:49Z,0.571,,,,,,,
+2026-10-31|Julian Erosa|JeongYeong Lee,2026-10-31,Julian Erosa,JeongYeong Lee,Julian Erosa,a,JeongYeong Lee,-142.0,,,,2026-10-31T22:49Z,-1.0,,,,Julian Erosa,120.0,1.2,
+2026-10-31|Francis Marshall|Dakota Hope,2026-10-31,Francis Marshall,Dakota Hope,Dakota Hope,b,Francis Marshall,-205.0,,,,2026-10-31T22:49Z,-1.0,,,,,,,
+2026-10-31|Jean-Paul Lebosnoyani|Farman Hasanov,2026-10-31,Jean-Paul Lebosnoyani,Farman Hasanov,Jean-Paul Lebosnoyani,a,Jean-Paul Lebosnoyani,-278.0,,,,2026-10-31T23:52Z,0.36,,,,,,,
+2026-10-31|Yana Santos|Luana Santos,2026-10-31,Yana Santos,Luana Santos,Luana Santos,b,Luana Santos,-340.0,,,,2026-11-01T00:32Z,0.294,,,,,,,
+2026-10-31|Ode Osbourne|Cody Durden,2026-10-31,Ode Osbourne,Cody Durden,Cody Durden,b,Cody Durden,-125.0,,,,2026-11-01T01:04Z,0.8,,,,,,,
+2026-10-31|Randy Brown|Jacobe Smith,2026-10-31,Randy Brown,Jacobe Smith,Jacobe Smith,b,Jacobe Smith,-285.0,,,,2026-11-01T01:35Z,0.351,,,,,,,
+2026-10-31|Renato Moicano|Tom Nolan,2026-10-31,Renato Moicano,Tom Nolan,Tom Nolan,b,Renato Moicano,-130.0,Renato Moicano,-130.0,Renato Moicano,2026-11-01T02:07Z,-1.0,-1.0,1.5,-1.5,,,,experts
