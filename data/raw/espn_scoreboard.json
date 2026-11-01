@@ -2128,17 +2128,17 @@
       }
      ],
      "status": {
-      "clock": 291.0,
-      "displayClock": "4:51",
-      "period": 2,
+      "clock": 197.0,
+      "displayClock": "3:17",
+      "period": 3,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 4:51",
-       "shortDetail": "R2, 4:51"
+       "detail": "R3, 3:17",
+       "shortDetail": "R3, 3:17"
       }
      },
      "broadcasts": [
@@ -2150,6 +2150,55 @@
       }
      ],
      "details": [
+      {
+       "id": "25997",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "25996",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "25995",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "25994",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "25993",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26019",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26018",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26017",
        "type": {
@@ -2169,55 +2218,6 @@
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26014",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "26013",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26012",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26011",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26010",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "25992",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "25991",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
        }
       }
      ],
