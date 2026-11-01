@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T05:49Z",
+ "updated": "2026-11-01T13:09Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -66,20 +66,20 @@
    "record": "24-9"
   },
   {
-   "fighter": "Michael Morales",
-   "rating": 1859,
-   "rd": 122,
-   "last_fight": "2025-11-15",
-   "division": "Welterweight",
-   "record": "7-0"
-  },
-  {
    "fighter": "Petr Yan",
    "rating": 1859,
    "rd": 97,
    "last_fight": "2026-10-24",
    "division": "Bantamweight",
    "record": "12-4"
+  },
+  {
+   "fighter": "Michael Morales",
+   "rating": 1859,
+   "rd": 122,
+   "last_fight": "2025-11-15",
+   "division": "Welterweight",
+   "record": "7-0"
   },
   {
    "fighter": "Carlos Prates",
@@ -234,6 +234,14 @@
    "record": "10-1"
   },
   {
+   "fighter": "Tatiana Suarez",
+   "rating": 1810,
+   "rd": 116,
+   "last_fight": "2026-04-11",
+   "division": "Women's Strawweight",
+   "record": "9-1"
+  },
+  {
    "fighter": "Paddy Pimblett",
    "rating": 1810,
    "rd": 114,
@@ -242,11 +250,11 @@
    "record": "8-1"
   },
   {
-   "fighter": "Tatiana Suarez",
-   "rating": 1810,
-   "rd": 116,
-   "last_fight": "2026-04-11",
-   "division": "Women's Strawweight",
+   "fighter": "Lerone Murphy",
+   "rating": 1809,
+   "rd": 114,
+   "last_fight": "2026-03-21",
+   "division": "Featherweight",
    "record": "9-1"
   },
   {
@@ -256,14 +264,6 @@
    "last_fight": "2026-06-14",
    "division": "Bantamweight",
    "record": "12-3"
-  },
-  {
-   "fighter": "Lerone Murphy",
-   "rating": 1809,
-   "rd": 114,
-   "last_fight": "2026-03-21",
-   "division": "Featherweight",
-   "record": "9-1"
   },
   {
    "fighter": "Grant Dawson",
@@ -290,20 +290,20 @@
    "record": "7-2"
   },
   {
-   "fighter": "Dustin Poirier",
-   "rating": 1795,
-   "rd": 91,
-   "last_fight": "2025-07-19",
-   "division": "Lightweight",
-   "record": "22-9"
-  },
-  {
    "fighter": "Leon Edwards",
    "rating": 1795,
    "rd": 97,
    "last_fight": "2025-11-15",
    "division": "Welterweight",
    "record": "14-5"
+  },
+  {
+   "fighter": "Dustin Poirier",
+   "rating": 1795,
+   "rd": 91,
+   "last_fight": "2025-07-19",
+   "division": "Lightweight",
+   "record": "22-9"
   },
   {
    "fighter": "Joe Pyfer",
@@ -314,20 +314,20 @@
    "record": "7-1"
   },
   {
-   "fighter": "Jean Silva",
-   "rating": 1792,
-   "rd": 117,
-   "last_fight": "2026-09-12",
-   "division": "Featherweight",
-   "record": "7-1"
-  },
-  {
    "fighter": "Umar Nurmagomedov",
    "rating": 1792,
    "rd": 110,
    "last_fight": "2026-08-29",
    "division": "Bantamweight",
    "record": "8-2"
+  },
+  {
+   "fighter": "Jean Silva",
+   "rating": 1792,
+   "rd": 117,
+   "last_fight": "2026-09-12",
+   "division": "Featherweight",
+   "record": "7-1"
   },
   {
    "fighter": "Mike Malott",
@@ -753,20 +753,20 @@
      "record": "5-1"
     },
     {
-     "fighter": "Anthony Hernandez",
-     "rating": 1721,
-     "rd": 102,
-     "last_fight": "2026-08-22",
-     "division": "Middleweight",
-     "record": "9-4"
-    },
-    {
      "fighter": "Bo Nickal",
      "rating": 1721,
      "rd": 123,
      "last_fight": "2026-06-14",
      "division": "Middleweight",
      "record": "6-1"
+    },
+    {
+     "fighter": "Anthony Hernandez",
+     "rating": 1721,
+     "rd": 102,
+     "last_fight": "2026-08-22",
+     "division": "Middleweight",
+     "record": "9-4"
     },
     {
      "fighter": "Yousri Belgaroui",
@@ -987,20 +987,20 @@
      "record": "9-4"
     },
     {
-     "fighter": "Chris Padilla",
-     "rating": 1711,
-     "rd": 136,
-     "last_fight": "2026-08-22",
-     "division": "Lightweight",
-     "record": "5-0"
-    },
-    {
      "fighter": "Beneil Dariush",
      "rating": 1711,
      "rd": 91,
      "last_fight": "2026-05-02",
      "division": "Lightweight",
      "record": "17-8"
+    },
+    {
+     "fighter": "Chris Padilla",
+     "rating": 1711,
+     "rd": 136,
+     "last_fight": "2026-08-22",
+     "division": "Lightweight",
+     "record": "5-0"
     },
     {
      "fighter": "Rafael Fiziev",
@@ -1322,20 +1322,20 @@
      "record": "7-1"
     },
     {
-     "fighter": "Brandon Moreno",
-     "rating": 1720,
-     "rd": 95,
-     "last_fight": "2026-09-12",
-     "division": "Flyweight",
-     "record": "12-7"
-    },
-    {
      "fighter": "Kyoji Horiguchi",
      "rating": 1720,
      "rd": 117,
      "last_fight": "2026-06-20",
      "division": "Flyweight",
      "record": "9-2"
+    },
+    {
+     "fighter": "Brandon Moreno",
+     "rating": 1720,
+     "rd": 95,
+     "last_fight": "2026-09-12",
+     "division": "Flyweight",
+     "record": "12-7"
     },
     {
      "fighter": "Amir Albazi",
@@ -1394,12 +1394,12 @@
      "record": "3-1"
     },
     {
-     "fighter": "Andre Lima",
+     "fighter": "Lone'er Kavanagh",
      "rating": 1616,
-     "rd": 135,
-     "last_fight": "2026-08-29",
+     "rd": 128,
+     "last_fight": "2026-10-24",
      "division": "Flyweight",
-     "record": "5-1"
+     "record": "4-2"
     }
    ]
   },
