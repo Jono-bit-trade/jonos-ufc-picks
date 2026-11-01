@@ -223,14 +223,15 @@ def upcoming_cards(js):
         json.dump(out[:8], open(os.path.join(SITE, "data", "upcoming.json"), "w"), indent=1)
 
 
-def next_event_date(js):
-    """The next card's date (YYYYMMDD) from the league calendar in a scoreboard response."""
+def next_event_date(js, after=None):
+    """The next card's date (YYYYMMDD) from the league calendar in a scoreboard response, later than `after`."""
     now = pd.Timestamp.now(tz="UTC")
     for c in (_get(js, "leagues", default=[{}]) or [{}])[0].get("calendar", []):
         start = pd.Timestamp(c.get("startDate"))
         start = start.tz_localize("UTC") if start.tzinfo is None else start
-        if start > now - pd.Timedelta(hours=8):
-            return start.tz_convert("America/New_York").strftime("%Y%m%d")
+        day = start.tz_convert("America/New_York").strftime("%Y%m%d")
+        if start > now - pd.Timedelta(hours=8) and (after is None or day > after):   # not the card that just ended
+            return day
     return None
 
 
@@ -306,7 +307,7 @@ def update(date=None):
     over = card.empty or (card["state"].eq("post").all()
                           and card["date"].max() < pd.Timestamp.now(tz="America/New_York").strftime("%Y-%m-%d"))
     if over and date is None and not OFFLINE:
-        nxt = next_event_date(js)
+        nxt = next_event_date(js, None if card.empty else card["date"].max().replace("-", ""))
         if nxt:
             try:
                 nxt_card = parse(fetch(nxt))
