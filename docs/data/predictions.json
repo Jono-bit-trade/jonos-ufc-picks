@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T02:38Z",
+ "updated": "2026-11-01T02:46Z",
  "event": "UFC Fight Night: Moicano vs. Nolan",
  "date": "2026-10-31",
  "location": "Las Vegas, NV, USA",
@@ -191,9 +191,14 @@
    "rounds": 5,
    "segment": "",
    "start": "2026-11-01T00:00Z",
-   "state": "in",
-   "status": "R2, 3:27",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 3 3:32",
+   "result": {
+    "winner": "Tom Nolan",
+    "draw": false,
+    "detail": "KO/TKO, round 3 3:32",
+    "pick_won": false
+   },
    "rating_a": 1724,
    "rating_b": 1648,
    "debut_a": false,
@@ -219,8 +224,8 @@
    "check_news": false,
    "method": {
     "DEC": 0.361,
-    "KO": 0.465,
-    "SUB": 0.174
+    "KO": 0.466,
+    "SUB": 0.173
    }
   },
   {
@@ -999,7 +1004,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.544,
-    "KO": 0.317,
+    "KO": 0.318,
     "SUB": 0.139
    }
   },
@@ -1971,7 +1976,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.394,
-    "KO": 0.369,
+    "KO": 0.368,
     "SUB": 0.237
    }
   },
@@ -2352,7 +2357,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.547,
-    "KO": 0.195,
+    "KO": 0.194,
     "SUB": 0.258
    }
   }

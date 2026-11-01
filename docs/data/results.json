@@ -47,10 +47,10 @@
   }
  ],
  "ours": {
-  "bets": 3,
+  "bets": 4,
   "wins": 3,
-  "units": 0.69,
-  "roi_pct": 23.0,
+  "units": -0.31,
+  "roi_pct": -7.7,
   "moved_toward_pct": 100.0,
   "recent": [
    {
@@ -81,6 +81,16 @@
     "won": true,
     "method": "KO",
     "units": 0.14,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-10-31",
+    "fight": "Renato Moicano vs Tom Nolan",
+    "pick": "Renato Moicano",
+    "odds": -130,
+    "won": false,
+    "method": "KO",
+    "units": -1.0,
     "moved_toward": true
    }
   ]

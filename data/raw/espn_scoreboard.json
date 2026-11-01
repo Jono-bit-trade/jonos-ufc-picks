@@ -3055,7 +3055,7 @@
        "uid": "s:3301~a:5144007",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Tom Nolan",
         "displayName": "Tom Nolan",
@@ -3080,18 +3080,19 @@
       }
      ],
      "status": {
-      "clock": 207.0,
-      "displayClock": "3:27",
-      "period": 2,
+      "clock": 212.0,
+      "displayClock": "3:32",
+      "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R2, 3:27",
-       "shortDetail": "R2, 3:27"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -3103,73 +3104,73 @@
      ],
      "details": [
       {
-       "id": "26137",
+       "id": "26148",
        "type": {
-        "id": "13",
-        "text": "Takedown"
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
        }
       },
       {
-       "id": "26136",
+       "id": "26147",
        "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
+        "id": "19",
+        "text": "Fight Over"
        }
       },
       {
-       "id": "26135",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26134",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26133",
+       "id": "26146",
        "type": {
         "id": "18",
         "text": "Round End"
        }
       },
       {
-       "id": "26117",
+       "id": "26145",
        "type": {
-        "id": "16",
-        "text": "Submission Attempt"
+        "id": "15",
+        "text": "Reversal"
        }
       },
       {
-       "id": "26116",
+       "id": "26144",
        "type": {
         "id": "13",
         "text": "Takedown"
        }
       },
       {
-       "id": "26115",
+       "id": "26143",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26114",
+       "id": "26142",
        "type": {
         "id": "5",
         "text": "Round Start"
        }
       },
       {
-       "id": "26113",
+       "id": "26141",
        "type": {
-        "id": "4",
-        "text": "Staredown"
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26140",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26139",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       }
      ],

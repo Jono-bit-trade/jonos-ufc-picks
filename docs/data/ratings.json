@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T02:38Z",
+ "updated": "2026-11-01T02:46Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -987,14 +987,6 @@
      "record": "9-4"
     },
     {
-     "fighter": "Renato Moicano",
-     "rating": 1724,
-     "rd": 94,
-     "last_fight": "2026-04-04",
-     "division": "Lightweight",
-     "record": "13-7"
-    },
-    {
      "fighter": "Chris Padilla",
      "rating": 1711,
      "rd": 136,
@@ -1019,12 +1011,20 @@
      "record": "8-5"
     },
     {
-     "fighter": "Jalin Turner",
-     "rating": 1695,
-     "rd": 100,
-     "last_fight": "2026-08-15",
+     "fighter": "Tom Nolan",
+     "rating": 1698,
+     "rd": 122,
+     "last_fight": "2026-10-31",
      "division": "Lightweight",
-     "record": "9-6"
+     "record": "6-1"
+    },
+    {
+     "fighter": "Renato Moicano",
+     "rating": 1697,
+     "rd": 91,
+     "last_fight": "2026-10-31",
+     "division": "Lightweight",
+     "record": "13-8"
     }
    ]
   },
@@ -1096,20 +1096,20 @@
      "record": "8-5"
     },
     {
-     "fighter": "Kevin Vallejos",
-     "rating": 1745,
-     "rd": 139,
-     "last_fight": "2026-03-14",
-     "division": "Featherweight",
-     "record": "4-0"
-    },
-    {
      "fighter": "Jose Aldo",
      "rating": 1745,
      "rd": 95,
      "last_fight": "2025-05-10",
      "division": "Featherweight",
      "record": "14-9"
+    },
+    {
+     "fighter": "Kevin Vallejos",
+     "rating": 1745,
+     "rd": 139,
+     "last_fight": "2026-03-14",
+     "division": "Featherweight",
+     "record": "4-0"
     },
     {
      "fighter": "Pat Sabatini",
