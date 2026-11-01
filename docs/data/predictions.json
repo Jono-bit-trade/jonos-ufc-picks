@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T21:59Z",
+ "updated": "2026-11-01T23:02Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -100,6 +100,11 @@
      "t": "2026-11-01T21:59Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.014,
@@ -126,7 +131,7 @@
    "experts": null,
    "splits": null,
    "why": [
-    "Our chance 65% vs the line's 62% (3 points of value)",
+    "Our chance 67% vs the line's 64% (3 points of value)",
     "Rated 133 points higher"
    ],
    "weight_class": "Women's Strawweight",
@@ -141,15 +146,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.695,
-   "p_a": 0.654,
+   "p_a": 0.673,
    "model_pick": "Tatiana Suarez",
-   "fair_odds_a": -189,
-   "fair_odds_b": 189,
-   "market_p_a": 0.616,
-   "odds_a": -180.0,
-   "odds_b": 150.0,
-   "best_a": -180.0,
-   "best_b": 150.0,
+   "fair_odds_a": -206,
+   "fair_odds_b": 206,
+   "market_p_a": 0.637,
+   "odds_a": -198.0,
+   "odds_b": 164.0,
+   "best_a": -198.0,
+   "best_b": 164.0,
    "open_a": -192.0,
    "open_b": 160.0,
    "books": 1.0,
@@ -188,9 +193,14 @@
      "t": "2026-11-01T21:59Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
-   "edge_a": 0.037,
+   "edge_a": 0.036,
    "pick": "Tatiana Suarez",
    "our_pick": "Tatiana Suarez",
    "stake": 1.5,
@@ -273,6 +283,11 @@
      "t": "2026-11-01T21:59Z",
      "a": 185.0,
      "b": -225.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 185.0,
+     "b": -225.0
     }
    ],
    "edge_a": -0.018,
@@ -298,14 +313,14 @@
    "record_b": "18-8-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.9,
-    "handle_b": 0.1,
-    "bets_a": 0.78,
-    "bets_b": 0.22,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.03,
+    "handle_b": 0.97,
+    "bets_a": 0.5,
+    "bets_b": 0.5,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 91% vs the line's 83% (8 points of value)",
+    "Our chance 92% vs the line's 85% (7 points of value)",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 163 points higher"
    ],
@@ -321,15 +336,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.694,
-   "p_a": 0.911,
+   "p_a": 0.92,
    "model_pick": "Seokhyeon Ko",
-   "fair_odds_a": -1029,
-   "fair_odds_b": 1029,
-   "market_p_a": 0.832,
-   "odds_a": -650.0,
-   "odds_b": 470.0,
-   "best_a": -650.0,
-   "best_b": 470.0,
+   "fair_odds_a": -1148,
+   "fair_odds_b": 1148,
+   "market_p_a": 0.847,
+   "odds_a": -750.0,
+   "odds_b": 525.0,
+   "best_a": -750.0,
+   "best_b": 525.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
@@ -368,9 +383,14 @@
      "t": "2026-11-01T21:59Z",
      "a": -650.0,
      "b": 470.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -750.0,
+     "b": 525.0
     }
    ],
-   "edge_a": 0.08,
+   "edge_a": 0.073,
    "pick": "Seokhyeon Ko",
    "our_pick": "Seokhyeon Ko",
    "stake": 0.5,
@@ -393,11 +413,11 @@
    "record_b": "14-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.99,
-    "handle_b": 0.01,
-    "bets_a": 0.7,
-    "bets_b": 0.3,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.84,
+    "handle_b": 0.16,
+    "bets_a": 0.57,
+    "bets_b": 0.43,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -412,15 +432,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.563,
-   "p_a": 0.314,
+   "p_a": 0.301,
    "model_pick": "Lucas Fernando",
-   "fair_odds_a": 219,
-   "fair_odds_b": -219,
-   "market_p_a": 0.29,
-   "odds_a": 230.0,
-   "odds_b": -285.0,
-   "best_a": 230.0,
-   "best_b": -285.0,
+   "fair_odds_a": 233,
+   "fair_odds_b": -233,
+   "market_p_a": 0.278,
+   "odds_a": 245.0,
+   "odds_b": -305.0,
+   "best_a": 245.0,
+   "best_b": -305.0,
    "open_a": 210.0,
    "open_b": -258.0,
    "books": 1.0,
@@ -459,6 +479,11 @@
      "t": "2026-11-01T21:59Z",
      "a": 230.0,
      "b": -285.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 245.0,
+     "b": -305.0
     }
    ],
    "edge_a": 0.023,
@@ -484,11 +509,11 @@
    "record_b": "13-7-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.97,
-    "handle_b": 0.03,
-    "bets_a": 0.78,
-    "bets_b": 0.22,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.52,
+    "handle_b": 0.48,
+    "bets_a": 0.6,
+    "bets_b": 0.4,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [
     "Our chance 75% vs the line's 71% (4 points of value)"
@@ -552,6 +577,11 @@
      "t": "2026-11-01T21:59Z",
      "a": -285.0,
      "b": 230.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -285.0,
+     "b": 230.0
     }
    ],
    "edge_a": 0.038,
@@ -577,11 +607,11 @@
    "record_b": "11-5-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.99,
-    "handle_b": 0.01,
-    "bets_a": 0.92,
-    "bets_b": 0.08,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.98,
+    "handle_b": 0.02,
+    "bets_a": 0.88,
+    "bets_b": 0.13,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -596,15 +626,15 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.524,
-   "p_a": 0.418,
+   "p_a": 0.428,
    "model_pick": "Thomas Petersen",
-   "fair_odds_a": 139,
-   "fair_odds_b": -139,
-   "market_p_a": 0.396,
-   "odds_a": 142.0,
-   "odds_b": -170.0,
-   "best_a": 142.0,
-   "best_b": -170.0,
+   "fair_odds_a": 134,
+   "fair_odds_b": -134,
+   "market_p_a": 0.407,
+   "odds_a": 136.0,
+   "odds_b": -162.0,
+   "best_a": 136.0,
+   "best_b": -162.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -643,6 +673,11 @@
      "t": "2026-11-01T21:59Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 136.0,
+     "b": -162.0
     }
    ],
    "edge_a": 0.021,
@@ -672,10 +707,10 @@
     "handle_b": 0.52,
     "bets_a": 0.43,
     "bets_b": 0.57,
-    "at": "2026-11-01T21:59Z"
+    "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 66% vs the line's 62% (4 points of value)",
+    "Our chance 68% vs the line's 64% (4 points of value)",
     "Rated 153 points higher"
    ],
    "weight_class": "Women's Flyweight",
@@ -690,15 +725,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.709,
-   "p_a": 0.661,
+   "p_a": 0.682,
    "model_pick": "Karine Silva",
-   "fair_odds_a": -195,
-   "fair_odds_b": 195,
-   "market_p_a": 0.622,
-   "odds_a": -185.0,
-   "odds_b": 154.0,
-   "best_a": -185.0,
-   "best_b": 154.0,
+   "fair_odds_a": -215,
+   "fair_odds_b": 215,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -737,12 +772,17 @@
      "t": "2026-11-01T21:59Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
-   "edge_a": 0.039,
+   "edge_a": 0.038,
    "pick": "Karine Silva",
    "our_pick": "Karine Silva",
-   "stake": 1.5,
+   "stake": 1.0,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -762,11 +802,11 @@
    "record_b": "15-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.11,
-    "handle_b": 0.89,
-    "bets_a": 0.5,
-    "bets_b": 0.5,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.53,
+    "handle_b": 0.47,
+    "bets_a": 0.75,
+    "bets_b": 0.25,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -781,15 +821,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.658,
-   "p_a": 0.378,
+   "p_a": 0.359,
    "model_pick": "Marcos Degli",
-   "fair_odds_a": 165,
-   "fair_odds_b": -165,
-   "market_p_a": 0.343,
-   "odds_a": 180.0,
-   "odds_b": -218.0,
-   "best_a": 180.0,
-   "best_b": -218.0,
+   "fair_odds_a": 178,
+   "fair_odds_b": -178,
+   "market_p_a": 0.325,
+   "odds_a": 195.0,
+   "odds_b": -238.0,
+   "best_a": 195.0,
+   "best_b": -238.0,
    "open_a": 200.0,
    "open_b": -245.0,
    "books": 1.0,
@@ -828,9 +868,14 @@
      "t": "2026-11-01T21:59Z",
      "a": 180.0,
      "b": -218.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 195.0,
+     "b": -238.0
     }
    ],
-   "edge_a": 0.035,
+   "edge_a": 0.034,
    "pick": "Mitch Raposo",
    "our_pick": null,
    "stake": null,
@@ -853,11 +898,11 @@
    "record_b": "11-0-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.15,
-    "handle_b": 0.85,
-    "bets_a": 0.38,
-    "bets_b": 0.62,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.02,
+    "handle_b": 0.98,
+    "bets_a": 0.2,
+    "bets_b": 0.8,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -872,15 +917,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.457,
-   "p_a": 0.525,
-   "model_pick": "Jose Delano",
-   "fair_odds_a": -110,
-   "fair_odds_b": 110,
-   "market_p_a": 0.511,
-   "odds_a": -115.0,
-   "odds_b": -105.0,
-   "best_a": -115.0,
-   "best_b": -105.0,
+   "p_a": 0.497,
+   "model_pick": "Murtazali Magomedov",
+   "fair_odds_a": 101,
+   "fair_odds_b": -101,
+   "market_p_a": 0.483,
+   "odds_a": -102.0,
+   "odds_b": -118.0,
+   "best_a": -102.0,
+   "best_b": -118.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -919,6 +964,11 @@
      "t": "2026-11-01T21:59Z",
      "a": -115.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -102.0,
+     "b": -118.0
     }
    ],
    "edge_a": 0.014,
@@ -944,11 +994,11 @@
    "record_b": "4-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.9,
-    "handle_b": 0.1,
-    "bets_a": 0.85,
-    "bets_b": 0.15,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.55,
+    "handle_b": 0.45,
+    "bets_a": 0.71,
+    "bets_b": 0.29,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -963,15 +1013,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.761,
+   "p_a": 0.776,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -318,
-   "fair_odds_b": 318,
-   "market_p_a": 0.734,
-   "odds_a": -325.0,
-   "odds_b": 260.0,
-   "best_a": -325.0,
-   "best_b": 260.0,
+   "fair_odds_a": -347,
+   "fair_odds_b": 347,
+   "market_p_a": 0.751,
+   "odds_a": -360.0,
+   "odds_b": 285.0,
+   "best_a": -360.0,
+   "best_b": 285.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -1010,9 +1060,14 @@
      "t": "2026-11-01T21:59Z",
      "a": -325.0,
      "b": 260.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -360.0,
+     "b": 285.0
     }
    ],
-   "edge_a": 0.027,
+   "edge_a": 0.026,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1084,14 +1139,14 @@
    "record_b": "9-1-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.31,
-    "handle_b": 0.69,
-    "bets_a": 0.17,
-    "bets_b": 0.83,
-    "at": "2026-11-01T21:59Z"
+    "handle_a": 0.5,
+    "handle_b": 0.5,
+    "bets_a": 0.29,
+    "bets_b": 0.71,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 85% vs the line's 78% (7 points of value)",
+    "Our chance 86% vs the line's 80% (6 points of value)",
     "Rated 132 points higher"
    ],
    "weight_class": "Women's Bantamweight",
@@ -1106,15 +1161,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.223,
-   "p_a": 0.155,
+   "p_a": 0.141,
    "model_pick": "Nina Milo\u0161evi\u0107",
-   "fair_odds_a": 547,
-   "fair_odds_b": -547,
-   "market_p_a": 0.218,
-   "odds_a": 340.0,
-   "odds_b": -440.0,
-   "best_a": 340.0,
-   "best_b": -440.0,
+   "fair_odds_a": 610,
+   "fair_odds_b": -610,
+   "market_p_a": 0.2,
+   "odds_a": 380.0,
+   "odds_b": -500.0,
+   "best_a": 380.0,
+   "best_b": -500.0,
    "open_a": 350.0,
    "open_b": -455.0,
    "books": 1.0,
@@ -1153,9 +1208,14 @@
      "t": "2026-11-01T21:59Z",
      "a": 340.0,
      "b": -440.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 380.0,
+     "b": -500.0
     }
    ],
-   "edge_a": -0.064,
+   "edge_a": -0.059,
    "pick": "Nina Milo\u0161evi\u0107",
    "our_pick": "Nina Milo\u0161evi\u0107",
    "stake": 0.5,
@@ -1180,9 +1240,9 @@
    "splits": {
     "handle_a": 0.26,
     "handle_b": 0.74,
-    "bets_a": 0.64,
-    "bets_b": 0.36,
-    "at": "2026-11-01T21:59Z"
+    "bets_a": 0.6,
+    "bets_b": 0.4,
+    "at": "2026-11-01T23:02Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1242,6 +1302,11 @@
     },
     {
      "t": "2026-11-01T21:59Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
      "a": 180.0,
      "b": -218.0
     }
