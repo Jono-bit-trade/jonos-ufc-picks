@@ -66,6 +66,7 @@ def update_ledger(log, fights):
                     row[f"{k}_units"] = 0.0 if pk else None      # draws and no contests: stake returned
                     continue
                 row[f"{k}_units"] = round(float(payout(o)) if pk == winner else -1.0, 3)
+            row["our_source"] = None if not ours else "model" if ours == vp else "experts"   # model pick or expert lean
             row["stake"] = stake(row["our_odds"]) if ours else None
             row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
             new.append(row)
@@ -83,6 +84,10 @@ def update_ledger(log, fights):
             led.at[i, "value_pick"], led.at[i, "value_odds"] = vp, o
             led.at[i, "value_units"] = 0.0 if r["result"] in ("draw", "nc") else round(float(payout(o)) if vp == r["winner"] else -1.0, 3)
         led.to_csv(f, index=False)
+    if not led.empty and ("our_source" not in led or led.loc[led["our_pick"].notna(), "our_source"].isna().any()):
+        src_ = np.where(led["our_pick"].isna(), None, np.where(led["our_pick"] == led.get("value_pick"), "model", "experts"))
+        led["our_source"] = led["our_source"].fillna(pd.Series(src_, index=led.index)) if "our_source" in led else src_
+        led.to_csv(f, index=False)
     if new:
         led = pd.concat([led, pd.DataFrame(new)], ignore_index=True) if not led.empty else pd.DataFrame(new)
         led.to_csv(f, index=False)
@@ -94,6 +99,9 @@ def update_ledger(log, fights):
                      "our_bets": int(len(o)), "our_won": int((o["our_pick"] == o["winner"]).sum()),
                      "our_units": round(float(o["our_units"].sum()), 2), "our_risked": round(float(o["stake"].sum()), 2),
                      "our_staked_units": round(float(o["our_staked_units"].sum()), 2),
+                     **{f"{k}_{m}": v for k in ("model", "experts") for m, v in (lambda q: (
+                         ("bets", int(len(q))), ("won", int((q["our_pick"] == q["winner"]).sum())),
+                         ("staked_units", round(float(q["our_staked_units"].sum()), 2))))(o[o["our_source"] == k])},
                      **({"value_bets": int(led["value_pick"].notna().sum()),
                          "value_won": int((led["value_pick"] == led["winner"]).sum()),
                          "value_units": round(float(pd.to_numeric(led["value_units"], errors="coerce").sum()), 2)} if "value_pick" in led else {}),

@@ -126,7 +126,7 @@ function bout(f, i, edge) {
   let pickHtml;
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
-  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${
+  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${
     bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick value">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
@@ -719,7 +719,7 @@ async function viewAbout() {
 async function viewCredits() {
   const list = Object.values(PHOTOS.photos || {}).sort((a, b) => a.name < b.name ? -1 : 1);
   return `<h1>Photo credits</h1>
-    <p class="note">${PHOTOS.mode === "espn_first" ? "Fighter photos come from ESPN where available; the" : "The"} photos below are from Wikimedia Commons, used under the license shown. Thank you to every photographer who shares their work.</p>
+    <p class="note">${PHOTOS.mode === "espn_first" ? "Fighter photos come from ESPN where available; the" : PHOTOS.mode === "commons_first" ? "Fighters without a photo below use their ESPN headshot. The" : "The"} photos below are from Wikimedia Commons, used under the license shown. Thank you to every photographer who shares their work.</p>
     <p class="note">Country flags: <a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener">flag-icons</a> by Panayiotis Lipiridis, MIT license. Countries are the ones ESPN lists for each fighter, or the country of birth on UFC.com.</p>
     ${list.length ? `<div class="tablewrap"><table><thead><tr><th>Fighter</th><th>Photographer</th><th>License</th><th class="hide-sm">Source</th></tr></thead><tbody>${list.map(c =>
       `<tr><td>${fighterLink(c.name)}</td><td>${esc(c.author || "Unknown")}</td><td>${c.license_url ? `<a href="${esc(c.license_url)}" target="_blank" rel="noopener">${esc(c.license)}</a>` : esc(c.license)}</td>
@@ -788,7 +788,8 @@ function ledgerBoxes(L, start) {
     <div class="stat key"><b>${L.our_won}/${L.our_bets} ${L.our_bets ? `<span class="${L.our_units >= 0 ? "won" : "lost"}">${units(L.our_units)}</span>` : ""}</b><span>our picks${L.our_bets ? `, ${Math.round(100 * L.our_won / L.our_bets)}% won` : ""}</span></div>
     <div class="stat key">${u(L.our_staked_units)}<span>suggested stakes${L.our_risked ? ` (${L.our_staked_units >= 0 ? "+" : ""}${(100 * L.our_staked_units / L.our_risked).toFixed(1)}% return)` : ""}, on ${L.our_risked}u risked</span></div>
     <div class="stat model"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div>
-    ${L.value_bets ? `<div class="stat value">${u(L.value_units)}<span>value picks, ${L.value_won}/${L.value_bets} won (flat 1u)</span></div>` : ""}</div>${strip}`;
+    ${L.value_bets ? `<div class="stat value">${u(L.value_units)}<span>value picks, ${L.value_won}/${L.value_bets} won (flat 1u)</span></div>` : ""}</div>
+    ${L.experts_bets ? `<div class="recbits"><span>Model's picks <b>${L.model_won}/${L.model_bets}</b> ${u(L.model_staked_units)}</span><span>Expert leans <b>${L.experts_won}/${L.experts_bets}</b> ${u(L.experts_staked_units)}</span><span class="small">at suggested stakes</span></div>` : ""}${strip}`;
 }
 
 async function viewRecord() {
@@ -800,7 +801,7 @@ async function viewRecord() {
     ${ledgerBoxes(L)}
     ${unitsChart(ledgerCurve(rows))}
     ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
-      rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.expert_lean && g.expert_lean === g.our_pick ? " (lean)" : "") : "–"}</td>
+      rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.our_source === "experts" ? " (expert lean)" : "") : "–"}</td>
         <td class="n">${g.our_pick ? odds(g.our_odds) : ""}</td><td class="n">${g.stake ? g.stake + "u" : ""}</td>
         <td class="n ${g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : ""}">${g.our_pick ? (g.our_units > 0 ? "Won " : g.our_units < 0 ? "Lost " : "Push ") + units(g.our_staked_units) : ""}</td>
         <td class="hide-sm ${g.value_pick ? (g.value_pick === g.winner ? "won" : "lost") : ""}">${g.value_pick ? `${esc(g.value_pick)} ${odds(g.value_odds)} ${g.value_pick === g.winner ? "✓" : "✗"}` : "–"}</td>
