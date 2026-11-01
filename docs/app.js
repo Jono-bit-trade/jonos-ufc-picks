@@ -787,7 +787,8 @@ function ledgerBoxes(L, start) {
   return `<div class="stats">
     <div class="stat key"><b>${L.our_won}/${L.our_bets} ${L.our_bets ? `<span class="${L.our_units >= 0 ? "won" : "lost"}">${units(L.our_units)}</span>` : ""}</b><span>our picks${L.our_bets ? `, ${Math.round(100 * L.our_won / L.our_bets)}% won` : ""}</span></div>
     <div class="stat key">${u(L.our_staked_units)}<span>suggested stakes${L.our_risked ? ` (${L.our_staked_units >= 0 ? "+" : ""}${(100 * L.our_staked_units / L.our_risked).toFixed(1)}% return)` : ""}, on ${L.our_risked}u risked</span></div>
-    <div class="stat model"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div></div>${strip}`;
+    <div class="stat model"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div>
+    ${L.value_bets ? `<div class="stat value">${u(L.value_units)}<span>value picks, ${L.value_won}/${L.value_bets} won (flat 1u)</span></div>` : ""}</div>${strip}`;
 }
 
 async function viewRecord() {
@@ -798,10 +799,11 @@ async function viewRecord() {
     <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
     ${ledgerBoxes(L)}
     ${unitsChart(ledgerCurve(rows))}
-    ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
+    ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
       rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.expert_lean && g.expert_lean === g.our_pick ? " (lean)" : "") : "–"}</td>
         <td class="n">${g.our_pick ? odds(g.our_odds) : ""}</td><td class="n">${g.stake ? g.stake + "u" : ""}</td>
         <td class="n ${g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : ""}">${g.our_pick ? (g.our_units > 0 ? "Won " : g.our_units < 0 ? "Lost " : "Push ") + units(g.our_staked_units) : ""}</td>
+        <td class="hide-sm ${g.value_pick ? (g.value_pick === g.winner ? "won" : "lost") : ""}">${g.value_pick ? `${esc(g.value_pick)} ${odds(g.value_odds)} ${g.value_pick === g.winner ? "✓" : "✗"}` : "–"}</td>
         <td class="hide-sm ${g.model_pick === g.winner ? "won" : "lost"}">${esc(g.model_pick)} ${g.model_pick === g.winner ? "✓" : "✗"}</td></tr>`).join("")}</tbody></table></div>` : ""}
     <h2>Backtest, ${mr ? mr.from || 2020 : 2020} on</h2>
     ${mr ? unitsChart(mr.curve) : ""}

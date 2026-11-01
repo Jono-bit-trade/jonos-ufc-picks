@@ -54,11 +54,13 @@ def update_ledger(log, fights):
             lean = p.expert_lean if isinstance(getattr(p, "expert_lean", None), str) else None
             mp = lean or (p.a if p.p_final > 0.5 else p.b)   # the model's winner pick, as on the card
             ours = p.our_pick if isinstance(getattr(p, "our_pick", None), str) else None
+            vp = p.pick if isinstance(getattr(p, "pick", None), str) else None   # value pick, as on the card
             row = {"fight_id": p.fight_id, "date": p.date, "a": p.a, "b": p.b, "winner": winner, "result": how,
                    "model_pick": mp, "model_odds": p.odds_a if mp == p.a else p.odds_b, "our_pick": ours,
                    "our_odds": (p.odds_a if ours == p.a else p.odds_b) if ours else None,
-                   "expert_lean": lean, "logged_at": p.run}
-            for k in ("model", "our"):
+                   "expert_lean": lean, "logged_at": p.run, "value_pick": vp,
+                   "value_odds": (p.odds_a if vp == p.a else p.odds_b) if vp else None}
+            for k in ("model", "our", "value"):
                 pk, o = row[f"{k}_pick"], row[f"{k}_odds"]
                 if pk is None or how in ("draw", "nc") or o != o or o is None:
                     row[f"{k}_units"] = 0.0 if pk else None      # draws and no contests: stake returned
@@ -67,17 +69,34 @@ def update_ledger(log, fights):
             row["stake"] = stake(row["our_odds"]) if ours else None
             row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
             new.append(row)
+    # rows locked before value picks were tracked: add the value pick logged before that fight
+    if not led.empty and not log.empty and ("value_pick" not in led or led["value_pick"].isna().any()):
+        lp = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")
+        for c in ("value_pick", "value_odds", "value_units"):
+            if c not in led:
+                led[c] = None
+        for i, r in led[led["value_pick"].isna()].iterrows():
+            if r["fight_id"] not in lp.index or not isinstance(lp.at[r["fight_id"], "pick"], str):
+                continue
+            q = lp.loc[r["fight_id"]]
+            vp, o = q["pick"], (q["odds_a"] if q["pick"] == q["a"] else q["odds_b"])
+            led.at[i, "value_pick"], led.at[i, "value_odds"] = vp, o
+            led.at[i, "value_units"] = 0.0 if r["result"] in ("draw", "nc") else round(float(payout(o)) if vp == r["winner"] else -1.0, 3)
+        led.to_csv(f, index=False)
     if new:
         led = pd.concat([led, pd.DataFrame(new)], ignore_index=True) if not led.empty else pd.DataFrame(new)
         led.to_csv(f, index=False)
     summ = {"from": LEDGER_FROM, "fights": 0, "model_right": 0, "our_bets": 0, "our_won": 0, "our_units": 0.0,
-            "our_risked": 0.0, "our_staked_units": 0.0, "rows": []}
+            "our_risked": 0.0, "our_staked_units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0, "rows": []}
     if not led.empty:
         o = led[led["our_pick"].notna()]
         summ.update({"fights": int(len(led)), "model_right": int((led["model_pick"] == led["winner"]).sum()),
                      "our_bets": int(len(o)), "our_won": int((o["our_pick"] == o["winner"]).sum()),
                      "our_units": round(float(o["our_units"].sum()), 2), "our_risked": round(float(o["stake"].sum()), 2),
                      "our_staked_units": round(float(o["our_staked_units"].sum()), 2),
+                     **({"value_bets": int(led["value_pick"].notna().sum()),
+                         "value_won": int((led["value_pick"] == led["winner"]).sum()),
+                         "value_units": round(float(pd.to_numeric(led["value_units"], errors="coerce").sum()), 2)} if "value_pick" in led else {}),
                      "rows": json.loads(led.sort_values("date", ascending=False).to_json(orient="records"))})
     json.dump(summ, open(os.path.join(OUT, "ledger.json"), "w"), indent=1)
     return summ

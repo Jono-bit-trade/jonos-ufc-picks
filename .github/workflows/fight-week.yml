@@ -130,6 +130,7 @@ jobs:
           end=$(( $(date +%s) + 270*60 ))
           while live && [ "$(date +%s)" -lt "$end" ]; do
             sleep 420
+            git fetch -q origin main && git checkout -q origin/main -- src || true   # pick up fixes pushed mid-card
             python src/espn.py || true
             python src/get_data.py --offline && python src/predict.py && python src/site_data.py || true
             bash .github/save.sh "Update live" || true
