@@ -770,3 +770,10 @@ tr.top1 td.rk { color: var(--gold); }
 .urank.champ{border-color:#c9a227;color:#f1cf5b;background:rgba(201,162,39,.12)}
 .urank.p4p{border-color:#2b6cb0;color:#9cc3f0}
 .faceoff .urank{margin:.3em auto 0}
+
+/* long one-word names (MAGOMEDOV, JASUDAVICIUS) wrap instead of pushing past the screen */
+.pair .side, .pair .side > div { min-width: 0; }
+.pair .fl, .bout .name .fl { overflow-wrap: anywhere; }
+@media (max-width: 480px) { .pair .fl.lw, .bout .name .fl.lw { font-size: 1.05rem; line-height: 1.15; display: inline-block; } }
+@media (max-width: 480px) { .pair .fl.xlw, .bout .name .fl.xlw { font-size: .9rem; } }
+.ctry { max-width: 100%; white-space: normal; }

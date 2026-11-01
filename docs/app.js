@@ -42,8 +42,10 @@ let COUNTRY = {}, RANK = {};
 const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null) return "";
   const t = r.rank === 0 ? "Champion" : "#" + r.rank;
   return `<span class="urank${r.rank === 0 ? " champ" : ""}" title="Official UFC ranking: ${esc(t)}, ${esc(r.div)}${r.p4p ? ` · #${r.p4p} pound-for-pound` : ""}">${r.rank === 0 ? (long ? "Champion" : "C") : t}${long ? ` ${esc(r.div)}` : ""}</span>`; };
-const flagOf = (s, name) => { const c = COUNTRY[s]; return !c ? "" : `<span class="ctry" title="${esc(c[0])}"><img src="flags/${esc(c[1])}.svg" alt="${esc(c[0])} flag" width="18" height="13" loading="lazy">${name ? esc(c[0]) : ""}</span>`; };
-const fighterLink = (name, s) => `<a class="fl" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
+const SHORT_CTRY = {"Democratic Republic of Congo": "DR Congo", "Democratic Republic of the Congo": "DR Congo", "Bosnia and Herzegovina": "Bosnia", "Bosnia & Herzegovina": "Bosnia", "United Arab Emirates": "UAE", "United Kingdom": "UK", "Trinidad and Tobago": "Trinidad"};
+const flagOf = (s, name) => { const c = COUNTRY[s]; return !c ? "" : `<span class="ctry" title="${esc(c[0])}"><img src="flags/${esc(c[1])}.svg" alt="${esc(c[0])} flag" width="18" height="13" loading="lazy">${name ? esc(SHORT_CTRY[c[0]] || c[0]) : ""}</span>`; };
+const longest = n => Math.max(...String(n).split(/[\s-]/).map(w => w.length));
+const fighterLink = (name, s) => `<a class="fl${longest(name) >= 12 ? " lw xlw" : longest(name) >= 9 ? " lw" : ""}" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
 
 // ---------------- the current card ----------------
 function lineChart(hist, f) {
@@ -594,7 +596,21 @@ function ratingChart(h) {
 
 async function viewFighter(s) {
   const [f, avgs] = await Promise.all([get(`fighters/${s}.json`), get("division_avg.json")]);
-  if (!f) return `<h1>Fighter not found</h1><div class="empty">We don't have UFC fights for that fighter yet. Debut fighters get a page after their first UFC fight.<br><a href="#/fighters">Search all fighters</a></div>`;
+  if (!f) {   // a UFC debutant on the upcoming card: a short page from the card itself
+    const pr = await get("predictions.json", true);
+    const b = pr && (pr.fights || []).find(x => x.a_slug === s || x.b_slug === s);
+    if (b) {
+      const isA = b.a_slug === s, me = isA ? b.a : b.b, opp = isA ? b.b : b.a, oppS = isA ? b.b_slug : b.a_slug;
+      const ch = b.p_a == null ? null : isA ? b.p_a : 1 - b.p_a, o = isA ? b.odds_a : b.odds_b, rec = isA ? b.record_a : b.record_b;
+      return `<p><a href="#/card">← Card</a></p>
+        <section class="fhero"><figure class="fh-ph">${photo(isA ? b.a_id : b.b_id, me, "xl")}</figure><div class="fh-main">
+        <h1>${esc(me)}</h1><p class="fh-sub">${rankOf(s, true)}${flagOf(s, true)}${esc(b.weight_class || "")}</p>
+        <div class="fchips">${rec ? `<div class="fchip"><b>${esc(rec)}</b><span>Pro record</span></div>` : ""}<div class="fchip"><b>Debut</b><span>UFC fights</span></div></div></div></section>
+        <div class="empty">UFC debut against ${fighterLink(opp, oppS)} at ${esc(pr.event || "the next card")}.${ch != null ? ` Our chance ${pct(ch)}` : ""}${o != null ? `, line ${odds(o)}` : ""}.<br>
+        A full page with ratings and fight history appears after the first UFC fight.</div>`;
+    }
+    return `<h1>Fighter not found</h1><div class="empty">We don't have UFC fights for that fighter yet. Debut fighters get a page after their first UFC fight.<br><a href="#/fighters">Search all fighters</a></div>`;
+  }
   const by = (o, total) => ["KO", "SUB", "DEC"].map(k => `<div class="byrow"><span>${{KO: "KO/TKO", SUB: "Submission", DEC: "Decision"}[k]}</span>
     <i style="width:${total ? o[k] / total * 100 : 0}%"></i><b>${o[k]}</b></div>`).join("");
   const w = f.wins_by.KO + f.wins_by.SUB + f.wins_by.DEC, l = f.losses_by.KO + f.losses_by.SUB + f.losses_by.DEC;
