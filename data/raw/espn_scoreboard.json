@@ -3104,6 +3104,20 @@
      ],
      "details": [
       {
+       "id": "26150",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26149",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
        "id": "26148",
        "type": {
         "id": "21",
@@ -3157,20 +3171,6 @@
        "type": {
         "id": "18",
         "text": "Round End"
-       }
-      },
-      {
-       "id": "26140",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "26139",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
        }
       }
      ],
