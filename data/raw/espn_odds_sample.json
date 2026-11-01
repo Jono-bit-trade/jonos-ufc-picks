@@ -6,11 +6,11 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "W. Cortes Acosta -198",
+ "details": "W. Cortes Acosta -205",
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 164,
+  "moneyLine": 170,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -24,12 +24,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 2.64,
-    "displayValue": "41/25",
-    "alternateDisplayValue": "+164",
-    "decimal": 2.64,
-    "fraction": "41/25",
-    "american": "+164"
+    "value": 2.7,
+    "displayValue": "17/10",
+    "alternateDisplayValue": "+170",
+    "decimal": 2.7,
+    "fraction": "17/10",
+    "american": "+170"
    }
   },
   "athlete": {
@@ -39,7 +39,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -198,
+  "moneyLine": -205,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -53,12 +53,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 1.5,
-    "displayValue": "50/99",
-    "alternateDisplayValue": "-198",
-    "decimal": 1.5,
-    "fraction": "50/99",
-    "american": "-198"
+    "value": 1.48,
+    "displayValue": "20/41",
+    "alternateDisplayValue": "-205",
+    "decimal": 1.48,
+    "fraction": "20/41",
+    "american": "-205"
    }
   },
   "athlete": {
