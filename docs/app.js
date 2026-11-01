@@ -373,7 +373,7 @@ async function recapBanner(ev) {
   const lr = L && L.rows ? L.rows.filter(g => g.date === e0.date) : [];
   if (lr.length) {
     const o = lr.filter(g => g.our_pick), okp = g => g.winner && g.winner === g.our_pick;
-    r = {our_bets: o.length, our_won: o.filter(okp).length, our_units: Math.round(100 * o.reduce((s, g) => s + (g.our_staked_units || 0), 0)) / 100,
+    r = {our_bets: o.length, our_won: o.filter(okp).length, our_staked: Math.round(100 * o.reduce((s, g) => s + (g.our_staked_units || 0), 0)) / 100,
          right: lr.filter(g => g.model_pick === g.winner).length, picks: lr.length};
     let bestL = null;
     for (const g of lr) for (const [pk, od] of [[g.our_pick, g.our_odds], [g.model_pick, g.model_odds], [g.value_pick, g.value_odds]])
@@ -393,7 +393,7 @@ async function recapBanner(ev) {
 function recapHtml(e, r, best) {
   return `<a class="recap" href="#/event/${esc(e.slug)}">
     <span class="rc-l"><b>Last card</b><span>${esc(e.name)}</span></span>
-    ${r.our_bets ? `<span class="rc-s"><b>${r.our_won}-${r.our_bets - r.our_won}</b><span>our picks</span></span><span class="rc-s"><b class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</b><span>units</span></span>` : ""}
+    ${r.our_bets ? `<span class="rc-s"><b>${r.our_won}-${r.our_bets - r.our_won}</b><span>our picks</span></span><span class="rc-s"><b class="${(r.our_staked ?? r.our_units) >= 0 ? "won" : "lost"}">${units(r.our_staked ?? r.our_units)}</b><span>units</span></span>` : ""}
     <span class="rc-s"><b>${r.right}/${r.picks}</b><span>winners picked</span></span>
     ${best ? `<span class="rc-best">${photo(best.id, best.name, "sm")}<span><small>Best call</small><b>${esc(best.name)} ${odds(best.odds)}</b></span></span>` : ""}
   </a>`;
@@ -497,7 +497,7 @@ function evRow(e) {
   return `<a class="evrow" href="#/event/${esc(e.slug)}">
     <span class="ev-ph">${photo(ids[0], e.main_a || "", "md")}${photo(ids[1], e.main_b || "", "md")}</span>
     <span class="ev-t"><b>${esc(title)}</b><span>${sub ? esc(sub) : esc(e.main || "")}</span><span class="small">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}</span></span>
-    ${graded ? `<span class="ev-r">${r.our_bets ? `<span class="ev-chip ${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}<small>our picks ${r.our_won}/${r.our_bets}</small></span>` : `<span class="ev-chip none">No picks</span>`}
+    ${graded ? `<span class="ev-r">${r.our_bets ? `<span class="ev-chip ${(r.our_staked ?? r.our_units) >= 0 ? "won" : "lost"}">${units(r.our_staked ?? r.our_units)}<small>our picks ${r.our_won}/${r.our_bets}</small></span>` : `<span class="ev-chip none">No picks</span>`}
       <span class="small">Model ${r.right}/${r.picks}</span></span>` : ""}
   </a>`;
 }
@@ -505,7 +505,7 @@ function evRow(e) {
 function cardBadge(r, date) {
   if (!r || !r.picks || (date && date < RECENT_FROM)) return "";
   return `<span class="cbadge"><b>${r.right}/${r.picks}</b> correct · <b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b>${
-    r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} <b class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</b>` : ""}</span>`;
+    r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} <b class="${(r.our_staked ?? r.our_units) >= 0 ? "won" : "lost"}">${units(r.our_staked ?? r.our_units)}</b>` : ""}</span>`;
 }
 
 function eventsSummary(mr, year) {
@@ -555,8 +555,9 @@ async function viewEvent(s) {
       <div class="stat"><b>${e.record.value_bets ? `${e.record.value_won}/${e.record.value_bets}` : "–"}</b><span>value picks won</span></div>
       <div class="stat"><b class="${e.record.value_units >= 0 ? "won" : "lost"}">${e.record.value_bets ? units(e.record.value_units) : "–"}</b><span>betting value picks</span></div>
       <div class="stat"><b>${e.record.our_bets ? `${e.record.our_won}/${e.record.our_bets}` : "–"}</b><span>our picks won</span></div>
-      <div class="stat"><b class="${e.record.our_units >= 0 ? "won" : "lost"}">${e.record.our_bets ? units(e.record.our_units) : "–"}</b><span>our picks units</span></div>
+      <div class="stat"><b class="${(e.record.our_staked ?? e.record.our_units) >= 0 ? "won" : "lost"}">${e.record.our_bets ? units(e.record.our_staked ?? e.record.our_units) : "–"}</b><span>our picks, suggested stakes</span></div>
       <div class="stat"><b>${e.favorites_right}/${e.record.picks}</b><span>betting favorites won</span></div></div>` : ""}
+    ${e.record && e.record.locked ? `<p class="note"><b>Live record:</b> these are the picks locked before each fight, at the price then, the same as the Record page.</p>` : ""}
     <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Winners picked use our final chance (model blended with the line). Units are flat 1-unit bets at the average sportsbook's closing moneyline. Value picks beat the line by 3+ points; our picks also need the fighter to be the favorite or 70%+ likely, and no long underdog, or an expert lean in a close fight, and not both fighters debuting: the same rules as the live card.</p>${rows}`;
 }
 

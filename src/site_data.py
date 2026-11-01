@@ -341,6 +341,11 @@ def main():
 
     # ---- events, with the model's track record ----
     events_index, graded_rows = [], []
+    from config import LEDGER_FROM
+    locked = {}
+    led = read("ledger.csv")
+    for r_ in (led.to_dict("records") if not led.empty else []):
+        locked[(r_["date"], frozenset((norm(r_["a"]), norm(r_["b"]))))] = r_
     from config import OUR_PICKS_SKIP_BOTH_DEBUT as SKIP_BOTH_DEBUT
     first_fight = pd.concat([fights[["date", "a"]].rename(columns={"a": "n"}), fights[["date", "b"]].rename(columns={"b": "n"})]) \
         .groupby("n")["date"].min().to_dict()
@@ -351,7 +356,8 @@ def main():
         es = f"{date}-{slug(name)}"
         bouts, fav_right = [], 0
         rec = {"picks": 0, "right": 0, "bets": 0, "units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0,
-               "our_bets": 0, "our_won": 0, "our_units": 0.0}
+               "our_bets": 0, "our_won": 0, "our_units": 0.0, "our_staked": 0.0}
+        g0 = len(graded_rows)
         for f in card.itertuples():
             p, pf = mp.get(f.fight_id), fp.get(f.fight_id)
             fair = no_vig(f.odds_a, f.odds_b) if pd.notna(f.odds_a) and pd.notna(f.odds_b) else None
@@ -400,6 +406,7 @@ def main():
                     rec["our_bets"] += 1
                     rec["our_won"] += int(right)
                     rec["our_units"] += u
+                    rec["our_staked"] += st * u
                 if pf is not None and fair is not None and abs(pf - fair) > EDGE:   # value pick, as on the live card
                     on_a = pf > fair
                     right = on_a == won_a
@@ -421,7 +428,43 @@ def main():
                           "final_p_a": round(float(pf), 3) if pf is not None else None,
                           "model_pick": pick, "value_pick": value, "our_pick": our, "expert_lean": lean,
                           "rating_a": num(f.pre_a), "rating_b": num(f.pre_b), "experts": exp})
+        if date >= LEDGER_FROM and locked:   # live-record cards: the picks locked before each fight, not a regrade
+            hit = 0
+            for k, b in enumerate(bouts):
+                L = locked.get((date, frozenset((norm(b["a"]), norm(b["b"])))))
+                if L is None or b["winner"] not in ("a", "b"):
+                    continue
+                hit += 1
+                side = lambda n: "a" if isinstance(n, str) and norm(n) == norm(b["a"]) else "b" if isinstance(n, str) and norm(n) == norm(b["b"]) else None
+                def mk(n, o, u):
+                    sd = side(n)
+                    return None if sd is None else {"side": sd, "right": sd == b["winner"], "odds": num(o), "units": round(float(u), 2) if u == u and u is not None else None}
+                b["model_pick"] = mk(L.get("model_pick"), L.get("model_odds"), L.get("model_units"))
+                if b["model_pick"]:
+                    b["model_pick"]["lean"] = isinstance(L.get("expert_lean"), str) and L.get("model_pick") == L.get("expert_lean")
+                b["value_pick"] = mk(L.get("value_pick"), L.get("value_odds"), L.get("value_units"))
+                b["our_pick"] = mk(L.get("our_pick"), L.get("our_odds"), L.get("our_units"))
+                if b["our_pick"]:
+                    b["our_pick"].update({"from_experts": L.get("our_source") == "experts", "stake": num(L.get("stake"), 2),
+                                          "staked_units": num(L.get("our_staked_units"), 2)})
+            if hit:
+                rec = {"picks": 0, "right": 0, "bets": 0, "units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0,
+                       "our_bets": 0, "our_won": 0, "our_units": 0.0, "our_staked": 0.0, "locked": True}
+                for b in bouts:
+                    m_, v_, o_ = b["model_pick"], b["value_pick"], b["our_pick"]
+                    if m_:
+                        rec["picks"] += 1; rec["right"] += int(m_["right"])
+                        if m_["units"] is not None:
+                            rec["bets"] += 1; rec["units"] += m_["units"]
+                    if v_:
+                        rec["value_bets"] += 1; rec["value_won"] += int(v_["right"]); rec["value_units"] += v_["units"] or 0
+                    if o_:
+                        rec["our_bets"] += 1; rec["our_won"] += int(o_["right"]); rec["our_units"] += o_["units"] or 0
+                        rec["our_staked"] += o_.get("staked_units") or 0
+                graded_rows[g0:] = [{"date": date, "pick": b["model_pick"], "value": b["value_pick"], "our": b["our_pick"]}
+                                    for b in bouts if b["winner"] in ("a", "b")]
         rec["units"], rec["value_units"], rec["our_units"] = round(rec["units"], 2), round(rec["value_units"], 2), round(rec["our_units"], 2)
+        rec["our_staked"] = round(rec["our_staked"], 2)
         main = f"{bouts[0]['a']} vs {bouts[0]['b']}"
         write(f"events/{es}.json", {"slug": es, "name": name, "date": date, "location": loc, "bouts": bouts,
                                     "record": rec, "model_right": rec["right"], "graded": rec["picks"],
