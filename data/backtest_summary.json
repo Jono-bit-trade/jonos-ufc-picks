@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-01",
+ "run_at": "2026-11-02",
  "best": {
   "features": "core+form",
   "learner": "logistic"
@@ -8,7 +8,7 @@
   {
    "features": "betting line (no-vig)",
    "learner": "market",
-   "log_loss": 0.604,
+   "log_loss": 0.6039,
    "brier": 0.2085,
    "accuracy": 0.6669
   },
@@ -50,15 +50,15 @@
   {
    "features": "all",
    "learner": "boost",
-   "log_loss": 0.658,
-   "brier": 0.2329,
-   "accuracy": 0.6105
+   "log_loss": 0.6574,
+   "brier": 0.2326,
+   "accuracy": 0.6111
   },
   {
    "features": "all",
    "learner": "blend",
-   "log_loss": 0.65,
-   "brier": 0.2292,
+   "log_loss": 0.6498,
+   "brier": 0.2291,
    "accuracy": 0.6209
   }
  ],
@@ -79,7 +79,7 @@
    "probability": "Line + model blend",
    "log_loss": 0.5987,
    "brier": 0.2066,
-   "accuracy": 0.677
+   "accuracy": 0.6775
   }
  ],
  "roi": [
@@ -87,43 +87,43 @@
    "edge": 0.0,
    "bets": 4384,
    "win_%": 59.3522,
-   "units": -112.5572,
-   "roi_%": -2.5675
+   "units": -112.5678,
+   "roi_%": -2.5677
   },
   {
    "edge": 0.01,
    "bets": 3611,
    "win_%": 61.5065,
-   "units": -28.3046,
-   "roi_%": -0.7838
+   "units": -28.4241,
+   "roi_%": -0.7872
   },
   {
    "edge": 0.02,
    "bets": 2592,
    "win_%": 64.3904,
-   "units": 5.7293,
-   "roi_%": 0.221
+   "units": 5.5898,
+   "roi_%": 0.2157
   },
   {
    "edge": 0.03,
    "bets": 1669,
    "win_%": 69.8023,
-   "units": 35.2765,
-   "roi_%": 2.1136
+   "units": 35.1106,
+   "roi_%": 2.1037
   },
   {
    "edge": 0.04,
    "bets": 1098,
    "win_%": 74.408,
-   "units": 32.2476,
-   "roi_%": 2.9369
+   "units": 32.0816,
+   "roi_%": 2.9218
   },
   {
    "edge": 0.05,
    "bets": 750,
    "win_%": 76.0,
-   "units": 31.1374,
-   "roi_%": 4.1516
+   "units": 30.9714,
+   "roi_%": 4.1295
   }
  ],
  "by_year": [
@@ -187,8 +187,8 @@
    "year": "2026",
    "bets": 196,
    "win_%": 75.5102,
-   "units": 1.6597,
-   "roi_%": 0.8468
+   "units": 1.4938,
+   "roi_%": 0.7621
   }
  ],
  "years": "2018-2026",
@@ -196,57 +196,57 @@
  "early": [
   {
    "edge": 0.0,
-   "bets_open": 560,
-   "win_%_open": 67.5,
-   "units_open": -8.0158,
-   "roi_%_open": -1.4314,
-   "roi_close_%": -1.4142,
-   "moved_toward_%": 54.7893
+   "bets_open": 572,
+   "win_%_open": 67.6573,
+   "units_open": -7.2084,
+   "roi_%_open": -1.2602,
+   "roi_close_%": -1.2568,
+   "moved_toward_%": 54.7842
   },
   {
    "edge": 0.01,
-   "bets_open": 521,
-   "win_%_open": 68.1382,
-   "units_open": -13.7413,
-   "roi_%_open": -2.6375,
-   "roi_close_%": -2.7006,
-   "moved_toward_%": 55.9671
+   "bets_open": 532,
+   "win_%_open": 68.4211,
+   "units_open": -11.9338,
+   "roi_%_open": -2.2432,
+   "roi_close_%": -2.3194,
+   "moved_toward_%": 56.0484
   },
   {
    "edge": 0.02,
-   "bets_open": 471,
-   "win_%_open": 70.0637,
-   "units_open": -8.9104,
-   "roi_%_open": -1.8918,
-   "roi_close_%": -2.3843,
-   "moved_toward_%": 57.0455
+   "bets_open": 480,
+   "win_%_open": 70.2083,
+   "units_open": -8.0461,
+   "roi_%_open": -1.6763,
+   "roi_close_%": -2.1698,
+   "moved_toward_%": 57.1429
   },
   {
    "edge": 0.03,
-   "bets_open": 439,
-   "win_%_open": 70.615,
-   "units_open": -11.267,
-   "roi_%_open": -2.5665,
-   "roi_close_%": -3.1363,
-   "moved_toward_%": 57.2127
+   "bets_open": 448,
+   "win_%_open": 70.7589,
+   "units_open": -10.4027,
+   "roi_%_open": -2.322,
+   "roi_close_%": -2.8914,
+   "moved_toward_%": 57.3141
   },
   {
    "edge": 0.04,
-   "bets_open": 384,
-   "win_%_open": 73.4375,
-   "units_open": -3.1022,
-   "roi_%_open": -0.8079,
-   "roi_close_%": -1.6351,
-   "moved_toward_%": 57.8652
+   "bets_open": 391,
+   "win_%_open": 73.913,
+   "units_open": -0.238,
+   "roi_%_open": -0.0609,
+   "roi_close_%": -0.8859,
+   "moved_toward_%": 58.2873
   },
   {
    "edge": 0.05,
-   "bets_open": 339,
-   "win_%_open": 75.5162,
-   "units_open": 3.583,
-   "roi_%_open": 1.0569,
-   "roi_close_%": 0.2144,
-   "moved_toward_%": 58.7859
+   "bets_open": 343,
+   "win_%_open": 75.8017,
+   "units_open": 5.1232,
+   "roi_%_open": 1.4937,
+   "roi_close_%": 0.5689,
+   "moved_toward_%": 59.1772
   }
  ]
 }
