@@ -1,7 +1,7 @@
 situation,n 2013-2019,won 2013-2019,line said 2013-2019,roi 2013-2019,n 2020-2026,won 2020-2026,line said 2020-2026,roi 2020-2026,verdict
 Age: fighter 35 or older,813,41.1,43.4,-8.5,1306,39.2,41.6,-13.3,fade in both periods
-Age: 5+ years younger than opponent,1247,60.4,57.1,3.2,1360,64.6,61.3,-0.5,no consistent edge
-"Age: 5+ years younger, as underdog",396,40.4,36.1,8.1,322,37.3,37.5,-7.9,no consistent edge
+Age: 5+ years younger than opponent,1247,60.4,57.1,3.2,1360,64.6,61.3,-0.4,no consistent edge
+"Age: 5+ years younger, as underdog",396,40.4,36.1,8.1,322,37.3,37.5,-7.8,no consistent edge
 Age: 35+ as favorite,265,58.9,64.1,-11.1,390,61.3,62.3,-6.9,fade in both periods
 Layoff: back after 15+ months,302,43.7,46.2,-7.7,470,39.8,44.9,-20.9,fade in both periods
 Layoff: opponent back after 15+ months,302,56.3,53.8,0.5,470,60.2,55.1,3.3,edge in both periods
@@ -31,8 +31,8 @@ Division: women's favorites,354,65.8,66.3,-5.1,565,68.5,66.2,-1.4,no consistent 
 Fight: five-round underdog,297,36.0,31.8,3.9,338,37.3,34.5,3.1,edge in both periods
 Fight: title fight underdog,157,33.8,29.9,2.5,123,34.1,32.7,2.4,edge in both periods
 "Fight: at altitude, favorite",88,68.2,64.2,2.5,92,77.2,69.0,7.2,edge in both periods
-Price: favorites -400 or shorter,493,85.0,82.0,0.4,570,88.6,81.7,3.7,edge in both periods
-Price: favorites -150 to -250,1235,60.6,62.9,-6.7,1324,64.2,62.7,-2.1,no consistent edge
-Price: small favorites (-101 to -149),1029,51.5,53.2,-6.7,953,54.5,52.7,-1.7,no consistent edge
-Price: small underdogs (+100 to +150),1143,47.0,43.1,5.7,1081,40.0,42.8,-11.2,no consistent edge
-Price: big underdogs (+300 or longer),598,15.6,19.0,-21.7,599,11.9,18.5,-38.2,fade in both periods
+Price: favorites -400 or shorter,493,85.0,82.0,0.4,571,88.6,81.7,3.7,edge in both periods
+Price: favorites -150 to -250,1235,60.6,62.9,-6.7,1323,64.2,62.7,-2.0,no consistent edge
+Price: small favorites (-101 to -149),1029,51.5,53.2,-6.7,952,54.4,52.8,-1.8,no consistent edge
+Price: small underdogs (+100 to +150),1143,47.0,43.1,5.7,1083,40.0,42.8,-11.1,no consistent edge
+Price: big underdogs (+300 or longer),598,15.6,19.0,-21.7,600,11.8,18.5,-38.3,fade in both periods
