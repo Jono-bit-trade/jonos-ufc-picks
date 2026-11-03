@@ -8,14 +8,28 @@
  },
  "details": "W. Cortes Acosta -230",
  "overUnder": 1.5,
+ "spread": -13.5,
  "overOdds": -195.0,
  "underOdds": 150.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
   "moneyLine": 190,
+  "spreadOdds": 110.0,
   "open": {
    "favorite": false,
+   "pointSpread": {
+    "alternateDisplayValue": "+13.5",
+    "american": "+13.5"
+   },
+   "spread": {
+    "value": 2.1,
+    "displayValue": "11/10",
+    "alternateDisplayValue": "+110",
+    "decimal": 2.1,
+    "fraction": "11/10",
+    "american": "+110"
+   },
    "moneyLine": {
     "value": 2.6,
     "displayValue": "8/5",
@@ -23,9 +37,47 @@
     "decimal": 2.6,
     "fraction": "8/5",
     "american": "+160"
+   },
+   "victoryMethod": {
+    "koTkoDq": {
+     "value": 4.0,
+     "displayValue": "3/1",
+     "alternateDisplayValue": "+300",
+     "decimal": 4.0,
+     "fraction": "3/1",
+     "american": "+300"
+    },
+    "submission": {
+     "value": 13.0,
+     "displayValue": "12/1",
+     "alternateDisplayValue": "+1200",
+     "decimal": 13.0,
+     "fraction": "12/1",
+     "american": "+1200"
+    },
+    "points": {
+     "value": 12.0,
+     "displayValue": "11/1",
+     "alternateDisplayValue": "+1100",
+     "decimal": 12.0,
+     "fraction": "11/1",
+     "american": "+1100"
+    }
    }
   },
   "current": {
+   "pointSpread": {
+    "alternateDisplayValue": "+13.5",
+    "american": "+13.5"
+   },
+   "spread": {
+    "value": 2.1,
+    "displayValue": "11/10",
+    "alternateDisplayValue": "+110",
+    "decimal": 2.1,
+    "fraction": "11/10",
+    "american": "+110"
+   },
    "moneyLine": {
     "value": 2.9,
     "displayValue": "19/10",
@@ -33,6 +85,32 @@
     "decimal": 2.9,
     "fraction": "19/10",
     "american": "+190"
+   },
+   "victoryMethod": {
+    "koTkoDq": {
+     "value": 4.0,
+     "displayValue": "3/1",
+     "alternateDisplayValue": "+300",
+     "decimal": 4.0,
+     "fraction": "3/1",
+     "american": "+300"
+    },
+    "submission": {
+     "value": 13.0,
+     "displayValue": "12/1",
+     "alternateDisplayValue": "+1200",
+     "decimal": 13.0,
+     "fraction": "12/1",
+     "american": "+1200"
+    },
+    "points": {
+     "value": 12.0,
+     "displayValue": "11/1",
+     "alternateDisplayValue": "+1100",
+     "decimal": 12.0,
+     "fraction": "11/1",
+     "american": "+1100"
+    }
    }
   },
   "athlete": {
@@ -43,8 +121,21 @@
   "favorite": true,
   "underdog": false,
   "moneyLine": -230,
+  "spreadOdds": -145.0,
   "open": {
-   "favorite": false,
+   "favorite": true,
+   "pointSpread": {
+    "alternateDisplayValue": "-13.5",
+    "american": "-13.5"
+   },
+   "spread": {
+    "value": 1.68,
+    "displayValue": "20/29",
+    "alternateDisplayValue": "-145",
+    "decimal": 1.68,
+    "fraction": "20/29",
+    "american": "-145"
+   },
    "moneyLine": {
     "value": 1.52,
     "displayValue": "25/48",
@@ -52,9 +143,47 @@
     "decimal": 1.52,
     "fraction": "25/48",
     "american": "-192"
+   },
+   "victoryMethod": {
+    "koTkoDq": {
+     "value": 1.8,
+     "displayValue": "4/5",
+     "alternateDisplayValue": "-125",
+     "decimal": 1.8,
+     "fraction": "4/5",
+     "american": "-125"
+    },
+    "submission": {
+     "value": 19.0,
+     "displayValue": "18/1",
+     "alternateDisplayValue": "+1800",
+     "decimal": 19.0,
+     "fraction": "18/1",
+     "american": "+1800"
+    },
+    "points": {
+     "value": 5.5,
+     "displayValue": "9/2",
+     "alternateDisplayValue": "+450",
+     "decimal": 5.5,
+     "fraction": "9/2",
+     "american": "+450"
+    }
    }
   },
   "current": {
+   "pointSpread": {
+    "alternateDisplayValue": "-13.5",
+    "american": "-13.5"
+   },
+   "spread": {
+    "value": 1.68,
+    "displayValue": "20/29",
+    "alternateDisplayValue": "-145",
+    "decimal": 1.68,
+    "fraction": "20/29",
+    "american": "-145"
+   },
    "moneyLine": {
     "value": 1.43,
     "displayValue": "10/23",
@@ -62,6 +191,32 @@
     "decimal": 1.43,
     "fraction": "10/23",
     "american": "-230"
+   },
+   "victoryMethod": {
+    "koTkoDq": {
+     "value": 1.8,
+     "displayValue": "4/5",
+     "alternateDisplayValue": "-125",
+     "decimal": 1.8,
+     "fraction": "4/5",
+     "american": "-125"
+    },
+    "submission": {
+     "value": 19.0,
+     "displayValue": "18/1",
+     "alternateDisplayValue": "+1800",
+     "decimal": 19.0,
+     "fraction": "18/1",
+     "american": "+1800"
+    },
+    "points": {
+     "value": 5.5,
+     "displayValue": "9/2",
+     "alternateDisplayValue": "+450",
+     "decimal": 5.5,
+     "fraction": "9/2",
+     "american": "+450"
+    }
    }
   },
   "athlete": {
@@ -135,6 +290,84 @@
    "shortText": "Game",
    "isExternal": true,
    "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "homeMovKoTkoDq",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34937750%3Foutcomes%3D0QA385594267%25232349057624_13L9034Q11Q22",
+   "text": "Home KOTKODQ Victory Method",
+   "shortText": "Home KOTKODQ Victory Method",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "awayMovKoTkoDq",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34937750%3Foutcomes%3D0QA385594267%25232349057666_13L9034Q13Q24",
+   "text": "Away KOTKODQ Victory Method",
+   "shortText": "Away KOTKODQ Victory Method",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "homeMovSubmission",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34937750%3Foutcomes%3D0QA385594268%25232349057631_13L9034Q11Q22",
+   "text": "Home Submission Victory Method",
+   "shortText": "Home Submission Victory Method",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "awayMovSubmission",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34937750%3Foutcomes%3D0QA385594268%25232349057659_13L9034Q13Q24",
+   "text": "Away Submission Victory Method",
+   "shortText": "Away Submission Victory Method",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "homeMovPoints",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34937750%3Foutcomes%3D0QA385594269%25232349057638_13L9034Q11Q22",
+   "text": "Home Points Victory Method",
+   "shortText": "Home Points Victory Method",
+   "isExternal": true,
+   "isPremium": false
+  },
+  {
+   "language": "en-US",
+   "rel": [
+    "awayMovPoints",
+    "desktop",
+    "bets"
+   ],
+   "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34937750%3Foutcomes%3D0QA385594269%25232349057645_13L9034Q13Q24",
+   "text": "Away Points Victory Method",
+   "shortText": "Away Points Victory Method",
+   "isExternal": true,
+   "isPremium": false
   }
  ],
  "moneylineWinner": false,
@@ -182,5 +415,8 @@
    "alternateDisplayValue": "1.5",
    "american": "1.5"
   }
+ },
+ "propBets": {
+  "$ref": "http://sports.core.api.espn.com/v2/sports/mma/leagues/ufc/events/600061268/competitions/401932715/odds/100/propBets?lang=en&region=us"
  }
 }

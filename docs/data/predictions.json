@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T15:19Z",
+ "updated": "2026-11-03T20:29Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -38,7 +38,89 @@
    "b_id": "3146944",
    "record_a": "17-4-0",
    "record_b": "23-10-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 2,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Heavyweight",
@@ -135,6 +217,11 @@
      "t": "2026-11-03T15:19Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.013,
@@ -158,10 +245,92 @@
    "b_id": "4289516",
    "record_a": "13-1-0",
    "record_b": "23-4-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 5,
+    "picks_b": 3,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [
-    "Our chance 67% vs the line's 64% (3 points of value)",
+    "Our chance 68% vs the line's 64% (4 points of value)",
     "Rated 133 points higher"
    ],
    "weight_class": "Women's Strawweight",
@@ -176,15 +345,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.695,
-   "p_a": 0.673,
+   "p_a": 0.681,
    "model_pick": "Tatiana Suarez",
-   "fair_odds_a": -206,
-   "fair_odds_b": 206,
-   "market_p_a": 0.637,
-   "odds_a": -198.0,
-   "odds_b": 164.0,
-   "best_a": -198.0,
-   "best_b": 164.0,
+   "fair_odds_a": -213,
+   "fair_odds_b": 213,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
    "open_a": -192.0,
    "open_b": 160.0,
    "books": 1.0,
@@ -258,12 +427,17 @@
      "t": "2026-11-03T15:19Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.036,
    "pick": "Tatiana Suarez",
    "our_pick": "Tatiana Suarez",
-   "stake": 1.5,
+   "stake": 1.0,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -281,7 +455,89 @@
    "b_id": "5144797",
    "record_a": "18-8-0",
    "record_b": "10-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 7,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Bantamweight",
@@ -378,6 +634,11 @@
      "t": "2026-11-03T15:19Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "edge_a": -0.016,
@@ -401,7 +662,89 @@
    "b_id": "4426282",
    "record_a": "13-3-0",
    "record_b": "18-8-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 3,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.03,
     "handle_b": 0.97,
@@ -411,6 +754,7 @@
    },
    "why": [
     "Our chance 92% vs the line's 84% (8 points of value)",
+    "8 of 8 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 163 points higher"
    ],
@@ -508,6 +852,11 @@
      "t": "2026-11-03T15:19Z",
      "a": -700.0,
      "b": 500.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -700.0,
+     "b": 500.0
     }
    ],
    "edge_a": 0.076,
@@ -531,7 +880,89 @@
    "b_id": "5119021",
    "record_a": "10-2-0",
    "record_b": "14-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 7,
+    "high_a": 0,
+    "high_b": 5,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.84,
     "handle_b": 0.16,
@@ -552,15 +983,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.563,
-   "p_a": 0.297,
+   "p_a": 0.289,
    "model_pick": "Lucas Fernando",
-   "fair_odds_a": 237,
-   "fair_odds_b": -237,
-   "market_p_a": 0.274,
-   "odds_a": 250.0,
-   "odds_b": -310.0,
-   "best_a": 250.0,
-   "best_b": -310.0,
+   "fair_odds_a": 246,
+   "fair_odds_b": -246,
+   "market_p_a": 0.266,
+   "odds_a": 260.0,
+   "odds_b": -325.0,
+   "best_a": 260.0,
+   "best_b": -325.0,
    "open_a": 210.0,
    "open_b": -258.0,
    "books": 1.0,
@@ -634,6 +1065,11 @@
      "t": "2026-11-03T15:19Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
    "edge_a": 0.022,
@@ -657,7 +1093,89 @@
    "b_id": "4697476",
    "record_a": "9-1-0",
    "record_b": "13-7-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 3,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.52,
     "handle_b": 0.48,
@@ -666,7 +1184,8 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 75% vs the line's 71% (4 points of value)"
+    "Our chance 75% vs the line's 71% (4 points of value)",
+    "8 of 8 analysts agree"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -762,6 +1281,11 @@
      "t": "2026-11-03T15:19Z",
      "a": -290.0,
      "b": 235.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -290.0,
+     "b": 235.0
     }
    ],
    "edge_a": 0.038,
@@ -785,7 +1309,89 @@
    "b_id": "4869702",
    "record_a": "8-1-0",
    "record_b": "11-5-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 5,
+    "picks_b": 3,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.98,
     "handle_b": 0.02,
@@ -806,15 +1412,15 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.524,
-   "p_a": 0.428,
+   "p_a": 0.418,
    "model_pick": "Thomas Petersen",
-   "fair_odds_a": 134,
-   "fair_odds_b": -134,
-   "market_p_a": 0.407,
-   "odds_a": 136.0,
-   "odds_b": -162.0,
-   "best_a": 136.0,
-   "best_b": -162.0,
+   "fair_odds_a": 139,
+   "fair_odds_b": -139,
+   "market_p_a": 0.396,
+   "odds_a": 142.0,
+   "odds_b": -170.0,
+   "best_a": 142.0,
+   "best_b": -170.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -888,6 +1494,11 @@
      "t": "2026-11-03T15:19Z",
      "a": 136.0,
      "b": -162.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": 0.021,
@@ -911,7 +1522,89 @@
    "b_id": "4871203",
    "record_a": "19-7-0",
    "record_b": "11-4-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.48,
     "handle_b": 0.52,
@@ -921,6 +1614,7 @@
    },
    "why": [
     "Our chance 69% vs the line's 66% (3 points of value)",
+    "8 of 8 analysts agree",
     "Rated 153 points higher"
    ],
    "weight_class": "Women's Flyweight",
@@ -1017,6 +1711,11 @@
      "t": "2026-11-03T15:19Z",
      "a": -218.0,
      "b": 180.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -218.0,
+     "b": 180.0
     }
    ],
    "edge_a": 0.037,
@@ -1040,7 +1739,89 @@
    "b_id": "5143890",
    "record_a": "11-3-0",
    "record_b": "15-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 8,
+    "high_a": 0,
+    "high_b": 2,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.53,
     "handle_b": 0.47,
@@ -1061,15 +1842,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.658,
-   "p_a": 0.371,
+   "p_a": 0.366,
    "model_pick": "Marcos Degli",
-   "fair_odds_a": 169,
-   "fair_odds_b": -169,
-   "market_p_a": 0.336,
-   "odds_a": 185.0,
-   "odds_b": -225.0,
-   "best_a": 185.0,
-   "best_b": -225.0,
+   "fair_odds_a": 174,
+   "fair_odds_b": -174,
+   "market_p_a": 0.331,
+   "odds_a": 190.0,
+   "odds_b": -230.0,
+   "best_a": 190.0,
+   "best_b": -230.0,
    "open_a": 200.0,
    "open_b": -245.0,
    "books": 1.0,
@@ -1143,6 +1924,11 @@
      "t": "2026-11-03T15:19Z",
      "a": 185.0,
      "b": -225.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 190.0,
+     "b": -230.0
     }
    ],
    "edge_a": 0.035,
@@ -1166,7 +1952,80 @@
    "b_id": "5308768",
    "record_a": "17-3-0",
    "record_b": "11-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 4,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.02,
     "handle_b": 0.98,
@@ -1269,6 +2128,11 @@
      "t": "2026-11-03T15:19Z",
      "a": -115.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -115.0,
+     "b": -105.0
     }
    ],
    "edge_a": 0.014,
@@ -1292,7 +2156,89 @@
    "b_id": "5346907",
    "record_a": "8-1-0",
    "record_b": "4-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 4,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.55,
     "handle_b": 0.45,
@@ -1313,15 +2259,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.774,
+   "p_a": 0.771,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -342,
-   "fair_odds_b": 342,
-   "market_p_a": 0.748,
+   "fair_odds_a": -337,
+   "fair_odds_b": 337,
+   "market_p_a": 0.745,
    "odds_a": -355.0,
-   "odds_b": 280.0,
+   "odds_b": 275.0,
    "best_a": -355.0,
-   "best_b": 280.0,
+   "best_b": 275.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -1395,6 +2341,11 @@
      "t": "2026-11-03T15:19Z",
      "a": -355.0,
      "b": 280.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -355.0,
+     "b": 275.0
     }
    ],
    "edge_a": 0.026,
@@ -1467,7 +2418,89 @@
    "b_id": "5361791",
    "record_a": "13-9-0",
    "record_b": "9-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 7,
+    "high_a": 1,
+    "high_b": 2,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.5,
     "handle_b": 0.5,
@@ -1477,6 +2510,7 @@
    },
    "why": [
     "Our chance 86% vs the line's 80% (6 points of value)",
+    "7 of 8 analysts agree",
     "Rated 132 points higher"
    ],
    "weight_class": "Women's Bantamweight",
@@ -1573,6 +2607,11 @@
      "t": "2026-11-03T15:19Z",
      "a": 380.0,
      "b": -500.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 380.0,
+     "b": -500.0
     }
    ],
    "edge_a": -0.059,
@@ -1596,7 +2635,89 @@
    "b_id": "5080485",
    "record_a": "9-3-0",
    "record_b": "9-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 5,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Welterweight",
@@ -1641,6 +2762,11 @@
     },
     {
      "t": "2026-11-03T15:19Z",
+     "a": 190.0,
+     "b": -225.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
      "a": 190.0,
      "b": -225.0
     }
