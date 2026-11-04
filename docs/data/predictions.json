@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T15:33Z",
+ "updated": "2026-11-04T20:46Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -232,6 +232,11 @@
      "t": "2026-11-04T15:33Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.013,
@@ -452,6 +457,11 @@
      "t": "2026-11-04T15:33Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.036,
@@ -572,15 +582,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.187,
-   "p_a": 0.259,
+   "p_a": 0.251,
    "model_pick": "Elijah Smith",
-   "fair_odds_a": 287,
-   "fair_odds_b": -287,
-   "market_p_a": 0.274,
-   "odds_a": 250.0,
-   "odds_b": -310.0,
-   "best_a": 250.0,
-   "best_b": -310.0,
+   "fair_odds_a": 298,
+   "fair_odds_b": -298,
+   "market_p_a": 0.266,
+   "odds_a": 260.0,
+   "odds_b": -325.0,
+   "best_a": 260.0,
+   "best_b": -325.0,
    "open_a": 185.0,
    "open_b": -225.0,
    "books": 1.0,
@@ -669,9 +679,14 @@
      "t": "2026-11-04T15:33Z",
      "a": 250.0,
      "b": -310.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
-   "edge_a": -0.016,
+   "edge_a": -0.015,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -681,234 +696,6 @@
     "DEC": 0.478,
     "KO": 0.33,
     "SUB": 0.192
-   }
-  },
-  {
-   "a": "Seokhyeon Ko",
-   "b": "Wellington Turman",
-   "a_slug": "seokhyeon-ko",
-   "b_slug": "wellington-turman",
-   "a_id": "4701954",
-   "b_id": "4426282",
-   "record_a": "13-3-0",
-   "record_b": "18-8-0",
-   "experts": {
-    "picks_a": 8,
-    "picks_b": 0,
-    "high_a": 3,
-    "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 0,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "188-118",
-      "units": -2.32,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "197-111",
-      "units": -10.94,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "191-113",
-      "units": -20.74,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "192-106",
-      "units": -2.15,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "197-112",
-      "units": -4.23,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "197-109",
-      "units": -10.13,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "184-122",
-      "units": -21.67,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "160-114",
-      "units": -36.79,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.03,
-    "handle_b": 0.97,
-    "bets_a": 0.5,
-    "bets_b": 0.5,
-    "at": "2026-11-01T23:02Z"
-   },
-   "why": [
-    "Our chance 92% vs the line's 85% (7 points of value)",
-    "8 of 8 analysts agree",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
-    "Rated 163 points higher"
-   ],
-   "weight_class": "Welterweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-08T01:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 8:00 PM EST",
-   "result": null,
-   "rating_a": 1607,
-   "rating_b": 1444,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.694,
-   "p_a": 0.92,
-   "model_pick": "Seokhyeon Ko",
-   "fair_odds_a": -1148,
-   "fair_odds_b": 1148,
-   "market_p_a": 0.847,
-   "odds_a": -750.0,
-   "odds_b": 525.0,
-   "best_a": -750.0,
-   "best_b": 525.0,
-   "open_a": -550.0,
-   "open_b": 410.0,
-   "books": 1.0,
-   "line_history": [
-    {
-     "t": "2026-11-01T04:54Z",
-     "a": -600.0,
-     "b": 440.0
-    },
-    {
-     "t": "2026-11-01T05:49Z",
-     "a": -625.0,
-     "b": 455.0
-    },
-    {
-     "t": "2026-11-01T13:09Z",
-     "a": -625.0,
-     "b": 455.0
-    },
-    {
-     "t": "2026-11-01T17:13Z",
-     "a": -650.0,
-     "b": 470.0
-    },
-    {
-     "t": "2026-11-01T17:16Z",
-     "a": -650.0,
-     "b": 470.0
-    },
-    {
-     "t": "2026-11-01T18:52Z",
-     "a": -650.0,
-     "b": 470.0
-    },
-    {
-     "t": "2026-11-01T21:59Z",
-     "a": -650.0,
-     "b": 470.0
-    },
-    {
-     "t": "2026-11-01T23:02Z",
-     "a": -750.0,
-     "b": 525.0
-    },
-    {
-     "t": "2026-11-02T17:12Z",
-     "a": -750.0,
-     "b": 525.0
-    },
-    {
-     "t": "2026-11-02T22:43Z",
-     "a": -750.0,
-     "b": 525.0
-    },
-    {
-     "t": "2026-11-03T01:47Z",
-     "a": -750.0,
-     "b": 525.0
-    },
-    {
-     "t": "2026-11-03T11:52Z",
-     "a": -700.0,
-     "b": 500.0
-    },
-    {
-     "t": "2026-11-03T13:01Z",
-     "a": -700.0,
-     "b": 500.0
-    },
-    {
-     "t": "2026-11-03T15:19Z",
-     "a": -700.0,
-     "b": 500.0
-    },
-    {
-     "t": "2026-11-03T20:29Z",
-     "a": -700.0,
-     "b": 500.0
-    },
-    {
-     "t": "2026-11-04T00:12Z",
-     "a": -750.0,
-     "b": 525.0
-    },
-    {
-     "t": "2026-11-04T15:33Z",
-     "a": -750.0,
-     "b": 525.0
-    }
-   ],
-   "edge_a": 0.073,
-   "pick": "Seokhyeon Ko",
-   "our_pick": "Seokhyeon Ko",
-   "stake": 0.5,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.615,
-    "KO": 0.252,
-    "SUB": 0.133
    }
   },
   {
@@ -1120,6 +907,11 @@
      "t": "2026-11-04T15:33Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": 260.0,
+     "b": -325.0
     }
    ],
    "edge_a": 0.022,
@@ -1135,30 +927,490 @@
    }
   },
   {
-   "a": "Mantas Kondratavicius",
-   "b": "Andre Petroski",
-   "a_slug": "mantas-kondratavicius",
-   "b_slug": "andre-petroski",
-   "a_id": "5264925",
-   "b_id": "4697476",
-   "record_a": "9-1-0",
-   "record_b": "13-7-0",
+   "a": "Priscila Cachoeira",
+   "b": "Nina Milo\u0161evi\u0107",
+   "a_slug": "priscila-cachoeira",
+   "b_slug": "nina-milosevic",
+   "a_id": "4277049",
+   "b_id": "5361791",
+   "record_a": "13-9-0",
+   "record_b": "9-1-0",
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 7,
+    "high_a": 1,
+    "high_b": 2,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     }
+    ]
+   },
+   "splits": {
+    "handle_a": 0.5,
+    "handle_b": 0.5,
+    "bets_a": 0.29,
+    "bets_b": 0.71,
+    "at": "2026-11-01T23:02Z"
+   },
+   "why": [
+    "Our chance 86% vs the line's 80% (6 points of value)",
+    "7 of 8 analysts agree",
+    "Rated 132 points higher"
+   ],
+   "weight_class": "Women's Bantamweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-08T01:00Z",
+   "state": "pre",
+   "status": "Sat, November 7th at 8:00 PM EST",
+   "result": null,
+   "rating_a": 1420,
+   "rating_b": 1552,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.223,
+   "p_a": 0.138,
+   "model_pick": "Nina Milo\u0161evi\u0107",
+   "fair_odds_a": 627,
+   "fair_odds_b": -627,
+   "market_p_a": 0.196,
+   "odds_a": 390.0,
+   "odds_b": -520.0,
+   "best_a": 390.0,
+   "best_b": -520.0,
+   "open_a": 350.0,
+   "open_b": -455.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-01T04:54Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T05:49Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T13:09Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T17:13Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T17:16Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T18:52Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 340.0,
+     "b": -440.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-02T17:12Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-02T22:43Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-03T01:47Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-03T11:52Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-03T13:01Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-03T15:19Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-04T00:12Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-04T15:33Z",
+     "a": 380.0,
+     "b": -500.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": 390.0,
+     "b": -520.0
+    }
+   ],
+   "edge_a": -0.058,
+   "pick": "Nina Milo\u0161evi\u0107",
+   "our_pick": "Nina Milo\u0161evi\u0107",
+   "stake": 0.5,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.47,
+    "KO": 0.262,
+    "SUB": 0.268
+   }
+  },
+  {
+   "a": "Mitch Raposo",
+   "b": "Marcos Degli",
+   "a_slug": "mitch-raposo",
+   "b_slug": "marcos-degli",
+   "a_id": "4815978",
+   "b_id": "5143890",
+   "record_a": "11-3-0",
+   "record_b": "15-3-0",
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 8,
+    "high_a": 0,
+    "high_b": 2,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     }
+    ]
+   },
+   "splits": {
+    "handle_a": 0.53,
+    "handle_b": 0.47,
+    "bets_a": 0.75,
+    "bets_b": 0.25,
+    "at": "2026-11-01T23:02Z"
+   },
+   "why": [],
+   "weight_class": "Flyweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-08T01:00Z",
+   "state": "pre",
+   "status": "Sat, November 7th at 8:00 PM EST",
+   "result": null,
+   "rating_a": 1543,
+   "rating_b": 1500,
+   "debut_a": false,
+   "debut_b": true,
+   "p_model_a": 0.658,
+   "p_a": 0.366,
+   "model_pick": "Marcos Degli",
+   "fair_odds_a": 174,
+   "fair_odds_b": -174,
+   "market_p_a": 0.331,
+   "odds_a": 190.0,
+   "odds_b": -230.0,
+   "best_a": 190.0,
+   "best_b": -230.0,
+   "open_a": 200.0,
+   "open_b": -245.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-01T04:54Z",
+     "a": 200.0,
+     "b": -245.0
+    },
+    {
+     "t": "2026-11-01T05:49Z",
+     "a": 200.0,
+     "b": -245.0
+    },
+    {
+     "t": "2026-11-01T13:09Z",
+     "a": 200.0,
+     "b": -245.0
+    },
+    {
+     "t": "2026-11-01T17:13Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-01T17:16Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-01T18:52Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": 195.0,
+     "b": -238.0
+    },
+    {
+     "t": "2026-11-02T17:12Z",
+     "a": 195.0,
+     "b": -238.0
+    },
+    {
+     "t": "2026-11-02T22:43Z",
+     "a": 185.0,
+     "b": -225.0
+    },
+    {
+     "t": "2026-11-03T01:47Z",
+     "a": 185.0,
+     "b": -225.0
+    },
+    {
+     "t": "2026-11-03T11:52Z",
+     "a": 190.0,
+     "b": -230.0
+    },
+    {
+     "t": "2026-11-03T13:01Z",
+     "a": 185.0,
+     "b": -225.0
+    },
+    {
+     "t": "2026-11-03T15:19Z",
+     "a": 185.0,
+     "b": -225.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": 190.0,
+     "b": -230.0
+    },
+    {
+     "t": "2026-11-04T00:12Z",
+     "a": 190.0,
+     "b": -230.0
+    },
+    {
+     "t": "2026-11-04T15:33Z",
+     "a": 190.0,
+     "b": -230.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": 190.0,
+     "b": -230.0
+    }
+   ],
+   "edge_a": 0.035,
+   "pick": "Mitch Raposo",
+   "our_pick": null,
+   "stake": null,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.582,
+    "KO": 0.266,
+    "SUB": 0.152
+   }
+  },
+  {
+   "a": "Keiichiro Nakamura",
+   "b": "Ollie Schmid",
+   "a_slug": "keiichiro-nakamura",
+   "b_slug": "ollie-schmid",
+   "a_id": "5327937",
+   "b_id": "5346907",
+   "record_a": "8-1-0",
+   "record_b": "4-3-0",
    "experts": {
     "picks_a": 8,
     "picks_b": 0,
-    "high_a": 3,
+    "high_a": 4,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
     "win_b": 0,
     "analysts": [
      {
-      "name": "We Want Picks",
+      "name": "Artem MMA",
       "side": "a",
       "conf": "High",
-      "method": null,
-      "record": "197-112",
-      "units": -4.23,
+      "method": "KO/TKO",
+      "record": "197-111",
+      "units": -10.94,
       "winning": false
      },
      {
@@ -1177,6 +1429,15 @@
       "method": "KO/TKO",
       "record": "184-122",
       "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
       "winning": false
      },
      {
@@ -1207,157 +1468,150 @@
       "winning": false
      },
      {
-      "name": "Artem MMA",
+      "name": "We Want Picks",
       "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "197-111",
-      "units": -10.94,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "160-114",
-      "units": -36.79,
+      "conf": "Low",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
       "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.52,
-    "handle_b": 0.48,
-    "bets_a": 0.6,
-    "bets_b": 0.4,
+    "handle_a": 0.55,
+    "handle_b": 0.45,
+    "bets_a": 0.71,
+    "bets_b": 0.29,
     "at": "2026-11-01T23:02Z"
    },
-   "why": [
-    "Our chance 75% vs the line's 71% (4 points of value)",
-    "8 of 8 analysts agree"
-   ],
-   "weight_class": "Middleweight",
+   "why": [],
+   "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-08T01:00Z",
+   "start": "2026-11-07T22:00Z",
    "state": "pre",
-   "status": "Sat, November 7th at 8:00 PM EST",
+   "status": "Sat, November 7th at 5:00 PM EST",
    "result": null,
-   "rating_a": 1535,
-   "rating_b": 1543,
+   "rating_a": 1579,
+   "rating_b": 1433,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.76,
-   "p_a": 0.752,
-   "model_pick": "Mantas Kondratavicius",
-   "fair_odds_a": -302,
-   "fair_odds_b": 302,
-   "market_p_a": 0.714,
-   "odds_a": -290.0,
-   "odds_b": 235.0,
-   "best_a": -290.0,
-   "best_b": 235.0,
-   "open_a": -278.0,
-   "open_b": 225.0,
+   "p_model_a": 0.667,
+   "p_a": 0.776,
+   "model_pick": "Keiichiro Nakamura",
+   "fair_odds_a": -347,
+   "fair_odds_b": 347,
+   "market_p_a": 0.751,
+   "odds_a": -360.0,
+   "odds_b": 285.0,
+   "best_a": -360.0,
+   "best_b": 285.0,
+   "open_a": -345.0,
+   "open_b": 275.0,
    "books": 1.0,
    "line_history": [
     {
      "t": "2026-11-01T04:54Z",
-     "a": -298.0,
-     "b": 240.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-01T05:49Z",
-     "a": -298.0,
-     "b": 240.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-01T13:09Z",
-     "a": -298.0,
-     "b": 240.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-01T17:13Z",
-     "a": -285.0,
-     "b": 230.0
+     "a": -375.0,
+     "b": 295.0
     },
     {
      "t": "2026-11-01T17:16Z",
-     "a": -285.0,
-     "b": 230.0
+     "a": -375.0,
+     "b": 295.0
     },
     {
      "t": "2026-11-01T18:52Z",
-     "a": -285.0,
-     "b": 230.0
+     "a": -375.0,
+     "b": 295.0
     },
     {
      "t": "2026-11-01T21:59Z",
-     "a": -285.0,
-     "b": 230.0
+     "a": -325.0,
+     "b": 260.0
     },
     {
      "t": "2026-11-01T23:02Z",
-     "a": -285.0,
-     "b": 230.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-02T17:12Z",
-     "a": -285.0,
-     "b": 230.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-02T22:43Z",
-     "a": -298.0,
-     "b": 240.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-03T01:47Z",
-     "a": -298.0,
-     "b": 240.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-03T11:52Z",
-     "a": -298.0,
-     "b": 240.0
+     "a": -360.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-03T13:01Z",
-     "a": -290.0,
-     "b": 235.0
+     "a": -355.0,
+     "b": 280.0
     },
     {
      "t": "2026-11-03T15:19Z",
-     "a": -290.0,
-     "b": 235.0
+     "a": -355.0,
+     "b": 280.0
     },
     {
      "t": "2026-11-03T20:29Z",
-     "a": -290.0,
-     "b": 235.0
+     "a": -355.0,
+     "b": 275.0
     },
     {
      "t": "2026-11-04T00:12Z",
-     "a": -290.0,
-     "b": 235.0
+     "a": -345.0,
+     "b": 285.0
     },
     {
      "t": "2026-11-04T15:33Z",
-     "a": -290.0,
-     "b": 235.0
+     "a": -345.0,
+     "b": 285.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -360.0,
+     "b": 285.0
     }
    ],
-   "edge_a": 0.038,
-   "pick": "Mantas Kondratavicius",
-   "our_pick": "Mantas Kondratavicius",
-   "stake": 1.0,
+   "edge_a": 0.026,
+   "pick": null,
+   "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.571,
-    "KO": 0.265,
-    "SUB": 0.164
+    "DEC": 0.36,
+    "KO": 0.396,
+    "SUB": 0.244
    }
   },
   {
@@ -1569,6 +1823,11 @@
      "t": "2026-11-04T15:33Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": 0.021,
@@ -1683,7 +1942,7 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 69% vs the line's 66% (3 points of value)",
+    "Our chance 70% vs the line's 67% (3 points of value)",
     "8 of 8 analysts agree",
     "Rated 153 points higher"
    ],
@@ -1699,15 +1958,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.709,
-   "p_a": 0.694,
+   "p_a": 0.705,
    "model_pick": "Karine Silva",
-   "fair_odds_a": -227,
-   "fair_odds_b": 227,
-   "market_p_a": 0.657,
-   "odds_a": -218.0,
-   "odds_b": 180.0,
-   "best_a": -218.0,
-   "best_b": 180.0,
+   "fair_odds_a": -239,
+   "fair_odds_b": 239,
+   "market_p_a": 0.669,
+   "odds_a": -230.0,
+   "odds_b": 190.0,
+   "best_a": -230.0,
+   "best_b": 190.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -1796,9 +2055,14 @@
      "t": "2026-11-04T15:33Z",
      "a": -218.0,
      "b": 180.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
-   "edge_a": 0.037,
+   "edge_a": 0.036,
    "pick": "Karine Silva",
    "our_pick": "Karine Silva",
    "stake": 1.0,
@@ -1808,229 +2072,6 @@
     "DEC": 0.693,
     "KO": 0.149,
     "SUB": 0.157
-   }
-  },
-  {
-   "a": "Mitch Raposo",
-   "b": "Marcos Degli",
-   "a_slug": "mitch-raposo",
-   "b_slug": "marcos-degli",
-   "a_id": "4815978",
-   "b_id": "5143890",
-   "record_a": "11-3-0",
-   "record_b": "15-3-0",
-   "experts": {
-    "picks_a": 0,
-    "picks_b": 8,
-    "high_a": 0,
-    "high_b": 2,
-    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 0,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "138 MMA",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "188-118",
-      "units": -2.32,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": "Submission",
-      "record": "184-122",
-      "units": -21.67,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "192-106",
-      "units": -2.15,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "197-112",
-      "units": -4.23,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "197-109",
-      "units": -10.13,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "197-111",
-      "units": -10.94,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "191-113",
-      "units": -20.74,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "160-114",
-      "units": -36.79,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.53,
-    "handle_b": 0.47,
-    "bets_a": 0.75,
-    "bets_b": 0.25,
-    "at": "2026-11-01T23:02Z"
-   },
-   "why": [],
-   "weight_class": "Flyweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-07T22:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 5:00 PM EST",
-   "result": null,
-   "rating_a": 1543,
-   "rating_b": 1500,
-   "debut_a": false,
-   "debut_b": true,
-   "p_model_a": 0.658,
-   "p_a": 0.366,
-   "model_pick": "Marcos Degli",
-   "fair_odds_a": 174,
-   "fair_odds_b": -174,
-   "market_p_a": 0.331,
-   "odds_a": 190.0,
-   "odds_b": -230.0,
-   "best_a": 190.0,
-   "best_b": -230.0,
-   "open_a": 200.0,
-   "open_b": -245.0,
-   "books": 1.0,
-   "line_history": [
-    {
-     "t": "2026-11-01T04:54Z",
-     "a": 200.0,
-     "b": -245.0
-    },
-    {
-     "t": "2026-11-01T05:49Z",
-     "a": 200.0,
-     "b": -245.0
-    },
-    {
-     "t": "2026-11-01T13:09Z",
-     "a": 200.0,
-     "b": -245.0
-    },
-    {
-     "t": "2026-11-01T17:13Z",
-     "a": 180.0,
-     "b": -218.0
-    },
-    {
-     "t": "2026-11-01T17:16Z",
-     "a": 180.0,
-     "b": -218.0
-    },
-    {
-     "t": "2026-11-01T18:52Z",
-     "a": 180.0,
-     "b": -218.0
-    },
-    {
-     "t": "2026-11-01T21:59Z",
-     "a": 180.0,
-     "b": -218.0
-    },
-    {
-     "t": "2026-11-01T23:02Z",
-     "a": 195.0,
-     "b": -238.0
-    },
-    {
-     "t": "2026-11-02T17:12Z",
-     "a": 195.0,
-     "b": -238.0
-    },
-    {
-     "t": "2026-11-02T22:43Z",
-     "a": 185.0,
-     "b": -225.0
-    },
-    {
-     "t": "2026-11-03T01:47Z",
-     "a": 185.0,
-     "b": -225.0
-    },
-    {
-     "t": "2026-11-03T11:52Z",
-     "a": 190.0,
-     "b": -230.0
-    },
-    {
-     "t": "2026-11-03T13:01Z",
-     "a": 185.0,
-     "b": -225.0
-    },
-    {
-     "t": "2026-11-03T15:19Z",
-     "a": 185.0,
-     "b": -225.0
-    },
-    {
-     "t": "2026-11-03T20:29Z",
-     "a": 190.0,
-     "b": -230.0
-    },
-    {
-     "t": "2026-11-04T00:12Z",
-     "a": 190.0,
-     "b": -230.0
-    },
-    {
-     "t": "2026-11-04T15:33Z",
-     "a": 190.0,
-     "b": -230.0
-    }
-   ],
-   "edge_a": 0.035,
-   "pick": "Mitch Raposo",
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.582,
-    "KO": 0.266,
-    "SUB": 0.152
    }
   },
   {
@@ -2233,6 +2274,11 @@
      "t": "2026-11-04T15:33Z",
      "a": -115.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -115.0,
+     "b": -105.0
     }
    ],
    "edge_a": 0.014,
@@ -2245,229 +2291,6 @@
     "DEC": 0.39,
     "KO": 0.424,
     "SUB": 0.186
-   }
-  },
-  {
-   "a": "Keiichiro Nakamura",
-   "b": "Ollie Schmid",
-   "a_slug": "keiichiro-nakamura",
-   "b_slug": "ollie-schmid",
-   "a_id": "5327937",
-   "b_id": "5346907",
-   "record_a": "8-1-0",
-   "record_b": "4-3-0",
-   "experts": {
-    "picks_a": 8,
-    "picks_b": 0,
-    "high_a": 4,
-    "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 0,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "197-111",
-      "units": -10.94,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "191-113",
-      "units": -20.74,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "184-122",
-      "units": -21.67,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "160-114",
-      "units": -36.79,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "192-106",
-      "units": -2.15,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "188-118",
-      "units": -2.32,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "197-109",
-      "units": -10.13,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "Low",
-      "method": null,
-      "record": "197-112",
-      "units": -4.23,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.55,
-    "handle_b": 0.45,
-    "bets_a": 0.71,
-    "bets_b": 0.29,
-    "at": "2026-11-01T23:02Z"
-   },
-   "why": [],
-   "weight_class": "Featherweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-07T22:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 5:00 PM EST",
-   "result": null,
-   "rating_a": 1579,
-   "rating_b": 1433,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.667,
-   "p_a": 0.775,
-   "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -344,
-   "fair_odds_b": 344,
-   "market_p_a": 0.749,
-   "odds_a": -345.0,
-   "odds_b": 285.0,
-   "best_a": -345.0,
-   "best_b": 285.0,
-   "open_a": -345.0,
-   "open_b": 275.0,
-   "books": 1.0,
-   "line_history": [
-    {
-     "t": "2026-11-01T04:54Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-01T05:49Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-01T13:09Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-01T17:13Z",
-     "a": -375.0,
-     "b": 295.0
-    },
-    {
-     "t": "2026-11-01T17:16Z",
-     "a": -375.0,
-     "b": 295.0
-    },
-    {
-     "t": "2026-11-01T18:52Z",
-     "a": -375.0,
-     "b": 295.0
-    },
-    {
-     "t": "2026-11-01T21:59Z",
-     "a": -325.0,
-     "b": 260.0
-    },
-    {
-     "t": "2026-11-01T23:02Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-02T17:12Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-02T22:43Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-03T01:47Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-03T11:52Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-03T13:01Z",
-     "a": -355.0,
-     "b": 280.0
-    },
-    {
-     "t": "2026-11-03T15:19Z",
-     "a": -355.0,
-     "b": 280.0
-    },
-    {
-     "t": "2026-11-03T20:29Z",
-     "a": -355.0,
-     "b": 275.0
-    },
-    {
-     "t": "2026-11-04T00:12Z",
-     "a": -345.0,
-     "b": 285.0
-    },
-    {
-     "t": "2026-11-04T15:33Z",
-     "a": -345.0,
-     "b": 285.0
-    }
-   ],
-   "edge_a": 0.026,
-   "pick": null,
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.36,
-    "KO": 0.396,
-    "SUB": 0.244
    }
   },
   {
@@ -2520,62 +2343,62 @@
    }
   },
   {
-   "a": "Priscila Cachoeira",
-   "b": "Nina Milo\u0161evi\u0107",
-   "a_slug": "priscila-cachoeira",
-   "b_slug": "nina-milosevic",
-   "a_id": "4277049",
-   "b_id": "5361791",
-   "record_a": "13-9-0",
-   "record_b": "9-1-0",
+   "a": "Mantas Kondratavicius",
+   "b": "Andre Petroski",
+   "a_slug": "mantas-kondratavicius",
+   "b_slug": "andre-petroski",
+   "a_id": "5264925",
+   "b_id": "4697476",
+   "record_a": "9-1-0",
+   "record_b": "13-7-0",
    "experts": {
-    "picks_a": 1,
-    "picks_b": 7,
-    "high_a": 1,
-    "high_b": 2,
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 3,
+    "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
     "win_b": 0,
     "analysts": [
      {
-      "name": "DFS By The Numbers",
-      "side": "b",
+      "name": "We Want Picks",
+      "side": "a",
       "conf": "High",
-      "method": "Submission",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
       "record": "191-113",
       "units": -20.74,
       "winning": false
      },
      {
       "name": "MMA Experts",
-      "side": "b",
+      "side": "a",
       "conf": "High",
-      "method": "Submission",
+      "method": "KO/TKO",
       "record": "184-122",
       "units": -21.67,
       "winning": false
      },
      {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "160-114",
-      "units": -36.79,
-      "winning": false
-     },
-     {
       "name": "Lucrative James",
-      "side": "b",
+      "side": "a",
       "conf": "Med",
-      "method": "Submission",
+      "method": "KO/TKO",
       "record": "192-106",
       "units": -2.15,
       "winning": false
      },
      {
       "name": "138 MMA",
-      "side": "b",
+      "side": "a",
       "conf": "Med",
       "method": null,
       "record": "188-118",
@@ -2583,167 +2406,404 @@
       "winning": false
      },
      {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "197-112",
-      "units": -4.23,
-      "winning": false
-     },
-     {
       "name": "JakeGerberMMA",
-      "side": "b",
+      "side": "a",
       "conf": "Med",
-      "method": "Submission",
+      "method": "KO/TKO",
       "record": "197-109",
       "units": -10.13,
       "winning": false
      },
      {
       "name": "Artem MMA",
-      "side": "b",
+      "side": "a",
       "conf": "Med",
-      "method": "Submission",
+      "method": "KO/TKO",
       "record": "197-111",
       "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "160-114",
+      "units": -36.79,
       "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.5,
-    "handle_b": 0.5,
-    "bets_a": 0.29,
-    "bets_b": 0.71,
+    "handle_a": 0.52,
+    "handle_b": 0.48,
+    "bets_a": 0.6,
+    "bets_b": 0.4,
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 86% vs the line's 80% (6 points of value)",
-    "7 of 8 analysts agree",
-    "Rated 132 points higher"
+    "Our chance 75% vs the line's 71% (4 points of value)",
+    "8 of 8 analysts agree"
    ],
-   "weight_class": "Women's Bantamweight",
+   "weight_class": "Middleweight",
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
    "state": "pre",
    "status": "Sat, November 7th at 5:00 PM EST",
    "result": null,
-   "rating_a": 1420,
-   "rating_b": 1552,
+   "rating_a": 1535,
+   "rating_b": 1543,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.223,
-   "p_a": 0.141,
-   "model_pick": "Nina Milo\u0161evi\u0107",
-   "fair_odds_a": 610,
-   "fair_odds_b": -610,
-   "market_p_a": 0.2,
-   "odds_a": 380.0,
-   "odds_b": -500.0,
-   "best_a": 380.0,
-   "best_b": -500.0,
-   "open_a": 350.0,
-   "open_b": -455.0,
+   "p_model_a": 0.76,
+   "p_a": 0.748,
+   "model_pick": "Mantas Kondratavicius",
+   "fair_odds_a": -297,
+   "fair_odds_b": 297,
+   "market_p_a": 0.71,
+   "odds_a": -285.0,
+   "odds_b": 230.0,
+   "best_a": -285.0,
+   "best_b": 230.0,
+   "open_a": -278.0,
+   "open_b": 225.0,
    "books": 1.0,
    "line_history": [
     {
      "t": "2026-11-01T04:54Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -298.0,
+     "b": 240.0
     },
     {
      "t": "2026-11-01T05:49Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -298.0,
+     "b": 240.0
     },
     {
      "t": "2026-11-01T13:09Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -298.0,
+     "b": 240.0
     },
     {
      "t": "2026-11-01T17:13Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -285.0,
+     "b": 230.0
     },
     {
      "t": "2026-11-01T17:16Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -285.0,
+     "b": 230.0
     },
     {
      "t": "2026-11-01T18:52Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -285.0,
+     "b": 230.0
     },
     {
      "t": "2026-11-01T21:59Z",
-     "a": 340.0,
-     "b": -440.0
+     "a": -285.0,
+     "b": 230.0
     },
     {
      "t": "2026-11-01T23:02Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -285.0,
+     "b": 230.0
     },
     {
      "t": "2026-11-02T17:12Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -285.0,
+     "b": 230.0
     },
     {
      "t": "2026-11-02T22:43Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -298.0,
+     "b": 240.0
     },
     {
      "t": "2026-11-03T01:47Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -298.0,
+     "b": 240.0
     },
     {
      "t": "2026-11-03T11:52Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -298.0,
+     "b": 240.0
     },
     {
      "t": "2026-11-03T13:01Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -290.0,
+     "b": 235.0
     },
     {
      "t": "2026-11-03T15:19Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -290.0,
+     "b": 235.0
     },
     {
      "t": "2026-11-03T20:29Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -290.0,
+     "b": 235.0
     },
     {
      "t": "2026-11-04T00:12Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -290.0,
+     "b": 235.0
     },
     {
      "t": "2026-11-04T15:33Z",
-     "a": 380.0,
-     "b": -500.0
+     "a": -290.0,
+     "b": 235.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -285.0,
+     "b": 230.0
     }
    ],
-   "edge_a": -0.059,
-   "pick": "Nina Milo\u0161evi\u0107",
-   "our_pick": "Nina Milo\u0161evi\u0107",
+   "edge_a": 0.038,
+   "pick": "Mantas Kondratavicius",
+   "our_pick": "Mantas Kondratavicius",
+   "stake": 1.0,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.571,
+    "KO": 0.265,
+    "SUB": 0.164
+   }
+  },
+  {
+   "a": "Seokhyeon Ko",
+   "b": "Wellington Turman",
+   "a_slug": "seokhyeon-ko",
+   "b_slug": "wellington-turman",
+   "a_id": "4701954",
+   "b_id": "4426282",
+   "record_a": "13-3-0",
+   "record_b": "18-8-0",
+   "experts": {
+    "picks_a": 8,
+    "picks_b": 0,
+    "high_a": 3,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "188-118",
+      "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "197-111",
+      "units": -10.94,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "191-113",
+      "units": -20.74,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-106",
+      "units": -2.15,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "197-112",
+      "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-109",
+      "units": -10.13,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "184-122",
+      "units": -21.67,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "160-114",
+      "units": -36.79,
+      "winning": false
+     }
+    ]
+   },
+   "splits": {
+    "handle_a": 0.03,
+    "handle_b": 0.97,
+    "bets_a": 0.5,
+    "bets_b": 0.5,
+    "at": "2026-11-01T23:02Z"
+   },
+   "why": [
+    "Our chance 92% vs the line's 85% (7 points of value)",
+    "8 of 8 analysts agree",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
+    "Rated 163 points higher"
+   ],
+   "weight_class": "Welterweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-07T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 7th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1607,
+   "rating_b": 1444,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.694,
+   "p_a": 0.92,
+   "model_pick": "Seokhyeon Ko",
+   "fair_odds_a": -1148,
+   "fair_odds_b": 1148,
+   "market_p_a": 0.847,
+   "odds_a": -750.0,
+   "odds_b": 525.0,
+   "best_a": -750.0,
+   "best_b": 525.0,
+   "open_a": -550.0,
+   "open_b": 410.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-01T04:54Z",
+     "a": -600.0,
+     "b": 440.0
+    },
+    {
+     "t": "2026-11-01T05:49Z",
+     "a": -625.0,
+     "b": 455.0
+    },
+    {
+     "t": "2026-11-01T13:09Z",
+     "a": -625.0,
+     "b": 455.0
+    },
+    {
+     "t": "2026-11-01T17:13Z",
+     "a": -650.0,
+     "b": 470.0
+    },
+    {
+     "t": "2026-11-01T17:16Z",
+     "a": -650.0,
+     "b": 470.0
+    },
+    {
+     "t": "2026-11-01T18:52Z",
+     "a": -650.0,
+     "b": 470.0
+    },
+    {
+     "t": "2026-11-01T21:59Z",
+     "a": -650.0,
+     "b": 470.0
+    },
+    {
+     "t": "2026-11-01T23:02Z",
+     "a": -750.0,
+     "b": 525.0
+    },
+    {
+     "t": "2026-11-02T17:12Z",
+     "a": -750.0,
+     "b": 525.0
+    },
+    {
+     "t": "2026-11-02T22:43Z",
+     "a": -750.0,
+     "b": 525.0
+    },
+    {
+     "t": "2026-11-03T01:47Z",
+     "a": -750.0,
+     "b": 525.0
+    },
+    {
+     "t": "2026-11-03T11:52Z",
+     "a": -700.0,
+     "b": 500.0
+    },
+    {
+     "t": "2026-11-03T13:01Z",
+     "a": -700.0,
+     "b": 500.0
+    },
+    {
+     "t": "2026-11-03T15:19Z",
+     "a": -700.0,
+     "b": 500.0
+    },
+    {
+     "t": "2026-11-03T20:29Z",
+     "a": -700.0,
+     "b": 500.0
+    },
+    {
+     "t": "2026-11-04T00:12Z",
+     "a": -750.0,
+     "b": 525.0
+    },
+    {
+     "t": "2026-11-04T15:33Z",
+     "a": -750.0,
+     "b": 525.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": -750.0,
+     "b": 525.0
+    }
+   ],
+   "edge_a": 0.073,
+   "pick": "Seokhyeon Ko",
+   "our_pick": "Seokhyeon Ko",
    "stake": 0.5,
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.47,
-    "KO": 0.262,
-    "SUB": 0.268
+    "DEC": 0.615,
+    "KO": 0.252,
+    "SUB": 0.133
    }
   },
   {
@@ -2852,15 +2912,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.588,
-   "p_a": 0.312,
+   "p_a": 0.3,
    "model_pick": "Jos\u00e9 Souza",
-   "fair_odds_a": 220,
-   "fair_odds_b": -220,
-   "market_p_a": 0.332,
-   "odds_a": 190.0,
-   "odds_b": -225.0,
-   "best_a": 190.0,
-   "best_b": -225.0,
+   "fair_odds_a": 234,
+   "fair_odds_b": -234,
+   "market_p_a": 0.319,
+   "odds_a": 200.0,
+   "odds_b": -245.0,
+   "best_a": 200.0,
+   "best_b": -245.0,
    "open_a": 150.0,
    "open_b": -180.0,
    "books": 1.0,
@@ -2899,6 +2959,11 @@
      "t": "2026-11-04T15:33Z",
      "a": 190.0,
      "b": -225.0
+    },
+    {
+     "t": "2026-11-04T20:46Z",
+     "a": 200.0,
+     "b": -245.0
     }
    ],
    "edge_a": -0.02,

@@ -616,13 +616,13 @@
      "highlights": []
     },
     {
-     "id": "401928116",
-     "uid": "s:3301~l:3321~e:600061268~c:401928116",
+     "id": "401928117",
+     "uid": "s:3301~l:3321~e:600061268~c:401928117",
      "date": "2026-11-07T22:00Z",
      "endDate": "2026-11-07T22:00Z",
      "type": {
-      "id": "1003",
-      "abbreviation": "W Bantamweight"
+      "id": "969",
+      "abbreviation": "Welterweight"
      },
      "timeValid": true,
      "neutralSite": false,
@@ -640,15 +640,15 @@
      },
      "competitors": [
       {
-       "id": "4277049",
-       "uid": "s:3301~a:4277049",
+       "id": "4426282",
+       "uid": "s:3301~a:4426282",
        "type": "athlete",
-       "order": 1,
+       "order": 2,
        "winner": false,
        "athlete": {
-        "fullName": "Priscila Cachoeira",
-        "displayName": "Priscila Cachoeira",
-        "shortName": "P. Cachoeira",
+        "fullName": "Wellington Turman",
+        "displayName": "Wellington Turman",
+        "shortName": "W. Turman",
         "flag": {
          "href": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
          "alt": "Brazil",
@@ -662,23 +662,150 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "13-9-0"
+         "summary": "18-8-0"
         }
        ]
       },
       {
-       "id": "5361791",
-       "uid": "s:3301~a:5361791",
+       "id": "4701954",
+       "uid": "s:3301~a:4701954",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Seokhyeon Ko",
+        "displayName": "Seokhyeon Ko",
+        "shortName": "S. Ko",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
+         "alt": "South Korea",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "13-3-0"
+        }
+       ]
+      }
+     ],
+     "status": {
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 0,
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sat, November 7th at 5:00 PM EST",
+       "shortDetail": "11/7 - 5:00 PM EST"
+      }
+     },
+     "broadcasts": [
+      {
+       "market": "national",
+       "names": [
+        "Paramount+"
+       ]
+      }
+     ],
+     "format": {
+      "regulation": {
+       "periods": 3
+      }
+     },
+     "startDate": "2026-11-07T22:00Z",
+     "broadcast": "Paramount+",
+     "geoBroadcasts": [
+      {
+       "type": {
+        "id": "4",
+        "shortName": "Streaming"
+       },
+       "market": {
+        "id": "1",
+        "type": "National"
+       },
+       "media": {
+        "shortName": "Paramount+"
+       },
+       "lang": "en",
+       "region": "us"
+      }
+     ],
+     "highlights": []
+    },
+    {
+     "id": "401932011",
+     "uid": "s:3301~l:3321~e:600061268~c:401932011",
+     "date": "2026-11-07T22:00Z",
+     "endDate": "2026-11-07T22:00Z",
+     "type": {
+      "id": "972",
+      "abbreviation": "Middleweight"
+     },
+     "timeValid": true,
+     "neutralSite": false,
+     "playByPlayAvailable": false,
+     "recent": false,
+     "venue": {
+      "id": "6176",
+      "fullName": "Meta APEX",
+      "address": {
+       "city": "Las Vegas",
+       "state": "NV",
+       "country": "USA"
+      },
+      "indoor": true
+     },
+     "competitors": [
+      {
+       "id": "4697476",
+       "uid": "s:3301~a:4697476",
        "type": "athlete",
        "order": 2,
        "winner": false,
        "athlete": {
-        "fullName": "Nina Milo\u0161evi\u0107",
-        "displayName": "Nina Milo\u0161evi\u0107",
-        "shortName": "N. Milo\u0161evi\u0107",
+        "fullName": "Andre Petroski",
+        "displayName": "Andre Petroski",
+        "shortName": "A. Petroski",
         "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
-         "alt": "Serbia",
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+         "alt": "USA",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "13-7-0"
+        }
+       ]
+      },
+      {
+       "id": "5264925",
+       "uid": "s:3301~a:5264925",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Mantas Kondratavi\u010dius",
+        "displayName": "Mantas Kondratavi\u010dius",
+        "shortName": "M. Kondratavi\u010dius",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
+         "alt": "Lithuania",
          "rel": [
           "country-flag"
          ]
@@ -870,133 +997,6 @@
      "highlights": []
     },
     {
-     "id": "401911642",
-     "uid": "s:3301~l:3321~e:600061268~c:401911642",
-     "date": "2026-11-07T22:00Z",
-     "endDate": "2026-11-07T22:00Z",
-     "type": {
-      "id": "999",
-      "abbreviation": "Featherweight"
-     },
-     "timeValid": true,
-     "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
-     "venue": {
-      "id": "6176",
-      "fullName": "Meta APEX",
-      "address": {
-       "city": "Las Vegas",
-       "state": "NV",
-       "country": "USA"
-      },
-      "indoor": true
-     },
-     "competitors": [
-      {
-       "id": "5327937",
-       "uid": "s:3301~a:5327937",
-       "type": "athlete",
-       "order": 1,
-       "winner": false,
-       "athlete": {
-        "fullName": "Keiichiro Nakamura",
-        "displayName": "Keiichiro Nakamura",
-        "shortName": "K. Nakamura",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
-         "alt": "Japan",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "8-1-0"
-        }
-       ]
-      },
-      {
-       "id": "5346907",
-       "uid": "s:3301~a:5346907",
-       "type": "athlete",
-       "order": 2,
-       "winner": false,
-       "athlete": {
-        "fullName": "Ollie Schmid",
-        "displayName": "Ollie Schmid",
-        "shortName": "O. Schmid",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
-         "alt": "New Zealand",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "4-3-0"
-        }
-       ]
-      }
-     ],
-     "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
-      "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 5:00 PM EST",
-       "shortDetail": "11/7 - 5:00 PM EST"
-      }
-     },
-     "broadcasts": [
-      {
-       "market": "national",
-       "names": [
-        "Paramount+"
-       ]
-      }
-     ],
-     "format": {
-      "regulation": {
-       "periods": 3
-      }
-     },
-     "startDate": "2026-11-07T22:00Z",
-     "broadcast": "Paramount+",
-     "geoBroadcasts": [
-      {
-       "type": {
-        "id": "4",
-        "shortName": "Streaming"
-       },
-       "market": {
-        "id": "1",
-        "type": "National"
-       },
-       "media": {
-        "shortName": "Paramount+"
-       },
-       "lang": "en",
-       "region": "us"
-      }
-     ],
-     "highlights": []
-    },
-    {
      "id": "401928120",
      "uid": "s:3301~l:3321~e:600061268~c:401928120",
      "date": "2026-11-07T22:00Z",
@@ -1071,133 +1071,6 @@
          "abbreviation": "TOT",
          "type": "total",
          "summary": "11-0-0"
-        }
-       ]
-      }
-     ],
-     "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
-      "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 5:00 PM EST",
-       "shortDetail": "11/7 - 5:00 PM EST"
-      }
-     },
-     "broadcasts": [
-      {
-       "market": "national",
-       "names": [
-        "Paramount+"
-       ]
-      }
-     ],
-     "format": {
-      "regulation": {
-       "periods": 3
-      }
-     },
-     "startDate": "2026-11-07T22:00Z",
-     "broadcast": "Paramount+",
-     "geoBroadcasts": [
-      {
-       "type": {
-        "id": "4",
-        "shortName": "Streaming"
-       },
-       "market": {
-        "id": "1",
-        "type": "National"
-       },
-       "media": {
-        "shortName": "Paramount+"
-       },
-       "lang": "en",
-       "region": "us"
-      }
-     ],
-     "highlights": []
-    },
-    {
-     "id": "401932012",
-     "uid": "s:3301~l:3321~e:600061268~c:401932012",
-     "date": "2026-11-07T22:00Z",
-     "endDate": "2026-11-07T22:00Z",
-     "type": {
-      "id": "956",
-      "abbreviation": "Flyweight"
-     },
-     "timeValid": true,
-     "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
-     "venue": {
-      "id": "6176",
-      "fullName": "Meta APEX",
-      "address": {
-       "city": "Las Vegas",
-       "state": "NV",
-       "country": "USA"
-      },
-      "indoor": true
-     },
-     "competitors": [
-      {
-       "id": "4815978",
-       "uid": "s:3301~a:4815978",
-       "type": "athlete",
-       "order": 1,
-       "winner": false,
-       "athlete": {
-        "fullName": "Mitch Raposo",
-        "displayName": "Mitch Raposo",
-        "shortName": "M. Raposo",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-         "alt": "USA",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "11-3-0"
-        }
-       ]
-      },
-      {
-       "id": "5143890",
-       "uid": "s:3301~a:5143890",
-       "type": "athlete",
-       "order": 2,
-       "winner": false,
-       "athlete": {
-        "fullName": "Marcos Degli",
-        "displayName": "Marcos Degli",
-        "shortName": "M. Degli",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-         "alt": "Brazil",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "15-3-0"
         }
        ]
       }
@@ -1505,13 +1378,13 @@
      "highlights": []
     },
     {
-     "id": "401932011",
-     "uid": "s:3301~l:3321~e:600061268~c:401932011",
-     "date": "2026-11-08T01:00Z",
-     "endDate": "2026-11-08T01:00Z",
+     "id": "401911642",
+     "uid": "s:3301~l:3321~e:600061268~c:401911642",
+     "date": "2026-11-07T22:00Z",
+     "endDate": "2026-11-07T22:00Z",
      "type": {
-      "id": "972",
-      "abbreviation": "Middleweight"
+      "id": "999",
+      "abbreviation": "Featherweight"
      },
      "timeValid": true,
      "neutralSite": false,
@@ -1529,15 +1402,142 @@
      },
      "competitors": [
       {
-       "id": "4697476",
-       "uid": "s:3301~a:4697476",
+       "id": "5327937",
+       "uid": "s:3301~a:5327937",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Keiichiro Nakamura",
+        "displayName": "Keiichiro Nakamura",
+        "shortName": "K. Nakamura",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+         "alt": "Japan",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "8-1-0"
+        }
+       ]
+      },
+      {
+       "id": "5346907",
+       "uid": "s:3301~a:5346907",
        "type": "athlete",
        "order": 2,
        "winner": false,
        "athlete": {
-        "fullName": "Andre Petroski",
-        "displayName": "Andre Petroski",
-        "shortName": "A. Petroski",
+        "fullName": "Ollie Schmid",
+        "displayName": "Ollie Schmid",
+        "shortName": "O. Schmid",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
+         "alt": "New Zealand",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "4-3-0"
+        }
+       ]
+      }
+     ],
+     "status": {
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 0,
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sat, November 7th at 5:00 PM EST",
+       "shortDetail": "11/7 - 5:00 PM EST"
+      }
+     },
+     "broadcasts": [
+      {
+       "market": "national",
+       "names": [
+        "Paramount+"
+       ]
+      }
+     ],
+     "format": {
+      "regulation": {
+       "periods": 3
+      }
+     },
+     "startDate": "2026-11-07T22:00Z",
+     "broadcast": "Paramount+",
+     "geoBroadcasts": [
+      {
+       "type": {
+        "id": "4",
+        "shortName": "Streaming"
+       },
+       "market": {
+        "id": "1",
+        "type": "National"
+       },
+       "media": {
+        "shortName": "Paramount+"
+       },
+       "lang": "en",
+       "region": "us"
+      }
+     ],
+     "highlights": []
+    },
+    {
+     "id": "401932012",
+     "uid": "s:3301~l:3321~e:600061268~c:401932012",
+     "date": "2026-11-08T01:00Z",
+     "endDate": "2026-11-08T01:00Z",
+     "type": {
+      "id": "956",
+      "abbreviation": "Flyweight"
+     },
+     "timeValid": true,
+     "neutralSite": false,
+     "playByPlayAvailable": false,
+     "recent": false,
+     "venue": {
+      "id": "6176",
+      "fullName": "Meta APEX",
+      "address": {
+       "city": "Las Vegas",
+       "state": "NV",
+       "country": "USA"
+      },
+      "indoor": true
+     },
+     "competitors": [
+      {
+       "id": "4815978",
+       "uid": "s:3301~a:4815978",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Mitch Raposo",
+        "displayName": "Mitch Raposo",
+        "shortName": "M. Raposo",
         "flag": {
          "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
          "alt": "USA",
@@ -1551,23 +1551,150 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "13-7-0"
+         "summary": "11-3-0"
         }
        ]
       },
       {
-       "id": "5264925",
-       "uid": "s:3301~a:5264925",
+       "id": "5143890",
+       "uid": "s:3301~a:5143890",
+       "type": "athlete",
+       "order": 2,
+       "winner": false,
+       "athlete": {
+        "fullName": "Marcos Degli",
+        "displayName": "Marcos Degli",
+        "shortName": "M. Degli",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+         "alt": "Brazil",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "15-3-0"
+        }
+       ]
+      }
+     ],
+     "status": {
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 0,
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sat, November 7th at 8:00 PM EST",
+       "shortDetail": "11/7 - 8:00 PM EST"
+      }
+     },
+     "broadcasts": [
+      {
+       "market": "national",
+       "names": [
+        "Paramount+"
+       ]
+      }
+     ],
+     "format": {
+      "regulation": {
+       "periods": 3
+      }
+     },
+     "startDate": "2026-11-08T01:00Z",
+     "broadcast": "Paramount+",
+     "geoBroadcasts": [
+      {
+       "type": {
+        "id": "4",
+        "shortName": "Streaming"
+       },
+       "market": {
+        "id": "1",
+        "type": "National"
+       },
+       "media": {
+        "shortName": "Paramount+"
+       },
+       "lang": "en",
+       "region": "us"
+      }
+     ],
+     "highlights": []
+    },
+    {
+     "id": "401928116",
+     "uid": "s:3301~l:3321~e:600061268~c:401928116",
+     "date": "2026-11-08T01:00Z",
+     "endDate": "2026-11-08T01:00Z",
+     "type": {
+      "id": "1003",
+      "abbreviation": "W Bantamweight"
+     },
+     "timeValid": true,
+     "neutralSite": false,
+     "playByPlayAvailable": false,
+     "recent": false,
+     "venue": {
+      "id": "6176",
+      "fullName": "Meta APEX",
+      "address": {
+       "city": "Las Vegas",
+       "state": "NV",
+       "country": "USA"
+      },
+      "indoor": true
+     },
+     "competitors": [
+      {
+       "id": "4277049",
+       "uid": "s:3301~a:4277049",
        "type": "athlete",
        "order": 1,
        "winner": false,
        "athlete": {
-        "fullName": "Mantas Kondratavi\u010dius",
-        "displayName": "Mantas Kondratavi\u010dius",
-        "shortName": "M. Kondratavi\u010dius",
+        "fullName": "Priscila Cachoeira",
+        "displayName": "Priscila Cachoeira",
+        "shortName": "P. Cachoeira",
         "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
-         "alt": "Lithuania",
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+         "alt": "Brazil",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "13-9-0"
+        }
+       ]
+      },
+      {
+       "id": "5361791",
+       "uid": "s:3301~a:5361791",
+       "type": "athlete",
+       "order": 2,
+       "winner": false,
+       "athlete": {
+        "fullName": "Nina Milo\u0161evi\u0107",
+        "displayName": "Nina Milo\u0161evi\u0107",
+        "shortName": "N. Milo\u0161evi\u0107",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
+         "alt": "Serbia",
          "rel": [
           "country-flag"
          ]
@@ -1706,133 +1833,6 @@
          "abbreviation": "TOT",
          "type": "total",
          "summary": "14-3-0"
-        }
-       ]
-      }
-     ],
-     "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
-      "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 8:00 PM EST",
-       "shortDetail": "11/7 - 8:00 PM EST"
-      }
-     },
-     "broadcasts": [
-      {
-       "market": "national",
-       "names": [
-        "Paramount+"
-       ]
-      }
-     ],
-     "format": {
-      "regulation": {
-       "periods": 3
-      }
-     },
-     "startDate": "2026-11-08T01:00Z",
-     "broadcast": "Paramount+",
-     "geoBroadcasts": [
-      {
-       "type": {
-        "id": "4",
-        "shortName": "Streaming"
-       },
-       "market": {
-        "id": "1",
-        "type": "National"
-       },
-       "media": {
-        "shortName": "Paramount+"
-       },
-       "lang": "en",
-       "region": "us"
-      }
-     ],
-     "highlights": []
-    },
-    {
-     "id": "401928117",
-     "uid": "s:3301~l:3321~e:600061268~c:401928117",
-     "date": "2026-11-08T01:00Z",
-     "endDate": "2026-11-08T01:00Z",
-     "type": {
-      "id": "969",
-      "abbreviation": "Welterweight"
-     },
-     "timeValid": true,
-     "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
-     "venue": {
-      "id": "6176",
-      "fullName": "Meta APEX",
-      "address": {
-       "city": "Las Vegas",
-       "state": "NV",
-       "country": "USA"
-      },
-      "indoor": true
-     },
-     "competitors": [
-      {
-       "id": "4426282",
-       "uid": "s:3301~a:4426282",
-       "type": "athlete",
-       "order": 2,
-       "winner": false,
-       "athlete": {
-        "fullName": "Wellington Turman",
-        "displayName": "Wellington Turman",
-        "shortName": "W. Turman",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-         "alt": "Brazil",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "18-8-0"
-        }
-       ]
-      },
-      {
-       "id": "4701954",
-       "uid": "s:3301~a:4701954",
-       "type": "athlete",
-       "order": 1,
-       "winner": false,
-       "athlete": {
-        "fullName": "Seokhyeon Ko",
-        "displayName": "Seokhyeon Ko",
-        "shortName": "S. Ko",
-        "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
-         "alt": "South Korea",
-         "rel": [
-          "country-flag"
-         ]
-        }
-       },
-       "records": [
-        {
-         "name": "overall",
-         "abbreviation": "TOT",
-         "type": "total",
-         "summary": "13-3-0"
         }
        ]
       }
