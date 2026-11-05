@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T00:32Z",
+ "updated": "2026-11-05T03:29Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-11-07T22:00Z",
-   "bouts": 8,
+   "bouts": 7,
    "tv": [
     "Paramount+"
    ]
@@ -240,6 +240,11 @@
     },
     {
      "t": "2026-11-05T00:32Z",
+     "a": -230.0,
+     "b": 190.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
      "a": -230.0,
      "b": 190.0
     }
@@ -472,6 +477,11 @@
      "t": "2026-11-05T00:32Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.036,
@@ -592,14 +602,14 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.187,
-   "p_a": 0.251,
+   "p_a": 0.256,
    "model_pick": "Elijah Smith",
-   "fair_odds_a": 298,
-   "fair_odds_b": -298,
-   "market_p_a": 0.266,
-   "odds_a": 260.0,
+   "fair_odds_a": 290,
+   "fair_odds_b": -290,
+   "market_p_a": 0.272,
+   "odds_a": 250.0,
    "odds_b": -325.0,
-   "best_a": 260.0,
+   "best_a": 250.0,
    "best_b": -325.0,
    "open_a": 185.0,
    "open_b": -225.0,
@@ -699,9 +709,14 @@
      "t": "2026-11-05T00:32Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": 250.0,
+     "b": -325.0
     }
    ],
-   "edge_a": -0.015,
+   "edge_a": -0.016,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -930,6 +945,11 @@
     },
     {
      "t": "2026-11-05T00:32Z",
+     "a": 260.0,
+     "b": -325.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
      "a": 260.0,
      "b": -325.0
     }
@@ -1169,6 +1189,11 @@
      "t": "2026-11-05T00:32Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": 390.0,
+     "b": -520.0
     }
    ],
    "edge_a": -0.058,
@@ -1402,6 +1427,11 @@
      "t": "2026-11-05T00:32Z",
      "a": 190.0,
      "b": -230.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": 190.0,
+     "b": -230.0
     }
    ],
    "edge_a": 0.035,
@@ -1528,15 +1558,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.776,
+   "p_a": 0.782,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -347,
-   "fair_odds_b": 347,
-   "market_p_a": 0.751,
-   "odds_a": -360.0,
-   "odds_b": 285.0,
-   "best_a": -360.0,
-   "best_b": 285.0,
+   "fair_odds_a": -359,
+   "fair_odds_b": 359,
+   "market_p_a": 0.757,
+   "odds_a": -375.0,
+   "odds_b": 295.0,
+   "best_a": -375.0,
+   "best_b": 295.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -1635,9 +1665,14 @@
      "t": "2026-11-05T00:32Z",
      "a": -360.0,
      "b": 285.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": -375.0,
+     "b": 295.0
     }
    ],
-   "edge_a": 0.026,
+   "edge_a": 0.025,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1866,6 +1901,11 @@
     },
     {
      "t": "2026-11-05T00:32Z",
+     "a": 145.0,
+     "b": -175.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
      "a": 145.0,
      "b": -175.0
     }
@@ -2105,6 +2145,11 @@
      "t": "2026-11-05T00:32Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.036,
@@ -2222,15 +2267,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.457,
-   "p_a": 0.527,
+   "p_a": 0.54,
    "model_pick": "Jose Delano",
-   "fair_odds_a": -112,
-   "fair_odds_b": 112,
-   "market_p_a": 0.514,
-   "odds_a": -118.0,
-   "odds_b": -105.0,
-   "best_a": -118.0,
-   "best_b": -105.0,
+   "fair_odds_a": -117,
+   "fair_odds_b": 117,
+   "market_p_a": 0.526,
+   "odds_a": -122.0,
+   "odds_b": 102.0,
+   "best_a": -122.0,
+   "best_b": 102.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -2329,6 +2374,11 @@
      "t": "2026-11-05T00:32Z",
      "a": -118.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": -122.0,
+     "b": 102.0
     }
    ],
    "edge_a": 0.014,
@@ -2341,55 +2391,6 @@
     "DEC": 0.39,
     "KO": 0.424,
     "SUB": 0.186
-   }
-  },
-  {
-   "a": "Austin Bashi",
-   "b": "Lucas Brennan",
-   "a_slug": "austin-bashi",
-   "b_slug": "lucas-brennan",
-   "a_id": "5120304",
-   "b_id": "4795284",
-   "record_a": "14-2-0",
-   "record_b": "11-3-0",
-   "experts": null,
-   "splits": null,
-   "why": [],
-   "weight_class": "Featherweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-07T22:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 5:00 PM EST",
-   "result": null,
-   "rating_a": 1474,
-   "rating_b": 1437,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.568,
-   "p_a": 0.568,
-   "model_pick": "Austin Bashi",
-   "fair_odds_a": -131,
-   "fair_odds_b": 131,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "method": {
-    "DEC": 0.503,
-    "KO": 0.344,
-    "SUB": 0.152
    }
   },
   {
@@ -2612,6 +2613,11 @@
     },
     {
      "t": "2026-11-05T00:32Z",
+     "a": -285.0,
+     "b": 230.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
      "a": -285.0,
      "b": 230.0
     }
@@ -2852,6 +2858,11 @@
      "t": "2026-11-05T00:32Z",
      "a": -750.0,
      "b": 525.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": -750.0,
+     "b": 525.0
     }
    ],
    "edge_a": 0.073,
@@ -2972,15 +2983,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.588,
-   "p_a": 0.3,
+   "p_a": 0.305,
    "model_pick": "Jos\u00e9 Souza",
-   "fair_odds_a": 234,
-   "fair_odds_b": -234,
-   "market_p_a": 0.319,
-   "odds_a": 200.0,
-   "odds_b": -245.0,
-   "best_a": 200.0,
-   "best_b": -245.0,
+   "fair_odds_a": 228,
+   "fair_odds_b": -228,
+   "market_p_a": 0.325,
+   "odds_a": 195.0,
+   "odds_b": -238.0,
+   "best_a": 195.0,
+   "best_b": -238.0,
    "open_a": 150.0,
    "open_b": -180.0,
    "books": 1.0,
@@ -3029,6 +3040,11 @@
      "t": "2026-11-05T00:32Z",
      "a": 200.0,
      "b": -245.0
+    },
+    {
+     "t": "2026-11-05T03:29Z",
+     "a": 195.0,
+     "b": -238.0
     }
    ],
    "edge_a": -0.02,
