@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T15:37Z",
+ "updated": "2026-11-05T21:01Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-11-07T22:00Z",
-   "bouts": 7,
+   "bouts": 8,
    "tv": [
     "Paramount+"
    ]
@@ -250,6 +250,11 @@
     },
     {
      "t": "2026-11-05T15:37Z",
+     "a": -230.0,
+     "b": 190.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
      "a": -230.0,
      "b": 190.0
     }
@@ -492,6 +497,11 @@
      "t": "2026-11-05T15:37Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.036,
@@ -612,15 +622,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.187,
-   "p_a": 0.256,
+   "p_a": 0.259,
    "model_pick": "Elijah Smith",
-   "fair_odds_a": 290,
-   "fair_odds_b": -290,
-   "market_p_a": 0.272,
+   "fair_odds_a": 287,
+   "fair_odds_b": -287,
+   "market_p_a": 0.274,
    "odds_a": 250.0,
-   "odds_b": -325.0,
+   "odds_b": -310.0,
    "best_a": 250.0,
-   "best_b": -325.0,
+   "best_b": -310.0,
    "open_a": 185.0,
    "open_b": -225.0,
    "books": 1.0,
@@ -729,6 +739,11 @@
      "t": "2026-11-05T15:37Z",
      "a": 250.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "edge_a": -0.016,
@@ -970,6 +985,11 @@
     },
     {
      "t": "2026-11-05T15:37Z",
+     "a": 260.0,
+     "b": -325.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
      "a": 260.0,
      "b": -325.0
     }
@@ -1219,6 +1239,11 @@
      "t": "2026-11-05T15:37Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": 390.0,
+     "b": -520.0
     }
    ],
    "edge_a": -0.058,
@@ -1345,15 +1370,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.658,
-   "p_a": 0.366,
+   "p_a": 0.354,
    "model_pick": "Marcos Degli",
-   "fair_odds_a": 174,
-   "fair_odds_b": -174,
-   "market_p_a": 0.331,
-   "odds_a": 190.0,
-   "odds_b": -230.0,
-   "best_a": 190.0,
-   "best_b": -230.0,
+   "fair_odds_a": 183,
+   "fair_odds_b": -183,
+   "market_p_a": 0.319,
+   "odds_a": 200.0,
+   "odds_b": -245.0,
+   "best_a": 200.0,
+   "best_b": -245.0,
    "open_a": 200.0,
    "open_b": -245.0,
    "books": 1.0,
@@ -1462,9 +1487,14 @@
      "t": "2026-11-05T15:37Z",
      "a": 190.0,
      "b": -230.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": 200.0,
+     "b": -245.0
     }
    ],
-   "edge_a": 0.035,
+   "edge_a": 0.034,
    "pick": "Mitch Raposo",
    "our_pick": null,
    "stake": null,
@@ -1588,15 +1618,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.782,
+   "p_a": 0.776,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -359,
-   "fair_odds_b": 359,
-   "market_p_a": 0.757,
-   "odds_a": -375.0,
-   "odds_b": 295.0,
-   "best_a": -375.0,
-   "best_b": 295.0,
+   "fair_odds_a": -347,
+   "fair_odds_b": 347,
+   "market_p_a": 0.751,
+   "odds_a": -360.0,
+   "odds_b": 285.0,
+   "best_a": -360.0,
+   "best_b": 285.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -1705,9 +1735,14 @@
      "t": "2026-11-05T15:37Z",
      "a": -375.0,
      "b": 295.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": -360.0,
+     "b": 285.0
     }
    ],
-   "edge_a": 0.025,
+   "edge_a": 0.026,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1831,15 +1866,15 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.524,
-   "p_a": 0.412,
+   "p_a": 0.405,
    "model_pick": "Thomas Petersen",
-   "fair_odds_a": 143,
-   "fair_odds_b": -143,
-   "market_p_a": 0.391,
-   "odds_a": 145.0,
-   "odds_b": -175.0,
-   "best_a": 145.0,
-   "best_b": -175.0,
+   "fair_odds_a": 147,
+   "fair_odds_b": -147,
+   "market_p_a": 0.384,
+   "odds_a": 150.0,
+   "odds_b": -180.0,
+   "best_a": 150.0,
+   "best_b": -180.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -1948,6 +1983,11 @@
      "t": "2026-11-05T15:37Z",
      "a": 145.0,
      "b": -175.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
    "edge_a": 0.021,
@@ -2195,6 +2235,11 @@
      "t": "2026-11-05T15:37Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.036,
@@ -2312,15 +2357,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.457,
-   "p_a": 0.54,
+   "p_a": 0.531,
    "model_pick": "Jose Delano",
-   "fair_odds_a": -117,
-   "fair_odds_b": 117,
-   "market_p_a": 0.526,
-   "odds_a": -122.0,
-   "odds_b": 102.0,
-   "best_a": -122.0,
-   "best_b": 102.0,
+   "fair_odds_a": -113,
+   "fair_odds_b": 113,
+   "market_p_a": 0.517,
+   "odds_a": -118.0,
+   "odds_b": -102.0,
+   "best_a": -118.0,
+   "best_b": -102.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -2429,6 +2474,11 @@
      "t": "2026-11-05T15:37Z",
      "a": -122.0,
      "b": 102.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": -118.0,
+     "b": -102.0
     }
    ],
    "edge_a": 0.014,
@@ -2441,6 +2491,55 @@
     "DEC": 0.39,
     "KO": 0.424,
     "SUB": 0.186
+   }
+  },
+  {
+   "a": "Austin Bashi",
+   "b": "Carlos Calderon",
+   "a_slug": "austin-bashi",
+   "b_slug": "carlos-calderon",
+   "a_id": "5120304",
+   "b_id": "5125484",
+   "record_a": "14-2-0",
+   "record_b": "11-4-0",
+   "experts": null,
+   "splits": null,
+   "why": [],
+   "weight_class": "Featherweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-07T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 7th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1474,
+   "rating_b": 1500,
+   "debut_a": false,
+   "debut_b": true,
+   "p_model_a": 0.591,
+   "p_a": 0.591,
+   "model_pick": "Austin Bashi",
+   "fair_odds_a": -144,
+   "fair_odds_b": 144,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "line_history": [],
+   "edge_a": null,
+   "pick": null,
+   "our_pick": null,
+   "stake": null,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.491,
+    "KO": 0.326,
+    "SUB": 0.183
    }
   },
   {
@@ -2543,7 +2642,7 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 75% vs the line's 71% (4 points of value)",
+    "Our chance 76% vs the line's 72% (4 points of value)",
     "8 of 8 analysts agree"
    ],
    "weight_class": "Middleweight",
@@ -2558,15 +2657,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.76,
-   "p_a": 0.748,
+   "p_a": 0.756,
    "model_pick": "Mantas Kondratavicius",
-   "fair_odds_a": -297,
-   "fair_odds_b": 297,
-   "market_p_a": 0.71,
-   "odds_a": -285.0,
-   "odds_b": 230.0,
-   "best_a": -285.0,
-   "best_b": 230.0,
+   "fair_odds_a": -309,
+   "fair_odds_b": 309,
+   "market_p_a": 0.718,
+   "odds_a": -298.0,
+   "odds_b": 240.0,
+   "best_a": -298.0,
+   "best_b": 240.0,
    "open_a": -278.0,
    "open_b": 225.0,
    "books": 1.0,
@@ -2675,6 +2774,11 @@
      "t": "2026-11-05T15:37Z",
      "a": -285.0,
      "b": 230.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": -298.0,
+     "b": 240.0
     }
    ],
    "edge_a": 0.038,
@@ -2923,6 +3027,11 @@
      "t": "2026-11-05T15:37Z",
      "a": -750.0,
      "b": 525.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": -750.0,
+     "b": 525.0
     }
    ],
    "edge_a": 0.073,
@@ -3043,15 +3152,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.588,
-   "p_a": 0.305,
+   "p_a": 0.316,
    "model_pick": "Jos\u00e9 Souza",
-   "fair_odds_a": 228,
-   "fair_odds_b": -228,
-   "market_p_a": 0.325,
-   "odds_a": 195.0,
-   "odds_b": -238.0,
-   "best_a": 195.0,
-   "best_b": -238.0,
+   "fair_odds_a": 217,
+   "fair_odds_b": -217,
+   "market_p_a": 0.336,
+   "odds_a": 185.0,
+   "odds_b": -225.0,
+   "best_a": 185.0,
+   "best_b": -225.0,
    "open_a": 150.0,
    "open_b": -180.0,
    "books": 1.0,
@@ -3110,6 +3219,11 @@
      "t": "2026-11-05T15:37Z",
      "a": 195.0,
      "b": -238.0
+    },
+    {
+     "t": "2026-11-05T21:01Z",
+     "a": 185.0,
+     "b": -225.0
     }
    ],
    "edge_a": -0.02,
