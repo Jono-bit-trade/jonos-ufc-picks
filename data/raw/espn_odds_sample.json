@@ -9,8 +9,8 @@
  "details": "W. Cortes Acosta -230",
  "overUnder": 1.5,
  "spread": -13.5,
- "overOdds": -238.0,
- "underOdds": 180.0,
+ "overOdds": -230.0,
+ "underOdds": 175.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
@@ -396,20 +396,20 @@
  },
  "current": {
   "over": {
-   "value": 1.42,
-   "displayValue": "50/119",
-   "alternateDisplayValue": "-238",
-   "decimal": 1.42,
-   "fraction": "50/119",
-   "american": "-238"
+   "value": 1.43,
+   "displayValue": "10/23",
+   "alternateDisplayValue": "-230",
+   "decimal": 1.43,
+   "fraction": "10/23",
+   "american": "-230"
   },
   "under": {
-   "value": 2.8,
-   "displayValue": "9/5",
-   "alternateDisplayValue": "+180",
-   "decimal": 2.8,
-   "fraction": "9/5",
-   "american": "+180"
+   "value": 2.75,
+   "displayValue": "7/4",
+   "alternateDisplayValue": "+175",
+   "decimal": 2.75,
+   "fraction": "7/4",
+   "american": "+175"
   },
   "total": {
    "alternateDisplayValue": "1.5",
