@@ -6,16 +6,16 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "W. Cortes Acosta -230",
+ "details": "W. Cortes Acosta -238",
  "overUnder": 1.5,
  "spread": -13.5,
- "overOdds": -230.0,
- "underOdds": 175.0,
+ "overOdds": -220.0,
+ "underOdds": 170.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 190,
-  "spreadOdds": 110.0,
+  "moneyLine": 195,
+  "spreadOdds": 105.0,
   "open": {
    "favorite": false,
    "pointSpread": {
@@ -71,20 +71,20 @@
     "american": "+13.5"
    },
    "spread": {
-    "value": 2.1,
-    "displayValue": "11/10",
-    "alternateDisplayValue": "+110",
-    "decimal": 2.1,
-    "fraction": "11/10",
-    "american": "+110"
+    "value": 2.05,
+    "displayValue": "21/20",
+    "alternateDisplayValue": "+105",
+    "decimal": 2.05,
+    "fraction": "21/20",
+    "american": "+105"
    },
    "moneyLine": {
-    "value": 2.9,
-    "displayValue": "19/10",
-    "alternateDisplayValue": "+190",
-    "decimal": 2.9,
-    "fraction": "19/10",
-    "american": "+190"
+    "value": 2.95,
+    "displayValue": "39/20",
+    "alternateDisplayValue": "+195",
+    "decimal": 2.95,
+    "fraction": "39/20",
+    "american": "+195"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -96,12 +96,12 @@
      "american": "+300"
     },
     "submission": {
-     "value": 13.0,
-     "displayValue": "12/1",
-     "alternateDisplayValue": "+1200",
-     "decimal": 13.0,
-     "fraction": "12/1",
-     "american": "+1200"
+     "value": 12.0,
+     "displayValue": "11/1",
+     "alternateDisplayValue": "+1100",
+     "decimal": 12.0,
+     "fraction": "11/1",
+     "american": "+1100"
     },
     "points": {
      "value": 12.0,
@@ -120,8 +120,8 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -230,
-  "spreadOdds": -145.0,
+  "moneyLine": -238,
+  "spreadOdds": -140.0,
   "open": {
    "favorite": true,
    "pointSpread": {
@@ -177,20 +177,20 @@
     "american": "-13.5"
    },
    "spread": {
-    "value": 1.68,
-    "displayValue": "20/29",
-    "alternateDisplayValue": "-145",
-    "decimal": 1.68,
-    "fraction": "20/29",
-    "american": "-145"
+    "value": 1.71,
+    "displayValue": "5/7",
+    "alternateDisplayValue": "-140",
+    "decimal": 1.71,
+    "fraction": "5/7",
+    "american": "-140"
    },
    "moneyLine": {
-    "value": 1.43,
-    "displayValue": "10/23",
-    "alternateDisplayValue": "-230",
-    "decimal": 1.43,
-    "fraction": "10/23",
-    "american": "-230"
+    "value": 1.42,
+    "displayValue": "50/119",
+    "alternateDisplayValue": "-238",
+    "decimal": 1.42,
+    "fraction": "50/119",
+    "american": "-238"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -396,20 +396,20 @@
  },
  "current": {
   "over": {
-   "value": 1.43,
-   "displayValue": "10/23",
-   "alternateDisplayValue": "-230",
-   "decimal": 1.43,
-   "fraction": "10/23",
-   "american": "-230"
+   "value": 1.45,
+   "displayValue": "5/11",
+   "alternateDisplayValue": "-220",
+   "decimal": 1.45,
+   "fraction": "5/11",
+   "american": "-220"
   },
   "under": {
-   "value": 2.75,
-   "displayValue": "7/4",
-   "alternateDisplayValue": "+175",
-   "decimal": 2.75,
-   "fraction": "7/4",
-   "american": "+175"
+   "value": 2.7,
+   "displayValue": "17/10",
+   "alternateDisplayValue": "+170",
+   "decimal": 2.7,
+   "fraction": "17/10",
+   "american": "+170"
   },
   "total": {
    "alternateDisplayValue": "1.5",
