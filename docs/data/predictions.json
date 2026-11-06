@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T21:01Z",
+ "updated": "2026-11-06T00:32Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -257,6 +257,11 @@
      "t": "2026-11-05T21:01Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.013,
@@ -502,6 +507,11 @@
      "t": "2026-11-05T21:01Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.036,
@@ -742,6 +752,11 @@
     },
     {
      "t": "2026-11-05T21:01Z",
+     "a": 250.0,
+     "b": -310.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
      "a": 250.0,
      "b": -310.0
     }
@@ -990,6 +1005,11 @@
     },
     {
      "t": "2026-11-05T21:01Z",
+     "a": 260.0,
+     "b": -325.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
      "a": 260.0,
      "b": -325.0
     }
@@ -1244,6 +1264,11 @@
      "t": "2026-11-05T21:01Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": 390.0,
+     "b": -520.0
     }
    ],
    "edge_a": -0.058,
@@ -1492,6 +1517,11 @@
      "t": "2026-11-05T21:01Z",
      "a": 200.0,
      "b": -245.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": 200.0,
+     "b": -245.0
     }
    ],
    "edge_a": 0.034,
@@ -1618,15 +1648,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.776,
+   "p_a": 0.782,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -347,
-   "fair_odds_b": 347,
-   "market_p_a": 0.751,
-   "odds_a": -360.0,
-   "odds_b": 285.0,
-   "best_a": -360.0,
-   "best_b": 285.0,
+   "fair_odds_a": -359,
+   "fair_odds_b": 359,
+   "market_p_a": 0.757,
+   "odds_a": -375.0,
+   "odds_b": 295.0,
+   "best_a": -375.0,
+   "best_b": 295.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -1740,9 +1770,14 @@
      "t": "2026-11-05T21:01Z",
      "a": -360.0,
      "b": 285.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -375.0,
+     "b": 295.0
     }
    ],
-   "edge_a": 0.026,
+   "edge_a": 0.025,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1866,15 +1901,15 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.524,
-   "p_a": 0.405,
+   "p_a": 0.412,
    "model_pick": "Thomas Petersen",
-   "fair_odds_a": 147,
-   "fair_odds_b": -147,
-   "market_p_a": 0.384,
-   "odds_a": 150.0,
-   "odds_b": -180.0,
-   "best_a": 150.0,
-   "best_b": -180.0,
+   "fair_odds_a": 143,
+   "fair_odds_b": -143,
+   "market_p_a": 0.391,
+   "odds_a": 145.0,
+   "odds_b": -175.0,
+   "best_a": 145.0,
+   "best_b": -175.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -1988,6 +2023,11 @@
      "t": "2026-11-05T21:01Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": 145.0,
+     "b": -175.0
     }
    ],
    "edge_a": 0.021,
@@ -2240,6 +2280,11 @@
      "t": "2026-11-05T21:01Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -230.0,
+     "b": 190.0
     }
    ],
    "edge_a": 0.036,
@@ -2479,6 +2524,11 @@
      "t": "2026-11-05T21:01Z",
      "a": -118.0,
      "b": -102.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -118.0,
+     "b": -102.0
     }
    ],
    "edge_a": 0.014,
@@ -2504,7 +2554,10 @@
    "record_b": "11-4-0",
    "experts": null,
    "splits": null,
-   "why": [],
+   "why": [
+    "Our chance 87% vs the line's 81% (6 points of value)",
+    "Opponent is making his UFC debut"
+   ],
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
@@ -2517,23 +2570,29 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.591,
-   "p_a": 0.591,
+   "p_a": 0.874,
    "model_pick": "Austin Bashi",
-   "fair_odds_a": -144,
-   "fair_odds_b": 144,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "stake": null,
+   "fair_odds_a": -693,
+   "fair_odds_b": 693,
+   "market_p_a": 0.812,
+   "odds_a": -550.0,
+   "odds_b": 410.0,
+   "best_a": -550.0,
+   "best_b": 410.0,
+   "open_a": -550.0,
+   "open_b": 410.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -550.0,
+     "b": 410.0
+    }
+   ],
+   "edge_a": 0.062,
+   "pick": "Austin Bashi",
+   "our_pick": "Austin Bashi",
+   "stake": 0.5,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -2779,6 +2838,11 @@
      "t": "2026-11-05T21:01Z",
      "a": -298.0,
      "b": 240.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -298.0,
+     "b": 240.0
     }
    ],
    "edge_a": 0.038,
@@ -2893,7 +2957,7 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 92% vs the line's 85% (7 points of value)",
+    "Our chance 91% vs the line's 83% (8 points of value)",
     "8 of 8 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 163 points higher"
@@ -2910,15 +2974,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.694,
-   "p_a": 0.92,
+   "p_a": 0.91,
    "model_pick": "Seokhyeon Ko",
-   "fair_odds_a": -1148,
-   "fair_odds_b": 1148,
-   "market_p_a": 0.847,
-   "odds_a": -750.0,
-   "odds_b": 525.0,
-   "best_a": -750.0,
-   "best_b": 525.0,
+   "fair_odds_a": -1008,
+   "fair_odds_b": 1008,
+   "market_p_a": 0.829,
+   "odds_a": -675.0,
+   "odds_b": 455.0,
+   "best_a": -675.0,
+   "best_b": 455.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
@@ -3032,9 +3096,14 @@
      "t": "2026-11-05T21:01Z",
      "a": -750.0,
      "b": 525.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
+     "a": -675.0,
+     "b": 455.0
     }
    ],
-   "edge_a": 0.073,
+   "edge_a": 0.081,
    "pick": "Seokhyeon Ko",
    "our_pick": "Seokhyeon Ko",
    "stake": 0.5,
@@ -3222,6 +3291,11 @@
     },
     {
      "t": "2026-11-05T21:01Z",
+     "a": 185.0,
+     "b": -225.0
+    },
+    {
+     "t": "2026-11-06T00:32Z",
      "a": 185.0,
      "b": -225.0
     }

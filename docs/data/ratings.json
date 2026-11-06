@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T21:01Z",
+ "updated": "2026-11-06T00:32Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -20,7 +20,7 @@
   {
    "fighter": "Dricus Du Plessis",
    "rating": 1898,
-   "rd": 105,
+   "rd": 106,
    "last_fight": "2026-07-18",
    "division": "Middleweight",
    "record": "10-1"
@@ -44,7 +44,7 @@
   {
    "fighter": "Kamaru Usman",
    "rating": 1872,
-   "rd": 96,
+   "rd": 97,
    "last_fight": "2026-07-18",
    "division": "Middleweight",
    "record": "16-4"
@@ -659,7 +659,7 @@
     {
      "fighter": "Dricus Du Plessis",
      "rating": 1898,
-     "rd": 105,
+     "rd": 106,
      "last_fight": "2026-07-18",
      "division": "Middleweight",
      "record": "10-1"
@@ -675,7 +675,7 @@
     {
      "fighter": "Kamaru Usman",
      "rating": 1872,
-     "rd": 96,
+     "rd": 97,
      "last_fight": "2026-07-18",
      "division": "Middleweight",
      "record": "16-4"
@@ -771,7 +771,7 @@
     {
      "fighter": "Yousri Belgaroui",
      "rating": 1716,
-     "rd": 155,
+     "rd": 156,
      "last_fight": "2026-09-12",
      "division": "Middleweight",
      "record": "3-0"
@@ -1005,7 +1005,7 @@
     {
      "fighter": "Rafael Fiziev",
      "rating": 1704,
-     "rd": 102,
+     "rd": 103,
      "last_fight": "2026-06-27",
      "division": "Lightweight",
      "record": "8-5"
@@ -1122,7 +1122,7 @@
     {
      "fighter": "Joanderson Brito",
      "rating": 1734,
-     "rd": 108,
+     "rd": 109,
      "last_fight": "2026-09-19",
      "division": "Featherweight",
      "record": "8-3"
