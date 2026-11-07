@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T14:54Z",
+ "updated": "2026-11-07T18:40Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -45,7 +45,7 @@
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 1,
-    "win_b": 1,
+    "win_b": 2,
     "analysts": [
      {
       "name": "SplitAces_",
@@ -364,6 +364,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.013,
@@ -393,7 +398,7 @@
     "high_a": 3,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 1,
     "analysts": [
      {
@@ -717,6 +722,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.037,
@@ -747,7 +757,7 @@
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "SplitAces_",
@@ -1066,6 +1076,11 @@
      "t": "2026-11-07T14:54Z",
      "a": 270.0,
      "b": -340.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
    "edge_a": -0.015,
@@ -1096,7 +1111,7 @@
     "high_b": 6,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "SplitAces_",
@@ -1421,6 +1436,11 @@
      "t": "2026-11-07T14:54Z",
      "a": 270.0,
      "b": -340.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
    "edge_a": 0.022,
@@ -1451,7 +1471,7 @@
     "high_b": 3,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -1623,15 +1643,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.223,
-   "p_a": 0.132,
+   "p_a": 0.133,
    "model_pick": "Nina Milo\u0161evi\u0107",
-   "fair_odds_a": 658,
-   "fair_odds_b": -658,
-   "market_p_a": 0.188,
+   "fair_odds_a": 652,
+   "fair_odds_b": -652,
+   "market_p_a": 0.189,
    "odds_a": 410.0,
-   "odds_b": -550.0,
+   "odds_b": -520.0,
    "best_a": 410.0,
-   "best_b": -550.0,
+   "best_b": -520.0,
    "open_a": 350.0,
    "open_b": -455.0,
    "books": 1.0,
@@ -1780,9 +1800,14 @@
      "t": "2026-11-07T14:54Z",
      "a": 410.0,
      "b": -550.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": 410.0,
+     "b": -520.0
     }
    ],
-   "edge_a": -0.056,
+   "edge_a": -0.057,
    "pick": "Nina Milo\u0161evi\u0107",
    "our_pick": "Nina Milo\u0161evi\u0107",
    "stake": 0.5,
@@ -1810,7 +1835,7 @@
     "high_b": 3,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -2135,6 +2160,11 @@
      "t": "2026-11-07T14:54Z",
      "a": 195.0,
      "b": -238.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": 195.0,
+     "b": -238.0
     }
    ],
    "edge_a": 0.034,
@@ -2164,7 +2194,7 @@
     "high_a": 5,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
      {
@@ -2490,6 +2520,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -355.0,
      "b": 280.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -355.0,
+     "b": 280.0
     }
    ],
    "edge_a": 0.026,
@@ -2519,7 +2554,7 @@
     "high_a": 2,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 1,
     "analysts": [
      {
@@ -2848,6 +2883,11 @@
      "t": "2026-11-07T14:54Z",
      "a": 140.0,
      "b": -166.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": 140.0,
+     "b": -166.0
     }
    ],
    "edge_a": 0.021,
@@ -2877,7 +2917,7 @@
     "high_a": 2,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 1,
     "analysts": [
      {
@@ -3207,6 +3247,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.036,
@@ -3237,7 +3282,7 @@
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "SplitAces_",
@@ -3384,7 +3429,7 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 46% vs the line's 48%",
+    "Our chance 46% vs the line's 47%",
     "Close fight and 10 of 15 analysts pick Magomedov"
    ],
    "weight_class": "Featherweight",
@@ -3399,15 +3444,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.457,
-   "p_a": 0.535,
+   "p_a": 0.54,
    "model_pick": "Murtazali Magomedov",
-   "fair_odds_a": -115,
-   "fair_odds_b": 115,
-   "market_p_a": 0.522,
-   "odds_a": -120.0,
-   "odds_b": 100.0,
-   "best_a": -120.0,
-   "best_b": 100.0,
+   "fair_odds_a": -117,
+   "fair_odds_b": 117,
+   "market_p_a": 0.526,
+   "odds_a": -122.0,
+   "odds_b": 102.0,
+   "best_a": -122.0,
+   "best_b": 102.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -3556,6 +3601,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -120.0,
      "b": 100.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -122.0,
+     "b": 102.0
     }
    ],
    "edge_a": 0.014,
@@ -3585,7 +3635,7 @@
     "high_a": 2,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -3709,6 +3759,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -650.0,
      "b": 470.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -650.0,
+     "b": 470.0
     }
    ],
    "edge_a": 0.056,
@@ -3738,7 +3793,7 @@
     "high_a": 6,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
      {
@@ -4067,6 +4122,11 @@
      "t": "2026-11-07T14:54Z",
      "a": -310.0,
      "b": 250.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -310.0,
+     "b": 250.0
     }
    ],
    "edge_a": 0.037,
@@ -4096,7 +4156,7 @@
     "high_a": 5,
     "high_b": 0,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
      {
@@ -4253,7 +4313,7 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 91% vs the line's 84% (7 points of value)",
+    "Our chance 92% vs the line's 84% (8 points of value)",
     "16 of 16 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 163 points higher"
@@ -4270,15 +4330,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.694,
-   "p_a": 0.915,
+   "p_a": 0.916,
    "model_pick": "Seokhyeon Ko",
-   "fair_odds_a": -1071,
-   "fair_odds_b": 1071,
-   "market_p_a": 0.837,
-   "odds_a": -675.0,
-   "odds_b": 490.0,
-   "best_a": -675.0,
-   "best_b": 490.0,
+   "fair_odds_a": -1094,
+   "fair_odds_b": 1094,
+   "market_p_a": 0.84,
+   "odds_a": -700.0,
+   "odds_b": 500.0,
+   "best_a": -700.0,
+   "best_b": 500.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
@@ -4427,9 +4487,14 @@
      "t": "2026-11-07T14:54Z",
      "a": -675.0,
      "b": 490.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": -700.0,
+     "b": 500.0
     }
    ],
-   "edge_a": 0.077,
+   "edge_a": 0.076,
    "pick": "Seokhyeon Ko",
    "our_pick": "Seokhyeon Ko",
    "stake": 0.5,
@@ -4457,7 +4522,7 @@
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -4619,15 +4684,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.588,
-   "p_a": 0.311,
+   "p_a": 0.316,
    "model_pick": "Jos\u00e9 Souza",
-   "fair_odds_a": 222,
-   "fair_odds_b": -222,
-   "market_p_a": 0.331,
-   "odds_a": 190.0,
-   "odds_b": -230.0,
-   "best_a": 190.0,
-   "best_b": -230.0,
+   "fair_odds_a": 217,
+   "fair_odds_b": -217,
+   "market_p_a": 0.336,
+   "odds_a": 185.0,
+   "odds_b": -225.0,
+   "best_a": 185.0,
+   "best_b": -225.0,
    "open_a": 150.0,
    "open_b": -180.0,
    "books": 1.0,
@@ -4726,6 +4791,11 @@
      "t": "2026-11-07T14:54Z",
      "a": 190.0,
      "b": -230.0
+    },
+    {
+     "t": "2026-11-07T18:40Z",
+     "a": 185.0,
+     "b": -225.0
     }
    ],
    "edge_a": -0.02,
