@@ -545,7 +545,7 @@
        "uid": "s:3301~a:5080485",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Jos\u00e9 Souza",
         "displayName": "Jos\u00e9 Souza",
@@ -570,18 +570,19 @@
       }
      ],
      "status": {
-      "clock": 248.0,
-      "displayClock": "4:08",
+      "clock": 44.0,
+      "displayClock": "0:44",
       "period": 1,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R1, 4:08",
-       "shortDetail": "R1, 4:08"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -592,6 +593,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26191",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26190",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26178",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26177",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26176",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
       {
        "id": "26175",
        "type": {
@@ -625,13 +661,6 @@
        "type": {
         "id": "2",
         "text": "Walkout"
-       }
-      },
-      {
-       "id": "26170",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
@@ -703,6 +732,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -730,6 +760,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -745,13 +776,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 5:00 PM EST",
-       "shortDetail": "11/7 - 5:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [
