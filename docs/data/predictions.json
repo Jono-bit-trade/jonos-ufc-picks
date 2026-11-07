@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T02:47Z",
+ "updated": "2026-11-07T14:54Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -39,14 +39,23 @@
    "record_a": "17-4-0",
    "record_b": "23-10-0",
    "experts": {
-    "picks_a": 12,
-    "picks_b": 2,
+    "picks_a": 13,
+    "picks_b": 3,
     "high_a": 2,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 1,
     "win_b": 1,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "206-108",
+      "units": 22.28,
+      "winning": true
+     },
      {
       "name": "FALSE PROFIT",
       "side": "a",
@@ -120,6 +129,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "JakeGerberMMA",
       "side": "a",
       "conf": "Med",
@@ -189,15 +207,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.48,
-   "p_a": 0.682,
+   "p_a": 0.677,
    "model_pick": "Waldo Cortes-Acosta",
-   "fair_odds_a": -215,
-   "fair_odds_b": 215,
-   "market_p_a": 0.669,
-   "odds_a": -230.0,
-   "odds_b": 190.0,
-   "best_a": -230.0,
-   "best_b": 190.0,
+   "fair_odds_a": -209,
+   "fair_odds_b": 209,
+   "market_p_a": 0.664,
+   "odds_a": -225.0,
+   "odds_b": 185.0,
+   "best_a": -225.0,
+   "best_b": 185.0,
    "open_a": -192.0,
    "open_b": 160.0,
    "books": 1.0,
@@ -341,6 +359,11 @@
      "t": "2026-11-07T02:47Z",
      "a": -230.0,
      "b": 190.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.013,
@@ -365,7 +388,7 @@
    "record_a": "13-1-0",
    "record_b": "23-4-0",
    "experts": {
-    "picks_a": 10,
+    "picks_a": 12,
     "picks_b": 4,
     "high_a": 3,
     "high_b": 0,
@@ -389,6 +412,15 @@
       "method": "Decision",
       "record": "85-48",
       "units": 1.35,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -464,6 +496,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "JakeGerberMMA",
       "side": "a",
       "conf": "Low",
@@ -503,8 +544,8 @@
    },
    "splits": null,
    "why": [
-    "Our chance 68% vs the line's 64% (4 points of value)",
-    "10 of 14 analysts agree",
+    "Our chance 67% vs the line's 63% (4 points of value)",
+    "12 of 16 analysts agree",
     "Rated 133 points higher"
    ],
    "weight_class": "Women's Strawweight",
@@ -519,15 +560,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.695,
-   "p_a": 0.681,
+   "p_a": 0.668,
    "model_pick": "Tatiana Suarez",
-   "fair_odds_a": -213,
-   "fair_odds_b": 213,
-   "market_p_a": 0.645,
-   "odds_a": -205.0,
-   "odds_b": 170.0,
-   "best_a": -205.0,
-   "best_b": 170.0,
+   "fair_odds_a": -201,
+   "fair_odds_b": 201,
+   "market_p_a": 0.631,
+   "odds_a": -192.0,
+   "odds_b": 160.0,
+   "best_a": -192.0,
+   "best_b": 160.0,
    "open_a": -192.0,
    "open_b": 160.0,
    "books": 1.0,
@@ -671,12 +712,17 @@
      "t": "2026-11-07T02:47Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
-   "edge_a": 0.036,
+   "edge_a": 0.037,
    "pick": "Tatiana Suarez",
    "our_pick": "Tatiana Suarez",
-   "stake": 1.0,
+   "stake": 1.5,
    "expert_lean": null,
    "check_news": false,
    "method": {
@@ -696,13 +742,22 @@
    "record_b": "10-1-0",
    "experts": {
     "picks_a": 2,
-    "picks_b": 12,
+    "picks_b": 14,
     "high_a": 0,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
     "win_b": 2,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "206-108",
+      "units": 22.28,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
@@ -755,6 +810,15 @@
       "method": null,
       "record": "197-112",
       "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "25-21",
+      "units": -7.24,
       "winning": false
      },
      {
@@ -845,15 +909,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.187,
-   "p_a": 0.251,
+   "p_a": 0.244,
    "model_pick": "Elijah Smith",
-   "fair_odds_a": 298,
-   "fair_odds_b": -298,
-   "market_p_a": 0.266,
-   "odds_a": 260.0,
-   "odds_b": -325.0,
-   "best_a": 260.0,
-   "best_b": -325.0,
+   "fair_odds_a": 309,
+   "fair_odds_b": -309,
+   "market_p_a": 0.259,
+   "odds_a": 270.0,
+   "odds_b": -340.0,
+   "best_a": 270.0,
+   "best_b": -340.0,
    "open_a": 185.0,
    "open_b": -225.0,
    "books": 1.0,
@@ -997,6 +1061,11 @@
      "t": "2026-11-07T02:47Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
    "edge_a": -0.015,
@@ -1022,13 +1091,22 @@
    "record_b": "14-3-0",
    "experts": {
     "picks_a": 2,
-    "picks_b": 12,
+    "picks_b": 14,
     "high_a": 1,
     "high_b": 6,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
     "win_b": 2,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "206-108",
+      "units": 22.28,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
@@ -1126,6 +1204,15 @@
       "method": null,
       "record": "188-118",
       "units": -2.32,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "25-21",
+      "units": -7.24,
       "winning": false
      },
      {
@@ -1329,6 +1416,11 @@
      "t": "2026-11-07T02:47Z",
      "a": 270.0,
      "b": -340.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": 270.0,
+     "b": -340.0
     }
    ],
    "edge_a": 0.022,
@@ -1354,7 +1446,7 @@
    "record_b": "9-1-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 13,
+    "picks_b": 15,
     "high_a": 1,
     "high_b": 3,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
@@ -1368,6 +1460,15 @@
       "method": "KO/TKO",
       "record": "197-113",
       "units": 5.61,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -1479,6 +1580,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "b",
       "conf": "Low",
@@ -1497,8 +1607,8 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 86% vs the line's 80% (6 points of value)",
-    "13 of 14 analysts agree",
+    "Our chance 87% vs the line's 81% (6 points of value)",
+    "15 of 16 analysts agree",
     "Rated 132 points higher"
    ],
    "weight_class": "Women's Bantamweight",
@@ -1513,15 +1623,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.223,
-   "p_a": 0.138,
+   "p_a": 0.132,
    "model_pick": "Nina Milo\u0161evi\u0107",
-   "fair_odds_a": 627,
-   "fair_odds_b": -627,
-   "market_p_a": 0.196,
-   "odds_a": 390.0,
-   "odds_b": -520.0,
-   "best_a": 390.0,
-   "best_b": -520.0,
+   "fair_odds_a": 658,
+   "fair_odds_b": -658,
+   "market_p_a": 0.188,
+   "odds_a": 410.0,
+   "odds_b": -550.0,
+   "best_a": 410.0,
+   "best_b": -550.0,
    "open_a": 350.0,
    "open_b": -455.0,
    "books": 1.0,
@@ -1665,9 +1775,14 @@
      "t": "2026-11-07T02:47Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": 410.0,
+     "b": -550.0
     }
    ],
-   "edge_a": -0.058,
+   "edge_a": -0.056,
    "pick": "Nina Milo\u0161evi\u0107",
    "our_pick": "Nina Milo\u0161evi\u0107",
    "stake": 0.5,
@@ -1690,7 +1805,7 @@
    "record_b": "15-3-0",
    "experts": {
     "picks_a": 0,
-    "picks_b": 14,
+    "picks_b": 16,
     "high_a": 0,
     "high_b": 3,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
@@ -1704,6 +1819,15 @@
       "method": "KO/TKO",
       "record": "197-113",
       "units": 5.61,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -1815,6 +1939,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "b",
       "conf": "Low",
@@ -1845,15 +1978,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.658,
-   "p_a": 0.354,
+   "p_a": 0.359,
    "model_pick": "Marcos Degli",
-   "fair_odds_a": 183,
-   "fair_odds_b": -183,
-   "market_p_a": 0.319,
-   "odds_a": 200.0,
-   "odds_b": -245.0,
-   "best_a": 200.0,
-   "best_b": -245.0,
+   "fair_odds_a": 178,
+   "fair_odds_b": -178,
+   "market_p_a": 0.325,
+   "odds_a": 195.0,
+   "odds_b": -238.0,
+   "best_a": 195.0,
+   "best_b": -238.0,
    "open_a": 200.0,
    "open_b": -245.0,
    "books": 1.0,
@@ -1997,6 +2130,11 @@
      "t": "2026-11-07T02:47Z",
      "a": 200.0,
      "b": -245.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": 195.0,
+     "b": -238.0
     }
    ],
    "edge_a": 0.034,
@@ -2021,7 +2159,7 @@
    "record_a": "8-1-0",
    "record_b": "4-3-0",
    "experts": {
-    "picks_a": 14,
+    "picks_a": 16,
     "picks_b": 0,
     "high_a": 5,
     "high_b": 0,
@@ -2029,6 +2167,15 @@
     "win_a": 2,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "206-108",
+      "units": 22.28,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "a",
@@ -2111,6 +2258,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "JakeGerberMMA",
       "side": "a",
       "conf": "Med",
@@ -2177,15 +2333,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.667,
-   "p_a": 0.782,
+   "p_a": 0.774,
    "model_pick": "Keiichiro Nakamura",
-   "fair_odds_a": -359,
-   "fair_odds_b": 359,
-   "market_p_a": 0.757,
-   "odds_a": -375.0,
-   "odds_b": 295.0,
-   "best_a": -375.0,
-   "best_b": 295.0,
+   "fair_odds_a": -342,
+   "fair_odds_b": 342,
+   "market_p_a": 0.748,
+   "odds_a": -355.0,
+   "odds_b": 280.0,
+   "best_a": -355.0,
+   "best_b": 280.0,
    "open_a": -345.0,
    "open_b": 275.0,
    "books": 1.0,
@@ -2329,9 +2485,14 @@
      "t": "2026-11-07T02:47Z",
      "a": -375.0,
      "b": 295.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -355.0,
+     "b": 280.0
     }
    ],
-   "edge_a": 0.025,
+   "edge_a": 0.026,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -2353,7 +2514,7 @@
    "record_a": "8-1-0",
    "record_b": "11-5-0",
    "experts": {
-    "picks_a": 9,
+    "picks_a": 11,
     "picks_b": 5,
     "high_a": 2,
     "high_b": 1,
@@ -2377,6 +2538,15 @@
       "method": "KO/TKO",
       "record": "85-48",
       "units": 1.35,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -2479,6 +2649,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "a",
       "conf": "Low",
@@ -2496,7 +2675,10 @@
     "bets_b": 0.13,
     "at": "2026-11-01T23:02Z"
    },
-   "why": [],
+   "why": [
+    "Our chance 42% vs the line's 40% (2 points of value)",
+    "Close fight and 11 of 16 analysts pick Loren\u00e7o"
+   ],
    "weight_class": "Heavyweight",
    "rounds": 3,
    "segment": "",
@@ -2509,15 +2691,15 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.524,
-   "p_a": 0.412,
-   "model_pick": "Thomas Petersen",
-   "fair_odds_a": 143,
-   "fair_odds_b": -143,
-   "market_p_a": 0.391,
-   "odds_a": 145.0,
-   "odds_b": -175.0,
-   "best_a": 145.0,
-   "best_b": -175.0,
+   "p_a": 0.422,
+   "model_pick": "Gabriel Loren\u00e7o",
+   "fair_odds_a": 137,
+   "fair_odds_b": -137,
+   "market_p_a": 0.4,
+   "odds_a": 140.0,
+   "odds_b": -166.0,
+   "best_a": 140.0,
+   "best_b": -166.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -2661,13 +2843,18 @@
      "t": "2026-11-07T02:47Z",
      "a": 145.0,
      "b": -175.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": 140.0,
+     "b": -166.0
     }
    ],
    "edge_a": 0.021,
    "pick": null,
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
+   "our_pick": "Gabriel Loren\u00e7o",
+   "stake": 1.5,
+   "expert_lean": "Gabriel Loren\u00e7o",
    "check_news": false,
    "method": {
     "DEC": 0.423,
@@ -2685,7 +2872,7 @@
    "record_a": "19-7-0",
    "record_b": "11-4-0",
    "experts": {
-    "picks_a": 12,
+    "picks_a": 14,
     "picks_b": 2,
     "high_a": 2,
     "high_b": 0,
@@ -2693,6 +2880,15 @@
     "win_a": 1,
     "win_b": 1,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "206-108",
+      "units": 22.28,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "a",
@@ -2754,6 +2950,15 @@
       "method": "Decision",
       "record": "197-112",
       "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "25-21",
+      "units": -7.24,
       "winning": false
      },
      {
@@ -2830,7 +3035,7 @@
    },
    "why": [
     "Our chance 70% vs the line's 66% (4 points of value)",
-    "12 of 14 analysts agree",
+    "14 of 16 analysts agree",
     "Rated 153 points higher"
    ],
    "weight_class": "Women's Flyweight",
@@ -2997,6 +3202,11 @@
      "t": "2026-11-07T02:47Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.036,
@@ -3022,13 +3232,22 @@
    "record_b": "11-0-0",
    "experts": {
     "picks_a": 5,
-    "picks_b": 8,
+    "picks_b": 10,
     "high_a": 0,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
     "win_a": 0,
     "win_b": 2,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "206-108",
+      "units": 22.28,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
@@ -3081,6 +3300,15 @@
       "method": null,
       "record": "197-112",
       "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "25-21",
+      "units": -7.24,
       "winning": false
      },
      {
@@ -3155,7 +3383,10 @@
     "bets_b": 0.8,
     "at": "2026-11-01T23:02Z"
    },
-   "why": [],
+   "why": [
+    "Our chance 46% vs the line's 48%",
+    "Close fight and 10 of 15 analysts pick Magomedov"
+   ],
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
@@ -3169,7 +3400,7 @@
    "debut_b": false,
    "p_model_a": 0.457,
    "p_a": 0.535,
-   "model_pick": "Jose Delano",
+   "model_pick": "Murtazali Magomedov",
    "fair_odds_a": -115,
    "fair_odds_b": 115,
    "market_p_a": 0.522,
@@ -3320,13 +3551,18 @@
      "t": "2026-11-07T02:47Z",
      "a": -120.0,
      "b": 100.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -120.0,
+     "b": 100.0
     }
    ],
    "edge_a": 0.014,
    "pick": null,
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
+   "our_pick": "Murtazali Magomedov",
+   "stake": 1.5,
+   "expert_lean": "Murtazali Magomedov",
    "check_news": false,
    "method": {
     "DEC": 0.39,
@@ -3344,7 +3580,7 @@
    "record_a": "14-2-0",
    "record_b": "11-4-0",
    "experts": {
-    "picks_a": 4,
+    "picks_a": 6,
     "picks_b": 0,
     "high_a": 2,
     "high_b": 0,
@@ -3359,6 +3595,15 @@
       "method": "Submission",
       "record": "197-113",
       "units": 5.61,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -3380,6 +3625,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "a",
       "conf": "Low",
@@ -3392,7 +3646,8 @@
    },
    "splits": null,
    "why": [
-    "Our chance 89% vs the line's 84% (5 points of value)",
+    "Our chance 89% vs the line's 83% (6 points of value)",
+    "6 of 6 analysts agree",
     "Opponent is making his UFC debut"
    ],
    "weight_class": "Featherweight",
@@ -3407,15 +3662,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.591,
-   "p_a": 0.894,
+   "p_a": 0.888,
    "model_pick": "Austin Bashi",
-   "fair_odds_a": -842,
-   "fair_odds_b": 842,
-   "market_p_a": 0.84,
-   "odds_a": -700.0,
-   "odds_b": 500.0,
-   "best_a": -700.0,
-   "best_b": 500.0,
+   "fair_odds_a": -792,
+   "fair_odds_b": 792,
+   "market_p_a": 0.832,
+   "odds_a": -650.0,
+   "odds_b": 470.0,
+   "best_a": -650.0,
+   "best_b": 470.0,
    "open_a": -550.0,
    "open_b": 410.0,
    "books": 1.0,
@@ -3449,9 +3704,14 @@
      "t": "2026-11-07T02:47Z",
      "a": -700.0,
      "b": 500.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -650.0,
+     "b": 470.0
     }
    ],
-   "edge_a": 0.054,
+   "edge_a": 0.056,
    "pick": "Austin Bashi",
    "our_pick": "Austin Bashi",
    "stake": 0.5,
@@ -3473,7 +3733,7 @@
    "record_a": "9-1-0",
    "record_b": "13-7-0",
    "experts": {
-    "picks_a": 14,
+    "picks_a": 16,
     "picks_b": 0,
     "high_a": 6,
     "high_b": 0,
@@ -3488,6 +3748,15 @@
       "method": "KO/TKO",
       "record": "197-113",
       "units": 5.61,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -3563,6 +3832,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "JakeGerberMMA",
       "side": "a",
       "conf": "Med",
@@ -3617,8 +3895,8 @@
     "at": "2026-11-01T23:02Z"
    },
    "why": [
-    "Our chance 77% vs the line's 73% (4 points of value)",
-    "14 of 14 analysts agree"
+    "Our chance 76% vs the line's 73% (3 points of value)",
+    "16 of 16 analysts agree"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -3632,15 +3910,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.76,
-   "p_a": 0.77,
+   "p_a": 0.763,
    "model_pick": "Mantas Kondratavicius",
-   "fair_odds_a": -334,
-   "fair_odds_b": 334,
-   "market_p_a": 0.734,
-   "odds_a": -325.0,
-   "odds_b": 260.0,
-   "best_a": -325.0,
-   "best_b": 260.0,
+   "fair_odds_a": -321,
+   "fair_odds_b": 321,
+   "market_p_a": 0.726,
+   "odds_a": -310.0,
+   "odds_b": 250.0,
+   "best_a": -310.0,
+   "best_b": 250.0,
    "open_a": -278.0,
    "open_b": 225.0,
    "books": 1.0,
@@ -3784,9 +4062,14 @@
      "t": "2026-11-07T02:47Z",
      "a": -325.0,
      "b": 260.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -310.0,
+     "b": 250.0
     }
    ],
-   "edge_a": 0.036,
+   "edge_a": 0.037,
    "pick": "Mantas Kondratavicius",
    "our_pick": "Mantas Kondratavicius",
    "stake": 1.0,
@@ -3808,7 +4091,7 @@
    "record_a": "13-3-0",
    "record_b": "18-8-0",
    "experts": {
-    "picks_a": 14,
+    "picks_a": 16,
     "picks_b": 0,
     "high_a": 5,
     "high_b": 0,
@@ -3823,6 +4106,15 @@
       "method": "KO/TKO",
       "record": "85-48",
       "units": 1.35,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -3886,6 +4178,15 @@
       "method": null,
       "record": "197-112",
       "units": -4.23,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "25-21",
+      "units": -7.24,
       "winning": false
      },
      {
@@ -3953,7 +4254,7 @@
    },
    "why": [
     "Our chance 91% vs the line's 84% (7 points of value)",
-    "14 of 14 analysts agree",
+    "16 of 16 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Rated 163 points higher"
    ],
@@ -4121,6 +4422,11 @@
      "t": "2026-11-07T02:47Z",
      "a": -675.0,
      "b": 490.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": -675.0,
+     "b": 490.0
     }
    ],
    "edge_a": 0.077,
@@ -4146,7 +4452,7 @@
    "record_b": "9-1-0",
    "experts": {
     "picks_a": 3,
-    "picks_b": 11,
+    "picks_b": 13,
     "high_a": 0,
     "high_b": 1,
     "url": "https://splitpicks.com/events/ufc-cortes-acosta-vs-walker.html",
@@ -4169,6 +4475,15 @@
       "method": "Decision",
       "record": "85-48",
       "units": 1.35,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "206-108",
+      "units": 22.28,
       "winning": true
      },
      {
@@ -4262,6 +4577,15 @@
       "winning": false
      },
      {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "25-21",
+      "units": -7.24,
+      "winning": false
+     },
+     {
       "name": "Artem MMA",
       "side": "b",
       "conf": "Low",
@@ -4295,15 +4619,15 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.588,
-   "p_a": 0.316,
+   "p_a": 0.311,
    "model_pick": "Jos\u00e9 Souza",
-   "fair_odds_a": 217,
-   "fair_odds_b": -217,
-   "market_p_a": 0.336,
-   "odds_a": 185.0,
-   "odds_b": -225.0,
-   "best_a": 185.0,
-   "best_b": -225.0,
+   "fair_odds_a": 222,
+   "fair_odds_b": -222,
+   "market_p_a": 0.331,
+   "odds_a": 190.0,
+   "odds_b": -230.0,
+   "best_a": 190.0,
+   "best_b": -230.0,
    "open_a": 150.0,
    "open_b": -180.0,
    "books": 1.0,
@@ -4397,6 +4721,11 @@
      "t": "2026-11-07T02:47Z",
      "a": 185.0,
      "b": -225.0
+    },
+    {
+     "t": "2026-11-07T14:54Z",
+     "a": 190.0,
+     "b": -230.0
     }
    ],
    "edge_a": -0.02,

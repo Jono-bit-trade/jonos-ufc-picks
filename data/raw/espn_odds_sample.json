@@ -6,7 +6,7 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "W. Cortes Acosta -230",
+ "details": "W. Cortes Acosta -225",
  "overUnder": 1.5,
  "spread": -13.5,
  "overOdds": -220.0,
@@ -14,7 +14,7 @@
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 190,
+  "moneyLine": 185,
   "spreadOdds": 105.0,
   "open": {
    "favorite": false,
@@ -79,12 +79,12 @@
     "american": "+105"
    },
    "moneyLine": {
-    "value": 2.9,
-    "displayValue": "19/10",
-    "alternateDisplayValue": "+190",
-    "decimal": 2.9,
-    "fraction": "19/10",
-    "american": "+190"
+    "value": 2.85,
+    "displayValue": "37/20",
+    "alternateDisplayValue": "+185",
+    "decimal": 2.85,
+    "fraction": "37/20",
+    "american": "+185"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -120,7 +120,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -230,
+  "moneyLine": -225,
   "spreadOdds": -140.0,
   "open": {
    "favorite": true,
@@ -185,12 +185,12 @@
     "american": "-140"
    },
    "moneyLine": {
-    "value": 1.43,
-    "displayValue": "10/23",
-    "alternateDisplayValue": "-230",
-    "decimal": 1.43,
-    "fraction": "10/23",
-    "american": "-230"
+    "value": 1.44,
+    "displayValue": "4/9",
+    "alternateDisplayValue": "-225",
+    "decimal": 1.44,
+    "fraction": "4/9",
+    "american": "-225"
    },
    "victoryMethod": {
     "koTkoDq": {
