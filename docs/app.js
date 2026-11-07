@@ -38,16 +38,18 @@ const recLine = r => !r || !r.picks ? "" :
   `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} (${Math.round(r.our_won / r.our_bets * 100)}%) <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
 let COUNTRY = {}, RANK = {}, FAV = {};
 // Jono's favorite fighters (docs/favorites.json): a gold star by the name everywhere it links
+// current UFC champions (from the official rankings): a gold CHAMP tag by the name everywhere it links
+const champTag = s => RANK[s] && RANK[s].rank === 0 ? `<span class="champtag" title="Current UFC ${esc(RANK[s].div)} champion">Champ</span>` : "";
 const favStar = s => FAV[s] ? `<span class="fav" title="Jono's favorite${FAV[s].note ? ": " + esc(FAV[s].note) : ""}">★</span>` : "";
 // flag (and country name) for a fighter; flags from flag-icons (MIT)
 // official UFC rank in the fighter's division: gold "C" for a champion, "#5" for ranked
-const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null) return "";
+const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null || (r.rank === 0 && !long)) return "";
   const t = r.rank === 0 ? "Champion" : "#" + r.rank;
   return `<span class="urank${r.rank === 0 ? " champ" : ""}" title="Official UFC ranking: ${esc(t)}, ${esc(r.div)}${r.p4p ? ` · #${r.p4p} pound-for-pound` : ""}">${r.rank === 0 ? (long ? "Champion" : "C") : t}${long ? ` ${esc(r.div)}` : ""}</span>`; };
 const SHORT_CTRY = {"Democratic Republic of Congo": "DR Congo", "Democratic Republic of the Congo": "DR Congo", "Bosnia and Herzegovina": "Bosnia", "Bosnia & Herzegovina": "Bosnia", "United Arab Emirates": "UAE", "United Kingdom": "UK", "Trinidad and Tobago": "Trinidad"};
 const flagOf = (s, name) => { const c = COUNTRY[s]; return !c ? "" : `<span class="ctry" title="${esc(c[0])}"><img src="flags/${esc(c[1])}.svg" alt="${esc(c[0])} flag" width="18" height="13" loading="lazy">${name ? esc(SHORT_CTRY[c[0]] || c[0]) : ""}</span>`; };
 const longest = n => Math.max(...String(n).split(/[\s-]/).map(w => w.length));
-const fighterLink = (name, s) => `<a class="fl${longest(name) >= 12 ? " lw xlw" : longest(name) >= 9 ? " lw" : ""}" href="#/fighter/${esc(s || slug(name))}">${esc(name)}${favStar(s || slug(name))}</a>`;
+const fighterLink = (name, s) => `<a class="fl${longest(name) >= 12 ? " lw xlw" : longest(name) >= 9 ? " lw" : ""}" href="#/fighter/${esc(s || slug(name))}">${esc(name)}${champTag(s || slug(name))}${favStar(s || slug(name))}</a>`;
 
 // ---------------- the current card ----------------
 function lineChart(hist, f) {
@@ -580,7 +582,7 @@ async function viewFighters(q) {
       <select onchange="location.hash='#/fighters?div='+encodeURIComponent(this.value)" aria-label="Division"><option value="">All divisions</option>${divs.map(d => `<option ${d === div ? "selected" : ""}>${esc(d)}</option>`).join("")}</select>
       <a class="favbtn${favOnly ? " on" : ""}" href="#/fighters${favOnly ? "" : "?fav=1"}">★ Favorites${Object.keys(FAV).length ? ` (${Object.keys(FAV).length})` : ""}</a></div>
     <p class="note">${favOnly ? "Your favorite fighters. Add more by telling Claude, or edit docs/favorites.json." : term ? "" : "Active fighters (fought in the last 18 months), best rated first. Search finds everyone."}</p>
-    <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}${favStar(f.slug)}</b>
+    <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}${champTag(f.slug)}${favStar(f.slug)}</b>
       <span class="small">${esc(f.record)} · ${esc(f.weight_class)}</span><span class="small">Rating ${f.rating}</span></div></a>`).join("")}</div>
     ${list.length > 120 ? `<p class="note">Showing 120 of ${list.length}: search to narrow it down.</p>` : ""}`;
 }
