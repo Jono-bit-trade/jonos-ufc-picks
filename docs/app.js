@@ -153,7 +153,7 @@ function bout(f, i, edge) {
   const w = f.state === "post" && f.result ? f.result.winner : null;
   const called = f.our_pick || f.model_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
-  return `<article class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${ring}">
+  return `<article id="bout-${i}" class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${f.state === "in" ? " is-live" : ""}${ring}">
     ${status(f)}
     <div class="corners">
       <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
@@ -268,7 +268,8 @@ async function viewCard() {
     <span><b>Since ${mr.from || 2020}</b> ${all.our_won}/${all.our_bets} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em></span>
     <span><b>Winners ${esc(yr.year)}</b> ${yr.pct}%</span>
     <a href="#/record">Full record</a></div>`;
-  return `<h1>${esc(p.event)}</h1>
+  if (liveOn(p)) window.refresh = setTimeout(route, 120000);
+  return `${liveCenter(p)}<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
     ${cardToggle()}
@@ -288,7 +289,7 @@ function compactRow(f, i, edge) {
   const called = f.our_pick || f.model_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
   const sideA = pa >= 0.5, last = n => esc(n.split(" ").slice(-1)[0]);
-  return `<details class="crow${ring}"><summary>
+  return `<details id="bout-${i}" class="crow${ring}"><summary>
       <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
       <span class="cr-p"><b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b></span>
       <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
@@ -340,6 +341,76 @@ function ledgerCurve(rows) {
   let f = 0, st = 0; const by = {};
   for (const g of r) { f += g.our_units || 0; st += g.our_staked_units || 0; by[g.date] = [g.date, +f.toFixed(2), +st.toFixed(2)]; }
   return Object.values(by);
+}
+
+// ---- fight night live centre: the fight on now, the tally so far, and the whole card as a timeline ----
+function liveOn(p) {
+  const fs = p && p.fights || [];
+  if (fs.some(f => f.state === "in")) return true;
+  const done = fs.some(f => f.state === "post"), left = fs.some(f => f.state === "pre");
+  const day = d => new Date(d).toISOString().slice(0, 10);
+  return done && left && [day(Date.now()), day(Date.now() - 864e5)].includes(p.date);
+}
+function liveCenter(p) {
+  if (!liveOn(p)) return "";
+  const order = p.fights.map((f, i) => ({f, i})).sort((x, y) => (x.f.start || "").localeCompare(y.f.start || "") || y.i - x.i);
+  order.forEach((x, k) => { x.k = k + 1; });
+  let n = 0; for (const x of order) if (x.f.state === "pre") x.n = ++n;
+  const now = order.find(x => x.f.state === "in"), next = order.find(x => x.f.state === "pre");
+  const done = order.filter(x => x.f.state === "post");
+  const last = done.at(-1);
+  // tonight's tally: our picks at suggested stakes, value picks flat, the model's winners
+  let ow = 0, ol = 0, ou = 0, vw = 0, vl = 0, vu = 0, mw = 0, mn = 0;
+  for (const {f} of done) {
+    const w = f.result && f.result.winner; if (!w) continue;
+    if (f.our_pick) { const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1;
+      if (w === f.our_pick) { ow++; ou += st * pay(o); } else { ol++; ou -= st; } }
+    if (f.pick) { const o = f.pick === f.a ? f.odds_a : f.odds_b;
+      if (w === f.pick) { vw++; vu += pay(o); } else { vl++; vu -= 1; } }
+    const mp = f.model_pick || (f.p_a != null ? (f.p_a >= 0.5 ? f.a : f.b) : null);
+    if (mp) { mn++; if (mp === w) mw++; }
+  }
+  const r2 = x => Math.round(x * 100) / 100;
+  const corner = (f, side) => {
+    const nm = side === "a" ? f.a : f.b, sl = side === "a" ? f.a_slug : f.b_slug, id = side === "a" ? f.a_id : f.b_id;
+    const ch = f.p_a == null ? null : side === "a" ? f.p_a : 1 - f.p_a, o = side === "a" ? f.odds_a : f.odds_b;
+    const ours = f.our_pick === nm, val = f.pick === nm;
+    return `<a class="lc-corner ${side}${ours ? " ours" : ""}" href="#/fighter/${esc(sl)}">${photo(id, nm, "xl")}
+      <span class="lc-name">${esc(nm)}${champTag(sl)}${favStar(sl)}</span>
+      <span class="lc-meta">${rankOf(sl)}${flagOf(sl, true)}</span>
+      <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>
+      ${ours ? `<span class="lc-tag ours">Our pick${f.stake ? " · " + f.stake + "u" : ""}</span>` : val ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`;
+  };
+  const spot = (x, label) => !x ? "" : `<div class="lc-spot${x.f.state === "in" ? " on" : ""}">
+      <div class="lc-label">${x.f.state === "in" ? `<span class="live">Now fighting</span>` : `<span class="lc-next">${label}</span>`}
+        <span class="lc-status">${x.f.state === "in" ? esc(/pre-?fight|scheduled/i.test(x.f.status || "") ? "Walkouts" : x.f.status || "In progress") : x.f.weight_class ? esc(x.f.weight_class) : ""}</span></div>
+      <div class="lc-face">${corner(x.f, "a")}<span class="lc-vs">VS</span>${corner(x.f, "b")}</div>
+      ${x.f.p_a != null ? `<div class="lc-bar" title="Our chance"><i class="a" style="width:${Math.round(100 * x.f.p_a)}%"></i><i class="b"></i>${x.f.market_p_a != null ? `<em style="left:${Math.round(100 * x.f.market_p_a)}%" title="Betting line"></em>` : ""}</div>` : ""}
+      <a class="lc-more" href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${x.i}')?.scrollIntoView({behavior:'smooth'}),400)">Full breakdown</a>
+    </div>`;
+  const pip = x => {
+    const f = x.f, w = f.state === "post" && f.result ? f.result.winner : null;
+    const called = f.our_pick || f.model_pick || (f.p_a != null ? (f.p_a >= 0.5 ? f.a : f.b) : null);
+    const cls = f.state === "in" ? "in" : w ? (called === w ? "won" : "lost") : f.state === "post" ? "nc" : "pre";
+    const ln = n => esc(String(n).split(" ").at(-1));
+    const sub = f.state === "in" ? "Live" : w ? `${ln(w)} · ${esc((f.result.detail || "").replace(/^Final\s*-?\s*/i, "").replace(/, round /i, " R").replace(/ round /i, " R"))}`
+      : x.n === 1 ? "Up next" : `Fight ${x.k}`;
+    return `<li class="lc-pip ${cls}${f.our_pick ? " has-pick" : ""}"><a href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${x.i}')?.scrollIntoView({behavior:'smooth'}),400)">
+      <span class="dot"></span><span class="who">${ln(f.a)} <small>vs</small> ${ln(f.b)}</span><span class="sub">${sub}</span>${f.our_pick ? `<span class="star" title="Our pick: ${esc(f.our_pick)}">●</span>` : ""}</a></li>`;
+  };
+  return `<section class="livecenter">
+    <div class="lc-head"><span class="live">Live</span><b>${esc(p.event)}</b><span class="lc-count">Fight ${Math.min(done.length + 1, order.length)} of ${order.length}</span></div>
+    <div class="lc-tally">
+      <div><b>${ow}-${ol}</b><span>Our picks</span><em class="${ou >= 0 ? "won" : "lost"}">${units(r2(ou))}</em></div>
+      <div><b>${vw}-${vl}</b><span>Value picks</span><em class="${vu >= 0 ? "won" : "lost"}">${units(r2(vu))}</em></div>
+      <div><b>${mw}/${mn}</b><span>Model winners</span><em>${mn ? Math.round(100 * mw / mn) + "%" : "–"}</em></div>
+    </div>
+    ${now ? spot(now) : spot(next, "Up next")}
+    ${last && last.f.result ? `<div class="lc-last"><span>Last result</span><b>${esc(last.f.result.winner || "Draw")}</b> def. ${esc(last.f.result.winner === last.f.a ? last.f.b : last.f.a)} <small>${esc((last.f.result.detail || "").replace(/^Final\s*-?\s*/i, ""))}</small></div>` : ""}
+    ${now && next ? `<div class="lc-upnext"><span>Up next</span>${esc(next.f.a)} vs ${esc(next.f.b)}${next.f.our_pick ? ` <em>Our pick: ${esc(next.f.our_pick)}${next.f.stake ? " " + next.f.stake + "u" : ""}</em>` : ""}</div>` : ""}
+    <ol class="lc-line">${order.map(pip).join("")}</ol>
+    <p class="lc-foot">Green: our call won. Red: it lost. Gold dot: one of our picks. Updates every few minutes; this page refreshes itself.</p>
+  </section>`;
 }
 
 async function liveBar() {
@@ -414,7 +485,10 @@ function countdown(start) {
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([get("predictions.json", true), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`;
-  if (p && p.fights.length) {
+  if (p && p.fights.length && liveOn(p)) {
+    hero = liveCenter(p) + `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
+    clearTimeout(window.refresh); window.refresh = setTimeout(route, 120000);
+  } else if (p && p.fights.length) {
     const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
     hero = `<section class="hero">
       <div class="when">${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
