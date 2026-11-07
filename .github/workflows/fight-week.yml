@@ -13,6 +13,12 @@ on:
     - cron: "5-59/20 21-23 * * 6"   # Saturday night: live status and results every 20 minutes
     - cron: "5-59/20 0-6 * * 0"     #   (continues past midnight UTC)
   workflow_dispatch:                # adds a "Run workflow" button on the Actions tab
+    inputs:
+      kind:
+        description: "full (results and history), or lines (picks, then live results on fight night)"
+        default: full
+        type: choice
+        options: [full, lines]
   push:
     paths: ["data/name_map.csv", "src/**", ".github/workflows/fight-week.yml"]   # a fix or a code change: refresh the board
 
@@ -40,7 +46,8 @@ jobs:
           case "${{ github.event.schedule }}" in
             "13 4 * * 2"|"43 5 * * 2") echo "kind=full" >> "$GITHUB_OUTPUT" ;;
             "5-59/20 21-23 * * 6"|"5-59/20 0-6 * * 0") echo "kind=live" >> "$GITHUB_OUTPUT" ;;
-            "") [ "${{ github.event_name }}" = "push" ] && echo "kind=lines" >> "$GITHUB_OUTPUT" || echo "kind=full" >> "$GITHUB_OUTPUT" ;;
+            "") if [ "${{ github.event_name }}" = "push" ]; then echo "kind=lines" >> "$GITHUB_OUTPUT"
+                else echo "kind=${{ inputs.kind || 'full' }}" >> "$GITHUB_OUTPUT"; fi ;;
             *) echo "kind=lines" >> "$GITHUB_OUTPUT" ;;
           esac
 
