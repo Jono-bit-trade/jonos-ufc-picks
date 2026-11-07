@@ -385,6 +385,7 @@ function liveCenter(p) {
       <div class="lc-label">${x.f.state === "in" ? `<span class="live">Now fighting</span>` : `<span class="lc-next">${label}</span>`}
         <span class="lc-status">${x.f.state === "in" ? esc(/pre-?fight|scheduled/i.test(x.f.status || "") ? "Walkouts" : x.f.status || "In progress") : x.f.weight_class ? esc(x.f.weight_class) : ""}</span></div>
       <div class="lc-face">${corner(x.f, "a")}<span class="lc-vs">VS</span>${corner(x.f, "b")}</div>
+      ${x.f.state === "in" ? roundClock(x.f) : ""}
       ${x.f.p_a != null ? `<div class="lc-bar" title="Our chance"><i class="a" style="width:${Math.round(100 * x.f.p_a)}%"></i><i class="b"></i>${x.f.market_p_a != null ? `<em style="left:${Math.round(100 * x.f.market_p_a)}%" title="Betting line"></em>` : ""}</div>` : ""}
       <a class="lc-more" href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${x.i}')?.scrollIntoView({behavior:'smooth'}),400)">Full breakdown</a>
     </div>`;
@@ -398,6 +399,7 @@ function liveCenter(p) {
     return `<li class="lc-pip ${cls}${f.our_pick ? " has-pick" : ""}"><a href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${x.i}')?.scrollIntoView({behavior:'smooth'}),400)">
       <span class="dot"></span><span class="who">${ln(f.a)} <small>vs</small> ${ln(f.b)}</span><span class="sub">${sub}</span>${f.our_pick ? `<span class="star" title="Our pick: ${esc(f.our_pick)}">●</span>` : ""}</a></li>`;
   };
+  setTimeout(() => resultMoments(order), 50);
   return `<section class="livecenter">
     <div class="lc-head"><span class="live">Live</span><b>${esc(p.event)}</b><span class="lc-count">Fight ${Math.min(done.length + 1, order.length)} of ${order.length}</span></div>
     <div class="lc-tally">
@@ -405,12 +407,60 @@ function liveCenter(p) {
       <div><b>${vw}-${vl}</b><span>Value picks</span><em class="${vu >= 0 ? "won" : "lost"}">${units(r2(vu))}</em></div>
       <div><b>${mw}/${mn}</b><span>Model winners</span><em>${mn ? Math.round(100 * mw / mn) + "%" : "–"}</em></div>
     </div>
+    ${betSlip(order)}
     ${now ? spot(now) : spot(next, "Up next")}
     ${last && last.f.result ? `<div class="lc-last"><span>Last result</span><b>${esc(last.f.result.winner || "Draw")}</b> def. ${esc(last.f.result.winner === last.f.a ? last.f.b : last.f.a)} <small>${esc((last.f.result.detail || "").replace(/^Final\s*-?\s*/i, ""))}</small></div>` : ""}
     ${now && next ? `<div class="lc-upnext"><span>Up next</span>${esc(next.f.a)} vs ${esc(next.f.b)}${next.f.our_pick ? ` <em>Our pick: ${esc(next.f.our_pick)}${next.f.stake ? " " + next.f.stake + "u" : ""}</em>` : ""}</div>` : ""}
     <ol class="lc-line">${order.map(pip).join("")}</ol>
     <p class="lc-foot">Green: our call won. Red: it lost. Gold dot: one of our picks. Updates every few minutes; this page refreshes itself.</p>
   </section>`;
+}
+
+// round clock: one segment per scheduled round, finished rounds filled, the current one pulsing
+function roundClock(f) {
+  const n = f.rounds || 3, m = /R(?:ound)?\s*(\d+)/i.exec(f.status || ""), cur = m ? +m[1] : 0;
+  const t = /(\d+:\d\d)/.exec(f.status || "");
+  return `<div class="lc-rounds" aria-label="${cur ? `Round ${cur} of ${n}` : `${n} rounds`}">
+    ${Array.from({length: n}, (_, k) => `<span class="${k + 1 < cur ? "done" : k + 1 === cur ? "now" : ""}"><b>R${k + 1}</b></span>`).join("")}
+    <em>${cur ? `Round ${cur} of ${n}${t ? " · " + t[1] : ""}` : `${n} rounds · walkouts`}</em></div>`;
+}
+// tonight's bet slip: every one of our picks with its price, stake and where it stands
+function betSlip(order) {
+  const rows = order.filter(x => x.f.our_pick);
+  if (!rows.length) return "";
+  let settled = 0, risk = 0;
+  const li = rows.map(({f, i}) => {
+    const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1, w = f.state === "post" && f.result ? f.result.winner : null;
+    let cls = "pend", res = "Pending";
+    if (f.state === "in") { cls = "lv"; res = "Live"; risk += st; }
+    else if (w) { const u = w === f.our_pick ? st * pay(o) : -st; settled += u; cls = u >= 0 ? "won" : "lost"; res = units(Math.round(u * 100) / 100); }
+    else if (f.state === "post") { cls = "void"; res = "No result"; }
+    else risk += st;
+    return `<li class="${cls}"><a href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${i}')?.scrollIntoView({behavior:'smooth'}),400)">
+      <span class="bs-who">${esc(f.our_pick)}${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? ` <small>expert lean</small>` : ""}</span>
+      <span class="bs-px">${odds(o)} · ${st}u</span><span class="bs-res">${res}</span></a></li>`;
+  }).join("");
+  return `<details class="lc-slip" open><summary><span>Bet slip</span><b class="${settled >= 0 ? "won" : "lost"}">${units(Math.round(settled * 100) / 100)}</b><small>settled · ${Math.round(risk * 10) / 10}u still to go</small></summary>
+    <ol>${li}</ol></details>`;
+}
+// a fight that ended since the last refresh: flash its pill and pop a short line with the result
+let LC_SEEN = null;
+function resultMoments(order) {
+  let prev = LC_SEEN;
+  if (!prev) { try { prev = JSON.parse(sessionStorage.getItem("lcSeen") || "null"); } catch (e) {} }
+  const nowDone = order.filter(x => x.f.state === "post").map(x => x.f.a + "|" + x.f.b);
+  LC_SEEN = nowDone; try { sessionStorage.setItem("lcSeen", JSON.stringify(nowDone)); } catch (e) {}
+  if (!prev) return;   // first look: nothing is "new"
+  const fresh = order.filter(x => x.f.state === "post" && !prev.includes(x.f.a + "|" + x.f.b));
+  for (const {f, i} of fresh) {
+    const w = f.result && f.result.winner, pk = f.our_pick, o = pk ? (pk === f.a ? f.odds_a : f.odds_b) : null;
+    const u = pk && w ? (w === pk ? (f.stake || 1) * pay(o) : -(f.stake || 1)) : null;
+    const pill = document.querySelector(`.lc-pip a[onclick*="bout-${i}'"]`); if (pill) pill.parentElement.classList.add("flash");
+    const t = document.createElement("div");
+    t.className = "lc-toast " + (u == null ? "" : u >= 0 ? "won" : "lost");
+    t.innerHTML = `<b>${esc(w || "Result")}</b> ${w ? "wins" : ""}${u != null ? ` · our pick ${units(Math.round(u * 100) / 100)}` : ""}<small>${esc((f.result && f.result.detail || "").replace(/^Final\s*-?\s*/i, ""))}</small>`;
+    document.body.appendChild(t); setTimeout(() => t.classList.add("out"), 7000); setTimeout(() => t.remove(), 7800);
+  }
 }
 
 async function liveBar() {
@@ -512,7 +562,7 @@ async function viewHome() {
     <div class="stat model"><b>${r.pct}%</b><span>${label}: winners picked (${r.right}/${r.picks})</span></div>
     <div class="stat model"><b class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</b><span>${label}: betting every model winner</span></div>
     <div class="stat value"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
-  const L = await get("ledger.json", true), recap = await recapBanner(ev);
+  const L = await get("ledger.json", true), recap = p && liveOn(p) ? "" : await recapBanner(ev);
   const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
