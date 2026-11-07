@@ -1218,7 +1218,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "11-4-0"
+         "summary": "11-5-0"
         }
        ]
       }
@@ -1426,17 +1426,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 31.0,
+      "displayClock": "0:31",
+      "period": 1,
       "type": {
-       "id": "139",
-       "name": "STATUS_FIGHTERS_WALKING",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
-       "description": "Walkouts",
-       "detail": "Walkouts",
-       "shortDetail": "Walkouts"
+       "description": "In Progress",
+       "detail": "R1, 0:31",
+       "shortDetail": "R1, 0:31"
       }
      },
      "broadcasts": [
@@ -1448,6 +1448,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26261",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26260",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26259",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26258",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
+      {
+       "id": "26257",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
       {
        "id": "26237",
        "type": {
