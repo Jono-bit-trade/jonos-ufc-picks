@@ -988,7 +988,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "13-6-0"
+         "summary": "14-6-0"
         }
        ]
       },
@@ -1016,7 +1016,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "9-1-0"
+         "summary": "9-2-0"
         }
        ]
       }
@@ -1171,7 +1171,7 @@
        "uid": "s:3301~a:5120304",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Austin Bashi",
         "displayName": "Austin Bashi",
@@ -1190,7 +1190,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "14-2-0"
+         "summary": "15-2-0"
         }
        ]
       },
@@ -1224,18 +1224,19 @@
       }
      ],
      "status": {
-      "clock": 248.0,
-      "displayClock": "4:08",
+      "clock": 67.0,
+      "displayClock": "1:07",
       "period": 1,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R1, 4:08",
-       "shortDetail": "R1, 4:08"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1246,6 +1247,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26256",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26255",
+       "type": {
+        "id": "20",
+        "text": "Unofficial Winner Submission"
+       }
+      },
+      {
+       "id": "26254",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26253",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26252",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
       {
        "id": "26251",
        "type": {
@@ -1279,27 +1315,6 @@
        "type": {
         "id": "3",
         "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26233",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26232",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26231",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
@@ -1340,7 +1355,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -1371,6 +1386,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1398,6 +1414,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1413,13 +1430,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "139",
+       "name": "STATUS_FIGHTERS_WALKING",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 5:00 PM EST",
-       "shortDetail": "11/7 - 5:00 PM EST"
+       "description": "Walkouts",
+       "detail": "Walkouts",
+       "shortDetail": "Walkouts"
       }
      },
      "broadcasts": [
@@ -1428,6 +1445,22 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26237",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26236",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
