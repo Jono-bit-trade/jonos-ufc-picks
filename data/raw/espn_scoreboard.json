@@ -988,7 +988,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "13-7-0"
+         "summary": "13-6-0"
         }
        ]
       },
@@ -1022,8 +1022,8 @@
       }
      ],
      "status": {
-      "clock": 25.0,
-      "displayClock": "0:25",
+      "clock": 279.0,
+      "displayClock": "4:39",
       "period": 2,
       "type": {
        "id": "3",
@@ -1045,6 +1045,13 @@
       }
      ],
      "details": [
+      {
+       "id": "26230",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "26229",
        "type": {
@@ -1107,13 +1114,6 @@
         "id": "12",
         "text": "Takedown Attempt"
        }
-      },
-      {
-       "id": "26208",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
       }
      ],
      "format": {
@@ -1153,7 +1153,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -1224,17 +1224,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 248.0,
+      "displayClock": "4:08",
+      "period": 1,
       "type": {
-       "id": "145",
-       "name": "STATUS_PRE_FIGHT",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
-       "description": "Pre-fight",
-       "detail": "Pre-fight",
-       "shortDetail": "Pre-fight"
+       "description": "In Progress",
+       "detail": "R1, 4:08",
+       "shortDetail": "R1, 4:08"
       }
      },
      "broadcasts": [
@@ -1243,6 +1243,64 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26251",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26250",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26209",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26235",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26234",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
+      {
+       "id": "26233",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26232",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26231",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
