@@ -36,7 +36,9 @@ function photo(id, name, size = "md") {
 const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
 const recLine = r => !r || !r.picks ? "" :
   `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} (${Math.round(r.our_won / r.our_bets * 100)}%) <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
-let COUNTRY = {}, RANK = {};
+let COUNTRY = {}, RANK = {}, FAV = {};
+// Jono's favorite fighters (docs/favorites.json): a gold star by the name everywhere it links
+const favStar = s => FAV[s] ? `<span class="fav" title="Jono's favorite${FAV[s].note ? ": " + esc(FAV[s].note) : ""}">★</span>` : "";
 // flag (and country name) for a fighter; flags from flag-icons (MIT)
 // official UFC rank in the fighter's division: gold "C" for a champion, "#5" for ranked
 const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null) return "";
@@ -45,7 +47,7 @@ const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null) return
 const SHORT_CTRY = {"Democratic Republic of Congo": "DR Congo", "Democratic Republic of the Congo": "DR Congo", "Bosnia and Herzegovina": "Bosnia", "Bosnia & Herzegovina": "Bosnia", "United Arab Emirates": "UAE", "United Kingdom": "UK", "Trinidad and Tobago": "Trinidad"};
 const flagOf = (s, name) => { const c = COUNTRY[s]; return !c ? "" : `<span class="ctry" title="${esc(c[0])}"><img src="flags/${esc(c[1])}.svg" alt="${esc(c[0])} flag" width="18" height="13" loading="lazy">${name ? esc(SHORT_CTRY[c[0]] || c[0]) : ""}</span>`; };
 const longest = n => Math.max(...String(n).split(/[\s-]/).map(w => w.length));
-const fighterLink = (name, s) => `<a class="fl${longest(name) >= 12 ? " lw xlw" : longest(name) >= 9 ? " lw" : ""}" href="#/fighter/${esc(s || slug(name))}">${esc(name)}</a>`;
+const fighterLink = (name, s) => `<a class="fl${longest(name) >= 12 ? " lw xlw" : longest(name) >= 9 ? " lw" : ""}" href="#/fighter/${esc(s || slug(name))}">${esc(name)}${favStar(s || slug(name))}</a>`;
 
 // ---------------- the current card ----------------
 function lineChart(hist, f) {
@@ -565,19 +567,20 @@ async function viewEvent(s) {
 async function viewFighters(q) {
   const idx = await get("fighters/index.json");
   if (!idx) return `<div class="empty">Fighter profiles appear after the next run.</div>`;
-  const term = (q.get("q") || "").toLowerCase(), div = q.get("div") || "";
+  const term = (q.get("q") || "").toLowerCase(), div = q.get("div") || "", favOnly = !!q.get("fav");
   const active = q.get("all") ? "" : new Date(Date.now() - 550 * 864e5).toISOString().slice(0, 10);
   const divs = [...new Set(idx.map(f => f.weight_class).filter(Boolean))].sort();
-  const list = idx.filter(f => (!term || f.name.toLowerCase().includes(term)) && (!div || f.weight_class === div) && (term || !active || f.last_fight >= active));
+  const list = idx.filter(f => (!term || f.name.toLowerCase().includes(term)) && (!div || f.weight_class === div) && (favOnly ? !!FAV[f.slug] : term || !active || f.last_fight >= active));
   setTimeout(() => {
     const box = $("#fsearch");
     if (box) box.oninput = () => { location.hash = `#/fighters?q=${encodeURIComponent(box.value)}${div ? "&div=" + encodeURIComponent(div) : ""}`; };
   });
   return `<h1>Fighters</h1>
     <div class="filters"><input id="fsearch" type="search" placeholder="Search any fighter since 2010" value="${esc(q.get("q") || "")}" aria-label="Search fighters">
-      <select onchange="location.hash='#/fighters?div='+encodeURIComponent(this.value)" aria-label="Division"><option value="">All divisions</option>${divs.map(d => `<option ${d === div ? "selected" : ""}>${esc(d)}</option>`).join("")}</select></div>
-    <p class="note">${term ? "" : "Active fighters (fought in the last 18 months), best rated first. Search finds everyone."}</p>
-    <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}</b>
+      <select onchange="location.hash='#/fighters?div='+encodeURIComponent(this.value)" aria-label="Division"><option value="">All divisions</option>${divs.map(d => `<option ${d === div ? "selected" : ""}>${esc(d)}</option>`).join("")}</select>
+      <a class="favbtn${favOnly ? " on" : ""}" href="#/fighters${favOnly ? "" : "?fav=1"}">★ Favorites${Object.keys(FAV).length ? ` (${Object.keys(FAV).length})` : ""}</a></div>
+    <p class="note">${favOnly ? "Your favorite fighters. Add more by telling Claude, or edit docs/favorites.json." : term ? "" : "Active fighters (fought in the last 18 months), best rated first. Search finds everyone."}</p>
+    <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}${favStar(f.slug)}</b>
       <span class="small">${esc(f.record)} · ${esc(f.weight_class)}</span><span class="small">Rating ${f.rating}</span></div></a>`).join("")}</div>
     ${list.length > 120 ? `<p class="note">Showing 120 of ${list.length}: search to narrow it down.</p>` : ""}`;
 }
@@ -648,7 +651,7 @@ async function viewFighter(s) {
       <figure class="fh-ph">${photo(f.espn_id, f.name, "xl")}${(() => { const c = PHOTOS.photos[f.slug]; const used = c && photoSrc(f.espn_id, f.name)[0] === c.src;
         return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
       <div class="fh-main">
-        <h1>${esc(f.name)}</h1>
+        <h1>${esc(f.name)}</h1>${FAV[f.slug] ? `<p class="favtag">★ Jono's favorite${FAV[f.slug].note ? ` · ${esc(FAV[f.slug].note)}` : ""}</p>` : ""}
         <p class="fh-sub">${rankOf(f.slug, true)}${RANK[f.slug] && RANK[f.slug].p4p ? `<span class="urank p4p">#${RANK[f.slug].p4p} P4P</span>` : ""}${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
         ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
         <div class="fchips">
@@ -906,7 +909,10 @@ async function viewHow() {
 let photosLoaded = false;
 const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
 async function route() {
-  if (!photosLoaded) { photosLoaded = true; const [ph, co, rk] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true)]); if (ph) PHOTOS = ph; if (co) COUNTRY = co; if (rk && rk.fighters) RANK = rk.fighters; }
+  if (!photosLoaded) { photosLoaded = true; const [ph, co, rk, fv] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true),
+    fetch("favorites.json?t=" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => [])]);
+    if (ph) PHOTOS = ph; if (co) COUNTRY = co; if (rk && rk.fighters) RANK = rk.fighters;
+    for (const x of fv || []) FAV[x.slug || slug(x.name)] = x; }
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
   const page = parts[0] || "home";

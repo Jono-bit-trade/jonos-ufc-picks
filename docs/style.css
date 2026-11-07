@@ -777,3 +777,9 @@ tr.top1 td.rk { color: var(--gold); }
 @media (max-width: 480px) { .pair .fl.lw, .bout .name .fl.lw { font-size: 1.05rem; line-height: 1.15; display: inline-block; } }
 @media (max-width: 480px) { .pair .fl.xlw, .bout .name .fl.xlw { font-size: .9rem; } }
 .ctry { max-width: 100%; white-space: normal; }
+
+/* Jono's favorite fighters */
+.fav{color:#f1cf5b;margin-left:.3em;font-size:.85em;text-decoration:none}
+.favtag{display:inline-block;margin:.2em 0 .4em;padding:.25em .6em;border:1px solid #c9a227;border-radius:999px;color:#f1cf5b;background:rgba(201,162,39,.1);font-size:.85rem;font-weight:600}
+.favbtn{display:inline-flex;align-items:center;padding:.45em .8em;border:1px solid #3a3e48;border-radius:8px;color:#d7dae0;text-decoration:none;font-size:.9rem;white-space:nowrap}
+.favbtn.on,.favbtn:hover{border-color:#c9a227;color:#f1cf5b}
