@@ -1,10 +1,20 @@
 {
- "bets": 4,
- "wins": 4,
- "units": 1.89,
- "roi_pct": 47.2,
+ "bets": 5,
+ "wins": 5,
+ "units": 2.04,
+ "roi_pct": 40.8,
  "moved_toward_pct": 100.0,
  "recent": [
+  {
+   "date": "2026-11-07",
+   "fight": "Seokhyeon Ko vs Wellington Turman",
+   "pick": "Seokhyeon Ko",
+   "odds": -650,
+   "won": true,
+   "method": "DEC",
+   "units": 0.15,
+   "moved_toward": true
+  },
   {
    "date": "2026-10-31",
    "fight": "Zach Reese vs Mickey Gall",
@@ -47,12 +57,22 @@
   }
  ],
  "ours": {
-  "bets": 4,
-  "wins": 3,
-  "units": -0.31,
-  "roi_pct": -7.7,
+  "bets": 5,
+  "wins": 4,
+  "units": -0.16,
+  "roi_pct": -3.2,
   "moved_toward_pct": 100.0,
   "recent": [
+   {
+    "date": "2026-11-07",
+    "fight": "Seokhyeon Ko vs Wellington Turman",
+    "pick": "Seokhyeon Ko",
+    "odds": -650,
+    "won": true,
+    "method": "DEC",
+    "units": 0.15,
+    "moved_toward": true
+   },
    {
     "date": "2026-10-31",
     "fight": "Zach Reese vs Mickey Gall",

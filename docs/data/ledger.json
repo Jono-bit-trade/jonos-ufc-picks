@@ -1,15 +1,15 @@
 {
  "from": "2026-10-31",
- "fights": 13,
- "model_right": 11,
- "our_bets": 4,
- "our_won": 3,
- "our_units": -0.31,
- "our_risked": 3.5,
- "our_staked_units": -0.99,
- "value_bets": 4,
- "value_won": 4,
- "value_units": 1.89,
+ "fights": 14,
+ "model_right": 12,
+ "our_bets": 5,
+ "our_won": 4,
+ "our_units": -0.15,
+ "our_risked": 4.0,
+ "our_staked_units": -0.92,
+ "value_bets": 5,
+ "value_won": 5,
+ "value_units": 2.05,
  "rows": [
   {
    "fight_id": "2026-11-07|Jonny Parsons|Jos\u00e9 Souza",
@@ -32,6 +32,29 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
+   "model_rule": 2
+  },
+  {
+   "fight_id": "2026-11-07|Seokhyeon Ko|Wellington Turman",
+   "date": "2026-11-07",
+   "a": "Seokhyeon Ko",
+   "b": "Wellington Turman",
+   "winner": "Seokhyeon Ko",
+   "result": "a",
+   "model_pick": "Seokhyeon Ko",
+   "model_odds": -650.0,
+   "our_pick": "Seokhyeon Ko",
+   "our_odds": -650.0,
+   "expert_lean": null,
+   "logged_at": "2026-11-07T22:04Z",
+   "model_units": 0.154,
+   "our_units": 0.154,
+   "stake": 0.5,
+   "our_staked_units": 0.077,
+   "value_pick": "Seokhyeon Ko",
+   "value_odds": -650.0,
+   "value_units": 0.154,
+   "our_source": "model",
    "model_rule": 2
   },
   {
@@ -311,9 +334,9 @@
    "model_rule": 2
   }
  ],
- "model_bets": 3,
- "model_won": 3,
- "model_staked_units": 0.51,
+ "model_bets": 4,
+ "model_won": 4,
+ "model_staked_units": 0.58,
  "experts_bets": 1,
  "experts_won": 0,
  "experts_staked_units": -1.5

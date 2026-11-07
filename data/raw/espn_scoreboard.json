@@ -732,13 +732,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 81.0,
+         "displayValue": "81.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "18-8-0"
+         "summary": "18-9-0"
         }
        ]
       },
@@ -747,7 +771,7 @@
        "uid": "s:3301~a:4701954",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Seokhyeon Ko",
         "displayName": "Seokhyeon Ko",
@@ -760,6 +784,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 90.0,
+         "displayValue": "90.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -772,18 +820,19 @@
       }
      ],
      "status": {
-      "clock": 176.0,
-      "displayClock": "2:56",
+      "clock": 300.0,
+      "displayClock": "5:00",
       "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R3, 2:56",
-       "shortDetail": "R3, 2:56"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -795,73 +844,73 @@
      ],
      "details": [
       {
-       "id": "26194",
+       "id": "26204",
        "type": {
-        "id": "13",
-        "text": "Takedown"
+        "id": "22",
+        "text": "Unofficial Winner Decision"
        }
       },
       {
-       "id": "26193",
+       "id": "26203",
        "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
+        "id": "23",
+        "text": "Results"
        }
       },
       {
-       "id": "26192",
+       "id": "26202",
        "type": {
-        "id": "5",
-        "text": "Round Start"
+        "id": "19",
+        "text": "Fight Over"
        }
       },
       {
-       "id": "26215",
+       "id": "26201",
        "type": {
         "id": "18",
         "text": "Round End"
        }
       },
       {
-       "id": "26214",
+       "id": "26200",
        "type": {
         "id": "13",
         "text": "Takedown"
        }
       },
       {
-       "id": "26213",
+       "id": "26199",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26212",
+       "id": "26198",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26211",
+       "id": "26197",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26196",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26210",
+       "id": "26195",
        "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26189",
-       "type": {
-        "id": "18",
-        "text": "Round End"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       }
      ],
@@ -902,7 +951,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -933,6 +982,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -960,6 +1010,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -975,13 +1026,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "139",
+       "name": "STATUS_FIGHTERS_WALKING",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 5:00 PM EST",
-       "shortDetail": "11/7 - 5:00 PM EST"
+       "description": "Walkouts",
+       "detail": "Walkouts",
+       "shortDetail": "Walkouts"
       }
      },
      "broadcasts": [
@@ -990,6 +1041,22 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26206",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26205",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
