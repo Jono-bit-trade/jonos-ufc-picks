@@ -1,8 +1,8 @@
 {
- "bets": 5,
+ "bets": 6,
  "wins": 5,
- "units": 2.04,
- "roi_pct": 40.8,
+ "units": 1.04,
+ "roi_pct": 17.3,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -13,6 +13,16 @@
    "won": true,
    "method": "DEC",
    "units": 0.15,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Mantas Kondratavicius vs Andre Petroski",
+   "pick": "Mantas Kondratavicius",
+   "odds": -310,
+   "won": false,
+   "method": "KO",
+   "units": -1.0,
    "moved_toward": true
   },
   {
@@ -57,10 +67,10 @@
   }
  ],
  "ours": {
-  "bets": 5,
+  "bets": 6,
   "wins": 4,
-  "units": -0.16,
-  "roi_pct": -3.2,
+  "units": -1.16,
+  "roi_pct": -19.3,
   "moved_toward_pct": 100.0,
   "recent": [
    {
@@ -71,6 +81,16 @@
     "won": true,
     "method": "DEC",
     "units": 0.15,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Mantas Kondratavicius vs Andre Petroski",
+    "pick": "Mantas Kondratavicius",
+    "odds": -310,
+    "won": false,
+    "method": "KO",
+    "units": -1.0,
     "moved_toward": true
    },
    {

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T22:52Z",
+ "updated": "2026-11-07T22:59Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -1096,20 +1096,20 @@
      "record": "8-5"
     },
     {
-     "fighter": "Jose Aldo",
-     "rating": 1745,
-     "rd": 95,
-     "last_fight": "2025-05-10",
-     "division": "Featherweight",
-     "record": "14-9"
-    },
-    {
      "fighter": "Kevin Vallejos",
      "rating": 1745,
      "rd": 139,
      "last_fight": "2026-03-14",
      "division": "Featherweight",
      "record": "4-0"
+    },
+    {
+     "fighter": "Jose Aldo",
+     "rating": 1745,
+     "rd": 95,
+     "last_fight": "2025-05-10",
+     "division": "Featherweight",
+     "record": "14-9"
     },
     {
      "fighter": "Pat Sabatini",
@@ -1394,12 +1394,12 @@
      "record": "3-1"
     },
     {
-     "fighter": "Lone'er Kavanagh",
+     "fighter": "Andre Lima",
      "rating": 1616,
-     "rd": 129,
-     "last_fight": "2026-10-24",
+     "rd": 135,
+     "last_fight": "2026-08-29",
      "division": "Flyweight",
-     "record": "4-2"
+     "record": "5-1"
     }
    ]
   },
