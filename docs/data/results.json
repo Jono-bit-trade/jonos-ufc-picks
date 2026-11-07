@@ -77,11 +77,11 @@
   }
  ],
  "ours": {
-  "bets": 7,
-  "wins": 5,
-  "units": -1.01,
-  "roi_pct": -14.4,
-  "moved_toward_pct": 100.0,
+  "bets": 8,
+  "wins": 6,
+  "units": 0.01,
+  "roi_pct": 0.1,
+  "moved_toward_pct": 85.7,
   "recent": [
    {
     "date": "2026-11-07",
@@ -112,6 +112,16 @@
     "method": "SUB",
     "units": 0.15,
     "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Jose Delano vs Murtazali Magomedov",
+    "pick": "Murtazali Magomedov",
+    "odds": 102,
+    "won": true,
+    "method": "DEC",
+    "units": 1.02,
+    "moved_toward": false
    },
    {
     "date": "2026-10-31",

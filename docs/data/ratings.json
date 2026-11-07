@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T23:31Z",
+ "updated": "2026-11-07T23:39Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -250,20 +250,20 @@
    "record": "9-1"
   },
   {
-   "fighter": "Lerone Murphy",
-   "rating": 1809,
-   "rd": 114,
-   "last_fight": "2026-03-21",
-   "division": "Featherweight",
-   "record": "9-1"
-  },
-  {
    "fighter": "Sean O'Malley",
    "rating": 1809,
    "rd": 99,
    "last_fight": "2026-06-14",
    "division": "Bantamweight",
    "record": "12-3"
+  },
+  {
+   "fighter": "Lerone Murphy",
+   "rating": 1809,
+   "rd": 114,
+   "last_fight": "2026-03-21",
+   "division": "Featherweight",
+   "record": "9-1"
   },
   {
    "fighter": "Grant Dawson",
@@ -394,12 +394,12 @@
    "record": "12-3"
   },
   {
-   "fighter": "Cory Sandhagen",
+   "fighter": "Gabriel Bonfim",
    "rating": 1774,
-   "rd": 95,
-   "last_fight": "2026-07-11",
-   "division": "Bantamweight",
-   "record": "11-6"
+   "rd": 116,
+   "last_fight": "2026-06-06",
+   "division": "Welterweight",
+   "record": "7-1"
   }
  ],
  "divisions": [
@@ -753,20 +753,20 @@
      "record": "5-1"
     },
     {
-     "fighter": "Anthony Hernandez",
-     "rating": 1721,
-     "rd": 102,
-     "last_fight": "2026-08-22",
-     "division": "Middleweight",
-     "record": "9-4"
-    },
-    {
      "fighter": "Bo Nickal",
      "rating": 1721,
      "rd": 123,
      "last_fight": "2026-06-14",
      "division": "Middleweight",
      "record": "6-1"
+    },
+    {
+     "fighter": "Anthony Hernandez",
+     "rating": 1721,
+     "rd": 102,
+     "last_fight": "2026-08-22",
+     "division": "Middleweight",
+     "record": "9-4"
     },
     {
      "fighter": "Yousri Belgaroui",
@@ -987,20 +987,20 @@
      "record": "9-4"
     },
     {
-     "fighter": "Beneil Dariush",
-     "rating": 1711,
-     "rd": 91,
-     "last_fight": "2026-05-02",
-     "division": "Lightweight",
-     "record": "17-8"
-    },
-    {
      "fighter": "Chris Padilla",
      "rating": 1711,
      "rd": 136,
      "last_fight": "2026-08-22",
      "division": "Lightweight",
      "record": "5-0"
+    },
+    {
+     "fighter": "Beneil Dariush",
+     "rating": 1711,
+     "rd": 91,
+     "last_fight": "2026-05-02",
+     "division": "Lightweight",
+     "record": "17-8"
     },
     {
      "fighter": "Rafael Fiziev",
@@ -1096,20 +1096,20 @@
      "record": "8-5"
     },
     {
-     "fighter": "Jose Aldo",
-     "rating": 1745,
-     "rd": 95,
-     "last_fight": "2025-05-10",
-     "division": "Featherweight",
-     "record": "14-9"
-    },
-    {
      "fighter": "Kevin Vallejos",
      "rating": 1745,
      "rd": 139,
      "last_fight": "2026-03-14",
      "division": "Featherweight",
      "record": "4-0"
+    },
+    {
+     "fighter": "Jose Aldo",
+     "rating": 1745,
+     "rd": 95,
+     "last_fight": "2025-05-10",
+     "division": "Featherweight",
+     "record": "14-9"
     },
     {
      "fighter": "Pat Sabatini",
@@ -1346,20 +1346,20 @@
      "record": "5-2"
     },
     {
-     "fighter": "Brandon Royval",
-     "rating": 1643,
-     "rd": 102,
-     "last_fight": "2026-07-11",
-     "division": "Flyweight",
-     "record": "8-5"
-    },
-    {
      "fighter": "Imanol Rodriguez",
      "rating": 1643,
      "rd": 163,
      "last_fight": "2026-10-03",
      "division": "Flyweight",
      "record": "2-0"
+    },
+    {
+     "fighter": "Brandon Royval",
+     "rating": 1643,
+     "rd": 102,
+     "last_fight": "2026-07-11",
+     "division": "Flyweight",
+     "record": "8-5"
     },
     {
      "fighter": "Allan Nascimento",

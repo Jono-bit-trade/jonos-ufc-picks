@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T23:31Z",
+ "updated": "2026-11-07T23:39Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -221,11 +221,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-01T23:02Z",
-     "a": -205.0,
-     "b": 170.0
-    },
-    {
      "t": "2026-11-02T17:12Z",
      "a": -205.0,
      "b": 170.0
@@ -419,6 +414,11 @@
      "t": "2026-11-07T23:31Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.013,
@@ -428,7 +428,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.307,
+    "DEC": 0.308,
     "KO": 0.583,
     "SUB": 0.109
    }
@@ -614,7 +614,7 @@
    "rating_b": 1677,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.696,
+   "p_model_a": 0.697,
    "p_a": 0.673,
    "model_pick": "Tatiana Suarez",
    "fair_odds_a": -206,
@@ -628,11 +628,6 @@
    "open_b": 160.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-01T23:02Z",
-     "a": -198.0,
-     "b": 164.0
-    },
     {
      "t": "2026-11-02T17:12Z",
      "a": -198.0,
@@ -825,6 +820,11 @@
     },
     {
      "t": "2026-11-07T23:31Z",
+     "a": -198.0,
+     "b": 164.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
      "a": -198.0,
      "b": 164.0
     }
@@ -1033,11 +1033,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-01T23:02Z",
-     "a": 185.0,
-     "b": -225.0
-    },
-    {
      "t": "2026-11-02T17:12Z",
      "a": 185.0,
      "b": -225.0
@@ -1229,6 +1224,11 @@
     },
     {
      "t": "2026-11-07T23:31Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -1428,25 +1428,20 @@
    "rating_b": 1561,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.563,
-   "p_a": 0.281,
+   "p_model_a": 0.564,
+   "p_a": 0.274,
    "model_pick": "Lucas Fernando",
-   "fair_odds_a": 256,
-   "fair_odds_b": -256,
-   "market_p_a": 0.259,
-   "odds_a": 270.0,
-   "odds_b": -340.0,
-   "best_a": 270.0,
-   "best_b": -340.0,
+   "fair_odds_a": 265,
+   "fair_odds_b": -265,
+   "market_p_a": 0.252,
+   "odds_a": 280.0,
+   "odds_b": -355.0,
+   "best_a": 280.0,
+   "best_b": -355.0,
    "open_a": 210.0,
    "open_b": -258.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-01T23:02Z",
-     "a": 245.0,
-     "b": -305.0
-    },
     {
      "t": "2026-11-02T17:12Z",
      "a": 245.0,
@@ -1641,6 +1636,11 @@
      "t": "2026-11-07T23:31Z",
      "a": 270.0,
      "b": -340.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
+     "a": 280.0,
+     "b": -355.0
     }
    ],
    "edge_a": 0.022,
@@ -1650,8 +1650,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.285,
-    "KO": 0.553,
+    "DEC": 0.286,
+    "KO": 0.552,
     "SUB": 0.162
    }
   },
@@ -1857,11 +1857,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-01T23:02Z",
-     "a": 380.0,
-     "b": -500.0
-    },
-    {
      "t": "2026-11-02T17:12Z",
      "a": 380.0,
      "b": -500.0
@@ -2055,6 +2050,11 @@
      "t": "2026-11-07T23:31Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
+     "a": 390.0,
+     "b": -520.0
     }
    ],
    "edge_a": -0.059,
@@ -2064,9 +2064,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.47,
+    "DEC": 0.471,
     "KO": 0.262,
-    "SUB": 0.268
+    "SUB": 0.267
    }
   },
   {
@@ -2267,11 +2267,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-01T23:02Z",
-     "a": 195.0,
-     "b": -238.0
-    },
-    {
      "t": "2026-11-02T17:12Z",
      "a": 195.0,
      "b": -238.0
@@ -2465,9 +2460,14 @@
      "t": "2026-11-07T23:31Z",
      "a": 200.0,
      "b": -245.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
+     "a": 200.0,
+     "b": -245.0
     }
    ],
-   "edge_a": 0.035,
+   "edge_a": 0.034,
    "pick": "Mitch Raposo",
    "our_pick": null,
    "stake": null,
@@ -2677,11 +2677,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-01T23:02Z",
-     "a": -360.0,
-     "b": 285.0
-    },
-    {
      "t": "2026-11-02T17:12Z",
      "a": -360.0,
      "b": 285.0
@@ -2875,6 +2870,11 @@
      "t": "2026-11-07T23:31Z",
      "a": -360.0,
      "b": 285.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
+     "a": -360.0,
+     "b": 285.0
     }
    ],
    "edge_a": 0.026,
@@ -2884,7 +2884,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.359,
+    "DEC": 0.36,
     "KO": 0.396,
     "SUB": 0.244
    }
@@ -3075,7 +3075,7 @@
    "rating_b": 1479,
    "debut_a": true,
    "debut_b": false,
-   "p_model_a": 0.525,
+   "p_model_a": 0.526,
    "p_a": 0.422,
    "model_pick": "Gabriel Loren\u00e7o",
    "fair_odds_a": 137,
@@ -3089,11 +3089,6 @@
    "open_b": -170.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-01T23:02Z",
-     "a": 136.0,
-     "b": -162.0
-    },
     {
      "t": "2026-11-02T17:12Z",
      "a": 136.0,
@@ -3288,9 +3283,14 @@
      "t": "2026-11-07T23:31Z",
      "a": 140.0,
      "b": -166.0
+    },
+    {
+     "t": "2026-11-07T23:39Z",
+     "a": 140.0,
+     "b": -166.0
     }
    ],
-   "edge_a": 0.021,
+   "edge_a": 0.022,
    "pick": null,
    "our_pick": "Gabriel Loren\u00e7o",
    "stake": 1.5,
@@ -3482,8 +3482,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 5:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1636,
    "rating_b": 1483,
@@ -3497,11 +3497,11 @@
    "market_p_a": 0.675,
    "odds_a": -238.0,
    "odds_b": 195.0,
-   "best_a": -238.0,
-   "best_b": 195.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": -162.0,
    "open_b": 136.0,
-   "books": 1.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-11-01T23:02Z",
@@ -3886,9 +3886,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "in",
-   "status": "End R2",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 5:00",
+   "result": {
+    "winner": "Murtazali Magomedov",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 5:00",
+    "pick_won": false
+   },
    "rating_a": 1563,
    "rating_b": 1593,
    "debut_a": false,
@@ -4115,9 +4120,9 @@
    "expert_lean": "Murtazali Magomedov",
    "check_news": false,
    "method": {
-    "DEC": 0.391,
-    "KO": 0.422,
-    "SUB": 0.187
+    "DEC": 0.393,
+    "KO": 0.421,
+    "SUB": 0.186
    }
   },
   {
@@ -4339,7 +4344,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.491,
-    "KO": 0.326,
+    "KO": 0.325,
     "SUB": 0.184
    }
   },
@@ -5156,9 +5161,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.615,
+    "DEC": 0.616,
     "KO": 0.251,
-    "SUB": 0.134
+    "SUB": 0.133
    }
   },
   {
@@ -5491,7 +5496,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.419,
-    "KO": 0.349,
+    "KO": 0.35,
     "SUB": 0.231
    }
   }
