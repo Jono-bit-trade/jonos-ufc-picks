@@ -360,7 +360,7 @@ function liveCenter(p) {
   const done = order.filter(x => x.f.state === "post");
   const last = done.at(-1);
   // tonight's tally: our picks at suggested stakes, value picks flat, the model's winners
-  let ow = 0, ol = 0, ou = 0, vw = 0, vl = 0, vu = 0, mw = 0, mn = 0;
+  let ow = 0, ol = 0, ou = 0, vw = 0, vl = 0, vu = 0, mw = 0, mn = 0, mu = 0;
   for (const {f} of done) {
     const w = f.result && f.result.winner; if (!w) continue;
     if (f.our_pick) { const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1;
@@ -368,7 +368,8 @@ function liveCenter(p) {
     if (f.pick) { const o = f.pick === f.a ? f.odds_a : f.odds_b;
       if (w === f.pick) { vw++; vu += pay(o); } else { vl++; vu -= 1; } }
     const mp = f.model_pick || (f.p_a != null ? (f.p_a >= 0.5 ? f.a : f.b) : null);
-    if (mp) { mn++; if (mp === w) mw++; }
+    if (mp) { mn++; const o = mp === f.a ? f.odds_a : f.odds_b;
+      if (mp === w) { mw++; if (o != null) mu += pay(o); } else if (o != null) mu -= 1; }
   }
   const r2 = x => Math.round(x * 100) / 100;
   const corner = (f, side) => {
@@ -405,14 +406,14 @@ function liveCenter(p) {
     <div class="lc-tally">
       <div><b>${ow}-${ol}</b><span>Our picks</span><em class="${ou >= 0 ? "won" : "lost"}">${units(r2(ou))}</em></div>
       <div><b>${vw}-${vl}</b><span>Value picks</span><em class="${vu >= 0 ? "won" : "lost"}">${units(r2(vu))}</em></div>
-      <div><b>${mw}/${mn}</b><span>Model winners</span><em>${mn ? Math.round(100 * mw / mn) + "%" : "–"}</em></div>
+      <div><b>${mw}/${mn}</b><span>Model winners</span><em class="${mu >= 0 ? "won" : "lost"}">${units(r2(mu))}</em></div>
     </div>
     ${betSlip(order)}
     ${now ? spot(now) : spot(next, "Up next")}
     ${last && last.f.result ? `<div class="lc-last"><span>Last result</span><b>${esc(last.f.result.winner || "Draw")}</b> def. ${esc(last.f.result.winner === last.f.a ? last.f.b : last.f.a)} <small>${esc((last.f.result.detail || "").replace(/^Final\s*-?\s*/i, ""))}</small></div>` : ""}
     ${now && next ? `<div class="lc-upnext"><span>Up next</span>${esc(next.f.a)} vs ${esc(next.f.b)}${next.f.our_pick ? ` <em>Our pick: ${esc(next.f.our_pick)}${next.f.stake ? " " + next.f.stake + "u" : ""}</em>` : ""}</div>` : ""}
     <ol class="lc-line">${order.map(pip).join("")}</ol>
-    <p class="lc-foot">Green: our call won. Red: it lost. Gold dot: one of our picks. Updates every few minutes; this page refreshes itself.</p>
+    <p class="lc-foot">Units: our picks at suggested stakes; value picks and model winners at a flat 1u. Green: our call won. Red: it lost. Gold dot: one of our picks. Updates every few minutes; this page refreshes itself.</p>
   </section>`;
 }
 
