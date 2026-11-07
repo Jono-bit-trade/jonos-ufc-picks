@@ -931,8 +931,8 @@
         "displayName": "Carlos Calderon",
         "shortName": "C. Calderon",
         "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-         "alt": "USA",
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/esa.png",
+         "alt": "El Salvador",
          "rel": [
           "country-flag"
          ]
@@ -1439,8 +1439,8 @@
         "displayName": "Ollie Schmid",
         "shortName": "O. Schmid",
         "flag": {
-         "href": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
-         "alt": "New Zealand",
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/hun.png",
+         "alt": "Hungary",
          "rel": [
           "country-flag"
          ]
