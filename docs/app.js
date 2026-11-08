@@ -806,8 +806,9 @@ function proofBand(mr, L) {
   const liveCards = L && L.rows ? new Set(L.rows.map(g => g.date)).size : 0, goLive = liveCards >= 10;
   return `<section class="proof">
     <div class="pf-head">
-      <h1>UFC picks, <em>with the receipts.</em></h1>
-      <p>Every pick goes up before the fight and gets graded after it, win or lose.</p>
+      <h1>Beat the sportsbook, <em>not just the fight.</em></h1>
+      <p>${s.vs_line ? `Our picks are up <b class="won">${units(s.our_units)}</b> since ${mr.from || 2020}. Betting every favorite lost <b class="lost">${units(s.vs_line.line_units)}</b> on the same fights.` : ""} Every pick goes up before the fight and gets graded after it, win or lose.</p>
+      <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/record">See every result</a></div>
       <p class="pf-src">${goLive ? `Live, locked record since ${esc(dateLong(L.from))}. Backtest since ${mr.from || 2020} on the Record page.` : `Backtest since ${mr.from || 2020}: each fight predicted only from earlier fights. The live, locked record started ${esc(dateLong(L ? L.from : "2026-10-31"))}${live ? ` and stands at <b>${live}</b>` : ""}.`}</p></div>
     <div class="pf-cards">
       <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
@@ -864,7 +865,7 @@ function feature(p, up) {
     <aside class="ft-side">
       <div class="ft-sh"><h2>This week's picks</h2>${p.updated ? `<small>Lines as of ${esc(updatedAt(p.updated))}</small>` : ""}</div>
       ${p.take_preview ? `<p class="ft-prev">${esc(p.take_preview)} <span>— Jono</span></p>` : ""}
-      ${ours.length || locked ? ours.map(pickRow).join("") + locked : `<p class="note">No picks yet. They go up as the lines settle during fight week.</p>`}
+      ${picksStrip(p)}
       <a class="ft-more" href="#/card">Full card and every number →</a>
     </aside>
   </section>`;

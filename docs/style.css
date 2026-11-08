@@ -1541,3 +1541,11 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .nx-a .ev-ph .ph.md{width:48px;height:48px}
 .nx .ev-ph .ph.md{width:48px;height:48px}
 .cmp-msg{min-height:0;margin:6px 0 0;font-size:14px;color:var(--red)} .cmp-msg:empty{display:none}
+/* this week's picks beside the main event: betting slips, stacked */
+.ft-side .slip{grid-template-columns:1fr;gap:12px;margin:12px 0 4px}
+.ft-side .ticket{padding:14px 20px}
+.ft-side .ft-sh{border-bottom:0;margin-bottom:0}
+.pf-head p b.won{color:var(--green)} .pf-head p b.lost{color:var(--red)}
+.pf-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pf-cta a{display:inline-flex;align-items:center;height:42px;padding:0 18px;margin:0!important;box-sizing:border-box}
+@media (max-width:700px){.pf-head p{display:block!important;font-size:14px!important}}
