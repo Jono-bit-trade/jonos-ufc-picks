@@ -1,0 +1,42 @@
+{
+  "paywall": false,
+  "currency": "USD",
+  "free_sample": "first_pick",
+  "plans": [
+    {
+      "id": "event",
+      "name": "Event Pass",
+      "price": 9.99,
+      "period": "one card",
+      "tagline": "Every pick for one fight card.",
+      "features": [
+        "All our picks and stakes for the card",
+        "Value picks and confidence tiers",
+        "Full fight analysis for every bout",
+        "Live fight-night bet slip"
+      ],
+      "checkout_url": ""
+    },
+    {
+      "id": "monthly",
+      "name": "Monthly",
+      "price": 24.99,
+      "period": "month",
+      "best": true,
+      "tagline": "Every card, every week. Cancel anytime.",
+      "features": [
+        "Everything in Event Pass, for every card",
+        "Picks as soon as lines open, updated all week",
+        "Winning-record analysts highlighted on every fight",
+        "Fight-night live centre with the full bet slip"
+      ],
+      "checkout_url": ""
+    }
+  ],
+  "free": [
+    "EDGE Rating chances and confidence tiers for every fight",
+    "One free pick per card",
+    "Rankings, fighter pages, Who wins? and Movers",
+    "The full public record"
+  ]
+}

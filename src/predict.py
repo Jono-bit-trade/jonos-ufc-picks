@@ -155,6 +155,30 @@ def model_pick(a, b, p_final, fair_a, lean=None):
     return a if s_ == "a" else b if s_ == "b" else None
 
 
+
+PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news")
+
+
+def public_card(full):
+    """The card as a free visitor gets it once the paywall is on: chances and tiers for every fight, picks only on
+    finished fights and on the free sample (the top-billed fight with a pick). The full file is for members and,
+    behind a real paywall, would be served only to signed-in members."""
+    out = dict(full, gated=True)
+    sample = next((i for i, f in enumerate(full["fights"]) if f.get("our_pick") and f.get("state") != "post"), None)
+    fights = []
+    for i, f in enumerate(full["fights"]):
+        if f.get("state") == "post" or i == sample:
+            fights.append(dict(f, sample=i == sample))
+            continue
+        had = bool(f.get("our_pick") or f.get("pick") or f.get("expert_lean"))
+        g = {k: v for k, v in f.items() if k not in PREMIUM}
+        g.update(locked=had, our_pick=None, pick=None, stake=None, why=None, expert_lean=None)
+        if g.get("experts"):
+            g["experts"] = dict(g["experts"], win_a=0, win_b=0, analysts=[dict(x, winning=False) for x in g["experts"].get("analysts", [])])
+        fights.append(g)
+    out["fights"], out["locked_count"] = fights, sum(1 for f in fights if f.get("locked"))
+    return out
+
 def publish_common(fights, log, G):
     """Record, rankings and backtest pages: published on every run, card or not."""
     update_ledger(log, fights)
@@ -547,10 +571,11 @@ def main():
             "method": {k: round(float(meth.loc[fid, k]), 3) for k in meth.columns},
         })
     first = card.iloc[0]
-    json.dump({"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": str(first.get("event") or "Next UFC card"),
-               "date": str(first["date"]), "location": str(first.get("location") or ""), "card_source": source,
-               "edge_threshold": EDGE, "big_edge": BIG_EDGE, "model": cfg, "schedule": schedule(card), "fights": out},
-              open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
+    full = {"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": str(first.get("event") or "Next UFC card"),
+            "date": str(first["date"]), "location": str(first.get("location") or ""), "card_source": source,
+            "edge_threshold": EDGE, "big_edge": BIG_EDGE, "model": cfg, "schedule": schedule(card), "fights": out}
+    json.dump(full, open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
+    json.dump(public_card(full), open(os.path.join(OUT, "predictions_public.json"), "w"), indent=1)
     publish_common(fights, log, G)
 
     print(f"{len(out)} bouts, {sum(1 for f in out if f['pick'])} picks at a {EDGE:.0%} edge")

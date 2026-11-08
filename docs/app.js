@@ -146,13 +146,15 @@ function bout(f, i, edge) {
   let pickHtml;
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
-  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${
+  if (f.locked) pickHtml = lockedPick(f);
+  else if (f.our_pick) pickHtml = `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${
     bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick value">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (leanTag) pickHtml = leanTag;
   else pickHtml = `<div class="nopick">${line == null ? "No betting line yet." : "No bet: the model and the line are within " + Math.round(edge * 100) + " points."}</div>`;
+  if (f.sample && paywallOn() && (f.our_pick || f.pick)) pickHtml = `<span class="freetag">Free pick</span>` + pickHtml;
   if (f.our_pick && f.why && f.why.length) pickHtml += `<ul class="why">${f.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
   const moved = f.open_a != null && f.odds_a != null && (f.open_a !== f.odds_a)
     ? `Opened ${odds(f.open_a)} / ${odds(f.open_b)}, now ${odds(f.odds_a)} / ${odds(f.odds_b)}`
@@ -186,6 +188,106 @@ function bout(f, i, edge) {
 }
 
 // ---------------- matchup: tale of the tape ----------------
+// ---- plans and access (docs/plans.json). The paywall is off until plans.json says "paywall": true;
+// add ?preview=free, ?preview=event or ?preview=monthly to any page to see the site as that visitor (?preview=off to stop).
+let PLANS = null;
+function previewPlan() {
+  const q = new URLSearchParams((location.hash.split("?")[1]) || "");
+  try { if (q.has("preview")) { const v = q.get("preview"); v === "off" ? sessionStorage.removeItem("oePreview") : sessionStorage.setItem("oePreview", v); }
+    return sessionStorage.getItem("oePreview"); } catch (e) { return q.get("preview"); }
+}
+function myPlan() {   // the visitor's plan; until real sign-in exists, everyone is "free" when the paywall is on
+  const pv = previewPlan(); if (pv && pv !== "off") return pv;
+  try { const a = JSON.parse(localStorage.getItem("oeAccess") || "null"); if (a && (!a.expires || a.expires > Date.now())) return a.plan; } catch (e) {}
+  return "free";
+}
+const paywallOn = () => !!(PLANS && PLANS.paywall) || !!(previewPlan() && previewPlan() !== "off");
+// picks on the upcoming card: monthly sees all, an event pass sees its card, free sees the sample (the main event)
+function canSeePicks(cardDate) {
+  if (!paywallOn()) return true;
+  const pl = myPlan();
+  if (pl === "monthly") return true;
+  if (pl === "event") { if (previewPlan() === "event") return true;
+    try { const a = JSON.parse(localStorage.getItem("oeAccess") || "{}"); return (a.events || []).includes(cardDate); } catch (e) { return false; } }
+  return false;
+}
+// what a visitor without access receives: the card with picks removed, except the free sample
+function gatePredictions(p) {
+  if (!p || canSeePicks(p.date)) return p;
+  const q = {...p, gated: true};
+  const sampleAt = PLANS && PLANS.free_sample ? p.fights.findIndex(f => f.our_pick && f.state !== "post") : -1;   // the top-billed fight we have a pick on
+  q.fights = p.fights.map((f, i) => {
+    if (i === sampleAt) return {...f, sample: true};
+    if (f.state === "post") return f;   // finished fights show their picks: that's the public record
+    const had = !!(f.our_pick || f.pick || f.expert_lean);
+    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, locked: had,
+      experts: f.experts ? {...f.experts, win_a: 0, win_b: 0, analysts: (f.experts.analysts || []).map(x => ({...x, winning: false}))} : f.experts};
+  });
+  q.locked_count = q.fights.filter(f => f.locked).length;
+  return q;
+}
+// members get the full card; once the paywall is on, everyone else loads the public file (no picks in it)
+async function getPred() {
+  if (paywallOn() && !canSeePicks(null) && myPlan() === "free" && PLANS && PLANS.paywall && !previewPlan()) {
+    const pub = await get("predictions_public.json", true); if (pub) return pub;
+  }
+  return gatePredictions(await get("predictions.json", true));
+}
+const planBtns = (small) => PLANS ? `<div class="lock-btns${small ? " sm" : ""}">${PLANS.plans.map(pl => `<a class="${pl.best ? "btn" : "pill"}" href="#/pricing">${esc(pl.name)} · $${pl.price}</a>`).join("")}</div>` : "";
+const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
+const lockedPick = f => `<div class="locked-pick">${lockIcon}<div><b>${f.locked ? "Pick locked" : "Members' analysis"}</b><span>${f.locked ? "We have a pick on this fight." : "Our full call on this fight."} Unlock it with an Event Pass or Monthly.</span></div>${planBtns(true)}</div>`;
+
+// ---- pricing and account (structure for a paid site; checkout links go in docs/plans.json) ----
+async function viewPricing() {
+  const [mr] = await Promise.all([get("model_record.json")]);
+  if (!PLANS) return `<h1>Pricing</h1><div class="empty">Plans aren't set up yet.</div>`;
+  const s = mr && mr.since, v = s && s.vs_line, yr = mr && mr.years && mr.years[0];
+  const cards = [{id: "free", name: "Free", price: 0, period: "", tagline: "See how every fight rates.", features: PLANS.free}, ...PLANS.plans];
+  const mine = myPlan();
+  const card = pl => `<div class="plan${pl.best ? " best" : ""}${pl.id === "free" ? " free" : ""}">${pl.best ? `<span class="plan-flag">Best value</span>` : ""}
+      <h3>${esc(pl.name)}</h3><div class="plan-price">${pl.price ? `<b>$${pl.price}</b><span>/ ${esc(pl.period)}</span>` : `<b>$0</b>`}</div>
+      <p class="plan-tag">${esc(pl.tagline)}</p>
+      <ul>${pl.features.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${pl.id === "free" ? `<a class="pill plan-cta" href="#/card">See this week's card</a>`
+        : pl.checkout_url ? `<a class="btn plan-cta" href="${esc(pl.checkout_url)}" rel="noopener">Get ${esc(pl.name)}</a>`
+        : `<span class="btn plan-cta soon" aria-disabled="true">Coming soon</span>`}
+      ${mine === pl.id && paywallOn() ? `<span class="plan-mine">Your plan</span>` : ""}</div>`;
+  const rows = [["EDGE Rating chances and confidence tiers", 1, 1, 1], ["Rankings, fighter pages, Who wins?, Movers", 1, 1, 1], ["The full public record", 1, 1, 1],
+    ["One free pick per card", 1, 1, 1], ["Every pick with stake and reasons", 0, "One card", 1], ["Value picks", 0, "One card", 1],
+    ["Fight analysis: our call on every bout", 0, "One card", 1], ["Live fight-night bet slip", 0, "One card", 1], ["Winning-record analysts highlighted", 0, "One card", 1],
+    ["Picks for every card, all month", 0, 0, 1]];
+  const ck = x => x === 1 ? `<span class="ck">✓</span>` : x ? `<span class="ck part">${esc(x)}</span>` : `<span class="ck no">–</span>`;
+  return `<section class="pr-hero"><span class="pf-kick">Powered by ${METHOD}</span><h1>Get every pick.</h1>
+      <p>Picks locked before the fight, graded in public. Choose a single card or every card.</p></section>
+    ${s ? `<div class="pr-proof"><div><b>${yr ? yr.pct : s.pct}%</b><span>winners picked${yr ? " in " + esc(yr.year) : ""}</span></div>
+      <div><b>${s.tiers && s.tiers.High ? s.tiers.High.pct : "–"}%</b><span>high-confidence picks won</span></div>
+      <div><b class="won">${units(s.our_units)}</b><span>our picks since ${mr.from || 2020}</span></div>
+      ${v ? `<div><b class="lost">${units(v.line_units)}</b><span>betting every favorite instead</span></div>` : ""}</div>` : ""}
+    <div class="plans">${cards.map(card).join("")}</div>
+    <h2>${kick("Compare", "gold")}What's included</h2>
+    <div class="tablewrap"><table class="cmpplans"><thead><tr><th></th><th>Free</th>${PLANS.plans.map(pl => `<th>${esc(pl.name)}</th>`).join("")}</tr></thead><tbody>
+      ${rows.map(r => `<tr><td>${esc(r[0])}</td>${r.slice(1).map(x => `<td>${ck(x)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <h2>${kick("Questions", "gold")}FAQ</h2>
+    <div class="faq">
+      <details><summary>What does an Event Pass cover?</summary><p>Every pick, stake, value pick and fight analysis for one UFC card, from the moment you buy it until the card ends, including the live bet slip on fight night.</p></details>
+      <details><summary>When do picks post?</summary><p>As soon as sportsbooks post lines for a card, usually Sunday or Monday. They update through the week as lines move and expert picks come in, and lock when each fight starts.</p></details>
+      <details><summary>How do I know the record is real?</summary><p>Every pick is locked before the fight and graded at the price we posted. The full record, wins and losses, is free to view on the Record page, along with how we compare with simply betting favorites.</p></details>
+      <details><summary>Can I cancel Monthly?</summary><p>Yes, anytime. You keep access until the end of the month you paid for.</p></details>
+      <details><summary>Is this betting advice?</summary><p>No. It's research for entertainment. Bet only what you can afford to lose, only where it's legal, and if gambling stops being fun, call 1-800-GAMBLER.</p></details>
+    </div>`;
+}
+async function viewAccount() {
+  const pv = previewPlan(), mine = myPlan();
+  const b = (k, t) => `<a class="${(pv || "off") === k ? "btn" : "pill"}" href="#/account?preview=${k}">${t}</a>`;
+  return `<h1>Account</h1>
+    <div class="acct"><div><span class="vl-k">Your plan</span><b>${paywallOn() ? esc(({free: "Free", event: "Event Pass", monthly: "Monthly"})[mine] || mine) : "Everything (paywall off)"}</b>
+      <p class="note">Sign-in and payments aren't connected yet. When they are, this page will show your plan, renewal date and receipts.</p></div></div>
+    <h2>${kick("Owner tools", "gold")}Preview the site as</h2>
+    <p class="note">See exactly what each visitor sees. This only changes your own browser tab.</p>
+    <div class="acct-prev">${b("free", "Free visitor")}${b("event", "Event Pass")}${b("monthly", "Monthly")}${b("off", "Turn preview off")}</div>
+    <p class="note">The paywall itself is ${PLANS && PLANS.paywall ? "<b>on</b>" : "<b>off</b>"} (set in docs/plans.json).</p>`;
+}
+
 // ---- one fight, analysed: #/fight/<card index> or #/fight/<event slug>/<index> ----
 function radarDual(Ra, Rb, A, B) {
   const keys = Object.keys(Ra || Rb), n = keys.length, cx = 160, cy = 160, rad = 118;
@@ -233,7 +335,7 @@ async function viewFight(x, y) {
       model: b.model_pick ? side(b.model_pick.side) : null, lean: b.expert_lean ? side(b.expert_lean) : null};
     back = `<a class="pill" href="#/event/${esc(x)}">← ${esc(e.name)}</a>`; title = e.name; when = dateLong(e.date);
   } else {
-    const p = await get("predictions.json", true); const f = p && p.fights[+x];
+    const p = await getPred(); const f = p && p.fights[+x];
     if (!f) return `<h1>Fight not found</h1><div class="empty"><a class="pill" href="#/card">This card</a></div>`;
     const w = f.state === "post" && f.result ? f.result.winner : null;
     F = {a: f.a, b: f.b, a_slug: f.a_slug, b_slug: f.b_slug, a_id: f.a_id, b_id: f.b_id, p: f.p_a, line: f.market_p_a, odds_a: f.odds_a, odds_b: f.odds_b,
@@ -250,7 +352,7 @@ async function viewFight(x, y) {
       <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
-  const call = F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
+  const call = F.f && F.f.locked ? lockedPick(F.f) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
   const mark = nm => F.winner && nm ? (F.winner === nm ? ` <em class="won">✓ won</em>` : ` <em class="lost">✗ lost</em>`) : "";
@@ -358,7 +460,7 @@ function tape(a, b, rounds) {
 }
 
 async function viewCard() {
-  const [p] = await Promise.all([get("predictions.json", true), loadGrap()]);
+  const [p] = await Promise.all([getPred(), loadGrap()]);
   if (!p) return `<div class="empty">No predictions yet: the first scheduled run fills this in.</div>`;
   clearTimeout(window.refresh);
   if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(route, 120000);   // fight night: refresh every 2 minutes
@@ -395,8 +497,9 @@ function cardSide(p, mr) {
       <span class="cs-o">${odds(o)}${kind === "v" ? "" : f.stake ? ` · ${f.stake}u` : ""}</span>${tierTag(f.tier || tierOf(f.p_a), true)}</a>`; };
   return `<aside class="cg-side"><div class="cs-in">
     <section class="cs-box"><h3>${kick("This card", "gold")}Our picks</h3>
-      ${ours.length ? ours.map(x => row(x)).join("") : `<p class="note">No picks yet. They appear as lines and expert picks come in.</p>`}
-      ${ours.length ? `<div class="cs-tot"><span>${ours.length} pick${ours.length > 1 ? "s" : ""}</span><b>${Math.round(risk * 10) / 10}u risked</b></div>` : ""}</section>
+      ${ours.length ? ours.map(x => row(x)).join("") : p.gated ? "" : `<p class="note">No picks yet. They appear as lines and expert picks come in.</p>`}
+      ${ours.length ? `<div class="cs-tot"><span>${ours.length} pick${ours.length > 1 ? "s" : ""}</span><b>${Math.round(risk * 10) / 10}u risked</b></div>` : ""}
+      ${p.gated && p.locked_count ? `<div class="cs-lock">${lockIcon}<div><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""} locked</b><span>Get every pick, stake and reason for this card.</span></div>${planBtns(true)}</div>` : ""}</section>
     ${vals.length ? `<section class="cs-box"><h3>${kick("Underdogs", "teal")}Value picks only</h3>${vals.map(x => row(x, "v")).join("")}
       <p class="small">The model beats the line here but isn't confident enough to make it a pick.</p></section>` : ""}
     <section class="cs-box"><h3>${kick("Confidence", "blue")}On this card</h3>
@@ -420,7 +523,7 @@ function compactRow(f, i, edge) {
       <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
       <span class="cr-p"><b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b></span>
       <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
-      <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
+      <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.locked ? `<span class="mini-lock">${lockIcon}Locked</span>` : f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
     </summary>${bout(f, i, edge)}</details>`;
 }
 
@@ -428,6 +531,9 @@ function compactRow(f, i, edge) {
 const pay = o => o > 0 ? o / 100 : 100 / -o;
 function picksStrip(p) {
   const ours = (p.fights || []).filter(f => f.our_pick);
+  const teaser = p.gated && p.locked_count ? `<a class="ticket locked" href="#/pricing">${lockIcon}<span class="tk-name">+${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</span>
+      <span class="tk-opp">Locked for members</span><span class="tk-row">${PLANS ? PLANS.plans.map(pl => `<b>${esc(pl.name)} $${pl.price}</b>`).join("") : ""}</span></a>` : "";
+  if (!ours.length && teaser) return `<div class="slip">${teaser}</div>`;
   if (!ours.length) return `<div class="slip empty-slip">No picks yet for this card. Picks appear as lines and expert picks come in during fight week.</div>`;
   return `<div class="slip">${ours.map(f => {
     const o = f.our_pick === f.a ? f.odds_a : f.odds_b, best = f.our_pick === f.a ? f.best_a : f.best_b;
@@ -442,7 +548,7 @@ function picksStrip(p) {
       ${f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
     </a>`;
-  }).join("")}</div>`;
+  }).join("")}${teaser}</div>`;
 }
 
 function unitsChart(curve) {
@@ -555,8 +661,9 @@ function roundClock(f) {
 }
 // tonight's bet slip: every one of our picks with its price, stake and where it stands
 function betSlip(order) {
-  const rows = order.filter(x => x.f.our_pick);
-  if (!rows.length) return "";
+  const rows = order.filter(x => x.f.our_pick), nLocked = order.filter(x => x.f.locked).length;
+  if (!rows.length && !nLocked) return "";
+  if (!rows.length) return `<div class="cs-lock slip-lock">${lockIcon}<div><b>Tonight's bet slip is for members</b><span>${nLocked} pick${nLocked > 1 ? "s" : ""} still to go on this card.</span></div>${planBtns(true)}</div>`;
   let settled = 0, risk = 0;
   const li = rows.map(({f, i}) => {
     const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1, w = f.state === "post" && f.result ? f.result.winner : null;
@@ -594,7 +701,7 @@ function resultMoments(order) {
 
 async function liveBar() {
   const el = $("#livebar"); if (!el) return;
-  const p = await get("predictions.json", true);
+  const p = await getPred();
   if (p && p.updated) $("#updated").textContent = `Data updated ${new Date(p.updated).toLocaleString([], {weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"})}.`;
   const fights = p && p.fights || [];
   const now = fights.filter(f => f.state === "in"), done = fights.filter(f => f.state === "post");
@@ -681,7 +788,7 @@ function proofBand(mr, L) {
 }
 
 async function viewHome() {
-  const [p, ev, ex, up] = await Promise.all([get("predictions.json", true), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
+  const [p, ev, ex, up] = await Promise.all([getPred(), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`, picksH = "";
   if (p && p.fights.length && liveOn(p)) {
     hero = liveCenter(p); picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
@@ -930,7 +1037,7 @@ function highlightCards(f) {
 async function viewFighter(s) {
   const [f, avgs] = await Promise.all([get(`fighters/${s}.json`), get("division_avg.json")]);
   if (!f) {   // a UFC debutant on the upcoming card: a short page from the card itself
-    const pr = await get("predictions.json", true);
+    const pr = await getPred();
     const b = pr && (pr.fights || []).find(x => x.a_slug === s || x.b_slug === s);
     if (b) {
       const isA = b.a_slug === s, me = isA ? b.a : b.b, opp = isA ? b.b : b.a, oppS = isA ? b.b_slug : b.a_slug;
@@ -1424,7 +1531,8 @@ let photosLoaded = false;
 const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
 async function route() {
   if (!photosLoaded) { photosLoaded = true; const [ph, co, rk, fv] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true),
-    fetch("favorites.json?t=" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => [])]);
+    fetch("favorites.json?t=" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => []),
+    fetch("plans.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null).then(x => { PLANS = x; })]);
     if (ph) PHOTOS = ph; if (co) COUNTRY = co; if (rk && rk.fighters) RANK = rk.fighters;
     for (const x of fv || []) FAV[x.slug || slug(x.name)] = x; }
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
@@ -1433,7 +1541,7 @@ async function route() {
   document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings", fight: "card"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), record: () => viewRecord(q), how: viewHow, about: viewAbout, credits: viewCredits};
+    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), pricing: viewPricing, account: viewAccount, record: () => viewRecord(q), how: viewHow, about: viewAbout, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);
@@ -1447,6 +1555,11 @@ async function route() {
   else if (!qs) window.scrollTo(0, 0);
   liveBar();
   tickClocks();
+  const cta = document.querySelector(".hcta");
+  if (cta) { const lock = paywallOn() && myPlan() === "free"; cta.textContent = lock ? "Unlock picks" : "This week's picks"; cta.href = lock ? "#/pricing" : "#/card"; }
+  let pb = document.getElementById("pvbadge"); const pv = previewPlan();
+  if (pv && pv !== "off") { if (!pb) { pb = document.createElement("a"); pb.id = "pvbadge"; pb.href = "#/account"; document.body.appendChild(pb); }
+    pb.textContent = "Previewing: " + ({free: "Free visitor", event: "Event Pass", monthly: "Monthly"}[pv] || pv) + " · change"; } else if (pb) pb.remove();
   if (page === "home" && !window.countedUp) { window.countedUp = true; countUp(); }
 }
 
