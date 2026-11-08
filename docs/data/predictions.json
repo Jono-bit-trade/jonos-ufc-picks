@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T15:42Z",
+ "updated": "2026-11-08T16:00Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -63,6 +63,7 @@
    "p_model_a": 0.556,
    "p_a": 0.695,
    "model_pick": "Ciryl Gane",
+   "tier": "Medium",
    "fair_odds_a": -228,
    "fair_odds_b": 228,
    "market_p_a": 0.675,
@@ -91,6 +92,11 @@
     },
     {
      "t": "2026-11-08T15:42Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
      "a": -238.0,
      "b": 195.0
     }
@@ -133,6 +139,7 @@
    "p_model_a": 0.57,
    "p_a": 0.646,
    "model_pick": "Kayla Harrison",
+   "tier": "Medium",
    "fair_odds_a": -182,
    "fair_odds_b": 182,
    "market_p_a": 0.622,
@@ -161,6 +168,11 @@
     },
     {
      "t": "2026-11-08T15:42Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
      "a": -185.0,
      "b": 154.0
     }
@@ -203,6 +215,7 @@
    "p_model_a": 0.577,
    "p_a": 0.619,
    "model_pick": "Caio Borralho",
+   "tier": "Medium",
    "fair_odds_a": -162,
    "fair_odds_b": 162,
    "market_p_a": 0.593,
@@ -231,6 +244,11 @@
     },
     {
      "t": "2026-11-08T15:42Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
      "a": -162.0,
      "b": 136.0
     }
@@ -273,6 +291,7 @@
    "p_model_a": 0.543,
    "p_a": 0.625,
    "model_pick": "Uros Medic",
+   "tier": "Medium",
    "fair_odds_a": -167,
    "fair_odds_b": 167,
    "market_p_a": 0.604,
@@ -301,6 +320,11 @@
     },
     {
      "t": "2026-11-08T15:42Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
      "a": -170.0,
      "b": 142.0
     }
@@ -346,6 +370,7 @@
    "p_model_a": 0.75,
    "p_a": 0.916,
    "model_pick": "Bilal Hasan",
+   "tier": "High",
    "fair_odds_a": -1093,
    "fair_odds_b": 1093,
    "market_p_a": 0.863,
@@ -374,6 +399,11 @@
     },
     {
      "t": "2026-11-08T15:42Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
      "a": -900.0,
      "b": 600.0
     }
@@ -416,6 +446,7 @@
    "p_model_a": 0.463,
    "p_a": 0.463,
    "model_pick": "Charles Radtke",
+   "tier": "Low",
    "fair_odds_a": 116,
    "fair_odds_b": -116,
    "market_p_a": null,
@@ -465,6 +496,7 @@
    "p_model_a": 0.31,
    "p_a": 0.31,
    "model_pick": "Chris Duncan",
+   "tier": "Medium",
    "fair_odds_a": 223,
    "fair_odds_b": -223,
    "market_p_a": null,
@@ -514,6 +546,7 @@
    "p_model_a": 0.373,
    "p_a": 0.373,
    "model_pick": "Terrance McKinney",
+   "tier": "Medium",
    "fair_odds_a": 168,
    "fair_odds_b": -168,
    "market_p_a": null,
@@ -563,6 +596,7 @@
    "p_model_a": 0.755,
    "p_a": 0.755,
    "model_pick": "Donte Johnson",
+   "tier": "High",
    "fair_odds_a": -307,
    "fair_odds_b": 307,
    "market_p_a": null,
@@ -612,6 +646,7 @@
    "p_model_a": 0.186,
    "p_a": 0.186,
    "model_pick": "Melquizael Costa",
+   "tier": "High",
    "fair_odds_a": 439,
    "fair_odds_b": -439,
    "market_p_a": null,
@@ -661,6 +696,7 @@
    "p_model_a": 0.331,
    "p_a": 0.331,
    "model_pick": "Bia Mesquita",
+   "tier": "Medium",
    "fair_odds_a": 202,
    "fair_odds_b": -202,
    "market_p_a": null,
@@ -710,6 +746,7 @@
    "p_model_a": 0.496,
    "p_a": 0.496,
    "model_pick": "Juan Diaz",
+   "tier": "Low",
    "fair_odds_a": 101,
    "fair_odds_b": -101,
    "market_p_a": null,
@@ -759,6 +796,7 @@
    "p_model_a": 0.534,
    "p_a": 0.534,
    "model_pick": "Evan Elder",
+   "tier": "Low",
    "fair_odds_a": -115,
    "fair_odds_b": 115,
    "market_p_a": null,

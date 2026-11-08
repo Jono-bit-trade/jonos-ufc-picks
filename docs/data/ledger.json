@@ -32,7 +32,8 @@
    "value_odds": -650.0,
    "value_units": 0.154,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Mantas Kondratavicius|Andre Petroski",
@@ -55,7 +56,8 @@
    "value_odds": -310.0,
    "value_units": -1.0,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Tatiana Suarez|Virna Jandiroba",
@@ -78,7 +80,8 @@
    "value_odds": -218.0,
    "value_units": 0.459,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Medium"
   },
   {
    "fight_id": "2026-11-07|Davey Grant|Elijah Smith",
@@ -101,7 +104,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Billy Elekana|Lucas Fernando",
@@ -124,7 +128,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Keiichiro Nakamura|Ollie Schmid",
@@ -147,7 +152,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Mitch Raposo|Marcos Degli",
@@ -170,7 +176,8 @@
    "value_odds": 200.0,
    "value_units": 2.0,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Medium"
   },
   {
    "fight_id": "2026-11-07|Priscila Cachoeira|Nina Milo\u0161evi\u0107",
@@ -193,7 +200,8 @@
    "value_odds": -520.0,
    "value_units": 0.192,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Gabriel Loren\u00e7o|Thomas Petersen",
@@ -216,7 +224,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": "experts",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Low"
   },
   {
    "fight_id": "2026-11-07|Karine Silva|Gabriella Fernandes",
@@ -239,7 +248,8 @@
    "value_odds": -238.0,
    "value_units": 0.42,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Jose Delano|Murtazali Magomedov",
@@ -262,7 +272,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": "experts",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Low"
   },
   {
    "fight_id": "2026-11-07|Austin Bashi|Carlos Calderon",
@@ -285,7 +296,8 @@
    "value_odds": -675.0,
    "value_units": 0.148,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-11-07|Waldo Cortes-Acosta|Johnny Walker",
@@ -308,7 +320,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Medium"
   },
   {
    "fight_id": "2026-11-07|Jonny Parsons|Jos\u00e9 Souza",
@@ -331,7 +344,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Medium"
   },
   {
    "fight_id": "2026-10-31|Talita Alencar|Piera Rodriguez",
@@ -354,7 +368,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-10-31|Renato Moicano|Tom Nolan",
@@ -377,7 +392,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": "experts",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Low"
   },
   {
    "fight_id": "2026-10-31|Randy Brown|Jacobe Smith",
@@ -400,7 +416,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-10-31|Ode Osbourne|Cody Durden",
@@ -423,7 +440,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Low"
   },
   {
    "fight_id": "2026-10-31|Yana Santos|Luana Santos",
@@ -446,7 +464,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-10-31|Jean-Paul Lebosnoyani|Farman Hasanov",
@@ -469,7 +488,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-10-31|Francis Marshall|Dakota Hope",
@@ -492,7 +512,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Medium"
   },
   {
    "fight_id": "2026-10-31|Julian Erosa|JeongYeong Lee",
@@ -515,7 +536,8 @@
    "value_odds": 120.0,
    "value_units": 1.2,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Low"
   },
   {
    "fight_id": "2026-10-31|Rodrigo Sezinando|Theodor Berggren",
@@ -538,7 +560,8 @@
    "value_odds": null,
    "value_units": null,
    "our_source": null,
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "Medium"
   },
   {
    "fight_id": "2026-10-31|Zach Reese|Mickey Gall",
@@ -561,7 +584,8 @@
    "value_odds": -440.0,
    "value_units": 0.227,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-10-31|Lucia Szabov\u00e1|Tainara Lisboa",
@@ -584,7 +608,8 @@
    "value_odds": -700.0,
    "value_units": 0.143,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   },
   {
    "fight_id": "2026-10-31|Nick Klein|Joe Kropschot",
@@ -607,7 +632,8 @@
    "value_odds": -310.0,
    "value_units": 0.323,
    "our_source": "model",
-   "model_rule": 2
+   "model_rule": 2,
+   "tier": "High"
   }
  ],
  "model_bets": 9,
@@ -615,5 +641,19 @@
  "model_staked_units": 0.63,
  "experts_bets": 3,
  "experts_won": 1,
- "experts_staked_units": -1.47
+ "experts_staked_units": -1.47,
+ "tiers": {
+  "High": {
+   "picks": 15,
+   "right": 13
+  },
+  "Medium": {
+   "picks": 6,
+   "right": 3
+  },
+  "Low": {
+   "picks": 5,
+   "right": 3
+  }
+ }
 }
