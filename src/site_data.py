@@ -319,6 +319,51 @@ def expert_lookup():
     return out
 
 
+
+def movers(src):
+    """Leaderboards for the Movers page: last card's rating changes, the last 90 days, young risers,
+    win streaks, finishers and peak ratings. Active means a UFC fight in the last 18 months."""
+    if not src:
+        return {}
+    latest = max(r["last_fight"] for r in src if r["last_fight"])
+    d0 = pd.Timestamp(latest)
+    active = [r for r in src if r["last_fight"] and pd.Timestamp(r["last_fight"]) >= d0 - pd.Timedelta(days=548)]
+    pick = lambda r, **x: {"name": r["name"], "slug": r["slug"], "espn_id": r["espn_id"], "rating": r["rating"],
+                           "weight_class": r["weight_class"], **x}
+
+    def at(hist, day):   # rating as of a date, from the history (None if no fight by then)
+        v = None
+        for d, x in hist:
+            if d <= day:
+                v = x
+        return v
+    card = []
+    for r in src:
+        if r["last_fight"] == latest and r["last"]:
+            before = r["last"].get("rating_before")
+            card.append(pick(r, before=before, change=None if before is None else r["rating"] - before,
+                             result=r["last"].get("result"), opp=r["last"].get("opp"), opp_slug=r["last"].get("opp_slug"),
+                             finish=r["last"].get("finish"), event=r["last"].get("event"), event_slug=r["last"].get("event_slug")))
+    card.sort(key=lambda x: -(x["change"] if x["change"] is not None else 0))
+    cut = (d0 - pd.Timedelta(days=90)).strftime("%Y-%m-%d")
+    win = []
+    for r in active:
+        old = at(r["hist"], cut)
+        if old is not None and r["last_fight"] > cut:
+            win.append(pick(r, change=r["rating"] - old, was=old))
+    win.sort(key=lambda x: -x["change"])
+    rising = sorted([pick(r, age=r["age"], record=r["record"]) for r in active
+                     if r["age"] and r["age"] <= 27 and r["wins"] >= 2], key=lambda x: -x["rating"])[:10]
+    streaks = sorted([pick(r, streak=r["streak"], record=r["record"]) for r in active if (r["streak"] or 0) >= 3],
+                     key=lambda x: (-x["streak"], -x["rating"]))[:10]
+    finishers = sorted([pick(r, finish_rate=r["finish_rate"], wins=r["wins"]) for r in active
+                        if r["wins"] >= 6 and r["finish_rate"] is not None], key=lambda x: (-x["finish_rate"], -x["wins"]))[:10]
+    peaks = sorted([pick(r, peak=r["peak"]) for r in src if r["peak"]], key=lambda x: -x["peak"])[:10]
+    ev = card[0] if card else {}
+    return {"as_of": latest, "event": ev.get("event"), "event_slug": ev.get("event_slug"), "card": card,
+            "gainers": win[:10], "droppers": sorted(win, key=lambda x: x["change"])[:10],
+            "rising": rising, "streaks": streaks, "finishers": finishers, "peaks": peaks}
+
 def main():
     fights = read("fights.csv")
     fights = fights[fights["winner"].isin(["a", "b", "draw", "nc"])].copy()
@@ -493,7 +538,7 @@ def main():
     for name, g in long.groupby("name", sort=False):
         w = g[g["result"] == "W"]
         labels[norm(name)] = style_label(styles.get(norm(name)), w["method"].value_counts().to_dict(), len(w))
-    index, grap_all = [], {}
+    index, grap_all, mv_src = [], {}, []
     gsrc = grappling_sources()
     today = dt.date.today()
     for name, g in long.groupby("name", sort=False):
@@ -550,7 +595,13 @@ def main():
             grap_all[prof["slug"]] = [f["flag"] for f in prof["grappling"]["flags"]]
         index.append({"name": name, "slug": prof["slug"], "espn_id": prof["espn_id"], "record": prof["ufc_record"],
                       "rating": prof["rating"], "weight_class": prof["weight_class"], "last_fight": prof["last_fight"]})
+        mv_src.append({"name": name, "slug": prof["slug"], "espn_id": prof["espn_id"], "rating": prof["rating"],
+                       "peak": prof["peak_rating"], "age": prof["age"], "streak": prof["streak"], "record": prof["ufc_record"],
+                       "finish_rate": prof["finish_rate"], "weight_class": prof["weight_class"], "last_fight": prof["last_fight"],
+                       "wins": int(sum(1 for h_ in hist if h_.get("result") == "W")),
+                       "hist": prof["rating_history"], "last": hist[0] if hist else None})
     index.sort(key=lambda x: -(x["rating"] or 0))
+    write("movers.json", movers(mv_src))
     write("fighters/index.json", index)
     write("grappling_flags.json", grap_all)   # slug -> flags, for the fight cards
     # freely licensed photos (src/photos.py) and how the site should use them

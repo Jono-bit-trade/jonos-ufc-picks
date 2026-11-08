@@ -882,3 +882,51 @@ tr.top1 td.rk { color: var(--gold); }
 .ticket.won .tk-row i.v,.ticket.lost .tk-row i.v{background:#0d2a27;color:#7fe3d6;border-color:#0d2a27}
 .ticket.won .tk-name,.ticket.lost .tk-name{padding-right:52px;overflow-wrap:anywhere}
 .lc-rounds span.now{background:linear-gradient(90deg,var(--red) var(--f,50%),#4a1d21 var(--f,50%))}
+
+/* ---- rankings: division snapshot cards ---- */
+.rk-tabs{margin-bottom:6px}
+.divgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:12px 0 20px}
+.divcard{border:1px solid var(--line,#2e3139);border-radius:14px;overflow:hidden;background:var(--card,#17191e);display:flex;flex-direction:column}
+.dc-champ{position:relative;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:12px;align-items:center;padding:14px;
+  background:linear-gradient(135deg,rgba(224,178,58,.22),rgba(224,178,58,.04) 60%),#1b1a17;border-bottom:1px solid rgba(224,178,58,.35);color:var(--ink);text-decoration:none}
+.dc-champ .ph{grid-row:1/4;width:72px;height:72px}
+.dc-champ.vacant{display:block;background:#1c1e24;border-bottom-color:var(--line,#2e3139)}
+.dc-div{font:700 12px var(--display);text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+.dc-name{font:800 20px/1.05 var(--display);text-transform:uppercase}
+.dc-sub{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--quiet)} .dc-sub .champtag{margin-left:0}
+.dc-sub b{margin-left:auto;color:var(--ink);font:800 16px var(--display)}
+.dc-list{list-style:none;margin:0;padding:6px 10px;flex:1}
+.dc-list li{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:6px;padding:6px 4px;border-bottom:1px solid #23262d;font-size:14px}
+.dc-list li:last-child{border-bottom:0}
+.dc-rk{color:var(--quiet);font:700 13px var(--display)} .dc-f{min-width:0;overflow-wrap:anywhere} .dc-r{font:700 14px var(--display);color:var(--blue)}
+.dc-more{padding:9px 14px;border-top:1px solid #23262d;font-size:13px;font-weight:600}
+/* ---- movers & leaderboards ---- */
+.mv-grid{display:grid;gap:14px;margin:12px 0} .mv-grid.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))} .mv-grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.mv-board{border:1px solid var(--line,#2e3139);border-radius:14px;background:var(--card,#17191e);padding:12px 14px;margin:0 0 14px}
+.mv-grid .mv-board{margin:0}
+.mv-board h3{margin:0 0 6px;font:800 19px var(--display);text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
+.mv-board .note{margin:0 0 6px}
+.mv-board ol{list-style:none;margin:0;padding:0}
+.mv-board li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #23262d}
+.mv-board li:last-child{border-bottom:0}
+.mv-ph .ph{width:34px;height:34px}
+.mv-who{min-width:0;display:flex;flex-direction:column;font-weight:700;font-size:14.5px} .mv-who small{color:var(--quiet);font-weight:500;font-size:12px}
+.mv-val{font:800 18px var(--display);white-space:nowrap}
+.mv-board.up{border-top:3px solid var(--green)} .mv-board.down{border-top:3px solid var(--red)}
+.mv-board.peaks ol{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));column-gap:20px}
+/* ---- who wins? ---- */
+.cmp-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.cmp-in{display:flex;flex-direction:column;gap:4px} .cmp-in span{font:700 12px var(--display);text-transform:uppercase;letter-spacing:.08em}
+.cmp-in.a span{color:var(--red)} .cmp-in.b span{color:var(--blue)}
+.cmp-in input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #3a3e48;background:#1c1e24;color:var(--ink);font-size:16px}
+.cmp-in.a input{border-left:3px solid var(--red)} .cmp-in.b input{border-left:3px solid var(--blue)}
+.cmp-swap{margin:0 0 6px;font-size:13px}
+.cmp-face{margin:12px 0 0;padding:12px;border:1px solid var(--line,#2e3139);border-radius:14px;background:radial-gradient(90% 80% at 0% 0%,rgba(229,72,77,.14),transparent 60%),radial-gradient(90% 80% at 100% 0%,rgba(77,141,240,.14),transparent 60%),#16181d}
+.cmp-why{margin-top:6px}
+.cmp-t{width:100%} .cmp-t th,.cmp-t td{text-align:center;padding:7px 6px} .cmp-t tbody th{color:var(--quiet);font-weight:600;font-size:13px}
+.cmp-t td.ca,.cmp-t th.ca{color:#f08a8d} .cmp-t td.cb,.cmp-t th.cb{color:#8fb7f5}
+.cmp-t td.best{color:var(--gold);font-weight:800}
+.cmp-cta{margin:14px 0 4px}
+@media (max-width:480px){.cmp-pick{grid-template-columns:1fr}.dc-name{font-size:18px}}
+.dc-f .ctry,.dc-sub .ctry{margin-right:6px}
+.dc-champ > span{min-width:0}

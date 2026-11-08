@@ -801,6 +801,7 @@ async function viewFighter(s) {
       <div class="cols"><section><h3>Striking</h3>${striking}</section><section><h3>Grappling</h3>${grappling}</section></div>
       ${extras.length ? `<div class="fextras">${extras.map(([k, v]) => `<div><span>${k}</span><b>${esc(v)}</b></div>`).join("")}</div>` : ""}`
       : `<p class="note">Career stats appear once this fighter's UFC.com page is collected (nightly).</p>`}
+    <p class="cmp-cta"><a class="btn" href="#/compare?a=${esc(f.slug)}">Compare ${esc(f.name.split(" ")[0])} with another fighter</a></p>
     <h2>Rating over time</h2>${ratingChart(f.rating_history)}
     <h2>UFC fights</h2>
     <div class="tablewrap"><table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th class="hide-sm">Method</th><th class="n">Odds</th><th class="n">Model</th><th class="n hide-sm">Rating</th></tr></thead><tbody>
@@ -897,6 +898,111 @@ async function viewCredits() {
 }
 
 // ---------------- rankings, record, how it works ----------------
+const rkTabs = on => `<div class="filters rk-tabs">${[["divisions", "#/rankings", "UFC divisions"], ["ratings", "#/rankings?view=ratings", "Our ratings"],
+  ["movers", "#/movers", "Movers"], ["compare", "#/compare", "Who wins?"]].map(([k, h, t]) => `<a href="${h}" class="${k === on ? "on" : ""}">${t}</a>`).join("")}</div>`;
+// ---- Rankings: one snapshot card per UFC division (official ranks, our ratings) ----
+const DIV_ORDER = ["Heavyweight", "Light Heavyweight", "Middleweight", "Welterweight", "Lightweight", "Featherweight",
+  "Bantamweight", "Flyweight", "Women's Bantamweight", "Women's Flyweight", "Women's Strawweight"];
+function divisionCards(fx) {
+  const bySlug = {}; (fx || []).forEach(x => { bySlug[x.slug] = x; });
+  const divs = {};
+  for (const [s, r] of Object.entries(RANK)) if (r && r.div != null) (divs[r.div] = divs[r.div] || []).push({s, rank: r.rank});
+  const names = Object.keys(divs).sort((a, b) => (DIV_ORDER.indexOf(a) + 1 || 99) - (DIV_ORDER.indexOf(b) + 1 || 99));
+  if (!names.length) return "";
+  return `<div class="divgrid">${names.map(d => {
+    const L = divs[d].sort((a, b) => a.rank - b.rank), ch = L.find(x => x.rank === 0), top = L.filter(x => x.rank > 0).slice(0, 5);
+    const nm = s => (bySlug[s] || {}).name || s.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    const rt = s => (bySlug[s] || {}).rating;
+    return `<section class="divcard">
+      ${ch ? `<a class="dc-champ" href="#/fighter/${esc(ch.s)}">${photo((bySlug[ch.s] || {}).espn_id, nm(ch.s), "xl")}
+        <span class="dc-div">${esc(d)}</span><span class="dc-name">${esc(nm(ch.s))}${favStar(ch.s)}</span>
+        <span class="dc-sub"><span class="champtag">Champ</span>${flagOf(ch.s)}${rt(ch.s) ? `<b>${rt(ch.s)}</b>` : ""}</span></a>`
+        : `<div class="dc-champ vacant"><span class="dc-div">${esc(d)}</span><span class="dc-name">Title vacant</span></div>`}
+      <ol class="dc-list">${top.map(x => `<li><span class="dc-rk">#${x.rank}</span><span class="dc-f">${flagOf(x.s)}${fighterLink(nm(x.s), x.s)}</span><span class="dc-r">${rt(x.s) ?? "–"}</span></li>`).join("")}</ol>
+      <a class="dc-more" href="#/rankings?div=${encodeURIComponent(d)}">Our ratings for the division →</a>
+    </section>`; }).join("")}</div>`;
+}
+
+// ---- Movers & leaderboards ----
+async function viewMovers() {
+  const m = await get("movers.json", true);
+  if (!m || !m.card) return `<div class="empty">Leaderboards appear after the next update.</div>`;
+  const sgn = v => v == null ? "–" : (v > 0 ? "+" : "") + v;
+  const row = (x, val, cls, extra) => `<li><span class="mv-ph">${photo(x.espn_id, x.name, "sm")}</span><span class="mv-who">${fighterLink(x.name, x.slug)}<small>${extra != null ? extra : esc(x.weight_class || "")}</small></span><span class="mv-val ${cls || ""}">${val}</span></li>`;
+  const board = (title, k, items, note) => `<section class="mv-board ${k}"><h3>${title}</h3>${note ? `<p class="note">${note}</p>` : ""}<ol>${items}</ol></section>`;
+  const up = m.card.filter(x => (x.change || 0) > 0).slice(0, 6), down = m.card.filter(x => (x.change || 0) < 0).slice(-6).reverse();
+  return `<h1>Movers & leaderboards</h1>${rkTabs("movers")}
+    <p class="where">After ${m.event_slug ? `<a href="#/event/${esc(m.event_slug)}">${esc(m.event || "the last card")}</a>` : esc(m.event || "the last card")}</p>
+    <div class="mv-grid two">
+      ${board(`${kick("Last card", "gold")}Biggest gains`, "up", up.map(x => row(x, sgn(x.change), "won", `${x.result === "W" ? "def." : x.result === "L" ? "lost to" : "vs"} ${esc(x.opp || "")}`)).join(""))}
+      ${board(`${kick("Last card", "red")}Biggest drops`, "down", down.map(x => row(x, sgn(x.change), "lost", `${x.result === "L" ? "lost to" : x.result === "W" ? "def." : "vs"} ${esc(x.opp || "")}`)).join(""))}
+    </div>
+    <div class="mv-grid two">
+      ${board(`${kick("90 days", "teal")}Hottest risers`, "up", m.gainers.slice(0, 8).map(x => row(x, sgn(x.change), "won", `${x.was} → ${x.rating}`)).join(""))}
+      ${board(`${kick("90 days", "blue")}Cooling off`, "down", m.droppers.slice(0, 8).map(x => row(x, sgn(x.change), "lost", `${x.was} → ${x.rating}`)).join(""))}
+    </div>
+    <div class="mv-grid three">
+      ${board(`${kick("27 and under", "gold")}Rising stars`, "", m.rising.map(x => row(x, x.rating, "", `Age ${x.age} · ${esc(x.record || "")}`)).join(""), "Highest-rated active fighters 27 or younger.")}
+      ${board(`${kick("Active", "teal")}Win streaks`, "", m.streaks.map(x => row(x, x.streak + "W", "won", esc(x.record || ""))).join(""), "Current UFC win streaks.")}
+      ${board(`${kick("6+ UFC wins", "red")}Finishers`, "", m.finishers.map(x => row(x, Math.round(100 * x.finish_rate) + "%", "", `${x.wins} UFC wins`)).join(""), "Share of UFC wins by KO or submission.")}
+    </div>
+    ${board(`${kick("Since 2010", "blue")}Highest peak ratings`, "peaks", m.peaks.map((x, i) => row(x, x.peak, "", `${i === 0 ? "All-time high in our data" : esc(x.weight_class || "")}`)).join(""), "Our data starts in 2010, so earlier greats like GSP and Anderson Silva are underrated here.")}
+    <p class="note">Ratings are Glicko-2, from every UFC fight since 2010. Active means a UFC fight in the last 18 months. Updated after every card.</p>`;
+}
+
+// ---- Who wins? Any two fighters, rating-based chance and stats side by side ----
+function glickoP(a, b) {
+  const S = 173.7178, g = p => 1 / Math.sqrt(1 + 3 * p * p / (Math.PI * Math.PI));
+  const ph = f => { const t = Math.max(0, (Date.now() - new Date(f.last_fight)) / 864e5) / 90;
+    return Math.min(Math.sqrt((f.rd / S) ** 2 + 0.06 ** 2 * t), 350 / S); };
+  return 1 / (1 + Math.exp(-g(Math.hypot(ph(a), ph(b))) * ((a.rating - b.rating) / S)));
+}
+async function viewCompare(q) {
+  const fx = await get("fighters/index.json") || [];
+  const sa = q.get("a") || "", sb = q.get("b") || "";
+  const [A, B] = await Promise.all([sa ? get(`fighters/${sa}.json`, true) : null, sb ? get(`fighters/${sb}.json`, true) : null]);
+  const opts = `<datalist id="fxlist">${fx.map(x => `<option value="${esc(x.name)}">`).join("")}</datalist>`;
+  const box = (k, F) => `<label class="cmp-in ${k}"><span>${k === "a" ? "Red corner" : "Blue corner"}</span>
+    <input list="fxlist" data-k="${k}" placeholder="Type a fighter" value="${F ? esc(F.name) : ""}" autocomplete="off"></label>`;
+  let body = `<div class="empty">Pick two fighters to see who our ratings favor and how they compare.</div>`;
+  if (A && B) {
+    const p = glickoP(A, B), s = A.style || {}, t = B.style || {};
+    const cm = v => v == null ? "–" : Math.round(v) + " cm";
+    const pctv = v => v == null ? "–" : Math.round(100 * v) + "%";
+    const n2 = v => v == null ? "–" : (+v).toFixed(2);
+    const rows = [
+      ["Rating", A.rating, B.rating, x => x, 1], ["Peak rating", A.peak_rating, B.peak_rating, x => x, 1],
+      ["UFC record", A.ufc_record, B.ufc_record, x => x || "–", 0], ["Streak", A.streak, B.streak, x => x == null ? "–" : x > 0 ? x + "W" : x < 0 ? -x + "L" : "–", 1],
+      ["Age", A.age, B.age, x => x ?? "–", -1], ["Height", A.height_cm, B.height_cm, cm, 0], ["Reach", A.reach_cm, B.reach_cm, cm, 1],
+      ["Stance", A.stance, B.stance, x => x || "–", 0], ["Finish rate", A.finish_rate, B.finish_rate, pctv, 1],
+      ["Sig. strikes landed / min", s.sig_strikes_landed_per_min, t.sig_strikes_landed_per_min, n2, 1],
+      ["Sig. strikes absorbed / min", s.sig_strikes_absorbed_per_min, t.sig_strikes_absorbed_per_min, n2, -1],
+      ["Takedowns / 15 min", s.takedowns_per_15, t.takedowns_per_15, n2, 1], ["Takedown defense", s.takedown_defense, t.takedown_defense, pctv, 1],
+      ["Control time share", s.control_time_share, t.control_time_share, pctv, 1], ["Sub attempts / 15 min", s.submission_attempts_per_15, t.submission_attempts_per_15, n2, 1],
+      ["Knockdowns / 15 min", s.knockdowns_per_15, t.knockdowns_per_15, n2, 1], ["Last fight", A.last_fight, B.last_fight, x => x || "–", 0]];
+    const tr = ([lab, x, y, fmt, better]) => { const win = better && x != null && y != null && x !== y ? ((x > y) === (better > 0) ? "a" : "b") : "";
+      return `<tr><td class="ca${win === "a" ? " best" : ""}">${fmt(x)}</td><th>${lab}</th><td class="cb${win === "b" ? " best" : ""}">${fmt(y)}</td></tr>`; };
+    const side = (F, k, ch) => `<a class="lc-corner ${k}" href="#/fighter/${esc(F.slug)}">${photo(F.espn_id, F.name, "xl")}
+      <span class="lc-name">${esc(F.name)}${champTag(F.slug)}${favStar(F.slug)}</span><span class="lc-meta">${rankOf(F.slug)}${flagOf(F.slug, true)}</span>
+      <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${esc(F.weight_class || "")}</span></a>`;
+    body = `<div class="cmp-face lc-face">${side(A, "a", p)}<span class="lc-vs">VS</span>${side(B, "b", 1 - p)}</div>
+      <div class="lc-bar"><i class="a" style="width:${Math.round(100 * p)}%"></i><i class="b"></i></div>
+      <p class="note cmp-why">${esc(p >= 0.5 ? A.name : B.name)} by ${pct(Math.max(p, 1 - p))} on ratings alone.
+        On fight week the full model also weighs age, reach, layoffs, form and the betting line, so a real pick can differ.
+        ${A.weight_class && B.weight_class && A.weight_class !== B.weight_class ? `<br>Different divisions (${esc(A.weight_class)} vs ${esc(B.weight_class)}): size isn't in the rating, so treat this as fun.` : ""}</p>
+      <div class="tablewrap"><table class="cmp-t"><thead><tr><th class="ca">${esc(A.name)}</th><th></th><th class="cb">${esc(B.name)}</th></tr></thead><tbody>${rows.map(tr).join("")}</tbody></table></div>
+      <p class="note">Stats are per UFC fight from ESPN's fight stats. Gold marks the better number.</p>`;
+  } else if (A || B) body = `<div class="empty">Now pick the other corner.</div>`;
+  setTimeout(() => document.querySelectorAll(".cmp-in input").forEach(i => i.addEventListener("change", () => {
+    const hit = fx.find(x => x.name.toLowerCase() === i.value.trim().toLowerCase()); if (!hit) return;
+    const p2 = new URLSearchParams({a: sa, b: sb}); p2.set(i.dataset.k, hit.slug);
+    location.hash = "#/compare?" + [...p2].filter(([, v]) => v).map(([k, v]) => k + "=" + encodeURIComponent(v)).join("&"); })), 0);
+  return `<h1>Who wins?</h1>${rkTabs("compare")}<p class="where">Any two fighters, head to head on our ratings.</p>
+    <div class="cmp-pick">${box("a", A)}${box("b", B)}</div>${opts}
+    ${A && B ? `<p class="cmp-swap"><a href="#/compare?a=${esc(B.slug)}&b=${esc(A.slug)}">Swap corners</a> · <a href="#/compare">Clear</a></p>` : ""}
+    ${body}`;
+}
+
 async function viewRankings(q) {
   const [r, fx] = await Promise.all([get("ratings.json", true), get("fighters/index.json")]);
   const ix = {}; (fx || []).forEach(x => { ix[x.name] = x; });
@@ -904,8 +1010,11 @@ async function viewRankings(q) {
   const div = q && q.get("div") || "";
   const d = (r.divisions || []).find(x => x.division === div);
   const list = d ? d.fighters : r.fighters;
-  const chip = (v, label) => `<a href="#/rankings${v ? "?div=" + encodeURIComponent(v) : ""}" class="${v === div ? "on" : ""}">${esc(label)}</a>`;
-  return `<h1>Rankings</h1><p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
+  const chip = (v, label) => `<a href="#/rankings${v ? "?div=" + encodeURIComponent(v) : "?view=ratings"}" class="${v === div ? "on" : ""}">${esc(label)}</a>`;
+  const view = q && q.get("view") || (div ? "ratings" : "divisions");
+  const tabs = rkTabs(view);
+  if (view === "divisions") return `<h1>Rankings</h1>${tabs}<p class="note">Official UFC champions and top 5 in each division, with our rating beside each name. Tap a division for our full ratings.</p>${divisionCards(fx)}`;
+  return `<h1>Rankings</h1>${tabs}<p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
     <div class="filters">${chip("", "Pound for pound")}${(r.divisions || []).map(x => chip(x.division, x.division.replace("Women's ", "W ").replace("Light Heavyweight", "Light Heavy"))).join("")}</div>
     <h2>${esc(d ? d.division : "Pound for pound")}</h2>
     <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th>Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
@@ -1044,10 +1153,10 @@ async function route() {
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
   const page = parts[0] || "home";
-  document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters"}[page] || page)));
+  document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), record: viewRecord, how: viewHow, about: viewAbout, credits: viewCredits};
+    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), record: viewRecord, how: viewHow, about: viewAbout, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);
