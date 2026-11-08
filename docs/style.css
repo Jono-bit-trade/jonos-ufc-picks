@@ -1622,3 +1622,10 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .nf-pick{font:800 12px "Barlow",sans-serif;padding:4px 8px;border-radius:2px;background:var(--accent,#d9a91a);color:#111;white-space:nowrap} .nf-pick.vs{background:#2a2c32;color:var(--ink)}
 .nf-go{font-size:14px;white-space:nowrap}
 @media (max-width:640px){.nextfight{grid-template-columns:minmax(0,1fr) auto}.nf-k{grid-column:1/-1}.nf-pick{justify-self:start}.nf-go{justify-self:end}}
+.vl-hero{border-color:#4a3f1f!important}
+.vl-cmp{display:grid;gap:6px;margin:10px 0 6px}
+.vl-cmp > div{display:grid;grid-template-columns:96px minmax(0,1fr) 54px;gap:8px;align-items:center;font-size:13px;color:var(--quiet)}
+.vl-cmp i{display:block;height:12px;border-radius:2px} .vl-cmp i.pos{background:var(--green)} .vl-cmp i.ln{background:#5a5d66}
+.vl-cmp b{text-align:right;font:800 16px var(--display);color:var(--ink)}
+.vl-minor p{font-size:13.5px;color:var(--quiet);margin:4px 0 8px}
+.vl-minor .vl-row b{font-size:18px!important}

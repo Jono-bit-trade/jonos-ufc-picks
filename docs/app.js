@@ -1753,14 +1753,18 @@ function vsLine(mr) {
         ${bar("Our picks", s.our_units, max, "pos")}
         ${bar("When we disagree with the line", v.disagree_model_units, max, "pos")}
         <p class="small">Same fights, same closing prices.</p></div>
-      <div class="vl-card"><span class="vl-k">When ${METHOD} disagrees with the line</span>
+      <div class="vl-card vl-hero"><span class="vl-k">When ${METHOD} disagrees with the line</span>
         <b class="vl-big">${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b>
-        <p>Fights where we picked the betting underdog: <b>${pc(v.disagree_model_right, v.disagree)}</b> won for <b class="${v.disagree_model_units >= 0 ? "won" : "lost"}">${units(v.disagree_model_units)}</b>. ${v.disagree_line_expected != null ? `The line gave those fighters ${v.disagree_line_expected}% on average.` : ""}</p></div>
-      <div class="vl-card"><span class="vl-k">Winners picked</span>
+        <p>${v.disagree} fights where we picked the betting underdog. They won <b>${pc(v.disagree_model_right, v.disagree)}</b>${v.disagree_line_expected != null ? `; the line said ${v.disagree_line_expected}%` : ""}.</p>
+        ${v.disagree_line_expected != null ? `<div class="vl-cmp">
+          <div><span>Our side won</span><i class="pos" style="width:${(100 * v.disagree_model_right / v.disagree).toFixed(1)}%"></i><b>${pc(v.disagree_model_right, v.disagree)}</b></div>
+          <div><span>Line expected</span><i class="ln" style="width:${v.disagree_line_expected}%"></i><b>${v.disagree_line_expected}%</b></div></div>` : ""}
+        <p class="small">Worth <b class="${v.disagree_model_units >= 0 ? "won" : "lost"}">${units(v.disagree_model_units)}</b> flat on those fights alone.</p></div>
+      <div class="vl-card vl-minor"><span class="vl-k">Picking winners</span>
+        <p>About even with the betting favorite, because we agree with it in ${pc(v.fights - v.disagree, v.fights)} of fights. The edge is in the price, not the winner.</p>
         <div class="vl-row"><span>${METHOD}</span><b>${pc(v.model_right, v.fights)}</b></div>
         <div class="vl-row"><span>Betting favorite</span><b>${pc(v.line_right, v.fights)}</b></div>
-        ${y ? `<div class="vl-row sub"><span>${esc(yr.year)}: ${METHOD} / favorite</span><b>${pc(y.model_right, y.fights)} / ${pc(y.line_right, y.fights)}</b></div>` : ""}
-        <p class="small">Picking winners is close to even: favorites usually win. The edge is in the prices we choose to bet.</p></div>
+        ${y ? `<div class="vl-row sub"><span>${esc(yr.year)}: ${METHOD} / favorite</span><b>${pc(y.model_right, y.fights)} / ${pc(y.line_right, y.fights)}</b></div>` : ""}</div>
     </div></section>`;
 }
 
