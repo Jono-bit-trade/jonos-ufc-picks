@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T03:37Z",
+ "updated": "2026-11-08T03:45Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -200,7 +200,7 @@
    "segment": "",
    "start": "2026-11-08T01:00Z",
    "state": "in",
-   "status": "Pre-fight",
+   "status": "Walkouts",
    "result": null,
    "rating_a": 1716,
    "rating_b": 1688,
@@ -239,7 +239,7 @@
    "b_slug": "virna-jandiroba",
    "a_id": "4020435",
    "b_id": "4289516",
-   "record_a": "13-1-0",
+   "record_a": "14-1-0",
    "record_b": "23-4-0",
    "experts": {
     "picks_a": 12,
