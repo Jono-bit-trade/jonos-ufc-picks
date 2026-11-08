@@ -2378,17 +2378,17 @@
       }
      ],
      "status": {
-      "clock": 68.0,
-      "displayClock": "1:08",
-      "period": 2,
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
+       "id": "142",
+       "name": "STATUS_END_OF_ROUND",
        "state": "in",
        "completed": false,
-       "description": "In Progress",
-       "detail": "R2, 1:08",
-       "shortDetail": "R2, 1:08"
+       "description": "End of Round",
+       "detail": "End R3",
+       "shortDetail": "End R3"
       }
      },
      "broadcasts": [
@@ -2400,6 +2400,55 @@
       }
      ],
      "details": [
+      {
+       "id": "26358",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26357",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26356",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26355",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26354",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26375",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26374",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26353",
        "type": {
@@ -2419,48 +2468,6 @@
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26373",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26372",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26371",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26370",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26350",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26329",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
