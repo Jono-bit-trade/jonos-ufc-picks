@@ -349,7 +349,7 @@ async function viewFight(x, y) {
     back = `<a class="pill" href="#/card">← ${esc(p.event)}</a>`; title = p.event; when = f.start ? new Date(f.start).toLocaleString(undefined, {weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}) : dateLong(p.date);
   }
   const [A, B] = await Promise.all([F.a_slug ? get(`fighters/${F.a_slug}.json`, true) : null, F.b_slug ? get(`fighters/${F.b_slug}.json`, true) : null]);
-  const corner = (k) => { const nm = F[k], sl = F[k + "_slug"], P = k === "a" ? A : B, ch = F.p == null ? null : k === "a" ? F.p : 1 - F.p, o = F["odds_" + k];
+  const corner = (k) => { const nm = F[k], sl = F[k + "_slug"], P = k === "a" ? A : B, ch = F.p == null ? null : k === "a" ? Math.round(100 * F.p) / 100 : 1 - Math.round(100 * F.p) / 100, o = F["odds_" + k];
     return `<a class="lc-corner ${k}${F.ours === nm ? " ours" : ""}${F.winner && F.winner !== nm ? " lostc" : ""}" href="#/fighter/${esc(sl)}">${photo(F[k + "_id"], nm, "xl")}
       <span class="lc-name">${esc(nm)}${champTag(sl)}${favStar(sl)}</span><span class="lc-meta">${rankOf(sl)}${flagOf(sl, true)}</span>
       <span class="fx-rec">${P ? `${esc(P.ufc_record)} UFC · EDGE ${P.rating}` : "UFC debut"}</span>
@@ -612,7 +612,7 @@ function liveCenter(p) {
   const r2 = x => Math.round(x * 100) / 100;
   const corner = (f, side) => {
     const nm = side === "a" ? f.a : f.b, sl = side === "a" ? f.a_slug : f.b_slug, id = side === "a" ? f.a_id : f.b_id;
-    const ch = f.p_a == null ? null : side === "a" ? f.p_a : 1 - f.p_a, o = side === "a" ? f.odds_a : f.odds_b;
+    const ch = f.p_a == null ? null : side === "a" ? Math.round(100 * f.p_a) / 100 : 1 - Math.round(100 * f.p_a) / 100, o = side === "a" ? f.odds_a : f.odds_b;
     const ours = f.our_pick === nm, val = f.pick === nm;
     return `<a class="lc-corner ${side}${ours ? " ours" : ""}" href="#/fighter/${esc(sl)}">${photo(id, nm, "xl")}
       <span class="lc-name">${esc(nm)}${champTag(sl)}${favStar(sl)}</span>
@@ -806,7 +806,7 @@ async function viewHome() {
       <div class="faceoff">
         <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${m.hidden ? lockIcon : pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${m.hidden ? lockIcon : pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${m.hidden ? lockIcon : (100 - Math.round(100 * m.p_a)) + "%"}</span><span class="ln">Line ${m.market_p_a != null ? (100 - Math.round(100 * m.market_p_a)) + "%" + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">${m.hidden ? `Our chance on this fight is for members. <a href="#/pricing">See plans</a>` : "Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline."}</div>
@@ -858,9 +858,9 @@ function homeLower(ev, ex, up, p) {
 const RECENT_FROM = "2020";   // the official record starts here; older cards are kept for histories and ratings
 async function viewEvents(q) {
   const [ev, up, mr] = await Promise.all([get("events/index.json"), get("upcoming.json"), get("model_record.json")]);
-  const year = q.get("year") || "";
   const years = [...new Set((ev || []).map(e => e.date.slice(0, 4)))].filter(y => y >= RECENT_FROM);
-  const keep = e => year === "all" ? true : year === "older" ? e.date < RECENT_FROM : year ? e.date.startsWith(year) : e.date >= RECENT_FROM;
+  const year = q.get("year") || (years.sort().at(-1) || "");
+  const keep = e => year === "all" ? true : year === "older" ? e.date < RECENT_FROM : year && year !== "since" ? e.date.startsWith(year) : e.date >= RECENT_FROM;
   const list = (ev || []).filter(keep);
   const upcoming = (up || []).map((u, i) => {
     const [title, sub] = String(u.name).split(/:\s*/), d = new Date(u.start || u.date + "T12:00:00");
@@ -868,12 +868,12 @@ async function viewEvents(q) {
       <span class="nx-t"><b>${esc(sub || title)}</b><span>${esc(title)}${u.start ? ", " + d.toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : ""}${i === 0 ? " · picks are up" : ""}</span></span>`;
     return i === 0 ? `<li class="nx"><a class="nx-a" href="#/card">${inner}</a></li>` : `<li class="nx">${inner}</li>`;
   }).join("");
-  const chip = (y, label) => `<a href="#/events${y ? "?year=" + y : ""}" class="${y === year ? "on" : ""}">${label}</a>`;
+  const chip = (y, label) => `<a href="#/events?year=${y || "since"}" class="${y === year || (!y && year === "since") ? "on" : ""}">${label}</a>`;
   return `<h1>Events</h1>
     ${upcoming ? `<h2>Upcoming</h2><ul class="nxl panel">${upcoming}</ul>` : ""}
     <h2>Past cards</h2>
     ${eventsSummary(mr, year)}
-    <div class="filters">${chip("", "Since " + RECENT_FROM)}${years.map(y => chip(y, y)).join("")}${chip("older", "Before " + RECENT_FROM)}${chip("all", "All")}</div>
+    <div class="filters">${[...years].sort().reverse().map(y => chip(y, y)).join("")}${chip("", "Since " + RECENT_FROM)}${chip("older", "Before " + RECENT_FROM)}${chip("all", "All")}</div>
     ${year === "older" ? `<p class="note">Cards before ${RECENT_FROM} are kept for fighter histories, ratings and training, but aren't part of the record: the model had too little history behind it then to grade it fairly.</p>` : ""}
     <div class="evlist">${list.map(e => evRow(e)).join("")}</div>`;
 }

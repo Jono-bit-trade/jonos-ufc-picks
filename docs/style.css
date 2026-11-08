@@ -1336,3 +1336,15 @@ details.explain[open] > summary::before,details.fine[open] > summary::before{con
 .cr-l .lk{width:11px;height:11px;vertical-align:-1px;color:var(--accent,#d9a91a)}
 .faceoff .pc .lk{width:34px;height:34px;color:var(--accent,#d9a91a)}
 .hidp .pa,.hidp .pb{color:#c9ced8!important}
+/* review fixes: one accent on How it works and About, tidy tables */
+.hw .step{border-top-color:var(--accent,#d9a91a)!important} .hw .step .n,.hw .step b.num{background:var(--accent,#d9a91a)!important;color:#111!important}
+.hw-stats .stat,.about .stat,.stats .stat{border-top-color:var(--line2,#272a31)!important}
+.hw-stats .stat:first-child,.about .stats .stat:first-child{border-top-color:var(--accent,#d9a91a)!important}
+.hw-stats .stat b:not(.won):not(.lost),.about .stat b:not(.won):not(.lost){color:#fff!important}
+details > summary{color:#e2bf55!important}
+main table td:first-child{white-space:nowrap}
+.hw-step{--c:var(--accent,#d9a91a)!important;border-top-color:var(--accent,#d9a91a)!important}
+.hw-step .hw-n{background:var(--accent,#d9a91a)!important;color:#111!important}
+.hw-step:not(:last-child)::after{background:var(--accent,#d9a91a)!important}
+.hw-stats div{border-top:2px solid var(--line2,#272a31)!important} .hw-stats div:first-child{border-top-color:var(--accent,#d9a91a)!important}
+.hw-stats b:not(.won):not(.lost){color:#fff!important}
