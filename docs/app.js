@@ -1472,6 +1472,23 @@ function tierBoard(L, mr) {
       <div class="tb-row main"><span>Since ${mr.from || 2020}</span>${col(t, "since")}</div></div>`).join("")}</div>`;
 }
 
+// the live record as a spreadsheet file, built in the browser from ledger.json
+async function downloadLedger() {
+  const L = await get("ledger.json", true); if (!L || !L.rows) return;
+  const head = ["date", "fighter_a", "fighter_b", "winner", "confidence", "our_pick", "our_pick_source", "our_odds", "stake_units", "our_result", "our_units_at_stake", "our_units_flat",
+    "value_pick", "value_odds", "value_result", "model_winner", "model_result"];
+  const res = (pk, w) => !pk ? "" : !w ? "pending" : pk === w ? "won" : "lost";
+  const lines = L.rows.map(g => [g.date, g.a, g.b, g.winner || "", g.tier || "", g.our_pick || "", g.our_pick ? (g.our_source === "experts" ? "expert lean" : "model") : "",
+    g.our_pick ? g.our_odds : "", g.our_pick ? g.stake || "" : "", g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : g.our_pick ? (g.winner ? "push" : "pending") : "",
+    g.our_pick ? g.our_staked_units : "", g.our_pick ? g.our_units : "", g.value_pick || "", g.value_pick ? g.value_odds : "", res(g.value_pick, g.winner),
+    g.model_pick || "", res(g.model_pick, g.winner)]);
+  const cell = v => { const x = v == null ? "" : String(v); return /[",\n]/.test(x) ? `"${x.replace(/"/g, '""')}"` : x; };
+  const csv = [head, ...lines].map(r => r.map(cell).join(",")).join("\n");
+  const url = URL.createObjectURL(new Blob([csv], {type: "text/csv"})), el = document.createElement("a");
+  el.href = url; el.download = `octagon-edge-locked-picks-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(el); el.click(); el.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+window.downloadLedger = downloadLedger;
 async function viewRecord(q) {
   const [L, mr, rr] = await Promise.all([get("ledger.json", true), get("model_record.json"), get("record_rows.json", true)]);
   const tf = q && q.get("tf") || "ytd";
@@ -1485,12 +1502,8 @@ async function viewRecord(q) {
     ${ledgerBoxes(L)}
     ${new Set(rows.map(g => g.date)).size >= 5 ? unitsChart(ledgerCurve(rows)) : ""}
     ${timeframePanel(rr, tf)}
-    ${rows.length ? `<h2>Every locked pick</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th class="hide-sm">Conf.</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
-      rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td class="hide-sm">${tierTag(g.tier, true)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.our_source === "experts" ? " (expert lean)" : "") : "–"}</td>
-        <td class="n">${g.our_pick ? odds(g.our_odds) : ""}</td><td class="n">${g.stake ? g.stake + "u" : ""}</td>
-        <td class="n ${g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : ""}">${g.our_pick ? (g.our_units > 0 ? "Won " : g.our_units < 0 ? "Lost " : "Push ") + units(g.our_staked_units) : ""}</td>
-        <td class="hide-sm ${g.value_pick ? (g.value_pick === g.winner ? "won" : "lost") : ""}">${g.value_pick ? `${esc(g.value_pick)} ${odds(g.value_odds)} ${g.value_pick === g.winner ? "✓" : "✗"}` : "–"}</td>
-        <td class="hide-sm ${g.model_pick === g.winner ? "won" : "lost"}">${esc(g.model_pick)} ${g.model_pick === g.winner ? "✓" : "✗"}</td></tr>`).join("")}</tbody></table></div>` : ""}
+    ${rows.length ? `<div class="dl-row"><div><b>Every locked pick</b><span>${rows.length} fights since ${esc(dateLong(L.from))}: our pick, odds, stake, result, value pick and the model's winner.</span></div>
+      <button class="btn" type="button" onclick="downloadLedger()">Download CSV</button></div>` : ""}
     <h2>Backtest by year</h2>
     ${yearTable(mr)}`;
 }
