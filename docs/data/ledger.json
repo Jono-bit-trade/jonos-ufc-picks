@@ -642,6 +642,18 @@
  "experts_bets": 3,
  "experts_won": 1,
  "experts_staked_units": -1.47,
+ "our_clv": {
+  "bets": 0,
+  "beat": 0,
+  "even": 0,
+  "avg": null
+ },
+ "value_clv": {
+  "bets": 0,
+  "beat": 0,
+  "even": 0,
+  "avg": null
+ },
  "tiers": {
   "High": {
    "picks": 15,
