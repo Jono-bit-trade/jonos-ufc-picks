@@ -1654,3 +1654,17 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .pf-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 .pf-card.c4 b.won{color:var(--green)} .pf-card.c6 b.lost{color:var(--red)}
 .wi-out .note b{display:inline;font:700 13px "Barlow",sans-serif;color:var(--ink)}
+/* home: the three plans, compact */
+.hplans{margin:18px 0 8px}
+.hp-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}
+.hp-h h2{margin:0;font-size:28px} .hp-h a{font-size:14px;color:var(--ink);text-decoration:none} .hp-h a:hover{text-decoration:underline}
+.hp-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.hp-c{position:relative;display:flex;flex-direction:column;padding:18px 18px 16px;border:1px solid var(--rule);border-radius:3px;background:#17181d;color:var(--ink);text-decoration:none;transition:border-color .15s}
+.hp-c:hover{border-color:#4a4d55} .hp-c.best{border:2px solid var(--accent,#d9a91a);background:linear-gradient(180deg,rgba(217,169,26,.08),rgba(217,169,26,0) 60%),#17181d}
+.hp-c h3{margin:0;font:800 20px var(--display);text-transform:uppercase}
+.hp-c .plan-price b{font-size:38px}
+.hp-c .plan-tag{margin:0 0 10px;font-size:13.5px;color:var(--quiet)}
+.hp-c ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px;flex:1}
+.hp-c li{padding-left:22px;position:relative;font-size:14px} .hp-c li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+.hp-cta{display:flex!important;align-items:center;justify-content:center;height:40px;margin:0!important}
+@media (max-width:800px){.hp-g{grid-template-columns:1fr}.hp-c.best{order:-1}}

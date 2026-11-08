@@ -946,11 +946,21 @@ function whyEdge() {
       <div><b>Priced against the line</b><p>We only call a pick when our chance beats the sportsbook's by enough to matter. Most fights get no pick.</p></div>
     </div><a class="we-more" href="#/how">How it works →</a></section>`;
 }
+// the three plans on the home page, compact; each opens the Pricing page
+function homePlans() {
+  if (!PLANS || !PLANS.plans) return "";
+  const cards = [{id: "free", name: "Free", price: 0, tagline: "See how every fight rates.", features: PLANS.free}, ...PLANS.plans];
+  return `<section class="hplans"><div class="hp-h"><h2>Pick your plan</h2><a href="#/pricing">Compare plans →</a></div>
+    <div class="hp-g">${cards.map(pl => `<a class="hp-c${pl.best ? " best" : ""}" href="#/pricing">${pl.best ? `<span class="plan-flag">Best value</span>` : ""}
+      <h3>${esc(pl.name)}</h3><div class="plan-price">${pl.price ? `<b>$${pl.price}</b><span>/ ${esc(pl.period)}</span>` : `<b>$0</b>`}</div>
+      <p class="plan-tag">${esc(pl.tagline)}</p><ul>${pl.features.slice(0, 3).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      <span class="${pl.best ? "btn" : "pill"} hp-cta">${pl.id === "free" ? "What's free" : "See " + esc(pl.name)}</span></a>`).join("")}</div></section>`;
+}
 function closingCta(mr) {
   const s = mr && mr.since;
   return `<section class="close-cta"><div><h2>Stop guessing. <em>Start betting the edge.</em></h2>
-    <p>${s ? `Our picks: ${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, <b class="won">${units(s.our_units)}</b>. ` : ""}Every pick posted before the fight and graded after it.</p></div>
-    <div class="cc-b"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/pricing">See plans</a></div></section>`;
+    <p>${s ? `Our picks: ${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, <b class="won">${units(s.our_units)}</b>. ` : ""}Each week's picks go up before the first fight.</p></div>
+    <div class="cc-b"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a></div></section>`;
 }
 function newsletterBox() {
   const n = PLANS && PLANS.newsletter;
@@ -1108,7 +1118,7 @@ async function viewHome() {
   const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
   const live = "", record = "";
   if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}${whyEdge()}${newsletterBox()}
-    <div class="home2">${homeLower(ev, ex, up, p)}</div>${closingCta(mr)}`;
+    <div class="home2">${homeLower(ev, ex, up, p)}</div>${closingCta(mr)}${homePlans()}`;
   return `${proofBand(mr, L)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
