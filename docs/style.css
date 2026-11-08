@@ -1540,3 +1540,4 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .nx .ev-ph{flex:none}
 .nx-a .ev-ph .ph.md{width:48px;height:48px}
 .nx .ev-ph .ph.md{width:48px;height:48px}
+.cmp-msg{min-height:0;margin:6px 0 0;font-size:14px;color:var(--red)} .cmp-msg:empty{display:none}

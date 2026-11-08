@@ -392,7 +392,7 @@ async function viewFight(x, y) {
     <div class="l5grid">${last5(A, F.a, "a")}${last5(B, F.b, "b")}</div>
     <h2>${kick("Tale of the tape", "gold")}Side by side</h2>
     <div class="fx-tape">${tape(A, B, F.rounds)}</div>
-    <p class="fx-links"><a class="pill" href="#/compare?a=${esc(F.a_slug)}&b=${esc(F.b_slug)}">Open in Who wins?</a><a class="pill" href="#/fighter/${esc(F.a_slug)}">${esc(F.a)}</a><a class="pill" href="#/fighter/${esc(F.b_slug)}">${esc(F.b)}</a></p>`;
+    <p class="fx-links"><a class="pill" href="#/compare?a=${esc(F.a_slug)}&b=${esc(F.b_slug)}&booked=1">Open in Who wins?</a><a class="pill" href="#/fighter/${esc(F.a_slug)}">${esc(F.a)}</a><a class="pill" href="#/fighter/${esc(F.b_slug)}">${esc(F.b)}</a></p>`;
 }
 
 function tapeToggle(a, b, rounds) {
@@ -1444,11 +1444,20 @@ async function viewCompare(q) {
   const fx = await get("fighters/index.json") || [];
   const sa = q.get("a") || "", sb = q.get("b") || "";
   const [A, B] = await Promise.all([sa ? get(`fighters/${sa}.json`, true) : null, sb ? get(`fighters/${sb}.json`, true) : null]);
-  const opts = `<datalist id="fxlist">${fx.map(x => `<option value="${esc(x.name)}">`).join("")}</datalist>`;
-  const box = (k, F) => `<label class="cmp-in ${k}"><span>${k === "a" ? "Red corner" : "Blue corner"}</span>
-    <input list="fxlist" data-k="${k}" placeholder="Type a fighter" value="${F ? esc(F.name) : ""}" autocomplete="off"></label>`;
+  // same weight class only: once one corner is set, the other corner's list is that division
+  const divOf = F => F ? F.weight_class || (fx.find(x => x.slug === F.slug) || {}).weight_class || null : null;
+  const dA = divOf(A), dB = divOf(B);
+  const listFor = d => fx.filter(x => !d || x.weight_class === d);
+  const opts = `<datalist id="fxlist-a">${listFor(dB).map(x => `<option value="${esc(x.name)}">`).join("")}</datalist>
+    <datalist id="fxlist-b">${listFor(dA).map(x => `<option value="${esc(x.name)}">`).join("")}</datalist>`;
+  const box = (k, F) => { const d = k === "a" ? dB : dA;
+    return `<label class="cmp-in ${k}"><span>${k === "a" ? "Red corner" : "Blue corner"}${d ? ` · ${esc(d)}` : ""}</span>
+    <input list="fxlist-${k}" data-k="${k}" placeholder="${d ? "Type a " + esc(d.toLowerCase()) : "Type a fighter"}" value="${F ? esc(F.name) : ""}" autocomplete="off"></label>`; };
   let body = `<div class="empty">Pick two fighters to see who our ratings favor and how they compare.</div>`;
-  if (A && B) {
+  const booked = q.get("booked") === "1";   // a real booked fight, e.g. someone moving up a division
+  if (A && B && dA && dB && dA !== dB && !booked) {
+    body = `<div class="empty">${esc(A.name)} is a ${esc(dA.toLowerCase())} and ${esc(B.name)} a ${esc(dB.toLowerCase())}. Who wins? only compares fighters in the same division. <a href="#/compare?a=${esc(A.slug)}">Keep ${esc(A.name)}</a></div>`;
+  } else if (A && B) {
     const p = glickoP(A, B), s = A.style || {}, t = B.style || {};
     const cm = v => v == null ? "–" : Math.round(v) + " cm";
     const pctv = v => v == null ? "–" : Math.round(100 * v) + "%";
@@ -1472,16 +1481,18 @@ async function viewCompare(q) {
       <div class="lc-bar"><i class="a" style="width:${Math.round(100 * p)}%"></i><i class="b"></i></div>
       <p class="note cmp-why">${esc(p >= 0.5 ? A.name : B.name)} by ${pct(Math.max(p, 1 - p))} on ${METHOD} alone.
         On fight week the full model also weighs age, reach, layoffs, form and the betting line, so a real pick can differ.
-        ${A.weight_class && B.weight_class && A.weight_class !== B.weight_class ? `<br>Different divisions (${esc(A.weight_class)} vs ${esc(B.weight_class)}): size isn't in the rating, so treat this as fun.` : ""}</p>
+</p>
       <div class="tablewrap"><table class="cmp-t"><thead><tr><th class="ca">${esc(A.name)}</th><th></th><th class="cb">${esc(B.name)}</th></tr></thead><tbody>${rows.map(tr).join("")}</tbody></table></div>
       <p class="note">Stats are per UFC fight from ESPN's fight stats. Gold marks the better number.</p>`;
   } else if (A || B) body = `<div class="empty">Now pick the other corner.</div>`;
   setTimeout(() => document.querySelectorAll(".cmp-in input").forEach(i => i.addEventListener("change", () => {
     const hit = fx.find(x => x.name.toLowerCase() === i.value.trim().toLowerCase()); if (!hit) return;
+    const other = i.dataset.k === "a" ? dB : dA, msg = document.querySelector(".cmp-msg");
+    if (other && hit.weight_class !== other) { if (msg) msg.textContent = `${hit.name} fights at ${hit.weight_class.toLowerCase()}. Pick a ${other.toLowerCase()}, or clear the other corner first.`; return; }
     const p2 = new URLSearchParams({a: sa, b: sb}); p2.set(i.dataset.k, hit.slug);
     location.hash = "#/compare?" + [...p2].filter(([, v]) => v).map(([k, v]) => k + "=" + encodeURIComponent(v)).join("&"); })), 0);
-  return `<h1>Who wins?</h1>${rkTabs("compare")}<p class="where">Any two fighters, head to head on our ratings.</p>
-    <div class="cmp-pick">${box("a", A)}${box("b", B)}</div>${opts}
+  return `<h1>Who wins?</h1>${rkTabs("compare")}<p class="where">Two fighters from the same division, head to head on our ratings.</p>
+    <div class="cmp-pick">${box("a", A)}${box("b", B)}</div>${opts}<p class="cmp-msg" role="status"></p>
     ${A && B ? `<p class="cmp-swap"><a href="#/compare?a=${esc(B.slug)}&b=${esc(A.slug)}">Swap corners</a> · <a href="#/compare">Clear</a></p>` : ""}
     ${body}`;
 }
