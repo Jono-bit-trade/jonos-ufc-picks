@@ -8,8 +8,8 @@
  },
  "details": "C. Gane -238",
  "overUnder": 3.5,
- "overOdds": 105.0,
- "underOdds": -135.0,
+ "overOdds": -110.0,
+ "underOdds": -120.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
@@ -163,20 +163,20 @@
  },
  "current": {
   "over": {
-   "value": 2.05,
-   "displayValue": "21/20",
-   "alternateDisplayValue": "+105",
-   "decimal": 2.05,
-   "fraction": "21/20",
-   "american": "+105"
+   "value": 1.9,
+   "displayValue": "10/11",
+   "alternateDisplayValue": "-110",
+   "decimal": 1.9,
+   "fraction": "10/11",
+   "american": "-110"
   },
   "under": {
-   "value": 1.74,
-   "displayValue": "20/27",
-   "alternateDisplayValue": "-135",
-   "decimal": 1.74,
-   "fraction": "20/27",
-   "american": "-135"
+   "value": 1.83,
+   "displayValue": "5/6",
+   "alternateDisplayValue": "-120",
+   "decimal": 1.83,
+   "fraction": "5/6",
+   "american": "-120"
   },
   "total": {
    "alternateDisplayValue": "3.5",
