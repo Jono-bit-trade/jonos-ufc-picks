@@ -258,8 +258,11 @@ const lockBanner = p => !p || !p.gated ? "" : `<section class="lock-top">${lockI
 // ---- pricing and account (structure for a paid site; checkout links go in docs/plans.json) ----
 // is a plan worth it at your unit size? From the record: picks and units per month and per card
 function worthIt(mr) {
-  const s = mr.since, c = mr.curve, d0 = new Date(c[0][0]), d1 = new Date(c.at(-1)[0]);
-  const months = Math.max(1, (d1 - d0) / (864e5 * 30.44)), cards = c.length;
+  // this year so far, at the suggested stakes (falls back to since 2020 if the year has no picks yet)
+  const yr = mr.years && mr.years[0], useYr = yr && yr.our_bets, s = useYr ? yr : mr.since;
+  const c = useYr ? mr.curve.filter(x => x[0].startsWith(yr.year)) : mr.curve;
+  const d0 = useYr ? new Date(yr.year + "-01-01T00:00:00") : new Date(c[0][0]), d1 = useYr ? new Date(Math.min(Date.now(), new Date(yr.year + "-12-31T23:59:59"))) : new Date(c.at(-1)[0]);
+  const months = Math.max(1, (d1 - d0) / (864e5 * 30.44)), cards = Math.max(1, c.length);
   const upm = s.our_staked_units / months, ppm = s.our_bets / months, upc = s.our_staked_units / cards;
   const mo = PLANS.plans.find(x => x.id === "monthly"), ev = PLANS.plans.find(x => x.id === "event");
   window.calcWorth = () => { const u = Math.max(0, +document.getElementById("wi-u").value || 0), out = document.getElementById("wi-out"); if (!out) return;
@@ -269,7 +272,7 @@ function worthIt(mr) {
       <p class="note">Break-even unit: about <b>$${Math.ceil((mo ? mo.price : 0) / upm)}</b> on Monthly, <b>$${Math.ceil((ev ? ev.price : 0) / upc)}</b> on an Event Pass.</p>`; };
   setTimeout(() => { const i = document.getElementById("wi-u"); if (i) { i.addEventListener("input", window.calcWorth); window.calcWorth(); } }, 0);
   return `<section class="worth"><div class="wi-h"><h2>Is it worth it for you?</h2>
-    <p>Since ${mr.from || 2020} we've averaged about ${ppm.toFixed(0)} picks and <b>${upm >= 0 ? "+" : ""}${upm.toFixed(2)} units a month</b> at the suggested stakes (${upc.toFixed(2)} a card). What that's worth depends on how much you bet per unit. Past results, not a promise.</p></div>
+    <p>${useYr ? `In ${esc(yr.year)} so far` : `Since ${mr.from || 2020}`} we've averaged about ${ppm.toFixed(0)} picks and <b>${upm >= 0 ? "+" : ""}${upm.toFixed(2)} units a month</b> at the suggested stakes (${upc >= 0 ? "+" : ""}${upc.toFixed(2)} a card; ${s.our_won}-${s.our_bets - s.our_won}, ${units(s.our_staked_units)} on ${s.our_risked}u risked). What that's worth depends on how much you bet per unit. Past results, not a promise.</p></div>
     <label class="wi-in"><span>Your unit</span><b>$</b><input id="wi-u" type="number" min="0" step="5" value="50" inputmode="decimal"></label>
     <div id="wi-out" class="wi-out"></div></section>`;
 }
