@@ -1083,3 +1083,36 @@ b.gold{color:var(--gold)}
 .hl-s{font-size:13px;color:var(--quiet);line-height:1.6} .hl-s small{color:var(--gold);font-weight:700;margin-left:4px}
 @media (max-width:700px){.fprofile{grid-template-columns:1fr;padding:10px}}
 .radar-ph{top:calc(170 / 350 * 100%);left:calc(235 / 470 * 100%);width:13%}
+
+/* ===== Wide layout ===== */
+.wrap{max-width:1240px}
+.top .topin{max-width:1240px}
+.champtag{font:800 11px/1.3 "Barlow",sans-serif!important;padding:2px 6px!important;letter-spacing:.06em}
+/* card page: fights + sticky side panel */
+.cardgrid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start}
+.cg-side{position:sticky;top:92px}
+.cs-in{display:grid;gap:12px;max-height:calc(100vh - 110px);overflow:auto;padding-right:2px}
+.cs-box{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:12px 14px}
+.cs-box h3{margin:0 0 8px;font:800 18px var(--display);text-transform:uppercase;display:flex;flex-direction:column;gap:2px}
+.cs-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:7px 8px;margin:0 -8px;border-radius:8px;color:var(--ink);text-decoration:none;border-bottom:1px solid #262930}
+.cs-row:hover{background:#24272f} .cs-row:last-of-type{border-bottom:0}
+.cs-row.won{box-shadow:inset 3px 0 0 var(--green)} .cs-row.lost{box-shadow:inset 3px 0 0 var(--red)}
+.cs-n{display:flex;flex-direction:column;font-weight:700;font-size:14px;min-width:0} .cs-n small{color:var(--quiet);font-weight:500;font-size:12px}
+.cs-o{font:700 13px "Barlow",sans-serif;color:var(--quiet);white-space:nowrap}
+.cs-tot{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--rule);font-size:13px;color:var(--quiet)} .cs-tot b{color:var(--gold)}
+.cs-tier{display:grid;grid-template-columns:auto 28px 1fr;gap:8px;align-items:center;padding:5px 0;font-size:12px;color:var(--quiet)} .cs-tier b{font:800 18px var(--display);color:var(--ink);text-align:right}
+@media (max-width:1000px){.cardgrid{grid-template-columns:1fr}.cg-side{display:none}}
+/* home: main column + side column */
+.homegrid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start;margin-top:8px}
+.hg-side{display:grid;gap:14px;margin-top:28px}
+.hg-side .panel{margin:0}
+.hg-main .stats.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1000px){.homegrid{grid-template-columns:1fr}.hg-side{margin-top:0}}
+/* wider grids where the space helps */
+.divgrid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.mv-grid.three{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.rcm-list{display:grid}
+.rc-mini{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid #262930;color:var(--ink);text-decoration:none}
+.rc-mini:last-child{border-bottom:0} .rc-mini:hover b{color:var(--gold)}
+.rcm-t{display:flex;flex-direction:column;min-width:0} .rcm-t b{font-weight:700;font-size:14.5px} .rcm-t small,.rcm-u small{color:var(--quiet);font-size:12px}
+.rcm-u{display:flex;flex-direction:column;align-items:flex-end;white-space:nowrap} .rcm-u b{font:800 17px var(--display)}

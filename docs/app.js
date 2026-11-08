@@ -281,10 +281,35 @@ async function viewCard() {
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
   return `${liveCenter(p)}<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
+    <div class="cardgrid"><div class="cg-main">
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
     ${cardToggle()}
     ${cardView() === "compact" ? `<div class="compact">${p.fights.map((f, i) => compactRow(f, i, p.edge_threshold)).join("")}</div>`
-      : p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}`;
+      : p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}
+    </div>${cardSide(p, mr)}</div>`;
+}
+
+// card page side panel: the night's picks at a glance, the confidence key and the record
+function cardSide(p, mr) {
+  const ours = p.fights.map((f, i) => ({f, i})).filter(x => x.f.our_pick);
+  const vals = p.fights.map((f, i) => ({f, i})).filter(x => x.f.pick && x.f.pick !== x.f.our_pick);
+  const go = i => `onclick="event.preventDefault();document.getElementById('bout-${i}')?.scrollIntoView({behavior:'smooth',block:'start'})"`;
+  const risk = ours.reduce((s, x) => s + (x.f.stake || 0), 0);
+  const tiers = {High: 0, Medium: 0, Low: 0}; p.fights.forEach(f => { const t = f.tier || tierOf(f.p_a); if (t) tiers[t]++; });
+  const S = mr && (mr.since || mr.all), T = S && S.tiers;
+  const row = ({f, i}, kind) => { const nm = kind === "v" ? f.pick : f.our_pick, o = nm === f.a ? f.odds_a : f.odds_b;
+    const w = f.state === "post" && f.result ? f.result.winner : null;
+    return `<a href="#bout-${i}" ${go(i)} class="cs-row${w ? (w === nm ? " won" : " lost") : ""}"><span class="cs-n">${esc(nm)}<small>vs ${esc(nm === f.a ? f.b : f.a)}</small></span>
+      <span class="cs-o">${odds(o)}${kind === "v" ? "" : f.stake ? ` · ${f.stake}u` : ""}</span>${tierTag(f.tier || tierOf(f.p_a), true)}</a>`; };
+  return `<aside class="cg-side"><div class="cs-in">
+    <section class="cs-box"><h3>${kick("This card", "gold")}Our picks</h3>
+      ${ours.length ? ours.map(x => row(x)).join("") : `<p class="note">No picks yet. They appear as lines and expert picks come in.</p>`}
+      ${ours.length ? `<div class="cs-tot"><span>${ours.length} pick${ours.length > 1 ? "s" : ""}</span><b>${Math.round(risk * 10) / 10}u risked</b></div>` : ""}</section>
+    ${vals.length ? `<section class="cs-box"><h3>${kick("Underdogs", "teal")}Value picks only</h3>${vals.map(x => row(x, "v")).join("")}
+      <p class="small">The model beats the line here but isn't confident enough to make it a pick.</p></section>` : ""}
+    <section class="cs-box"><h3>${kick("Confidence", "blue")}On this card</h3>
+      ${["High", "Medium", "Low"].map(t => `<div class="cs-tier">${tierTag(t)}<b>${tiers[t]}</b><span>${T && T[t] ? `${T[t].pct}% right since ${mr.from || 2020}` : ""}</span></div>`).join("")}</section>
+  </div></aside>`;
 }
 
 function cardView() { try { return localStorage.getItem("cardView") || "full"; } catch (e) { return "full"; } }
@@ -565,9 +590,9 @@ function proofBand(mr, L) {
 
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([get("predictions.json", true), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
-  let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`;
+  let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`, picksH = "";
   if (p && p.fights.length && liveOn(p)) {
-    hero = liveCenter(p) + `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
+    hero = liveCenter(p); picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
     clearTimeout(window.refresh); window.refresh = setTimeout(route, 120000);
   } else if (p && p.fights.length) {
     const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
@@ -582,8 +607,8 @@ async function viewHome() {
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
-    </section>
-    <h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
+    </section>`;
+    picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
   }
   const past = (ev || []).slice(0, 6).map(e => `<li><a href="#/event/${esc(e.slug)}"><span class="d">${esc(e.date)}</span>${esc(e.name)}</a>
     <span class="small">${recLine(e.record)}</span></li>`).join("");
@@ -598,13 +623,16 @@ async function viewHome() {
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
     <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
-  return `${proofBand(mr, L)}${recap}${hero}${record}
-    ${homeLower(ev, ex, up, p)}`;
+  return `${proofBand(mr, L)}${recap}${hero}
+    <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
 
 // the lower half of the home page: recent cards, coming up, top analysts
 function homeLower(ev, ex, up, p) {
-  const recent = (ev || []).slice(0, 4).map(evRow).join("");
+  const recent = (ev || []).slice(0, 5).map(e => { const r = e.record || {}, u = r.our_staked ?? r.our_units;
+    const [t1, t2] = String(e.name).split(/:\s*/);
+    return `<a class="rc-mini" href="#/event/${esc(e.slug)}"><span class="rcm-t"><b>${esc(t2 || t1)}</b><small>${esc(e.date)} · model ${r.right ?? "–"}/${r.picks ?? "–"}</small></span>
+      ${r.our_bets ? `<span class="rcm-u ${u >= 0 ? "won" : "lost"}"><b>${units(u)}</b><small>picks ${r.our_won}/${r.our_bets}</small></span>` : ""}</a>`; }).join("");
   const next = (up || []).filter(u => !p || u.date !== p.date).slice(0, 4).map(u => {
     const [title, sub] = String(u.name).split(/:\s*/);
     const d = new Date(u.start || u.date + "T12:00:00");
@@ -616,12 +644,10 @@ function homeLower(ev, ex, up, p) {
       <span class="ta-rk">${i + 1}</span>
       <span class="ta-nm"><b>${esc(a.analyst)}</b><span>${a.won}-${a.bets - a.won}, ${a.win_pct}% won</span></span>
       <span class="ta-u"><b class="${a.units >= 0 ? "won" : "lost"}">${units(a.units)}</b><span class="ub"><i class="${a.units >= 0 ? "pos" : "neg"}" style="width:${Math.abs(a.units) / maxU * 100}%"></i></span></span></li>`).join("") : "";
-  return `<div class="lower">
-    <section class="lw-main"><div class="lw-h"><h2>${kick("Results")}Recent cards</h2><a href="#/events">All events</a></div><div class="evlist">${recent}</div></section>
-    <aside class="lw-side">
+  return `<aside class="hg-side">
       ${next ? `<section class="panel"><div class="lw-h"><h2>${kick("Schedule")}Coming up</h2><a href="#/events">Schedule</a></div><ul class="nxl">${next}</ul></section>` : ""}
-
-    </aside></div>`;
+      <section class="panel"><div class="lw-h"><h2>${kick("Results")}Recent cards</h2><a href="#/events">All events</a></div><div class="rcm-list">${recent}</div></section>
+    </aside>`;
 }
 
 // ---------------- events ----------------
