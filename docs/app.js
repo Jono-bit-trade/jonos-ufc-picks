@@ -1293,7 +1293,7 @@ async function route() {
   const keepFocus = document.activeElement && document.activeElement.id === "fsearch";
   $("#view").innerHTML = html;
   const h1 = page !== "home" && $("#view h1");
-  if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["card", "events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record", "experts"].includes(page))
+  if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["card", "events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record"].includes(page))
     h1.insertAdjacentHTML("afterend", `<p class="powered"><span>Powered by <b>${METHOD}</b> · every pick locked before the fight</span>
       <button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button></p>`);
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
