@@ -252,6 +252,21 @@ const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x
 const lockedPick = f => `<div class="locked-pick">${lockIcon}<div><b>${f.locked ? "Pick locked" : "EDGE chance locked"}</b><span>${f.locked ? "We have a pick on this fight." : "See our chance and whether the line is off."} Unlock it with an Event Pass or Monthly.</span></div>${planBtns(true)}</div>`;
 
 // ---- pricing and account (structure for a paid site; checkout links go in docs/plans.json) ----
+// return per bet next to the usual benchmarks for professional bettors
+function roiBench(s, v, from) {
+  const ours = s.our_roi_pct, fav = v && v.fights ? Math.round(1000 * v.line_units / v.fights) / 10 : null;
+  const max = 20, X = x => Math.max(0, Math.min(100, (x + 5) / (max + 5) * 100));
+  return `<section class="roi">
+    <div class="roi-h"><b>Return per bet: <span class="won">+${ours}%</span></b>
+      <p>Professional bettors aim for 5-10% per bet over the long run. The best betting syndicates reach 15-20%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from}, flat 1 unit, at the average sportsbook's closing price:</p></div>
+    <div class="roi-scale">
+      <span class="band pro" style="left:${X(5)}%;width:${X(10) - X(5)}%"><i>Pros 5-10%</i></span>
+      <span class="band syn" style="left:${X(15)}%;width:${X(20) - X(15)}%"><i>Syndicates 15-20%</i></span>
+      <span class="zero" style="left:${X(0)}%"></span>
+      ${fav != null ? `<span class="mk fav" style="left:${X(fav)}%"><b>${fav}%</b><small>Every favorite</small></span>` : ""}
+      <span class="mk us" style="left:${X(ours)}%"><b>+${ours}%</b><small>Our picks</small></span>
+    </div></section>`;
+}
 async function viewPricing() {
   const [mr] = await Promise.all([get("model_record.json")]);
   if (!PLANS) return `<h1>Pricing</h1><div class="empty">Plans aren't set up yet.</div>`;
@@ -277,6 +292,7 @@ async function viewPricing() {
       <div><b>${s.tiers && s.tiers.High ? s.tiers.High.pct : "–"}%</b><span>high-confidence picks won</span></div>
       <div><b class="won">${units(s.our_units)}</b><span>our picks since ${mr.from || 2020}</span></div>
       ${v ? `<div><b class="lost">${units(v.line_units)}</b><span>betting every favorite instead</span></div>` : ""}</div>` : ""}
+    ${s && s.our_roi_pct != null ? roiBench(s, v, mr.from || 2020) : ""}
     <div class="plans">${cards.map(card).join("")}</div>
     <h2>${kick("Compare", "gold")}What's included</h2>
     <div class="tablewrap"><table class="cmpplans"><thead><tr><th></th><th>Free</th>${PLANS.plans.map(pl => `<th>${esc(pl.name)}</th>`).join("")}</tr></thead><tbody>
@@ -883,6 +899,20 @@ function proofLine(mr, L) {
       <a href="#/record">Full record →</a>
     </div></div>`;
 }
+function whyEdge() {
+  return `<section class="why-edge"><h2>Why ${METHOD} is different</h2>
+    <div class="we-g">
+      <div><b>Math, not opinions</b><p>Every UFC fight since 2010 feeds one rating per fighter. No votes, no hype, no narratives.</p></div>
+      <div><b>Who you beat matters</b><p>Finishing a champion moves a rating far more than a split decision over a newcomer. How you win and who you beat both count.</p></div>
+      <div><b>Priced against the line</b><p>We only call a pick when our chance beats the sportsbook's by enough to matter. Most fights get no pick.</p></div>
+    </div><a class="we-more" href="#/how">How it works →</a></section>`;
+}
+function closingCta(mr) {
+  const s = mr && mr.since;
+  return `<section class="close-cta"><div><h2>Stop guessing. <em>Start betting the edge.</em></h2>
+    <p>${s ? `Our picks: ${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, <b class="won">${units(s.our_units)}</b>. ` : ""}Every pick posted before the fight and graded after it.</p></div>
+    <div class="cc-b"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/pricing">See plans</a></div></section>`;
+}
 function newsletterBox() {
   const n = PLANS && PLANS.newsletter;
   if (!n || !n.username) return "";
@@ -969,8 +999,8 @@ async function viewHome() {
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
 ` : "";
-  if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}${newsletterBox()}
-    <div class="home2">${homeLower(ev, ex, up, p)}</div>`;
+  if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}${whyEdge()}${newsletterBox()}
+    <div class="home2">${homeLower(ev, ex, up, p)}</div>${closingCta(mr)}`;
   return `${proofBand(mr, L)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
@@ -1381,7 +1411,7 @@ async function viewCredits() {
 }
 
 // ---------------- rankings, record, how it works ----------------
-const rkTabs = on => `<div class="filters rk-tabs">${[["divisions", "#/rankings", "UFC divisions"], ["ratings", "#/rankings?view=ratings", "Our ratings"],
+const rkTabs = on => `<div class="filters rk-tabs">${[["divisions", "#/rankings", "UFC divisions"], ["ratings", "#/rankings?view=ratings", "Our ratings"], ["alltime", "#/rankings?view=alltime", "All-time"],
   ["movers", "#/movers", "Movers"], ["compare", "#/compare", "Who wins?"]].map(([k, h, t]) => `<a href="${h}" class="${k === on ? "on" : ""}">${t}</a>`).join("")}</div>`;
 // ---- Rankings: one snapshot card per UFC division (official ranks, our ratings) ----
 const DIV_ORDER = ["Heavyweight", "Light Heavyweight", "Middleweight", "Welterweight", "Lightweight", "Featherweight",
@@ -1497,6 +1527,19 @@ async function viewCompare(q) {
     ${body}`;
 }
 
+// all-time: every UFC fighter since 2010 by peak EDGE Rating (5+ UFC fights, so a hot start doesn't count)
+function allTime(fx, women) {
+  const L = (fx || []).filter(x => x.peak && (x.ufc_fights || 0) >= 5 && String(x.weight_class).startsWith("Women") === women)
+    .sort((a, b) => b.peak - a.peak).slice(0, 50);
+  if (!L.length) return `<div class="empty">The all-time list appears after the next update.</div>`;
+  const active = x => x.last_fight && (Date.now() - new Date(x.last_fight)) / 864e5 < 548;
+  return `<p class="where">The best UFC fighters since 2010, by the highest ${METHOD} each one reached. At least 5 UFC fights.</p>
+    <div class="filters"><a href="#/rankings?view=alltime" class="${women ? "" : "on"}">Men</a><a href="#/rankings?view=alltime&w=1" class="${women ? "on" : ""}">Women</a></div>
+    <ol class="at">${L.map((x, i) => `<li><span class="at-rk">${i + 1}</span>${photo(x.espn_id, x.name, "sm")}
+      <span class="at-n">${fighterLink(x.name, x.slug)}<small>${esc(x.weight_class || "")} · ${esc(x.record || "")}${x.titles ? ` · ${x.titles} title fight${x.titles > 1 ? "s" : ""}` : ""}${active(x) ? "" : " · inactive"}</small></span>
+      <span class="at-p"><b>${x.peak}</b><small>peak, ${x.peak_date ? esc(x.peak_date.slice(0, 4)) : ""}</small></span>
+      <span class="at-now">${active(x) ? `<b>${x.rating}</b><small>now</small>` : ""}</span></li>`).join("")}</ol>`;
+}
 async function viewRankings(q) {
   const [r, fx] = await Promise.all([get("ratings.json", true), get("fighters/index.json")]);
   const ix = {}; (fx || []).forEach(x => { ix[x.name] = x; });
@@ -1508,6 +1551,7 @@ async function viewRankings(q) {
   const view = q && q.get("view") || (div ? "ratings" : "divisions");
   const tabs = rkTabs(view);
   if (view === "divisions") return `<h1>Rankings</h1>${tabs}${divisionCards(fx)}`;
+  if (view === "alltime") return `<h1>Rankings</h1>${tabs}${allTime(fx, q && q.get("w") === "1")}`;
   return `<h1>Rankings</h1>${tabs}
     <div class="filters">${chip("", "Pound for pound")}${(r.divisions || []).map(x => chip(x.division, x.division.replace("Women's ", "W ").replace("Light Heavyweight", "Light Heavy"))).join("")}</div>
     <h2>${esc(d ? d.division : "Pound for pound")}</h2>

@@ -693,7 +693,9 @@ def main():
         if prof["grappling"]["flags"]:
             grap_all[prof["slug"]] = [f["flag"] for f in prof["grappling"]["flags"]]
         index.append({"name": name, "slug": prof["slug"], "espn_id": prof["espn_id"], "record": prof["ufc_record"],
-                      "rating": prof["rating"], "weight_class": prof["weight_class"], "last_fight": prof["last_fight"]})
+                      "rating": prof["rating"], "weight_class": prof["weight_class"], "last_fight": prof["last_fight"],
+                      "peak": prof["peak_rating"], "peak_date": g.loc[g["after"].idxmax(), "date"] if len(g) else None,
+                      "ufc_fights": int(len(g)), "titles": prof["title_fights"], "held_title": prof["held_title"]})
         mv_src.append({"name": name, "slug": prof["slug"], "espn_id": prof["espn_id"], "rating": prof["rating"],
                        "peak": prof["peak_rating"], "age": prof["age"], "streak": prof["streak"], "record": prof["ufc_record"],
                        "finish_rate": prof["finish_rate"], "weight_class": prof["weight_class"], "last_fight": prof["last_fight"],
