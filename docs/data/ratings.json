@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T03:29Z",
+ "updated": "2026-11-08T03:37Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -162,6 +162,14 @@
    "record": "15-3"
   },
   {
+   "fighter": "Tatiana Suarez",
+   "rating": 1826,
+   "rd": 112,
+   "last_fight": "2026-11-07",
+   "division": "Women's Strawweight",
+   "record": "10-1"
+  },
+  {
    "fighter": "Natalia Silva",
    "rating": 1822,
    "rd": 115,
@@ -186,6 +194,14 @@
    "record": "16-4"
   },
   {
+   "fighter": "Sean Brady",
+   "rating": 1816,
+   "rd": 107,
+   "last_fight": "2026-05-09",
+   "division": "Welterweight",
+   "record": "9-2"
+  },
+  {
    "fighter": "Carlos Ulberg",
    "rating": 1816,
    "rd": 107,
@@ -194,11 +210,11 @@
    "record": "10-1"
   },
   {
-   "fighter": "Sean Brady",
-   "rating": 1816,
-   "rd": 107,
-   "last_fight": "2026-05-09",
-   "division": "Welterweight",
+   "fighter": "Nassourdine Imavov",
+   "rating": 1813,
+   "rd": 108,
+   "last_fight": "2025-09-06",
+   "division": "Middleweight",
    "record": "9-2"
   },
   {
@@ -208,14 +224,6 @@
    "last_fight": "2026-08-08",
    "division": "Lightweight",
    "record": "6-0"
-  },
-  {
-   "fighter": "Nassourdine Imavov",
-   "rating": 1813,
-   "rd": 108,
-   "last_fight": "2025-09-06",
-   "division": "Middleweight",
-   "record": "9-2"
   },
   {
    "fighter": "Song Yadong",
@@ -232,14 +240,6 @@
    "last_fight": "2026-10-24",
    "division": "Featherweight",
    "record": "10-1"
-  },
-  {
-   "fighter": "Tatiana Suarez",
-   "rating": 1810,
-   "rd": 116,
-   "last_fight": "2026-04-11",
-   "division": "Women's Strawweight",
-   "record": "9-1"
   },
   {
    "fighter": "Paddy Pimblett",
@@ -1658,11 +1658,11 @@
    "fighters": [
     {
      "fighter": "Tatiana Suarez",
-     "rating": 1810,
-     "rd": 116,
-     "last_fight": "2026-04-11",
+     "rating": 1826,
+     "rd": 112,
+     "last_fight": "2026-11-07",
      "division": "Women's Strawweight",
-     "record": "9-1"
+     "record": "10-1"
     },
     {
      "fighter": "Alexia Thainara",
@@ -1690,11 +1690,11 @@
     },
     {
      "fighter": "Virna Jandiroba",
-     "rating": 1677,
-     "rd": 104,
-     "last_fight": "2026-04-04",
+     "rating": 1665,
+     "rd": 101,
+     "last_fight": "2026-11-07",
      "division": "Women's Strawweight",
-     "record": "8-5"
+     "record": "8-6"
     },
     {
      "fighter": "Fatima Kline",

@@ -1,8 +1,8 @@
 {
- "bets": 10,
- "wins": 9,
- "units": 3.8,
- "roi_pct": 38.0,
+ "bets": 11,
+ "wins": 10,
+ "units": 4.26,
+ "roi_pct": 38.7,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -66,6 +66,16 @@
    "moved_toward": null
   },
   {
+   "date": "2026-11-07",
+   "fight": "Tatiana Suarez vs Virna Jandiroba",
+   "pick": "Tatiana Suarez",
+   "odds": -218,
+   "won": true,
+   "method": "DEC",
+   "units": 0.46,
+   "moved_toward": true
+  },
+  {
    "date": "2026-10-31",
    "fight": "Zach Reese vs Mickey Gall",
    "pick": "Zach Reese",
@@ -107,11 +117,11 @@
   }
  ],
  "ours": {
-  "bets": 11,
-  "wins": 8,
-  "units": -0.38,
-  "roi_pct": -3.5,
-  "moved_toward_pct": 90.0,
+  "bets": 12,
+  "wins": 9,
+  "units": 0.08,
+  "roi_pct": 0.7,
+  "moved_toward_pct": 90.9,
   "recent": [
    {
     "date": "2026-11-07",
@@ -181,6 +191,16 @@
     "won": true,
     "method": "KO",
     "units": 0.19,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Tatiana Suarez vs Virna Jandiroba",
+    "pick": "Tatiana Suarez",
+    "odds": -218,
+    "won": true,
+    "method": "DEC",
+    "units": 0.46,
     "moved_toward": true
    },
    {

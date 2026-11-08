@@ -3229,7 +3229,7 @@
        "uid": "s:3301~a:4020435",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Tatiana Suarez",
         "displayName": "Tatiana Suarez",
@@ -3242,6 +3242,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 89.0,
+         "displayValue": "89.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -3270,6 +3294,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 82.0,
+         "displayValue": "82.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -3282,18 +3330,19 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
+      "clock": 300.0,
+      "displayClock": "5:00",
       "period": 3,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
-       "state": "in",
-       "completed": false,
-       "description": "End of Round",
-       "detail": "End R3",
-       "shortDetail": "End R3"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -3304,6 +3353,20 @@
       }
      ],
      "details": [
+      {
+       "id": "26473",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "26472",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "26471",
        "type": {
@@ -3358,20 +3421,6 @@
        "type": {
         "id": "18",
         "text": "Round End"
-       }
-      },
-      {
-       "id": "26449",
-       "type": {
-        "id": "16",
-        "text": "Submission Attempt"
-       }
-      },
-      {
-       "id": "26448",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
        }
       }
      ],
@@ -3443,6 +3492,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -3470,6 +3520,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -3485,13 +3536,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 8:00 PM EST",
-       "shortDetail": "11/7 - 8:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [
