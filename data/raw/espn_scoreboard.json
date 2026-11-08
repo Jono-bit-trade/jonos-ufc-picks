@@ -2628,17 +2628,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 240.0,
+      "displayClock": "4:00",
+      "period": 2,
       "type": {
-       "id": "139",
-       "name": "STATUS_FIGHTERS_WALKING",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
-       "description": "Walkouts",
-       "detail": "Walkouts",
-       "shortDetail": "Walkouts"
+       "description": "In Progress",
+       "detail": "R2, 4:00",
+       "shortDetail": "R2, 4:00"
       }
      },
      "broadcasts": [
@@ -2651,31 +2651,73 @@
      ],
      "details": [
       {
+       "id": "26384",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26383",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26382",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26381",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26380",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26379",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26378",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26364",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26363",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
        "id": "26377",
        "type": {
         "id": "3",
         "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26376",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26362",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26361",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
