@@ -56,6 +56,10 @@ def update_ledger(log, fights):
             mp = model_pick(p.a, p.b, p.p_final, p.fair_a, lean)   # the model's winner pick, as on the card
             ours = p.our_pick if isinstance(getattr(p, "our_pick", None), str) else None
             vp = p.pick if isinstance(getattr(p, "pick", None), str) else None   # value pick, as on the card
+            imp = lambda o: None if o is None or o != o else (100 / (o + 100) if o > 0 else -o / (-o + 100))
+            def clv(first, close):   # implied-chance points the price moved against us after we picked (+ = beat the close)
+                a_, b_ = imp(first), imp(close)
+                return None if a_ is None or b_ is None else round(100 * (b_ - a_), 2)
             row = {"fight_id": p.fight_id, "date": p.date, "a": p.a, "b": p.b, "winner": winner, "result": how,
                    "model_pick": mp, "model_odds": p.odds_a if mp == p.a else p.odds_b, "our_pick": ours,
                    "our_odds": (p.odds_a if ours == p.a else p.odds_b) if ours else None,
@@ -71,6 +75,10 @@ def update_ledger(log, fights):
             row["our_source"] = None if not ours else "model" if ours == vp else "experts"   # model pick or expert lean
             row["stake"] = stake(row["our_odds"]) if ours else None
             row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
+            fo = lambda c: getattr(p, c, None) if pd.notna(getattr(p, c, None)) else None
+            row["our_first_odds"], row["value_first_odds"] = (fo("our_pick_first_odds") if ours else None), (fo("pick_first_odds") if vp else None)
+            row["our_clv"] = clv(row["our_first_odds"], row["our_odds"]) if ours else None
+            row["value_clv"] = clv(row["value_first_odds"], row["value_odds"]) if vp else None
             new.append(row)
     # rows locked before value picks were tracked: add the value pick logged before that fight
     if not led.empty and not log.empty and ("value_pick" not in led or led["value_pick"].isna().any()):
@@ -127,6 +135,10 @@ def update_ledger(log, fights):
                      **({"value_bets": int(led["value_pick"].notna().sum()),
                          "value_won": int((led["value_pick"] == led["winner"]).sum()),
                          "value_units": round(float(pd.to_numeric(led["value_units"], errors="coerce").sum()), 2)} if "value_pick" in led else {}),
+                     **{f"{k}_clv": (lambda c: {"bets": int(c.notna().sum()), "beat": int((c > 0).sum()), "even": int((c == 0).sum()),
+                                                "avg": round(float(c.mean()), 2) if c.notna().any() else None})(
+                         pd.to_numeric(led[f"{k}_clv"], errors="coerce") if f"{k}_clv" in led else pd.Series(dtype=float))
+                        for k in ("our", "value")},
                      **({"tiers": {t: {"picks": int((led["tier"] == t).sum()),
                                         "right": int(((led["tier"] == t) & (led["model_pick"] == led["winner"])).sum())}
                                    for t in ("High", "Medium", "Low")}} if "tier" in led else {}),
@@ -475,6 +487,20 @@ def main():
         cols = ["fight_id", "date", "a", "b", "p_model", "p_final", "fair_a", "odds_a", "odds_b",
                 "open_a", "open_b", "edge_a", "pick", "our_pick", "expert_lean"]
         new = fresh[cols].assign(run=NOW.strftime("%Y-%m-%dT%H:%MZ"))
+        # the price when each pick first appeared, kept while the pick stays the same: closing line value later
+        prev = log.drop_duplicates("fight_id", keep="last").set_index("fight_id") if not log.empty else pd.DataFrame()
+        for k in ("our_pick", "pick"):
+            fo, fs = f"{k}_first_odds", f"{k}_first_seen"
+            fo_v, fs_v = [], []
+            for r in new.itertuples():
+                side = getattr(r, k)
+                cur = (r.odds_a if side == r.a else r.odds_b) if isinstance(side, str) else None
+                q = prev.loc[r.fight_id] if (not prev.empty and r.fight_id in prev.index) else None
+                if q is not None and isinstance(side, str) and q.get(k) == side and pd.notna(q.get(fo)):
+                    fo_v.append(q[fo]); fs_v.append(q[fs])
+                else:
+                    fo_v.append(cur if cur is not None and pd.notna(cur) else None); fs_v.append(r.run if isinstance(side, str) else None)
+            new[fo], new[fs] = fo_v, fs_v
         log = pd.concat([log, new]) if not log.empty else new
         log = log.drop_duplicates("fight_id", keep="last")
         log.to_csv(logf, index=False)

@@ -1090,7 +1090,46 @@ function ledgerBoxes(L, start) {
     <div class="stat key">${u(L.our_staked_units)}<span>suggested stakes${L.our_risked ? ` (${L.our_staked_units >= 0 ? "+" : ""}${(100 * L.our_staked_units / L.our_risked).toFixed(1)}% return)` : ""}, on ${L.our_risked}u risked</span></div>
     <div class="stat model"><b>${L.model_right}/${L.fights}</b><span>winners picked (${Math.round(100 * L.model_right / L.fights)}%)</span></div>
     ${L.value_bets ? `<div class="stat value">${u(L.value_units)}<span>value picks, ${L.value_won}/${L.value_bets} won (flat 1u)</span></div>` : ""}</div>
+    ${clvLine(L)}
     ${L.experts_bets ? `<div class="recbits"><span>Model's picks <b>${L.model_won}/${L.model_bets}</b> ${u(L.model_staked_units)}</span><span>Expert leans <b>${L.experts_won}/${L.experts_bets}</b> ${u(L.experts_staked_units)}</span><span class="small">at suggested stakes</span></div>` : ""}${strip}`;
+}
+
+// closing line value: did the price get worse after we picked? (+ points = we beat the close)
+function clvLine(L) {
+  const c = L && L.our_clv;
+  if (!c || !c.bets) return `<p class="clv-note"><b>Closing line value</b> is tracked from UFC 334 on: for each pick, the price when it first appeared vs. the price at fight time.</p>`;
+  const sg = x => (x > 0 ? "+" : "") + x.toFixed(1);
+  return `<div class="clv"><span class="clv-k">Beat the close</span><b>${Math.round(100 * c.beat / c.bets)}%</b>
+    <span>${c.beat}/${c.bets} of our picks got a better price than the line at fight time · average ${sg(c.avg)} points</span></div>`;
+}
+
+// Record page: results for any timeframe, from every graded fight (backtest before the live record, locked picks after)
+let RR = null;
+function timeframePanel(rr, key) {
+  if (!rr || !rr.rows || !rr.rows.length) return "";
+  const rows = rr.rows, lastDate = rows.reduce((m, r) => r[0] > m ? r[0] : m, "");
+  const ago = d => { const x = new Date(lastDate + "T12:00:00"); x.setDate(x.getDate() - d); return x.toISOString().slice(0, 10); };
+  const ranges = [["last", "Last card", r => r[0] === lastDate], ["1m", "1M", r => r[0] > ago(31)], ["3m", "3M", r => r[0] > ago(92)],
+    ["6m", "6M", r => r[0] > ago(183)], ["ytd", lastDate.slice(0, 4), r => r[0].startsWith(lastDate.slice(0, 4))], ["all", "Since " + rr.from, () => true]];
+  const [k, label, fn] = ranges.find(x => x[0] === key) || ranges[4];
+  const R = rows.filter(fn);
+  const n = R.length, mw = R.filter(r => r[2]).length, mu = R.reduce((s, r) => s + (r[3] || 0), 0);
+  const O = R.filter(r => r[4]), ow = O.filter(r => r[4][0]).length, ou = O.reduce((s, r) => s + r[4][1], 0), os = O.reduce((s, r) => s + r[4][2], 0), ok = O.reduce((s, r) => s + r[4][3], 0);
+  const V = R.filter(r => r[5]), vw = V.filter(r => r[5][0]).length, vu = V.reduce((s, r) => s + r[5][1], 0);
+  const r1 = x => Math.round(x * 10) / 10, pc = (a, b) => b ? Math.round(100 * a / b) + "%" : "–";
+  const tier = t => { const T = R.filter(r => r[1] === t[0]); return `<div class="tf-t t-${t.toLowerCase()}">${tierTag(t, true)}<b>${pc(T.filter(r => r[2]).length, T.length)}</b><span>${T.filter(r => r[2]).length}/${T.length}</span></div>`; };
+  const live = R.some(r => r[0] >= rr.live_from), back = R.some(r => r[0] < rr.live_from);
+  return `<section class="tframe" id="tframe">
+    <div class="tf-head"><h2>${kick("Explore", "blue")}Results by timeframe</h2>
+      <div class="filters tf-chips">${ranges.map(([kk, lb]) => `<a href="#/record?tf=${kk}" class="${kk === k ? "on" : ""}" data-tf="${kk}">${esc(lb)}</a>`).join("")}</div></div>
+    <div class="stats four tf-stats">
+      <div class="stat model"><b>${pc(mw, n)}</b><span>winners picked (${mw}/${n})</span></div>
+      <div class="stat key"><b>${ow}/${O.length} <span class="sub ${os >= 0 ? "won" : "lost"}">${units(r1(os))}</span></b><span>our picks at suggested stakes${ok ? ` (${os >= 0 ? "+" : ""}${(100 * os / ok).toFixed(1)}% on ${r1(ok)}u risked)` : ""}</span></div>
+      <div class="stat value"><b class="${vu >= 0 ? "won" : "lost"}">${units(r1(vu))}</b><span>value picks, ${vw}/${V.length} won (flat 1u)</span></div>
+      <div class="stat model"><b class="${mu >= 0 ? "won" : "lost"}">${units(r1(mu))}</b><span>every model winner (flat 1u)</span></div></div>
+    <div class="tf-tiers"><span class="tf-l">By confidence</span>${["High", "Medium", "Low"].map(tier).join("")}</div>
+    <p class="note">${n} fights${live && back ? ": the backtest before " + esc(dateLong(rr.live_from)) + ", locked live picks from then on" : live ? ", all from the locked live record" : ", from the backtest at the average closing line"}.</p>
+  </section>`;
 }
 
 // accuracy by confidence tier: live record, this year and since 2020
@@ -1106,14 +1145,16 @@ function tierBoard(L, mr) {
       <div class="tb-row main"><span>Since ${mr.from || 2020}</span>${col(t, "since")}</div></div>`).join("")}</div>`;
 }
 
-async function viewRecord() {
-  const [L, mr] = await Promise.all([get("ledger.json", true), get("model_record.json")]);
+async function viewRecord(q) {
+  const [L, mr, rr] = await Promise.all([get("ledger.json", true), get("model_record.json"), get("record_rows.json", true)]);
+  const tf = q && q.get("tf") || "ytd";
   const rows = L && L.rows ? L.rows : [];
   return `<h1>Record</h1>
     <h2>Live record, locked</h2>
     <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
     ${ledgerBoxes(L)}
     ${unitsChart(ledgerCurve(rows))}
+    ${timeframePanel(rr, tf)}
     ${tierBoard(L, mr)}
     ${rows.length ? `<h2>Every locked pick</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th class="hide-sm">Conf.</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
       rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td class="hide-sm">${tierTag(g.tier, true)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.our_source === "experts" ? " (expert lean)" : "") : "–"}</td>
@@ -1195,7 +1236,7 @@ async function route() {
   document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), record: viewRecord, how: viewHow, about: viewAbout, credits: viewCredits};
+    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), record: () => viewRecord(q), how: viewHow, about: viewAbout, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);
@@ -1203,7 +1244,8 @@ async function route() {
   $("#view").innerHTML = html;
   const h1 = page !== "home" && $("#view h1");
   if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["card", "events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record", "experts"].includes(page))
-    h1.insertAdjacentHTML("afterend", `<p class="powered">Powered by <b>${METHOD}</b> · every pick locked before the fight</p>`);
+    h1.insertAdjacentHTML("afterend", `<p class="powered"><span>Powered by <b>${METHOD}</b> · every pick locked before the fight</span>
+      <button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button></p>`);
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
   liveBar();
@@ -1259,3 +1301,13 @@ route();
   res.addEventListener("click", () => { close(); box.value = ""; });
   document.addEventListener("click", e => { if (!e.target.closest(".hsearch")) close(); });
 })();
+
+// share the page: the phone's share sheet where there is one, otherwise copy the link
+document.addEventListener("click", async e => {
+  const b = e.target.closest(".sharebtn"); if (!b) return;
+  const h = document.querySelector("#view h1"), title = (h ? h.textContent.trim() + " · " : "") + "Octagon Edge";
+  try { if (navigator.share) { await navigator.share({title, url: location.href}); return; } } catch (err) { if (err && err.name === "AbortError") return; }
+  try { await navigator.clipboard.writeText(location.href); } catch (err) {}
+  const t = document.createElement("div"); t.className = "lc-toast won"; t.innerHTML = "<b>Link copied</b><small>Paste it anywhere to share this page.</small>";
+  document.body.appendChild(t); setTimeout(() => t.classList.add("out"), 2200); setTimeout(() => t.remove(), 2900);
+});

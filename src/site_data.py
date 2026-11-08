@@ -524,6 +524,18 @@ def main():
     events_index.sort(key=lambda e: e["date"], reverse=True)
     write("events/index.json", events_index)
     write("model_record.json", track_record(graded_rows))
+    # every graded fight since the record starts, compact, for the Record page's timeframe filters
+    from config import LEDGER_FROM
+    rr = []
+    for r in graded_rows:
+        if r["date"] < RECORD_FROM or not r.get("pick"):
+            continue
+        m_, o_, v_ = r["pick"], r.get("our"), r.get("value")
+        rr.append([r["date"], (m_.get("tier") or "?")[0], int(m_["right"]), m_["units"],
+                   [int(o_["right"]), o_["units"], o_.get("staked_units", o_["units"]), o_.get("stake", 1), int(bool(o_.get("from_experts")))] if o_ else None,
+                   [int(v_["right"]), v_["units"]] if v_ else None])
+    write("record_rows.json", {"from": RECORD_FROM, "live_from": LEDGER_FROM,
+                               "cols": ["date", "tier", "model_right", "model_units", "our", "value"], "rows": rr})
 
     # ---- fighters ----
     long = []

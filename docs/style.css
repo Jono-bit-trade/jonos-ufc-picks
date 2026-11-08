@@ -998,3 +998,23 @@ tr.top1 td.rk { color: var(--gold); }
 .howbrand > div{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:12px 14px}
 .howbrand p{margin:8px 0 0;font-size:15px;color:var(--ink)} .howbrand .tier{margin:0 2px}
 @media (max-width:640px){.howbrand{grid-template-columns:1fr}}
+
+/* ===== Phase 2: timeframe explorer, closing line value, share ===== */
+.powered{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.sharebtn{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;border:1px solid #3a3e48;background:#1c1e24;color:var(--ink);font:700 13px "Barlow",sans-serif;cursor:pointer}
+.sharebtn:hover{border-color:var(--gold);color:var(--gold)}
+.sharebtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tframe{margin:22px 0 8px;padding:14px 16px;border-radius:14px;border:1px solid var(--rule);background:linear-gradient(180deg,#1b1d23,#16171c)}
+.tf-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tf-head h2{margin:0}
+.tf-chips{margin:0} .tf-chips a{font-weight:700}
+.tf-stats{margin:12px 0 10px}
+.tf-tiers{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 8px}
+.tf-l{font:800 11px "Barlow",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--quiet)}
+.tf-t{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:10px;background:#1f2128;border:1px solid var(--rule)}
+.tf-t b{font:800 18px var(--display)} .tf-t span:last-child{font-size:12px;color:var(--quiet)}
+.clv{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:6px 0 10px;padding:10px 14px;border-radius:12px;border:1px solid rgba(47,191,174,.4);background:rgba(47,191,174,.07)}
+.clv b{font:800 26px var(--display);color:var(--teal,#2fbfae)} .clv span{font-size:13px;color:var(--quiet)}
+.clv-k{font:800 11px "Barlow",sans-serif!important;letter-spacing:.1em;text-transform:uppercase;color:var(--teal,#2fbfae)!important}
+.clv-note{font-size:13px;color:var(--quiet);margin:4px 0 10px} .clv-note b{color:var(--teal,#2fbfae)}
+@media (max-width:640px){.tf-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.tf-l{grid-column:1/-1}.tf-t{flex-direction:column;gap:2px;padding:6px 4px}}
