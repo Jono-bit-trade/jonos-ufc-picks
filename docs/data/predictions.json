@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T00:03Z",
+ "updated": "2026-11-08T00:11Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -221,11 +221,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T11:52Z",
-     "a": -230.0,
-     "b": 190.0
-    },
-    {
      "t": "2026-11-03T13:01Z",
      "a": -230.0,
      "b": 190.0
@@ -419,9 +414,14 @@
      "t": "2026-11-08T00:03Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
-   "edge_a": 0.013,
+   "edge_a": 0.014,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -614,7 +614,7 @@
    "rating_b": 1677,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.697,
+   "p_model_a": 0.698,
    "p_a": 0.673,
    "model_pick": "Tatiana Suarez",
    "fair_odds_a": -206,
@@ -628,11 +628,6 @@
    "open_b": 160.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-03T11:52Z",
-     "a": -198.0,
-     "b": 164.0
-    },
     {
      "t": "2026-11-03T13:01Z",
      "a": -198.0,
@@ -827,9 +822,14 @@
      "t": "2026-11-08T00:03Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
-   "edge_a": 0.036,
+   "edge_a": 0.037,
    "pick": "Tatiana Suarez",
    "our_pick": "Tatiana Suarez",
    "stake": 1.5,
@@ -1033,11 +1033,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T11:52Z",
-     "a": 250.0,
-     "b": -310.0
-    },
-    {
      "t": "2026-11-03T13:01Z",
      "a": 250.0,
      "b": -310.0
@@ -1229,6 +1224,11 @@
     },
     {
      "t": "2026-11-08T00:03Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -1428,7 +1428,7 @@
    "rating_b": 1561,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.564,
+   "p_model_a": 0.565,
    "p_a": 0.274,
    "model_pick": "Lucas Fernando",
    "fair_odds_a": 265,
@@ -1442,11 +1442,6 @@
    "open_b": -258.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-03T11:52Z",
-     "a": 250.0,
-     "b": -310.0
-    },
     {
      "t": "2026-11-03T13:01Z",
      "a": 250.0,
@@ -1639,6 +1634,11 @@
     },
     {
      "t": "2026-11-08T00:03Z",
+     "a": 280.0,
+     "b": -355.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
      "a": 280.0,
      "b": -355.0
     }
@@ -1857,11 +1857,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T11:52Z",
-     "a": 380.0,
-     "b": -500.0
-    },
-    {
      "t": "2026-11-03T13:01Z",
      "a": 380.0,
      "b": -500.0
@@ -2053,6 +2048,11 @@
     },
     {
      "t": "2026-11-08T00:03Z",
+     "a": 390.0,
+     "b": -520.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
      "a": 390.0,
      "b": -520.0
     }
@@ -2267,11 +2267,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T11:52Z",
-     "a": 190.0,
-     "b": -230.0
-    },
-    {
      "t": "2026-11-03T13:01Z",
      "a": 185.0,
      "b": -225.0
@@ -2463,6 +2458,11 @@
     },
     {
      "t": "2026-11-08T00:03Z",
+     "a": 200.0,
+     "b": -245.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
      "a": 200.0,
      "b": -245.0
     }
@@ -2662,7 +2662,7 @@
    "rating_b": 1433,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.668,
+   "p_model_a": 0.667,
    "p_a": 0.776,
    "model_pick": "Keiichiro Nakamura",
    "fair_odds_a": -347,
@@ -2676,11 +2676,6 @@
    "open_b": 275.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-03T11:52Z",
-     "a": -360.0,
-     "b": 285.0
-    },
     {
      "t": "2026-11-03T13:01Z",
      "a": -355.0,
@@ -2873,6 +2868,11 @@
     },
     {
      "t": "2026-11-08T00:03Z",
+     "a": -360.0,
+     "b": 285.0
+    },
+    {
+     "t": "2026-11-08T00:11Z",
      "a": -360.0,
      "b": 285.0
     }
@@ -3068,8 +3068,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 5:00 PM EST",
+   "state": "in",
+   "status": "Walkouts",
    "result": null,
    "rating_a": 1500,
    "rating_b": 1479,
@@ -3083,11 +3083,11 @@
    "market_p_a": 0.407,
    "odds_a": 136.0,
    "odds_b": -162.0,
-   "best_a": 136.0,
-   "best_b": -162.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": 142.0,
    "open_b": -170.0,
-   "books": 1.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-11-03T11:52Z",
@@ -3309,8 +3309,8 @@
    "b_slug": "gabriella-fernandes",
    "a_id": "3309918",
    "b_id": "4871203",
-   "record_a": "19-7-0",
-   "record_b": "11-4-0",
+   "record_a": "20-7-0",
+   "record_b": "11-5-0",
    "experts": {
     "picks_a": 14,
     "picks_b": 2,
@@ -3482,9 +3482,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "in",
-   "status": "R3, 2:19",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 5:00",
+   "result": {
+    "winner": "Karine Silva",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 5:00",
+    "pick_won": true
+   },
    "rating_a": 1636,
    "rating_b": 1483,
    "debut_a": false,
@@ -4121,7 +4126,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.393,
-    "KO": 0.421,
+    "KO": 0.42,
     "SUB": 0.186
    }
   },
@@ -5497,7 +5502,7 @@
    "method": {
     "DEC": 0.419,
     "KO": 0.35,
-    "SUB": 0.231
+    "SUB": 0.232
    }
   }
  ]

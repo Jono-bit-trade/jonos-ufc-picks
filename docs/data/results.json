@@ -1,8 +1,8 @@
 {
- "bets": 7,
- "wins": 6,
- "units": 1.19,
- "roi_pct": 17.0,
+ "bets": 8,
+ "wins": 7,
+ "units": 1.61,
+ "roi_pct": 20.1,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -33,6 +33,16 @@
    "won": true,
    "method": "SUB",
    "units": 0.15,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Karine Silva vs Gabriella Fernandes",
+   "pick": "Karine Silva",
+   "odds": -238,
+   "won": true,
+   "method": "DEC",
+   "units": 0.42,
    "moved_toward": true
   },
   {
@@ -77,11 +87,11 @@
   }
  ],
  "ours": {
-  "bets": 8,
-  "wins": 6,
-  "units": 0.01,
-  "roi_pct": 0.1,
-  "moved_toward_pct": 85.7,
+  "bets": 9,
+  "wins": 7,
+  "units": 0.43,
+  "roi_pct": 4.8,
+  "moved_toward_pct": 87.5,
   "recent": [
    {
     "date": "2026-11-07",
@@ -122,6 +132,16 @@
     "method": "DEC",
     "units": 1.02,
     "moved_toward": false
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Karine Silva vs Gabriella Fernandes",
+    "pick": "Karine Silva",
+    "odds": -238,
+    "won": true,
+    "method": "DEC",
+    "units": 0.42,
+    "moved_toward": true
    },
    {
     "date": "2026-10-31",

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T00:03Z",
+ "updated": "2026-11-08T00:11Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -1346,20 +1346,20 @@
      "record": "5-2"
     },
     {
-     "fighter": "Imanol Rodriguez",
-     "rating": 1643,
-     "rd": 163,
-     "last_fight": "2026-10-03",
-     "division": "Flyweight",
-     "record": "2-0"
-    },
-    {
      "fighter": "Brandon Royval",
      "rating": 1643,
      "rd": 102,
      "last_fight": "2026-07-11",
      "division": "Flyweight",
      "record": "8-5"
+    },
+    {
+     "fighter": "Imanol Rodriguez",
+     "rating": 1643,
+     "rd": 163,
+     "last_fight": "2026-10-03",
+     "division": "Flyweight",
+     "record": "2-0"
     },
     {
      "fighter": "Allan Nascimento",
@@ -1612,6 +1612,14 @@
      "record": "7-2"
     },
     {
+     "fighter": "Karine Silva",
+     "rating": 1650,
+     "rd": 114,
+     "last_fight": "2026-11-07",
+     "division": "Women's Flyweight",
+     "record": "6-3"
+    },
+    {
      "fighter": "Carli Judice",
      "rating": 1644,
      "rd": 138,
@@ -1626,14 +1634,6 @@
      "last_fight": "2026-10-03",
      "division": "Women's Flyweight",
      "record": "5-2"
-    },
-    {
-     "fighter": "Karine Silva",
-     "rating": 1636,
-     "rd": 118,
-     "last_fight": "2026-04-18",
-     "division": "Women's Flyweight",
-     "record": "5-3"
     },
     {
      "fighter": "Regina Tarin",
