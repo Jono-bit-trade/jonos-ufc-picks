@@ -1892,7 +1892,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "11-5-0"
+         "summary": "12-5-0"
         }
        ]
       },
@@ -1920,14 +1920,14 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "8-1-0"
+         "summary": "8-2-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 13.0,
-      "displayClock": "0:13",
+      "clock": 287.0,
+      "displayClock": "4:47",
       "period": 3,
       "type": {
        "id": "3",
@@ -2057,7 +2057,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "6176",
@@ -2128,17 +2128,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 247.0,
+      "displayClock": "4:07",
+      "period": 1,
       "type": {
-       "id": "145",
-       "name": "STATUS_PRE_FIGHT",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
-       "description": "Pre-fight",
-       "detail": "Pre-fight",
-       "shortDetail": "Pre-fight"
+       "description": "In Progress",
+       "detail": "R1, 4:07",
+       "shortDetail": "R1, 4:07"
       }
      },
      "broadcasts": [
@@ -2147,6 +2147,50 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26326",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26325",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26324",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
+      {
+       "id": "26323",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26322",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26330",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
