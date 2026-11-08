@@ -1,8 +1,8 @@
 {
- "bets": 8,
- "wins": 7,
- "units": 1.61,
- "roi_pct": 20.1,
+ "bets": 9,
+ "wins": 8,
+ "units": 3.61,
+ "roi_pct": 40.1,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -44,6 +44,16 @@
    "method": "DEC",
    "units": 0.42,
    "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Mitch Raposo vs Marcos Degli",
+   "pick": "Mitch Raposo",
+   "odds": 200,
+   "won": true,
+   "method": "DEC",
+   "units": 2.0,
+   "moved_toward": null
   },
   {
    "date": "2026-10-31",
