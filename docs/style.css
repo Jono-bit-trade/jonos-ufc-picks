@@ -1498,3 +1498,30 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .ft-sched{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--quiet)}
 .ft-sched b{color:var(--ink);font-weight:600;margin-right:6px}
 @media (max-width:560px){.feat{padding:16px 14px}}
+/* home: coming up + recent cards side by side */
+.home2 .hg-side{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 0}
+@media (max-width:800px){.home2 .hg-side{grid-template-columns:1fr}}
+.panel{border-top:1px solid var(--rule)!important;background:#15161a!important}
+/* last card: tighter, flat */
+.lastcard{padding:18px 20px!important}
+.lc-b{padding:8px 10px!important;gap:6px!important;background:#18191d!important}
+.lc-fs{gap:0!important}
+.lc-vs{padding:0 0 0 54px!important;line-height:1;margin:-2px 0}
+.lc-f{padding:3px 4px!important}
+/* banner: where the numbers come from */
+.pf-src{margin:8px 0 0!important;font-size:13px!important;color:var(--quiet)!important;display:block!important}
+.pf-src b{color:var(--ink)}
+.pf-card{border-top:1px solid var(--rule)!important;transform:none!important}
+.pf-card:hover{border-color:#3a3d46!important}
+/* email signup */
+.nl{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:14px 0;padding:16px 18px;border:1px solid #26282e;border-left:3px solid var(--accent,#d9a91a);border-radius:3px;background:#15161a}
+.nl b{display:block;font:800 22px var(--display)} .nl span{font-size:13.5px;color:var(--quiet)}
+.nl-f{display:flex;gap:8px} .nl-f input{min-width:240px;padding:10px 12px;border:1px solid #33353c;border-radius:2px;background:#0f1013;color:var(--ink);font:500 15px "Barlow",sans-serif}
+.nl-f .btn{border:0;cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:560px){.nl-f{width:100%}.nl-f input{min-width:0;flex:1}}
+/* card page: share image */
+.share-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0}
+.share-row .pill{cursor:pointer} .share-row span{font-size:13px;color:var(--quiet)}
+/* terms and privacy */
+.legal{max-width:760px} .legal h2{font-size:22px;margin:22px 0 6px} .legal p,.legal li{font-size:15.5px;line-height:1.6;color:#d6d4ce}

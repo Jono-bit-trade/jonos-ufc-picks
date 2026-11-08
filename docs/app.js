@@ -490,6 +490,7 @@ async function viewCard() {
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
   return `${liveCenter(p)}<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
+    ${p.fights.some(f => f.our_pick && f.state !== "post") && !p.gated ? `<div class="share-row"><button class="pill" type="button" onclick="sharePicksImage()">Download picks image</button><span>Square image of this week's picks, sized for X and Instagram.</span></div>` : ""}
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
@@ -802,17 +803,21 @@ function proofBand(mr, L) {
   if (!mr || !mr.since) return "";
   const yr = mr.years && mr.years[0], s = mr.since, hi = s.tiers && s.tiers.High;
   const live = L && L.fights ? `${L.our_won}-${L.our_bets - L.our_won}` : null;
+  const liveCards = L && L.rows ? new Set(L.rows.map(g => g.date)).size : 0, goLive = liveCards >= 10;
   return `<section class="proof">
     <div class="pf-head">
       <h1>UFC picks, <em>with the receipts.</em></h1>
-      <p>Every pick goes up before the fight and gets graded after it, win or lose.</p></div>
+      <p>Every pick goes up before the fight and gets graded after it, win or lose.</p>
+      <p class="pf-src">${goLive ? `Live, locked record since ${esc(dateLong(L.from))}. Backtest since ${mr.from || 2020} on the Record page.` : `Backtest since ${mr.from || 2020}: each fight predicted only from earlier fights. The live, locked record started ${esc(dateLong(L ? L.from : "2026-10-31"))}${live ? ` and stands at <b>${live}</b>` : ""}.`}</p></div>
     <div class="pf-cards">
       <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
         <span class="pf-s">${yr ? `${yr.right}/${yr.picks} fights in ${esc(yr.year)}` : ""} · ${s.pct}% across ${s.picks.toLocaleString()} since ${mr.from || 2020}</span><span class="pf-go">See the full record →</span></a>
-      <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks</span><b>${hi ? hi.pct : "–"}%</b>
+      <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks, backtest</span><b>${hi ? hi.pct : "–"}%</b>
         <span class="pf-s">${hi ? `${hi.right.toLocaleString()} of ${hi.picks.toLocaleString()} won since ${mr.from || 2020}, our chance 70%+` : ""}</span><span class="pf-go">This week's card →</span></a>
-      <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
-        <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u${live ? ` · live record ${live}` : ""}</span><span class="pf-go">Live, locked record →</span></a>
+      ${goLive ? `<a class="pf-card c3" href="#/record"><span class="pf-l">Our picks, live</span><b class="${L.our_units >= 0 ? "won" : "lost"}">${units(L.our_units)}</b>
+        <span class="pf-s">${live} since ${esc(dateLong(L.from))}, flat 1u</span><span class="pf-go">Live, locked record →</span></a>`
+      : `<a class="pf-card c3" href="#/record"><span class="pf-l">Our picks, backtest</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
+        <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u${live ? ` · live record ${live}` : ""}</span><span class="pf-go">Live, locked record →</span></a>`}
     </div></section>`;
 }
 
@@ -872,6 +877,55 @@ function proofLine(mr, L) {
       <a href="#/record">Full record →</a>
     </div></div>`;
 }
+function newsletterBox() {
+  const n = PLANS && PLANS.newsletter;
+  if (!n || !n.username) return "";
+  const action = n.provider === "kit" ? n.form_url : `https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(n.username)}`;
+  return `<section class="nl"><div><b>Get the picks by email</b><span>The week's picks and my preview, the day lines settle. Free, unsubscribe anytime.</span></div>
+    <form action="${esc(action)}" method="post" target="_blank" class="nl-f"><label class="sr" for="nl-e">Email</label>
+      <input id="nl-e" type="email" name="email" placeholder="you@email.com" required autocomplete="email"><button class="btn" type="submit">Sign up</button></form></section>`;
+}
+// a square image of this week's picks, ready to post (drawn on a canvas with the site's fonts)
+async function sharePicksImage() {
+  const [p, L] = await Promise.all([getPred(), get("ledger.json", true)]);
+  const ours = p ? p.fights.filter(f => f.our_pick) : [];
+  if (!ours.length) return;
+  try { await document.fonts.load('800 60px "Big Shoulders Display"'); await document.fonts.load('500 30px "Barlow"'); } catch (e) {}
+  const S = 1080, c = document.createElement("canvas"); c.width = S; c.height = S; const x = c.getContext("2d");
+  const D = w => `${w} "Big Shoulders Display", "Barlow Condensed", sans-serif`, B = w => `${w} "Barlow", sans-serif`, gold = "#d9a91a";
+  x.fillStyle = "#111215"; x.fillRect(0, 0, S, S); x.fillStyle = gold; x.fillRect(0, 0, 12, S);
+  // brand
+  x.save(); x.translate(80, 74); x.scale(1.5, 1.5);
+  const oct = (r, cx, cy) => { x.beginPath(); for (let i = 0; i < 8; i++) { const an = Math.PI / 8 + i * Math.PI / 4; x.lineTo(cx + r * Math.cos(an), cy + r * Math.sin(an)); } x.closePath(); };
+  oct(26, 24, 24); x.fillStyle = gold; x.fill(); oct(20, 24, 24); x.fillStyle = "#111215"; x.fill();
+  x.strokeStyle = "#fff"; x.lineWidth = 4.5; x.beginPath(); x.moveTo(14, 30); x.lineTo(24, 17); x.lineTo(34, 30); x.stroke();
+  x.strokeStyle = gold; x.lineWidth = 3.5; x.beginPath(); x.moveTo(19, 34); x.lineTo(29, 34); x.stroke(); x.restore();
+  x.fillStyle = gold; x.font = D("700 26px"); x.fillText("O C T A G O N", 172, 104); x.fillStyle = "#fff"; x.font = D("900 58px"); x.fillText("EDGE", 170, 152);
+  // title
+  const [ev, sub] = String(p.event).split(/:\s*/);
+  x.fillStyle = "#9a9ea8"; x.font = B("600 30px"); x.fillText(`${ev} · ${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}`, 80, 262);
+  x.fillStyle = "#fff"; x.font = D("900 88px"); x.fillText("OUR PICKS", 80, 350);
+  x.fillStyle = gold; x.font = D("800 44px"); x.fillText(String(sub || "").toUpperCase(), 80, 404);
+  // picks
+  let y = 480; const rows = ours.slice(0, 6), rowH = rows.length > 4 ? 82 : rows.length <= 2 ? 120 : 100;
+  for (const f of rows) {
+    const o = f.our_pick === f.a ? f.odds_a : f.odds_b, opp = f.our_pick === f.a ? f.b : f.a;
+    x.fillStyle = "#1a1b20"; x.fillRect(80, y, S - 160, rowH - 12); x.fillStyle = gold; x.fillRect(80, y, 6, rowH - 12);
+    x.fillStyle = "#fff"; x.font = D(`800 ${rowH > 90 ? 48 : 40}px`); x.fillText(String(f.our_pick).toUpperCase(), 108, y + (rowH > 90 ? 52 : 44));
+    x.fillStyle = "#9a9ea8"; x.font = B("500 24px"); x.fillText(`vs ${opp}`, 110, y + (rowH > 90 ? 80 : 68));
+    x.textAlign = "right"; x.fillStyle = "#fff"; x.font = D(`800 ${rowH > 90 ? 52 : 44}px`); x.fillText(odds(o), S - 104, y + (rowH > 90 ? 54 : 46));
+    x.fillStyle = "#9a9ea8"; x.font = B("600 24px"); x.fillText(f.stake ? f.stake + "u" : "", S - 104, y + (rowH > 90 ? 80 : 68)); x.textAlign = "left";
+    y += rowH;
+  }
+  // record
+  x.fillStyle = "#26282e"; x.fillRect(80, S - 150, S - 160, 2);
+  x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText("Live record", 80, S - 96);
+  if (L && L.fights) { x.fillStyle = "#fff"; x.font = D("800 46px"); const r = `${L.our_won}-${L.our_bets - L.our_won}`; x.fillText(r, 236, S - 92);
+    const w = x.measureText(r).width; x.fillStyle = L.our_units >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(L.our_units), 256 + w, S - 92); }
+  x.textAlign = "right"; x.fillStyle = gold; x.font = B("700 24px"); x.fillText("Every pick locked before the fight", S - 80, S - 96); x.textAlign = "left";
+  c.toBlob(b => { const u = URL.createObjectURL(b), el = document.createElement("a"); el.href = u; el.download = `octagon-edge-picks-${p.date}.png`; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); }, "image/png");
+}
+window.sharePicksImage = sharePicksImage;
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([getPred(), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`, picksH = "";
@@ -909,8 +963,8 @@ async function viewHome() {
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
 ` : "";
-  if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}
-    <div class="homegrid"><div class="hg-main">${record}</div>${homeLower(ev, ex, up, p)}</div>`;
+  if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}${newsletterBox()}
+    <div class="home2">${homeLower(ev, ex, up, p)}</div>`;
   return `${proofBand(mr, L)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
@@ -1279,6 +1333,33 @@ async function viewAbout() {
     <p class="note">For fun and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>`;
 }
 
+function viewTerms() {
+  return `<h1>Terms of use</h1><div class="legal">
+    <p class="where">Last updated ${esc(dateLong("2026-11-08"))}</p>
+    <h2>What this is</h2><p>Octagon Edge publishes predictions and picks for UFC fights. It's information and entertainment, not betting, financial or legal advice. Past results, including the record on this site, don't guarantee future results. You decide what to bet, if anything, and you're responsible for following the law where you live.</p>
+    <h2>Who can use it</h2><p>You must be 21 or older, or the legal betting age where you are if that's higher, to use the picks for betting. Sports betting isn't legal everywhere.</p>
+    <h2>Paid plans</h2><p>An Event Pass covers the picks for one fight card. A Monthly plan covers every card while it's active and renews each month until you cancel. You can cancel anytime; you keep access until the end of the period you paid for. Prices are shown before you pay and may change for future periods with notice. Payments are handled by our payment provider; we never see or store your card number.</p>
+    <h2>Refunds</h2><p>Picks are delivered as soon as you pay, so payments aren't refundable once a card's picks are visible to you. If something went wrong on our end, such as being charged twice, get in touch and we'll fix it.</p>
+    <h2>Fights change</h2><p>Fights get cancelled, moved or changed. If a fight with a pick is cancelled, the pick is void and isn't counted in the record. No refunds are given for changes to a card.</p>
+    <h2>Your account</h2><p>Plans are for one person. Please don't share your login or repost paid picks in full. We may end access for accounts that do.</p>
+    <h2>The content</h2><p>The site's text, ratings and data presentation belong to Octagon Edge. Fighter photos, results and lines come from the sources credited on the About and Photo credits pages. Octagon Edge isn't affiliated with the UFC, ESPN or any sportsbook.</p>
+    <h2>Limits</h2><p>The site is provided as is. We work to keep it accurate and online, but data can be late or wrong and the site can go down. To the extent the law allows, we aren't liable for losses from using it, including betting losses, and our total liability is limited to what you paid in the last three months.</p>
+    <h2>Changes</h2><p>We may update these terms. The date at the top shows the latest version; continuing to use the site means you accept it.</p>
+    <p class="note">If gambling stops being fun, call 1-800-GAMBLER.</p></div>`;
+}
+function viewPrivacy() {
+  return `<h1>Privacy</h1><div class="legal">
+    <p class="where">Last updated ${esc(dateLong("2026-11-08"))}</p>
+    <h2>The short version</h2><p>We collect as little as we can: your email if you sign up, and what's needed to run your plan. We don't sell your information and there are no ad trackers on this site.</p>
+    <h2>What we collect</h2><ul class="dots">
+      <li><b>Email address</b>, if you join the email list or create an account, to send picks and sign you in.</li>
+      <li><b>Plan and payment records</b> (plan, dates, receipts). Card details go straight to our payment provider and never reach us.</li>
+      <li><b>Settings on your device</b>, such as your preferred card view, kept in your browser's storage. They stay on your device.</li></ul>
+    <h2>Who else handles it</h2><p>Only the services that run the site: the host (GitHub Pages), the payment provider, the sign-in provider and the email service. Each gets only what it needs for its job.</p>
+    <h2>Your choices</h2><p>Every email has an unsubscribe link. You can ask us to see, correct or delete what we hold about you; deleting your account ends any paid plan.</p>
+    <h2>Children</h2><p>The site isn't meant for anyone under 21, and we don't knowingly collect information from minors.</p>
+    <h2>Changes</h2><p>If this policy changes, the date at the top changes too. For anything that affects how your information is used, members get an email first.</p></div>`;
+}
 async function viewCredits() {
   const list = Object.values(PHOTOS.photos || {}).sort((a, b) => a.name < b.name ? -1 : 1);
   return `<h1>Photo credits</h1>
@@ -1650,7 +1731,7 @@ async function route() {
   document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings", fight: "card"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), pricing: viewPricing, account: viewAccount, record: () => viewRecord(q), how: viewHow, about: viewAbout, credits: viewCredits};
+    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), pricing: viewPricing, account: viewAccount, record: () => viewRecord(q), how: viewHow, about: viewAbout, terms: viewTerms, privacy: viewPrivacy, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);
