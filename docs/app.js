@@ -272,7 +272,7 @@ async function viewPricing() {
     ["Picks for every card, all month", 0, 0, 1]];
   const ck = x => x === 1 ? `<span class="ck">✓</span>` : x ? `<span class="ck part">${esc(x)}</span>` : `<span class="ck no">–</span>`;
   return `<section class="pr-hero"><h1>Get every pick.</h1>
-      <p>Picks locked before the fight, graded in public. Choose a single card or every card.</p></section>
+      <p>Every pick for one card, or every card all month. Same picks you can check on the Record page.</p></section>
     ${s ? `<div class="pr-proof"><div><b>${yr ? yr.pct : s.pct}%</b><span>winners picked${yr ? " in " + esc(yr.year) : ""}</span></div>
       <div><b>${s.tiers && s.tiers.High ? s.tiers.High.pct : "–"}%</b><span>high-confidence picks won</span></div>
       <div><b class="won">${units(s.our_units)}</b><span>our picks since ${mr.from || 2020}</span></div>
@@ -552,7 +552,7 @@ function picksStrip(p) {
   const teaser = p.gated && p.locked_count ? `<a class="ticket locked" href="#/pricing">${lockIcon}<span class="tk-name">+${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</span>
       <span class="tk-opp">Locked for members</span><span class="tk-row">${PLANS ? PLANS.plans.map(pl => `<b>${esc(pl.name)} $${pl.price}</b>`).join("") : ""}</span></a>` : "";
   if (!ours.length && teaser) return `<div class="slip">${teaser}</div>`;
-  if (!ours.length) return `<div class="slip empty-slip">No picks yet for this card. Picks appear as lines and expert picks come in during fight week.</div>`;
+  if (!ours.length) return `<div class="slip empty-slip">No picks yet. They go up as the lines settle during fight week.</div>`;
   return `<div class="slip">${ours.map(f => {
     const o = f.our_pick === f.a ? f.odds_a : f.odds_b, best = f.our_pick === f.a ? f.best_a : f.best_b;
     const opp = f.our_pick === f.a ? f.b : f.a;
@@ -804,8 +804,8 @@ function proofBand(mr, L) {
   const live = L && L.fights ? `${L.our_won}-${L.our_bets - L.our_won}` : null;
   return `<section class="proof">
     <div class="pf-head">
-      <h1>Smarter UFC picks, <em>proven in public.</em></h1>
-      <p>Every fight rated, every pick locked before the bell, every result graded. No cherry-picking.</p></div>
+      <h1>UFC picks, <em>with the receipts.</em></h1>
+      <p>Every pick goes up before the fight and gets graded after it, win or lose.</p></div>
     <div class="pf-cards">
       <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
         <span class="pf-s">${yr ? `${yr.right}/${yr.picks} fights in ${esc(yr.year)}` : ""} · ${s.pct}% across ${s.picks.toLocaleString()} since ${mr.from || 2020}</span><span class="pf-go">See the full record →</span></a>
@@ -816,6 +816,61 @@ function proofBand(mr, L) {
     </div></section>`;
 }
 
+// a large, tightly cropped headshot (the ESPN cutout on a dark panel)
+function portrait(id, name, cls) {
+  const ini = esc(String(name || "?").split(/\s+/).map(w => w[0]).slice(0, 2).join(""));
+  const srcs = photoSrc(id, name);
+  const next = srcs[1] ? `if(!this.dataset.f){this.dataset.f=1;this.src='${esc(srcs[1])}'}else this.remove()` : "this.remove()";
+  return `<span class="pt ${cls || ""}"><span class="pt-i">${ini}</span>${srcs.length ? `<img alt="" src="${esc(srcs[0])}" onerror="${next}">` : ""}</span>`;
+}
+const updatedAt = iso => iso ? new Date(iso).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : "";
+// home lead: this week's main event and the picks for the card, left-aligned like a fight preview
+function feature(p, up) {
+  const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
+  const [ev, sub] = String(p.event).split(/:\s*/);
+  const side = (s) => { const nm = m[s], pa = s === "a" ? m.p_a : m.p_a == null ? null : 1 - m.p_a, ln = m.market_p_a == null ? null : s === "a" ? m.market_p_a : 1 - m.market_p_a;
+    const ours = m.p_a == null ? null : s === "a" ? Math.round(100 * m.p_a) : 100 - Math.round(100 * m.p_a);
+    const fav = (m.hidden ? (ln ?? 0.5) : (pa ?? 0.5)) >= 0.5;
+    return `<a class="ft-f ${fav ? "fav" : ""}" href="#/fighter/${esc(m[s + "_slug"])}">${portrait(m[s + "_id"], nm)}
+      <span class="ft-n"><b>${esc(nm)}</b><small>${rankOf(m[s + "_slug"])}${flagOf(m[s + "_slug"], true)}</small></span>
+      <span class="ft-p"><b>${m.hidden ? lockIcon : ours + "%"}</b><small>Line ${ln == null ? "–" : (s === "a" ? pct(ln) : (100 - Math.round(100 * m.market_p_a)) + "%")} · ${odds(m["odds_" + s])}</small></span></a>`; };
+  const ours = p.fights.filter(f => f.our_pick);
+  const pickRow = f => { const o = f.our_pick === f.a ? f.odds_a : f.odds_b, opp = f.our_pick === f.a ? f.b : f.a;
+    const done = f.state === "post" && f.result && f.result.winner, res = done ? (f.result.winner === f.our_pick ? "won" : "lost") : "";
+    return `<a class="ft-pk ${res}" href="#/card"><span class="pk-n"><b>${esc(f.our_pick)}</b><small>vs ${esc(opp)}</small></span>
+      <span class="pk-o"><b>${odds(o)}</b><small>${f.stake ? f.stake + "u" : ""}</small></span>${res ? `<span class="pk-r">${res === "won" ? "W" : "L"}</span>` : ""}
+      ${f.take ? `<span class="pk-t">“${esc(f.take)}”</span>` : ""}</a>`; };
+  const locked = p.gated && p.locked_count ? `<a class="ft-pk lock" href="#/pricing">${lockIcon}<span class="pk-n"><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</b><small>for members</small></span></a>` : "";
+  return `<section class="feat">
+    <div class="ft-main">
+      <p class="ft-meta"><b>${esc(ev)}</b> · ${dateLong(p.date)}${p.location ? " · " + esc(p.location.split(",")[0]) : ""}${start ? ` · <span class="ft-cd">${countdown(start)}</span>` : ""}</p>
+      <h1 class="ft-t">${esc(sub || ev)}</h1>
+      <div class="ft-fight">${side("a")}<span class="ft-vs">vs</span>${side("b")}</div>
+      <p class="ft-leg">${m.hidden ? "Our number on this fight is for members." : "Big number: our chance. Line: the sportsbook's, with their cut taken out."}</p>
+      <div class="ft-act"><a class="btn" href="#/card">All ${p.fights.length} fights</a><a class="pill" href="#/fight/0">Breakdown of the main event</a></div>
+    </div>
+    <aside class="ft-side">
+      <div class="ft-sh"><h2>This week's picks</h2>${p.updated ? `<small>Lines as of ${esc(updatedAt(p.updated))}</small>` : ""}</div>
+      ${p.take_preview ? `<p class="ft-prev">${esc(p.take_preview)} <span>— Jono</span></p>` : ""}
+      ${ours.length || locked ? ours.map(pickRow).join("") + locked : `<p class="note">No picks yet. They go up as the lines settle during fight week.</p>`}
+      <a class="ft-more" href="#/card">Full card and every number →</a>
+    </aside>
+  </section>`;
+}
+// one line of proof under the lead, instead of a row of stat cards
+function proofLine(mr, L) {
+  if (!mr || !mr.since) return "";
+  const s = mr.since, yr = mr.years && mr.years[0];
+  const lu = L && L.fights ? L.our_units : null;
+  return `<div class="proofline">
+    <p>Every pick goes up before the fight and gets graded after it, win or lose.</p>
+    <div class="pl-s">
+      ${L && L.fights ? `<span><small>Live record</small><b>${L.our_won}-${L.our_bets - L.our_won}</b>${lu != null ? `<em class="${lu >= 0 ? "won" : "lost"}">${units(lu)}</em>` : ""}</span>` : ""}
+      <span><small>Since ${mr.from || 2020} (backtest)</small><b>${s.our_won}-${s.our_bets - s.our_won}</b><em class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</em></span>
+      ${yr ? `<span><small>Winners picked, ${esc(yr.year)}</small><b>${yr.pct}%</b></span>` : ""}
+      <a href="#/record">Full record →</a>
+    </div></div>`;
+}
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([getPred(), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`, picksH = "";
@@ -823,6 +878,8 @@ async function viewHome() {
     hero = liveCenter(p); picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
     clearTimeout(window.refresh); window.refresh = setTimeout(route, 120000);
   } else if (p && p.fights.length) {
+    hero = "FEATURE"; picksH = "";
+  } else if (false) {
     const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
     hero = `<section class="hero">
       <div class="when">${kick("Next card", "red")}${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
@@ -851,6 +908,8 @@ async function viewHome() {
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
 ` : "";
+  if (hero === "FEATURE") return `${feature(p, up)}${proofLine(mr, L)}${recap}
+    <div class="homegrid"><div class="hg-main">${live}</div>${homeLower(ev, ex, up, p)}</div>`;
   return `${proofBand(mr, L)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
@@ -1197,7 +1256,7 @@ async function viewExperts() {
 async function viewAbout() {
   const mr = await get("model_record.json"), S = mr ? (mr.since || mr.all) : null;
   return `<h1>About Octagon Edge</h1>
-    <p class="lede">Octagon Edge is an independent fight-picks project. It predicts every bout on every card, compares that with the betting line, and only calls a pick when the numbers say the line has it wrong.</p>
+    <p class="lede">I'm Jono. I got tired of UFC picks with nothing behind them, so I built a rating for every UFC fighter and a model that prices every fight. When my number and the sportsbook's disagree by enough, that's a pick. Every one goes up before the fight and gets graded after it.</p>
     <div class="about">
       <section><h2>What you get each week</h2><ul class="dots">
         <li>A chance for every fighter on the card, next to the betting line's</li>
@@ -1213,7 +1272,7 @@ async function viewAbout() {
     </div>
     ${S ? `<div class="hw-stats"><div><b>${S.our_pct}%</b><span>our picks won, backtest since ${mr.from || 2020}</span></div><div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets</span></div><div><b>${S.our_bets}</b><span>picks graded</span></div><div><b>7,500+</b><span>UFC fights since 2010 in the data</span></div></div>` : ""}
     <h2>Who's behind it</h2>
-    <p class="note">Built and run by Jono, a fight fan who wanted picks backed by numbers rather than hype. The model, the data pipeline and this site update themselves through fight week; the method is laid out in full on <a href="#/how">How it works</a>.</p>
+    <p class="note">The data and the numbers update themselves through fight week. The picks and the notes on them are mine. The full method is on <a href="#/how">How it works</a>.</p>
     <h2>Data and credits</h2>
     <p class="note">Results, cards and lines from ESPN; sportsbook prices from The Odds API; expert picks from SplitPicks; career stats from UFC.com; historical fights from the Ultimate UFC Dataset. Freely licensed fighter photos from Wikimedia Commons are credited on the <a href="#/credits">photo credits</a> page. Octagon Edge isn't affiliated with the UFC, ESPN or any sportsbook.</p>
     <p class="note">For fun and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>`;
