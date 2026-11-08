@@ -162,10 +162,14 @@ MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b",
 
 def public_card(full):
     """The card as a free visitor gets it once the paywall is on: betting lines for every fight, our chances and picks only on
-    finished fights and on the free sample (the top-billed fight with a pick). The full file is for members and,
+    finished fights and on the free sample (the first pick at -250 or better). The full file is for members and,
     behind a real paywall, would be served only to signed-in members."""
     out = dict(full, gated=True)
-    sample = next((i for i, f in enumerate(full["fights"]) if f.get("our_pick") and f.get("state") != "post"), None)
+    def pick_odds(f):
+        return f.get("odds_a") if f.get("our_pick") == f.get("a") else f.get("odds_b")
+    open_ = [i for i, f in enumerate(full["fights"]) if f.get("our_pick") and f.get("state") != "post"]
+    # the free sample: the first open pick at a normal price (-250 or better) shows the value; else the first pick
+    sample = next((i for i in open_ if pick_odds(full["fights"][i]) is not None and pick_odds(full["fights"][i]) >= -250), open_[0] if open_ else None)
     fights = []
     for i, f in enumerate(full["fights"]):
         if f.get("state") == "post" or i == sample:

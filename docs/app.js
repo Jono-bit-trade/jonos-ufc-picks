@@ -228,7 +228,9 @@ function canSeePicks(cardDate) {
 function gatePredictions(p) {
   if (!p || canSeePicks(p.date)) return p;
   const q = {...p, gated: true};
-  const sampleAt = PLANS && PLANS.free_sample ? p.fights.findIndex(f => f.our_pick && f.state !== "post") : -1;   // the top-billed fight we have a pick on
+  const open = f => f.our_pick && f.state !== "post", po = f => f.our_pick === f.a ? f.odds_a : f.odds_b;
+  let sampleAt = PLANS && PLANS.free_sample ? p.fights.findIndex(f => open(f) && po(f) != null && po(f) >= -250) : -1;   // a pick at a normal price shows the value
+  if (sampleAt < 0 && PLANS && PLANS.free_sample) sampleAt = p.fights.findIndex(open);
   q.fights = p.fights.map((f, i) => {
     if (i === sampleAt) return {...f, sample: true};
     if (f.state === "post") return f;   // finished fights show their picks: that's the public record
@@ -249,9 +251,28 @@ async function getPred() {
 }
 const planBtns = (small) => PLANS ? `<div class="lock-btns${small ? " sm" : ""}">${PLANS.plans.map(pl => `<a class="${pl.best ? "btn" : "pill"}" href="#/pricing">${esc(pl.name)} · $${pl.price}</a>`).join("")}</div>` : "";
 const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
-const lockedPick = f => `<div class="locked-pick">${lockIcon}<div><b>${f.locked ? "Pick locked" : "EDGE chance locked"}</b><span>${f.locked ? "We have a pick on this fight." : "See our chance and whether the line is off."} Unlock it with an Event Pass or Monthly.</span></div>${planBtns(true)}</div>`;
+const lockedPick = f => f.locked ? `<a class="lock-slim" href="#/pricing">${lockIcon}<b>We have a pick on this fight</b><span>Members see it</span></a>` : "";
+const lockBanner = p => !p || !p.gated ? "" : `<section class="lock-top">${lockIcon}<div><b>Free preview: betting lines on every fight${p.fights.some(f => f.sample) ? " and one free pick" : ""}</b>
+    <span>Members see our chance on every fight${p.locked_count ? ` and all ${p.locked_count + (p.fights.some(f => f.sample) ? 1 : 0)} picks with stakes and reasons` : ""}.</span></div>${planBtns(true)}</section>`;;
 
 // ---- pricing and account (structure for a paid site; checkout links go in docs/plans.json) ----
+// is a plan worth it at your unit size? From the record: picks and units per month and per card
+function worthIt(mr) {
+  const s = mr.since, c = mr.curve, d0 = new Date(c[0][0]), d1 = new Date(c.at(-1)[0]);
+  const months = Math.max(1, (d1 - d0) / (864e5 * 30.44)), cards = c.length;
+  const upm = s.our_staked_units / months, ppm = s.our_bets / months, upc = s.our_staked_units / cards;
+  const mo = PLANS.plans.find(x => x.id === "monthly"), ev = PLANS.plans.find(x => x.id === "event");
+  window.calcWorth = () => { const u = Math.max(0, +document.getElementById("wi-u").value || 0), out = document.getElementById("wi-out"); if (!out) return;
+    const m = upm * u - (mo ? mo.price : 0), e = upc * u - (ev ? ev.price : 0), f = x => (x >= 0 ? "+$" : "−$") + Math.abs(x).toFixed(0);
+    out.innerHTML = `<div><small>Monthly, per month</small><b class="${m >= 0 ? "won" : "lost"}">${f(m)}</b><span>${f(upm * u)} expected from picks, minus $${mo ? mo.price : 0}</span></div>
+      <div><small>Event Pass, per card</small><b class="${e >= 0 ? "won" : "lost"}">${f(e)}</b><span>${f(upc * u)} expected from picks, minus $${ev ? ev.price : 0}</span></div>
+      <p class="note">Break-even unit: about <b>$${Math.ceil((mo ? mo.price : 0) / upm)}</b> on Monthly, <b>$${Math.ceil((ev ? ev.price : 0) / upc)}</b> on an Event Pass.</p>`; };
+  setTimeout(() => { const i = document.getElementById("wi-u"); if (i) { i.addEventListener("input", window.calcWorth); window.calcWorth(); } }, 0);
+  return `<section class="worth"><div class="wi-h"><h2>Is it worth it for you?</h2>
+    <p>Since ${mr.from || 2020} we've averaged about ${ppm.toFixed(0)} picks and <b>${upm >= 0 ? "+" : ""}${upm.toFixed(2)} units a month</b> at the suggested stakes (${upc.toFixed(2)} a card). What that's worth depends on how much you bet per unit. Past results, not a promise.</p></div>
+    <label class="wi-in"><span>Your unit</span><b>$</b><input id="wi-u" type="number" min="0" step="5" value="50" inputmode="decimal"></label>
+    <div id="wi-out" class="wi-out"></div></section>`;
+}
 // return per bet next to the usual benchmarks for professional bettors
 function roiBench(s, v, from) {
   const ours = s.our_roi_pct, fav = v && v.fights ? Math.round(1000 * v.line_units / v.fights) / 10 : null;
@@ -260,7 +281,7 @@ function roiBench(s, v, from) {
   const max = 12, X = x => Math.max(0, Math.min(100, (x + 3) / (max + 3) * 100));
   return `<section class="roi">
     <div class="roi-h"><b>Return per bet: <span class="won">${sg(ours)}</span> flat${st != null ? `, <span class="won">${sg(st)}</span> at our suggested stakes` : ""}</b>
-      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from} (backtest, then the live record), at the average sportsbook's closing price, flat 1 unit and at the suggested stakes (1.5u, 1u or 0.5u by price):</p></div>
+      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from}, at the average sportsbook's closing price, flat 1 unit and at the suggested stakes (1.5u, 1u or 0.5u by price):</p></div>
     <div class="roi-rows">
       ${[["Every favorite", fav, null, "neg"], ["Our picks, flat 1u", ours, null, "us"], st != null ? ["Our picks, suggested stakes", st, null, "st"] : null,
         ["Experienced bettors' target", 3, 7, "band"], ["Sharp bettor (55% at -110)", 5, null, "band1"]].filter(r => r && r[1] != null).map(([lab, lo, hi, k]) => {
@@ -285,7 +306,7 @@ async function viewPricing() {
       ${mine === pl.id && paywallOn() ? `<span class="plan-mine">Your plan</span>` : ""}</div>`;
   const rows = [["Betting lines and every fighter's EDGE Rating", 1, 1, 1], ["EDGE chance and confidence on every fight", "Free pick only", 1, 1], ["Rankings, fighter pages, Who wins?, Movers", 1, 1, 1], ["The full public record", 1, 1, 1],
     ["One free pick per card", 1, 1, 1], ["Every pick with stake and reasons", 0, "One card", 1], ["Value picks", 0, "One card", 1],
-    ["Fight analysis: our call on every bout", 0, "One card", 1], ["Live fight-night bet slip", 0, "One card", 1], ["Winning-record analysts highlighted", 0, "One card", 1],
+    ["Fight analysis: our call on every bout", 0, "One card", 1], ["Live fight-night bet slip", 0, "One card", 1],
     ["Picks for every card, all month", 0, 0, 1]];
   const ck = x => x === 1 ? `<span class="ck">✓</span>` : x ? `<span class="ck part">${esc(x)}</span>` : `<span class="ck no">–</span>`;
   return `<section class="pr-hero"><h1>Get every pick.</h1>
@@ -293,9 +314,12 @@ async function viewPricing() {
     ${s ? `<div class="pr-proof"><div><b>${yr ? yr.pct : s.pct}%</b><span>winners picked${yr ? " in " + esc(yr.year) : ""}</span></div>
       <div><b>${s.tiers && s.tiers.High ? s.tiers.High.pct : "–"}%</b><span>high-confidence picks won</span></div>
       <div><b class="won">${units(s.our_units)}</b><span>our picks since ${mr.from || 2020}</span></div>
-      ${v ? `<div><b class="lost">${units(v.line_units)}</b><span>betting every favorite instead</span></div>` : ""}</div>` : ""}
+      ${v ? `<div><b class="lost">${units(v.line_units)}</b><span>betting every favorite instead</span></div>` : ""}
+      <div><b class="won">+${s.our_roi_pct}%</b><span>return per bet, flat 1u</span></div>
+      ${v && v.disagree ? `<div><b>${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b><span>when we disagree with the line (${(100 * v.disagree_model_right / v.disagree).toFixed(1)}% vs ${v.disagree_line_expected}% expected)</span></div>` : ""}</div>` : ""}
     ${s && s.our_roi_pct != null ? roiBench(s, v, mr.from || 2020) : ""}
     <div class="plans">${cards.map(card).join("")}</div>
+    ${mr && mr.curve && s ? worthIt(mr) : ""}
     <h2>${kick("Compare", "gold")}What's included</h2>
     <div class="tablewrap"><table class="cmpplans"><thead><tr><th></th><th>Free</th>${PLANS.plans.map(pl => `<th>${esc(pl.name)}</th>`).join("")}</tr></thead><tbody>
       ${rows.map(r => `<tr><td>${esc(r[0])}</td>${r.slice(1).map(x => `<td>${ck(x)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
@@ -381,10 +405,11 @@ async function viewFight(x, y) {
     return `<a class="lc-corner ${k}${F.ours === nm ? " ours" : ""}${F.winner && F.winner !== nm ? " lostc" : ""}" href="#/fighter/${esc(sl)}">${photo(F[k + "_id"], nm, "xl")}
       <span class="lc-name">${esc(nm)}${champTag(sl)}${favStar(sl)}</span><span class="lc-meta">${rankOf(sl)}${flagOf(sl, true)}</span>
       <span class="fx-rec">${P ? `${esc(P.ufc_record)} UFC · EDGE ${P.rating}` : "UFC debut"}</span>
-      <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>
+      ${F.f && F.f.hidden ? `<span class="lc-pct ln">${F.line == null ? "–" : k === "a" ? pct(F.line) : (100 - Math.round(100 * F.line)) + "%"}</span><span class="lc-odds">line · ${o != null ? odds(o) : "not posted"}</span>`
+        : `<span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>`}
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
-  const call = F.f && (F.f.locked || F.f.hidden) ? lockedPick(F.f) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
+  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
   const mark = nm => F.winner && nm ? (F.winner === nm ? ` <em class="won">✓ won</em>` : ` <em class="lost">✗ lost</em>`) : "";
@@ -395,7 +420,7 @@ async function viewFight(x, y) {
     <p class="fx-sub">${esc(F.wc || "")}${F.rounds === 5 ? " · 5 rounds" : ""} · ${status} ${tierTag(F.tier)}</p>
     <section class="fx-face"><div class="lc-face">${corner("a")}<span class="lc-vs">VS</span>${corner("b")}</div>
       ${F.p != null ? `<div class="lc-bar"><i class="a" style="width:${Math.round(100 * F.p)}%"></i><i class="b"></i>${F.line != null ? `<em style="left:${Math.round(100 * F.line)}%" title="Betting line"></em>` : ""}</div>
-      <p class="fx-legend">Big numbers: our chance. White tick: the betting line${F.line != null ? ` (${pct(F.line)} / ${(100 - Math.round(100 * F.line)) + "%"})` : ""}.</p>` : ""}</section>
+      <p class="fx-legend">Big numbers: our chance. White tick: the betting line${F.line != null ? ` (${pct(F.line)} / ${(100 - Math.round(100 * F.line)) + "%"})` : ""}.</p>` : F.f && F.f.hidden ? `<p class="fx-legend">Big numbers: the betting line's chance. <a href="#/pricing">Members</a> see ours.</p>` : ""}</section>
     <div class="fx-grid">
       <section class="fx-panel"><h2>${kick("Styles", "gold")}Head to head</h2>
         ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + "" : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}</section>
@@ -512,6 +537,7 @@ async function viewCard() {
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
+    ${lockBanner(p)}
     ${cardToggle()}
     ${(() => { const only = picksOnly(), keep = f => !only || f.our_pick || f.pick || f.locked;
       const fs = p.fights.map((f, i) => [f, i]).filter(([f]) => keep(f));
@@ -837,12 +863,17 @@ function proofBand(mr, L) {
     <div class="pf-cards">
       <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
         <span class="pf-s">${yr ? `${yr.right}/${yr.picks} fights in ${esc(yr.year)}` : ""} · ${s.pct}% across ${s.picks.toLocaleString()} since ${mr.from || 2020}</span><span class="pf-go">See the full record →</span></a>
-      <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks, backtest</span><b>${hi ? hi.pct : "–"}%</b>
+      <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks</span><b>${hi ? hi.pct : "–"}%</b>
         <span class="pf-s">${hi ? `${hi.right.toLocaleString()} of ${hi.picks.toLocaleString()} won since ${mr.from || 2020}, our chance 70%+` : ""}</span><span class="pf-go">This week's card →</span></a>
-      ${goLive ? `<a class="pf-card c3" href="#/record"><span class="pf-l">Our picks, live</span><b class="${L.our_units >= 0 ? "won" : "lost"}">${units(L.our_units)}</b>
-        <span class="pf-s">${live} since ${esc(dateLong(L.from))}, flat 1u</span><span class="pf-go">Live, locked record →</span></a>`
-      : `<a class="pf-card c3" href="#/record"><span class="pf-l">Our picks, backtest</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
-        <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u${live ? ` · live record ${live}` : ""}</span><span class="pf-go">Live, locked record →</span></a>`}
+      <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
+        <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u</span><span class="pf-go">Full record →</span></a>
+    
+      ${s.vs_line ? `<a class="pf-card c4" href="#/pricing"><span class="pf-l">Return per bet</span><b class="won">+${s.our_roi_pct}%</b>
+        <span class="pf-s">flat 1u since ${mr.from || 2020}, ${s.our_risked ? `+${(100 * s.our_staked_units / s.our_risked).toFixed(1)}% at suggested stakes` : ""}</span><span class="pf-go">Is it worth it for you? →</span></a>
+      <a class="pf-card c5" href="#/record"><span class="pf-l">When we disagree with the line</span><b>${s.vs_line.disagree_model_right}-${s.vs_line.disagree - s.vs_line.disagree_model_right}</b>
+        <span class="pf-s">our side won ${(100 * s.vs_line.disagree_model_right / s.vs_line.disagree).toFixed(1)}%; the line expected ${s.vs_line.disagree_line_expected}%</span><span class="pf-go">See the proof →</span></a>
+      <a class="pf-card c6" href="#/record"><span class="pf-l">Betting every favorite</span><b class="lost">${units(s.vs_line.line_units)}</b>
+        <span class="pf-s">same fights, same prices, since ${mr.from || 2020}</span><span class="pf-go">Why favorites lose →</span></a>` : ""}
     </div></section>`;
 }
 
@@ -902,8 +933,7 @@ function proofLine(mr, L) {
   return `<div class="proofline">
     <p>Every pick goes up before the fight and gets graded after it, win or lose.</p>
     <div class="pl-s">
-      ${L && L.fights ? `<span><small>Live record</small><b>${L.our_won}-${L.our_bets - L.our_won}</b>${lu != null ? `<em class="${lu >= 0 ? "won" : "lost"}">${units(lu)}</em>` : ""}</span>` : ""}
-      <span><small>Since ${mr.from || 2020} (backtest)</small><b>${s.our_won}-${s.our_bets - s.our_won}</b><em class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</em></span>
+      <span><small>Since ${mr.from || 2020}</small><b>${s.our_won}-${s.our_bets - s.our_won}</b><em class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</em></span>
       ${yr ? `<span><small>Winners picked, ${esc(yr.year)}</small><b>${yr.pct}%</b></span>` : ""}
       <a href="#/record">Full record →</a>
     </div></div>`;
@@ -932,7 +962,7 @@ function newsletterBox() {
 }
 // a square results image for one past card, from the locked ledger
 async function shareResultsImage(slug) {
-  const [e, L] = await Promise.all([get(`events/${slug}.json`), get("ledger.json", true)]);
+  const [e, L, mr] = await Promise.all([get(`events/${slug}.json`), get("ledger.json", true), get("model_record.json")]);
   if (!e || !L || !L.rows) return;
   const rows = L.rows.filter(g => g.date === e.date && g.our_pick);
   if (!rows.length) return;
@@ -944,9 +974,10 @@ async function shareResultsImage(slug) {
     title: "RESULTS", sub: `Our picks ${cw}-${rows.length - cw}  ${units(cardU)}`, subColor: cardU >= 0 ? "#3dbe6c" : "#e5484d",
     rows: rows.map(g => ({name: g.our_pick, opp: `vs ${g.our_pick === g.a ? g.b : g.a} · ${odds(g.our_odds)}`, right: units(g.our_staked_units),
       rightSub: g.stake ? g.stake + "u" : "", res: !g.winner ? null : g.winner === g.our_pick ? "W" : "L"})),
-    rec: `${won}-${upto.length - won}`, recU: totU, tag: "Every pick locked before the fight"});
+    ...sinceRec(mr), tag: "Fight picks with an edge"});
 }
 window.shareResultsImage = shareResultsImage;
+const sinceRec = mr => { const s = mr && mr.since; return s ? {recLabel: `Since ${mr.from || 2020}`, rec: `${s.our_won}-${s.our_bets - s.our_won}`, recU: s.our_units} : {recLabel: "Record"}; };
 async function drawShare(o) {
   try { await document.fonts.load('800 60px "Big Shoulders Display"'); await document.fonts.load('500 30px "Barlow"'); } catch (e) {}
   const S = 1080, c = document.createElement("canvas"); c.width = S; c.height = S; const x = c.getContext("2d");
@@ -991,16 +1022,16 @@ async function drawShare(o) {
   }
   }
   x.fillStyle = "#26282e"; x.fillRect(80, S - 150, S - 160, 2);
-  x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText("Live record", 80, S - 96);
-  if (o.rec) { x.fillStyle = "#fff"; x.font = D("800 46px"); x.fillText(o.rec, 236, S - 92);
-    const w = x.measureText(o.rec).width; x.fillStyle = o.recU >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(o.recU), 256 + w, S - 92);
-    const w2 = x.measureText(units(o.recU)).width; x.fillStyle = "#9a9ea8"; x.font = B("500 20px"); x.fillText("flat 1u", 266 + w + w2, S - 94); }
+  x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText(o.recLabel || "Record", 80, S - 96);
+  if (o.rec) { const lw = x.measureText(o.recLabel || "Record").width + 100; x.fillStyle = "#fff"; x.font = D("800 46px"); x.fillText(o.rec, lw, S - 92);
+    const w = x.measureText(o.rec).width; x.fillStyle = o.recU >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(o.recU), lw + 20 + w, S - 92);
+    const w2 = x.measureText(units(o.recU)).width; x.fillStyle = "#9a9ea8"; x.font = B("500 20px"); x.fillText("flat 1u", lw + 30 + w + w2, S - 94); }
   x.textAlign = "right"; x.fillStyle = gold; x.font = B("700 24px"); x.fillText(o.tag, S - 80, S - 96); x.textAlign = "left";
   c.toBlob(b => { const u = URL.createObjectURL(b), el = document.createElement("a"); el.href = u; el.download = o.file; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); }, "image/png");
 }
 // a square image of this week's picks, ready to post (drawn on a canvas with the site's fonts)
 async function sharePicksImage() {
-  const [p, L] = await Promise.all([getPred(), get("ledger.json", true)]);
+  const [p, L, mr] = await Promise.all([getPred(), get("ledger.json", true), get("model_record.json")]);
   const ours = p ? p.fights.filter(f => f.our_pick) : [];
   if (!ours.length) return;
   try { await document.fonts.load('800 60px "Big Shoulders Display"'); await document.fonts.load('500 30px "Barlow"'); } catch (e) {}
@@ -1032,11 +1063,12 @@ async function sharePicksImage() {
   }
   // record
   x.fillStyle = "#26282e"; x.fillRect(80, S - 150, S - 160, 2);
-  x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText("Live record", 80, S - 96);
-  if (L && L.fights) { x.fillStyle = "#fff"; x.font = D("800 46px"); const r = `${L.our_won}-${L.our_bets - L.our_won}`; x.fillText(r, 236, S - 92);
-    const w = x.measureText(r).width; x.fillStyle = L.our_units >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(L.our_units), 256 + w, S - 92);
-    const w2 = x.measureText(units(L.our_units)).width; x.fillStyle = "#9a9ea8"; x.font = B("500 20px"); x.fillText("flat 1u", 266 + w + w2, S - 94); }
-  x.textAlign = "right"; x.fillStyle = gold; x.font = B("700 24px"); x.fillText("Every pick locked before the fight", S - 80, S - 96); x.textAlign = "left";
+  const sr = sinceRec(mr);
+  x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText(sr.recLabel, 80, S - 96);
+  if (sr.rec) { const lw = x.measureText(sr.recLabel).width + 100; x.fillStyle = "#fff"; x.font = D("800 46px"); x.fillText(sr.rec, lw, S - 92);
+    const w = x.measureText(sr.rec).width; x.fillStyle = sr.recU >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(sr.recU), lw + 20 + w, S - 92);
+    const w2 = x.measureText(units(sr.recU)).width; x.fillStyle = "#9a9ea8"; x.font = B("500 20px"); x.fillText("flat 1u", lw + 30 + w + w2, S - 94); }
+  x.textAlign = "right"; x.fillStyle = gold; x.font = B("700 24px"); x.fillText("Fight picks with an edge", S - 80, S - 96); x.textAlign = "left";
   c.toBlob(b => { const u = URL.createObjectURL(b), el = document.createElement("a"); el.href = u; el.download = `octagon-edge-picks-${p.date}.png`; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); }, "image/png");
 }
 window.sharePicksImage = sharePicksImage;
@@ -1074,9 +1106,7 @@ async function viewHome() {
     <div class="stat value"><b class="${r.value_units >= 0 ? "won" : "lost"}">${units(r.value_units)}</b><span>${label}: value picks (${r.value_won}/${r.value_bets})</span></div>`;
   const L = await get("ledger.json", true), recap = p && liveOn(p) ? "" : await lastCard(ev);
   const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
-  const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
-  const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
-` : "";
+  const live = "", record = "";
   if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}${whyEdge()}${newsletterBox()}
     <div class="home2">${homeLower(ev, ex, up, p)}</div>${closingCta(mr)}`;
   return `${proofBand(mr, L)}${recap}${hero}
@@ -1448,11 +1478,11 @@ async function viewAbout() {
         <li>Free: every betting line, EDGE Rating, one pick per card and the full record. ${PLANS && PLANS.plans ? PLANS.plans.map(p => `${esc(p.name)} $${p.price}`).join(" or ") + " unlocks every pick." : ""} <a href="#/pricing">See plans</a></li></ul></section>
       <section><h2>How we keep it honest</h2><ul class="dots">
         <li>Every pick is graded at the average sportsbook's price, never the best one</li>
-        <li>The live record can't be edited after a fight; the backtest is labelled as a backtest</li>
+        <li>Picks are locked before the fight and never edited after it</li>
         <li>Ideas only make it into the model if they hold up in two separate stretches of years</li>
         <li>No affiliate links and no sportsbook sponsorship: members pay for the picks, so our only job is getting them right</li></ul></section>
     </div>
-    ${S ? `<div class="hw-stats"><div><b>${S.our_pct}%</b><span>our picks won, backtest since ${mr.from || 2020}</span></div><div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets</span></div><div><b>${S.our_bets}</b><span>picks graded</span></div><div><b>7,500+</b><span>UFC fights since 2010 in the data</span></div></div>` : ""}
+    ${S ? `<div class="hw-stats"><div><b>${S.our_pct}%</b><span>our picks won since ${mr.from || 2020}</span></div><div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets</span></div><div><b>${S.our_bets}</b><span>picks graded</span></div><div><b>7,500+</b><span>UFC fights since 2010 in the data</span></div></div>` : ""}
     <h2>Who's behind it</h2>
     <p class="note">The data and the numbers update themselves through fight week. The picks and the notes on them are mine. The full method is on <a href="#/how">How it works</a>.</p>
     <h2>Data and credits</h2>
@@ -1734,7 +1764,7 @@ function timeframePanel(rr, key) {
       ${(() => { const F = R.filter(r => r[6]), fu = F.reduce((s, r) => s + (r[6][1] || 0), 0), fw = F.filter(r => r[6][0]).length;
         return F.length ? `<div class="stat"><b class="${fu >= 0 ? "won" : "lost"}">${units(r1(fu))}</b><span>betting every favorite instead, ${pc(fw, F.length)} won (flat 1u)</span></div>` : ""; })()}</div>
     <div class="tf-tiers"><span class="tf-l">By confidence</span>${["High", "Medium", "Low"].map(tier).join("")}</div>
-    <p class="note">${n} fights${live && back ? ": the backtest before " + esc(dateLong(rr.live_from)) + ", locked live picks from then on" : live ? ", all from the locked live record" : ", from the backtest at the average closing line"}.</p>
+    <p class="note">${n} fights, flat 1-unit bets at the average sportsbook's closing line.</p>
   </section>`;
 }
 
@@ -1804,16 +1834,11 @@ async function viewRecord(q) {
   const rows = L && L.rows ? L.rows : [];
   return `<h1>Record</h1>
     ${vsLine(mr)}
-    ${mr ? `<h2>Backtest, ${mr.from || 2020} on: our picks vs. the betting line</h2>${unitsChart(mr.curve, lineCurve(rr))}
+    ${mr ? `<h2>Our picks vs. the betting line, ${mr.from || 2020} on</h2>${unitsChart(mr.curve, lineCurve(rr))}
 ` : ""}
-    <h2>Live record, locked</h2>
-    <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
-    ${ledgerBoxes(L)}
-    ${new Set(rows.map(g => g.date)).size >= 5 ? unitsChart(ledgerCurve(rows)) : ""}
     ${timeframePanel(rr, tf)}
-    ${rows.length ? `<div class="dl-row"><div><b>Every locked pick</b><span>${rows.length} fights since ${esc(dateLong(L.from))}: our pick, odds, stake, result, value pick and the model's winner.</span></div>
+    ${rows.length ? `<div class="dl-row"><div><b>Every pick, fight by fight</b><span>${rows.length} fights since ${esc(dateLong(L.from))}: our pick, odds, stake, result, value pick and the model's winner, locked before each fight.</span></div>
       <button class="btn" type="button" onclick="downloadLedger()">Download CSV</button></div>` : ""}
-    <h2>Backtest by year</h2>
     ${yearTable(mr)}`;
 }
 
@@ -1854,7 +1879,7 @@ async function viewHow() {
       <div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets, ${S.our_roi_pct > 0 ? "+" : ""}${S.our_roi_pct}% per bet</span></div>
       <div><b>${S.pct}%</b><span>of all fights' winners picked</span></div>
       <div><b>${S.our_bets}</b><span>picks graded at the average sportsbook's price</span></div></div>` : ""}
-    <p class="note">Backtest numbers, each fight predicted only from earlier fights. The <a href="#/record">live record</a> starts Oct 31, 2026.</p>
+    <p class="note">Results before Oct 31, 2026 come from testing the method on past cards, each fight predicted only from earlier fights. Every pick since then was posted and locked before the fight.</p>
     <details class="tech"><summary>Technical detail: model tests, betting by edge, and situational edges</summary>
     <p class="note">Each year is predicted from earlier fights only. Log loss and Brier score the chances: lower is better. Last run ${esc(b.run_at)}.</p>
     <h2>The model alone</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s1}</tbody></table></div>

@@ -1629,3 +1629,28 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .vl-cmp b{text-align:right;font:800 16px var(--display);color:var(--ink)}
 .vl-minor p{font-size:13.5px;color:var(--quiet);margin:4px 0 8px}
 .vl-minor .vl-row b{font-size:18px!important}
+/* free preview: one message on top, a slim line on fights with a pick */
+.lock-top{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px 16px;align-items:center;margin:0 0 14px;padding:14px 16px;border:1px solid #3a3424;border-left:3px solid var(--accent,#d9a91a);border-radius:3px;background:#17171a}
+.lock-top > svg{width:22px;height:22px;stroke:var(--accent,#d9a91a)}
+.lock-top b{display:block;font:800 19px var(--display)} .lock-top span{font-size:13.5px;color:var(--quiet)}
+.lock-top .lock-btns{margin:0}
+@media (max-width:700px){.lock-top{grid-template-columns:auto 1fr}.lock-top .lock-btns{grid-column:1/-1}}
+.lock-slim{display:flex;align-items:center;gap:8px;margin:10px 0 0;padding:8px 12px;border:1px dashed #4a3f1f;border-radius:3px;color:var(--ink);text-decoration:none;font-size:14px}
+.lock-slim svg{width:16px;height:16px;stroke:var(--accent,#d9a91a)} .lock-slim span{margin-left:auto;font-size:12.5px;color:var(--accent,#d9a91a)}
+.lock-slim:hover{border-color:var(--accent,#d9a91a)}
+.lc-pct.ln{color:var(--ink)!important}
+/* pricing: is it worth it */
+.worth{margin:22px 0;padding:18px 20px;border:1px solid #26282e;border-radius:3px;background:#15161a;display:grid;grid-template-columns:minmax(0,1.3fr) auto minmax(0,1.4fr);gap:18px 26px;align-items:center}
+.wi-h h2{margin:0 0 6px;font-size:24px} .wi-h p{margin:0;font-size:14px;color:#cfcdc7}
+.wi-in{display:flex;align-items:center;gap:6px} .wi-in span{font-size:13px;color:var(--quiet);margin-right:4px} .wi-in b{font:800 22px var(--display)}
+.wi-in input{width:96px;padding:8px 10px;border:1px solid #33353c;border-radius:2px;background:#0f1013;color:var(--ink);font:800 22px var(--display)}
+.wi-out{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+.wi-out small{display:block;font-size:12px;color:var(--quiet)} .wi-out b{display:block;font:800 30px/1.05 var(--display)} .wi-out b.won{color:var(--green)} .wi-out b.lost{color:var(--red)}
+.wi-out span{font-size:12px;color:var(--quiet)} .wi-out .note{grid-column:1/-1;margin:4px 0 0;font-size:13px}
+@media (max-width:900px){.worth{grid-template-columns:1fr}}
+/* proof tiles: two rows of three */
+.pr-proof{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media (max-width:700px){.pr-proof{grid-template-columns:1fr 1fr!important}}
+.pf-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.pf-card.c4 b.won{color:var(--green)} .pf-card.c6 b.lost{color:var(--red)}
+.wi-out .note b{display:inline;font:700 13px "Barlow",sans-serif;color:var(--ink)}
