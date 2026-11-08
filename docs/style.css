@@ -1525,3 +1525,14 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .share-row .pill{cursor:pointer} .share-row span{font-size:13px;color:var(--quiet)}
 /* terms and privacy */
 .legal{max-width:760px} .legal h2{font-size:22px;margin:22px 0 6px} .legal p,.legal li{font-size:15.5px;line-height:1.6;color:#d6d4ce}
+/* next card: the event as the headline */
+.ft-show{margin:0 0 20px;padding-bottom:16px;border-bottom:1px solid #26282e}
+.ft-k{display:inline-block;font:800 12px "Barlow",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#111;background:var(--accent,#d9a91a);padding:4px 8px 3px;border-radius:2px}
+.ft-ev{margin:10px 0 0;font:900 clamp(64px,10vw,128px)/.86 var(--display);letter-spacing:-.01em;text-transform:uppercase;color:#fff}
+.ft-ev em{font-style:normal;color:var(--accent,#d9a91a)}
+.ft-main-ev{margin:8px 0 0;font:800 clamp(24px,3.2vw,38px)/1 var(--display);text-transform:uppercase;letter-spacing:.02em;color:#e9e7e1}
+.ft-facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:16px}
+.ft-facts span{display:flex;flex-direction:column}
+.ft-facts small{font:700 11px "Barlow",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet)}
+.ft-facts b{font:700 18px "Barlow",sans-serif;color:var(--ink)}
+.ft-facts .cd b{color:var(--accent,#d9a91a)}

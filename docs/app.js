@@ -848,8 +848,14 @@ function feature(p, up) {
   const locked = p.gated && p.locked_count ? `<a class="ft-pk lock" href="#/pricing">${lockIcon}<span class="pk-n"><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</b><small>for members</small></span></a>` : "";
   return `<section class="feat">
     <div class="ft-main">
-      ${kick("Next card", "gold")}<p class="ft-meta"><b>${esc(ev)}</b> · ${dateLong(p.date)}${p.location ? " · " + esc(p.location.split(",")[0]) : ""}${start ? ` · <span class="ft-cd">${countdown(start)}</span>` : ""}</p>
-      <h2 class="ft-t">${esc(sub || ev)}</h2>
+      <div class="ft-show">
+        <span class="ft-k">Next card</span>
+        <h2 class="ft-ev">${(() => { const mm = String(ev).match(/^(UFC)\s+(.*)$/i); return mm ? `${esc(mm[1])} <em>${esc(mm[2])}</em>` : esc(ev); })()}</h2>
+        ${sub ? `<p class="ft-main-ev">${esc(sub)}</p>` : ""}
+        <div class="ft-facts"><span><small>Date</small><b>${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}</b></span>
+          ${p.location ? `<span><small>Where</small><b>${esc(p.location.split(",").slice(0, 2).join(","))}</b></span>` : ""}
+          ${start ? `<span class="cd"><small>Starts in</small><b>${esc(countdown(start).replace(/^In /, ""))}</b></span>` : ""}</div>
+      </div>
       <div class="ft-fight">${side("a")}<span class="ft-vs">vs</span>${side("b")}</div>
       ${(p.schedule || []).length ? `<div class="ft-sched">${p.schedule.map(sg => `<span><b>${esc(sg.segment)}</b>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"})}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</span>`).join("")}</div>` : ""}
       <p class="ft-leg">${m.hidden ? "Our number on this fight is for members." : "Big number: our chance. Line: the sportsbook's, with their cut taken out."}</p>
