@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T17:26Z",
+ "updated": "2026-11-08T18:46Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -124,6 +124,11 @@
      "t": "2026-11-08T17:26Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": -238.0,
+     "b": 195.0
     }
    ],
    "edge_a": 0.02,
@@ -223,6 +228,11 @@
     },
     {
      "t": "2026-11-08T17:26Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
      "a": -192.0,
      "b": 160.0
     }
@@ -326,6 +336,11 @@
      "t": "2026-11-08T17:26Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
    "edge_a": 0.025,
@@ -425,6 +440,11 @@
     },
     {
      "t": "2026-11-08T17:26Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
      "a": -170.0,
      "b": 142.0
     }
@@ -531,6 +551,11 @@
      "t": "2026-11-08T17:26Z",
      "a": -900.0,
      "b": 600.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": -900.0,
+     "b": 600.0
     }
    ],
    "edge_a": 0.053,
@@ -592,6 +617,11 @@
      "t": "2026-11-08T17:26Z",
      "a": -142.0,
      "b": 120.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": -142.0,
+     "b": 120.0
     }
    ],
    "edge_a": -0.039,
@@ -630,21 +660,27 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.31,
-   "p_a": 0.31,
+   "p_a": 0.394,
    "model_pick": "Chris Duncan",
    "tier": "Medium",
-   "fair_odds_a": 223,
-   "fair_odds_b": -223,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "line_history": [],
-   "edge_a": null,
+   "fair_odds_a": 154,
+   "fair_odds_b": -154,
+   "market_p_a": 0.396,
+   "odds_a": 142.0,
+   "odds_b": -170.0,
+   "best_a": 142.0,
+   "best_b": -170.0,
+   "open_a": 142.0,
+   "open_b": -170.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": 142.0,
+     "b": -170.0
+    }
+   ],
+   "edge_a": -0.003,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -706,6 +742,11 @@
     },
     {
      "t": "2026-11-08T17:26Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
      "a": 180.0,
      "b": -218.0
     }
@@ -777,6 +818,11 @@
      "t": "2026-11-08T17:26Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.046,
@@ -843,6 +889,11 @@
      "t": "2026-11-08T17:26Z",
      "a": 285.0,
      "b": -360.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": 285.0,
+     "b": -360.0
     }
    ],
    "edge_a": -0.015,
@@ -907,6 +958,11 @@
     },
     {
      "t": "2026-11-08T17:26Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
      "a": 180.0,
      "b": -218.0
     }
@@ -984,10 +1040,7 @@
    "record_b": "11-1-0",
    "experts": null,
    "splits": null,
-   "why": [
-    "Our chance 52% vs the line's 49% (3 points of value)",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
-   ],
+   "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
@@ -1000,16 +1053,16 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.534,
-   "p_a": 0.48,
+   "p_a": 0.491,
    "model_pick": "Samuel Sanches",
    "tier": "Low",
-   "fair_odds_a": 108,
-   "fair_odds_b": -108,
-   "market_p_a": 0.511,
-   "odds_a": -115.0,
-   "odds_b": -105.0,
-   "best_a": -115.0,
-   "best_b": -105.0,
+   "fair_odds_a": 104,
+   "fair_odds_b": -104,
+   "market_p_a": 0.522,
+   "odds_a": -120.0,
+   "odds_b": 100.0,
+   "best_a": -120.0,
+   "best_b": 100.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -1028,12 +1081,17 @@
      "t": "2026-11-08T17:26Z",
      "a": -115.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-11-08T18:46Z",
+     "a": -120.0,
+     "b": 100.0
     }
    ],
    "edge_a": -0.031,
    "pick": "Samuel Sanches",
-   "our_pick": "Samuel Sanches",
-   "stake": 1.5,
+   "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
