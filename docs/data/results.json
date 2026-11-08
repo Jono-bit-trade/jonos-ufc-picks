@@ -47,16 +47,6 @@
   },
   {
    "date": "2026-11-07",
-   "fight": "Mitch Raposo vs Marcos Degli",
-   "pick": "Mitch Raposo",
-   "odds": 200,
-   "won": true,
-   "method": "DEC",
-   "units": 2.0,
-   "moved_toward": null
-  },
-  {
-   "date": "2026-11-07",
    "fight": "Priscila Cachoeira vs Nina Milo\u0161evi\u0107",
    "pick": "Nina Milo\u0161evi\u0107",
    "odds": -520,
@@ -64,6 +54,16 @@
    "method": "KO",
    "units": 0.19,
    "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Mitch Raposo vs Marcos Degli",
+   "pick": "Mitch Raposo",
+   "odds": 200,
+   "won": true,
+   "method": "DEC",
+   "units": 2.0,
+   "moved_toward": null
   },
   {
    "date": "2026-10-31",
