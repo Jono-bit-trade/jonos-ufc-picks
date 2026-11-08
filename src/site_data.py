@@ -546,10 +546,60 @@ def main():
         d["result"] = np.select([d["winner"] == s, d["winner"] == o, d["winner"] == "draw"], ["W", "L", "D"], "NC")
         d["side"] = s
         d["opp_stance"], d["opp_reach"] = fights[f"stance_{o}"], fights[f"reach_{o}"]
+        d["opp_before"] = fights[f"pre_{o}"]
         long.append(d[["date", "fight_id", "event_name", "name", "opp", "result", "method", "finish", "end_round",
                        "weight_class", "before", "after", "rd", "odds", "height", "reach", "stance", "age", "title", "side",
-                       "opp_stance", "opp_reach", "rounds"]])
+                       "opp_stance", "opp_reach", "rounds", "opp_before"]])
     long = pd.concat(long).sort_values(["date"], kind="stable")
+    # who has held a UFC title (won a title fight), and the percentile base for the style radar
+    holders = set(long[(long["title"].fillna(False).astype(bool)) & (long["result"] == "W")]["name"].map(norm))
+    RADAR = [("Striking", "sig_strikes_landed_per_min", 1), ("Defense", "sig_strikes_absorbed_per_min", -1),
+             ("Power", "knockdowns_per_15", 1), ("Wrestling", "takedowns_per_15", 1), ("Takedown D", "takedown_defense", 1),
+             ("Control", "control_time_share", 1), ("Submissions", "submission_attempts_per_15", 1), ("Durability", "_durability", 1)]
+    dur = {}
+    for name, g in long.groupby("name", sort=False):
+        n_ = len(g)
+        stopped = int(((g["result"] == "L") & g["method"].isin(["KO", "SUB"])).sum())
+        dur[norm(name)] = (1 - stopped / n_) if n_ >= 3 else None
+    base = {}
+    for lab, key, sgn in RADAR:
+        vals = [(dur.get(kk) if key == "_durability" else (v or {}).get(key)) for kk, v in styles.items()
+                if (v or {}).get("fights_with_stats", 0) >= 3]
+        base[lab] = np.sort(np.array([x for x in vals if x is not None and x == x], dtype=float))
+    def radar(k):
+        st = styles.get(k) or {}
+        if st.get("fights_with_stats", 0) < 3:
+            return None
+        out = {}
+        for lab, key, sgn in RADAR:
+            x = dur.get(k) if key == "_durability" else st.get(key)
+            b = base[lab]
+            if x is None or x != x or not len(b):
+                out[lab] = None
+                continue
+            lo, hi = np.searchsorted(b, x, "left"), np.searchsorted(b, x, "right")
+            pctl = (lo + hi) / 2 / len(b)
+            out[lab] = int(round(100 * (pctl if sgn > 0 else 1 - pctl)))
+        return out
+    def highlights(g, hist):
+        w = g[g["result"] == "W"]
+        out = {}
+        if len(w) and w["opp_before"].notna().any():
+            b_ = w.loc[w["opp_before"].idxmax()]
+            out["best_win"] = {"opp": b_["opp"], "opp_slug": slug(b_["opp"]), "opp_rating": num(b_["opp_before"]), "date": b_["date"],
+                               "method": b_["finish"] if isinstance(b_["finish"], str) else b_["method"]}
+        up = w[w["odds"] > 0]
+        if len(up):
+            u_ = up.loc[up["odds"].idxmax()]
+            out["upset"] = {"opp": u_["opp"], "opp_slug": slug(u_["opp"]), "odds": num(u_["odds"]), "date": u_["date"]}
+        hr = w[(w["opp_before"] - w["before"]) >= 30].assign(gap=lambda d: d["opp_before"] - d["before"]).sort_values("gap", ascending=False)
+        out["higher_rated"] = {"count": int(len(hr)), "top": [{"opp": r_.opp, "opp_slug": slug(r_.opp), "gap": num(r_.gap)} for r_ in hr.head(3).itertuples()]}
+        vc = g[g["opp"].map(norm).isin(holders) & g["result"].isin(["W", "L"])]
+        if len(vc):
+            per = vc.groupby("opp")["result"].agg(lambda x: f"{(x == 'W').sum()}-{(x == 'L').sum()}")
+            out["vs_champs"] = {"won": int((vc["result"] == "W").sum()), "lost": int((vc["result"] == "L").sum()),
+                                "opponents": [{"opp": o_, "opp_slug": slug(o_), "record": r_} for o_, r_ in per.items()][:6]}
+        return out
     labels = {}
     for name, g in long.groupby("name", sort=False):
         w = g[g["result"] == "W"]
@@ -604,6 +654,7 @@ def main():
             "grappling": grappling(g, losses, gsrc.get(k, {})),
             "splits": splits(g, labels),
             "rating_history": [[d, num(r)] for d, r in zip(g["date"], g["after"])],
+            "radar": radar(k), "highlights": highlights(g, hist), "held_title": k in holders,
             "fights": hist,
         }
         write(f"fighters/{prof['slug']}.json", prof)
@@ -646,6 +697,9 @@ def main():
     write("countries.json", countries)
     # official UFC rankings (src/ufc_rankings.py): {slug: {"div", "rank" (0 = champion), "p4p"}}
     rk = read("ufc_rankings.csv")
+    if not rk.empty:
+        from ufc_rankings import english
+        rk["division"] = rk["division"].map(english)
     ranks = {}
     if not rk.empty:
         ua = read("ufc_athletes.csv")

@@ -754,6 +754,61 @@ function ratingChart(h) {
     <text x="40" y="${H - 4}">${h[0][0].slice(0, 4)}</text><text x="${W - 16}" y="${H - 4}" text-anchor="end">${h.at(-1)[0].slice(0, 4)}</text></svg>`;
 }
 
+// ---- fighter page: octagon style radar, badges, strengths and career highlights ----
+function radarSvg(R, f) {
+  const keys = Object.keys(R), n = keys.length, cx = 160, cy = 160, rad = 118;
+  const pt = (i, r) => { const ang = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + r * Math.cos(ang), cy + r * Math.sin(ang)]; };
+  const ring = r => keys.map((_, i) => pt(i, r).join(",")).join(" ");
+  const poly = keys.map((k, i) => pt(i, rad * Math.max(6, R[k] ?? 0) / 100).join(",")).join(" ");
+  const labels = keys.map((k, i) => { const [x, y] = pt(i, rad + 24), anchor = Math.abs(x - cx) < 8 ? "middle" : x > cx ? "start" : "end";
+    return `<text x="${x}" y="${y + 4}" text-anchor="${anchor}" class="rl">${esc(k)}</text><text x="${x}" y="${y + 18}" text-anchor="${anchor}" class="rv">${R[k] == null ? "–" : R[k]}</text>`; }).join("");
+  return `<div class="radar"><svg viewBox="-75 -10 470 350" role="img" aria-label="${esc(f.name)} style profile: ${keys.map(k => `${k} ${R[k] ?? "n/a"} percentile`).join(", ")}">
+    ${[25, 50, 75, 100].map(p => `<polygon points="${ring(rad * p / 100)}" class="rg${p === 100 ? " outer" : ""}"/>`).join("")}
+    ${keys.map((_, i) => `<line x1="${cx}" y1="${cy}" x2="${pt(i, rad)[0]}" y2="${pt(i, rad)[1]}" class="ax"/>`).join("")}
+    <polygon points="${poly}" class="shape"/>
+    ${keys.map((k, i) => { const [x, y] = pt(i, rad * Math.max(6, R[k] ?? 0) / 100); return `<circle cx="${x}" cy="${y}" r="3.5" class="dot"/>`; }).join("")}
+    ${labels}</svg><div class="radar-ph">${photo(f.espn_id, f.name, "md")}</div></div>`;
+}
+function fighterBadges(f) {
+  const b = [], r = RANK[f.slug];
+  if (r && r.rank === 0) b.push(["gold", `Champion · ${esc(r.div)}`]);
+  else if (f.held_title) b.push(["gold2", "Former champion"]);
+  if (f.streak >= 3) b.push(["green", `${f.streak}-fight win streak`]);
+  const L = f.losses_by || {};
+  if ((L.KO || 0) + (L.SUB || 0) + (L.DEC || 0) === 0 && (f.fights || []).length >= 3) b.push(["green", "Unbeaten in the UFC"]);
+  if (f.finish_rate >= 0.7 && ((f.wins_by || {}).KO || 0) + ((f.wins_by || {}).SUB || 0) >= 4) b.push(["red", `Finisher · ${Math.round(100 * f.finish_rate)}% of wins`]);
+  if (f.last_fight && (Date.now() - new Date(f.last_fight)) / 864e5 <= 183) b.push(["blue", "Recently active"]);
+  else if (f.last_fight && (Date.now() - new Date(f.last_fight)) / 864e5 > 548) b.push(["grey", "Inactive 18+ months"]);
+  if (f.title_fights) b.push(["grey", `${f.title_fights} title fight${f.title_fights > 1 ? "s" : ""}`]);
+  return b.length ? `<div class="fbadges">${b.map(([c, t]) => `<span class="fbadge ${c}">${t}</span>`).join("")}</div>` : "";
+}
+const STRENGTH_WORDS = {Striking: "striking volume", Defense: "strike defense", Power: "knockout power", Wrestling: "wrestling (takedowns)",
+  "Takedown D": "takedown defense", Control: "positional control", Submissions: "submission threat", Durability: "durability"};
+function strengthLine(R) {
+  if (!R) return "";
+  const E = Object.entries(R).filter(([, v]) => v != null).sort((x, y) => y[1] - x[1]);
+  if (!E.length) return "";
+  const top = E.filter(([, v]) => v >= 75).slice(0, 2), low = E.filter(([, v]) => v <= 25).slice(-1)[0];
+  return `<div class="fstrength">
+    ${top.length ? `<div><span class="fs-k">Greatest strength</span><p><b>${esc(STRENGTH_WORDS[top[0][0]])}</b>: better than ${top[0][1]}% of UFC fighters with stats.${top[1] ? ` Also strong in ${esc(STRENGTH_WORDS[top[1][0]])} (${top[1][1]}%).` : ""}</p></div>`
+      : `<div><span class="fs-k">Profile</span><p><b>Well-rounded</b>: no single area in the top quarter, best at ${esc(STRENGTH_WORDS[E[0][0]])} (${E[0][1]}%).</p></div>`}
+    ${low ? `<div class="weak"><span class="fs-k">Watch</span><p>${esc(STRENGTH_WORDS[low[0]])}: ${low[1]}th percentile.</p></div>` : ""}</div>`;
+}
+function highlightCards(f) {
+  const H = f.highlights || {}, cards = [];
+  const meth = m => ({"U-DEC": "unanimous decision", "S-DEC": "split decision", "M-DEC": "majority decision", KO: "KO/TKO", SUB: "submission", DEC: "decision"}[m] || m || "");
+  const yr = d => esc(String(d || "").slice(0, 4));
+  if (H.best_win) cards.push(["gold", "Best win", `${fighterLink(H.best_win.opp, H.best_win.opp_slug)}`, `rated ${H.best_win.opp_rating} going in · ${yr(H.best_win.date)}, ${esc(meth(H.best_win.method))}`]);
+  if (H.upset) cards.push(["teal", "Biggest upset", `${odds(H.upset.odds)} vs ${fighterLink(H.upset.opp, H.upset.opp_slug)}`, `won as the underdog · ${yr(H.upset.date)}`]);
+  if (H.higher_rated && H.higher_rated.count) cards.push(["purple", "Beat higher-rated opponents", `${H.higher_rated.count} win${H.higher_rated.count > 1 ? "s" : ""}`,
+    H.higher_rated.top.map(x => `${fighterLink(x.opp, x.opp_slug)} <small>+${x.gap}</small>`).join("<br>")]);
+  if (H.vs_champs) cards.push(["blue", "Against UFC champions", `${H.vs_champs.won}-${H.vs_champs.lost}`,
+    H.vs_champs.opponents.map(x => `${fighterLink(x.opp, x.opp_slug)} <small>${esc(x.record)}</small>`).join("<br>")]);
+  if (!cards.length) return "";
+  return `<h2>${kick("By the numbers", "gold")}Career highlights</h2>
+    <div class="hlgrid">${cards.map(([c, k, big, sub]) => `<div class="hl ${c}"><span class="hl-k">${k}</span><b>${big}</b><div class="hl-s">${sub}</div></div>`).join("")}</div>`;
+}
+
 async function viewFighter(s) {
   const [f, avgs] = await Promise.all([get(`fighters/${s}.json`), get("division_avg.json")]);
   if (!f) {   // a UFC debutant on the upcoming card: a short page from the card itself
@@ -808,7 +863,8 @@ async function viewFighter(s) {
         return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
       <div class="fh-main">
         <h1>${esc(f.name)}</h1>${FAV[f.slug] ? `<p class="favtag">★ Jono's favorite${FAV[f.slug].note ? ` · ${esc(FAV[f.slug].note)}` : ""}</p>` : ""}
-        <p class="fh-sub">${rankOf(f.slug, true)}${RANK[f.slug] && RANK[f.slug].p4p ? `<span class="urank p4p">#${RANK[f.slug].p4p} P4P</span>` : ""}${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
+        ${fighterBadges(f)}
+        <p class="fh-sub">${RANK[f.slug] && RANK[f.slug].rank === 0 ? "" : rankOf(f.slug, true)}${RANK[f.slug] && RANK[f.slug].p4p ? `<span class="urank p4p">#${RANK[f.slug].p4p} P4P</span>` : ""}${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
         ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
         <div class="fchips">
           ${chip(esc(f.ufc_record), "UFC record")}${f.pro_record ? chip(esc(f.pro_record), "Pro record") : ""}
@@ -820,6 +876,10 @@ async function viewFighter(s) {
         ${g.flags && g.flags.length ? `<ul class="gflags">${g.flags.map(x => `<li><span class="gflag ${x.flag === "Big grappler" ? "off" : "def"}">${esc(x.flag)}</span> ${esc(x.why)}</li>`).join("")}</ul>` : ""}
       </div>
     </section>
+    ${f.radar ? `<h2>${kick(METHOD, "gold")}Style profile</h2>
+      <div class="fprofile">${radarSvg(f.radar, f)}<div class="fp-side">${strengthLine(f.radar)}
+        <p class="note">Each point is a percentile among UFC fighters with fight stats: 90 means better than 90% of them. Defense counts strikes absorbed (fewer is better); durability counts how rarely they've been stopped.</p></div></div>` : ""}
+    ${highlightCards(f)}
     <div class="cols">
       <section><h2>How they win (${w})</h2>${by(f.wins_by, w)}</section>
       <section><h2>How they lose (${l})</h2>${by(f.losses_by, l)}</section>

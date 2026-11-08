@@ -16,6 +16,17 @@ from common import path
 URL = "https://www.ufc.com/rankings"
 OUT = "ufc_rankings.csv"
 UA = "Mozilla/5.0 (compatible; jonos-ufc-picks; +https://github.com/Jono-bit-trade/jonos-ufc-picks)"
+# UFC.com sometimes serves another language by location; division names always stored in English
+FR = {"poids mouche": "Flyweight", "poids coq": "Bantamweight", "poids plume": "Featherweight", "poids légers": "Lightweight",
+      "poids léger": "Lightweight", "poids mi-moyens": "Welterweight", "poids moyens": "Middleweight", "poids mi-lourds": "Light Heavyweight",
+      "poids lourds": "Heavyweight", "poids paille féminins": "Women's Strawweight", "poids mouche féminins": "Women's Flyweight",
+      "poids coq féminins": "Women's Bantamweight", "féminin - livre pour livre": "Women's Pound-for-Pound",
+      "livre pour livre": "Men's Pound-for-Pound", "masculin - livre pour livre": "Men's Pound-for-Pound"}
+
+
+def english(div):
+    d = str(div).strip()
+    return FR.get(d.lower(), d)
 
 
 def athlete_slug(href):
@@ -31,7 +42,7 @@ def parse(html):
         div = re.sub(r"\s+", " ", head.get_text(" ", strip=True)).strip() if head else ""
         if not div:
             continue
-        div = re.sub(r"\s*Top Rank$", "", div)                  # "Men's Pound-for-Pound Top Rank"
+        div = english(re.sub(r"\s*Top Rank$", "", div))                  # "Men's Pound-for-Pound Top Rank"
         champ = g.select_one(".rankings--athlete--champion h5 a") or g.select_one("h5 a")
         if champ and "pound" not in div.lower():
             rows.append({"division": div, "rank": 0, "name": champ.get_text(strip=True), "ufc_slug": athlete_slug(champ.get("href"))})
@@ -48,7 +59,7 @@ def parse(html):
 
 def main():
     try:
-        r = requests.get(URL, headers={"User-Agent": UA}, timeout=30)
+        r = requests.get(URL, headers={"User-Agent": UA, "Accept-Language": "en-US,en;q=0.9"}, timeout=30)
         r.raise_for_status()
         d = parse(r.text)
     except Exception as e:
