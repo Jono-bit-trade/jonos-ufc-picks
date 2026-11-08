@@ -19,6 +19,7 @@ from features import build, CORE, FORM, CONTEXT, STYLE
 from model import GROUPS, WinModel, MethodModel
 from get_odds import attach, lines, norm, snapshot
 from ratings import table
+from picks import tier
 
 OUT = os.path.join(SITE, "data")
 os.makedirs(OUT, exist_ok=True)
@@ -108,6 +109,10 @@ def update_ledger(log, fights):
     if new:
         led = pd.concat([led, pd.DataFrame(new)], ignore_index=True) if not led.empty else pd.DataFrame(new)
         led.to_csv(f, index=False)
+    if not led.empty and not log.empty:   # confidence tier, from the chance logged before each fight
+        from picks import tier
+        lp = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")["p_final"]
+        led["tier"] = [tier(lp.get(i)) for i in led["fight_id"]]
     summ = {"from": LEDGER_FROM, "fights": 0, "model_right": 0, "our_bets": 0, "our_won": 0, "our_units": 0.0,
             "our_risked": 0.0, "our_staked_units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0, "rows": []}
     if not led.empty:
@@ -122,6 +127,9 @@ def update_ledger(log, fights):
                      **({"value_bets": int(led["value_pick"].notna().sum()),
                          "value_won": int((led["value_pick"] == led["winner"]).sum()),
                          "value_units": round(float(pd.to_numeric(led["value_units"], errors="coerce").sum()), 2)} if "value_pick" in led else {}),
+                     **({"tiers": {t: {"picks": int((led["tier"] == t).sum()),
+                                        "right": int(((led["tier"] == t) & (led["model_pick"] == led["winner"])).sum())}
+                                   for t in ("High", "Medium", "Low")}} if "tier" in led else {}),
                      "rows": json.loads(led.sort_values("date", ascending=False).to_json(orient="records"))})
     json.dump(summ, open(os.path.join(OUT, "ledger.json"), "w"), indent=1)
     return summ
@@ -500,6 +508,7 @@ def main():
             "debut_a": bool(f["debut_a"]), "debut_b": bool(f["debut_b"]),
             "p_model_a": num(f["p_model"]), "p_a": num(f["p_final"]),
             "model_pick": model_pick(f["a"], f["b"], f["p_final"], f["fair_a"], f.get("expert_lean")),
+            "tier": tier(f["p_final"]),
             "fair_odds_a": to_american(f["p_final"]), "fair_odds_b": to_american(1 - f["p_final"]),
             "market_p_a": num(f["fair_a"]), "odds_a": num(f["odds_a"], 0), "odds_b": num(f["odds_b"], 0),
             "best_a": num(f["best_a"], 0), "best_b": num(f["best_b"], 0),

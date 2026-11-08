@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
-from picks import our_side, expert_lean, stake, winner_side
+from picks import our_side, expert_lean, stake, winner_side, tier
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -208,7 +208,10 @@ def track_record(rows):
                 "our_staked_units": round(sum(x.get("staked_units", x["units"]) for x in ours), 1),
                 "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None,
                 "lean_bets": len(leans), "lean_won": sum(x["right"] for x in leans),
-                "lean_units": round(sum(x["units"] for x in leans), 1)}
+                "lean_units": round(sum(x["units"] for x in leans), 1),
+                "tiers": {t: (lambda q: {"picks": len(q), "right": sum(x["right"] for x in q),
+                                         "pct": round(100 * sum(x["right"] for x in q) / len(q), 1) if q else None})(
+                              [x for x in picks if x.get("tier") == t]) for t in ("High", "Medium", "Low")}}
     rows = [r for r in rows if r["date"] >= RECORD_FROM]   # the official record starts here
     years = sorted({r["date"][:4] for r in rows if r["pick"]}, reverse=True)
     curve, fu, su = [], 0.0, 0.0   # cumulative our-picks units after each card, flat and staked
@@ -429,7 +432,7 @@ def main():
                     o = f.odds_a if on_a else f.odds_b
                     u = (float(payout(o)) if right else -1.0) if pd.notna(o) else None
                     pick = {"side": "a" if on_a else "b", "right": right, "odds": num(o),
-                            "units": round(u, 2) if u is not None else None, "lean": bool(lean)}
+                            "units": round(u, 2) if u is not None else None, "lean": bool(lean), "tier": tier(best)}
                     rec["picks"] += 1
                     rec["right"] += int(right)
                     if u is not None:
@@ -486,6 +489,7 @@ def main():
                     return None if sd is None else {"side": sd, "right": sd == b["winner"], "odds": num(o), "units": round(float(u), 2) if u == u and u is not None else None}
                 b["model_pick"] = mk(L.get("model_pick"), L.get("model_odds"), L.get("model_units"))
                 if b["model_pick"]:
+                    b["model_pick"]["tier"] = tier(b.get("final_p_a"))
                     b["model_pick"]["lean"] = isinstance(L.get("expert_lean"), str) and L.get("model_pick") == L.get("expert_lean")
                 b["value_pick"] = mk(L.get("value_pick"), L.get("value_odds"), L.get("value_units"))
                 b["our_pick"] = mk(L.get("our_pick"), L.get("our_odds"), L.get("our_units"))

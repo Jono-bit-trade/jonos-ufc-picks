@@ -37,6 +37,10 @@ const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math
 const recLine = r => !r || !r.picks ? "" :
   `Model ${r.right}/${r.picks} (${Math.round(r.right / r.picks * 100)}%)` + (r.our_bets ? ` · our picks ${r.our_won}/${r.our_bets} (${Math.round(r.our_won / r.our_bets * 100)}%) <span class="${r.our_units >= 0 ? "won" : "lost"}">${units(r.our_units)}</span>` : "");
 let COUNTRY = {}, RANK = {}, FAV = {};
+const METHOD = "EDGE Rating";
+// confidence tier from our chance for the favored side: High 70%+, Medium 58-70%, Low under 58%
+const tierOf = p => p == null ? null : Math.max(p, 1 - p) >= 0.70 ? "High" : Math.max(p, 1 - p) >= 0.58 ? "Medium" : "Low";
+const tierTag = (t, short) => t ? `<span class="tier t-${t.toLowerCase()}" title="${t} confidence: our chance ${t === "High" ? "70%+" : t === "Medium" ? "58-70%" : "under 58%"}. See accuracy by tier on the Record page.">${short ? t.slice(0, t === "Medium" ? 3 : 4) : t + " confidence"}</span>` : "";
 // Jono's favorite fighters (docs/favorites.json): a gold star by the name everywhere it links
 // current UFC champions (from the official rankings): a gold CHAMP tag by the name everywhere it links
 const champTag = s => RANK[s] && RANK[s].rank === 0 ? `<span class="champtag" title="Current UFC ${esc(RANK[s].div)} champion">Champ</span>` : "";
@@ -132,7 +136,7 @@ function expertBar(e, a, b, winner) {
 
 function bout(f, i, edge) {
   const pa = f.p_a, line = f.market_p_a, m = f.method || {};
-  const tag = (debut, rating, rec) => (debut ? "UFC debut" : "Rating " + rating) + (rec ? ` · ${esc(rec)}` : "");
+  const tag = (debut, rating, rec) => (debut ? "UFC debut" : "EDGE " + rating) + (rec ? ` · ${esc(rec)}` : "");
   let pickHtml;
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
@@ -157,7 +161,7 @@ function bout(f, i, edge) {
     ${status(f)}
     <div class="corners">
       <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
-      <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}</div>
+      <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}${tierTag(f.tier || tierOf(f.p_a))}</div>
       <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
     </div>
     <div class="pct"><span class="pa">${pa100}%</span><span class="lbl">Model</span><span class="pb">${100 - pa100}%</span></div>
@@ -293,7 +297,7 @@ function compactRow(f, i, edge) {
       <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
       <span class="cr-p"><b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b></span>
       <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
-      <span class="cr-pick">${f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
+      <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
     </summary>${bout(f, i, edge)}</details>`;
 }
 
@@ -310,7 +314,7 @@ function picksStrip(p) {
     return `<a class="ticket ${res}" href="#/card">
       <span class="tk-name">${esc(f.our_pick)}</span>
       <span class="tk-opp">vs ${esc(opp)}</span>
-      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
+      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
       ${f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
@@ -534,6 +538,25 @@ function countdown(start) {
   return d > 0 ? `In ${d} day${d > 1 ? "s" : ""}${h ? `, ${h} hour${h > 1 ? "s" : ""}` : ""}` : `In ${h} hour${h !== 1 ? "s" : ""}`;
 }
 
+// home: the brand band with three proof cards
+function proofBand(mr, L) {
+  if (!mr || !mr.since) return "";
+  const yr = mr.years && mr.years[0], s = mr.since, hi = s.tiers && s.tiers.High;
+  const live = L && L.fights ? `${L.our_won}-${L.our_bets - L.our_won}` : null;
+  return `<section class="proof">
+    <div class="pf-head"><span class="pf-kick">Powered by ${METHOD}</span>
+      <h1>Smarter UFC picks, <em>proven in public.</em></h1>
+      <p>Every fight rated, every pick locked before the bell, every result graded. No cherry-picking.</p></div>
+    <div class="pf-cards">
+      <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
+        <span class="pf-s">${yr ? `${yr.right}/${yr.picks} fights in ${esc(yr.year)}` : ""} · ${s.pct}% across ${s.picks.toLocaleString()} since ${mr.from || 2020}</span><span class="pf-go">See the full record →</span></a>
+      <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks</span><b>${hi ? hi.pct : "–"}%</b>
+        <span class="pf-s">${hi ? `${hi.right.toLocaleString()} of ${hi.picks.toLocaleString()} won since ${mr.from || 2020}, our chance 70%+` : ""}</span><span class="pf-go">This week's card →</span></a>
+      <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
+        <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u${live ? ` · live record ${live}` : ""}</span><span class="pf-go">Live, locked record →</span></a>
+    </div></section>`;
+}
+
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([get("predictions.json", true), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`;
@@ -543,8 +566,8 @@ async function viewHome() {
   } else if (p && p.fights.length) {
     const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
     hero = `<section class="hero">
-      <div class="when">${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
-      <h1>${esc(p.event)}</h1>
+      <div class="when">${kick("Next card", "red")}${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
+      <h2 class="hero-t">${esc(p.event)}</h2>
       <div class="faceoff">
         <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
@@ -569,7 +592,7 @@ async function viewHome() {
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
     <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
-  return `${recap}${hero}${record}
+  return `${proofBand(mr, L)}${recap}${hero}${record}
     ${homeLower(ev, ex, up, p)}`;
 }
 
@@ -661,7 +684,7 @@ async function viewEvent(s) {
   const rows = e.bouts.map((b, i) => {
     const won = b.winner === "a" ? b.a : b.winner === "b" ? b.b : null;
     const mp = b.model_pick, vp = b.value_pick;
-    const call = !mp ? "" : `<span class="tick ${mp.right ? "won" : "lost"}">Model${mp.lean ? " (expert lean)" : ""} ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
+    const call = !mp ? "" : `${tierTag(mp.tier || tierOf(b.final_p_a), true)}<span class="tick ${mp.right ? "won" : "lost"}">Model${mp.lean ? " (expert lean)" : ""} ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
     const op = b.our_pick;
     const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
       : !vp ? "" : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
@@ -709,7 +732,7 @@ async function viewFighters(q) {
       <a class="favbtn${favOnly ? " on" : ""}" href="#/fighters${favOnly ? "" : "?fav=1"}">★ Favorites${Object.keys(FAV).length ? ` (${Object.keys(FAV).length})` : ""}</a></div>
     <p class="note">${favOnly ? "Your favorite fighters. Add more by telling Claude, or edit docs/favorites.json." : term ? "" : "Active fighters (fought in the last 18 months), best rated first. Search finds everyone."}</p>
     <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}${champTag(f.slug)}${favStar(f.slug)}</b>
-      <span class="small">${esc(f.record)} · ${esc(f.weight_class)}</span><span class="small">Rating ${f.rating}</span></div></a>`).join("")}</div>
+      <span class="small">${esc(f.record)} · ${esc(f.weight_class)}</span><span class="small">EDGE ${f.rating}</span></div></a>`).join("")}</div>
     ${list.length > 120 ? `<p class="note">Showing 120 of ${list.length}: search to narrow it down.</p>` : ""}`;
 }
 
@@ -784,7 +807,7 @@ async function viewFighter(s) {
         ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
         <div class="fchips">
           ${chip(esc(f.ufc_record), "UFC record")}${f.pro_record ? chip(esc(f.pro_record), "Pro record") : ""}
-          ${chip(f.rating ?? "–", `Rating, peak ${f.peak_rating ?? "–"}`)}
+          ${chip(f.rating ?? "–", `${METHOD}, peak ${f.peak_rating ?? "–"}`)}
           ${chip(f.streak > 0 ? "W" + f.streak : f.streak < 0 ? "L" + -f.streak : "–", "Streak")}
           ${chip(f.finish_rate != null ? p2(f.finish_rate) : "–", "Finish rate")}
         </div>
@@ -947,7 +970,7 @@ async function viewMovers() {
       ${board(`${kick("6+ UFC wins", "red")}Finishers`, "", m.finishers.map(x => row(x, Math.round(100 * x.finish_rate) + "%", "", `${x.wins} UFC wins`)).join(""), "Share of UFC wins by KO or submission.")}
     </div>
     ${board(`${kick("Since 2010", "blue")}Highest peak ratings`, "peaks", m.peaks.map((x, i) => row(x, x.peak, "", `${i === 0 ? "All-time high in our data" : esc(x.weight_class || "")}`)).join(""), "Our data starts in 2010, so earlier greats like GSP and Anderson Silva are underrated here.")}
-    <p class="note">Ratings are Glicko-2, from every UFC fight since 2010. Active means a UFC fight in the last 18 months. Updated after every card.</p>`;
+    <p class="note">${METHOD}s (built on Glicko-2) from every UFC fight since 2010. Active means a UFC fight in the last 18 months. Updated after every card.</p>`;
 }
 
 // ---- Who wins? Any two fighters, rating-based chance and stats side by side ----
@@ -971,7 +994,7 @@ async function viewCompare(q) {
     const pctv = v => v == null ? "–" : Math.round(100 * v) + "%";
     const n2 = v => v == null ? "–" : (+v).toFixed(2);
     const rows = [
-      ["Rating", A.rating, B.rating, x => x, 1], ["Peak rating", A.peak_rating, B.peak_rating, x => x, 1],
+      [METHOD, A.rating, B.rating, x => x, 1], ["Peak " + METHOD, A.peak_rating, B.peak_rating, x => x, 1],
       ["UFC record", A.ufc_record, B.ufc_record, x => x || "–", 0], ["Streak", A.streak, B.streak, x => x == null ? "–" : x > 0 ? x + "W" : x < 0 ? -x + "L" : "–", 1],
       ["Age", A.age, B.age, x => x ?? "–", -1], ["Height", A.height_cm, B.height_cm, cm, 0], ["Reach", A.reach_cm, B.reach_cm, cm, 1],
       ["Stance", A.stance, B.stance, x => x || "–", 0], ["Finish rate", A.finish_rate, B.finish_rate, pctv, 1],
@@ -987,7 +1010,7 @@ async function viewCompare(q) {
       <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${esc(F.weight_class || "")}</span></a>`;
     body = `<div class="cmp-face lc-face">${side(A, "a", p)}<span class="lc-vs">VS</span>${side(B, "b", 1 - p)}</div>
       <div class="lc-bar"><i class="a" style="width:${Math.round(100 * p)}%"></i><i class="b"></i></div>
-      <p class="note cmp-why">${esc(p >= 0.5 ? A.name : B.name)} by ${pct(Math.max(p, 1 - p))} on ratings alone.
+      <p class="note cmp-why">${esc(p >= 0.5 ? A.name : B.name)} by ${pct(Math.max(p, 1 - p))} on ${METHOD} alone.
         On fight week the full model also weighs age, reach, layoffs, form and the betting line, so a real pick can differ.
         ${A.weight_class && B.weight_class && A.weight_class !== B.weight_class ? `<br>Different divisions (${esc(A.weight_class)} vs ${esc(B.weight_class)}): size isn't in the rating, so treat this as fun.` : ""}</p>
       <div class="tablewrap"><table class="cmp-t"><thead><tr><th class="ca">${esc(A.name)}</th><th></th><th class="cb">${esc(B.name)}</th></tr></thead><tbody>${rows.map(tr).join("")}</tbody></table></div>
@@ -1014,10 +1037,10 @@ async function viewRankings(q) {
   const view = q && q.get("view") || (div ? "ratings" : "divisions");
   const tabs = rkTabs(view);
   if (view === "divisions") return `<h1>Rankings</h1>${tabs}<p class="note">Official UFC champions and top 5 in each division, with our rating beside each name. Tap a division for our full ratings.</p>${divisionCards(fx)}`;
-  return `<h1>Rankings</h1>${tabs}<p class="note">Glicko-2 ratings from every UFC fight since 2010, active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
+  return `<h1>Rankings</h1>${tabs}<p class="note">${METHOD}s from every UFC fight since 2010 (built on Glicko-2), active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
     <div class="filters">${chip("", "Pound for pound")}${(r.divisions || []).map(x => chip(x.division, x.division.replace("Women's ", "W ").replace("Light Heavyweight", "Light Heavy"))).join("")}</div>
     <h2>${esc(d ? d.division : "Pound for pound")}</h2>
-    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th>Rating</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
+    <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th>${METHOD}</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
     ${list.map((f, i) => { const x = ix[f.fighter] || {}, lo = 1500, hi = Math.max(...list.map(y => y.rating));
       return `<tr class="${i === 0 ? "top1" : ""}"><td class="n rk">${i + 1}</td><td><span class="rkname">${photo(x.espn_id, f.fighter, "sm")}${flagOf(x.slug)}${fighterLink(f.fighter, x.slug)}</span></td>${d ? "" : `<td class="hide-sm">${esc(f.division || "")}</td>`}<td class="n">${esc(f.record || "")}</td>
         <td class="rbar"><span><i style="width:${Math.max(4, (f.rating - lo) / Math.max(1, hi - lo) * 100)}%"></i></span><b>${f.rating}</b></td><td class="n hide-sm">±${f.rd}</td><td class="n hide-sm">${esc(f.last_fight)}</td></tr>`; }).join("")}</tbody></table></div>`;
@@ -1070,6 +1093,19 @@ function ledgerBoxes(L, start) {
     ${L.experts_bets ? `<div class="recbits"><span>Model's picks <b>${L.model_won}/${L.model_bets}</b> ${u(L.model_staked_units)}</span><span>Expert leans <b>${L.experts_won}/${L.experts_bets}</b> ${u(L.experts_staked_units)}</span><span class="small">at suggested stakes</span></div>` : ""}${strip}`;
 }
 
+// accuracy by confidence tier: live record, this year and since 2020
+function tierBoard(L, mr) {
+  if (!mr || !mr.since || !mr.since.tiers) return "";
+  const yr = mr.years && mr.years[0], col = (t, k) => { const x = (k === "live" ? (L && L.tiers || {})[t] : k === "yr" ? (yr && yr.tiers || {})[t] : mr.since.tiers[t]) || {};
+    return x.picks ? `<b>${Math.round(100 * x.right / x.picks)}%</b><span>${x.right}/${x.picks}</span>` : `<b>–</b><span>no fights yet</span>`; };
+  return `<h2>${kick("Confidence", "gold")}Accuracy by confidence</h2>
+    <p class="note">Every fight gets a tier from our chance for the favorite: <b>High</b> 70%+, <b>Medium</b> 58-70%, <b>Low</b> under 58%. Winners picked in each tier:</p>
+    <div class="tierboard">${["High", "Medium", "Low"].map(t => `<div class="tb t-${t.toLowerCase()}"><h3>${tierTag(t)}</h3>
+      <div class="tb-row"><span>Live record</span>${col(t, "live")}</div>
+      <div class="tb-row"><span>${esc(yr ? yr.year : "This year")}</span>${col(t, "yr")}</div>
+      <div class="tb-row main"><span>Since ${mr.from || 2020}</span>${col(t, "since")}</div></div>`).join("")}</div>`;
+}
+
 async function viewRecord() {
   const [L, mr] = await Promise.all([get("ledger.json", true), get("model_record.json")]);
   const rows = L && L.rows ? L.rows : [];
@@ -1078,8 +1114,9 @@ async function viewRecord() {
     <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
     ${ledgerBoxes(L)}
     ${unitsChart(ledgerCurve(rows))}
-    ${rows.length ? `<div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
-      rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.our_source === "experts" ? " (expert lean)" : "") : "–"}</td>
+    ${tierBoard(L, mr)}
+    ${rows.length ? `<h2>Every locked pick</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th class="hide-sm">Conf.</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${
+      rows.map(g => `<tr><td>${esc(g.date)}</td><td>${esc(g.a)} vs ${esc(g.b)}</td><td class="hide-sm">${tierTag(g.tier, true)}</td><td>${g.our_pick ? esc(g.our_pick) + (g.our_source === "experts" ? " (expert lean)" : "") : "–"}</td>
         <td class="n">${g.our_pick ? odds(g.our_odds) : ""}</td><td class="n">${g.stake ? g.stake + "u" : ""}</td>
         <td class="n ${g.our_units > 0 ? "won" : g.our_units < 0 ? "lost" : ""}">${g.our_pick ? (g.our_units > 0 ? "Won " : g.our_units < 0 ? "Lost " : "Push ") + units(g.our_staked_units) : ""}</td>
         <td class="hide-sm ${g.value_pick ? (g.value_pick === g.winner ? "won" : "lost") : ""}">${g.value_pick ? `${esc(g.value_pick)} ${odds(g.value_odds)} ${g.value_pick === g.winner ? "✓" : "✗"}` : "–"}</td>
@@ -1114,6 +1151,8 @@ async function viewHow() {
   const step = (n, t, d) => `<div class="hw-step"><span class="hw-n">${n}</span><b>${t}</b><p>${d}</p></div>`;
   return `<h1>How it works</h1>
     <p class="lede">We give every fighter a chance to win. When ours beats the betting line, it's a pick, and every pick is graded.</p>
+    <div class="howbrand"><div><span class="pf-kick">${METHOD}</span><p>Our rating for every UFC fighter since 2010, built on Glicko-2: it rises and falls with each result, weighs who you beat, and knows how sure it is about each fighter.</p></div>
+      <div><span class="pf-kick">Confidence</span><p>Every fight gets a tier from our chance for the favorite. ${tierTag("High")} 70%+ has picked ${S && S.tiers ? S.tiers.High.pct + "%" : "about 80%"} of winners since 2020, ${tierTag("Medium")} 58-70% ${S && S.tiers ? S.tiers.Medium.pct + "%" : ""}, ${tierTag("Low")} under 58% ${S && S.tiers ? S.tiers.Low.pct + "%" : ""}.</p></div></div>
     <div class="hw">
       ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating, weighted by how the fight ended and who it was against.")}
       ${step(2, "Predict the fight", "Rating, form, experience, age, reach and finishing history give each fighter a chance to win.")}
@@ -1162,6 +1201,9 @@ async function route() {
   clearTimeout(skel);
   const keepFocus = document.activeElement && document.activeElement.id === "fsearch";
   $("#view").innerHTML = html;
+  const h1 = page !== "home" && $("#view h1");
+  if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["card", "events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record", "experts"].includes(page))
+    h1.insertAdjacentHTML("afterend", `<p class="powered">Powered by <b>${METHOD}</b> · every pick locked before the fight</p>`);
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
   liveBar();
@@ -1184,3 +1226,36 @@ function countUp() {
 }
 window.addEventListener("hashchange", () => { const m = document.querySelector(".tabbar .more"); if (m) m.open = false; route(); });
 route();
+
+// header search: instant fighter results from the index
+(function headerSearch() {
+  const box = document.getElementById("hs"), res = document.getElementById("hsr");
+  if (!box) return;
+  let idx = null, sel = 0, hits = [];
+  const fold = s => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const close = () => { res.hidden = true; };
+  const go = x => { if (!x) return; close(); box.value = ""; box.blur(); location.hash = "#/fighter/" + x.slug; };
+  const draw = () => {
+    res.innerHTML = hits.length ? hits.map((x, i) => `<a href="#/fighter/${esc(x.slug)}" class="${i === sel ? "on" : ""}" data-i="${i}">${photo(x.espn_id, x.name, "sm")}
+      <span class="hs-n"><span>${esc(x.name)}${champTag(x.slug)}${favStar(x.slug)}</span><small>${esc(x.weight_class || "")} · ${esc(x.record || "")}</small></span><b>${x.rating ?? ""}</b></a>`).join("")
+      : `<div class="hs-none">No fighter by that name</div>`;
+    res.hidden = false;
+  };
+  box.addEventListener("input", async () => {
+    const q = fold(box.value.trim());
+    if (q.length < 2) return close();
+    idx = idx || await get("fighters/index.json") || [];
+    const starts = [], has = [];
+    for (const x of idx) { const n = fold(x.name); if (n.startsWith(q) || n.split(" ").some(w => w.startsWith(q))) starts.push(x); else if (n.includes(q)) has.push(x); }
+    hits = starts.concat(has).slice(0, 8); sel = 0; draw();
+  });
+  box.addEventListener("keydown", e => {
+    if (res.hidden) return;
+    if (e.key === "ArrowDown") { sel = Math.min(sel + 1, hits.length - 1); draw(); e.preventDefault(); }
+    else if (e.key === "ArrowUp") { sel = Math.max(sel - 1, 0); draw(); e.preventDefault(); }
+    else if (e.key === "Enter") { go(hits[sel]); e.preventDefault(); }
+    else if (e.key === "Escape") close();
+  });
+  res.addEventListener("click", () => { close(); box.value = ""; });
+  document.addEventListener("click", e => { if (!e.target.closest(".hsearch")) close(); });
+})();

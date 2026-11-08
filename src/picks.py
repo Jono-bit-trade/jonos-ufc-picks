@@ -71,3 +71,11 @@ def winner_side(p_final, fair, lean=None):
         if v:
             return v
     return lean or ("a" if p_final > 0.5 else "b")
+
+
+def tier(p_final):
+    """Confidence tier from our final chance for the favored side: High 70%+, Medium 58-70%, Low under 58%."""
+    if p_final is None or p_final != p_final:
+        return None
+    c = max(p_final, 1 - p_final)
+    return "High" if c >= 0.70 else "Medium" if c >= 0.58 else "Low"
