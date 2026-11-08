@@ -1486,3 +1486,15 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .ft-act a{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;box-sizing:border-box}
 .ft-act a{margin:0!important;height:42px;min-height:0;line-height:1}
 .pt-i{color:#7a7d87}
+/* home hero: big headshots */
+.faceoff { align-items: flex-start; }
+.faceoff .pt.hero-pt { width: clamp(150px, 26vw, 300px); max-width: none; margin-bottom: 6px; }
+.faceoff .vs { align-self: center; }
+@media (max-width: 560px) { .faceoff .pt.hero-pt { width: 40vw; } }
+/* combined: the main-event lead sits in a framed panel with the arena behind it */
+.feat{position:relative;isolation:isolate;margin:14px 0;padding:20px 22px 22px;border:1px solid #26282e;border-radius:3px;background:#141519;overflow:hidden}
+.feat::before{content:"";position:absolute;inset:0;z-index:-1;background:url(arena.svg) center bottom / cover no-repeat;opacity:.35;pointer-events:none}
+.feat .kicker{display:inline-block;margin-bottom:6px}
+.ft-sched{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:var(--quiet)}
+.ft-sched b{color:var(--ink);font-weight:600;margin-right:6px}
+@media (max-width:560px){.feat{padding:16px 14px}}

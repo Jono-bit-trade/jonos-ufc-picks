@@ -843,9 +843,10 @@ function feature(p, up) {
   const locked = p.gated && p.locked_count ? `<a class="ft-pk lock" href="#/pricing">${lockIcon}<span class="pk-n"><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</b><small>for members</small></span></a>` : "";
   return `<section class="feat">
     <div class="ft-main">
-      <p class="ft-meta"><b>${esc(ev)}</b> · ${dateLong(p.date)}${p.location ? " · " + esc(p.location.split(",")[0]) : ""}${start ? ` · <span class="ft-cd">${countdown(start)}</span>` : ""}</p>
-      <h1 class="ft-t">${esc(sub || ev)}</h1>
+      ${kick("Next card", "gold")}<p class="ft-meta"><b>${esc(ev)}</b> · ${dateLong(p.date)}${p.location ? " · " + esc(p.location.split(",")[0]) : ""}${start ? ` · <span class="ft-cd">${countdown(start)}</span>` : ""}</p>
+      <h2 class="ft-t">${esc(sub || ev)}</h2>
       <div class="ft-fight">${side("a")}<span class="ft-vs">vs</span>${side("b")}</div>
+      ${(p.schedule || []).length ? `<div class="ft-sched">${p.schedule.map(sg => `<span><b>${esc(sg.segment)}</b>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"})}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</span>`).join("")}</div>` : ""}
       <p class="ft-leg">${m.hidden ? "Our number on this fight is for members." : "Big number: our chance. Line: the sportsbook's, with their cut taken out."}</p>
       <div class="ft-act"><a class="btn" href="#/card">All ${p.fights.length} fights</a><a class="pill" href="#/fight/0">Breakdown of the main event</a></div>
     </div>
@@ -878,16 +879,16 @@ async function viewHome() {
     hero = liveCenter(p); picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
     clearTimeout(window.refresh); window.refresh = setTimeout(route, 120000);
   } else if (p && p.fights.length) {
-    hero = "FEATURE"; picksH = "";
+    hero = "FEATURE";
   } else if (false) {
     const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
     hero = `<section class="hero">
       <div class="when">${kick("Next card", "red")}${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
       <h2 class="hero-t">${esc(p.event)}</h2>
       <div class="faceoff">
-        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${m.hidden ? lockIcon : pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.a_slug)}">${portrait(m.a_id, m.a, "hero-pt")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${m.hidden ? lockIcon : pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${m.hidden ? lockIcon : (100 - Math.round(100 * m.p_a)) + "%"}</span><span class="ln">Line ${m.market_p_a != null ? (100 - Math.round(100 * m.market_p_a)) + "%" + " · " + odds(m.odds_b) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${portrait(m.b_id, m.b, "hero-pt")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${m.hidden ? lockIcon : (100 - Math.round(100 * m.p_a)) + "%"}</span><span class="ln">Line ${m.market_p_a != null ? (100 - Math.round(100 * m.market_p_a)) + "%" + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
       <div class="legendline">${m.hidden ? `Our chance on this fight is for members. <a href="#/pricing">See plans</a>` : "Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline."}</div>
@@ -908,8 +909,8 @@ async function viewHome() {
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
 ` : "";
-  if (hero === "FEATURE") return `${feature(p, up)}${proofLine(mr, L)}${recap}
-    <div class="homegrid"><div class="hg-main">${live}</div>${homeLower(ev, ex, up, p)}</div>`;
+  if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}
+    <div class="homegrid"><div class="hg-main">${record}</div>${homeLower(ev, ex, up, p)}</div>`;
   return `${proofBand(mr, L)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
