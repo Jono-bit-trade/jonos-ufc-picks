@@ -2,21 +2,45 @@
  {
   "name": "UFC 334: Gane vs. Hokit",
   "start": "2026-11-15T01:00Z",
-  "date": "2026-11-14"
+  "date": "2026-11-14",
+  "main_a": "Ciryl Gane",
+  "main_b": "Josh Hokit",
+  "main_ids": [
+   "4426000",
+   "4049391"
+  ]
  },
  {
   "name": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
   "start": "2026-11-21T18:00Z",
-  "date": "2026-11-21"
+  "date": "2026-11-21",
+  "main_a": "Ji\u0159\u00ed Proch\u00e1zka",
+  "main_b": "Navajo Stirling",
+  "main_ids": [
+   "3156612",
+   "5216713"
+  ]
  },
  {
   "name": "UFC Fight Night: Adesanya vs Magomedov",
   "start": "2026-12-05T18:00Z",
-  "date": "2026-12-05"
+  "date": "2026-12-05",
+  "main_a": "Israel Adesanya",
+  "main_b": "Shara Magomedov",
+  "main_ids": [
+   "4285679",
+   "4421784"
+  ]
  },
  {
   "name": "UFC 335: Oliveira vs. Lopes",
   "start": "2026-12-13T01:00Z",
-  "date": "2026-12-12"
+  "date": "2026-12-12",
+  "main_a": "Charles Oliveira",
+  "main_b": "Diego Lopes",
+  "main_ids": [
+   "2504169",
+   "4881999"
+  ]
  }
 ]
