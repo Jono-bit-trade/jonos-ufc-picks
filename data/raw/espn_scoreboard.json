@@ -1926,17 +1926,17 @@
       }
      ],
      "status": {
-      "clock": 59.0,
-      "displayClock": "0:59",
-      "period": 1,
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 2,
       "type": {
-       "id": "2",
-       "name": "STATUS_IN_PROGRESS",
+       "id": "142",
+       "name": "STATUS_END_OF_ROUND",
        "state": "in",
        "completed": false,
-       "description": "In Progress",
-       "detail": "R1, 0:59",
-       "shortDetail": "R1, 0:59"
+       "description": "End of Round",
+       "detail": "End R2",
+       "shortDetail": "End R2"
       }
      },
      "broadcasts": [
@@ -1948,6 +1948,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26314",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26313",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "26312",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26311",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26310",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26309",
        "type": {
@@ -1981,41 +2016,6 @@
        "type": {
         "id": "5",
         "text": "Round Start"
-       }
-      },
-      {
-       "id": "26304",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26303",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26302",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26301",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26300",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
