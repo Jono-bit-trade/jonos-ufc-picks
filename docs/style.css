@@ -1106,7 +1106,7 @@ b.gold{color:var(--gold)}
 .homegrid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start;margin-top:8px}
 .hg-side{display:grid;gap:14px;margin-top:28px}
 .hg-side .panel{margin:0}
-.hg-main .stats.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (min-width:1001px){.hg-main .stats.four{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:1000px){.homegrid{grid-template-columns:1fr}.hg-side{margin-top:0}}
 /* wider grids where the space helps */
 .divgrid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
