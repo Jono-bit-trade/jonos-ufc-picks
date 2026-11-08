@@ -2128,17 +2128,17 @@
       }
      ],
      "status": {
-      "clock": 247.0,
-      "displayClock": "4:07",
-      "period": 1,
+      "clock": 195.0,
+      "displayClock": "3:15",
+      "period": 2,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R1, 4:07",
-       "shortDetail": "R1, 4:07"
+       "detail": "R2, 3:15",
+       "shortDetail": "R2, 3:15"
       }
      },
      "broadcasts": [
@@ -2150,6 +2150,34 @@
       }
      ],
      "details": [
+      {
+       "id": "26332",
+       "type": {
+        "id": "8",
+        "text": "Pause Reason Low Blow"
+       }
+      },
+      {
+       "id": "26331",
+       "type": {
+        "id": "6",
+        "text": "Round Pause"
+       }
+      },
+      {
+       "id": "26328",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26327",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26326",
        "type": {
