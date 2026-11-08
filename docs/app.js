@@ -1294,10 +1294,38 @@ function timeframePanel(rr, key) {
       <div class="stat model"><b>${pc(mw, n)}</b><span>winners picked (${mw}/${n})</span></div>
       <div class="stat key"><b>${ow}/${O.length} <span class="sub ${os >= 0 ? "won" : "lost"}">${units(r1(os))}</span></b><span>our picks at suggested stakes${ok ? ` (${os >= 0 ? "+" : ""}${(100 * os / ok).toFixed(1)}% on ${r1(ok)}u risked)` : ""}</span></div>
       <div class="stat value"><b class="${vu >= 0 ? "won" : "lost"}">${units(r1(vu))}</b><span>value picks, ${vw}/${V.length} won (flat 1u)</span></div>
-      <div class="stat model"><b class="${mu >= 0 ? "won" : "lost"}">${units(r1(mu))}</b><span>every model winner (flat 1u)</span></div></div>
+      <div class="stat model"><b class="${mu >= 0 ? "won" : "lost"}">${units(r1(mu))}</b><span>every model winner (flat 1u)</span></div>
+      ${(() => { const F = R.filter(r => r[6]), fu = F.reduce((s, r) => s + (r[6][1] || 0), 0), fw = F.filter(r => r[6][0]).length;
+        return F.length ? `<div class="stat"><b class="${fu >= 0 ? "won" : "lost"}">${units(r1(fu))}</b><span>betting every favorite instead, ${pc(fw, F.length)} won (flat 1u)</span></div>` : ""; })()}</div>
     <div class="tf-tiers"><span class="tf-l">By confidence</span>${["High", "Medium", "Low"].map(tier).join("")}</div>
     <p class="note">${n} fights${live && back ? ": the backtest before " + esc(dateLong(rr.live_from)) + ", locked live picks from then on" : live ? ", all from the locked live record" : ", from the backtest at the average closing line"}.</p>
   </section>`;
+}
+
+// Record: EDGE against simply betting the favorite, so the advantage is plain to see
+function vsLine(mr) {
+  const s = mr && mr.since, v = s && s.vs_line; if (!v || !v.fights) return "";
+  const yr = mr.years && mr.years[0], y = yr && yr.vs_line;
+  const pc = (a, b) => b ? (100 * a / b).toFixed(1) + "%" : "–";
+  const bar = (label, val, max, cls) => `<div class="vl-bar"><span>${label}</span><div class="vl-track"><i class="${cls}" style="width:${Math.max(2, Math.abs(val) / max * 100)}%"></i></div><b class="${val >= 0 ? "won" : "lost"}">${units(val)}</b></div>`;
+  const max = Math.max(Math.abs(v.line_units), Math.abs(s.our_units), Math.abs(v.disagree_model_units), 1);
+  return `<section class="vline"><div class="vl-head"><h2>${kick("Proof", "gold")}${METHOD} vs. the betting line</h2>
+      <p class="note">The simplest strategy is betting the favorite every fight. The bookmaker's cut makes that a loser. Here's how we compare, ${mr.from || 2020} to today, flat 1 unit per bet.</p></div>
+    <div class="vl-grid">
+      <div class="vl-card"><span class="vl-k">Units</span>
+        ${bar("Bet every favorite", v.line_units, max, "neg")}
+        ${bar("Our picks", s.our_units, max, "pos")}
+        ${bar("When we disagree with the line", v.disagree_model_units, max, "pos")}
+        <p class="small">Same fights, same closing prices.</p></div>
+      <div class="vl-card"><span class="vl-k">When ${METHOD} disagrees with the line</span>
+        <b class="vl-big">${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b>
+        <p>Fights where we picked the betting underdog: <b>${pc(v.disagree_model_right, v.disagree)}</b> won for <b class="${v.disagree_model_units >= 0 ? "won" : "lost"}">${units(v.disagree_model_units)}</b>. ${v.disagree_line_expected != null ? `The line gave those fighters ${v.disagree_line_expected}% on average.` : ""}</p></div>
+      <div class="vl-card"><span class="vl-k">Winners picked</span>
+        <div class="vl-row"><span>${METHOD}</span><b>${pc(v.model_right, v.fights)}</b></div>
+        <div class="vl-row"><span>Betting favorite</span><b>${pc(v.line_right, v.fights)}</b></div>
+        ${y ? `<div class="vl-row sub"><span>${esc(yr.year)}: ${METHOD} / favorite</span><b>${pc(y.model_right, y.fights)} / ${pc(y.line_right, y.fights)}</b></div>` : ""}
+        <p class="small">Picking winners is close to even: favorites usually win. The edge is in the prices we choose to bet.</p></div>
+    </div></section>`;
 }
 
 // accuracy by confidence tier: live record, this year and since 2020
@@ -1322,6 +1350,7 @@ async function viewRecord(q) {
     <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
     ${ledgerBoxes(L)}
     ${unitsChart(ledgerCurve(rows))}
+    ${vsLine(mr)}
     ${timeframePanel(rr, tf)}
     ${tierBoard(L, mr)}
     ${rows.length ? `<h2>Every locked pick</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Fight</th><th class="hide-sm">Conf.</th><th>Our pick</th><th class="n">Odds</th><th class="n">Stake</th><th class="n">Result</th><th class="hide-sm">Value pick</th><th class="hide-sm">Model's winner</th></tr></thead><tbody>${

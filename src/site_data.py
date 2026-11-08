@@ -184,6 +184,18 @@ RECORD_FROM = "2020"   # 2016-2019 predictions had too little history behind the
                        # are still used for training, ratings and fighter histories.
 
 
+
+def line_call(fair_a, winner, odds_a, odds_b, model_side=None):
+    """The betting favorite as a pick: did it win, units betting it, and whether our model agreed."""
+    if fair_a is None or fair_a != fair_a or abs(fair_a - 0.5) < 1e-9 or winner not in ("a", "b"):
+        return None
+    side = "a" if fair_a > 0.5 else "b"
+    o = odds_a if side == "a" else odds_b
+    right = side == winner
+    u = (float(payout(o)) if right else -1.0) if o is not None and o == o else None
+    return {"right": right, "units": round(u, 3) if u is not None else None, "p_fav": round(max(fair_a, 1 - fair_a), 3),
+            "agree": None if model_side is None else model_side == side}
+
 def track_record(rows):
     """The model's record by year and in total: winners picked, and units from betting
     (1) the model's winner at the moneyline, (2) only value picks, where the model beat the line."""
@@ -209,6 +221,14 @@ def track_record(rows):
                 "our_roi_pct": round(100 * sum(x["units"] for x in ours) / len(ours), 1) if ours else None,
                 "lean_bets": len(leans), "lean_won": sum(x["right"] for x in leans),
                 "lean_units": round(sum(x["units"] for x in leans), 1),
+                "vs_line": (lambda L, D: {"fights": len(L), "line_right": sum(x["line"]["right"] for x in L),
+                                          "model_right": sum(x["pick"]["right"] for x in L),
+                                          "line_units": round(sum(x["line"]["units"] or 0 for x in L), 1),
+                                          "model_units": round(sum(x["pick"]["units"] or 0 for x in L), 1),
+                                          "disagree": len(D), "disagree_model_right": sum(x["pick"]["right"] for x in D),
+                                          "disagree_model_units": round(sum(x["pick"]["units"] or 0 for x in D), 1),
+                                          "disagree_line_expected": round(100 * sum(1 - x["line"]["p_fav"] for x in D) / len(D), 1) if D else None})(
+                    [r for r in rs if r.get("line") and r.get("pick")], [r for r in rs if r.get("line") and r.get("pick") and r["line"]["agree"] is False]),
                 "tiers": {t: (lambda q: {"picks": len(q), "right": sum(x["right"] for x in q),
                                          "pct": round(100 * sum(x["right"] for x in q) / len(q), 1) if q else None})(
                               [x for x in picks if x.get("tier") == t]) for t in ("High", "Medium", "Low")}}
@@ -465,7 +485,8 @@ def main():
                     rec["value_bets"] += 1
                     rec["value_won"] += int(right)
                     rec["value_units"] += u
-                graded_rows.append({"date": date, "pick": pick, "value": value, "our": our})
+                graded_rows.append({"date": date, "pick": pick, "value": value, "our": our,
+                                    "line": line_call(fair, f.winner, f.odds_a, f.odds_b, pick["side"] if pick else None)})
             bouts.append({"a": f.a, "b": f.b, "a_slug": slug(f.a), "b_slug": slug(f.b),
                           "a_id": ids.get(norm(f.a)), "b_id": ids.get(norm(f.b)),
                           "weight_class": f.weight_class if isinstance(f.weight_class, str) else "",
@@ -510,7 +531,9 @@ def main():
                     if o_:
                         rec["our_bets"] += 1; rec["our_won"] += int(o_["right"]); rec["our_units"] += o_["units"] or 0
                         rec["our_staked"] += o_.get("staked_units") or 0
-                graded_rows[g0:] = [{"date": date, "pick": b["model_pick"], "value": b["value_pick"], "our": b["our_pick"]}
+                graded_rows[g0:] = [{"date": date, "pick": b["model_pick"], "value": b["value_pick"], "our": b["our_pick"],
+                                     "line": line_call(b.get("line_p_a"), b["winner"], b.get("odds_a"), b.get("odds_b"),
+                                                       b["model_pick"]["side"] if b["model_pick"] else None)}
                                     for b in bouts if b["winner"] in ("a", "b")]
         rec["units"], rec["value_units"], rec["our_units"] = round(rec["units"], 2), round(rec["value_units"], 2), round(rec["our_units"], 2)
         rec["our_staked"] = round(rec["our_staked"], 2)
@@ -533,9 +556,10 @@ def main():
         m_, o_, v_ = r["pick"], r.get("our"), r.get("value")
         rr.append([r["date"], (m_.get("tier") or "?")[0], int(m_["right"]), m_["units"],
                    [int(o_["right"]), o_["units"], o_.get("staked_units", o_["units"]), o_.get("stake", 1), int(bool(o_.get("from_experts")))] if o_ else None,
-                   [int(v_["right"]), v_["units"]] if v_ else None])
+                   [int(v_["right"]), v_["units"]] if v_ else None,
+                   [int(r["line"]["right"]), r["line"]["units"], int(bool(r["line"]["agree"]))] if r.get("line") else None])
     write("record_rows.json", {"from": RECORD_FROM, "live_from": LEDGER_FROM,
-                               "cols": ["date", "tier", "model_right", "model_units", "our", "value"], "rows": rr})
+                               "cols": ["date", "tier", "model_right", "model_units", "our", "value", "line"], "rows": rr})
 
     # ---- fighters ----
     long = []
