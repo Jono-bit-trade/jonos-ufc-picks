@@ -808,8 +808,7 @@ function proofBand(mr, L) {
     <div class="pf-head">
       <h1>Beat the sportsbook, <em>not just the fight.</em></h1>
       <p>${s.vs_line ? `Our picks are up <b class="won">${units(s.our_units)}</b> since ${mr.from || 2020}. Betting every favorite lost <b class="lost">${units(s.vs_line.line_units)}</b> on the same fights.` : ""} Every pick goes up before the fight and gets graded after it, win or lose.</p>
-      <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/record">See every result</a></div>
-      <p class="pf-src">${goLive ? `Live, locked record since ${esc(dateLong(L.from))}. Backtest since ${mr.from || 2020} on the Record page.` : `Backtest since ${mr.from || 2020}: each fight predicted only from earlier fights. The live, locked record started ${esc(dateLong(L ? L.from : "2026-10-31"))}${live ? ` and stands at <b>${live}</b>` : ""}.`}</p></div>
+      <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/record">See every result</a></div></div>
     <div class="pf-cards">
       <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
         <span class="pf-s">${yr ? `${yr.right}/${yr.picks} fights in ${esc(yr.year)}` : ""} · ${s.pct}% across ${s.picks.toLocaleString()} since ${mr.from || 2020}</span><span class="pf-go">See the full record →</span></a>
