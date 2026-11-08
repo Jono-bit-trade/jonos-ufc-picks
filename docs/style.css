@@ -878,3 +878,6 @@ tr.top1 td.rk { color: var(--gold); }
 @media (prefers-reduced-motion:reduce){.lc-rounds span.now,.lc-pip.flash a,.lc-toast{animation:none}}
 .vtag{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;border:1px solid var(--teal,#2fbfae);color:var(--teal,#2fbfae);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;vertical-align:middle}
 .bs-who small.v{color:var(--teal,#2fbfae);font-weight:700}
+.tk-row i.v{color:var(--teal,#2fbfae);border-color:var(--teal,#2fbfae)}
+.ticket.won .tk-row i.v,.ticket.lost .tk-row i.v{background:#0d2a27;color:#7fe3d6;border-color:#0d2a27}
+.ticket.won .tk-name,.ticket.lost .tk-name{padding-right:52px;overflow-wrap:anywhere}

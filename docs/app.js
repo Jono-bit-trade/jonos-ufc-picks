@@ -293,7 +293,7 @@ function compactRow(f, i, edge) {
       <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
       <span class="cr-p"><b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b></span>
       <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
-      <span class="cr-pick">${f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
+      <span class="cr-pick">${f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
     </summary>${bout(f, i, edge)}</details>`;
 }
 
@@ -310,7 +310,7 @@ function picksStrip(p) {
     return `<a class="ticket ${res}" href="#/card">
       <span class="tk-name">${esc(f.our_pick)}</span>
       <span class="tk-opp">vs ${esc(opp)}</span>
-      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
+      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
       ${f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
