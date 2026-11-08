@@ -3540,17 +3540,17 @@
       }
      ],
      "status": {
-      "clock": 34.0,
-      "displayClock": "0:34",
-      "period": 1,
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 2,
       "type": {
-       "id": "2",
-       "name": "STATUS_IN_PROGRESS",
+       "id": "142",
+       "name": "STATUS_END_OF_ROUND",
        "state": "in",
        "completed": false,
-       "description": "In Progress",
-       "detail": "R1, 0:34",
-       "shortDetail": "R1, 0:34"
+       "description": "End of Round",
+       "detail": "End R2",
+       "shortDetail": "End R2"
       }
      },
      "broadcasts": [
@@ -3562,6 +3562,27 @@
       }
      ],
      "details": [
+      {
+       "id": "26483",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26482",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26481",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26480",
        "type": {
