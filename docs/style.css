@@ -1670,3 +1670,11 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 @media (max-width:800px){.hp-g{grid-template-columns:1fr}.hp-c.best{order:-1}}
 .tk-val{display:block;margin-top:4px;font:600 13.5px/1.35 "Barlow",sans-serif;color:#2a2410} .tk-val b{font:800 17px var(--display);color:#111}
 .ticket.won .tk-val,.ticket.lost .tk-val{color:inherit}
+/* pricing table on phones: everything fits */
+@media (max-width:600px){
+  .cmpplans{table-layout:fixed;width:100%}
+  .cmpplans th:first-child,.cmpplans td:first-child{width:46%;font-size:12.5px;white-space:normal}
+  .cmpplans th,.cmpplans td{padding:7px 4px!important;font-size:11.5px}
+  .cmpplans .ck.part{font-size:10px}
+}
+.yr-t td,.yr-t th{white-space:nowrap} @media (max-width:600px){.yr-t th,.yr-t td{padding:8px 5px!important;font-size:13px}}

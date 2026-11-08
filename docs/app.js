@@ -1435,7 +1435,7 @@ async function viewFighter(s) {
       ${extras.length ? `<div class="fextras">${extras.map(([k, v]) => `<div><span>${k}</span><b>${esc(v)}</b></div>`).join("")}</div>` : ""}`
       : `<p class="note">Career stats appear once this fighter's UFC.com page is collected (nightly).</p>`}
     <p class="cmp-cta"><a class="btn" href="#/compare?a=${esc(f.slug)}">Compare ${esc(f.name.split(" ")[0])} with another fighter</a></p>
-    <h2>Rating over time</h2>${ratingChart(f.rating_history)}
+    ${(f.rating_history || []).length >= 2 ? `<h2>Rating over time</h2>${ratingChart(f.rating_history)}` : ""}
     <h2>UFC fights</h2>
     <div class="tablewrap"><table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th class="hide-sm">Method</th><th class="n">Odds</th><th class="n">Model</th><th class="n hide-sm">Rating</th></tr></thead><tbody>
     ${f.fights.map(x => `<tr><td><a href="#/event/${esc(x.event_slug)}">${esc(x.date)}</a></td><td>${fighterLink(x.opp, x.opp_slug)}</td>
@@ -1697,21 +1697,23 @@ async function viewRankings(q) {
 function yearTable(mr) {
   if (!mr) return "";
   const pc = x => x == null ? "–" : x + "%";
-  const row = r => `<tr><td>${esc(r.year || "All years")}</td><td class="n">${r.right}/${r.picks}</td><td class="n">${pc(r.pct)}</td>
-    <td class="n ${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</td><td class="n hide-sm">${pc(r.roi_pct)}</td>
-    <td class="n">${r.value_bets ? `${r.value_won}/${r.value_bets}` : "–"}</td><td class="n ${r.value_units >= 0 ? "won" : "lost"}">${r.value_bets ? units(r.value_units) : "–"}</td>
-    <td class="n hide-sm">${pc(r.value_roi_pct)}</td>
-    <td class="n">${r.our_bets ? `${r.our_won}/${r.our_bets}` : "–"}</td><td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td></tr>`;
-  return `<h2>Model track record by year</h2>
-    <p class="note">Flat 1-unit bets at the average sportsbook's closing price, starting ${mr.from || 2020}.</p>
-    <div class="recbits">${(mr.periods || []).map(p => `<span>Our picks ${esc(p.label)} <b>${p.our_won}/${p.our_bets}</b> <b class="${p.our_units >= 0 ? "won" : "lost"}">${units(p.our_units)}</b></span>`).join("")}<span>Expert leans <b>${mr.all.lean_won}/${mr.all.lean_bets}</b> <b class="${mr.all.lean_units >= 0 ? "won" : "lost"}">${units(mr.all.lean_units)}</b></span></div>
+  const stk = r => r.our_risked ? Math.round(1000 * r.our_staked_units / r.our_risked) / 10 : null;
+  const row = r => `<tr><td>${esc(r.year || "All years")}</td>
+    <td class="n">${r.our_bets ? `${r.our_won}-${r.our_bets - r.our_won}` : "–"}</td>
+    <td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td>
+    <td class="n hide-sm">${r.our_bets ? (r.our_roi_pct > 0 ? "+" : "") + pc(r.our_roi_pct) : "–"}</td>
+    <td class="n ${r.our_staked_units >= 0 ? "won" : "lost"}">${r.our_risked ? units(r.our_staked_units) : "–"}</td>
+    <td class="n hide-sm">${stk(r) != null ? (stk(r) > 0 ? "+" : "") + stk(r) + "%" : "–"}</td>
+    <td class="n">${pc(r.pct)}</td></tr>`;
+  return `<h2>Year by year</h2>
+    <p class="note">Our picks each year at the average sportsbook's closing price.</p>
     <details class="fine"><summary>How it's graded</summary><ul>
       <li><b>Prices:</b> the average of 3+ sportsbooks' closing lines where we have them (most fights from 2019 on), otherwise the one closing line. A better price than average is upside the record doesn't count.</li>
       <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter.</li>
-      <li><b>Expert leans:</b> close fights where 65%+ of analysts agree and the model has no pick. Tracked since April 2026, included in our picks.</li>
+      <li><b>Close fights:</b> where the model has no pick but 65%+ of tracked analysts agree, their side is our pick (since April 2026).</li>
       <li><b>Why 2020:</b> earlier fights still train the model, but there was too little history before then to grade fairly.</li></ul></details>
-    <div class="tablewrap"><table><thead><tr><th>Year</th><th class="n">Winners</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Per bet</th>
-      <th class="n">Value picks</th><th class="n">Value units</th><th class="n hide-sm">Per bet</th><th class="n">Our picks</th><th class="n">Our units</th></tr></thead><tbody>
+    <div class="tablewrap"><table class="yr-t"><thead><tr><th>Year</th><th class="n">Our picks</th><th class="n">Units, flat</th><th class="n hide-sm">Per bet</th>
+      <th class="n">Units, stakes</th><th class="n hide-sm">Per unit risked</th><th class="n">Winners picked</th></tr></thead><tbody>
       ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;
 }
 
