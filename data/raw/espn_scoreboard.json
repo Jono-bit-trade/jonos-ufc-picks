@@ -3282,17 +3282,17 @@
       }
      ],
      "status": {
-      "clock": 97.0,
-      "displayClock": "1:37",
-      "period": 2,
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
+       "id": "142",
+       "name": "STATUS_END_OF_ROUND",
        "state": "in",
        "completed": false,
-       "description": "In Progress",
-       "detail": "R2, 1:37",
-       "shortDetail": "R2, 1:37"
+       "description": "End of Round",
+       "detail": "End R3",
+       "shortDetail": "End R3"
       }
      },
      "broadcasts": [
@@ -3305,70 +3305,70 @@
      ],
      "details": [
       {
-       "id": "26448",
+       "id": "26471",
        "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
+        "id": "19",
+        "text": "Fight Over"
        }
       },
       {
-       "id": "26447",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26446",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26445",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26444",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26443",
+       "id": "26470",
        "type": {
         "id": "18",
         "text": "Round End"
        }
       },
       {
-       "id": "26442",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "26441",
+       "id": "26455",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26440",
+       "id": "26454",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26439",
+       "id": "26453",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26452",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26451",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26450",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26449",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "26448",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
