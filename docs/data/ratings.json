@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T23:55Z",
+ "updated": "2026-11-08T00:03Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -268,7 +268,7 @@
   {
    "fighter": "Grant Dawson",
    "rating": 1807,
-   "rd": 102,
+   "rd": 103,
    "last_fight": "2026-10-24",
    "division": "Lightweight",
    "record": "13-2"
@@ -957,7 +957,7 @@
     {
      "fighter": "Grant Dawson",
      "rating": 1807,
-     "rd": 102,
+     "rd": 103,
      "last_fight": "2026-10-24",
      "division": "Lightweight",
      "record": "13-2"

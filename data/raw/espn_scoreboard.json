@@ -1676,17 +1676,17 @@
       }
      ],
      "status": {
-      "clock": 230.0,
-      "displayClock": "3:50",
-      "period": 2,
+      "clock": 139.0,
+      "displayClock": "2:19",
+      "period": 3,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 3:50",
-       "shortDetail": "R2, 3:50"
+       "detail": "R3, 2:19",
+       "shortDetail": "R3, 2:19"
       }
      },
      "broadcasts": [
@@ -1698,6 +1698,20 @@
       }
      ],
      "details": [
+      {
+       "id": "26295",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26294",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26293",
        "type": {
@@ -1752,20 +1766,6 @@
        "type": {
         "id": "3",
         "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26265",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26276",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
        }
       }
      ],
