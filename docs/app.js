@@ -557,11 +557,20 @@ function picksStrip(p) {
   }).join("")}${teaser}</div>`;
 }
 
-function unitsChart(curve) {
+// cumulative units from betting the favorite in every fight, flat 1 unit, by card date
+function lineCurve(rr) {
+  if (!rr || !rr.rows) return null;
+  const by = {}; let s = 0;
+  for (const x of rr.rows) if (x[6]) { s += x[6][1]; by[x[0]] = +s.toFixed(2); }
+  return by;
+}
+function unitsChart(curve, lineBy) {
   if (!curve || curve.length < 2) return "";
+  if (lineBy) { let v = 0; curve = curve.map(c => { if (lineBy[c[0]] != null) v = lineBy[c[0]]; return [c[0], c[1], c[2], v]; }); }
+  const hasLine = !!lineBy;
   const W = 860, H = 220, P = {l: 44, r: 14, t: 14, b: 26};
   const t = d => new Date(d).getTime(), t0 = t(curve[0][0]), t1 = t(curve.at(-1)[0]);
-  const ys = curve.flatMap(c => [c[1], c[2]]), lo = Math.min(0, ...ys), hi = Math.max(0, ...ys);
+  const ys = curve.flatMap(c => hasLine ? [c[1], c[2], c[3]] : [c[1], c[2]]), lo = Math.min(0, ...ys), hi = Math.max(0, ...ys);
   const X = d => P.l + (t(d) - t0) / Math.max(1, t1 - t0) * (W - P.l - P.r), Y = v => P.t + (hi - v) / Math.max(1, hi - lo) * (H - P.t - P.b);
   const path = k => curve.map((c, i) => (i ? "L" : "M") + X(c[0]).toFixed(1) + " " + Y(c[k]).toFixed(1)).join("");
   const years = [...new Set(curve.map(c => c[0].slice(0, 4)))];
@@ -571,8 +580,8 @@ function unitsChart(curve) {
   return `<figure class="uchart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Our picks, cumulative units: ${units(last[1])} flat, ${units(last[2])} with suggested stakes">
     ${grid.map(v => `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(v)}" y2="${Y(v)}" class="${v === 0 ? "zero" : "g"}"/><text x="${P.l - 6}" y="${Y(v) + 4}" class="yl">${v > 0 ? "+" : ""}${v}</text>`).join("")}
     ${years.map(y => { const x = X(`${y}-01-01` < curve[0][0] ? curve[0][0] : `${y}-01-01`); return `<line x1="${x}" x2="${x}" y1="${P.t}" y2="${H - P.b}" class="g"/><text x="${x + 3}" y="${H - 8}" class="xl">${y}</text>`; }).join("")}
-    <path d="${path(1)}" class="flat"/><path d="${path(2)}" class="staked"/>
-  </svg><figcaption><span class="k staked"></span>Suggested stakes ${units(last[2])} <span class="k flat"></span>Flat 1 unit ${units(last[1])}</figcaption></figure>`;
+    ${hasLine ? `<path d="${path(3)}" class="line"/>` : ""}<path d="${path(1)}" class="flat"/><path d="${path(2)}" class="staked"/>
+  </svg><figcaption><span class="k staked"></span>Suggested stakes ${units(last[2])} <span class="k flat"></span>Flat 1 unit ${units(last[1])}${hasLine ? ` <span class="k line"></span>Betting line: every favorite, 1 unit <b class="${last[3] >= 0 ? "won" : "lost"}">${units(last[3])}</b>` : ""}</figcaption></figure>`;
 }
 
 function ledgerCurve(rows) {
@@ -1481,7 +1490,7 @@ async function viewRecord(q) {
         <td class="hide-sm ${g.value_pick ? (g.value_pick === g.winner ? "won" : "lost") : ""}">${g.value_pick ? `${esc(g.value_pick)} ${odds(g.value_odds)} ${g.value_pick === g.winner ? "✓" : "✗"}` : "–"}</td>
         <td class="hide-sm ${g.model_pick === g.winner ? "won" : "lost"}">${esc(g.model_pick)} ${g.model_pick === g.winner ? "✓" : "✗"}</td></tr>`).join("")}</tbody></table></div>` : ""}
     <h2>Backtest, ${mr ? mr.from || 2020 : 2020} on</h2>
-    ${mr ? unitsChart(mr.curve) : ""}
+    ${mr ? unitsChart(mr.curve, lineCurve(rr)) : ""}
     <p class="note">What today's method would have picked on every past card, using only earlier fights. A simulation that's updated as the method improves; the live record is the one to judge by.</p>
     ${yearTable(mr)}`;
 }
