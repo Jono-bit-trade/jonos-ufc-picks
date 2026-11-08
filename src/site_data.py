@@ -18,6 +18,7 @@ import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
 from picks import our_side, expert_lean, stake, winner_side, tier
+from config import EXPERT_LEAN_AS_PICK as LEAN_AS_PICK
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
@@ -460,7 +461,7 @@ def main():
                         rec["units"] += u
                 ours = our_side(pf, fair, f.odds_a, f.odds_b) if pf is not None and fair is not None else None
                 from_experts = False
-                if not ours and lean:   # expert lean fills in where the model has no our pick
+                if not ours and lean and LEAN_AS_PICK:   # expert lean fills in where the model has no our pick
                     ours, from_experts = lean, True
                 if ours and SKIP_BOTH_DEBUT and first_fight.get(f.a) == f.date and first_fight.get(f.b) == f.date:
                     ours = None   # both making their UFC debut: no our pick (config.OUR_PICKS_SKIP_BOTH_DEBUT)

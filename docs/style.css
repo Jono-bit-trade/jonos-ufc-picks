@@ -1668,3 +1668,5 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .hp-c li{padding-left:22px;position:relative;font-size:14px} .hp-c li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
 .hp-cta{display:flex!important;align-items:center;justify-content:center;height:40px;margin:0!important}
 @media (max-width:800px){.hp-g{grid-template-columns:1fr}.hp-c.best{order:-1}}
+.tk-val{display:block;margin-top:4px;font:600 13.5px/1.35 "Barlow",sans-serif;color:#2a2410} .tk-val b{font:800 17px var(--display);color:#111}
+.ticket.won .tk-val,.ticket.lost .tk-val{color:inherit}

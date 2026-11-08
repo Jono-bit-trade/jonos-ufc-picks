@@ -494,8 +494,10 @@ def main():
         side_ = expert_lean(r["fair_a"], ex["picks_a"], ex["picks_b"]) if ex else None
         leans.append(r["a"] if side_ == "a" else r["b"] if side_ == "b" else None)
     up["expert_lean"] = leans
-    no_ours = up["our_pick"].isna() & up["expert_lean"].notna()
-    up.loc[no_ours, "our_pick"] = up.loc[no_ours, "expert_lean"]
+    from config import EXPERT_LEAN_AS_PICK
+    if EXPERT_LEAN_AS_PICK:
+        no_ours = up["our_pick"].isna() & up["expert_lean"].notna()
+        up.loc[no_ours, "our_pick"] = up.loc[no_ours, "expert_lean"]
     from config import OUR_PICKS_SKIP_BOTH_DEBUT
     if OUR_PICKS_SKIP_BOTH_DEBUT:
         both_new = (up["debut_a"] == 1) & (up["debut_b"] == 1)

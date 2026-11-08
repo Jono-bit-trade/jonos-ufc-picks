@@ -618,7 +618,10 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
-      ${f.take ? `<span class="tk-why tk-take">“${esc(f.take)}”</span>` : f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
+      ${(() => { const isA = f.our_pick === f.a, ln = f.market_p_a == null ? null : isA ? f.market_p_a : 1 - f.market_p_a, us = f.p_a == null ? null : isA ? f.p_a : 1 - f.p_a;
+        return ln != null && us != null && us > ln ? `<span class="tk-val">The line says <b>${Math.round(100 * ln)}%</b>. We say <b>${Math.round(100 * us)}%</b>.</span>`
+          : f.expert_lean === f.our_pick ? `<span class="tk-val">Close fight; most of the tracked analysts agree on this side.</span>` : ""; })()}
+      ${f.take ? `<span class="tk-why tk-take">“${esc(f.take)}”</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
     </a>`;
   }).join("")}${teaser}</div>`;

@@ -69,6 +69,9 @@ PHOTO_MODE = "espn_first"
 # Apr-Oct 2026: 47 such fights, experts' side won 77% vs the line's 54%, +16.5u. Added Oct 2026 on
 # that one period only: watch its separate record.
 EXPERT_LEAN = True
+# Leans are always tagged on the card (and break near coin flips for the model's winner),
+# and become our picks when the model has none. Set False to keep them as tags only.
+EXPERT_LEAN_AS_PICK = True
 EXPERT_LEAN_MIN_SHARE = 0.65
 EXPERT_LEAN_MIN_ANALYSTS = 5
 EXPERT_LEAN_LINE = (0.40, 0.60)
