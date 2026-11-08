@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T02:50Z",
+ "updated": "2026-11-08T02:57Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -221,11 +221,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-05T00:32Z",
-     "a": -230.0,
-     "b": 190.0
-    },
-    {
      "t": "2026-11-05T03:29Z",
      "a": -230.0,
      "b": 190.0
@@ -419,6 +414,11 @@
      "t": "2026-11-08T02:50Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-08T02:57Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.013,
@@ -607,8 +607,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-08T01:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 8:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1810,
    "rating_b": 1677,
@@ -622,11 +622,11 @@
    "market_p_a": 0.657,
    "odds_a": -218.0,
    "odds_b": 180.0,
-   "best_a": -218.0,
-   "best_b": 180.0,
-   "open_a": -192.0,
-   "open_b": 160.0,
-   "books": 1.0,
+   "best_a": null,
+   "best_b": null,
+   "open_a": -175.0,
+   "open_b": 145.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-11-05T00:32Z",
@@ -836,7 +836,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.673,
+    "DEC": 0.672,
     "KO": 0.158,
     "SUB": 0.17
    }
@@ -1011,9 +1011,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-08T01:00Z",
-   "state": "in",
-   "status": "Walkouts",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 1 1:00",
+   "result": {
+    "winner": "Elijah Smith",
+    "draw": false,
+    "detail": "KO/TKO, round 1 1:00",
+    "pick_won": false
+   },
    "rating_a": 1623,
    "rating_b": 1667,
    "debut_a": false,
@@ -3741,8 +3746,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.694,
-    "KO": 0.149,
+    "DEC": 0.693,
+    "KO": 0.15,
     "SUB": 0.157
    }
   },
@@ -4151,7 +4156,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.394,
-    "KO": 0.42,
+    "KO": 0.421,
     "SUB": 0.185
    }
   },
