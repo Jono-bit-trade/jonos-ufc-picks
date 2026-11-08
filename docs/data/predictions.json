@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T22:22Z",
+ "updated": "2026-11-08T23:07Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -46,7 +46,53 @@
    "b_id": "4049391",
    "record_a": "14-2-0",
    "record_b": "10-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 1,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Heavyweight",
@@ -144,6 +190,11 @@
      "t": "2026-11-08T22:22Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -238.0,
+     "b": 195.0
     }
    ],
    "edge_a": 0.02,
@@ -167,7 +218,53 @@
    "b_id": "2516131",
    "record_a": "19-1-0",
    "record_b": "23-5-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 1,
+    "high_a": 2,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -265,6 +362,11 @@
      "t": "2026-11-08T22:22Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.023,
@@ -288,7 +390,44 @@
    "b_id": "5149815",
    "record_a": "18-2-0",
    "record_b": "11-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 1,
+    "high_a": 0,
+    "high_b": 1,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Middleweight",
@@ -386,6 +525,11 @@
      "t": "2026-11-08T22:22Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
    "edge_a": 0.025,
@@ -409,7 +553,53 @@
    "b_id": "3943695",
    "record_a": "14-3-0",
    "record_b": "29-15-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 3,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Welterweight",
@@ -424,16 +614,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.543,
-   "p_a": 0.621,
+   "p_a": 0.605,
    "model_pick": "Uros Medic",
    "tier": "Medium",
-   "fair_odds_a": -164,
-   "fair_odds_b": 164,
-   "market_p_a": 0.6,
-   "odds_a": -166.0,
-   "odds_b": 140.0,
-   "best_a": -166.0,
-   "best_b": 140.0,
+   "fair_odds_a": -153,
+   "fair_odds_b": 153,
+   "market_p_a": 0.583,
+   "odds_a": -155.0,
+   "odds_b": 130.0,
+   "best_a": -155.0,
+   "best_b": 130.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -507,9 +697,14 @@
      "t": "2026-11-08T22:22Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
-   "edge_a": 0.021,
+   "edge_a": 0.022,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -530,7 +725,53 @@
    "b_id": "5218137",
    "record_a": "10-0-0",
    "record_b": "11-4-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 4,
+    "picks_b": 0,
+    "high_a": 4,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [
     "Our chance 92% vs the line's 86% (6 points of value)",
@@ -631,6 +872,11 @@
      "t": "2026-11-08T22:22Z",
      "a": -900.0,
      "b": 600.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -900.0,
+     "b": 600.0
     }
    ],
    "edge_a": 0.053,
@@ -654,7 +900,53 @@
    "b_id": "4416297",
    "record_a": "17-9-1",
    "record_b": "12-5-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 4,
+    "picks_b": 0,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Welterweight",
@@ -669,16 +961,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.463,
-   "p_a": 0.525,
+   "p_a": 0.538,
    "model_pick": "Charles Radtke",
    "tier": "Low",
-   "fair_odds_a": -110,
-   "fair_odds_b": 110,
-   "market_p_a": 0.563,
-   "odds_a": -142.0,
-   "odds_b": 120.0,
-   "best_a": -142.0,
-   "best_b": 120.0,
+   "fair_odds_a": -116,
+   "fair_odds_b": 116,
+   "market_p_a": 0.577,
+   "odds_a": -155.0,
+   "odds_b": 124.0,
+   "best_a": -155.0,
+   "best_b": 124.0,
    "open_a": -142.0,
    "open_b": 120.0,
    "books": 1.0,
@@ -712,6 +1004,11 @@
      "t": "2026-11-08T22:22Z",
      "a": -142.0,
      "b": 120.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -155.0,
+     "b": 124.0
     }
    ],
    "edge_a": -0.039,
@@ -735,7 +1032,53 @@
    "b_id": "4867356",
    "record_a": "29-15-0",
    "record_b": "15-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 2,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Lightweight",
@@ -750,16 +1093,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.31,
-   "p_a": 0.394,
+   "p_a": 0.404,
    "model_pick": "Chris Duncan",
    "tier": "Medium",
-   "fair_odds_a": 154,
-   "fair_odds_b": -154,
-   "market_p_a": 0.396,
-   "odds_a": 142.0,
-   "odds_b": -170.0,
-   "best_a": 142.0,
-   "best_b": -170.0,
+   "fair_odds_a": 148,
+   "fair_odds_b": -148,
+   "market_p_a": 0.407,
+   "odds_a": 136.0,
+   "odds_b": -162.0,
+   "best_a": 136.0,
+   "best_b": -162.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -783,6 +1126,11 @@
      "t": "2026-11-08T22:22Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": 136.0,
+     "b": -162.0
     }
    ],
    "edge_a": -0.003,
@@ -806,7 +1154,53 @@
    "b_id": "4425604",
    "record_a": "39-19-0",
    "record_b": "18-9-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 2,
+    "high_a": 0,
+    "high_b": 1,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Lightweight",
@@ -869,6 +1263,11 @@
      "t": "2026-11-08T22:22Z",
      "a": 180.0,
      "b": -218.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": 180.0,
+     "b": -218.0
     }
    ],
    "edge_a": 0.005,
@@ -892,10 +1291,56 @@
    "b_id": "5144068",
    "record_a": "9-0-0",
    "record_b": "7-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 3,
+    "high_a": 1,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [
-    "Our chance 67% vs the line's 62% (5 points of value)",
+    "Our chance 67% vs the line's 63% (4 points of value)",
     "Rated 84 points higher"
    ],
    "weight_class": "Middleweight",
@@ -910,16 +1355,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.755,
-   "p_a": 0.667,
+   "p_a": 0.675,
    "model_pick": "Donte Johnson",
    "tier": "Medium",
-   "fair_odds_a": -200,
-   "fair_odds_b": 200,
-   "market_p_a": 0.622,
-   "odds_a": -185.0,
-   "odds_b": 154.0,
-   "best_a": -185.0,
-   "best_b": 154.0,
+   "fair_odds_a": -208,
+   "fair_odds_b": 208,
+   "market_p_a": 0.631,
+   "odds_a": -192.0,
+   "odds_b": 160.0,
+   "best_a": -192.0,
+   "best_b": 160.0,
    "open_a": -170.0,
    "open_b": 142.0,
    "books": 1.0,
@@ -958,6 +1403,11 @@
      "t": "2026-11-08T22:22Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.044,
@@ -981,7 +1431,53 @@
    "b_id": "4425763",
    "record_a": "21-9-0",
    "record_b": "26-8-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 4,
+    "high_a": 0,
+    "high_b": 2,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Lightweight",
@@ -1044,6 +1540,11 @@
      "t": "2026-11-08T22:22Z",
      "a": 285.0,
      "b": -360.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": 285.0,
+     "b": -360.0
     }
    ],
    "edge_a": -0.015,
@@ -1067,7 +1568,53 @@
    "b_id": "5310274",
    "record_a": "11-6-0",
    "record_b": "8-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -1128,6 +1675,11 @@
     },
     {
      "t": "2026-11-08T22:22Z",
+     "a": 190.0,
+     "b": -230.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
      "a": 190.0,
      "b": -230.0
     }
@@ -1203,12 +1755,55 @@
    "b_id": "5293557",
    "record_a": "10-2-0",
    "record_b": "11-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 1,
+    "high_a": 2,
+    "high_b": 0,
+    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "200-111",
+      "units": -4.25,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "205-117",
+      "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
-   "why": [
-    "Our chance 51% vs the line's 48% (3 points of value)",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
-   ],
+   "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
@@ -1221,16 +1816,16 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.534,
-   "p_a": 0.487,
+   "p_a": 0.495,
    "model_pick": "Samuel Sanches",
    "tier": "Low",
-   "fair_odds_a": 106,
-   "fair_odds_b": -106,
-   "market_p_a": 0.517,
-   "odds_a": -118.0,
-   "odds_b": -102.0,
-   "best_a": -118.0,
-   "best_b": -102.0,
+   "fair_odds_a": 102,
+   "fair_odds_b": -102,
+   "market_p_a": 0.526,
+   "odds_a": -122.0,
+   "odds_b": 102.0,
+   "best_a": -122.0,
+   "best_b": 102.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -1269,12 +1864,17 @@
      "t": "2026-11-08T22:22Z",
      "a": -118.0,
      "b": -102.0
+    },
+    {
+     "t": "2026-11-08T23:07Z",
+     "a": -122.0,
+     "b": 102.0
     }
    ],
    "edge_a": -0.031,
    "pick": "Samuel Sanches",
-   "our_pick": "Samuel Sanches",
-   "stake": 1.5,
+   "our_pick": null,
+   "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
