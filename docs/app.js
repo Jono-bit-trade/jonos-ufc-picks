@@ -155,6 +155,7 @@ function bout(f, i, edge) {
   else if (leanTag) pickHtml = leanTag;
   else pickHtml = `<div class="nopick">${line == null ? "No betting line yet." : "No bet: the model and the line are within " + Math.round(edge * 100) + " points."}</div>`;
   if (f.sample && paywallOn() && (f.our_pick || f.pick)) pickHtml = `<span class="freetag">Free pick</span>` + pickHtml;
+  if (f.take) pickHtml += takeHtml(f.take);
   if (f.our_pick && f.why && f.why.length) pickHtml += `<ul class="why">${f.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
   const moved = f.open_a != null && f.odds_a != null && (f.open_a !== f.odds_a)
     ? `Opened ${odds(f.open_a)} / ${odds(f.open_b)}, now ${odds(f.odds_a)} / ${odds(f.odds_b)}`
@@ -193,7 +194,16 @@ function bout(f, i, edge) {
 // ---------------- matchup: tale of the tape ----------------
 // ---- plans and access (docs/plans.json). The paywall is off until plans.json says "paywall": true;
 // add ?preview=free, ?preview=event or ?preview=monthly to any page to see the site as that visitor (?preview=off to stop).
-let PLANS = null;
+let PLANS = null, TAKES = {};
+// Jono's own words on a pick (docs/takes.json: {"<card date>": {"preview": "...", "fights": {"<fighter>": "..."}}})
+function attachTakes(p) {
+  const t = p && TAKES[p.date]; if (!t) return p;
+  const fx = t.fights || {};
+  return {...p, take_preview: t.preview || "", fights: p.fights.map(f => {
+    const txt = f.our_pick ? fx[f.our_pick] || fx[f.a] || fx[f.b] : !f.hidden && !f.locked ? fx[f.a] || fx[f.b] : null;
+    return txt ? {...f, take: txt} : f; })};
+}
+const takeHtml = (txt, cls) => txt ? `<blockquote class="take${cls ? " " + cls : ""}"><b>Jono's take</b>${esc(txt)}</blockquote>` : "";
 function previewPlan() {
   const q = new URLSearchParams((location.hash.split("?")[1]) || "");
   try { if (q.has("preview")) { const v = q.get("preview"); v === "off" ? sessionStorage.removeItem("oePreview") : sessionStorage.setItem("oePreview", v); }
@@ -233,9 +243,9 @@ function gatePredictions(p) {
 // members get the full card; once the paywall is on, everyone else loads the public file (no picks in it)
 async function getPred() {
   if (paywallOn() && !canSeePicks(null) && myPlan() === "free" && PLANS && PLANS.paywall && !previewPlan()) {
-    const pub = await get("predictions_public.json", true); if (pub) return pub;
+    const pub = await get("predictions_public.json", true); if (pub) return attachTakes(pub);
   }
-  return gatePredictions(await get("predictions.json", true));
+  return attachTakes(gatePredictions(await get("predictions.json", true)));
 }
 const planBtns = (small) => PLANS ? `<div class="lock-btns${small ? " sm" : ""}">${PLANS.plans.map(pl => `<a class="${pl.best ? "btn" : "pill"}" href="#/pricing">${esc(pl.name)} · $${pl.price}</a>`).join("")}</div>` : "";
 const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
@@ -261,7 +271,7 @@ async function viewPricing() {
     ["Fight analysis: our call on every bout", 0, "One card", 1], ["Live fight-night bet slip", 0, "One card", 1], ["Winning-record analysts highlighted", 0, "One card", 1],
     ["Picks for every card, all month", 0, 0, 1]];
   const ck = x => x === 1 ? `<span class="ck">✓</span>` : x ? `<span class="ck part">${esc(x)}</span>` : `<span class="ck no">–</span>`;
-  return `<section class="pr-hero"><span class="pf-kick">Powered by ${METHOD}</span><h1>Get every pick.</h1>
+  return `<section class="pr-hero"><h1>Get every pick.</h1>
       <p>Picks locked before the fight, graded in public. Choose a single card or every card.</p></section>
     ${s ? `<div class="pr-proof"><div><b>${yr ? yr.pct : s.pct}%</b><span>winners picked${yr ? " in " + esc(yr.year) : ""}</span></div>
       <div><b>${s.tiers && s.tiers.High ? s.tiers.High.pct : "–"}%</b><span>high-confidence picks won</span></div>
@@ -370,8 +380,9 @@ async function viewFight(x, y) {
       <p class="fx-legend">Big numbers: our chance. White tick: the betting line${F.line != null ? ` (${pct(F.line)} / ${(100 - Math.round(100 * F.line)) + "%"})` : ""}.</p>` : ""}</section>
     <div class="fx-grid">
       <section class="fx-panel"><h2>${kick("Styles", "gold")}Head to head</h2>
-        ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + `<p class="note">Percentiles among UFC fighters with fight stats, ${esc(F.a)} first.</p>` : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}</section>
+        ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + "" : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}</section>
       <section class="fx-panel"><h2>${kick(METHOD, "gold")}Our call</h2>${F.winner && (F.ours || F.value) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
+        ${F.f && F.f.take ? takeHtml(F.f.take) : ""}
         ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
         ${expertBar(F.experts, F.a, F.b, null)}
         ${F.hist ? lineChart(F.hist, F.f) : ""}
@@ -458,9 +469,9 @@ function tape(a, b, rounds) {
     ${row("Times submitted", ga.ufc_fights ? ga.sub_losses : null, gb.ufc_fights ? gb.sub_losses : null, x => x, -1)}
     ${row("Average fight time", ga.avg_time, gb.avg_time, mmss)}
   </tbody></table>
-  <p class="note">${ga.source === "UFC.com" || gb.source === "UFC.com" ? "Career numbers from each fighter's UFC.com page." : "Full career numbers appear once UFC.com pages are collected (nightly)."} Green marks the better number.</p>
+
   ${lines.length ? `<h3>Against this kind of opponent</h3><ul class="vslist">${lines.join("")}</ul>
-    <p class="note">Styles come from fight stats where we have them (takedowns and control time make a wrestler, submission attempts a grappler, striking volume or KO wins a striker), otherwise from how the fighter wins. Small samples: a 2-1 record says little.</p>` : ""}`;
+` : ""}`;
 }
 
 async function viewCard() {
@@ -479,6 +490,7 @@ async function viewCard() {
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
   return `${liveCenter(p)}<h1>${esc(p.event)}</h1>
     <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
+    ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
     ${cardToggle()}
@@ -551,7 +563,7 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
-      ${f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
+      ${f.take ? `<span class="tk-why tk-take">“${esc(f.take)}”</span>` : f.why && f.why.length ? `<span class="tk-why">${esc(f.why[0])}</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
     </a>`;
   }).join("")}${teaser}</div>`;
@@ -791,7 +803,7 @@ function proofBand(mr, L) {
   const yr = mr.years && mr.years[0], s = mr.since, hi = s.tiers && s.tiers.High;
   const live = L && L.fights ? `${L.our_won}-${L.our_bets - L.our_won}` : null;
   return `<section class="proof">
-    <div class="pf-head"><span class="pf-kick">Powered by ${METHOD}</span>
+    <div class="pf-head">
       <h1>Smarter UFC picks, <em>proven in public.</em></h1>
       <p>Every fight rated, every pick locked before the bell, every result graded. No cherry-picking.</p></div>
     <div class="pf-cards">
@@ -838,7 +850,7 @@ async function viewHome() {
   const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
   const live = `<h2>${kick("Locked")}Live record</h2>${ledgerBoxes(L, firstStart)}`;
   const record = mr ? `${live}<h2>${kick("Since " + (mr.from || 2020), "blue")}Backtest track record</h2><div class="stats four">${box(yr.year, yr)}</div><div class="stats four">${box("Since " + (mr.from || 2020), mr.since || mr.all)}</div>
-    <p class="note">Backtest: every past fight predicted only from earlier fights, at the average sportsbook's closing line. Recalculated when the method improves; the live record above never is. <a href="#/record">Full record</a></p>` : "";
+` : "";
   return `${proofBand(mr, L)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
@@ -928,7 +940,7 @@ function eventsSummary(mr, year) {
     ${grp("model", "Model winners", `${r.pct}%`, "", `${r.right.toLocaleString()} of ${r.picks.toLocaleString()} fights`, `Betting each: <span class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</span>`)}
     ${grp("value", "Value picks", r.value_bets ? units(r.value_units) : "–", r.value_units >= 0 ? "won" : "lost", r.value_bets ? `${r.value_won}-${r.value_bets - r.value_won} won` : "No value picks", r.value_bets ? roi(r.value_roi_pct) : "")}
   </div>
-  <p class="note">${esc(label)}. Each fight predicted only from earlier fights; flat 1-unit bets at the average sportsbook's closing line.</p>`;
+`;
 }
 
 async function viewEvent(s) {
@@ -963,8 +975,7 @@ async function viewEvent(s) {
       <div class="stat"><b>${e.record.our_bets ? `${e.record.our_won}/${e.record.our_bets}` : "–"}</b><span>our picks won</span></div>
       <div class="stat"><b class="${(e.record.our_staked ?? e.record.our_units) >= 0 ? "won" : "lost"}">${e.record.our_bets ? units(e.record.our_staked ?? e.record.our_units) : "–"}</b><span>our picks, suggested stakes</span></div>
       <div class="stat"><b>${e.favorites_right}/${e.record.picks}</b><span>betting favorites won</span></div></div>` : ""}
-    ${e.record && e.record.locked ? `<p class="note"><b>Live record:</b> these are the picks locked before each fight, at the price then, the same as the Record page.</p>` : ""}
-    <p class="note">"Model" is its chance before the fight, from a model trained only on earlier fights. Winners picked use our final chance (model blended with the line). Units are flat 1-unit bets at the average sportsbook's closing moneyline. Value picks beat the line by 3+ points; our picks also need the fighter to be the favorite or 70%+ likely, and no long underdog, or an expert lean in a close fight, and not both fighters debuting: the same rules as the live card.</p>${rows}`;
+    ${rows}`;
 }
 
 // ---------------- fighters ----------------
@@ -983,7 +994,7 @@ async function viewFighters(q) {
     <div class="filters"><input id="fsearch" type="search" placeholder="Search any fighter since 2010" value="${esc(q.get("q") || "")}" aria-label="Search fighters">
       <select onchange="location.hash='#/fighters?div='+encodeURIComponent(this.value)" aria-label="Division"><option value="">All divisions</option>${divs.map(d => `<option ${d === div ? "selected" : ""}>${esc(d)}</option>`).join("")}</select>
       <a class="favbtn${favOnly ? " on" : ""}" href="#/fighters${favOnly ? "" : "?fav=1"}">★ Favorites${Object.keys(FAV).length ? ` (${Object.keys(FAV).length})` : ""}</a></div>
-    <p class="note">${favOnly ? "Your favorite fighters. Add more by telling Claude, or edit docs/favorites.json." : term ? "" : "Active fighters (fought in the last 18 months), best rated first. Search finds everyone."}</p>
+    <p class="note">${favOnly ? "Favorites." : term ? "" : "Active fighters, best first."}</p>
     <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}${champTag(f.slug)}${favStar(f.slug)}</b>
       <span class="small">${esc(f.record)} · ${esc(f.weight_class)}</span><span class="small">EDGE ${f.rating}</span></div></a>`).join("")}</div>
     ${list.length > 120 ? `<p class="note">Showing 120 of ${list.length}: search to narrow it down.</p>` : ""}`;
@@ -1126,14 +1137,14 @@ async function viewFighter(s) {
     </section>
     ${f.radar ? `<h2>${kick(METHOD, "gold")}Style profile</h2>
       <div class="fprofile">${radarSvg(f.radar, f)}<div class="fp-side">${strengthLine(f.radar)}
-        <p class="note">Each point is a percentile among UFC fighters with fight stats: 90 means better than 90% of them. Defense counts strikes absorbed (fewer is better); durability counts how rarely they've been stopped.</p></div></div>` : ""}
+</div></div>` : ""}
     ${highlightCards(f)}
     <div class="cols">
       <section><h2>How they win (${w})</h2>${by(f.wins_by, w)}</section>
       <section><h2>How they lose (${l})</h2>${by(f.losses_by, l)}</section>
     </div>
     <h2>Career stats</h2>
-    ${striking || grappling ? `<p class="note">Bars compare with the ${esc(f.weight_class)} median (the white mark). Green is better than the median, red worse.</p>
+    ${striking || grappling ? `<p class="note">White mark: ${esc(f.weight_class)} median.</p>
       <div class="cols"><section><h3>Striking</h3>${striking}</section><section><h3>Grappling</h3>${grappling}</section></div>
       ${extras.length ? `<div class="fextras">${extras.map(([k, v]) => `<div><span>${k}</span><b>${esc(v)}</b></div>`).join("")}</div>` : ""}`
       : `<p class="note">Career stats appear once this fighter's UFC.com page is collected (nightly).</p>`}
@@ -1269,7 +1280,7 @@ async function viewMovers() {
       ${board(`${kick("6+ UFC wins", "red")}Finishers`, "", m.finishers.map(x => row(x, Math.round(100 * x.finish_rate) + "%", "", `${x.wins} UFC wins`)).join(""), "Share of UFC wins by KO or submission.")}
     </div>
     ${board(`${kick("Since 2010", "blue")}Highest peak ratings`, "peaks", m.peaks.map((x, i) => row(x, x.peak, "", `${i === 0 ? "All-time high in our data" : esc(x.weight_class || "")}`)).join(""), "Our data starts in 2010, so earlier greats like GSP and Anderson Silva are underrated here.")}
-    <p class="note">${METHOD}s (built on Glicko-2) from every UFC fight since 2010. Active means a UFC fight in the last 18 months. Updated after every card.</p>`;
+`;
 }
 
 // ---- Who wins? Any two fighters, rating-based chance and stats side by side ----
@@ -1335,8 +1346,8 @@ async function viewRankings(q) {
   const chip = (v, label) => `<a href="#/rankings${v ? "?div=" + encodeURIComponent(v) : "?view=ratings"}" class="${v === div ? "on" : ""}">${esc(label)}</a>`;
   const view = q && q.get("view") || (div ? "ratings" : "divisions");
   const tabs = rkTabs(view);
-  if (view === "divisions") return `<h1>Rankings</h1>${tabs}<p class="note">Official UFC champions and top 5 in each division, with our rating beside each name. Tap a division for our full ratings.</p>${divisionCards(fx)}`;
-  return `<h1>Rankings</h1>${tabs}<p class="note">${METHOD}s from every UFC fight since 2010 (built on Glicko-2), active fighters only (fought in the last 18 months). The ± shows how sure the rating is: it shrinks with each fight and grows during layoffs. Divisions use each fighter's latest non-catchweight fight.</p>
+  if (view === "divisions") return `<h1>Rankings</h1>${tabs}${divisionCards(fx)}`;
+  return `<h1>Rankings</h1>${tabs}
     <div class="filters">${chip("", "Pound for pound")}${(r.divisions || []).map(x => chip(x.division, x.division.replace("Women's ", "W ").replace("Light Heavyweight", "Light Heavy"))).join("")}</div>
     <h2>${esc(d ? d.division : "Pound for pound")}</h2>
     <div class="tablewrap"><table><thead><tr><th class="n">#</th><th>Fighter</th>${d ? "" : `<th class="hide-sm">Division</th>`}<th class="n">UFC record</th><th>${METHOD}</th><th class="n hide-sm">±</th><th class="n hide-sm">Last fight</th></tr></thead><tbody>
@@ -1366,7 +1377,8 @@ function yearTable(mr) {
       ${mr.years.map(row).join("")}${row({...mr.all, year: "Since " + (mr.from || 2020)})}</tbody></table></div>`;
 }
 
-const kick = (t, c) => `<span class="kicker${c ? " " + c : ""}">${t}</span>`;
+const KEEP_KICK = new Set(["Last card", "Next card"]);
+const kick = (t, c) => KEEP_KICK.has(t) ? `<span class="kicker${c ? " " + c : ""}">${t}</span>` : "";
 // time left until an ISO start, as broadcast-style blocks; ticks via tickClocks()
 const clock = iso => `<div class="cd" data-cd="${esc(iso)}" aria-label="Countdown"></div>`;
 function tickClocks() {
@@ -1441,7 +1453,7 @@ function vsLine(mr) {
   const bar = (label, val, max, cls) => `<div class="vl-bar"><span>${label}</span><div class="vl-track"><i class="${cls}" style="width:${Math.max(2, Math.abs(val) / max * 100)}%"></i></div><b class="${val >= 0 ? "won" : "lost"}">${units(val)}</b></div>`;
   const max = Math.max(Math.abs(v.line_units), Math.abs(s.our_units), Math.abs(v.disagree_model_units), 1);
   return `<section class="vline"><div class="vl-head"><h2>${kick("Proof", "gold")}${METHOD} vs. the betting line</h2>
-      <p class="note">The simplest strategy is betting the favorite every fight. The bookmaker's cut makes that a loser. Here's how we compare, ${mr.from || 2020} to today, flat 1 unit per bet.</p></div>
+      <p class="note">Betting every favorite loses to the bookmaker's cut. Same fights, same prices, ${mr.from || 2020} to now.</p></div>
     <div class="vl-grid">
       <div class="vl-card"><span class="vl-k">Units</span>
         ${bar("Bet every favorite", v.line_units, max, "neg")}
@@ -1496,7 +1508,7 @@ async function viewRecord(q) {
   return `<h1>Record</h1>
     ${vsLine(mr)}
     ${mr ? `<h2>Backtest, ${mr.from || 2020} on: our picks vs. the betting line</h2>${unitsChart(mr.curve, lineCurve(rr))}
-    <p class="note">What today's method would have picked on every past card, using only earlier fights, against betting the favorite every fight at the same closing prices. A simulation that's updated as the method improves; the live record below is the one to judge by.</p>` : ""}
+` : ""}
     <h2>Live record, locked</h2>
     <p class="note">Every pick from ${esc(dateLong(L ? L.from : "2026-10-31"))} on, locked before the fight and never changed.</p>
     ${ledgerBoxes(L)}
@@ -1568,7 +1580,8 @@ const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class
 async function route() {
   if (!photosLoaded) { photosLoaded = true; const [ph, co, rk, fv] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true),
     fetch("favorites.json?t=" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => []),
-    fetch("plans.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null).then(x => { PLANS = x; })]);
+    fetch("plans.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null).then(x => { PLANS = x; }),
+    fetch("takes.json?t=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})).then(x => { TAKES = x || {}; })]);
     if (ph) PHOTOS = ph; if (co) COUNTRY = co; if (rk && rk.fighters) RANK = rk.fighters;
     for (const x of fv || []) FAV[x.slug || slug(x.name)] = x; }
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
@@ -1585,7 +1598,7 @@ async function route() {
   $("#view").innerHTML = html;
   const h1 = page !== "home" && $("#view h1");
   if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["card", "events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record"].includes(page))
-    h1.insertAdjacentHTML("afterend", `<p class="powered"><span>Powered by <b>${METHOD}</b> · every pick locked before the fight</span>
+    h1.insertAdjacentHTML("afterend", `<p class="powered"><span></span>
       <button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button></p>`);
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);

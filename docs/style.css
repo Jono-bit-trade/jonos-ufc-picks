@@ -1402,3 +1402,32 @@ main table td:first-child{white-space:nowrap}
 .dl-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:18px 0;padding:14px 16px;border:1px solid var(--rule);border-radius:12px;background:#17181d}
 .dl-row b{display:block;font:800 20px var(--display)} .dl-row span{font-size:13px;color:var(--quiet)} .dl-row .btn{white-space:nowrap;cursor:pointer;border:0}
 @media (max-width:600px){.dl-row{flex-direction:column;align-items:stretch}}
+
+/* ---- flatter, denser, less template: square-ish corners, no glows, plain background ---- */
+body::before, body::after { display: none !important; }
+html, body { background: #111215 !important; }
+.empty, .hero, .bout, .fcard, .stat, .rchart, .livecenter, .divcard, .mv-board, .cmp-face, .tb, .proof, .pf-card, .howbrand > div,
+.tframe, .clv, .xverdict, .xw, .fprofile, .fstrength > div, .hl, .cs-box, .fx-face, .fx-panel, .fx-call, .fx-open, .l5, .vline, .vl-card,
+.locked-pick, .cs-lock, .plan, .faq details, .acct, .evrow2, .es-g, .lc-b, .crow, .dl-row, .panel, .uchart, .lastcard, .tablewrap, table { border-radius: 3px !important; }
+.btn, a.btn, .hcta, .pill, .filters a, .viewtoggle, .sharebtn, .lc-f { border-radius: 2px !important; }
+.proof { background: #15161a !important; border: 1px solid #26282e !important; text-align: left !important; }
+.proof .pf-head { text-align: left !important; margin-left: 0 !important; align-items: flex-start !important; }
+.proof .pf-head h1, .proof .pf-head p { text-align: left !important; margin-left: 0 !important; }
+.pf-card, .es-g, .vl-card, .lc-b, .evrow2, .crow, .dl-row { background: #17181c !important; box-shadow: none !important; }
+.vline { background: #15161a !important; border-color: #26282e !important; box-shadow: none !important; }
+.hero { background: #15161a !important; }
+.bout.ring-won, .bout.ring-lost, .bout.is-live { box-shadow: none !important; }
+.es-g.our { border-top: 1px solid var(--rule) !important; }
+.uchart { box-shadow: none !important; }
+/* Jono's take: a person's voice, set like a pull quote */
+.take{margin:10px 0 0;padding:8px 0 8px 14px;border-left:3px solid var(--accent,#d9a91a);font:italic 500 15px/1.45 "Barlow",sans-serif;color:#e7e5df}
+.take b{display:block;font:800 11px "Barlow",sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,#d9a91a);margin-bottom:2px}
+.tk-take{font-style:italic;color:#e7e5df!important}
+.take-prev{margin:10px 0 16px;padding:12px 16px;border-left:3px solid var(--accent,#d9a91a);background:#16171b}
+.take-prev b{font:800 11px "Barlow",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,#d9a91a)}
+.take-prev p{margin:4px 0 0;font-size:16px;line-height:1.5}
+.bout, .bout.main { border-left: 1px solid var(--rule) !important; border-right: 1px solid var(--rule) !important; border-top-width: 1px !important; box-shadow: none !important; }
+.bout.main { border-top: 2px solid var(--accent,#d9a91a) !important; }
+.powered { margin: -4px 0 6px !important; }
+.crow > .bout { border: 0 !important; }
+.bout.ring-won { border-color: var(--green) !important; } .bout.ring-lost { border-color: var(--red) !important; }
