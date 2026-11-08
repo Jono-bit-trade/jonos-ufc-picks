@@ -1392,3 +1392,7 @@ main table td:first-child{white-space:nowrap}
 .crow{border:1px solid var(--rule);border-radius:10px;background:#17181d}
 .crow:hover{border-color:#3a3d46}
 .crow .cr-p .pa,.crow .cr-p .pb{color:var(--quiet)} .crow .cr-p .hi{color:var(--accent,#d9a91a)}
+/* home: cage backdrop behind the brand band */
+.proof{position:relative;overflow:hidden;isolation:isolate}
+.proof::before{content:"";position:absolute;inset:0;z-index:-1;background:url(cage.svg) 58% 30% / auto 150% no-repeat;opacity:.9;pointer-events:none}
+@media (max-width:700px){.proof::before{background-position:center top;background-size:160% auto;opacity:.55}}

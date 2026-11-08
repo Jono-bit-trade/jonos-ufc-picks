@@ -285,7 +285,7 @@ async function viewAccount() {
   const b = (k, t) => `<a class="${(pv || "off") === k ? "btn" : "pill"}" href="#/account?preview=${k}">${t}</a>`;
   return `<h1>Account</h1>
     <div class="acct"><div><span class="vl-k">Your plan</span><b>${paywallOn() ? esc(({free: "Free", event: "Event Pass", monthly: "Monthly"})[mine] || mine) : "Everything (paywall off)"}</b>
-      <p class="note">Sign-in and payments aren't connected yet. When they are, this page will show your plan, renewal date and receipts.</p></div></div>
+      <p class="note">Sign-in and payments aren't connected yet. When they are, you'll sign in here with a one-time email link and see your plan, renewal date and receipts, and manage or cancel your subscription.</p></div></div>
     <h2>${kick("Owner tools", "gold")}Preview the site as</h2>
     <p class="note">See exactly what each visitor sees. This only changes your own browser tab.</p>
     <div class="acct-prev">${b("free", "Free visitor")}${b("event", "Event Pass")}${b("monthly", "Monthly")}${b("off", "Turn preview off")}</div>
@@ -1183,12 +1183,13 @@ async function viewAbout() {
         <li>A chance for every fighter on the card, next to the betting line's</li>
         <li>Our picks: the few fights where we think the price is off, with a suggested stake and the reasons</li>
         <li>Expert consensus, betting splits, line movement and a full tale of the tape for every bout</li>
-        <li>Live results on fight night, and a record that's locked once each fight ends</li></ul></section>
+        <li>Live results on fight night, and a record that's locked once each fight ends</li>
+        <li>Free: every betting line, EDGE Rating, one pick per card and the full record. ${PLANS && PLANS.plans ? PLANS.plans.map(p => `${esc(p.name)} $${p.price}`).join(" or ") + " unlocks every pick." : ""} <a href="#/pricing">See plans</a></li></ul></section>
       <section><h2>How we keep it honest</h2><ul class="dots">
         <li>Every pick is graded at the average sportsbook's price, never the best one</li>
         <li>The live record can't be edited after a fight; the backtest is labelled as a backtest</li>
         <li>Ideas only make it into the model if they hold up in two separate stretches of years</li>
-        <li>No paid picks, no affiliate links, no sportsbook sponsorship</li></ul></section>
+        <li>No affiliate links and no sportsbook sponsorship: members pay for the picks, so our only job is getting them right</li></ul></section>
     </div>
     ${S ? `<div class="hw-stats"><div><b>${S.our_pct}%</b><span>our picks won, backtest since ${mr.from || 2020}</span></div><div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets</span></div><div><b>${S.our_bets}</b><span>picks graded</span></div><div><b>7,500+</b><span>UFC fights since 2010 in the data</span></div></div>` : ""}
     <h2>Who's behind it</h2>
