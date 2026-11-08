@@ -125,12 +125,18 @@ function grapChips(slug) {
 
 function expertBar(e, a, b, winner) {
   if (!e || !(e.picks_a + e.picks_b)) return "";
-  const n = e.picks_a + e.picks_b, sa = e.picks_a / n;
-  return `<div class="experts">
-    <div class="exl"><span>Experts: ${e.picks_a} on ${esc(a.split(" ").at(-1))}</span><span>${e.picks_b} on ${esc(b.split(" ").at(-1))}</span></div>
-    <div class="exbar" role="img" aria-label="${e.picks_a} of ${n} analysts picked ${esc(a)}"><i style="width:${sa * 100}%"></i></div>
-    <div class="exl small"><span>Winning analysts: ${e.win_a ?? 0}</span><a href="${esc(e.url)}" target="_blank" rel="noopener">Data from SplitPicks</a><span>Winning analysts: ${e.win_b ?? 0}</span></div>
-    ${analystList(e, a, b, winner)}
+  const n = e.picks_a + e.picks_b, L = e.analysts || [];
+  const wa = L.length ? L.filter(x => x.winning && x.side === "a").length : (e.win_a || 0);
+  const wb = L.length ? L.filter(x => x.winning && x.side === "b").length : (e.win_b || 0);
+  const W = (x, cls) => x > 0 ? `<i class="${cls}" style="width:${100 * x / n}%"></i>` : "";
+  const ln = s => esc(String(s).split(" ").at(-1));
+  const lead = e.picks_a === e.picks_b ? "Experts split" : `Experts ${Math.max(e.picks_a, e.picks_b)}-${Math.min(e.picks_a, e.picks_b)} ${e.picks_a > e.picks_b ? ln(a) : ln(b)}`;
+  const winNames = L.filter(x => x.winning).map(x => `${esc(x.name)}: ${x.side === "a" ? esc(a) : esc(b)}`).join(", ");
+  return `<div class="xbar">
+    <div class="xb-l"><b>${lead}</b>${wa + wb ? `<span class="xb-w" title="${winNames}">★ Winning-record analysts: ${wa ? `${wa} on ${ln(a)}` : ""}${wa && wb ? ", " : ""}${wb ? `${wb} on ${ln(b)}` : ""}</span>` : ""}</div>
+    <div class="xb-bar" role="img" aria-label="${e.picks_a} of ${n} analysts picked ${esc(a)}, ${e.picks_b} picked ${esc(b)}; winning-record analysts in gold">
+      ${W(wa, "wa")}${W(e.picks_a - wa, "a")}${W(e.picks_b - wb, "b")}${W(wb, "wb")}</div>
+    <div class="xb-s"><span>${e.picks_a}</span><a href="${esc(e.url)}" target="_blank" rel="noopener">via SplitPicks</a><span>${e.picks_b}</span></div>
   </div>`;
 }
 
@@ -614,8 +620,7 @@ function homeLower(ev, ex, up, p) {
     <section class="lw-main"><div class="lw-h"><h2>${kick("Results")}Recent cards</h2><a href="#/events">All events</a></div><div class="evlist">${recent}</div></section>
     <aside class="lw-side">
       ${next ? `<section class="panel"><div class="lw-h"><h2>${kick("Schedule")}Coming up</h2><a href="#/events">Schedule</a></div><ul class="nxl">${next}</ul></section>` : ""}
-      <section class="panel"><div class="lw-h"><h2>${kick("Experts", "blue")}Top analysts</h2><a href="#/experts">Leaderboard</a></div>
-        ${top ? `<ul class="tal">${top}</ul><p class="small">Units betting each analyst's picks at the posted odds, from SplitPicks.</p>` : `<p class="note">Appears once expert picks are collected.</p>`}</section>
+
     </aside></div>`;
 }
 
@@ -836,52 +841,37 @@ async function viewFighter(s) {
 
 // ---------------- experts ----------------
 async function viewExperts() {
-  const [e, mt, pr] = await Promise.all([get("experts.json"), get("model_test.json"), get("predictions.json", true)]);
-  if (!e) return `<h1>Experts</h1><div class="empty">Expert picks appear after the next run collects them.</div>`;
-  const t = e.test, r = x => x.roi_pct == null ? "–" : (x.roi_pct > 0 ? "+" : "") + x.roi_pct + "%";
-  return `<h1>Experts</h1>
-    <p class="note">Picks from ${e.analysts.length} analysts tracked by <a href="${esc(e.source_url)}" target="_blank" rel="noopener">SplitPicks</a>, ${esc(e.first)} to ${esc(e.last)}, graded at the lines SplitPicks shows.</p>
-    <div class="callout"><b>${t.helps ? "Expert consensus added something beyond the line." : "So far, expert consensus doesn't add anything beyond the betting line."}</b>
-      Across ${t.bouts} bouts on ${t.cards} cards, the consensus pick won ${e.consensus.win_pct}% of the time and the betting favorite won ${e.favorites.won_pct}%.
-      Adding the consensus to the line ${t.helps ? "lowered" : "didn't lower"} the prediction error (log loss ${t.log_loss_line_refit} → ${t.log_loss_line_plus_experts}, tested one card at a time on cards it didn't learn from).
-      The test reruns as more cards come in.</div>
-    <div class="cols">
-      <section><h2>Betting the consensus</h2><table><tbody>
-        <tr><td>Every consensus pick</td><td class="n">${e.consensus.won}-${e.consensus.bets - e.consensus.won}</td><td class="n">${r(e.consensus)}</td></tr>
-        <tr><td>Consensus on the underdog</td><td class="n">${e.against_the_line.won}-${e.against_the_line.bets - e.against_the_line.won}</td><td class="n">${r(e.against_the_line)}</td></tr>
-        ${e.by_strength.map(s => `<tr><td>${esc(s.consensus)}</td><td class="n">${s.won}-${s.bets - s.won}</td><td class="n">${r(s)}</td></tr>`).join("")}
-      </tbody></table><p class="note">Return per 1-unit bet at the posted odds.</p></section>
-      <section><h2>What the line expected</h2><table><tbody>${e.by_strength.map(s => `<tr><td>${esc(s.consensus)}</td><td class="n">won ${s.bets ? Math.round(s.won / s.bets * 100) : "–"}%</td><td class="n">line said ${s.line_expected_pct ?? "–"}%</td></tr>`).join("")}</tbody></table>
-      <p class="note">When the experts' pick wins more often than the line expected, the experts are adding something.</p></section>
-    </div>
-    ${mt ? `<h2>Head to head on the same ${mt.bouts} bouts</h2>
-      <p class="note">${mt.cards} cards, ${esc(mt.first)} to ${esc(mt.last)}, each predicted using only earlier cards. Lower log loss means better-calibrated chances.</p>
-      <div class="tablewrap"><table><thead><tr><th>Prediction</th><th class="n">Correct</th><th class="n">Units</th><th class="n hide-sm">Log loss</th><th class="n">Value bets</th><th class="n">Value units</th></tr></thead><tbody>
-      ${mt.results.map(r => `<tr class="${r.prediction === mt.chosen ? "chosen" : ""}"><td>${esc(r.prediction)}</td><td class="n">${r.correct}/${r.bouts} (${r.pct}%)</td>
-        <td class="n ${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</td><td class="n hide-sm">${r.log_loss.toFixed(3)}</td>
-        <td class="n">${r.value_bets ? `${r.value_won}/${r.value_bets}` : "–"}</td><td class="n ${r.value_units >= 0 ? "won" : "lost"}">${r.value_bets ? units(r.value_units) : "–"}</td></tr>`).join("")}</tbody></table></div>
-      <p class="note">Used on the site: <b>${esc(mt.chosen)}</b>. ${mt.uses_experts ? "Expert picks are part of it." : "Adding expert picks didn't improve it, so they're shown for reference but not used in our chances."}
-      Analysts with a winning record (a profit betting their picks, ${20}+ picks): <b>${esc(mt.winning_analysts.join(", ") || "none yet")}</b>. Everyone else is left out of the "winning analysts" count.</p>` : ""}
-    <h2>Analyst leaderboard</h2>
-    ${(() => {
-      const win = new Set(mt ? mt.winning_analysts : []);
-      const week = {};   // each analyst's picks on the upcoming card
-      for (const f of (pr && pr.fights) || []) for (const x of (f.experts && f.experts.analysts) || []) {
-        (week[x.name] = week[x.name] || []).push({who: x.side === "a" ? f.a : f.b, conf: x.conf});
-      }
-      const maxU = Math.max(1, ...e.analysts.map(a => Math.abs(a.units)));
-      return `<div class="lb">${e.analysts.map((a, i) => {
-        const w = week[a.analyst] || [];
-        return `<details class="lbrow ${win.has(a.analyst) ? "winning" : ""}"><summary>
-          <span class="lb-rk">${i + 1}</span>
-          <span class="lb-nm">${esc(a.analyst)}${win.has(a.analyst) ? ` <b class="wtag">Winning record</b>` : ""}<small>${a.won}-${a.bets - a.won}, ${a.win_pct}% won${a.high_confidence.bets ? `, high confidence ${a.high_confidence.won}-${a.high_confidence.bets - a.high_confidence.won}` : ""}</small></span>
-          <span class="lb-bar"><span class="track"><i style="width:${a.win_pct}%"></i><em style="left:50%"></em></span><small>Win %</small></span>
-          <span class="lb-u ${a.units >= 0 ? "won" : "lost"}"><b>${units(a.units)}</b><span class="ub"><i class="${a.units >= 0 ? "pos" : "neg"}" style="width:${Math.abs(a.units) / maxU * 50}%"></i></span><small>${r(a)} per bet</small></span>
-        </summary>
-        <div class="lb-week">${w.length ? `<b>This week (${w.length} picks):</b> ${w.map(x => `${esc(x.who)}${x.conf ? ` <i class="conf c-${esc(x.conf.toLowerCase())}">${esc(x.conf)}</i>` : ""}`).join(" · ")}` : "No picks posted for this week's card yet."}</div></details>`;
-      }).join("")}</div>`;
-    })()}
-    <p class="note">A few hundred picks is a small sample: a leaderboard this short-term is mostly luck. Watch whether the leaders hold up.</p>`;
+  const [e, mt] = await Promise.all([get("experts.json"), get("model_test.json")]);
+  if (!e) return `<h1>Expert check</h1><div class="empty">Expert picks appear after the next run collects them.</div>`;
+  const A = e.analysts, pos = A.filter(a => a.units > 0), r = x => x.roi_pct == null ? "–" : (x.roi_pct > 0 ? "+" : "") + x.roi_pct + "%";
+  const lean = (e.by_strength || []).find(s => /^Lean/.test(s.consensus));
+  const card = a => `<div class="xw"><span class="xw-k">★ Winning record</span><b>${esc(a.analyst)}</b>
+      <div class="xw-n"><span><b>${a.won}-${a.bets - a.won}</b>${a.win_pct}% won</span><span><b class="won">${units(a.units)}</b>${r(a)} per pick</span>
+      ${a.high_confidence && a.high_confidence.bets ? `<span><b>${a.high_confidence.won}-${a.high_confidence.bets - a.high_confidence.won}</b>high-confidence picks, ${r(a.high_confidence)}</span>` : ""}</div></div>`;
+  return `<h1>Expert check</h1>
+    <p class="lede">We grade ${A.length} public MMA analysts against the betting line, so you don't have to.</p>
+    <div class="xverdict"><div class="xv-main"><span class="pf-kick">The finding</span><h2>Most experts don't beat the line.</h2>
+      <p>Over ${e.consensus.bets} fights (${esc(e.first)} to ${esc(e.last)}), following the majority went ${e.consensus.won}-${e.consensus.bets - e.consensus.won}, ${r(e.consensus)} per bet: they mostly pick favorites the odds already price in. Adding them to our model made it worse, so ${METHOD} leaves them out.</p></div>
+      <div class="xv-stats">
+        <div><b>${pos.length} of ${A.length}</b><span>analysts are profitable</span></div>
+        <div><b class="lost">${r(e.consensus)}</b><span>betting the consensus</span></div>
+        ${lean ? `<div><b class="won">${r(lean)}</b><span>close fights where 65-80% agree: our expert leans</span></div>` : ""}
+      </div></div>
+    <h2>${kick("Worth watching", "gold")}The ones with winning records</h2>
+    <div class="xwgrid">${pos.map(card).join("") || `<div class="empty">No analyst is profitable yet.</div>`}</div>
+    <p class="note">Their picks show in <b class="gold">gold</b> on each fight's expert bar. A few hundred picks is still a small sample, so watch whether they hold up.</p>
+    <h2>${kick("Where experts help", "teal")}Expert leans</h2>
+    <p class="note">The one place the crowd has added value: fights the line calls close, where 65%+ of analysts agree. When the model has no pick there, the lean becomes one of our picks, tracked separately on the <a href="#/record">Record</a> page.</p>
+    <details class="fine xfull"><summary>Full leaderboard and test details</summary>
+      <div class="tablewrap"><table><thead><tr><th>#</th><th>Analyst</th><th class="n">Record</th><th class="n">Win %</th><th class="n">Units</th><th class="n hide-sm">Per pick</th></tr></thead><tbody>
+        ${A.map((a, i) => `<tr class="${a.units > 0 ? "xwin" : ""}"><td>${i + 1}</td><td>${esc(a.analyst)}${a.units > 0 ? " ★" : ""}</td><td class="n">${a.won}-${a.bets - a.won}</td><td class="n">${a.win_pct}%</td>
+          <td class="n ${a.units >= 0 ? "won" : "lost"}">${units(a.units)}</td><td class="n hide-sm">${r(a)}</td></tr>`).join("")}</tbody></table></div>
+      <div class="tablewrap"><table><thead><tr><th>Consensus</th><th class="n">Record</th><th class="n">Won</th><th class="n">Line expected</th><th class="n">Per bet</th></tr></thead><tbody>
+        ${e.by_strength.map(s => `<tr><td>${esc(s.consensus)}</td><td class="n">${s.won}-${s.bets - s.won}</td><td class="n">${s.bets ? Math.round(100 * s.won / s.bets) : "–"}%</td><td class="n">${s.line_expected_pct}%</td><td class="n ${s.roi_pct >= 0 ? "won" : "lost"}">${r(s)}</td></tr>`).join("")}
+        <tr><td>Consensus on the underdog</td><td class="n">${e.against_the_line.won}-${e.against_the_line.bets - e.against_the_line.won}</td><td class="n">${Math.round(100 * e.against_the_line.won / e.against_the_line.bets)}%</td><td class="n">–</td><td class="n lost">${r(e.against_the_line)}</td></tr></tbody></table></div>
+      <p class="note">Return per 1-unit bet at the posted odds. Model test: adding the consensus to the line moved log loss from ${e.test.log_loss_line_refit} to ${e.test.log_loss_line_plus_experts} (lower is better), tested one card at a time on ${e.test.bouts} fights.</p>
+    </details>
+    <p class="small">Analyst picks from <a href="${esc(e.source_url)}" target="_blank" rel="noopener">SplitPicks</a>, used with credit. Results graded by Octagon Edge.</p>`;
 }
 
 // ---------------- about and photo credits ----------------
