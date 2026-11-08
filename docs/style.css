@@ -876,3 +876,5 @@ tr.top1 td.rk { color: var(--gold); }
 .lc-toast.out{opacity:0;transform:translate(-50%,12px)}
 @keyframes lcin{from{opacity:0;transform:translate(-50%,16px)}}
 @media (prefers-reduced-motion:reduce){.lc-rounds span.now,.lc-pip.flash a,.lc-toast{animation:none}}
+.vtag{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;border:1px solid var(--teal,#2fbfae);color:var(--teal,#2fbfae);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;vertical-align:middle}
+.bs-who small.v{color:var(--teal,#2fbfae);font-weight:700}

@@ -136,7 +136,7 @@ function bout(f, i, edge) {
   let pickHtml;
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
-  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${
+  if (f.our_pick) pickHtml = `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${
     bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick value">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
@@ -380,7 +380,7 @@ function liveCenter(p) {
       <span class="lc-name">${esc(nm)}${champTag(sl)}${favStar(sl)}</span>
       <span class="lc-meta">${rankOf(sl)}${flagOf(sl, true)}</span>
       <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>
-      ${ours ? `<span class="lc-tag ours">Our pick${f.stake ? " · " + f.stake + "u" : ""}</span>` : val ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`;
+      ${ours ? `<span class="lc-tag ours">Our pick${f.stake ? " · " + f.stake + "u" : ""}</span>` : ""}${val ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`;
   };
   const spot = (x, label) => !x ? "" : `<div class="lc-spot${x.f.state === "in" ? " on" : ""}">
       <div class="lc-label">${x.f.state === "in" ? `<span class="live">Now fighting</span>` : `<span class="lc-next">${label}</span>`}
@@ -438,7 +438,7 @@ function betSlip(order) {
     else if (f.state === "post") { cls = "void"; res = "No result"; }
     else risk += st;
     return `<li class="${cls}"><a href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${i}')?.scrollIntoView({behavior:'smooth'}),400)">
-      <span class="bs-who">${esc(f.our_pick)}${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? ` <small>expert lean</small>` : ""}</span>
+      <span class="bs-who">${esc(f.our_pick)}${f.our_pick === f.pick ? ` <small class="v">value</small>` : f.our_pick === f.expert_lean ? ` <small>expert lean</small>` : ""}</span>
       <span class="bs-px">${odds(o)} · ${st}u</span><span class="bs-res">${res}</span></a></li>`;
   }).join("");
   return `<details class="lc-slip" open><summary><span>Bet slip</span><b class="${settled >= 0 ? "won" : "lost"}">${units(Math.round(settled * 100) / 100)}</b><small>settled · ${Math.round(risk * 10) / 10}u still to go</small></summary>
