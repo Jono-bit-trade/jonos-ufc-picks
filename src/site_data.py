@@ -551,6 +551,13 @@ def main():
                        "weight_class", "before", "after", "rd", "odds", "height", "reach", "stance", "age", "title", "side",
                        "opp_stance", "opp_reach", "rounds", "opp_before"]])
     long = pd.concat(long).sort_values(["date"], kind="stable")
+    # each fighter's UFC record going into every fight (for opponents in fight histories)
+    rec_before = {}
+    for name, g in long.groupby("name", sort=False):
+        w_ = l_ = d_ = 0
+        for r_ in g.itertuples():
+            rec_before[(norm(name), r_.fight_id)] = f"{w_}-{l_}" + (f"-{d_}" if d_ else "")
+            w_ += r_.result == "W"; l_ += r_.result == "L"; d_ += r_.result == "D"
     # who has held a UFC title (won a title fight), and the percentile base for the style radar
     holders = set(long[(long["title"].fillna(False).astype(bool)) & (long["result"] == "W")]["name"].map(norm))
     RADAR = [("Striking", "sig_strikes_landed_per_min", 1), ("Defense", "sig_strikes_absorbed_per_min", -1),
@@ -637,7 +644,8 @@ def main():
                          "finish": r.finish if isinstance(r.finish, str) else None, "round": num(r.end_round),
                          "weight_class": r.weight_class if isinstance(r.weight_class, str) else "",
                          "odds": num(r.odds), "model_p": round(float(p), 3) if p is not None else None,
-                         "rating_before": num(r.before), "rating_after": num(r.after), "title": bool(r.title)})
+                         "rating_before": num(r.before), "rating_after": num(r.after), "title": bool(r.title),
+                         "opp_rating": num(r.opp_before), "opp_record": rec_before.get((norm(r.opp), r.fight_id))})
         prof = {
             "name": name, "slug": slug(name), "espn_id": ids.get(k), "pro_record": recs.get(k),
             "ufc_record": f"{res.get('W', 0)}-{res.get('L', 0)}-{res.get('D', 0)}" + (f" ({res.get('NC')} NC)" if res.get("NC") else ""),

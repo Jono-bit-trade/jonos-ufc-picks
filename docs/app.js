@@ -211,12 +211,13 @@ function last5(P, name, side) {
   const how = z => [z.finish, z.round && z.finish && !/DEC/i.test(z.finish) ? "R" + z.round : ""].filter(Boolean).join(" ");
   return `<section class="l5 ${side}"><h3>${esc(name)}</h3>
     <div class="l5-sum"><span><b>${wl(L)}</b> last ${L.length}</span>${fav.length ? `<span><b>${wl(fav)}</b> as favorite</span>` : ""}${dog.length ? `<span><b>${wl(dog)}</b> as underdog</span>` : ""}</div>
-    <table class="l5-t"><tbody>${L.map(z => `<tr>
+    <table class="l5-t"><thead><tr><th></th><th>Opponent</th><th style="text-align:right">Their record</th><th class="l5-h">Result</th><th style="text-align:right">Odds</th><th></th></tr></thead><tbody>${L.map(z => `<tr>
       <td><span class="fm ${z.result === "NC" ? "D" : z.result}">${z.result === "NC" ? "NC" : z.result}</span></td>
       <td class="l5-o">${fighterLink(z.opp, z.opp_slug)}<small>${esc(z.date)}${z.title ? " · title fight" : ""}</small></td>
+      <td class="l5-r">${z.opp_record != null ? `<b>${esc(z.opp_record)}</b>` : ""}${z.opp_rating != null ? `<small>EDGE ${z.opp_rating}</small>` : ""}</td>
       <td class="l5-h">${esc(how(z))}</td>
       <td class="n">${z.odds != null ? odds(z.odds) : "–"}</td>
-      <td>${z.odds == null ? "" : z.odds < 0 ? `<span class="fd fav">Favorite</span>` : `<span class="fd dog">Underdog</span>`}</td></tr>`).join("")}</tbody></table></section>`;
+      <td>${z.odds == null ? "" : z.odds < 0 ? `<span class="fd fav"><span class="lg">Favorite</span><span class="sh">Fav</span></span>` : `<span class="fd dog"><span class="lg">Underdog</span><span class="sh">Dog</span></span>`}</td></tr>`).join("")}</tbody></table></section>`;
 }
 
 async function viewFight(x, y) {
