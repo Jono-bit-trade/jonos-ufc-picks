@@ -1330,3 +1330,9 @@ details.explain[open] > summary::before,details.fine[open] > summary::before{con
 .acct-prev{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
 @media (max-width:900px){.plans{grid-template-columns:1fr}.pr-proof{grid-template-columns:repeat(2,1fr)}}
 .ck.no{color:#8a90a0!important}
+.bar.hid .fill{background:linear-gradient(90deg,#6b6f7a,#4a4e58)!important}
+.bar.hid{background:#2a2d35!important}
+.lock-l{display:inline-flex;align-items:center;gap:4px;color:var(--accent,#d9a91a);font-weight:700} .lock-l .lk{width:13px;height:13px}
+.cr-l .lk{width:11px;height:11px;vertical-align:-1px;color:var(--accent,#d9a91a)}
+.faceoff .pc .lk{width:34px;height:34px;color:var(--accent,#d9a91a)}
+.hidp .pa,.hidp .pb{color:#c9ced8!important}

@@ -157,10 +157,11 @@ def model_pick(a, b, p_final, fair_a, lean=None):
 
 
 PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news")
+MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "edge_a")   # our numbers: members only
 
 
 def public_card(full):
-    """The card as a free visitor gets it once the paywall is on: chances and tiers for every fight, picks only on
+    """The card as a free visitor gets it once the paywall is on: betting lines for every fight, our chances and picks only on
     finished fights and on the free sample (the top-billed fight with a pick). The full file is for members and,
     behind a real paywall, would be served only to signed-in members."""
     out = dict(full, gated=True)
@@ -171,8 +172,8 @@ def public_card(full):
             fights.append(dict(f, sample=i == sample))
             continue
         had = bool(f.get("our_pick") or f.get("pick") or f.get("expert_lean"))
-        g = {k: v for k, v in f.items() if k not in PREMIUM}
-        g.update(locked=had, our_pick=None, pick=None, stake=None, why=None, expert_lean=None)
+        g = {k: v for k, v in f.items() if k not in PREMIUM + MODEL}
+        g.update(locked=had, hidden=True, our_pick=None, pick=None, stake=None, why=None, expert_lean=None)
         if g.get("experts"):
             g["experts"] = dict(g["experts"], win_a=0, win_b=0, analysts=[dict(x, winning=False) for x in g["experts"].get("analysts", [])])
         fights.append(g)

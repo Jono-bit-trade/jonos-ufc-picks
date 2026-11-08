@@ -10,9 +10,9 @@
       "period": "one card",
       "tagline": "Every pick for one fight card.",
       "features": [
+        "Our chance and confidence on every fight",
         "All our picks and stakes for the card",
-        "Value picks and confidence tiers",
-        "Full fight analysis for every bout",
+        "Value picks and full fight analysis",
         "Live fight-night bet slip"
       ],
       "checkout_url": ""
@@ -34,8 +34,8 @@
     }
   ],
   "free": [
-    "EDGE Rating chances and confidence tiers for every fight",
-    "One free pick per card",
+    "Betting lines and every fighter's EDGE Rating",
+    "One free pick per card, with our chance",
     "Rankings, fighter pages, Who wins? and Movers",
     "The full public record"
   ]

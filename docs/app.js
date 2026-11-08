@@ -146,7 +146,7 @@ function bout(f, i, edge) {
   let pickHtml;
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
-  if (f.locked) pickHtml = lockedPick(f);
+  if (f.locked || f.hidden) pickHtml = lockedPick(f);
   else if (f.our_pick) pickHtml = `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${
     bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
@@ -172,12 +172,15 @@ function bout(f, i, edge) {
       <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}${tierTag(f.tier || tierOf(f.p_a))}</div>
       <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
     </div>
-    <div class="pct"><span class="pa">${pa100}%</span><span class="lbl">Model</span><span class="pb">${100 - pa100}%</span></div>
+    ${f.hidden ? `<div class="pct hidp"><span class="pa">${line != null ? pct(line) : "–"}</span><span class="lbl">Betting line</span><span class="pb">${line != null ? pct(1 - line) : "–"}</span></div>
+    <div class="bar hid" role="img" aria-label="Betting line ${line != null ? pct(line) : "not posted"} for ${esc(f.a)}"><div class="fill" style="width:${(line ?? 0.5) * 100}%"></div></div>
+    <div class="legend"><span>${odds(f.odds_a)}</span><span class="lock-l">${lockIcon}EDGE chance: members</span><span>${odds(f.odds_b)}</span></div>`
+    : `<div class="pct"><span class="pa">${pa100}%</span><span class="lbl">Model</span><span class="pb">${100 - pa100}%</span></div>
     <div class="bar" role="img" aria-label="Model ${pct(pa)} for ${esc(f.a)}${line != null ? ", line " + pct(line) : ""}">
       <div class="fill" style="width:${pa * 100}%"></div>
       ${line != null ? `<div class="line" style="left:${line * 100}%"></div>` : ""}
     </div>
-    <div class="legend"><span>Fair ${odds(f.fair_odds_a)}</span><span class="hide-sm">Line ${line != null ? pct(line) + " / " + pct(1 - line) : "not posted"}</span><span>Fair ${odds(f.fair_odds_b)}</span></div>
+    <div class="legend"><span>Fair ${odds(f.fair_odds_a)}</span><span class="hide-sm">Line ${line != null ? pct(line) + " / " + pct(1 - line) : "not posted"}</span><span>Fair ${odds(f.fair_odds_b)}</span></div>`}
     ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
     ${pickHtml}
     <details class="moves-d"><summary><span class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
@@ -220,7 +223,8 @@ function gatePredictions(p) {
     if (i === sampleAt) return {...f, sample: true};
     if (f.state === "post") return f;   // finished fights show their picks: that's the public record
     const had = !!(f.our_pick || f.pick || f.expert_lean);
-    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, locked: had,
+    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, locked: had, hidden: true,
+      p_a: null, p_model_a: null, model_pick: null, tier: null, fair_odds_a: null, fair_odds_b: null, method: null, edge_a: null,
       experts: f.experts ? {...f.experts, win_a: 0, win_b: 0, analysts: (f.experts.analysts || []).map(x => ({...x, winning: false}))} : f.experts};
   });
   q.locked_count = q.fights.filter(f => f.locked).length;
@@ -235,7 +239,7 @@ async function getPred() {
 }
 const planBtns = (small) => PLANS ? `<div class="lock-btns${small ? " sm" : ""}">${PLANS.plans.map(pl => `<a class="${pl.best ? "btn" : "pill"}" href="#/pricing">${esc(pl.name)} · $${pl.price}</a>`).join("")}</div>` : "";
 const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
-const lockedPick = f => `<div class="locked-pick">${lockIcon}<div><b>${f.locked ? "Pick locked" : "Members' analysis"}</b><span>${f.locked ? "We have a pick on this fight." : "Our full call on this fight."} Unlock it with an Event Pass or Monthly.</span></div>${planBtns(true)}</div>`;
+const lockedPick = f => `<div class="locked-pick">${lockIcon}<div><b>${f.locked ? "Pick locked" : "EDGE chance locked"}</b><span>${f.locked ? "We have a pick on this fight." : "See our chance and whether the line is off."} Unlock it with an Event Pass or Monthly.</span></div>${planBtns(true)}</div>`;
 
 // ---- pricing and account (structure for a paid site; checkout links go in docs/plans.json) ----
 async function viewPricing() {
@@ -252,7 +256,7 @@ async function viewPricing() {
         : pl.checkout_url ? `<a class="btn plan-cta" href="${esc(pl.checkout_url)}" rel="noopener">Get ${esc(pl.name)}</a>`
         : `<span class="btn plan-cta soon" aria-disabled="true">Coming soon</span>`}
       ${mine === pl.id && paywallOn() ? `<span class="plan-mine">Your plan</span>` : ""}</div>`;
-  const rows = [["EDGE Rating chances and confidence tiers", 1, 1, 1], ["Rankings, fighter pages, Who wins?, Movers", 1, 1, 1], ["The full public record", 1, 1, 1],
+  const rows = [["Betting lines and every fighter's EDGE Rating", 1, 1, 1], ["EDGE chance and confidence on every fight", "Free pick only", 1, 1], ["Rankings, fighter pages, Who wins?, Movers", 1, 1, 1], ["The full public record", 1, 1, 1],
     ["One free pick per card", 1, 1, 1], ["Every pick with stake and reasons", 0, "One card", 1], ["Value picks", 0, "One card", 1],
     ["Fight analysis: our call on every bout", 0, "One card", 1], ["Live fight-night bet slip", 0, "One card", 1], ["Winning-record analysts highlighted", 0, "One card", 1],
     ["Picks for every card, all month", 0, 0, 1]];
@@ -352,7 +356,7 @@ async function viewFight(x, y) {
       <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
-  const call = F.f && F.f.locked ? lockedPick(F.f) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
+  const call = F.f && (F.f.locked || F.f.hidden) ? lockedPick(F.f) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
   const mark = nm => F.winner && nm ? (F.winner === nm ? ` <em class="won">✓ won</em>` : ` <em class="lost">✗ lost</em>`) : "";
@@ -502,8 +506,8 @@ function cardSide(p, mr) {
       ${p.gated && p.locked_count ? `<div class="cs-lock">${lockIcon}<div><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""} locked</b><span>Get every pick, stake and reason for this card.</span></div>${planBtns(true)}</div>` : ""}</section>
     ${vals.length ? `<section class="cs-box"><h3>${kick("Underdogs", "teal")}Value picks only</h3>${vals.map(x => row(x, "v")).join("")}
       <p class="small">The model beats the line here but isn't confident enough to make it a pick.</p></section>` : ""}
-    <section class="cs-box"><h3>${kick("Confidence", "blue")}On this card</h3>
-      ${["High", "Medium", "Low"].map(t => `<div class="cs-tier">${tierTag(t)}<b>${tiers[t]}</b><span>${T && T[t] ? `${T[t].pct}% right since ${mr.from || 2020}` : ""}</span></div>`).join("")}</section>
+    ${p.gated ? "" : `<section class="cs-box"><h3>${kick("Confidence", "blue")}On this card</h3>
+      ${["High", "Medium", "Low"].map(t => `<div class="cs-tier">${tierTag(t)}<b>${tiers[t]}</b><span>${T && T[t] ? `${T[t].pct}% right since ${mr.from || 2020}` : ""}</span></div>`).join("")}</section>`}
   </div></aside>`;
 }
 
@@ -518,10 +522,11 @@ function compactRow(f, i, edge) {
   const w = f.state === "post" && f.result ? f.result.winner : null;
   const called = f.our_pick || f.model_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
-  const sideA = pa >= 0.5, last = n => esc(n.split(" ").slice(-1)[0]);
+  const sideA = (f.hidden ? line : pa) >= 0.5, last = n => esc(n.split(" ").slice(-1)[0]);
   return `<details id="bout-${i}" class="crow${ring}"><summary>
       <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
-      <span class="cr-p"><b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b></span>
+      <span class="cr-p${f.hidden ? " hidp" : ""}">${f.hidden ? `<b class="pa">${line != null ? pct(line) : "–"}</b><span class="cr-l">line · ${lockIcon}</span><b class="pb">${line != null ? pct(1 - line) : "–"}</b>`
+        : `<b class="pa">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb">${pct(1 - pa)}</b>`}</span>
       <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
       <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.locked ? `<span class="mini-lock">${lockIcon}Locked</span>` : f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
     </summary>${bout(f, i, edge)}</details>`;
@@ -799,12 +804,12 @@ async function viewHome() {
       <div class="when">${kick("Next card", "red")}${dateLong(p.date)}${start ? ` · <b>${countdown(start)}</b>` : ""}</div>
       <h2 class="hero-t">${esc(p.event)}</h2>
       <div class="faceoff">
-        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.a_slug)}">${photo(m.a_id, m.a, "xl")}<span class="n">${esc(m.a)}</span>${rankOf(m.a_slug)}${flagOf(m.a_slug, true)}<span class="pc a">${m.hidden ? lockIcon : pct(m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(m.market_p_a) + " · " + odds(m.odds_a) : "not posted"}</span></a>
         <span class="vs">VS</span>
-        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
+        <a href="#/fighter/${esc(m.b_slug)}">${photo(m.b_id, m.b, "xl")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${m.hidden ? lockIcon : pct(1 - m.p_a)}</span><span class="ln">Line ${m.market_p_a != null ? pct(1 - m.market_p_a) + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
-      <div class="legendline">Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline.</div>
+      <div class="legendline">${m.hidden ? `Our chance on this fight is for members. <a href="#/pricing">See plans</a>` : "Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline."}</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
     </section>`;
     picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
