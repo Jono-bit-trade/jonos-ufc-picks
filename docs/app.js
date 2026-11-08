@@ -181,11 +181,84 @@ function bout(f, i, edge) {
     <details class="moves-d"><summary><span class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
     ${f.splits ? `<div class="splits">DraftKings bettors: ${Math.round(f.splits.handle_a * 100)}% of money, ${Math.round(f.splits.bets_a * 100)}% of bets on ${esc(f.a.split(" ").at(-1))} · ${Math.round(f.splits.handle_b * 100)}% / ${Math.round(f.splits.bets_b * 100)}% on ${esc(f.b.split(" ").at(-1))}${
       Math.abs(f.splits.handle_a - f.splits.bets_a) >= 0.2 ? ` <b class="sharp">Money ≠ bets: bigger bettors on ${esc((f.splits.handle_a > f.splits.bets_a ? f.a : f.b).split(" ").at(-1))}</b>` : ""}</div>` : ""}
-    ${tapeToggle(f.a_slug, f.b_slug, f.rounds)}
+    <a class="fx-open" href="${fightLink(i)}">Fight analysis <span>styles, tale of the tape, line movement</span></a>
   </article>`;
 }
 
 // ---------------- matchup: tale of the tape ----------------
+// ---- one fight, analysed: #/fight/<card index> or #/fight/<event slug>/<index> ----
+function radarDual(Ra, Rb, A, B) {
+  const keys = Object.keys(Ra || Rb), n = keys.length, cx = 160, cy = 160, rad = 118;
+  const pt = (i, r) => { const ang = -Math.PI / 2 + i * 2 * Math.PI / n; return [cx + r * Math.cos(ang), cy + r * Math.sin(ang)]; };
+  const ring = r => keys.map((_, i) => pt(i, r).join(",")).join(" ");
+  const poly = R => keys.map((k, i) => pt(i, rad * Math.max(6, (R && R[k]) ?? 0) / 100).join(",")).join(" ");
+  const lab = keys.map((k, i) => { const [x, y] = pt(i, rad + 24), an = Math.abs(x - cx) < 8 ? "middle" : x > cx ? "start" : "end";
+    return `<text x="${x}" y="${y + 4}" text-anchor="${an}" class="rl">${esc(k)}</text><text x="${x}" y="${y + 18}" text-anchor="${an}" class="rv"><tspan class="va">${Ra && Ra[k] != null ? Ra[k] : "–"}</tspan> · <tspan class="vb">${Rb && Rb[k] != null ? Rb[k] : "–"}</tspan></text>`; }).join("");
+  return `<div class="radar dual"><svg viewBox="-75 -10 470 350" role="img" aria-label="Style profiles: ${esc(A.name)} in red, ${esc(B.name)} in blue">
+    ${[25, 50, 75, 100].map(p => `<polygon points="${ring(rad * p / 100)}" class="rg${p === 100 ? " outer" : ""}"/>`).join("")}
+    ${keys.map((_, i) => `<line x1="${cx}" y1="${cy}" x2="${pt(i, rad)[0]}" y2="${pt(i, rad)[1]}" class="ax"/>`).join("")}
+    ${Rb ? `<polygon points="${poly(Rb)}" class="shape b"/>` : ""}${Ra ? `<polygon points="${poly(Ra)}" class="shape a"/>` : ""}
+    ${lab}</svg>
+    <div class="rd-legend"><span class="a">${esc(A.name)}</span><span class="b">${esc(B.name)}</span></div></div>`;
+}
+function fightLink(i, ev) { return ev ? `#/fight/${esc(ev)}/${i}` : `#/fight/${i}`; }
+async function viewFight(x, y) {
+  let F, back, title, when;
+  if (y != null) {   // a past card
+    const e = await get(`events/${x}.json`); const b = e && e.bouts[+y];
+    if (!b) return `<h1>Fight not found</h1><div class="empty"><a class="pill" href="#/events">All events</a></div>`;
+    const side = s => s === "a" ? b.a : s === "b" ? b.b : null;
+    F = {a: b.a, b: b.b, a_slug: b.a_slug, b_slug: b.b_slug, a_id: b.a_id, b_id: b.b_id, p: b.final_p_a ?? b.model_p_a, line: b.line_p_a,
+      odds_a: b.odds_a, odds_b: b.odds_b, wc: b.weight_class, rounds: b.rounds, tier: (b.model_pick && b.model_pick.tier) || tierOf(b.final_p_a),
+      ours: b.our_pick ? side(b.our_pick.side) : null, ours_odds: b.our_pick && b.our_pick.odds, stake: b.our_pick && b.our_pick.stake,
+      value: b.value_pick ? side(b.value_pick.side) : null, experts: b.experts, winner: side(b.winner), how: b.finish ? `${b.finish}${b.round ? ", round " + b.round : ""}` : "",
+      model: b.model_pick ? side(b.model_pick.side) : null, lean: b.expert_lean ? side(b.expert_lean) : null};
+    back = `<a class="pill" href="#/event/${esc(x)}">← ${esc(e.name)}</a>`; title = e.name; when = dateLong(e.date);
+  } else {
+    const p = await get("predictions.json", true); const f = p && p.fights[+x];
+    if (!f) return `<h1>Fight not found</h1><div class="empty"><a class="pill" href="#/card">This card</a></div>`;
+    const w = f.state === "post" && f.result ? f.result.winner : null;
+    F = {a: f.a, b: f.b, a_slug: f.a_slug, b_slug: f.b_slug, a_id: f.a_id, b_id: f.b_id, p: f.p_a, line: f.market_p_a, odds_a: f.odds_a, odds_b: f.odds_b,
+      wc: f.weight_class, rounds: f.rounds, tier: f.tier || tierOf(f.p_a), ours: f.our_pick, ours_odds: f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null,
+      stake: f.stake, value: f.pick, why: f.why, experts: f.experts, hist: f.line_history, f, winner: w, how: w ? (f.result.detail || "") : "",
+      model: f.model_pick, lean: f.expert_lean, start: f.start, state: f.state, status: f.status};
+    back = `<a class="pill" href="#/card">← ${esc(p.event)}</a>`; title = p.event; when = f.start ? new Date(f.start).toLocaleString(undefined, {weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}) : dateLong(p.date);
+  }
+  const [A, B] = await Promise.all([F.a_slug ? get(`fighters/${F.a_slug}.json`, true) : null, F.b_slug ? get(`fighters/${F.b_slug}.json`, true) : null]);
+  const corner = (k) => { const nm = F[k], sl = F[k + "_slug"], P = k === "a" ? A : B, ch = F.p == null ? null : k === "a" ? F.p : 1 - F.p, o = F["odds_" + k];
+    return `<a class="lc-corner ${k}${F.ours === nm ? " ours" : ""}${F.winner && F.winner !== nm ? " lostc" : ""}" href="#/fighter/${esc(sl)}">${photo(F[k + "_id"], nm, "xl")}
+      <span class="lc-name">${esc(nm)}${champTag(sl)}${favStar(sl)}</span><span class="lc-meta">${rankOf(sl)}${flagOf(sl, true)}</span>
+      <span class="fx-rec">${P ? `${esc(P.ufc_record)} UFC · EDGE ${P.rating}` : "UFC debut"}</span>
+      <span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>
+      ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
+  const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
+  const call = F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
+    : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
+    : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
+  const mark = nm => F.winner && nm ? (F.winner === nm ? ` <em class="won">✓ won</em>` : ` <em class="lost">✗ lost</em>`) : "";
+
+  const status = F.winner ? `<span class="fx-res">${esc(F.winner)} won${F.how ? " · " + esc(F.how.replace(/^Final\s*-?\s*/i, "")) : ""}</span>` : F.state === "in" ? `<span class="live">Live</span>` : `<span class="fx-when">${esc(when)}</span>`;
+  return `<div class="fx-top">${back}</div>
+    <h1 class="fx-h1">${esc(F.a)} <span>vs</span> ${esc(F.b)}</h1>
+    <p class="fx-sub">${esc(F.wc || "")}${F.rounds === 5 ? " · 5 rounds" : ""} · ${status} ${tierTag(F.tier)}</p>
+    <section class="fx-face"><div class="lc-face">${corner("a")}<span class="lc-vs">VS</span>${corner("b")}</div>
+      ${F.p != null ? `<div class="lc-bar"><i class="a" style="width:${Math.round(100 * F.p)}%"></i><i class="b"></i>${F.line != null ? `<em style="left:${Math.round(100 * F.line)}%" title="Betting line"></em>` : ""}</div>
+      <p class="fx-legend">Big numbers: our chance. White tick: the betting line${F.line != null ? ` (${pct(F.line)} / ${pct(1 - F.line)})` : ""}.</p>` : ""}</section>
+    <div class="fx-grid">
+      <section class="fx-panel"><h2>${kick("Styles", "gold")}Head to head</h2>
+        ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + `<p class="note">Percentiles among UFC fighters with fight stats, ${esc(F.a)} first.</p>` : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}</section>
+      <section class="fx-panel"><h2>${kick(METHOD, "gold")}Our call</h2>${F.winner && (F.ours || F.value) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
+        ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
+        ${expertBar(F.experts, F.a, F.b, null)}
+        ${F.hist ? lineChart(F.hist, F.f) : ""}
+        <div class="fx-form"><div><span>${esc(F.a)}</span>${form(A) || "<small>UFC debut</small>"}</div><div><span>${esc(F.b)}</span>${form(B) || "<small>UFC debut</small>"}</div></div>
+      </section>
+    </div>
+    <h2>${kick("Tale of the tape", "gold")}Side by side</h2>
+    <div class="fx-tape">${tape(A, B, F.rounds)}</div>
+    <p class="fx-links"><a class="pill" href="#/compare?a=${esc(F.a_slug)}&b=${esc(F.b_slug)}">Open in Who wins?</a><a class="pill" href="#/fighter/${esc(F.a_slug)}">${esc(F.a)}</a><a class="pill" href="#/fighter/${esc(F.b_slug)}">${esc(F.b)}</a></p>`;
+}
+
 function tapeToggle(a, b, rounds) {
   return `<details class="tape" data-a="${esc(a)}" data-b="${esc(b)}" data-rounds="${rounds || 3}" ontoggle="if(this.open)loadTape(this)">
     <summary>Matchup: tale of the tape and how each does against the other's style</summary><div class="tapebody">Loading…</div></details>`;
@@ -728,7 +801,7 @@ async function viewEvent(s) {
       <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
       <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
       ${expertBar(b.experts, b.a, b.b, b.winner)}
-      ${tapeToggle(b.a_slug, b.b_slug, b.rounds)}
+      <a class="fx-open" href="${fightLink(i, s)}">Fight analysis <span>styles and tale of the tape</span></a>
     </article>`;
   }).join("");
   return `<p><a href="#/events">← All events</a></p><h1>${esc(e.name)}</h1>
@@ -1309,10 +1382,10 @@ async function route() {
   const [p, qs] = (location.hash.slice(1) || "/").split("?");
   const q = new URLSearchParams(qs || ""), parts = p.split("/").filter(Boolean);
   const page = parts[0] || "home";
-  document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings"}[page] || page)));
+  document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings", fight: "card"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), record: () => viewRecord(q), how: viewHow, about: viewAbout, credits: viewCredits};
+    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), record: () => viewRecord(q), how: viewHow, about: viewAbout, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);

@@ -1160,3 +1160,77 @@ main p > a,main .note a,main .small a,.lw-h a,.dc-more,.lc-more,.rstrip > a,.cmp
 .clv b,.clv-k,.clv-note b{color:var(--accent)!important}.clv{border-color:rgba(217,169,26,.4)!important;background:rgba(217,169,26,.06)!important}
 .stats{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
 .explain summary,.fine summary,details > summary{color:#e2bf55}
+
+/* ===== Fight analysis page ===== */
+.fx-top{margin:18px 0 0}
+.fx-h1{font-size:clamp(32px,5.5vw,56px)!important;margin:12px 0 4px!important} .fx-h1 span{color:var(--quiet);font-size:.55em;vertical-align:middle;margin:0 .2em}
+.fx-sub{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--quiet);margin:0 0 14px}
+.fx-res{color:var(--ink);font-weight:700} .fx-when{color:var(--ink)}
+.fx-face{padding:16px;border-radius:16px;border:1px solid var(--rule);background:radial-gradient(90% 80% at 0% 0%,rgba(229,72,77,.12),transparent 60%),radial-gradient(90% 80% at 100% 0%,rgba(61,132,232,.12),transparent 60%),#15161a}
+.fx-face .lc-corner .ph.xl{width:120px;height:120px}
+.fx-face .lc-pct{font-size:46px}
+.fx-rec{font-size:12.5px;color:var(--quiet)}
+.lc-corner.lostc{opacity:.55}
+.lc-tag.won{background:var(--green);color:#06210f}
+.fx-legend{margin:4px 0 0;font-size:12.5px;color:var(--quiet);text-align:center}
+.fx-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin:16px 0}
+.fx-panel{padding:14px 16px;border-radius:16px;border:1px solid var(--rule);background:#17181d}
+.fx-panel h2{margin:0 0 10px}
+.radar.dual .shape.a{fill:rgba(229,72,77,.22);stroke:var(--red)} .radar.dual .shape.b{fill:rgba(61,132,232,.2);stroke:var(--blue)}
+.radar.dual .rv .va{fill:#ff8a8e} .radar.dual .rv .vb{fill:#8fb7f5} .radar.dual .rv{fill:var(--quiet)}
+.rd-legend{display:flex;justify-content:center;gap:18px;font-weight:700;font-size:14px}
+.rd-legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.rd-legend .a::before{background:var(--red)} .rd-legend .b::before{background:var(--blue)}
+.fx-call{display:grid;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--rule);background:#1c1e24;margin-bottom:10px}
+.fx-call.ours{border-color:rgba(217,169,26,.55);background:rgba(217,169,26,.08)} .fx-call.value{border-color:rgba(61,190,108,.4)}
+.fx-k{font:800 11px "Barlow",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,#d9a91a)}
+.fx-call b{font:800 26px var(--display)} .fx-call span:last-child{font-size:13px;color:var(--quiet)}
+.fx-form{display:grid;gap:8px;margin-top:12px} .fx-form > div{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.fx-form > div > span:first-child{min-width:150px;font-weight:700;font-size:14px} .fx-form small{color:var(--quiet)}
+.fx-tape{overflow-x:auto}
+.fx-links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+@media (max-width:860px){.fx-grid{grid-template-columns:1fr}.fx-face .lc-corner .ph.xl{width:84px;height:84px}.fx-face .lc-pct{font-size:34px}}
+
+/* ===== Links and buttons: nothing looks like a raw hyperlink ===== */
+main a,.site-foot a,.top a{text-decoration:none}
+main p a,main li a:not(.fl),main .note a,main td a:not(.fl){color:#e2bf55;text-decoration:none;border-bottom:1px solid rgba(226,191,85,.35)}
+main p a:hover,main li a:not(.fl):hover,main .note a:hover{border-bottom-color:#e2bf55}
+.fl{text-decoration:none!important;border-bottom:0!important} .fl:hover{color:var(--accent,#d9a91a)!important}
+.pill,main > p:first-child > a:only-child,.lw-h a,.rstrip > a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;border:1px solid #343844!important;
+  background:#1a1c21;color:var(--ink)!important;font:700 13px "Barlow",sans-serif;letter-spacing:.02em;text-decoration:none!important;transition:border-color .15s,color .15s}
+.pill:hover,main > p:first-child > a:only-child:hover,.lw-h a:hover,.rstrip > a:hover{border-color:var(--accent,#d9a91a)!important;color:var(--accent,#d9a91a)!important}
+main > p:first-child > a:only-child{border-bottom:1px solid #343844!important}
+.btn,a.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px!important;border-radius:8px!important;background:var(--accent,#d9a91a)!important;
+  border:0!important;color:#111!important;font:800 14px "Barlow",sans-serif!important;letter-spacing:.06em;text-transform:uppercase;text-decoration:none!important}
+.btn:hover{background:#f0c43a!important}
+.hero .btn{margin-top:14px}
+.dc-more,.pf-go,.lc-more,.cs-tot b{border-bottom:0!important;text-decoration:none!important}
+.dc-more,.lc-more{color:var(--accent,#d9a91a)!important;font-weight:700}
+.dc-more:hover,.lc-more:hover,.pf-go:hover{color:#f0c43a!important}
+.fx-open{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px -2px 0;padding:10px 14px;border-radius:10px;border:1px solid #2f323a!important;
+  background:#1a1c21;color:var(--accent,#d9a91a)!important;font:800 14px "Barlow",sans-serif;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid #2f323a!important}
+.fx-open span{flex:1;color:var(--quiet);font:500 12.5px "Barlow",sans-serif;text-transform:none;letter-spacing:0}
+.fx-open::after{content:"→";font-size:18px}
+.fx-open:hover{border-color:var(--accent,#d9a91a)!important}
+details > summary{cursor:pointer;list-style:none;text-decoration:none}
+details > summary::-webkit-details-marker{display:none}
+details.explain > summary,details.fine > summary,.moves-d > summary .moves + span{color:#e2bf55}
+details.explain > summary::before,details.fine > summary::before{content:"+";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:8px;border-radius:50%;border:1px solid #3a3e48;font-weight:800;font-size:14px;color:var(--accent,#d9a91a)}
+details.explain[open] > summary::before,details.fine[open] > summary::before{content:"–"}
+.site-foot a{color:#a7adb8!important;border:0!important} .site-foot a:hover{color:var(--accent,#d9a91a)!important}
+.xb-s a{border:0!important;color:var(--quiet)!important}
+.fx-form .fm{flex:0 0 26px;width:26px;height:26px;display:inline-grid;place-items:center}
+.fx-model{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:8px 2px;margin-bottom:6px;border-bottom:1px solid var(--rule);font-size:14px}
+.fx-model span{color:var(--quiet)} .fx-model b{font-weight:700} .fx-model em,.fx-call em{font-style:normal;font-size:.7em;margin-left:6px}
+.fx-form > div{display:flex!important;flex-wrap:nowrap;align-items:center}
+.fx-form .fm{flex:0 0 26px!important;width:26px!important;max-width:26px;padding:0!important;margin:0 2px 0 0!important}
+/* plus or minus units: always green or red, whatever the surrounding accent */
+:is(b,em,span,td,strong,small,i).won{color:var(--green)!important}
+:is(b,em,span,td,strong,small,i).lost{color:var(--red)!important}
+.ticket .won,.ticket .lost{color:inherit!important}
+.cs-tot b{color:var(--quiet)!important}
+/* fight page on phones */
+@media (max-width:860px){.fx-grid{grid-template-columns:minmax(0,1fr)!important}}
+.fx-panel svg,.fx-panel figure{max-width:100%}
+.fx-panel .lchart svg{width:100%;height:auto}
+@media (max-width:640px){.fx-form > div > span:first-child{min-width:110px}}
