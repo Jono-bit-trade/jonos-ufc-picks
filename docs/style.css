@@ -1678,3 +1678,4 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
   .cmpplans .ck.part{font-size:10px}
 }
 .yr-t td,.yr-t th{white-space:nowrap} @media (max-width:600px){.yr-t th,.yr-t td{padding:8px 5px!important;font-size:13px}}
+.moved{display:inline-block;margin:6px 0 0;padding:3px 8px;border:1px dashed #4a4d55;border-radius:2px;font-size:12.5px;color:var(--quiet)}

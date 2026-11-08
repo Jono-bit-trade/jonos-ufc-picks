@@ -154,6 +154,7 @@ function bout(f, i, edge) {
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (leanTag) pickHtml = leanTag;
   else pickHtml = `<div class="nopick">${line == null ? "No betting line yet." : "No bet: the model and the line are within " + Math.round(edge * 100) + " points."}</div>`;
+  if (f.moved_against && !f.our_pick && !f.locked && !f.hidden) pickHtml += `<span class="moved">No pick: the line moved against our side this week, so we passed.</span>`;
   if (f.sample && paywallOn() && (f.our_pick || f.pick)) pickHtml = `<span class="freetag">Free pick</span>` + pickHtml;
   if (f.take) pickHtml += takeHtml(f.take);
   if (f.our_pick && f.why && f.why.length) pickHtml += `<ul class="why">${f.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
@@ -1889,7 +1890,7 @@ async function viewHow() {
       ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating, weighted by how the fight ended and who it was against.")}
       ${step(2, "Predict the fight", "Rating, form, experience, age, reach and finishing history give each fighter a chance to win.")}
       ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs and long shots.")}
-      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price.")}
+      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price. If the line moves against it during the week, we pass.")}
     </div>
     ${S ? `<div class="hw-stats">
       <div><b>${S.our_pct}%</b><span>of our picks won since ${mr.from || 2020}</span></div>

@@ -156,7 +156,7 @@ def model_pick(a, b, p_final, fair_a, lean=None):
 
 
 
-PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news")
+PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "moved_against")
 MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "edge_a")   # our numbers: members only
 
 
@@ -498,6 +498,18 @@ def main():
     if EXPERT_LEAN_AS_PICK:
         no_ours = up["our_pick"].isna() & up["expert_lean"].notna()
         up.loc[no_ours, "our_pick"] = up.loc[no_ours, "expert_lean"]
+    # line-movement filter: drop our pick when the line has moved against it since it opened
+    from config import LINE_MOVE_AGAINST
+    up["moved_against"] = False
+    if LINE_MOVE_AGAINST is not None and "open_a" in up:
+        has_open = up["open_a"].notna() & up["open_b"].notna() & up["fair_a"].notna()
+        fo = pd.Series(np.nan, index=up.index)
+        fo[has_open] = no_vig(up.loc[has_open, "open_a"], up.loc[has_open, "open_b"])
+        mv = up["fair_a"] - fo   # + = toward fighter A
+        against = up["our_pick"].notna() & has_open & (((up["our_pick"] == up["a"]) & (mv < -LINE_MOVE_AGAINST)) |
+                                                        ((up["our_pick"] == up["b"]) & (mv > LINE_MOVE_AGAINST)))
+        up.loc[against, "moved_against"] = True
+        up.loc[against, "our_pick"] = None
     from config import OUR_PICKS_SKIP_BOTH_DEBUT
     if OUR_PICKS_SKIP_BOTH_DEBUT:
         both_new = (up["debut_a"] == 1) & (up["debut_b"] == 1)
@@ -575,6 +587,7 @@ def main():
             "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"]) if our_pick else None,
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
+            "moved_against": bool(f.get("moved_against")) if f.get("moved_against") == f.get("moved_against") else False,
             "method": {k: round(float(meth.loc[fid, k]), 3) for k in meth.columns},
         })
     first = card.iloc[0]

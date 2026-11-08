@@ -50,6 +50,14 @@ OUR_PICKS_MAX_FAVORITE = None # e.g. -300 to skip picks shorter than -300; None 
 # either, and those picks went 15-8, -5.1u, 2020-2026. (Debutant vs veteran picks stay.) Oct 2026.
 OUR_PICKS_SKIP_BOTH_DEBUT = True
 
+# Line-movement filter: no our pick when the line has moved against our side by more than this
+# (fair chance, open -> now). Tested Nov 2026 on 2024 and 2025, the years with opening lines:
+# 2024 +4.4u -> +17.2u, 2025 +2.6u -> +18.0u (flat), win rate 79% -> 88-90%; the dropped picks lost
+# -22u. Similar at cutoffs from 0 to 5 points. Small 2023/2026 samples showed no gain, and the rule
+# was found on 2024-25, so it applies to live picks from UFC 334 on; the past record is unchanged.
+# None turns it off.
+LINE_MOVE_AGAINST = 0.01
+
 # Suggested stake for our picks, by price. Tested Oct 2026 against flat 1 unit on 2020-22 and
 # 2023-26: more units in both (+27.9 vs +27.0, +43.0 vs +36.8) with less risked, return per unit
 # risked +11.4% vs +9.4% and +7.8% vs +5.6%. Staking by edge or Kelly risked more for the same return.
