@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T03:45Z",
+ "updated": "2026-11-08T03:52Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -200,7 +200,7 @@
    "segment": "",
    "start": "2026-11-08T01:00Z",
    "state": "in",
-   "status": "Walkouts",
+   "status": "R1, 0:34",
    "result": null,
    "rating_a": 1716,
    "rating_b": 1688,
@@ -240,7 +240,7 @@
    "a_id": "4020435",
    "b_id": "4289516",
    "record_a": "14-1-0",
-   "record_b": "23-4-0",
+   "record_b": "23-5-0",
    "experts": {
     "picks_a": 12,
     "picks_b": 4,

@@ -458,6 +458,14 @@
      }
     },
     {
+     "label": "UFC Fight Night: Adesanya vs Magomedov",
+     "startDate": "2026-12-05T18:00Z",
+     "endDate": "2026-12-06T07:59Z",
+     "event": {
+      "$ref": "http://sports.core.api.espn.pvt/v2/sports/mma/leagues/ufc/events/600062700?lang=en&region=us"
+     }
+    },
+    {
      "label": "UFC 335: Oliveira vs. Lopes",
      "startDate": "2026-12-13T01:00Z",
      "endDate": "2026-12-13T07:59Z",
@@ -3324,7 +3332,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "23-4-0"
+         "summary": "23-5-0"
         }
        ]
       }
@@ -3532,17 +3540,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 34.0,
+      "displayClock": "0:34",
+      "period": 1,
       "type": {
-       "id": "139",
-       "name": "STATUS_FIGHTERS_WALKING",
+       "id": "2",
+       "name": "STATUS_IN_PROGRESS",
        "state": "in",
        "completed": false,
-       "description": "Walkouts",
-       "detail": "Walkouts",
-       "shortDetail": "Walkouts"
+       "description": "In Progress",
+       "detail": "R1, 0:34",
+       "shortDetail": "R1, 0:34"
       }
      },
      "broadcasts": [
@@ -3554,6 +3562,34 @@
       }
      ],
      "details": [
+      {
+       "id": "26480",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26479",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26478",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26477",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
       {
        "id": "26476",
        "type": {
