@@ -2378,17 +2378,17 @@
       }
      ],
      "status": {
-      "clock": 168.0,
-      "displayClock": "2:48",
-      "period": 1,
+      "clock": 68.0,
+      "displayClock": "1:08",
+      "period": 2,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R1, 2:48",
-       "shortDetail": "R1, 2:48"
+       "detail": "R2, 1:08",
+       "shortDetail": "R2, 1:08"
       }
      },
      "broadcasts": [
@@ -2400,6 +2400,27 @@
       }
      ],
      "details": [
+      {
+       "id": "26353",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26352",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26351",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26373",
        "type": {
