@@ -1611,3 +1611,4 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .rr.band .b{background:repeating-linear-gradient(45deg,#4a4d55 0 4px,#33353c 4px 8px)}
 .rr-v{text-align:right;font:800 18px var(--display)} .rr.neg .rr-v{color:var(--red)} .rr.us .rr-v{color:var(--green)} .rr.st .rr-v{color:var(--accent,#d9a91a)} .rr.band .rr-v{color:var(--quiet)}
 @media (max-width:560px){.rr{grid-template-columns:1fr 56px;gap:4px 10px}.rr-l{grid-column:1/-1;font-size:13px}.rr-t{grid-column:1}}
+.rr.band1 .b{background:repeating-linear-gradient(45deg,#4a4d55 0 4px,#33353c 4px 8px)} .rr.band1 .rr-v{color:var(--quiet)}

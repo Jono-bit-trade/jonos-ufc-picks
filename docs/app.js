@@ -257,13 +257,13 @@ function roiBench(s, v, from) {
   const ours = s.our_roi_pct, fav = v && v.fights ? Math.round(1000 * v.line_units / v.fights) / 10 : null;
   const st = s.our_risked ? Math.round(1000 * s.our_staked_units / s.our_risked) / 10 : null;   // return on units risked at the suggested stakes
   const sg = x => (x > 0 ? "+" : "") + x + "%";
-  const max = 20, X = x => Math.max(0, Math.min(100, (x + 5) / (max + 5) * 100));
+  const max = 12, X = x => Math.max(0, Math.min(100, (x + 3) / (max + 3) * 100));
   return `<section class="roi">
     <div class="roi-h"><b>Return per bet: <span class="won">${sg(ours)}</span> flat${st != null ? `, <span class="won">${sg(st)}</span> at our suggested stakes` : ""}</b>
-      <p>Professional bettors aim for 5-10% per bet over the long run. The best betting syndicates reach 15-20%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from}, at the average sportsbook's closing price, flat 1 unit and at the suggested stakes (1.5u, 1u or 0.5u by price):</p></div>
+      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from} (backtest, then the live record), at the average sportsbook's closing price, flat 1 unit and at the suggested stakes (1.5u, 1u or 0.5u by price):</p></div>
     <div class="roi-rows">
       ${[["Every favorite", fav, null, "neg"], ["Our picks, flat 1u", ours, null, "us"], st != null ? ["Our picks, suggested stakes", st, null, "st"] : null,
-        ["Professional bettors", 5, 10, "band"], ["Top syndicates", 15, 20, "band"]].filter(r => r && r[1] != null).map(([lab, lo, hi, k]) => {
+        ["Experienced bettors' target", 3, 7, "band"], ["Sharp bettor (55% at -110)", 5, null, "band1"]].filter(r => r && r[1] != null).map(([lab, lo, hi, k]) => {
         const left = hi != null ? X(lo) : Math.min(X(0), X(lo)), w = hi != null ? X(hi) - X(lo) : Math.abs(X(lo) - X(0));
         return `<div class="rr ${k}"><span class="rr-l">${lab}</span><span class="rr-t"><i class="z" style="left:${X(0)}%"></i><i class="b" style="left:${left}%;width:${Math.max(w, 1)}%"></i></span>
           <b class="rr-v">${hi != null ? `${lo}-${hi}%` : sg(lo)}</b></div>`; }).join("")}
