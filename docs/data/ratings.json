@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T04:00Z",
+ "updated": "2026-11-08T04:08Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -290,20 +290,20 @@
    "record": "7-2"
   },
   {
-   "fighter": "Leon Edwards",
-   "rating": 1795,
-   "rd": 97,
-   "last_fight": "2025-11-15",
-   "division": "Welterweight",
-   "record": "14-5"
-  },
-  {
    "fighter": "Dustin Poirier",
    "rating": 1795,
    "rd": 91,
    "last_fight": "2025-07-19",
    "division": "Lightweight",
    "record": "22-9"
+  },
+  {
+   "fighter": "Leon Edwards",
+   "rating": 1795,
+   "rd": 97,
+   "last_fight": "2025-11-15",
+   "division": "Welterweight",
+   "record": "14-5"
   },
   {
    "fighter": "Joe Pyfer",
@@ -471,20 +471,20 @@
      "record": "4-0"
     },
     {
-     "fighter": "Waldo Cortes-Acosta",
-     "rating": 1716,
-     "rd": 97,
-     "last_fight": "2026-09-12",
+     "fighter": "Johnny Walker",
+     "rating": 1714,
+     "rd": 94,
+     "last_fight": "2026-11-07",
      "division": "Heavyweight",
-     "record": "10-4"
+     "record": "10-7"
     },
     {
-     "fighter": "Johnny Walker",
-     "rating": 1688,
-     "rd": 96,
-     "last_fight": "2026-10-03",
+     "fighter": "Waldo Cortes-Acosta",
+     "rating": 1689,
+     "rd": 94,
+     "last_fight": "2026-11-07",
      "division": "Heavyweight",
-     "record": "9-7"
+     "record": "10-5"
     },
     {
      "fighter": "Vitor Petrino",
@@ -753,20 +753,20 @@
      "record": "5-1"
     },
     {
-     "fighter": "Anthony Hernandez",
-     "rating": 1721,
-     "rd": 102,
-     "last_fight": "2026-08-22",
-     "division": "Middleweight",
-     "record": "9-4"
-    },
-    {
      "fighter": "Bo Nickal",
      "rating": 1721,
      "rd": 123,
      "last_fight": "2026-06-14",
      "division": "Middleweight",
      "record": "6-1"
+    },
+    {
+     "fighter": "Anthony Hernandez",
+     "rating": 1721,
+     "rd": 102,
+     "last_fight": "2026-08-22",
+     "division": "Middleweight",
+     "record": "9-4"
     },
     {
      "fighter": "Yousri Belgaroui",
@@ -1096,20 +1096,20 @@
      "record": "8-5"
     },
     {
-     "fighter": "Kevin Vallejos",
-     "rating": 1745,
-     "rd": 139,
-     "last_fight": "2026-03-14",
-     "division": "Featherweight",
-     "record": "4-0"
-    },
-    {
      "fighter": "Jose Aldo",
      "rating": 1745,
      "rd": 95,
      "last_fight": "2025-05-10",
      "division": "Featherweight",
      "record": "14-9"
+    },
+    {
+     "fighter": "Kevin Vallejos",
+     "rating": 1745,
+     "rd": 139,
+     "last_fight": "2026-03-14",
+     "division": "Featherweight",
+     "record": "4-0"
     },
     {
      "fighter": "Pat Sabatini",
@@ -1394,12 +1394,12 @@
      "record": "3-1"
     },
     {
-     "fighter": "Lone'er Kavanagh",
+     "fighter": "Andre Lima",
      "rating": 1616,
-     "rd": 129,
-     "last_fight": "2026-10-24",
+     "rd": 135,
+     "last_fight": "2026-08-29",
      "division": "Flyweight",
-     "record": "4-2"
+     "record": "5-1"
     }
    ]
   },

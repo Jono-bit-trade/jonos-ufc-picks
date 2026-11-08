@@ -3487,7 +3487,7 @@
        "uid": "s:3301~a:3146944",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Johnny Walker",
         "displayName": "Johnny Walker",
@@ -3540,18 +3540,19 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 2,
+      "clock": 147.0,
+      "displayClock": "2:27",
+      "period": 3,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
-       "state": "in",
-       "completed": false,
-       "description": "End of Round",
-       "detail": "End R2",
-       "shortDetail": "End R2"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -3562,6 +3563,48 @@
       }
      ],
      "details": [
+      {
+       "id": "26494",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26493",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26492",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26491",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26490",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26484",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
       {
        "id": "26483",
        "type": {
@@ -3588,48 +3631,6 @@
        "type": {
         "id": "17",
         "text": "Knockdown"
-       }
-      },
-      {
-       "id": "26479",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26478",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26477",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26476",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26475",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26474",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
@@ -3664,26 +3665,13 @@
     {
      "language": "en-US",
      "rel": [
-      "live",
-      "desktop",
-      "event"
-     ],
-     "href": "https://www.espn.com/mma/fightcenter/_/id/600061268",
-     "text": "Gamecast",
-     "shortText": "Gamecast",
-     "isExternal": false,
-     "isPremium": false
-    },
-    {
-     "language": "en-US",
-     "rel": [
       "summary",
       "desktop",
       "event"
      ],
      "href": "https://www.espn.com/mma/fightcenter/_/id/600061268/league/ufc",
-     "text": "FightCenter",
-     "shortText": "FightCenter",
+     "text": "Gamecast",
+     "shortText": "Gamecast",
      "isExternal": false,
      "isPremium": false
     }
@@ -3701,13 +3689,13 @@
    ],
    "status": {
     "type": {
-     "id": "2",
-     "name": "STATUS_IN_PROGRESS",
-     "state": "in",
-     "completed": false,
-     "description": "In Progress",
-     "detail": "In Progress",
-     "shortDetail": "In Progress"
+     "id": "3",
+     "name": "STATUS_FINAL",
+     "state": "post",
+     "completed": true,
+     "description": "Final",
+     "detail": "Final",
+     "shortDetail": "Final"
     }
    }
   }

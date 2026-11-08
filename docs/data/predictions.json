@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T04:00Z",
+ "updated": "2026-11-08T04:08Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -199,9 +199,14 @@
    "rounds": 5,
    "segment": "",
    "start": "2026-11-08T01:00Z",
-   "state": "in",
-   "status": "End R2",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 3 2:27",
+   "result": {
+    "winner": "Johnny Walker",
+    "draw": false,
+    "detail": "KO/TKO, round 3 2:27",
+    "pick_won": false
+   },
    "rating_a": 1716,
    "rating_b": 1688,
    "debut_a": false,
@@ -227,8 +232,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.308,
-    "KO": 0.583,
+    "DEC": 0.307,
+    "KO": 0.584,
     "SUB": 0.109
    }
   },
@@ -862,7 +867,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.286,
-    "KO": 0.552,
+    "KO": 0.553,
     "SUB": 0.161
    }
   },
@@ -1724,7 +1729,7 @@
    "expert_lean": "Gabriel Loren\u00e7o",
    "check_news": false,
    "method": {
-    "DEC": 0.424,
+    "DEC": 0.423,
     "KO": 0.441,
     "SUB": 0.135
    }
@@ -2918,7 +2923,7 @@
    "method": {
     "DEC": 0.419,
     "KO": 0.349,
-    "SUB": 0.231
+    "SUB": 0.232
    }
   }
  ]
