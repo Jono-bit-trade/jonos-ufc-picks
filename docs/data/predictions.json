@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T00:58Z",
+ "updated": "2026-11-08T01:06Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -221,11 +221,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-05T00:32Z",
-     "a": -230.0,
-     "b": 190.0
-    },
-    {
      "t": "2026-11-05T03:29Z",
      "a": -230.0,
      "b": 190.0
@@ -419,17 +414,22 @@
      "t": "2026-11-08T00:58Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-08T01:06Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
-   "edge_a": 0.014,
+   "edge_a": 0.013,
    "pick": null,
    "our_pick": null,
    "stake": null,
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.308,
-    "KO": 0.583,
+    "DEC": 0.307,
+    "KO": 0.584,
     "SUB": 0.109
    }
   },
@@ -614,7 +614,7 @@
    "rating_b": 1677,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.697,
+   "p_model_a": 0.698,
    "p_a": 0.673,
    "model_pick": "Tatiana Suarez",
    "fair_odds_a": -206,
@@ -628,11 +628,6 @@
    "open_b": 160.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-05T00:32Z",
-     "a": -205.0,
-     "b": 170.0
-    },
     {
      "t": "2026-11-05T03:29Z",
      "a": -205.0,
@@ -827,9 +822,14 @@
      "t": "2026-11-08T00:58Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-08T01:06Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
-   "edge_a": 0.036,
+   "edge_a": 0.037,
    "pick": "Tatiana Suarez",
    "our_pick": "Tatiana Suarez",
    "stake": 1.5,
@@ -1021,8 +1021,8 @@
    "p_model_a": 0.188,
    "p_a": 0.241,
    "model_pick": "Elijah Smith",
-   "fair_odds_a": 314,
-   "fair_odds_b": -314,
+   "fair_odds_a": 315,
+   "fair_odds_b": -315,
    "market_p_a": 0.256,
    "odds_a": 275.0,
    "odds_b": -345.0,
@@ -1032,11 +1032,6 @@
    "open_b": -225.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-05T00:32Z",
-     "a": 260.0,
-     "b": -325.0
-    },
     {
      "t": "2026-11-05T03:29Z",
      "a": 250.0,
@@ -1229,6 +1224,11 @@
     },
     {
      "t": "2026-11-08T00:58Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-08T01:06Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -1428,7 +1428,7 @@
    "rating_b": 1561,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.565,
+   "p_model_a": 0.567,
    "p_a": 0.274,
    "model_pick": "Lucas Fernando",
    "fair_odds_a": 265,
@@ -1442,11 +1442,6 @@
    "open_b": -258.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-05T00:32Z",
-     "a": 260.0,
-     "b": -325.0
-    },
     {
      "t": "2026-11-05T03:29Z",
      "a": 260.0,
@@ -1639,6 +1634,11 @@
     },
     {
      "t": "2026-11-08T00:58Z",
+     "a": 280.0,
+     "b": -355.0
+    },
+    {
+     "t": "2026-11-08T01:06Z",
      "a": 280.0,
      "b": -355.0
     }
@@ -1842,11 +1842,11 @@
    "rating_b": 1552,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.216,
+   "p_model_a": 0.221,
    "p_a": 0.137,
    "model_pick": "Nina Milo\u0161evi\u0107",
-   "fair_odds_a": 630,
-   "fair_odds_b": -630,
+   "fair_odds_a": 628,
+   "fair_odds_b": -628,
    "market_p_a": 0.196,
    "odds_a": 390.0,
    "odds_b": -520.0,
@@ -1856,11 +1856,6 @@
    "open_b": -455.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-05T00:32Z",
-     "a": 390.0,
-     "b": -520.0
-    },
     {
      "t": "2026-11-05T03:29Z",
      "a": 390.0,
@@ -2055,16 +2050,21 @@
      "t": "2026-11-08T00:58Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-08T01:06Z",
+     "a": 390.0,
+     "b": -520.0
     }
    ],
-   "edge_a": -0.059,
+   "edge_a": -0.058,
    "pick": "Nina Milo\u0161evi\u0107",
    "our_pick": "Nina Milo\u0161evi\u0107",
    "stake": 0.5,
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.471,
+    "DEC": 0.472,
     "KO": 0.261,
     "SUB": 0.267
    }
@@ -2245,8 +2245,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-08T01:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 8:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1543,
    "rating_b": 1500,
@@ -2260,11 +2260,11 @@
    "market_p_a": 0.319,
    "odds_a": 200.0,
    "odds_b": -245.0,
-   "best_a": 200.0,
-   "best_b": -245.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": 200.0,
    "open_b": -245.0,
-   "books": 1.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-11-05T00:32Z",
@@ -2655,9 +2655,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "in",
-   "status": "R3, 1:58",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 5:00",
+   "result": {
+    "winner": "Ollie Schmid",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 5:00",
+    "pick_won": false
+   },
    "rating_a": 1579,
    "rating_b": 1433,
    "debut_a": false,
@@ -3302,7 +3307,7 @@
    "expert_lean": "Gabriel Loren\u00e7o",
    "check_news": false,
    "method": {
-    "DEC": 0.423,
+    "DEC": 0.422,
     "KO": 0.442,
     "SUB": 0.136
    }
@@ -4353,9 +4358,9 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.491,
+    "DEC": 0.492,
     "KO": 0.325,
-    "SUB": 0.184
+    "SUB": 0.183
    }
   },
   {
@@ -5171,7 +5176,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.616,
+    "DEC": 0.615,
     "KO": 0.251,
     "SUB": 0.133
    }
@@ -5506,8 +5511,8 @@
    "check_news": false,
    "method": {
     "DEC": 0.419,
-    "KO": 0.35,
-    "SUB": 0.232
+    "KO": 0.349,
+    "SUB": 0.231
    }
   }
  ]
