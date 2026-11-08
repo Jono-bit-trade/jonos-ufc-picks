@@ -1589,3 +1589,25 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .cc-b{display:flex;gap:10px;flex-wrap:wrap} .cc-b a{display:inline-flex;align-items:center;height:42px;padding:0 18px;margin:0!important;box-sizing:border-box}
 .roi-scale .band.syn i{left:auto;right:0}
 @media (max-width:560px){.roi-scale .band i{font-size:10.5px}}
+.roi-scale{margin-top:58px}
+.roi-scale .mk.st{top:auto;bottom:-6px;flex-direction:column-reverse}
+.roi-scale .mk.st::before{background:var(--accent,#d9a91a);margin:4px 0 0}
+.roi-scale .mk.st b{color:var(--accent,#d9a91a)}
+.roi-scale .mk.st{flex-direction:column}
+.roi-scale .mk.st::before{order:3}
+.roi-scale .band i{top:auto;bottom:5px;left:0;right:0;text-align:center;font-size:11px}
+.roi-scale .band.syn i{left:0;right:0}
+.roi-scale .mk.st{bottom:-6px}
+.roi-scale .mk.st small,.roi-scale .mk.st b{position:relative;top:-6px}
+/* return per bet: one bar per strategy, ranges for the benchmarks */
+.roi{padding-bottom:18px!important}
+.roi-rows{display:grid;gap:8px;margin-top:16px}
+.rr{display:grid;grid-template-columns:200px minmax(0,1fr) 70px;gap:12px;align-items:center}
+.rr-l{font-size:14px;color:#d6d4ce} .rr.us .rr-l,.rr.st .rr-l{color:var(--ink);font-weight:600}
+.rr-t{position:relative;height:16px;background:#1d1f24;border-radius:2px}
+.rr-t .z{position:absolute;top:-3px;bottom:-3px;width:1px;background:#6b6e78}
+.rr-t .b{position:absolute;top:0;bottom:0;border-radius:2px}
+.rr.neg .b{background:var(--red)} .rr.us .b{background:var(--green)} .rr.st .b{background:var(--accent,#d9a91a)}
+.rr.band .b{background:repeating-linear-gradient(45deg,#4a4d55 0 4px,#33353c 4px 8px)}
+.rr-v{text-align:right;font:800 18px var(--display)} .rr.neg .rr-v{color:var(--red)} .rr.us .rr-v{color:var(--green)} .rr.st .rr-v{color:var(--accent,#d9a91a)} .rr.band .rr-v{color:var(--quiet)}
+@media (max-width:560px){.rr{grid-template-columns:1fr 56px;gap:4px 10px}.rr-l{grid-column:1/-1;font-size:13px}.rr-t{grid-column:1}}
