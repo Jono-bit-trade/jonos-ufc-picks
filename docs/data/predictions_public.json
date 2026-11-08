@@ -1,0 +1,1043 @@
+{
+ "updated": "2026-11-08T17:26Z",
+ "event": "UFC 334: Gane vs. Hokit",
+ "date": "2026-11-14",
+ "location": "New York, NY, USA",
+ "card_source": "ESPN",
+ "edge_threshold": 0.03,
+ "big_edge": 0.1,
+ "model": {
+  "features": "core+form",
+  "learner": "logistic"
+ },
+ "schedule": [
+  {
+   "segment": "Early prelims",
+   "start": "2026-11-14T22:00Z",
+   "bouts": 4,
+   "tv": [
+    "Paramount+"
+   ]
+  },
+  {
+   "segment": "Prelims",
+   "start": "2026-11-15T00:00Z",
+   "bouts": 4,
+   "tv": [
+    "Paramount+"
+   ]
+  },
+  {
+   "segment": "Main card",
+   "start": "2026-11-15T02:00Z",
+   "bouts": 5,
+   "tv": [
+    "Paramount+"
+   ]
+  }
+ ],
+ "fights": [
+  {
+   "a": "Ciryl Gane",
+   "b": "Josh Hokit",
+   "a_slug": "ciryl-gane",
+   "b_slug": "josh-hokit",
+   "a_id": "4426000",
+   "b_id": "4049391",
+   "record_a": "14-2-0",
+   "record_b": "10-0-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Heavyweight",
+   "rounds": 5,
+   "segment": "",
+   "start": "2026-11-15T02:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 9:00 PM EST",
+   "result": null,
+   "rating_a": 1866,
+   "rating_b": 1769,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.556,
+   "p_a": 0.695,
+   "model_pick": "Ciryl Gane",
+   "tier": "Medium",
+   "fair_odds_a": -228,
+   "fair_odds_b": 228,
+   "market_p_a": 0.675,
+   "odds_a": -238.0,
+   "odds_b": 195.0,
+   "best_a": -238.0,
+   "best_b": 195.0,
+   "open_a": -265.0,
+   "open_b": 215.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T05:06Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T05:49Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T13:13Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T15:42Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T16:07Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T16:19Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -238.0,
+     "b": 195.0
+    }
+   ],
+   "edge_a": 0.02,
+   "method": {
+    "DEC": 0.236,
+    "KO": 0.643,
+    "SUB": 0.121
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Kayla Harrison",
+   "b": "Amanda Nunes",
+   "a_slug": "kayla-harrison",
+   "b_slug": "amanda-nunes",
+   "a_id": "4332765",
+   "b_id": "2516131",
+   "record_a": "19-1-0",
+   "record_b": "23-5-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Women's Bantamweight",
+   "rounds": 5,
+   "segment": "",
+   "start": "2026-11-15T02:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 9:00 PM EST",
+   "result": null,
+   "rating_a": 1738,
+   "rating_b": 1825,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.57,
+   "p_a": 0.654,
+   "model_pick": "Kayla Harrison",
+   "tier": "Medium",
+   "fair_odds_a": -189,
+   "fair_odds_b": 189,
+   "market_p_a": 0.631,
+   "odds_a": -192.0,
+   "odds_b": 160.0,
+   "best_a": -192.0,
+   "best_b": 160.0,
+   "open_a": -192.0,
+   "open_b": 160.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T05:06Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-08T05:49Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-08T13:13Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-08T15:42Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-08T16:07Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-08T16:19Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -192.0,
+     "b": 160.0
+    }
+   ],
+   "edge_a": 0.023,
+   "method": {
+    "DEC": 0.464,
+    "KO": 0.292,
+    "SUB": 0.244
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Caio Borralho",
+   "b": "Yousri Belgaroui",
+   "a_slug": "caio-borralho",
+   "b_slug": "yousri-belgaroui",
+   "a_id": "4835137",
+   "b_id": "5149815",
+   "record_a": "18-2-0",
+   "record_b": "11-3-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Middleweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T02:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 9:00 PM EST",
+   "result": null,
+   "rating_a": 1781,
+   "rating_b": 1716,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.577,
+   "p_a": 0.619,
+   "model_pick": "Caio Borralho",
+   "tier": "Medium",
+   "fair_odds_a": -162,
+   "fair_odds_b": 162,
+   "market_p_a": 0.593,
+   "odds_a": -162.0,
+   "odds_b": 136.0,
+   "best_a": -162.0,
+   "best_b": 136.0,
+   "open_a": -135.0,
+   "open_b": 114.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T05:06Z",
+     "a": -155.0,
+     "b": 130.0
+    },
+    {
+     "t": "2026-11-08T05:49Z",
+     "a": -155.0,
+     "b": 130.0
+    },
+    {
+     "t": "2026-11-08T13:13Z",
+     "a": -162.0,
+     "b": 130.0
+    },
+    {
+     "t": "2026-11-08T15:42Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T16:07Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T16:19Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -162.0,
+     "b": 136.0
+    }
+   ],
+   "edge_a": 0.025,
+   "method": {
+    "DEC": 0.516,
+    "KO": 0.296,
+    "SUB": 0.188
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Uros Medic",
+   "b": "Kevin Holland",
+   "a_slug": "uros-medic",
+   "b_slug": "kevin-holland",
+   "a_id": "4685870",
+   "b_id": "3943695",
+   "record_a": "14-3-0",
+   "record_b": "29-15-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Welterweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T02:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 9:00 PM EST",
+   "result": null,
+   "rating_a": 1707,
+   "rating_b": 1678,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.543,
+   "p_a": 0.625,
+   "model_pick": "Uros Medic",
+   "tier": "Medium",
+   "fair_odds_a": -167,
+   "fair_odds_b": 167,
+   "market_p_a": 0.604,
+   "odds_a": -170.0,
+   "odds_b": 142.0,
+   "best_a": -170.0,
+   "best_b": 142.0,
+   "open_a": -162.0,
+   "open_b": 136.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T05:06Z",
+     "a": -175.0,
+     "b": 145.0
+    },
+    {
+     "t": "2026-11-08T05:49Z",
+     "a": -175.0,
+     "b": 145.0
+    },
+    {
+     "t": "2026-11-08T13:13Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T15:42Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T16:07Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T16:19Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -170.0,
+     "b": 142.0
+    }
+   ],
+   "edge_a": 0.021,
+   "method": {
+    "DEC": 0.389,
+    "KO": 0.396,
+    "SUB": 0.215
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Bilal Hasan",
+   "b": "Luis Gurule",
+   "a_slug": "bilal-hasan",
+   "b_slug": "luis-gurule",
+   "a_id": "5264405",
+   "b_id": "5218137",
+   "record_a": "10-0-0",
+   "record_b": "11-4-0",
+   "experts": null,
+   "splits": null,
+   "why": [
+    "Our chance 92% vs the line's 86% (6 points of value)",
+    "Rated 209 points higher"
+   ],
+   "weight_class": "Flyweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T02:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 9:00 PM EST",
+   "result": null,
+   "rating_a": 1579,
+   "rating_b": 1370,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.75,
+   "p_a": 0.916,
+   "model_pick": "Bilal Hasan",
+   "tier": "High",
+   "fair_odds_a": -1093,
+   "fair_odds_b": 1093,
+   "market_p_a": 0.863,
+   "odds_a": -900.0,
+   "odds_b": 600.0,
+   "best_a": -900.0,
+   "best_b": 600.0,
+   "open_a": -950.0,
+   "open_b": 625.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T05:06Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T05:49Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T13:13Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T15:42Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T16:00Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T16:07Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T16:19Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -900.0,
+     "b": 600.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -900.0,
+     "b": 600.0
+    }
+   ],
+   "edge_a": 0.053,
+   "pick": "Bilal Hasan",
+   "our_pick": "Bilal Hasan",
+   "stake": 0.5,
+   "expert_lean": null,
+   "check_news": false,
+   "method": {
+    "DEC": 0.419,
+    "KO": 0.388,
+    "SUB": 0.193
+   },
+   "sample": true
+  },
+  {
+   "a": "Stephen Thompson",
+   "b": "Charles Radtke",
+   "a_slug": "stephen-thompson",
+   "b_slug": "charles-radtke",
+   "a_id": "2615077",
+   "b_id": "4416297",
+   "record_a": "17-9-1",
+   "record_b": "12-5-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Welterweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T00:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 7:00 PM EST",
+   "result": null,
+   "rating_a": 1687,
+   "rating_b": 1604,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.463,
+   "p_a": 0.525,
+   "model_pick": "Charles Radtke",
+   "tier": "Low",
+   "fair_odds_a": -110,
+   "fair_odds_b": 110,
+   "market_p_a": 0.563,
+   "odds_a": -142.0,
+   "odds_b": 120.0,
+   "best_a": -142.0,
+   "best_b": 120.0,
+   "open_a": -142.0,
+   "open_b": 120.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -142.0,
+     "b": 120.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -142.0,
+     "b": 120.0
+    }
+   ],
+   "edge_a": -0.039,
+   "method": {
+    "DEC": 0.515,
+    "KO": 0.309,
+    "SUB": 0.176
+   },
+   "locked": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Drew Dober",
+   "b": "Chris Duncan",
+   "a_slug": "drew-dober",
+   "b_slug": "chris-duncan",
+   "a_id": "2951202",
+   "b_id": "4867356",
+   "record_a": "29-15-0",
+   "record_b": "15-3-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Lightweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T00:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 7:00 PM EST",
+   "result": null,
+   "rating_a": 1622,
+   "rating_b": 1646,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.31,
+   "p_a": 0.31,
+   "model_pick": "Chris Duncan",
+   "tier": "Medium",
+   "fair_odds_a": 223,
+   "fair_odds_b": -223,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "line_history": [],
+   "edge_a": null,
+   "method": {
+    "DEC": 0.446,
+    "KO": 0.354,
+    "SUB": 0.2
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Jim Miller",
+   "b": "Terrance McKinney",
+   "a_slug": "jim-miller",
+   "b_slug": "terrance-mckinney",
+   "a_id": "2335718",
+   "b_id": "4425604",
+   "record_a": "39-19-0",
+   "record_b": "18-9-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Lightweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T00:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 7:00 PM EST",
+   "result": null,
+   "rating_a": 1649,
+   "rating_b": 1566,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.373,
+   "p_a": 0.348,
+   "model_pick": "Terrance McKinney",
+   "tier": "Medium",
+   "fair_odds_a": 188,
+   "fair_odds_b": -188,
+   "market_p_a": 0.343,
+   "odds_a": 180.0,
+   "odds_b": -218.0,
+   "best_a": 180.0,
+   "best_b": -218.0,
+   "open_a": 180.0,
+   "open_b": -218.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": 180.0,
+     "b": -218.0
+    }
+   ],
+   "edge_a": 0.005,
+   "method": {
+    "DEC": 0.391,
+    "KO": 0.397,
+    "SUB": 0.212
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Donte Johnson",
+   "b": "Cesar Almeida",
+   "a_slug": "donte-johnson",
+   "b_slug": "cesar-almeida",
+   "a_id": "5302831",
+   "b_id": "5144068",
+   "record_a": "9-0-0",
+   "record_b": "7-3-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Middleweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-15T00:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 7:00 PM EST",
+   "result": null,
+   "rating_a": 1627,
+   "rating_b": 1544,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.755,
+   "p_a": 0.649,
+   "model_pick": "Donte Johnson",
+   "tier": "Medium",
+   "fair_odds_a": -185,
+   "fair_odds_b": 185,
+   "market_p_a": 0.604,
+   "odds_a": -170.0,
+   "odds_b": 142.0,
+   "best_a": -170.0,
+   "best_b": 142.0,
+   "open_a": -170.0,
+   "open_b": 142.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -170.0,
+     "b": 142.0
+    }
+   ],
+   "edge_a": 0.046,
+   "method": {
+    "DEC": 0.475,
+    "KO": 0.335,
+    "SUB": 0.19
+   },
+   "locked": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Jared Gordon",
+   "b": "Melquizael Costa",
+   "a_slug": "jared-gordon",
+   "b_slug": "melquizael-costa",
+   "a_id": "3894823",
+   "b_id": "4425763",
+   "record_a": "21-9-0",
+   "record_b": "26-8-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Lightweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-14T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1580,
+   "rating_b": 1680,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.186,
+   "p_a": 0.235,
+   "model_pick": "Melquizael Costa",
+   "tier": "High",
+   "fair_odds_a": 326,
+   "fair_odds_b": -326,
+   "market_p_a": 0.249,
+   "odds_a": 285.0,
+   "odds_b": -360.0,
+   "best_a": 285.0,
+   "best_b": -360.0,
+   "open_a": 285.0,
+   "open_b": -360.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": 285.0,
+     "b": -360.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": 285.0,
+     "b": -360.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": 285.0,
+     "b": -360.0
+    }
+   ],
+   "edge_a": -0.015,
+   "method": {
+    "DEC": 0.515,
+    "KO": 0.312,
+    "SUB": 0.173
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Macy Chiasson",
+   "b": "Bia Mesquita",
+   "a_slug": "macy-chiasson",
+   "b_slug": "bia-mesquita",
+   "a_id": "4334306",
+   "b_id": "5310274",
+   "record_a": "11-6-0",
+   "record_b": "8-0-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Women's Bantamweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-14T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1568,
+   "rating_b": 1676,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.331,
+   "p_a": 0.343,
+   "model_pick": "Bia Mesquita",
+   "tier": "Medium",
+   "fair_odds_a": 192,
+   "fair_odds_b": -192,
+   "market_p_a": 0.343,
+   "odds_a": 180.0,
+   "odds_b": -218.0,
+   "best_a": 180.0,
+   "best_b": -218.0,
+   "open_a": 180.0,
+   "open_b": -218.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": 180.0,
+     "b": -218.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": 180.0,
+     "b": -218.0
+    }
+   ],
+   "edge_a": 0.0,
+   "method": {
+    "DEC": 0.52,
+    "KO": 0.232,
+    "SUB": 0.248
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Adrian Yanez",
+   "b": "Juan Diaz",
+   "a_slug": "adrian-yanez",
+   "b_slug": "juan-diaz",
+   "a_id": "3998248",
+   "b_id": "5310574",
+   "record_a": "18-6-1",
+   "record_b": "16-1-1",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Bantamweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-14T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1670,
+   "rating_b": 1595,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.496,
+   "p_a": 0.496,
+   "model_pick": "Juan Diaz",
+   "tier": "Low",
+   "fair_odds_a": 101,
+   "fair_odds_b": -101,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "line_history": [],
+   "edge_a": null,
+   "method": {
+    "DEC": 0.358,
+    "KO": 0.423,
+    "SUB": 0.219
+   },
+   "locked": false,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Evan Elder",
+   "b": "Samuel Sanches",
+   "a_slug": "evan-elder",
+   "b_slug": "samuel-sanches",
+   "a_id": "5037883",
+   "b_id": "5293557",
+   "record_a": "10-2-0",
+   "record_b": "11-1-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Lightweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-14T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1510,
+   "rating_b": 1500,
+   "debut_a": false,
+   "debut_b": true,
+   "p_model_a": 0.534,
+   "p_a": 0.48,
+   "model_pick": "Samuel Sanches",
+   "tier": "Low",
+   "fair_odds_a": 108,
+   "fair_odds_b": -108,
+   "market_p_a": 0.511,
+   "odds_a": -115.0,
+   "odds_b": -105.0,
+   "best_a": -115.0,
+   "best_b": -105.0,
+   "open_a": -115.0,
+   "open_b": -105.0,
+   "books": 1.0,
+   "line_history": [
+    {
+     "t": "2026-11-08T17:05Z",
+     "a": -115.0,
+     "b": -105.0
+    },
+    {
+     "t": "2026-11-08T17:11Z",
+     "a": -115.0,
+     "b": -105.0
+    },
+    {
+     "t": "2026-11-08T17:26Z",
+     "a": -115.0,
+     "b": -105.0
+    }
+   ],
+   "edge_a": -0.031,
+   "method": {
+    "DEC": 0.517,
+    "KO": 0.297,
+    "SUB": 0.186
+   },
+   "locked": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  }
+ ],
+ "gated": true,
+ "locked_count": 3
+}
