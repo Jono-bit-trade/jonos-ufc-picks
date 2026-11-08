@@ -2830,17 +2830,17 @@
       }
      ],
      "status": {
-      "clock": 275.0,
-      "displayClock": "4:35",
-      "period": 2,
+      "clock": 178.0,
+      "displayClock": "2:58",
+      "period": 3,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 4:35",
-       "shortDetail": "R2, 4:35"
+       "detail": "R3, 2:58",
+       "shortDetail": "R3, 2:58"
       }
      },
      "broadcasts": [
@@ -2852,6 +2852,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26396",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26395",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26418",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26417",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26416",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26415",
        "type": {
@@ -2885,41 +2920,6 @@
        "type": {
         "id": "8",
         "text": "Pause Reason Low Blow"
-       }
-      },
-      {
-       "id": "26410",
-       "type": {
-        "id": "6",
-        "text": "Round Pause"
-       }
-      },
-      {
-       "id": "26369",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26368",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26367",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26366",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
        }
       }
      ],
