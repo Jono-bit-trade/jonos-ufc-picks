@@ -32,6 +32,7 @@ jobs:
     timeout-minutes: 330
     permissions:
       contents: write
+      actions: write      # lets the fight-night loop queue the next live run itself
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -135,7 +136,7 @@ jobs:
           c = pd.read_csv("data/espn_card.csv")
           now = pd.Timestamp.now(tz="UTC")
           st = pd.to_datetime(c["start"], utc=True, errors="coerce")
-          on = c["state"].isin(["pre", "in"]) & (st < now + pd.Timedelta(hours=1)) & (st > now - pd.Timedelta(hours=10))
+          on = c["state"].isin(["pre", "in"]) & (st < now + pd.Timedelta(hours=3)) & (st > now - pd.Timedelta(hours=10))
           sys.exit(0 if on.any() else 1)
           PY
           }
@@ -147,3 +148,10 @@ jobs:
             python src/get_data.py --offline && python src/predict.py && python src/site_data.py || true
             bash .github/save.sh "Update live" || true
           done
+          # out of time with fights still to go: queue the next live run so the card never goes stale
+          if live; then
+            echo "Fights still to go: queueing the next live run"
+            gh workflow run fight-week.yml --ref main -f kind=lines || echo "could not queue the next run"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}

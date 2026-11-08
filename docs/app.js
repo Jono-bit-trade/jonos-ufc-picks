@@ -420,10 +420,11 @@ function liveCenter(p) {
 // round clock: one segment per scheduled round, finished rounds filled, the current one pulsing
 function roundClock(f) {
   const n = f.rounds || 3, m = /R(?:ound)?\s*(\d+)/i.exec(f.status || ""), cur = m ? +m[1] : 0;
-  const t = /(\d+:\d\d)/.exec(f.status || "");
+  const t = /(\d+:\d\d)/.exec(f.status || "");   // ESPN's live clock counts down: time left in the round
+  const left = t ? (([mm, ss]) => +mm * 60 + +ss)(t[1].split(":")) : null;
   return `<div class="lc-rounds" aria-label="${cur ? `Round ${cur} of ${n}` : `${n} rounds`}">
-    ${Array.from({length: n}, (_, k) => `<span class="${k + 1 < cur ? "done" : k + 1 === cur ? "now" : ""}"><b>R${k + 1}</b></span>`).join("")}
-    <em>${cur ? `Round ${cur} of ${n}${t ? " · " + t[1] : ""}` : `${n} rounds · walkouts`}</em></div>`;
+    ${Array.from({length: n}, (_, k) => `<span class="${k + 1 < cur ? "done" : k + 1 === cur ? "now" : ""}"${k + 1 === cur && left != null ? ` style="--f:${Math.round(100 * (300 - left) / 300)}%"` : ""}><b>R${k + 1}</b></span>`).join("")}
+    <em>${cur ? `Round ${cur} of ${n}${t ? ` · ${t[1]} left` : ""}` : `${n} rounds · walkouts`}</em></div>`;
 }
 // tonight's bet slip: every one of our picks with its price, stake and where it stands
 function betSlip(order) {

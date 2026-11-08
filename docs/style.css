@@ -881,3 +881,4 @@ tr.top1 td.rk { color: var(--gold); }
 .tk-row i.v{color:var(--teal,#2fbfae);border-color:var(--teal,#2fbfae)}
 .ticket.won .tk-row i.v,.ticket.lost .tk-row i.v{background:#0d2a27;color:#7fe3d6;border-color:#0d2a27}
 .ticket.won .tk-name,.ticket.lost .tk-name{padding-right:52px;overflow-wrap:anywhere}
+.lc-rounds span.now{background:linear-gradient(90deg,var(--red) var(--f,50%),#4a1d21 var(--f,50%))}
