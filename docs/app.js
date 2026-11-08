@@ -322,7 +322,6 @@ async function viewPricing() {
       ${v && v.disagree ? `<div><b>${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b><span>when we disagree with the line (${(100 * v.disagree_model_right / v.disagree).toFixed(1)}% vs ${v.disagree_line_expected}% expected)</span></div>` : ""}</div>` : ""}
     ${s && s.our_roi_pct != null ? roiBench(s, v, mr.from || 2020) : ""}
     <div class="plans">${cards.map(card).join("")}</div>
-    ${mr && mr.curve && s ? worthIt(mr) : ""}
     <h2>${kick("Compare", "gold")}What's included</h2>
     <div class="tablewrap"><table class="cmpplans"><thead><tr><th></th><th>Free</th>${PLANS.plans.map(pl => `<th>${esc(pl.name)}</th>`).join("")}</tr></thead><tbody>
       ${rows.map(r => `<tr><td>${esc(r[0])}</td>${r.slice(1).map(x => `<td>${ck(x)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
@@ -875,7 +874,7 @@ function proofBand(mr, L) {
         <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u</span><span class="pf-go">Full record →</span></a>
     
       ${s.vs_line ? `<a class="pf-card c4" href="#/pricing"><span class="pf-l">Return per bet</span><b class="won">+${s.our_roi_pct}%</b>
-        <span class="pf-s">flat 1u since ${mr.from || 2020}, ${s.our_risked ? `+${(100 * s.our_staked_units / s.our_risked).toFixed(1)}% at suggested stakes` : ""}</span><span class="pf-go">Is it worth it for you? →</span></a>
+        <span class="pf-s">flat 1u since ${mr.from || 2020}, ${s.our_risked ? `+${(100 * s.our_staked_units / s.our_risked).toFixed(1)}% at suggested stakes` : ""}</span><span class="pf-go">See plans →</span></a>
       <a class="pf-card c5" href="#/record"><span class="pf-l">When we disagree with the line</span><b>${s.vs_line.disagree_model_right}-${s.vs_line.disagree - s.vs_line.disagree_model_right}</b>
         <span class="pf-s">our side won ${(100 * s.vs_line.disagree_model_right / s.vs_line.disagree).toFixed(1)}%; the line expected ${s.vs_line.disagree_line_expected}%</span><span class="pf-go">See the proof →</span></a>
       <a class="pf-card c6" href="#/record"><span class="pf-l">Betting every favorite</span><b class="lost">${units(s.vs_line.line_units)}</b>
