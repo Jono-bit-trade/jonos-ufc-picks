@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T02:01Z",
+ "updated": "2026-11-08T02:09Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -221,11 +221,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-06T23:49Z",
-     "a": -238.0,
-     "b": 195.0
-    },
-    {
      "t": "2026-11-07T02:47Z",
      "a": -230.0,
      "b": 190.0
@@ -419,6 +414,11 @@
      "t": "2026-11-08T02:01Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-08T02:09Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.013,
@@ -428,8 +428,8 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.308,
-    "KO": 0.583,
+    "DEC": 0.307,
+    "KO": 0.584,
     "SUB": 0.109
    }
   },
@@ -629,11 +629,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-06T15:12Z",
-     "a": -205.0,
-     "b": 170.0
-    },
-    {
      "t": "2026-11-06T20:24Z",
      "a": -205.0,
      "b": 170.0
@@ -825,6 +820,11 @@
     },
     {
      "t": "2026-11-08T02:01Z",
+     "a": -205.0,
+     "b": 170.0
+    },
+    {
+     "t": "2026-11-08T02:09Z",
      "a": -205.0,
      "b": 170.0
     }
@@ -1033,11 +1033,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-06T23:49Z",
-     "a": 260.0,
-     "b": -325.0
-    },
-    {
      "t": "2026-11-07T02:47Z",
      "a": 260.0,
      "b": -325.0
@@ -1231,6 +1226,11 @@
      "t": "2026-11-08T02:01Z",
      "a": 275.0,
      "b": -345.0
+    },
+    {
+     "t": "2026-11-08T02:09Z",
+     "a": 275.0,
+     "b": -345.0
     }
    ],
    "edge_a": -0.015,
@@ -1421,8 +1421,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-08T01:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 8:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1599,
    "rating_b": 1561,
@@ -1436,11 +1436,11 @@
    "market_p_a": 0.252,
    "odds_a": 280.0,
    "odds_b": -355.0,
-   "best_a": 280.0,
-   "best_b": -355.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": 210.0,
    "open_b": -258.0,
-   "books": 1.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-11-06T23:49Z",
@@ -1650,7 +1650,7 @@
    "expert_lean": null,
    "check_news": false,
    "method": {
-    "DEC": 0.286,
+    "DEC": 0.285,
     "KO": 0.553,
     "SUB": 0.161
    }
@@ -1835,9 +1835,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-08T01:00Z",
-   "state": "in",
-   "status": "R2, 4:00",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 2 3:40",
+   "result": {
+    "winner": "Nina Milo\u0161evi\u0107",
+    "draw": false,
+    "detail": "KO/TKO, round 2 3:40",
+    "pick_won": true
+   },
    "rating_a": 1420,
    "rating_b": 1552,
    "debut_a": false,
@@ -2065,8 +2070,8 @@
    "check_news": false,
    "method": {
     "DEC": 0.471,
-    "KO": 0.261,
-    "SUB": 0.267
+    "KO": 0.263,
+    "SUB": 0.266
    }
   },
   {
@@ -3314,7 +3319,7 @@
    "method": {
     "DEC": 0.423,
     "KO": 0.442,
-    "SUB": 0.135
+    "SUB": 0.136
    }
   },
   {
@@ -4140,8 +4145,8 @@
    "expert_lean": "Murtazali Magomedov",
    "check_news": false,
    "method": {
-    "DEC": 0.394,
-    "KO": 0.42,
+    "DEC": 0.393,
+    "KO": 0.421,
     "SUB": 0.186
    }
   },

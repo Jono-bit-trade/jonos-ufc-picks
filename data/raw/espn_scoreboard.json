@@ -2603,7 +2603,7 @@
        "uid": "s:3301~a:5361791",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Nina Milo\u0161evi\u0107",
         "displayName": "Nina Milo\u0161evi\u0107",
@@ -2628,18 +2628,19 @@
       }
      ],
      "status": {
-      "clock": 240.0,
-      "displayClock": "4:00",
+      "clock": 220.0,
+      "displayClock": "3:40",
       "period": 2,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R2, 4:00",
-       "shortDetail": "R2, 4:00"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -2651,73 +2652,73 @@
      ],
      "details": [
       {
-       "id": "26384",
+       "id": "26393",
        "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
+        "id": "23",
+        "text": "Results"
        }
       },
       {
-       "id": "26383",
+       "id": "26392",
        "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
        }
       },
       {
-       "id": "26382",
+       "id": "26391",
        "type": {
-        "id": "5",
-        "text": "Round Start"
+        "id": "19",
+        "text": "Fight Over"
        }
       },
       {
-       "id": "26381",
+       "id": "26390",
        "type": {
         "id": "18",
         "text": "Round End"
        }
       },
       {
-       "id": "26380",
+       "id": "26389",
        "type": {
         "id": "13",
         "text": "Takedown"
        }
       },
       {
-       "id": "26379",
+       "id": "26388",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26378",
+       "id": "26387",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26364",
+       "id": "26386",
        "type": {
-        "id": "5",
-        "text": "Round Start"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26363",
+       "id": "26385",
        "type": {
-        "id": "4",
-        "text": "Staredown"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26377",
+       "id": "26384",
        "type": {
-        "id": "3",
-        "text": "Tale of the tape"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       }
      ],
@@ -2789,6 +2790,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2816,6 +2818,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2831,13 +2834,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 8:00 PM EST",
-       "shortDetail": "11/7 - 8:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [

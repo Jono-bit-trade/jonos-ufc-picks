@@ -1,8 +1,8 @@
 {
- "bets": 9,
- "wins": 8,
- "units": 3.61,
- "roi_pct": 40.1,
+ "bets": 10,
+ "wins": 9,
+ "units": 3.8,
+ "roi_pct": 38.0,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -56,6 +56,16 @@
    "moved_toward": null
   },
   {
+   "date": "2026-11-07",
+   "fight": "Priscila Cachoeira vs Nina Milo\u0161evi\u0107",
+   "pick": "Nina Milo\u0161evi\u0107",
+   "odds": -520,
+   "won": true,
+   "method": "KO",
+   "units": 0.19,
+   "moved_toward": true
+  },
+  {
    "date": "2026-10-31",
    "fight": "Zach Reese vs Mickey Gall",
    "pick": "Zach Reese",
@@ -97,11 +107,11 @@
   }
  ],
  "ours": {
-  "bets": 10,
-  "wins": 7,
-  "units": -0.57,
-  "roi_pct": -5.7,
-  "moved_toward_pct": 88.9,
+  "bets": 11,
+  "wins": 8,
+  "units": -0.38,
+  "roi_pct": -3.5,
+  "moved_toward_pct": 90.0,
   "recent": [
    {
     "date": "2026-11-07",
@@ -161,6 +171,16 @@
     "won": false,
     "method": "KO",
     "units": -1.0,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Priscila Cachoeira vs Nina Milo\u0161evi\u0107",
+    "pick": "Nina Milo\u0161evi\u0107",
+    "odds": -520,
+    "won": true,
+    "method": "KO",
+    "units": 0.19,
     "moved_toward": true
    },
    {
