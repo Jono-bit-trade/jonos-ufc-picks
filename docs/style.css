@@ -1117,3 +1117,46 @@ b.gold{color:var(--gold)}
 .rcm-t{display:flex;flex-direction:column;min-width:0} .rcm-t b{font-weight:700;font-size:14.5px} .rcm-t small,.rcm-u small{color:var(--quiet);font-size:12px}
 .rcm-u{display:flex;flex-direction:column;align-items:flex-end;white-space:nowrap} .rcm-u b{font:800 17px var(--display)}
 .tabbar details.more:not([open]) .sheet{display:none}
+
+/* ===== refined brand: charcoal + UFC gold; red/blue only for corners, green/red only for won/lost ===== */
+:root{--accent:#d9a91a;--accent-2:#f0c43a;--line2:#272a31}
+.top{background:#0b0c0f!important;backdrop-filter:none!important;border-bottom:1px solid rgba(217,169,26,.28)!important}
+.top::after{display:none!important}
+.top .topin{padding:12px 16px!important;gap:22px!important}
+.top nav{gap:4px!important}
+.top nav a{font:700 13px "Barlow",sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#a7adb8!important;padding:8px 10px!important;border-bottom:2px solid transparent!important}
+.top nav a:hover{color:#fff!important}
+.top nav a.on{color:#fff!important;border-bottom-color:var(--accent)!important}
+.wordmark .w1{color:var(--accent)!important}
+.oct-out{stroke:var(--accent)!important}
+.hcta{display:inline-flex;align-items:center;padding:9px 16px;border-radius:6px;background:var(--accent);color:#111!important;font:800 13px "Barlow",sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.hcta:hover{background:var(--accent-2)}
+.hsearch{margin-left:auto}
+.hsearch input{border-radius:6px!important;background:#15171b!important;border-color:#2a2d34!important}
+.site-foot::before{background:linear-gradient(90deg,transparent,rgba(217,169,26,.6),transparent)!important;height:1px!important}
+/* one accent: kickers and section labels in gold */
+.kicker,.kicker.red,.kicker.blue,.kicker.teal,.kicker.gold{color:var(--accent)!important}
+/* proof band: white numbers, gold labels, neutral frames */
+.pf-card{border-top:1px solid var(--line2)!important;border-color:var(--line2)!important}
+.pf-card b{color:#fff!important}.pf-card.c3 b{color:var(--accent)!important}
+.pf-l{color:var(--accent)!important}
+.proof{background:radial-gradient(70% 120% at 50% 0%,rgba(217,169,26,.10),transparent 60%),#141519!important;border-color:var(--line2)!important}
+/* stat tiles: neutral frames, gold for the headline tile */
+.stat{border-top-color:var(--line2)!important}.stat.key{border-top-color:var(--accent)!important}
+.stat.model b,.stat.value b:not(.won):not(.lost){color:#fff!important}
+/* cards that used rainbow tops */
+.hl,.tb,.mv-board.up,.mv-board.down,.pf-card,.divcard,.cs-box,.tframe{border-top-color:var(--line2)!important}
+.hl .hl-k,.hl.teal .hl-k,.hl.purple .hl-k,.hl.blue .hl-k{color:var(--accent)!important}
+.hl.gold,.hl.teal,.hl.purple,.hl.blue{border-top:2px solid var(--accent)!important}
+.fstrength > div{border-color:var(--line2)!important;background:#1a1c21!important}.fs-k{color:var(--accent)!important}
+.lc-tally div:nth-child(2) b,.lc-tally div:nth-child(3) b{color:#fff!important}
+.fbadge.blue,.fbadge.green,.fbadge.red{color:#d6dae1!important;border-color:#3a3e48!important;background:#1c1e24!important}
+.hw .step{--c:var(--accent)!important}
+@media (max-width:760px){.hcta{display:none}}
+@media (max-width:980px){.hcta{padding:8px 12px;font-size:12px}}
+/* refined: active chips/toggles and links in the one accent */
+.filters a.on,.viewtoggle button[aria-pressed="true"]{background:var(--accent)!important;border-color:var(--accent)!important;color:#111!important}
+main p > a,main .note a,main .small a,.lw-h a,.dc-more,.lc-more,.rstrip > a,.cmp-swap a,.xb-s a,.pf-go,main > p:first-child > a{color:#e2bf55}
+.clv b,.clv-k,.clv-note b{color:var(--accent)!important}.clv{border-color:rgba(217,169,26,.4)!important;background:rgba(217,169,26,.06)!important}
+.stats{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.explain summary,.fine summary,details > summary{color:#e2bf55}
