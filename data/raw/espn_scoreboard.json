@@ -1873,7 +1873,7 @@
        "uid": "s:3301~a:4869702",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Thomas Petersen",
         "displayName": "Thomas Petersen",
@@ -1926,18 +1926,19 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 2,
+      "clock": 13.0,
+      "displayClock": "0:13",
+      "period": 3,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
-       "state": "in",
-       "completed": false,
-       "description": "End of Round",
-       "detail": "End R2",
-       "shortDetail": "End R2"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1948,6 +1949,55 @@
       }
      ],
      "details": [
+      {
+       "id": "26320",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26321",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26319",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26318",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26317",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26316",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26315",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
       {
        "id": "26314",
        "type": {
@@ -1967,55 +2017,6 @@
        "type": {
         "id": "17",
         "text": "Knockdown"
-       }
-      },
-      {
-       "id": "26311",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26310",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26309",
-       "type": {
-        "id": "17",
-        "text": "Knockdown"
-       }
-      },
-      {
-       "id": "26308",
-       "type": {
-        "id": "15",
-        "text": "Reversal"
-       }
-      },
-      {
-       "id": "26307",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "26306",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26305",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
        }
       }
      ],
@@ -2087,6 +2088,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2114,6 +2116,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2129,13 +2132,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 7th at 5:00 PM EST",
-       "shortDetail": "11/7 - 5:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [

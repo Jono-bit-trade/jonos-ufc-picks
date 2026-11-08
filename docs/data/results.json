@@ -87,11 +87,11 @@
   }
  ],
  "ours": {
-  "bets": 9,
+  "bets": 10,
   "wins": 7,
-  "units": 0.43,
-  "roi_pct": 4.8,
-  "moved_toward_pct": 87.5,
+  "units": -0.57,
+  "roi_pct": -5.7,
+  "moved_toward_pct": 88.9,
   "recent": [
    {
     "date": "2026-11-07",
@@ -141,6 +141,16 @@
     "won": true,
     "method": "DEC",
     "units": 0.42,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Gabriel Loren\u00e7o vs Thomas Petersen",
+    "pick": "Gabriel Loren\u00e7o",
+    "odds": 136,
+    "won": false,
+    "method": "KO",
+    "units": -1.0,
     "moved_toward": true
    },
    {

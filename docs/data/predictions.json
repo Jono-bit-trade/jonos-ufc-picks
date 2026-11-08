@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T00:26Z",
+ "updated": "2026-11-08T00:34Z",
  "event": "UFC Fight Night: Cortes Acosta vs. Walker",
  "date": "2026-11-07",
  "location": "Las Vegas, NV, USA",
@@ -221,11 +221,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T20:29Z",
-     "a": -230.0,
-     "b": 190.0
-    },
-    {
      "t": "2026-11-04T00:12Z",
      "a": -230.0,
      "b": 190.0
@@ -417,6 +412,11 @@
     },
     {
      "t": "2026-11-08T00:26Z",
+     "a": -225.0,
+     "b": 185.0
+    },
+    {
+     "t": "2026-11-08T00:34Z",
      "a": -225.0,
      "b": 185.0
     }
@@ -614,7 +614,7 @@
    "rating_b": 1677,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.698,
+   "p_model_a": 0.697,
    "p_a": 0.673,
    "model_pick": "Tatiana Suarez",
    "fair_odds_a": -206,
@@ -628,11 +628,6 @@
    "open_b": 160.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-03T20:29Z",
-     "a": -205.0,
-     "b": 170.0
-    },
     {
      "t": "2026-11-04T00:12Z",
      "a": -205.0,
@@ -827,9 +822,14 @@
      "t": "2026-11-08T00:26Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-08T00:34Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
-   "edge_a": 0.037,
+   "edge_a": 0.036,
    "pick": "Tatiana Suarez",
    "our_pick": "Tatiana Suarez",
    "stake": 1.5,
@@ -1033,11 +1033,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T20:29Z",
-     "a": 250.0,
-     "b": -310.0
-    },
-    {
      "t": "2026-11-04T00:12Z",
      "a": 250.0,
      "b": -310.0
@@ -1229,6 +1224,11 @@
     },
     {
      "t": "2026-11-08T00:26Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-08T00:34Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -1443,11 +1443,6 @@
    "books": 1.0,
    "line_history": [
     {
-     "t": "2026-11-03T20:29Z",
-     "a": 260.0,
-     "b": -325.0
-    },
-    {
      "t": "2026-11-04T00:12Z",
      "a": 260.0,
      "b": -325.0
@@ -1641,6 +1636,11 @@
      "t": "2026-11-08T00:26Z",
      "a": 280.0,
      "b": -355.0
+    },
+    {
+     "t": "2026-11-08T00:34Z",
+     "a": 280.0,
+     "b": -355.0
     }
    ],
    "edge_a": 0.022,
@@ -1651,7 +1651,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.286,
-    "KO": 0.552,
+    "KO": 0.553,
     "SUB": 0.162
    }
   },
@@ -1842,11 +1842,11 @@
    "rating_b": 1552,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.213,
+   "p_model_a": 0.216,
    "p_a": 0.137,
    "model_pick": "Nina Milo\u0161evi\u0107",
-   "fair_odds_a": 631,
-   "fair_odds_b": -631,
+   "fair_odds_a": 630,
+   "fair_odds_b": -630,
    "market_p_a": 0.196,
    "odds_a": 390.0,
    "odds_b": -520.0,
@@ -1856,11 +1856,6 @@
    "open_b": -455.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-03T20:29Z",
-     "a": 380.0,
-     "b": -500.0
-    },
     {
      "t": "2026-11-04T00:12Z",
      "a": 380.0,
@@ -2055,6 +2050,11 @@
      "t": "2026-11-08T00:26Z",
      "a": 390.0,
      "b": -520.0
+    },
+    {
+     "t": "2026-11-08T00:34Z",
+     "a": 390.0,
+     "b": -520.0
     }
    ],
    "edge_a": -0.059,
@@ -2065,7 +2065,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.471,
-    "KO": 0.262,
+    "KO": 0.261,
     "SUB": 0.267
    }
   },
@@ -2255,8 +2255,8 @@
    "p_model_a": 0.662,
    "p_a": 0.354,
    "model_pick": "Marcos Degli",
-   "fair_odds_a": 183,
-   "fair_odds_b": -183,
+   "fair_odds_a": 182,
+   "fair_odds_b": -182,
    "market_p_a": 0.319,
    "odds_a": 200.0,
    "odds_b": -245.0,
@@ -2266,11 +2266,6 @@
    "open_b": -245.0,
    "books": 1.0,
    "line_history": [
-    {
-     "t": "2026-11-03T20:29Z",
-     "a": 190.0,
-     "b": -230.0
-    },
     {
      "t": "2026-11-04T00:12Z",
      "a": 190.0,
@@ -2465,9 +2460,14 @@
      "t": "2026-11-08T00:26Z",
      "a": 200.0,
      "b": -245.0
+    },
+    {
+     "t": "2026-11-08T00:34Z",
+     "a": 200.0,
+     "b": -245.0
     }
    ],
-   "edge_a": 0.034,
+   "edge_a": 0.035,
    "pick": "Mitch Raposo",
    "our_pick": null,
    "stake": null,
@@ -2655,8 +2655,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "pre",
-   "status": "Sat, November 7th at 5:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1579,
    "rating_b": 1433,
@@ -2670,11 +2670,11 @@
    "market_p_a": 0.757,
    "odds_a": -375.0,
    "odds_b": 295.0,
-   "best_a": -375.0,
-   "best_b": 295.0,
-   "open_a": -345.0,
-   "open_b": 275.0,
-   "books": 1.0,
+   "best_a": null,
+   "best_b": null,
+   "open_a": -360.0,
+   "open_b": 285.0,
+   "books": null,
    "line_history": [
     {
      "t": "2026-11-03T20:29Z",
@@ -3068,9 +3068,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-07T22:00Z",
-   "state": "in",
-   "status": "End R2",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 3 0:13",
+   "result": {
+    "winner": "Thomas Petersen",
+    "draw": false,
+    "detail": "KO/TKO, round 3 0:13",
+    "pick_won": false
+   },
    "rating_a": 1500,
    "rating_b": 1479,
    "debut_a": true,
@@ -3298,7 +3303,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.423,
-    "KO": 0.441,
+    "KO": 0.442,
     "SUB": 0.136
    }
   },
@@ -4126,7 +4131,7 @@
    "check_news": false,
    "method": {
     "DEC": 0.393,
-    "KO": 0.42,
+    "KO": 0.421,
     "SUB": 0.186
    }
   },
