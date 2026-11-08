@@ -20,7 +20,7 @@
     {
       "id": "monthly",
       "name": "Monthly",
-      "price": 24.99,
+      "price": 14.99,
       "period": "month",
       "best": true,
       "tagline": "Every card, every week. Cancel anytime.",
