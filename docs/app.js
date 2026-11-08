@@ -202,6 +202,23 @@ function radarDual(Ra, Rb, A, B) {
     <div class="rd-legend"><span class="a">${esc(A.name)}</span><span class="b">${esc(B.name)}</span></div></div>`;
 }
 function fightLink(i, ev) { return ev ? `#/fight/${esc(ev)}/${i}` : `#/fight/${i}`; }
+// a fighter's last 5 UFC fights: result, how, the odds and whether they were favored
+function last5(P, name, side) {
+  const L = P && P.fights ? P.fights.filter(z => ["W", "L", "D", "NC"].includes(z.result)).slice(0, 5) : [];
+  if (!L.length) return `<section class="l5 ${side}"><h3>${esc(name)}</h3><p class="note">UFC debut: no UFC fights yet.</p></section>`;
+  const fav = L.filter(z => z.odds != null && z.odds < 0), dog = L.filter(z => z.odds != null && z.odds > 0);
+  const wl = Z => `${Z.filter(z => z.result === "W").length}-${Z.filter(z => z.result === "L").length}`;
+  const how = z => [z.finish, z.round && z.finish && !/DEC/i.test(z.finish) ? "R" + z.round : ""].filter(Boolean).join(" ");
+  return `<section class="l5 ${side}"><h3>${esc(name)}</h3>
+    <div class="l5-sum"><span><b>${wl(L)}</b> last ${L.length}</span>${fav.length ? `<span><b>${wl(fav)}</b> as favorite</span>` : ""}${dog.length ? `<span><b>${wl(dog)}</b> as underdog</span>` : ""}</div>
+    <table class="l5-t"><tbody>${L.map(z => `<tr>
+      <td><span class="fm ${z.result === "NC" ? "D" : z.result}">${z.result === "NC" ? "NC" : z.result}</span></td>
+      <td class="l5-o">${fighterLink(z.opp, z.opp_slug)}<small>${esc(z.date)}${z.title ? " · title fight" : ""}</small></td>
+      <td class="l5-h">${esc(how(z))}</td>
+      <td class="n">${z.odds != null ? odds(z.odds) : "–"}</td>
+      <td>${z.odds == null ? "" : z.odds < 0 ? `<span class="fd fav">Favorite</span>` : `<span class="fd dog">Underdog</span>`}</td></tr>`).join("")}</tbody></table></section>`;
+}
+
 async function viewFight(x, y) {
   let F, back, title, when;
   if (y != null) {   // a past card
@@ -251,9 +268,10 @@ async function viewFight(x, y) {
         ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
         ${expertBar(F.experts, F.a, F.b, null)}
         ${F.hist ? lineChart(F.hist, F.f) : ""}
-        <div class="fx-form"><div><span>${esc(F.a)}</span>${form(A) || "<small>UFC debut</small>"}</div><div><span>${esc(F.b)}</span>${form(B) || "<small>UFC debut</small>"}</div></div>
       </section>
     </div>
+    <h2>${kick("Recent form", "gold")}Last 5 fights</h2>
+    <div class="l5grid">${last5(A, F.a, "a")}${last5(B, F.b, "b")}</div>
     <h2>${kick("Tale of the tape", "gold")}Side by side</h2>
     <div class="fx-tape">${tape(A, B, F.rounds)}</div>
     <p class="fx-links"><a class="pill" href="#/compare?a=${esc(F.a_slug)}&b=${esc(F.b_slug)}">Open in Who wins?</a><a class="pill" href="#/fighter/${esc(F.a_slug)}">${esc(F.a)}</a><a class="pill" href="#/fighter/${esc(F.b_slug)}">${esc(F.b)}</a></p>`;

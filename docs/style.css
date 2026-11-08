@@ -1225,8 +1225,9 @@ details.explain[open] > summary::before,details.fine[open] > summary::before{con
 .fx-form > div{display:flex!important;flex-wrap:nowrap;align-items:center}
 .fx-form .fm{flex:0 0 26px!important;width:26px!important;max-width:26px;padding:0!important;margin:0 2px 0 0!important}
 /* plus or minus units: always green or red, whatever the surrounding accent */
-:is(b,em,span,td,strong,small,i).won{color:var(--green)!important}
-:is(b,em,span,td,strong,small,i).lost{color:var(--red)!important}
+/* units text only: badges and chips that carry their own green/red background keep their own text colors */
+:is(b,em,span,td,strong,small,i).won:not(.vpick):not(.lc-tag):not(.fm):not(.mini-ticket):not(.ev-chip){color:#43c974!important}
+:is(b,em,span,td,strong,small,i).lost:not(.vpick):not(.lc-tag):not(.fm):not(.mini-ticket):not(.ev-chip){color:#ff6b70!important}
 .ticket .won,.ticket .lost{color:inherit!important}
 .cs-tot b{color:var(--quiet)!important}
 /* fight page on phones */
@@ -1234,3 +1235,34 @@ details.explain[open] > summary::before,details.fine[open] > summary::before{con
 .fx-panel svg,.fx-panel figure{max-width:100%}
 .fx-panel .lchart svg{width:100%;height:auto}
 @media (max-width:640px){.fx-form > div > span:first-child{min-width:110px}}
+
+/* ===== readability pass (contrast) ===== */
+/* tags sitting on the gold home tickets: dark chips so they read */
+.ticket .tier,.ticket i,.ticket i.v{background:#16181c!important;border-color:#16181c!important;color:#f3f4f6!important}
+.ticket .tier.t-high::before{background:#43c974} .ticket .tier.t-medium::before{background:#f0c43a} .ticket .tier.t-low::before{background:#aab0bb}
+.ticket .tier::before{content:"";width:6px;height:6px;border-radius:50%}
+/* badges with a solid green/red fill: dark text on green, white on a deeper red */
+.vpick.won,.lc-tag.won{color:#07210f!important}
+.vpick.lost{color:#fff!important;background:#b8343a!important}
+.fm.L{background:#c2353b!important;color:#fff!important}
+/* red and blue as text on dark: lighter tints */
+.tick.lost,td.lost,.mv-val.lost{color:#ff6b70!important}
+.gflag.off{color:#ff9a9d!important} .gflag.def{color:#a9c8f7!important}
+.ev-chip small,.ev-chip.lost small{color:#ffb3b5!important} .ev-chip.won small{color:#a8ecc0!important}
+.lc-vs{color:#8a90a0!important}
+.ph .ini,.ph span,.ph{color:#b4bccb}
+.bout .b .fl,.pair .side:last-child .fl{color:#5b97f0}
+.vpick.value.won{color:#a8ecc0!important} .vpick.value.lost{color:#ffb3b5!important;background:rgba(229,72,77,.14)!important}
+/* fight page: last 5 fights */
+.l5grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin:6px 0 10px}
+.l5{padding:12px 14px;border-radius:14px;border:1px solid var(--rule);background:#17181d}
+.l5.a{box-shadow:inset 3px 0 0 var(--red)} .l5.b{box-shadow:inset 3px 0 0 var(--blue)}
+.l5 h3{margin:0 0 6px;font:800 20px var(--display);text-transform:uppercase}
+.l5-sum{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--quiet);margin-bottom:6px} .l5-sum b{color:var(--ink);font:800 16px var(--display);margin-right:3px}
+.l5-t{width:100%;border-collapse:collapse} .l5-t td{padding:7px 6px;border-top:1px solid #262930;font-size:14px;vertical-align:middle}
+.l5-t td:first-child{width:34px;padding-left:0}
+.l5-o{display:flex;flex-direction:column} .l5-o small{color:var(--quiet);font-size:12px}
+.l5-h{color:var(--quiet);font-size:13px;white-space:nowrap} .l5-t td.n{text-align:right;font-weight:700;white-space:nowrap}
+.fd{padding:2px 8px;border-radius:999px;font:800 11px "Barlow",sans-serif;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.fd.fav{color:#e9edf3;background:#2a2d35;border:1px solid #3a3e48} .fd.dog{color:#f0c43a;background:rgba(217,169,26,.1);border:1px solid rgba(217,169,26,.45)}
+@media (max-width:860px){.l5grid{grid-template-columns:minmax(0,1fr)}.l5-h{display:none}}
