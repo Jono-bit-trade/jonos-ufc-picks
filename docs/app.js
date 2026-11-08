@@ -513,8 +513,11 @@ async function viewCard() {
     <div class="cardgrid"><div class="cg-main">
     <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
     ${cardToggle()}
-    ${cardView() === "compact" ? `<div class="compact">${p.fights.map((f, i) => compactRow(f, i, p.edge_threshold)).join("")}</div>`
-      : p.fights.map((f, i) => bout(f, i, p.edge_threshold)).join("")}
+    ${(() => { const only = picksOnly(), keep = f => !only || f.our_pick || f.pick || f.locked;
+      const fs = p.fights.map((f, i) => [f, i]).filter(([f]) => keep(f));
+      const empty = only && !fs.length ? `<div class="empty">No picks on this card yet.</div>` : "";
+      return empty || (cardView() === "compact" ? `<div class="compact">${fs.map(([f, i]) => compactRow(f, i, p.edge_threshold)).join("")}</div>`
+        : fs.map(([f, i]) => bout(f, i, p.edge_threshold)).join("")); })()}
     </div>${cardSide(p, mr)}</div>`;
 }
 
@@ -545,9 +548,13 @@ function cardSide(p, mr) {
 function cardView() { const dflt = window.innerWidth < 700 ? "compact" : "full";
   try { return localStorage.getItem("cardView") || dflt; } catch (e) { return dflt; } }
 function setCardView(v) { try { localStorage.setItem("cardView", v); } catch (e) {} route(); }
+function picksOnly() { try { return localStorage.getItem("picksOnly") === "1"; } catch (e) { return false; } }
+function setPicksOnly(v) { try { localStorage.setItem("picksOnly", v ? "1" : "0"); } catch (e) {} route(); }
+window.setPicksOnly = setPicksOnly;
 function cardToggle() {
-  const v = cardView();
-  return `<div class="viewtoggle" role="group" aria-label="Card view"><button type="button" aria-pressed="${v === "full"}" onclick="setCardView('full')">Full cards</button><button type="button" aria-pressed="${v === "compact"}" onclick="setCardView('compact')">Compact</button></div>`;
+  const v = cardView(), only = picksOnly();
+  return `<div class="cardctl"><div class="viewtoggle" role="group" aria-label="Card view"><button type="button" aria-pressed="${v === "full"}" onclick="setCardView('full')">Full cards</button><button type="button" aria-pressed="${v === "compact"}" onclick="setCardView('compact')">Compact</button></div>
+    <div class="viewtoggle" role="group" aria-label="Which fights"><button type="button" aria-pressed="${!only}" onclick="setPicksOnly(false)">All fights</button><button type="button" aria-pressed="${only}" onclick="setPicksOnly(true)">Picks only</button></div></div>`;
 }
 function compactRow(f, i, edge) {
   const pa = f.p_a, line = f.market_p_a;
@@ -923,6 +930,74 @@ function newsletterBox() {
     <form action="${esc(action)}" method="post" target="_blank" class="nl-f"><label class="sr" for="nl-e">Email</label>
       <input id="nl-e" type="email" name="email" placeholder="you@email.com" required autocomplete="email"><button class="btn" type="submit">Sign up</button></form></section>`;
 }
+// a square results image for one past card, from the locked ledger
+async function shareResultsImage(slug) {
+  const [e, L] = await Promise.all([get(`events/${slug}.json`), get("ledger.json", true)]);
+  if (!e || !L || !L.rows) return;
+  const rows = L.rows.filter(g => g.date === e.date && g.our_pick);
+  if (!rows.length) return;
+  const upto = L.rows.filter(g => g.date <= e.date && g.our_pick && g.winner), won = upto.filter(g => g.winner === g.our_pick).length;
+  const cardU = Math.round(100 * rows.reduce((s, g) => s + (g.our_staked_units || 0), 0)) / 100, cw = rows.filter(g => g.winner === g.our_pick).length;
+  const totU = Math.round(100 * upto.reduce((s, g) => s + (g.our_units || 0), 0)) / 100;
+  await drawShare({
+    file: `octagon-edge-results-${e.date}.png`, kicker: `${String(e.name).split(/:\s*/).at(-1)} · ${new Date(e.date + "T12:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"})}`,
+    title: "RESULTS", sub: `Our picks ${cw}-${rows.length - cw}  ${units(cardU)}`, subColor: cardU >= 0 ? "#3dbe6c" : "#e5484d",
+    rows: rows.map(g => ({name: g.our_pick, opp: `vs ${g.our_pick === g.a ? g.b : g.a} · ${odds(g.our_odds)}`, right: units(g.our_staked_units),
+      rightSub: g.stake ? g.stake + "u" : "", res: !g.winner ? null : g.winner === g.our_pick ? "W" : "L"})),
+    rec: `${won}-${upto.length - won}`, recU: totU, tag: "Every pick locked before the fight"});
+}
+window.shareResultsImage = shareResultsImage;
+async function drawShare(o) {
+  try { await document.fonts.load('800 60px "Big Shoulders Display"'); await document.fonts.load('500 30px "Barlow"'); } catch (e) {}
+  const S = 1080, c = document.createElement("canvas"); c.width = S; c.height = S; const x = c.getContext("2d");
+  const D = w => `${w} "Big Shoulders Display", "Barlow Condensed", sans-serif`, B = w => `${w} "Barlow", sans-serif`, gold = "#d9a91a";
+  x.fillStyle = "#111215"; x.fillRect(0, 0, S, S); x.fillStyle = gold; x.fillRect(0, 0, 12, S);
+  x.save(); x.translate(80, 74); x.scale(1.5, 1.5);
+  const oct = (r, cx, cy) => { x.beginPath(); for (let i = 0; i < 8; i++) { const an = Math.PI / 8 + i * Math.PI / 4; x.lineTo(cx + r * Math.cos(an), cy + r * Math.sin(an)); } x.closePath(); };
+  oct(26, 24, 24); x.fillStyle = gold; x.fill(); oct(20, 24, 24); x.fillStyle = "#111215"; x.fill();
+  x.strokeStyle = "#fff"; x.lineWidth = 4.5; x.beginPath(); x.moveTo(14, 30); x.lineTo(24, 17); x.lineTo(34, 30); x.stroke();
+  x.strokeStyle = gold; x.lineWidth = 3.5; x.beginPath(); x.moveTo(19, 34); x.lineTo(29, 34); x.stroke(); x.restore();
+  x.fillStyle = gold; x.font = D("700 26px"); x.fillText("O C T A G O N", 172, 104); x.fillStyle = "#fff"; x.font = D("900 58px"); x.fillText("EDGE", 170, 152);
+  x.fillStyle = "#9a9ea8"; x.font = B("600 30px"); x.fillText(o.kicker, 80, 262);
+  x.fillStyle = "#fff"; x.font = D("900 88px"); x.fillText(o.title, 80, 350);
+  x.fillStyle = o.subColor || gold; x.font = D("800 44px"); x.fillText(o.sub, 80, 404);
+  const rows = o.rows.slice(0, 10);
+  if (rows.length > 4) {   // many picks: one line each, sized to fit
+    const rowH = Math.min(72, Math.floor(440 / rows.length)), fs = Math.min(40, rowH - 18);
+    let y = 470;
+    for (const r of rows) {
+      const col = r.res === "W" ? "#3dbe6c" : r.res === "L" ? "#e5484d" : gold, h = rowH - 8, mid = y + h / 2;
+      x.fillStyle = "#1a1b20"; x.fillRect(80, y, S - 160, h); x.fillStyle = col; x.fillRect(80, y, 6, h);
+      let nx = 104;
+      if (r.res) { const bx = Math.min(36, h - 10); x.fillStyle = col; x.fillRect(nx, mid - bx / 2, bx, bx); x.fillStyle = r.res === "W" ? "#0d1a12" : "#fff"; x.font = D(`900 ${Math.round(bx * .72)}px`); x.textAlign = "center"; x.fillText(r.res, nx + bx / 2, mid + bx * .26); x.textAlign = "left"; nx += bx + 16; }
+      x.fillStyle = "#fff"; x.font = D(`800 ${fs}px`); const nm = String(r.name).toUpperCase(); x.fillText(nm, nx, mid + fs * .35);
+      const nw = x.measureText(nm).width; x.fillStyle = "#9a9ea8"; x.font = B(`500 ${Math.round(fs * .55)}px`); x.fillText(r.opp.replace(/^vs [^·]+· /, ""), nx + nw + 14, mid + fs * .3);
+      x.textAlign = "right"; x.fillStyle = r.res ? col : "#fff"; x.font = D(`800 ${fs}px`); x.fillText(r.right, S - 104, mid + fs * .35); x.textAlign = "left";
+      y += rowH;
+    }
+  } else {
+  const rowH = rows.length <= 2 ? 120 : 100, big = rowH > 90;
+  let y = 480;
+  for (const r of rows) {
+    const col = r.res === "W" ? "#3dbe6c" : r.res === "L" ? "#e5484d" : gold;
+    x.fillStyle = "#1a1b20"; x.fillRect(80, y, S - 160, rowH - 12); x.fillStyle = col; x.fillRect(80, y, 6, rowH - 12);
+    let nx = 108;
+    if (r.res) { x.fillStyle = col; x.fillRect(nx, y + (rowH - 12) / 2 - 22, 44, 44); x.fillStyle = r.res === "W" ? "#0d1a12" : "#fff"; x.font = D("900 32px"); x.textAlign = "center"; x.fillText(r.res, nx + 22, y + (rowH - 12) / 2 + 11); x.textAlign = "left"; nx += 62; }
+    x.fillStyle = "#fff"; x.font = D(`800 ${big ? 48 : 40}px`); x.fillText(String(r.name).toUpperCase(), nx, y + (big ? 52 : 44));
+    x.fillStyle = "#9a9ea8"; x.font = B("500 24px"); x.fillText(r.opp, nx + 2, y + (big ? 80 : 68));
+    x.textAlign = "right"; x.fillStyle = r.res ? col : "#fff"; x.font = D(`800 ${big ? 52 : 44}px`); x.fillText(r.right, S - 104, y + (big ? 54 : 46));
+    x.fillStyle = "#9a9ea8"; x.font = B("600 24px"); x.fillText(r.rightSub || "", S - 104, y + (big ? 80 : 68)); x.textAlign = "left";
+    y += rowH;
+  }
+  }
+  x.fillStyle = "#26282e"; x.fillRect(80, S - 150, S - 160, 2);
+  x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText("Live record", 80, S - 96);
+  if (o.rec) { x.fillStyle = "#fff"; x.font = D("800 46px"); x.fillText(o.rec, 236, S - 92);
+    const w = x.measureText(o.rec).width; x.fillStyle = o.recU >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(o.recU), 256 + w, S - 92);
+    const w2 = x.measureText(units(o.recU)).width; x.fillStyle = "#9a9ea8"; x.font = B("500 20px"); x.fillText("flat 1u", 266 + w + w2, S - 94); }
+  x.textAlign = "right"; x.fillStyle = gold; x.font = B("700 24px"); x.fillText(o.tag, S - 80, S - 96); x.textAlign = "left";
+  c.toBlob(b => { const u = URL.createObjectURL(b), el = document.createElement("a"); el.href = u; el.download = o.file; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); }, "image/png");
+}
 // a square image of this week's picks, ready to post (drawn on a canvas with the site's fonts)
 async function sharePicksImage() {
   const [p, L] = await Promise.all([getPred(), get("ledger.json", true)]);
@@ -959,7 +1034,8 @@ async function sharePicksImage() {
   x.fillStyle = "#26282e"; x.fillRect(80, S - 150, S - 160, 2);
   x.fillStyle = "#9a9ea8"; x.font = B("600 26px"); x.fillText("Live record", 80, S - 96);
   if (L && L.fights) { x.fillStyle = "#fff"; x.font = D("800 46px"); const r = `${L.our_won}-${L.our_bets - L.our_won}`; x.fillText(r, 236, S - 92);
-    const w = x.measureText(r).width; x.fillStyle = L.our_units >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(L.our_units), 256 + w, S - 92); }
+    const w = x.measureText(r).width; x.fillStyle = L.our_units >= 0 ? "#3dbe6c" : "#e5484d"; x.font = D("800 36px"); x.fillText(units(L.our_units), 256 + w, S - 92);
+    const w2 = x.measureText(units(L.our_units)).width; x.fillStyle = "#9a9ea8"; x.font = B("500 20px"); x.fillText("flat 1u", 266 + w + w2, S - 94); }
   x.textAlign = "right"; x.fillStyle = gold; x.font = B("700 24px"); x.fillText("Every pick locked before the fight", S - 80, S - 96); x.textAlign = "left";
   c.toBlob(b => { const u = URL.createObjectURL(b), el = document.createElement("a"); el.href = u; el.download = `octagon-edge-picks-${p.date}.png`; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); }, "image/png");
 }
@@ -1122,6 +1198,7 @@ async function viewEvent(s) {
   }).join("");
   return `<p><a href="#/events">← All events</a></p><h1>${esc(e.name)}</h1>
     <p class="where">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}</p>
+    ${e.record && e.record.locked && e.record.our_bets ? `<div class="share-row"><button class="pill" type="button" onclick="shareResultsImage('${esc(s)}')">Download results image</button><span>Square image of our picks and results on this card, for X and Instagram.</span></div>` : ""}
     ${e.record && e.record.picks ? `<div class="stats">
       <div class="stat"><b>${e.record.right}/${e.record.picks}</b><span>model winners (${Math.round(e.record.right / e.record.picks * 100)}%)</span></div>
       <div class="stat"><b class="${e.record.units >= 0 ? "won" : "lost"}">${units(e.record.units)}</b><span>betting every model winner</span></div>
@@ -1271,7 +1348,16 @@ async function viewFighter(s) {
   const extras = [["Strikes to head / body / leg", mix(["head", "body", "leg"])], ["Standing / clinch / ground", mix(["standing", "clinch", "ground"])],
     ["Average fight time", g.avg_time != null ? `${Math.floor(g.avg_time)}:${String(Math.round((g.avg_time % 1) * 60)).padStart(2, "0")}` : null],
     ["Times submitted", g.ufc_fights ? `${g.sub_losses} in ${g.ufc_fights} fights` : null]].filter(x => x[1]);
-  return `<p><a href="#/fighters">← Fighters</a></p>
+  const pr = await getPred();
+  const nxi = pr ? (pr.fights || []).findIndex(x => (x.a_slug === s || x.b_slug === s) && x.state !== "post") : -1;
+  const nextFight = nxi < 0 ? "" : (() => { const b = pr.fights[nxi], isA = b.a_slug === s, opp = isA ? b.b : b.a, oppS = isA ? b.b_slug : b.a_slug;
+    const ch = b.hidden || b.p_a == null ? null : isA ? b.p_a : 1 - b.p_a, o = isA ? b.odds_a : b.odds_b;
+    const mine = b.our_pick && b.our_pick === (isA ? b.a : b.b), against = b.our_pick && !mine;
+    return `<a class="nextfight" href="${fightLink(nxi)}"><span class="nf-k">Next fight</span>
+      <span class="nf-t"><b>vs ${esc(opp)}</b><small>${esc(pr.event)} · ${dateLong(pr.date)}${b.weight_class ? " · " + esc(b.weight_class) : ""}</small></span>
+      <span class="nf-n">${ch != null ? `<b>${pct(ch)}</b><small>our chance${o != null ? " · " + odds(o) : ""}</small>` : b.hidden ? `<b>${lockIcon}</b><small>for members${o != null ? " · line " + odds(o) : ""}</small>` : o != null ? `<b>${odds(o)}</b><small>line</small>` : ""}</span>
+      ${mine ? `<span class="nf-pick">Our pick</span>` : against ? `<span class="nf-pick vs">We pick ${esc(opp)}</span>` : ""}<span class="nf-go">Breakdown →</span></a>`; })();
+  return `<p><a href="#/fighters">← Fighters</a></p>${nextFight}
     <section class="fhero">
       <figure class="fh-ph">${photo(f.espn_id, f.name, "xl")}${(() => { const c = PHOTOS.photos[f.slug]; const used = c && photoSrc(f.espn_id, f.name)[0] === c.src;
         return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
