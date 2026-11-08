@@ -18,11 +18,29 @@ from get_odds import norm
 import espn
 
 
+def main_event(card):
+    """The bout named in the event title ("UFC 334: Gane vs. Hokit"), else none."""
+    if card is None or not len(card):
+        return None
+    import re, unicodedata
+    words = lambda x: re.sub(r"[^a-z ]", " ", unicodedata.normalize("NFKD", str(x)).encode("ascii", "ignore").decode().lower()).split()
+    title = set(words(str(card["event"].iloc[0]).split(":")[-1]))
+    for r in card.itertuples():
+        la, lb = words(r.a)[-1:], words(r.b)[-1:]
+        if la and lb and la[0] in title and lb[0] in title:
+            t = words(str(card["event"].iloc[0]).split(":")[-1])
+            ida, idb = str(getattr(r, "espn_id_a", "") or ""), str(getattr(r, "espn_id_b", "") or "")
+            if t.index(lb[0]) < t.index(la[0]):   # same order as the title
+                return {"main_a": r.b, "main_b": r.a, "main_ids": [idb, ida]}
+            return {"main_a": r.a, "main_b": r.b, "main_ids": [ida, idb]}
+    return None
+
+
 def main():
     up = os.path.join(SITE, "data", "upcoming.json")
     dates = [e["date"] for e in json.load(open(up))][:6] if os.path.exists(up) else []
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
-    seen = []
+    seen, mains = [], {}
     for d in dates:
         if OFFLINE:
             break
@@ -32,6 +50,9 @@ def main():
             print("ESPN", d, type(e).__name__)
             continue
         card = card[card["state"].eq("pre")] if len(card) else card
+        m = main_event(card)
+        if m:
+            mains[d] = m
         for r in card.itertuples():
             seen.append({"key": f"{r.date}|{'|'.join(sorted((norm(r.a), norm(r.b))))}", "date": r.date, "event": r.event,
                          "a": r.a, "b": r.b, "weight_class": r.weight_class})
@@ -47,6 +68,12 @@ def main():
             log.loc[s["key"]] = {"date": s["date"], "event": s["event"], "a": s["a"], "b": s["b"], "first_seen": now,
                                  "last_seen": now, "wc_first": s["weight_class"], "wc_last": s["weight_class"]}
     log.reset_index().to_csv(f, index=False)
+    if mains and os.path.exists(up):   # main-event names and ESPN ids, for the photos on the schedule
+        ev = json.load(open(up))
+        for e in ev:
+            if e["date"] in mains:
+                e.update(mains[e["date"]])
+        json.dump(ev, open(up, "w"), indent=1)
     print(f"card log: {len(seen)} bouts seen across {len(dates)} upcoming cards; {len(log)} logged")
 
 

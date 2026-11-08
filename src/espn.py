@@ -220,7 +220,16 @@ def upcoming_cards(js):
                         "date": start.tz_convert("America/New_York").strftime("%Y-%m-%d")})
     if out:
         os.makedirs(os.path.join(SITE, "data"), exist_ok=True)
-        json.dump(out[:8], open(os.path.join(SITE, "data", "upcoming.json"), "w"), indent=1)
+        f = os.path.join(SITE, "data", "upcoming.json")
+        try:   # keep main-event names and photos added by card_log.py
+            old = {x["date"]: x for x in json.load(open(f))}
+        except Exception:
+            old = {}
+        for x in out:
+            for k in ("main_a", "main_b", "main_ids"):
+                if k in old.get(x["date"], {}):
+                    x[k] = old[x["date"]][k]
+        json.dump(out[:8], open(f, "w"), indent=1)
 
 
 def next_event_date(js, after=None):

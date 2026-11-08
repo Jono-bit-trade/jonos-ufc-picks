@@ -1536,3 +1536,7 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .ft-facts small{font:700 11px "Barlow",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet)}
 .ft-facts b{font:700 18px "Barlow",sans-serif;color:var(--ink)}
 .ft-facts .cd b{color:var(--accent,#d9a91a)}
+.rc-mini .rcm-t{flex:1;min-width:0} .rc-mini .ev-ph .ph.sm,.nx .ev-ph .ph.sm{width:36px;height:36px}
+.nx .ev-ph{flex:none}
+.nx-a .ev-ph .ph.md{width:48px;height:48px}
+.nx .ev-ph .ph.md{width:48px;height:48px}

@@ -979,12 +979,14 @@ async function viewHome() {
 function homeLower(ev, ex, up, p) {
   const recent = (ev || []).slice(0, 5).map(e => { const r = e.record || {}, u = r.our_staked ?? r.our_units;
     const [t1, t2] = String(e.name).split(/:\s*/);
-    return `<a class="rc-mini" href="#/event/${esc(e.slug)}"><span class="rcm-t"><b>${esc(t2 || t1)}</b><small>${esc(e.date)} · model ${r.right ?? "–"}/${r.picks ?? "–"}</small></span>
+    const ids = e.main_ids || [];
+    return `<a class="rc-mini" href="#/event/${esc(e.slug)}"><span class="ev-ph">${photo(ids[0], e.main_a || "", "sm")}${photo(ids[1], e.main_b || "", "sm")}</span><span class="rcm-t"><b>${esc(t2 || t1)}</b><small>${esc(e.date)} · model ${r.right ?? "–"}/${r.picks ?? "–"}</small></span>
       ${r.our_bets ? `<span class="rcm-u ${u >= 0 ? "won" : "lost"}"><b>${units(u)}</b><small>picks ${r.our_won}/${r.our_bets}</small></span>` : ""}</a>`; }).join("");
   const next = (up || []).filter(u => !p || u.date !== p.date).slice(0, 4).map(u => {
     const [title, sub] = String(u.name).split(/:\s*/);
     const d = new Date(u.start || u.date + "T12:00:00");
     return `<li class="nx"><span class="nx-d"><b>${d.toLocaleDateString(undefined, {day: "numeric"})}</b><span>${d.toLocaleDateString(undefined, {month: "short"})}</span></span>
+      ${u.main_ids ? `<span class="ev-ph">${photo(u.main_ids[0], u.main_a || "", "sm")}${photo(u.main_ids[1], u.main_b || "", "sm")}</span>` : ""}
       <span class="nx-t"><b>${esc(sub || title)}</b><span>${esc(title)}${u.start ? ", " + d.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}) : ""}</span></span></li>`;
   }).join("");
   const maxU = ex ? Math.max(1, ...ex.analysts.slice(0, 5).map(a => Math.abs(a.units))) : 1;
@@ -1009,6 +1011,7 @@ async function viewEvents(q) {
   const upcoming = (up || []).map((u, i) => {
     const [title, sub] = String(u.name).split(/:\s*/), d = new Date(u.start || u.date + "T12:00:00");
     const inner = `<span class="nx-d"><b>${d.toLocaleDateString(undefined, {day: "numeric"})}</b><span>${d.toLocaleDateString(undefined, {month: "short"})}</span></span>
+      ${u.main_ids ? `<span class="ev-ph">${photo(u.main_ids[0], u.main_a || "", "md")}${photo(u.main_ids[1], u.main_b || "", "md")}</span>` : ""}
       <span class="nx-t"><b>${esc(sub || title)}</b><span>${esc(title)}${u.start ? ", " + d.toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : ""}${i === 0 ? " · picks are up" : ""}</span></span>`;
     return i === 0 ? `<li class="nx"><a class="nx-a" href="#/card">${inner}</a></li>` : `<li class="nx">${inner}</li>`;
   }).join("");
