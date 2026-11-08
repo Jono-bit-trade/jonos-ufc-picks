@@ -3506,7 +3506,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "23-10-0"
+         "summary": "24-10-0"
         }
        ]
       },
@@ -3534,7 +3534,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "17-4-0"
+         "summary": "17-5-0"
         }
        ]
       }
@@ -3552,7 +3552,7 @@
        "detail": "Final",
        "shortDetail": "Final"
       },
-      "featured": false
+      "featured": true
      },
      "broadcasts": [
       {
