@@ -19,8 +19,20 @@ def parts(n):
     return [p for p in s.split() if p]
 
 
+_ALIAS = None
+
+
+def alias(n):
+    """data/name_map.csv (alias,name): spellings that differ between sites ("Beatriz Mesquita" / "Bia Mesquita")."""
+    global _ALIAS
+    if _ALIAS is None:
+        f = path("name_map.csv")
+        _ALIAS = dict(pd.read_csv(f)[["alias", "name"]].values) if os.path.exists(f) else {}
+    return _ALIAS.get(n, n)
+
+
 def same_fighter(x, y):
-    px, py = parts(x), parts(y)
+    px, py = parts(alias(x)), parts(alias(y))
     if not px or not py:
         return False
     if "".join(px) == "".join(py) or sorted(px) == sorted(py):

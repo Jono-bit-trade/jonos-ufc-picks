@@ -21,26 +21,33 @@ NUM = lambda t: float(t.replace("−", "-").replace("+", "").replace("%", "").st
 
 
 def parse(html):
-    """Rows: title, when, fighter, odds, handle (0-1), bets (0-1)."""
+    """Rows: title, when, fighter, odds, handle (0-1), bets (0-1). Works on both page layouts seen so far:
+    'Title | 11/7, 08:45PM | ... % Bets | name | odds | x% | y% ...' and (Nov 2026)
+    'Title | Sat 11/14 · 5:00 PM ET | Selection | Odds | Handle | Bets | Moneyline | name | odds | x% | y% ...'"""
     soup = BeautifulSoup(html, "lxml")
     for x in soup(["script", "style", "noscript"]):
         x.decompose()
     toks = [t.strip() for t in soup.get_text("|").split("|") if t.strip()]
+    odds_re = re.compile(r"[+\-−]\d{3,5}|EVEN|even")
+    pct_re = re.compile(r"\d{1,3}(\.\d+)?%")
     rows = []
     for i, t in enumerate(toks):
         m = re.fullmatch(r"(.+?) vs\.? (.+)", t)
-        if not m or i + 1 >= len(toks) or not re.match(r"\d{1,2}/\d{1,2}", toks[i + 1]):
+        if not m or i + 1 >= len(toks) or not re.search(r"\d{1,2}/\d{1,2}", toks[i + 1]):
             continue
-        try:
-            j = toks.index("% Bets", i) + 1          # the two fighter rows follow the headers
-        except ValueError:
-            continue
-        for k in (0, 4):
-            name, o, h, b = toks[j + k: j + k + 4]
-            if not (h.endswith("%") and b.endswith("%")):
-                break
-            rows.append({"title": t, "when": toks[i + 1], "fighter": name, "odds": NUM(o),
-                         "handle": NUM(h) / 100, "bets": NUM(b) / 100})
+        got, j = [], i + 2
+        while j + 3 < len(toks) and len(got) < 2 and j < i + 40:   # the two fighter rows that follow
+            if re.fullmatch(r"(.+?) vs\.? (.+)", toks[j]) and re.search(r"\d{1,2}/\d{1,2}", toks[j + 1] if j + 1 < len(toks) else ""):
+                break   # next fight
+            name, o, h, b = toks[j: j + 4]
+            if odds_re.fullmatch(o) and pct_re.fullmatch(h) and pct_re.fullmatch(b):
+                got.append({"title": t, "when": toks[i + 1], "fighter": name,
+                            "odds": 100.0 if o.lower() == "even" else NUM(o), "handle": NUM(h) / 100, "bets": NUM(b) / 100})
+                j += 4
+            else:
+                j += 1
+        if len(got) == 2:
+            rows += got
     return pd.DataFrame(rows)
 
 
