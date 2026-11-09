@@ -24,6 +24,8 @@ for i in 1 2 3; do
   # the site's code (docs/*.html, *.js, *.css) only changes by hand: always keep main's copy
   git ls-files -z docs | grep -zv '^docs/data/' | xargs -0 -r git checkout -q origin/main -- 2>/dev/null || true
   git checkout -q origin/main -- data/name_map.csv 2>/dev/null || true   # edited by hand too
+  # link previews: point index.html's preview tags at the newest share image (docs/data/og-*.png)
+  python3 src/og_image.py meta && git add docs/index.html || true
   git add -A data docs/data
   git commit -q -m "$1 $(date -u +%Y-%m-%dT%H:%MZ)" || { echo "No changes"; exit 0; }
   git push -q origin HEAD:main && exit 0

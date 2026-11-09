@@ -121,6 +121,14 @@ jobs:
           python src/expert_model.py || echo "not enough expert picks yet"
           python src/site_data.py
 
+      - name: Link-preview image (redrawn when the record changes; not mid fight night)
+        if: steps.kind.outputs.kind != 'live'
+        continue-on-error: true
+        run: |
+          if [ "$(python src/og_image.py check)" = "stale" ]; then
+            pip install -q playwright && python -m playwright install --with-deps chromium > /dev/null && python src/og_image.py render
+          fi
+
       - name: Save
         if: always()
         run: bash .github/save.sh "Update ${{ steps.kind.outputs.kind }}"

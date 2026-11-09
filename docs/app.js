@@ -1050,7 +1050,7 @@ async function shareResultsImage(slug) {
   const totU = Math.round(100 * upto.reduce((s, g) => s + (g.our_units || 0), 0)) / 100;
   await drawShare({
     file: `octagon-edge-results-${e.date}.png`, kicker: `${String(e.name).split(/:\s*/).at(-1)} · ${new Date(e.date + "T12:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"})}`,
-    title: "RESULTS", sub: `Our picks ${cw}-${rows.length - cw}  ${units(cardU)}`, subColor: cardU >= 0 ? "#3dbe6c" : "#e5484d",
+    title: "RESULTS", sub: `Our picks ${cw}-${rows.length - cw}  ${units(cardU)}`, subNote: "at our suggested stakes", subColor: cardU >= 0 ? "#3dbe6c" : "#e5484d",
     rows: rows.map(g => ({name: g.our_pick, opp: `vs ${g.our_pick === g.a ? g.b : g.a} · ${odds(g.our_odds)}`, right: units(g.our_staked_units),
       rightSub: g.stake ? g.stake + "u" : "", res: !g.winner ? null : g.winner === g.our_pick ? "W" : "L"})),
     ...sinceRec(mr), tag: "Fight picks with an edge"});
@@ -1071,6 +1071,7 @@ async function drawShare(o) {
   x.fillStyle = "#9a9ea8"; x.font = B("600 30px"); x.fillText(o.kicker, 80, 262);
   x.fillStyle = "#fff"; x.font = D("900 88px"); x.fillText(o.title, 80, 350);
   x.fillStyle = o.subColor || gold; x.font = D("800 44px"); x.fillText(o.sub, 80, 404);
+  if (o.subNote) { const sw = x.measureText(o.sub).width; x.fillStyle = "#9a9ea8"; x.font = B("500 24px"); x.fillText(o.subNote, 80 + sw + 18, 402); }
   const rows = o.rows.slice(0, 10);
   if (rows.length > 4) {   // many picks: one line each, sized to fit
     const rowH = Math.min(72, Math.floor(440 / rows.length)), fs = Math.min(40, rowH - 18);
@@ -1129,15 +1130,24 @@ async function sharePicksImage() {
   x.fillStyle = "#9a9ea8"; x.font = B("600 30px"); x.fillText(`${ev} · ${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}`, 80, 262);
   x.fillStyle = "#fff"; x.font = D("900 88px"); x.fillText("OUR PICKS", 80, 350);
   x.fillStyle = gold; x.font = D("800 44px"); x.fillText(String(sub || "").toUpperCase(), 80, 404);
+  // early or final: an early pick can still be dropped if the line moves against it
+  const live = p.fights.some(f => f.state && f.state !== "pre"), fin = CARD_FINAL || live;
+  { const sw = x.measureText(String(sub || "").toUpperCase()).width, lab = fin ? "FINAL PICKS" : "EARLY PICKS";
+    x.font = D("800 22px"); const lw = x.measureText(lab).width + 24, bx = 80 + sw + 22, by = 374;
+    if (fin) { x.fillStyle = "#3dbe6c"; x.fillRect(bx, by, lw, 34); x.fillStyle = "#0d1a12"; }
+    else { x.strokeStyle = gold; x.lineWidth = 2; x.setLineDash([6, 4]); x.strokeRect(bx, by, lw, 34); x.setLineDash([]); x.fillStyle = gold; }
+    x.fillText(lab, bx + 12, by + 25); }
   // picks
-  let y = 480; const rows = ours.slice(0, 6), rowH = rows.length > 4 ? 82 : rows.length <= 2 ? 120 : 100;
+  let y = 470; const rows = ours.slice(0, 6), rowH = rows.length > 4 ? 82 : rows.length <= 3 ? 136 : 100, big = rowH > 90;
   for (const f of rows) {
-    const o = f.our_pick === f.a ? f.odds_a : f.odds_b, opp = f.our_pick === f.a ? f.b : f.a;
-    x.fillStyle = "#1a1b20"; x.fillRect(80, y, S - 160, rowH - 12); x.fillStyle = gold; x.fillRect(80, y, 6, rowH - 12);
-    x.fillStyle = "#fff"; x.font = D(`800 ${rowH > 90 ? 48 : 40}px`); x.fillText(String(f.our_pick).toUpperCase(), 108, y + (rowH > 90 ? 52 : 44));
-    x.fillStyle = "#9a9ea8"; x.font = B("500 24px"); x.fillText(`vs ${opp}`, 110, y + (rowH > 90 ? 80 : 68));
-    x.textAlign = "right"; x.fillStyle = "#fff"; x.font = D(`800 ${rowH > 90 ? 52 : 44}px`); x.fillText(odds(o), S - 104, y + (rowH > 90 ? 54 : 46));
-    x.fillStyle = "#9a9ea8"; x.font = B("600 24px"); x.fillText(f.stake ? f.stake + "u" : "", S - 104, y + (rowH > 90 ? 80 : 68)); x.textAlign = "left";
+    const o = f.our_pick === f.a ? f.odds_a : f.odds_b, opp = f.our_pick === f.a ? f.b : f.a, isA = f.our_pick === f.a;
+    const us = f.p_a == null ? null : Math.round(100 * (isA ? f.p_a : 1 - f.p_a)), ln = f.market_p_a == null ? null : Math.round(100 * (isA ? f.market_p_a : 1 - f.market_p_a));
+    x.fillStyle = "#1a1b20"; x.fillRect(80, y, S - 160, rowH - 14); x.fillStyle = gold; x.fillRect(80, y, 6, rowH - 14);
+    x.fillStyle = "#fff"; x.font = D(`800 ${big ? 48 : 40}px`); x.fillText(String(f.our_pick).toUpperCase(), 108, y + (big ? 52 : 44));
+    x.fillStyle = "#9a9ea8"; x.font = B("500 24px"); x.fillText(`vs ${opp}`, 110, y + (big ? 80 : 68));
+    if (big && us != null && ln != null) { x.fillStyle = gold; x.font = B("600 22px"); x.fillText(`We say ${us}%. The line says ${ln}%.`, 110, y + 110); }
+    x.textAlign = "right"; x.fillStyle = "#fff"; x.font = D(`800 ${big ? 52 : 44}px`); x.fillText(odds(o), S - 104, y + (big ? 54 : 46));
+    x.fillStyle = "#9a9ea8"; x.font = B("600 24px"); x.fillText(f.stake ? f.stake + "u" : "", S - 104, y + (big ? 84 : 68)); x.textAlign = "left";
     y += rowH;
   }
   // record
@@ -2007,6 +2017,10 @@ async function route() {
   if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record"].includes(page))
     h1.insertAdjacentHTML("afterend", `<p class="powered"><span></span>
       <button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button></p>`);
+  // the title and its Share button on one line
+  if (h1 && h1.nextElementSibling?.classList.contains("powered") && !h1.parentElement.classList.contains("ptitle")) {
+    const t = document.createElement("div"); t.className = "ptitle"; h1.before(t); t.append(h1, h1.nextElementSibling);
+  }
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }
   else if (!qs) window.scrollTo(0, 0);
   liveBar();

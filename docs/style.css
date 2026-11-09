@@ -1780,3 +1780,24 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .howq { position: static; }
 .howq-p { right: 0; top: calc(100% + 6px); }
 @media (max-width: 640px) { .howq-p { left: 0; right: 0; width: auto; } }
+/* card page banner: event details left, the main-event faceoff right (desktop) */
+@media (min-width: 901px) {
+  .cardhero .ft-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); grid-template-rows: auto auto 1fr; column-gap: 48px; align-items: start; }
+  .cardhero .ft-show { grid-column: 1; grid-row: 1; border-bottom: 0; margin: 0; padding: 0; }
+  .cardhero .ft-leg { grid-column: 1; grid-row: 2; margin-top: 18px; }
+  .cardhero .ft-act { grid-column: 1; grid-row: 3; align-self: start; }
+  .cardhero .ft-fight { grid-column: 2; grid-row: 1 / 4; align-self: center; gap: 18px; }
+  .cardhero .pt { max-width: 210px; }
+}
+.ft-n small { min-height: 28px; align-items: center; }
+/* page titles: the Share button on the same line as the title */
+.ptitle { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ptitle h1 { margin-bottom: 8px; min-width: 0; }
+.ptitle .powered { margin: 0 !important; flex: none; }
+.ptitle .powered > span:empty { display: none; }
+.lw-h a { white-space: nowrap; flex: none; }
+/* fighter page stat boxes: even columns on phones */
+@media (max-width: 640px) {
+  .fchips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fchips .fchip { min-width: 0; }
+}
