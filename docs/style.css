@@ -1801,3 +1801,8 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
   .fchips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .fchips .fchip { min-width: 0; }
 }
+/* fighter photos: just the fighter (ESPN headshots are cut-outs), no box behind them.
+   The box stays only for the initials shown when there's no photo. */
+#view .ph:has(img), #view .ph:has(img) img, #view .pt:has(img), #view .pt:has(img) img { background: transparent !important; box-shadow: none !important; }
+#view .ph:has(img) { padding: 0 !important; border: 0 !important; }
+#view .ph:has(img) > span, #view .pt:has(img) .pt-i { display: none !important; }
