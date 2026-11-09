@@ -478,13 +478,14 @@ def main():
                 from_experts = False
                 if not ours and lean and LEAN_AS_PICK:   # expert lean fills in where the model has no our pick
                     ours, from_experts = lean, True
+                passed = None
                 if ours and LINE_MOVE_AGAINST is not None:   # line moved against our side, open -> close: pass
                     mv = moves.get(f"{f.date}|{wnorm(f.a)}|{wnorm(f.b)}")
                     if mv is None:
                         mv = moves.get(f"{f.date}|{wnorm(f.b)}|{wnorm(f.a)}")
                         mv = -mv if mv is not None else None
                     if mv is not None and ((ours == "a" and mv < -LINE_MOVE_AGAINST) or (ours == "b" and mv > LINE_MOVE_AGAINST)):
-                        ours = None
+                        passed, ours = ours, None
                 if ours and SKIP_BOTH_DEBUT and first_fight.get(f.a) == f.date and first_fight.get(f.b) == f.date:
                     ours = None   # both making their UFC debut: no our pick (config.OUR_PICKS_SKIP_BOTH_DEBUT)
                 if ours:   # our pick, as on the live card
@@ -519,7 +520,8 @@ def main():
                           "model_p_a": round(float(p), 3) if p is not None else None,
                           "final_p_a": round(float(pf), 3) if pf is not None else None,
                           "model_pick": pick, "value_pick": value, "our_pick": our, "expert_lean": lean,
-                          "rating_a": num(f.pre_a), "rating_b": num(f.pre_b), "experts": exp})
+                          "rating_a": num(f.pre_a), "rating_b": num(f.pre_b), "experts": exp,
+                          **({"passed": passed} if passed else {})})
         if date >= LEDGER_FROM and locked:   # live-record cards: the picks locked before each fight, not a regrade
             hit = 0
             for k, b in enumerate(bouts):
@@ -527,6 +529,7 @@ def main():
                 if L is None or b["winner"] not in ("a", "b"):
                     continue
                 hit += 1
+                b.pop("passed", None)   # live cards show what was locked
                 side = lambda n: "a" if isinstance(n, str) and norm(n) == norm(b["a"]) else "b" if isinstance(n, str) and norm(n) == norm(b["b"]) else None
                 def mk(n, o, u):
                     sd = side(n)

@@ -330,7 +330,7 @@ async function viewPricing() {
     <div class="faq">
       <details><summary>What does an Event Pass cover?</summary><p>Every pick, stake, value pick and fight analysis for one UFC card, from the moment you buy it until the card ends, including the live bet slip on fight night.</p></details>
       <details><summary>When do picks post?</summary><p>As soon as sportsbooks post lines for a card, usually Sunday or Monday. They update through the week as lines move and expert picks come in, and lock when each fight starts.</p></details>
-      <details><summary>How do I know the record is real?</summary><p>Every pick is locked before the fight and graded at the price we posted. The full record, wins and losses, is free to view on the Record page, along with how we compare with simply betting favorites.</p></details>
+      <details><summary>How do I know the record is real?</summary><p>Every pick since Oct 31, 2026 was locked before the fight and is graded at the price we posted; earlier cards are graded at the average sportsbook's closing price. The full record, wins and losses, is free to view on the Record page, along with how we compare with simply betting favorites.</p></details>
       <details><summary>Can I cancel Monthly?</summary><p>Yes, anytime. You keep access until the end of the month you paid for.</p></details>
       <details><summary>Is this betting advice?</summary><p>No. It's research for entertainment. Bet only what you can afford to lose, only where it's legal, and if gambling stops being fun, call 1-800-GAMBLER.</p></details>
     </div>`;
@@ -391,7 +391,7 @@ async function viewFight(x, y) {
       odds_a: b.odds_a, odds_b: b.odds_b, wc: b.weight_class, rounds: b.rounds, tier: (b.model_pick && b.model_pick.tier) || tierOf(b.final_p_a),
       ours: b.our_pick ? side(b.our_pick.side) : null, ours_odds: b.our_pick && b.our_pick.odds, stake: b.our_pick && b.our_pick.stake,
       value: b.value_pick ? side(b.value_pick.side) : null, experts: b.experts, winner: side(b.winner), how: b.finish ? `${b.finish}${b.round ? ", round " + b.round : ""}` : "",
-      model: b.model_pick ? side(b.model_pick.side) : null, lean: b.expert_lean ? side(b.expert_lean) : null};
+      model: b.model_pick ? side(b.model_pick.side) : null, lean: b.expert_lean ? side(b.expert_lean) : null, passed: b.passed ? side(b.passed) : null};
     back = `<a class="pill" href="#/event/${esc(x)}">← ${esc(e.name)}</a>`; title = e.name; when = dateLong(e.date);
   } else {
     const p = await getPred(); const f = p && p.fights[+x];
@@ -400,7 +400,7 @@ async function viewFight(x, y) {
     F = {a: f.a, b: f.b, a_slug: f.a_slug, b_slug: f.b_slug, a_id: f.a_id, b_id: f.b_id, p: f.p_a, line: f.market_p_a, odds_a: f.odds_a, odds_b: f.odds_b,
       wc: f.weight_class, rounds: f.rounds, tier: f.tier || tierOf(f.p_a), ours: f.our_pick, ours_odds: f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null,
       stake: f.stake, value: f.pick, why: f.why, experts: f.experts, hist: f.line_history, f, winner: w, how: w ? (f.result.detail || "") : "",
-      model: f.model_pick, lean: f.expert_lean, start: f.start, state: f.state, status: f.status};
+      model: f.model_pick, lean: f.expert_lean, start: f.start, state: f.state, status: f.status, passed: f.moved_against && !f.our_pick ? true : null};
     back = `<a class="pill" href="#/card">← ${esc(p.event)}</a>`; title = p.event; when = f.start ? new Date(f.start).toLocaleString(undefined, {weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}) : dateLong(p.date);
   }
   const [A, B] = await Promise.all([F.a_slug ? get(`fighters/${F.a_slug}.json`, true) : null, F.b_slug ? get(`fighters/${F.b_slug}.json`, true) : null]);
@@ -413,6 +413,7 @@ async function viewFight(x, y) {
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
   const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
+    : F.passed ? `<div class="fx-call none"><span class="fx-k">Passed</span><b>The line moved against ${F.passed === true ? "our side" : esc(F.passed)}</b><span>We had a pick here, but the line moved more than 1 point the other way between open and close, so we passed.</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
   const mark = nm => F.winner && nm ? (F.winner === nm ? ` <em class="won">✓ won</em>` : ` <em class="lost">✗ lost</em>`) : "";
@@ -427,7 +428,7 @@ async function viewFight(x, y) {
     <div class="fx-grid">
       <section class="fx-panel"><h2>${kick("Styles", "gold")}Head to head</h2>
         ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + "" : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}</section>
-      <section class="fx-panel"><h2>${kick(METHOD, "gold")}Our call</h2>${F.winner && (F.ours || F.value) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
+      <section class="fx-panel"><h2>${kick(METHOD, "gold")}Our call</h2>${F.winner && (F.ours || (F.value && !F.passed)) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
         ${F.f && F.f.take ? takeHtml(F.f.take) : ""}
         ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
         ${expertBar(F.experts, F.a, F.b, null)}
@@ -1228,7 +1229,8 @@ async function viewEvent(s) {
     const mp = b.model_pick, vp = b.value_pick;
     const call = !mp ? "" : `${tierTag(mp.tier || tierOf(b.final_p_a), true)}<span class="tick ${mp.right ? "won" : "lost"}">Model${mp.lean ? " (expert lean)" : ""} ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
     const op = b.our_pick;
-    const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
+    const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "")
+      + (!op && b.passed ? `<span class="lean passed" title="The line moved more than 1 point against this side between open and close, so we passed.">Passed: line moved against ${esc(b.passed === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
       : !vp ? "" : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
@@ -1712,6 +1714,7 @@ function yearTable(mr) {
       <li><b>Prices:</b> the average of 3+ sportsbooks' closing lines where we have them (most fights from 2019 on), otherwise the one closing line. A better price than average is upside the record doesn't count.</li>
       <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter.</li>
       <li><b>Close fights:</b> where the model has no pick but 65%+ of tracked analysts agree, their side is our pick (since April 2026).</li>
+      <li><b>Line movement:</b> if the line moved more than 1 point against our side between open and close, we pass. Applied from 2023 on, where opening lines exist; earlier cards have none.</li>
       <li><b>Why 2020:</b> earlier fights still train the model, but there was too little history before then to grade fairly.</li></ul></details>
     <div class="tablewrap"><table class="yr-t"><thead><tr><th>Year</th><th class="n">Our picks</th><th class="n">Units, flat</th><th class="n hide-sm">Per bet</th>
       <th class="n">Units, stakes</th><th class="n hide-sm">Per unit risked</th><th class="n">Winners picked</th></tr></thead><tbody>
@@ -1897,7 +1900,7 @@ async function viewHow() {
       <div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets, ${S.our_roi_pct > 0 ? "+" : ""}${S.our_roi_pct}% per bet</span></div>
       <div><b>${S.pct}%</b><span>of all fights' winners picked</span></div>
       <div><b>${S.our_bets}</b><span>picks graded at the average sportsbook's price</span></div></div>` : ""}
-    <p class="note">Results before Oct 31, 2026 come from testing the method on past cards, each fight predicted only from earlier fights. Every pick since then was posted and locked before the fight.</p>
+    <p class="note">Results before Oct 31, 2026 come from testing the method on past cards, each fight predicted only from earlier fights, with today's pick rules applied to every card (the line-movement pass from 2023 on, where opening lines exist). Every pick since then was posted and locked before the fight.</p>
     <details class="tech"><summary>Technical detail: model tests, betting by edge, and situational edges</summary>
     <p class="note">Each year is predicted from earlier fights only. Log loss and Brier score the chances: lower is better. Last run ${esc(b.run_at)}.</p>
     <h2>The model alone</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s1}</tbody></table></div>
