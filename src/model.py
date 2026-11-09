@@ -96,6 +96,32 @@ class MethodModel:
         return pd.DataFrame(p, columns=self.m.classes_, index=t.index)
 
 
+class MethodByWinner:
+    """How it ends, given who wins: P(KO), P(SUB), P(DEC) if A wins and if B wins. Trained with the winner
+    in the A corner, so a heavy hitter winning makes a KO likelier than the same fight won by a grappler.
+    Tested Nov 2026, each year from earlier fights only: better than treating winner and method as
+    independent in every year 2018-2026 (6-outcome log loss 1.572 vs 1.590) and well calibrated from
+    15% to 50% KO. The sportsbooks' method props were more accurate (1.540 on 3,528 fights), so this is
+    shown as context, not used for picks."""
+    CLASSES = ["DEC", "KO", "SUB"]
+
+    def fit(self, t):
+        d = t[t["method"].isin(self.CLASSES) & t["winner"].isin(["a", "b"])].copy()
+        fb = d["winner"] == "b"
+        d.loc[fb] = flip(d.loc[fb])   # the winner in the A corner
+        self.m = make_pipeline(SimpleImputer(strategy="median"), StandardScaler(),
+                               LogisticRegression(C=0.3, max_iter=2000))
+        self.m.fit(d[METHOD_FEATURES], d["method"])
+        return self
+
+    def predict(self, t, p_a):
+        """Six probabilities: A or B, by DEC/KO/SUB, from the win chance p_a (Series aligned to t)."""
+        ia = pd.DataFrame(self.m.predict_proba(t[METHOD_FEATURES]), columns=self.m.classes_, index=t.index)[self.CLASSES]
+        ib = pd.DataFrame(self.m.predict_proba(flip(t)[METHOD_FEATURES]), columns=self.m.classes_, index=t.index)[self.CLASSES]
+        pa = pd.Series(p_a, index=t.index).astype(float)
+        return ia.mul(pa, axis=0), ib.mul(1 - pa, axis=0)
+
+
 # ---- market blend: the last step, AFTER the model is built ----
 SITUATIONS = ["layoff", "bigdog"]
 

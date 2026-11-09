@@ -1829,3 +1829,16 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .bk-t .n { text-align: right; font-variant-numeric: tabular-nums; }
 .bk-t th.ours { color: var(--gold); }
 .bk-t td.best { color: var(--green); font-weight: 800; }
+/* fight page: how it ends */
+.howend { margin: 26px 0 8px; }
+.howend .note { margin: 0 0 14px; }
+.he-rows { display: grid; gap: 12px; max-width: 760px; }
+.he-r { display: grid; grid-template-columns: 110px 1fr 56px; grid-template-rows: auto auto; align-items: center; column-gap: 14px; row-gap: 3px; }
+.he-l { font: 700 15px var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.he-t { display: flex; height: 14px; border-radius: 3px; overflow: hidden; background: color-mix(in srgb, var(--rule) 60%, transparent); }
+.he-t i { display: block; height: 100%; } .he-t .ha { background: var(--red); } .he-t .hb { background: var(--blue); }
+.he-r > b { font: 800 22px var(--display); text-align: right; }
+.he-s { grid-column: 2 / 4; display: flex; gap: 14px; font-size: 13px; }
+.he-s em { font-style: normal; } .he-s .ha { color: #f07a7e; } .he-s .hb { color: #7fb0f3; }
+.he-best { margin: 14px 0 0; font-size: 15px; color: var(--quiet); } .he-best b { color: var(--ink); }
+@media (max-width: 480px) { .he-r { grid-template-columns: 92px 1fr 46px; column-gap: 10px; } .he-r > b { font-size: 19px; } }

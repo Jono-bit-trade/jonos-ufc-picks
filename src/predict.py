@@ -16,7 +16,7 @@ import pandas as pd
 from common import path, SITE, no_vig, payout, to_american
 from config import EDGE, BIG_EDGE, TRAIN_FROM, MARKET_BLEND, FEATURE_GROUPS, LEARNER
 from features import build, CORE, FORM, CONTEXT, STYLE
-from model import GROUPS, WinModel, MethodModel
+from model import GROUPS, WinModel, MethodModel, MethodByWinner
 from get_odds import attach, lines, norm, snapshot
 from ratings import table
 from picks import tier
@@ -157,7 +157,7 @@ def model_pick(a, b, p_final, fair_a, lean=None):
 
 
 PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "moved_against")
-MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "edge_a")   # our numbers: members only
+MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "how", "edge_a")   # our numbers: members only
 
 
 def pick_runs(start, end):
@@ -522,6 +522,7 @@ def main():
     feats, cfg = model_features()
     up["p_model"] = WinModel(feats, cfg["learner"]).fit(hist).predict(up)
     meth = MethodModel().fit(hist).predict(up)
+    how_model = MethodByWinner().fit(hist)
 
     card = card.set_index("fight_id")
     for c in ["odds_a", "odds_b", "best_a", "best_b", "open_a", "open_b", "books", "best_book_a", "best_book_b", "book_prices"]:
@@ -532,6 +533,7 @@ def main():
     if MARKET_BLEND and os.path.exists(path("market_blend.json")) and has.any():
         up.loc[has, "p_final"] = blended(up.loc[has, "fair_a"], up.loc[has, "p_model"], up.loc[has])
     up["edge_a"] = up["p_final"] - up["fair_a"]
+    how_a, how_b = how_model.predict(up, up["p_final"])   # who wins and how, from our final win chance
     up["pick"] = np.where(up["edge_a"] > EDGE, up["a"], np.where(-up["edge_a"] > EDGE, up["b"], None))
     from picks import our_side
     sides = [our_side(pf, fa, oa, ob) for pf, fa, oa, ob in zip(up["p_final"], up["fair_a"], up["odds_a"], up["odds_b"])]
@@ -642,7 +644,9 @@ def main():
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "moved_against": bool(f.get("moved_against")) if f.get("moved_against") == f.get("moved_against") else False,
-            "method": {k: round(float(meth.loc[fid, k]), 3) for k in meth.columns},
+            "method": {k: round(float(how_a.loc[fid, k] + how_b.loc[fid, k]), 3) for k in how_a.columns},
+            "how": {"a": {k: round(float(how_a.loc[fid, k]), 3) for k in how_a.columns},
+                    "b": {k: round(float(how_b.loc[fid, k]), 3) for k in how_b.columns}},
         })
     first = card.iloc[0]
     full = {"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": str(first.get("event") or "Next UFC card"),

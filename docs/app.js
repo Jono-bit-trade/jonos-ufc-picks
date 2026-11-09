@@ -166,6 +166,21 @@ function expertBar(e, a, b, winner) {
 // line shopping: which sportsbook has the best price on a side ("" with one book)
 const bestAt = (f, side) => { const bp = f.book_prices || [], k = side === "a" ? f.best_book_a : f.best_book_b;
   return bp.length > 1 && k ? ` at ${esc(k.split(", ")[0])}` : ""; };
+// how it ends: who wins and by what, from the method model (context, not a pick)
+function howEnds(f) {
+  const h = f && f.how; if (!h || !h.a || !h.b) return "";
+  const last = n => esc(String(n).split(" ").at(-1)), P = x => Math.round(100 * x);
+  const rows = [["KO", "KO/TKO"], ["SUB", "Submission"], ["DEC", "Decision"]];
+  let best = null;
+  for (const [k] of rows) for (const sd of ["a", "b"]) if (!best || h[sd][k] > best.p) best = {sd, k, p: h[sd][k]};
+  const lab = {KO: "KO/TKO", SUB: "submission", DEC: "decision"};
+  return `<section class="howend"><h2>${kick("How it ends", "gold")}How it ends</h2>
+    <p class="note">Who wins and how, from each fighter's finishing and durability record. Shown for context: we don't make method picks.</p>
+    <div class="he-rows">${rows.map(([k, nm]) => { const a = h.a[k], b = h.b[k];
+      return `<div class="he-r"><span class="he-l">${nm}</span><span class="he-t"><i class="ha" style="width:${100 * a}%"></i><i class="hb" style="width:${100 * b}%"></i></span><b>${P(a + b)}%</b>
+        <span class="he-s"><em class="ha">${last(f.a)} ${P(a)}%</em><em class="hb">${last(f.b)} ${P(b)}%</em></span></div>`; }).join("")}</div>
+    <p class="he-best">Most likely: <b>${esc(best.sd === "a" ? f.a : f.b)} by ${lab[best.k]}</b> (${P(best.p)}%)</p></section>`;
+}
 function bookPanel(f, pickSide) {
   const bp = (f.book_prices || []).filter(x => x.a != null && x.b != null);
   if (bp.length < 2) return "";
@@ -502,6 +517,7 @@ async function viewFight(x, y) {
         ${F.f && !F.f.hidden ? bookPanel(F.f, F.ours === F.a ? "a" : F.ours === F.b ? "b" : null) : ""}
       </section>
     </div>
+    ${F.f && !F.f.hidden ? howEnds(F.f) : ""}
     <h2>${kick("Recent form", "gold")}Last 5 fights</h2>
     <div class="l5grid">${last5(A, F.a, "a")}${last5(B, F.b, "b")}</div>
     <h2>${kick("Tale of the tape", "gold")}Side by side</h2>
