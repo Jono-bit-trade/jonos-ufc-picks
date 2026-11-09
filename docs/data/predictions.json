@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T03:33Z",
+ "updated": "2026-11-09T03:37Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -249,6 +249,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -238.0,
+     "b": 195.0
     }
    ],
    "edge_a": 0.02,
@@ -488,6 +493,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.023,
@@ -562,7 +572,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.96,
+    "handle_b": 0.04,
+    "bets_a": 0.63,
+    "bets_b": 0.38,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -718,6 +734,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
    "edge_a": 0.025,
@@ -801,7 +822,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.82,
+    "handle_b": 0.18,
+    "bets_a": 0.59,
+    "bets_b": 0.41,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -957,6 +984,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "edge_a": 0.022,
@@ -1040,7 +1072,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.06,
+    "handle_b": 0.94,
+    "bets_a": 0.53,
+    "bets_b": 0.47,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [
     "Our chance 92% vs the line's 86% (6 points of value)",
     "Rated 209 points higher"
@@ -1199,6 +1237,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -900.0,
      "b": 600.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -900.0,
+     "b": 600.0
     }
    ],
    "edge_a": 0.053,
@@ -1282,7 +1325,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 0.67,
+    "bets_b": 0.33,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1398,6 +1447,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -142.0,
      "b": 120.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -142.0,
+     "b": 120.0
     }
    ],
    "edge_a": -0.039,
@@ -1481,7 +1535,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -1587,6 +1647,11 @@
      "t": "2026-11-09T03:33Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": -0.003,
@@ -1670,7 +1735,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.17,
+    "handle_b": 0.83,
+    "bets_a": 0.33,
+    "bets_b": 0.67,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -1791,6 +1862,11 @@
      "t": "2026-11-09T03:33Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "edge_a": 0.005,
@@ -1874,10 +1950,17 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.97,
+    "handle_b": 0.03,
+    "bets_a": 0.67,
+    "bets_b": 0.33,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [
     "Our chance 67% vs the line's 63% (4 points of value)",
-    "Rated 84 points higher"
+    "Rated 84 points higher",
+    "Bigger bettors on him: 97% of DraftKings money from 67% of bets"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -1998,6 +2081,11 @@
      "t": "2026-11-09T03:33Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.044,
@@ -2081,7 +2169,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.11,
+    "handle_b": 0.89,
+    "bets_a": 0.33,
+    "bets_b": 0.67,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2202,6 +2296,11 @@
      "t": "2026-11-09T03:33Z",
      "a": 285.0,
      "b": -360.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
+     "a": 285.0,
+     "b": -360.0
     }
    ],
    "edge_a": -0.015,
@@ -2285,7 +2384,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.85,
+    "handle_b": 0.15,
+    "bets_a": 0.75,
+    "bets_b": 0.25,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [],
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
@@ -2404,6 +2509,11 @@
     },
     {
      "t": "2026-11-09T03:33Z",
+     "a": 195.0,
+     "b": -238.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
      "a": 195.0,
      "b": -238.0
     }
@@ -2555,10 +2665,17 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.03,
+    "handle_b": 0.97,
+    "bets_a": 0.25,
+    "bets_b": 0.75,
+    "at": "2026-11-09T03:37Z"
+   },
    "why": [
     "Our chance 54% vs the line's 51% (3 points of value)",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
+    "Bigger bettors on him: 97% of DraftKings money from 75% of bets"
    ],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2677,6 +2794,11 @@
     },
     {
      "t": "2026-11-09T03:33Z",
+     "a": -105.0,
+     "b": -115.0
+    },
+    {
+     "t": "2026-11-09T03:37Z",
      "a": -105.0,
      "b": -115.0
     }
