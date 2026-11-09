@@ -646,8 +646,8 @@ async function viewCard() {
     ? `<button class="pill" type="button" onclick="sharePicksImage()" title="Square image of this week's picks, sized for X and Instagram">Download picks image</button>` : "";
   const how = `<details class="howq"><summary aria-label="How to read this card" title="How to read this card">?</summary><div class="howq-p"><b>How to read this card</b><p>The bar is our chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts we track are picking.</p><p><b>Our pick</b>: we beat the line by 3+ points and the fighter is the betting favorite or 70%+ to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No pick when both fighters are debuting. Stakes (1.5u, 1u or 0.5u) are sized by price. "Best price" shows when one book beats the average line.</p><p><b>Value pick</b>: beats the line, but an underdog the model isn't confident in.</p></div></details>`;
   const track = `<div class="cardbar">${mr ? `<div class="cb-rec">
-    <span><b>Our picks ${esc(yr.year)}</b> ${yr.our_won}-${yr.our_bets - yr.our_won} <em class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</em></span>
-    <span><b>Since ${mr.from || 2020}</b> ${all.our_won}-${all.our_bets - all.our_won} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em></span>
+    <span><b>Our picks ${esc(yr.year)}</b> ${yr.our_won}-${yr.our_bets - yr.our_won} <em class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</em><small class="cb-n">flat 1u</small></span>
+    <span><b>Since ${mr.from || 2020}</b> ${all.our_won}-${all.our_bets - all.our_won} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em><small class="cb-n">flat 1u</small></span>
     <span class="hide-sm"><b>Winners ${esc(yr.year)}</b> ${yr.pct}%</span>
     <a href="#/record">Full record</a></div>` : ""}<div class="cb-act">${share}<button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button>${how}</div></div>`;
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
@@ -983,7 +983,7 @@ function proofBand(mr, L) {
   return `<section class="proof">
     <div class="pf-head">
       <h1>Beat the sportsbook, <em>not just the fight.</em></h1>
-      <p>${s.vs_line ? `Our picks are up <b class="won">${units(s.our_units)}</b> since ${mr.from || 2020}. Betting every favorite lost <b class="lost">${units(s.vs_line.line_units)}</b> on the same fights.` : ""} Every pick goes up before the fight and gets graded after it, win or lose.</p>
+      <p>${s.vs_line ? `Our picks are up <b class="won">${units(s.our_units)}</b> since ${mr.from || 2020}. Betting every favorite on the same cards lost <b class="lost">${units(s.vs_line.line_units)}</b>.` : ""} Every pick goes up before the fight and gets graded after it, win or lose.</p>
       <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/record">See every result</a></div></div>
     <div class="pf-cards">
       <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
@@ -991,14 +991,14 @@ function proofBand(mr, L) {
       <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks</span><b>${hi ? hi.pct : "–"}%</b>
         <span class="pf-s">${hi ? `${hi.right.toLocaleString()} of ${hi.picks.toLocaleString()} won since ${mr.from || 2020}, our chance 70%+` : ""}</span><span class="pf-go">This week's card →</span></a>
       <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
-        <span class="pf-s">${s.our_won}/${s.our_bets} won since ${mr.from || 2020}, flat 1u</span><span class="pf-go">Full record →</span></a>
+        <span class="pf-s">${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, flat 1u</span><span class="pf-go">Full record →</span></a>
     
       ${s.vs_line ? `<a class="pf-card c4" href="#/pricing"><span class="pf-l">Return per bet</span><b class="won">+${s.our_roi_pct}%</b>
         <span class="pf-s">flat 1u since ${mr.from || 2020}, ${s.our_risked ? `+${(100 * s.our_staked_units / s.our_risked).toFixed(1)}% at suggested stakes` : ""}</span><span class="pf-go">See plans →</span></a>
       <a class="pf-card c5" href="#/record"><span class="pf-l">When we disagree with the line</span><b>${s.vs_line.disagree_model_right}-${s.vs_line.disagree - s.vs_line.disagree_model_right}</b>
         <span class="pf-s">our side won ${(100 * s.vs_line.disagree_model_right / s.vs_line.disagree).toFixed(1)}%; the line expected ${s.vs_line.disagree_line_expected}%</span><span class="pf-go">See the proof →</span></a>
       <a class="pf-card c6" href="#/record"><span class="pf-l">Betting every favorite</span><b class="lost">${units(s.vs_line.line_units)}</b>
-        <span class="pf-s">same fights, same prices, since ${mr.from || 2020}</span><span class="pf-go">Why favorites lose →</span></a>` : ""}
+        <span class="pf-s">every fight with a line, same prices, since ${mr.from || 2020}</span><span class="pf-go">Why favorites lose →</span></a>` : ""}
     </div></section>`;
 }
 
@@ -1919,7 +1919,7 @@ function timeframePanel(rr, key) {
   const n = R.length, mw = R.filter(r => r[2]).length, mu = R.reduce((s, r) => s + (r[3] || 0), 0);
   const O = R.filter(r => r[4]), ow = O.filter(r => r[4][0]).length, ou = O.reduce((s, r) => s + r[4][1], 0), os = O.reduce((s, r) => s + r[4][2], 0), ok = O.reduce((s, r) => s + r[4][3], 0);
   const V = R.filter(r => r[5]), vw = V.filter(r => r[5][0]).length, vu = V.reduce((s, r) => s + r[5][1], 0);
-  const r1 = x => Math.round(x * 10) / 10, pc = (a, b) => b ? Math.round(100 * a / b) + "%" : "–";
+  const r1 = x => Math.round(x * 10) / 10, pc = (a, b) => b ? (Math.round(1000 * a / b) / 10).toFixed(1) + "%" : "–";
   const tier = t => { const T = R.filter(r => r[1] === t[0]); return `<div class="tf-t t-${t.toLowerCase()}">${tierTag(t, true)}<b>${pc(T.filter(r => r[2]).length, T.length)}</b><span>${T.filter(r => r[2]).length}/${T.length}</span></div>`; };
   const live = R.some(r => r[0] >= rr.live_from), back = R.some(r => r[0] < rr.live_from);
   return `<section class="tframe" id="tframe">
@@ -1927,8 +1927,8 @@ function timeframePanel(rr, key) {
       <div class="filters tf-chips">${ranges.map(([kk, lb]) => `<a href="#/record?tf=${kk}" class="${kk === k ? "on" : ""}" data-tf="${kk}">${esc(lb)}</a>`).join("")}</div></div>
     <div class="stats four tf-stats">
       <div class="stat model"><b>${pc(mw, n)}</b><span>winners picked (${mw}/${n})</span></div>
-      <div class="stat key"><b>${ow}/${O.length} <span class="sub ${os >= 0 ? "won" : "lost"}">${units(r1(os))}</span></b><span>our picks at suggested stakes${ok ? ` (${os >= 0 ? "+" : ""}${(100 * os / ok).toFixed(1)}% on ${r1(ok)}u risked)` : ""}</span></div>
-      <div class="stat value"><b class="${vu >= 0 ? "won" : "lost"}">${units(r1(vu))}</b><span>value picks, ${vw}/${V.length} won (flat 1u)</span></div>
+      <div class="stat key"><b>${ow}-${O.length - ow} <span class="sub ${os >= 0 ? "won" : "lost"}">${units(r1(os))}</span></b><span>our picks at suggested stakes${ok ? ` (${os >= 0 ? "+" : ""}${(100 * os / ok).toFixed(1)}% on ${r1(ok)}u risked)` : ""}</span></div>
+      <div class="stat value"><b class="${vu >= 0 ? "won" : "lost"}">${units(r1(vu))}</b><span>value picks, ${vw}-${V.length - vw} (flat 1u)</span></div>
       <div class="stat model"><b class="${mu >= 0 ? "won" : "lost"}">${units(r1(mu))}</b><span>every model winner (flat 1u)</span></div>
       ${(() => { const F = R.filter(r => r[6]), fu = F.reduce((s, r) => s + (r[6][1] || 0), 0), fw = F.filter(r => r[6][0]).length;
         return F.length ? `<div class="stat"><b class="${fu >= 0 ? "won" : "lost"}">${units(r1(fu))}</b><span>betting every favorite instead, ${pc(fw, F.length)} won (flat 1u)</span></div>` : ""; })()}</div>
@@ -1945,13 +1945,13 @@ function vsLine(mr) {
   const bar = (label, val, max, cls) => `<div class="vl-bar"><span>${label}</span><div class="vl-track"><i class="${cls}" style="width:${Math.max(2, Math.abs(val) / max * 100)}%"></i></div><b class="${val >= 0 ? "won" : "lost"}">${units(val)}</b></div>`;
   const max = Math.max(Math.abs(v.line_units), Math.abs(s.our_units), Math.abs(v.disagree_model_units), 1);
   return `<section class="vline"><div class="vl-head"><h2>${kick("Proof", "gold")}${METHOD} vs. the betting line</h2>
-      <p class="note">Betting every favorite loses to the bookmaker's cut. Same fights, same prices, ${mr.from || 2020} to now.</p></div>
+      <p class="note">Betting every favorite loses to the bookmaker's cut. Same cards, same closing prices, ${mr.from || 2020} to now.</p></div>
     <div class="vl-grid">
       <div class="vl-card"><span class="vl-k">Units</span>
         ${bar("Bet every favorite", v.line_units, max, "neg")}
         ${bar("Our picks", s.our_units, max, "pos")}
         ${bar("When we disagree with the line", v.disagree_model_units, max, "pos")}
-        <p class="small">Same fights, same closing prices.</p></div>
+        <p class="small">Same cards, same closing prices. ${v.fights.toLocaleString()} fights with a betting line.</p></div>
       <div class="vl-card vl-hero"><span class="vl-k">When ${METHOD} disagrees with the line</span>
         <b class="vl-big">${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b>
         <p>${v.disagree} fights where we picked the betting underdog. They won <b>${pc(v.disagree_model_right, v.disagree)}</b>${v.disagree_line_expected != null ? `; the line said ${v.disagree_line_expected}%` : ""}.</p>
@@ -1961,6 +1961,7 @@ function vsLine(mr) {
         <p class="small">Worth <b class="${v.disagree_model_units >= 0 ? "won" : "lost"}">${units(v.disagree_model_units)}</b> flat on those fights alone.</p></div>
       <div class="vl-card vl-minor"><span class="vl-k">Picking winners</span>
         <p>About even with the betting favorite, because we agree with it in ${pc(v.fights - v.disagree, v.fights)} of fights. The edge is in the price, not the winner.</p>
+        <p class="small">On the ${v.fights.toLocaleString()} fights with a betting line.</p>
         <div class="vl-row"><span>${METHOD}</span><b>${pc(v.model_right, v.fights)}</b></div>
         <div class="vl-row"><span>Betting favorite</span><b>${pc(v.line_right, v.fights)}</b></div>
         ${y ? `<div class="vl-row sub"><span>${esc(yr.year)}: ${METHOD} / favorite</span><b>${pc(y.model_right, y.fights)} / ${pc(y.line_right, y.fights)}</b></div>` : ""}</div>

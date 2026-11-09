@@ -1883,3 +1883,4 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .fx-grid { align-items: start; }
 @media (max-width: 860px) { .fx-grid .fx-market { order: -1; } }
 @media (max-width: 480px) { .fx-sec { padding: 12px 8px; } .fx-sec > h2 { padding: 0 6px; } }
+.cb-n { font-size: 12px; color: var(--quiet); margin-left: 6px; }
