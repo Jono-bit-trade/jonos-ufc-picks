@@ -1118,7 +1118,9 @@ async function shareResultsImage(slug) {
     ...sinceRec(mr), tag: "Fight picks with an edge"});
 }
 window.shareResultsImage = shareResultsImage;
-const sinceRec = mr => { const s = mr && mr.since; return s ? {recLabel: `Since ${mr.from || 2020}`, rec: `${s.our_won}-${s.our_bets - s.our_won}`, recU: s.our_units} : {recLabel: "Record"}; };
+// share images' footer: this year's record (what people follow), falling back to the full record
+const sinceRec = mr => { const y = mr && mr.years && mr.years[0], s = y && y.our_bets ? y : mr && mr.since;
+  return s ? {recLabel: y && y.our_bets ? `${y.year} record` : `Since ${mr.from || 2020}`, rec: `${s.our_won}-${s.our_bets - s.our_won}`, recU: s.our_units} : {recLabel: "Record"}; };
 async function drawShare(o) {
   try { await document.fonts.load('800 60px "Big Shoulders Display"'); await document.fonts.load('500 30px "Barlow"'); } catch (e) {}
   const S = 1080, c = document.createElement("canvas"); c.width = S; c.height = S; const x = c.getContext("2d");
