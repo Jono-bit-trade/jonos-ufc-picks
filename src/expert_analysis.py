@@ -95,7 +95,7 @@ def main():
                          "high_confidence": roi(hi["won"], hi["odds"])})
     analysts.sort(key=lambda a: -(a["units"] / max(a["bets"], 1)))
 
-    out = {"source": "SplitPicks (splitpicks.com)", "source_url": "https://splitpicks.com/",
+    out = {
            "first": str(c["date"].min()), "last": str(c["date"].max()),
            "consensus": {**roi(cons_won, cons_odds), "win_pct": round(100 * cons_won.mean(), 1)},
            "favorites": {"bouts": int(len(c)), "won_pct": round(100 * fav_won.mean(), 1)},

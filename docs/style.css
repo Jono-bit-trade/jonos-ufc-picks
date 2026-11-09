@@ -180,7 +180,7 @@ td.n, th.n { text-align: right; }
 tr.chosen td { font-weight: 700; background: color-mix(in srgb, var(--gold) 14%, transparent); }
 .inl { font: 700 15px var(--display); color: var(--ink); }
 
-/* analyst picks, SplitPicks-style: who picked whom */
+/* analyst picks: who picked whom */
 .analysts { margin-top: 6px; font-size: 13px; }
 .analysts summary { cursor: pointer; color: var(--quiet); }
 .ancols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }

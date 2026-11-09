@@ -123,7 +123,7 @@ function analystList(e, a, b, winner) {
     <ul class="anl">${list.filter(x => x.side === side).map(item).join("") || `<li class="none">No picks</li>`}</ul></div>`;
   return `<details class="analysts"><summary>Analyst picks (${list.length})</summary>
     <div class="ancols">${col("a", a)}${col("b", b)}</div>
-    <p class="note">Each analyst's overall record and units on SplitPicks bouts. <b class="wtag">W</b> marks analysts with a winning record. Shown for reference: expert picks are not used in our chances because they haven't improved them in testing.</p></details>`;
+    <p class="note">Each analyst's overall record and units on the bouts we track. <b class="wtag">W</b> marks analysts with a winning record. Shown for reference: expert picks are not used in our chances because they haven't improved them in testing.</p></details>`;
 }
 
 // grappling flags (site_data.py): slug -> ["Big grappler", "Grappling defense"]
@@ -147,7 +147,7 @@ function expertBar(e, a, b, winner) {
     <div class="xb-l"><b>${lead}</b>${wa + wb ? `<span class="xb-w" title="${winNames}">★ Winning-record analysts: ${wa ? `${wa} on ${ln(a)}` : ""}${wa && wb ? ", " : ""}${wb ? `${wb} on ${ln(b)}` : ""}</span>` : ""}</div>
     <div class="xb-bar" role="img" aria-label="${e.picks_a} of ${n} analysts picked ${esc(a)}, ${e.picks_b} picked ${esc(b)}; winning-record analysts in gold">
       ${W(wa, "wa")}${W(e.picks_a - wa, "a")}${W(e.picks_b - wb, "b")}${W(wb, "wb")}</div>
-    <div class="xb-s"><span>${e.picks_a}</span><a href="${esc(e.url)}" target="_blank" rel="noopener">via SplitPicks</a><span>${e.picks_b}</span></div>
+    <div class="xb-s"><span>${e.picks_a}</span><span class="xb-m">analysts</span><span>${e.picks_b}</span></div>
   </div>`;
 }
 
@@ -580,7 +580,7 @@ async function viewCard() {
     ${p.fights.some(f => f.our_pick && f.state !== "post") && !p.gated ? `<div class="share-row"><button class="pill" type="button" onclick="sharePicksImage()">Download picks image</button><span>Square image of this week's picks, sized for X and Instagram.</span></div>` : ""}
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
-    <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts tracked by SplitPicks are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
+    <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts we track are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
     ${lockBanner(p)}
     ${stageNote(p)}
     ${cardToggle()}
@@ -1522,7 +1522,7 @@ async function viewExperts() {
         <tr><td>Consensus on the underdog</td><td class="n">${e.against_the_line.won}-${e.against_the_line.bets - e.against_the_line.won}</td><td class="n">${Math.round(100 * e.against_the_line.won / e.against_the_line.bets)}%</td><td class="n">–</td><td class="n lost">${r(e.against_the_line)}</td></tr></tbody></table></div>
       <p class="note">Return per 1-unit bet at the posted odds. Model test: adding the consensus to the line moved log loss from ${e.test.log_loss_line_refit} to ${e.test.log_loss_line_plus_experts} (lower is better), tested one card at a time on ${e.test.bouts} fights.</p>
     </details>
-    <p class="small">Analyst picks from <a href="${esc(e.source_url)}" target="_blank" rel="noopener">SplitPicks</a>, used with credit. Results graded by Octagon Edge.</p>`;
+    <p class="small">Results graded by Octagon Edge.</p>`;
 }
 
 // ---------------- about and photo credits ----------------
@@ -1547,7 +1547,7 @@ async function viewAbout() {
     <h2>Who's behind it</h2>
     <p class="note">The data and the numbers update themselves through fight week. The picks and the notes on them are mine. The full method is on <a href="#/how">How it works</a>.</p>
     <h2>Data and credits</h2>
-    <p class="note">Results, cards and lines from ESPN; sportsbook prices from The Odds API; expert picks from SplitPicks; career stats from UFC.com; historical fights from the Ultimate UFC Dataset. Freely licensed fighter photos from Wikimedia Commons are credited on the <a href="#/credits">photo credits</a> page. Octagon Edge isn't affiliated with the UFC, ESPN or any sportsbook.</p>
+    <p class="note">Results, cards and lines from ESPN; sportsbook prices from The Odds API; career stats from UFC.com; historical fights from the Ultimate UFC Dataset. Freely licensed fighter photos from Wikimedia Commons are credited on the <a href="#/credits">photo credits</a> page. Octagon Edge isn't affiliated with the UFC, ESPN or any sportsbook.</p>
     <p class="note">For fun and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>`;
 }
 

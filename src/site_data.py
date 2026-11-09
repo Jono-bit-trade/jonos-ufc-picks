@@ -452,7 +452,7 @@ def main():
                 on_a = norm(ex.a) == norm(f.a)
                 exp = {"picks_a": int(ex.picks_a if on_a else ex.picks_b), "picks_b": int(ex.picks_b if on_a else ex.picks_a),
                        "high_a": int(ex.high_a if on_a else ex.high_b), "high_b": int(ex.high_b if on_a else ex.high_a),
-                       "url": f"https://splitpicks.com/events/{ex.slug}.html"}
+                       "url": None}
                 exp.update(winning_counts(ex.slug, ex.bout, on_a))
                 exp["analysts"] = analyst_picks(ex.slug, ex.bout, on_a)
             pick = value = our = None
