@@ -190,7 +190,7 @@ function bout(f, i, edge) {
   const w = f.state === "post" && f.result ? f.result.winner : null;
   const called = f.our_pick || f.model_pick || f.expert_lean || (pa != null ? (pa > 0.5 ? f.a : f.b) : null);
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
-  return `<article id="bout-${i}" class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${f.state === "in" ? " is-live" : ""}${ring}">
+  return `<article id="bout-${i}" data-href="${fightLink(i)}" tabindex="0" title="Open the fight analysis" class="bout tap${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${f.state === "in" ? " is-live" : ""}${ring}">
     ${status(f)}
     <div class="corners">
       <div class="a">${photo(f.a_id, f.a, "lg")}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
@@ -211,7 +211,6 @@ function bout(f, i, edge) {
     <details class="moves-d"><summary><span class="moves">${spark(withOpen(f.line_history, f))}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
     ${f.splits ? `<div class="splits">DraftKings bettors: ${Math.round(f.splits.handle_a * 100)}% of money, ${Math.round(f.splits.bets_a * 100)}% of bets on ${esc(f.a.split(" ").at(-1))} · ${Math.round(f.splits.handle_b * 100)}% / ${Math.round(f.splits.bets_b * 100)}% on ${esc(f.b.split(" ").at(-1))}${
       Math.abs(f.splits.handle_a - f.splits.bets_a) >= 0.2 ? ` <b class="sharp">Money ≠ bets: bigger bettors on ${esc((f.splits.handle_a > f.splits.bets_a ? f.a : f.b).split(" ").at(-1))}</b>` : ""}</div>` : ""}
-    <a class="fx-open" href="${fightLink(i)}">Fight analysis <span>styles, tale of the tape, line movement</span></a>
   </article>`;
 }
 
@@ -1161,6 +1160,17 @@ async function sharePicksImage() {
   c.toBlob(b => { const u = URL.createObjectURL(b), el = document.createElement("a"); el.href = u; el.download = `octagon-edge-picks-${p.date}.png`; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(u), 1000); }, "image/png");
 }
 window.sharePicksImage = sharePicksImage;
+// whole fight boxes open the fight analysis; links, buttons and toggles inside them still do their own thing
+document.addEventListener("click", e => {
+  const box = e.target.closest(".bout.tap[data-href]"); if (!box) return;
+  if (e.target.closest("a, button, summary, details, input, select, label, .howq")) return;
+  if (String(window.getSelection && window.getSelection()).trim()) return;   // selecting text, not opening
+  location.hash = box.dataset.href.replace(/^#/, "");
+});
+document.addEventListener("keydown", e => {
+  if (e.key !== "Enter" || !e.target.matches || !e.target.matches(".bout.tap[data-href]")) return;
+  location.hash = e.target.dataset.href.replace(/^#/, "");
+});
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([getPred(), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`, picksH = "";
@@ -1311,11 +1321,10 @@ async function viewEvent(s) {
       <div class="meta">${flagOf(sl, true)}${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
     const graded = op || mp;   // our pick if we made one, otherwise the model's pick
     const ring = graded && graded.right != null ? (graded.right ? " ring-won" : " ring-lost") : "";
-    return `<article class="bout slim${i === 0 ? " main" : ""}${ring}">
+    return `<article data-href="${fightLink(i, s)}" tabindex="0" title="Open the fight analysis" class="bout slim tap${i === 0 ? " main" : ""}${ring}">
       <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
       <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
       ${expertBar(b.experts, b.a, b.b, b.winner)}
-      <a class="fx-open" href="${fightLink(i, s)}">Fight analysis <span>styles and tale of the tape</span></a>
     </article>`;
   }).join("");
   return `<p><a href="#/events">← All events</a></p><h1>${esc(e.name)}</h1>

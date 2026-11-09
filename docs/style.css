@@ -1806,3 +1806,17 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 #view .ph:has(img), #view .ph:has(img) img, #view .pt:has(img), #view .pt:has(img) img { background: transparent !important; box-shadow: none !important; }
 #view .ph:has(img) { padding: 0 !important; border: 0 !important; }
 #view .ph:has(img) > span, #view .pt:has(img) .pt-i { display: none !important; }
+/* bigger fighter cut-outs now that they have no box: fight analysis faceoff and the card's fight boxes */
+.fx-face .lc-corner .ph.xl { width: 210px; height: 210px; }
+.ph.lg { width: 108px; height: 108px; }
+@media (max-width: 900px) { .fx-face .lc-corner .ph.xl { width: 160px; height: 160px; } }
+@media (max-width: 480px) { .fx-face .lc-corner .ph.xl { width: 128px; height: 128px; } }
+.fx-face .lc-corner { min-width: 0; }
+@media (min-width: 901px) { .fx-face .lc-name { font-size: 30px; } }
+@media (max-width: 480px) { .fx-face .lc-corner .ph.xl { width: 100px; height: 100px; } .fx-face .lc-corner .fx-rec { overflow-wrap: anywhere; } }
+.fx-face .lc-meta { min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+/* the whole fight box opens the fight analysis */
+.bout.tap { cursor: pointer; transition: border-color .15s, background-color .15s; position: relative; }
+.bout.tap:hover { border-color: #e2bf55 !important; }
+.bout.tap:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.crow > .bout.tap { cursor: pointer; }
