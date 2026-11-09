@@ -56,8 +56,19 @@ const longest = n => Math.max(...String(n).split(/[\s-]/).map(w => w.length));
 const fighterLink = (name, s) => `<a class="fl${longest(name) >= 12 ? " lw xlw" : longest(name) >= 9 ? " lw" : ""}" href="#/fighter/${esc(s || slug(name))}">${esc(name)}${champTag(s || slug(name))}${favStar(s || slug(name))}</a>`;
 
 // ---------------- the current card ----------------
+// the tracked line history, starting from the opening line when it differs from our first snapshot
+// (the opening line is what the line-movement pass compares against)
+function withOpen(hist, f) {
+  const h = (hist || []).filter(x => fair(x.a, x.b) != null);
+  if (!f || f.open_a == null || f.open_b == null || fair(f.open_a, f.open_b) == null) return h;
+  if (!h.length) return h;
+  const p0 = fair(f.open_a, f.open_b), p1 = fair(h[0].a, h[0].b);
+  if (Math.abs(p0 - p1) < 0.001) return h;
+  const t1 = new Date(h[0].t).getTime(), span = new Date(h.at(-1).t).getTime() - t1;
+  return [{t: new Date(t1 - Math.max(span * 0.15, 6 * 3600e3)).toISOString(), a: f.open_a, b: f.open_b, open: true}, ...h];
+}
 function lineChart(hist, f) {
-  const pts = (hist || []).map(h => ({t: new Date(h.t).getTime(), p: fair(h.a, h.b), a: h.a, b: h.b})).filter(x => x.p != null);
+  const pts = withOpen(hist, f).map(h => ({t: new Date(h.t).getTime(), p: fair(h.a, h.b), a: h.a, b: h.b, open: h.open})).filter(x => x.p != null);
   if (pts.length < 2) return "";
   const W = 560, H = 120, P = {l: 8, r: 8, t: 14, b: 18};
   const lo = Math.min(...pts.map(x => x.p), 0.5) - 0.03, hi = Math.max(...pts.map(x => x.p), 0.5) + 0.03;
@@ -71,7 +82,7 @@ function lineChart(hist, f) {
       <line x1="${P.l}" x2="${W - P.r}" y1="${Y(0.5)}" y2="${Y(0.5)}" class="mid"/>
       <path d="${area}" class="area"/><path d="${d}" class="ln"/>
       <circle cx="${X(first.t)}" cy="${Y(first.p)}" r="3.5" class="dot"/><circle cx="${X(last.t)}" cy="${Y(last.p)}" r="4.5" class="dot now"/>
-      <text x="${P.l}" y="${H - 4}">${day(first.t)}</text><text x="${W - P.r}" y="${H - 4}" text-anchor="end">${day(last.t)}</text>
+      <text x="${P.l}" y="${H - 4}">${first.open ? "Open" : day(first.t)}</text><text x="${W - P.r}" y="${H - 4}" text-anchor="end">${day(last.t)}</text>
     </svg><figcaption><span>Line for ${esc(f.a.split(" ").at(-1))}: <b>${odds(first.a)}</b> → <b>${odds(last.a)}</b> (${pct(first.p)} → ${pct(last.p)})</span>${
       toward ? `<span class="mv">Moving toward ${esc(toward.split(" ").at(-1))}${f.our_pick ? (toward === f.our_pick ? " · with our pick" : " · against our pick") : ""}</span>` : `<span class="mv">No movement</span>`}</figcaption></figure>`;
 }
@@ -185,7 +196,7 @@ function bout(f, i, edge) {
     <div class="legend"><span>Fair ${odds(f.fair_odds_a)}</span><span class="hide-sm">Line ${line != null ? pct(line) + " / " + (100 - Math.round(100 * line)) + "%" : "not posted"}</span><span>Fair ${odds(f.fair_odds_b)}</span></div>`}
     ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
     ${pickHtml}
-    <details class="moves-d"><summary><span class="moves">${spark(f.line_history || [])}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
+    <details class="moves-d"><summary><span class="moves">${spark(withOpen(f.line_history, f))}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
     ${f.splits ? `<div class="splits">DraftKings bettors: ${Math.round(f.splits.handle_a * 100)}% of money, ${Math.round(f.splits.bets_a * 100)}% of bets on ${esc(f.a.split(" ").at(-1))} · ${Math.round(f.splits.handle_b * 100)}% / ${Math.round(f.splits.bets_b * 100)}% on ${esc(f.b.split(" ").at(-1))}${
       Math.abs(f.splits.handle_a - f.splits.bets_a) >= 0.2 ? ` <b class="sharp">Money ≠ bets: bigger bettors on ${esc((f.splits.handle_a > f.splits.bets_a ? f.a : f.b).split(" ").at(-1))}</b>` : ""}</div>` : ""}
     <a class="fx-open" href="${fightLink(i)}">Fight analysis <span>styles, tale of the tape, line movement</span></a>
@@ -304,9 +315,9 @@ function roiBench(s, v, from) {
   const max = 12, X = x => Math.max(0, Math.min(100, (x + 3) / (max + 3) * 100));
   return `<section class="roi">
     <div class="roi-h"><b>Return per bet: <span class="won">${sg(ours)}</span>, flat 1 unit</b>
-      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from}, flat 1 unit at the average sportsbook's closing price:</p></div>
+      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Our picks since ${from}, flat 1 unit at the average sportsbook's closing price:</p></div>
     <div class="roi-rows">
-      ${[["Every favorite", fav, null, "neg"], ["Our picks, flat 1u", ours, null, "us"],
+      ${[["Our picks, flat 1u", ours, null, "us"],
         ["Experienced bettors' target", 3, 7, "band"], ["Sharp bettor (55% at -110)", 5, null, "band1"]].filter(r => r && r[1] != null).map(([lab, lo, hi, k]) => {
         const left = hi != null ? X(lo) : Math.min(X(0), X(lo)), w = hi != null ? X(hi) - X(lo) : Math.abs(X(lo) - X(0));
         return `<div class="rr ${k}"><span class="rr-l">${lab}</span><span class="rr-t"><i class="z" style="left:${X(0)}%"></i><i class="b" style="left:${left}%;width:${Math.max(w, 1)}%"></i></span>
@@ -348,9 +359,6 @@ async function viewPricing() {
       <p>Every pick for one card, or every card all month. Same picks you can check on the Record page.</p></section>
     ${s ? `<div class="pr-proof"><div><b>${yr ? yr.pct : s.pct}%</b><span>winners picked${yr ? " in " + esc(yr.year) : ""}</span></div>
       <div><b>${s.tiers && s.tiers.High ? s.tiers.High.pct : "–"}%</b><span>high-confidence picks won</span></div>
-      <div><b class="won">${units(s.our_units)}</b><span>our picks since ${mr.from || 2020}</span></div>
-      ${v ? `<div><b class="lost">${units(v.line_units)}</b><span>betting every favorite instead</span></div>` : ""}
-      <div><b class="won">+${s.our_roi_pct}%</b><span>return per bet, flat 1u</span></div>
       ${v && v.disagree ? `<div><b>${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b><span>when we disagree with the line (${(100 * v.disagree_model_right / v.disagree).toFixed(1)}% vs ${v.disagree_line_expected}% expected)</span></div>` : ""}</div>` : ""}
     ${favCompare(s, v, mr.from || 2020)}
     ${s && s.our_roi_pct != null ? roiBench(s, v, mr.from || 2020) : ""}
@@ -1248,7 +1256,9 @@ function eventsSummary(mr, year) {
   const grp = (k, title, big, bigCls, line1, line2) => `<div class="es-g ${k}"><span class="es-k">${title}</span>
     <b class="${bigCls || ""}">${big}</b><span>${line1}</span>${line2 ? `<span>${line2}</span>` : ""}</div>`;
   return `<div class="es">
-    ${grp("our", "Our picks", r.our_bets ? units(r.our_units) : "–", r.our_units >= 0 ? "won" : "lost", r.our_bets ? `${r.our_won}-${r.our_bets - r.our_won} won, ${r.our_pct}%` : "No picks", r.our_bets ? roi(r.our_roi_pct) : "")}
+    ${(() => { const su = r.our_staked_units ?? r.our_units, rk = r.our_risked ? Math.round(1000 * su / r.our_risked) / 10 : null;   // suggested stakes, like each card below
+      return grp("our", "Our picks", r.our_bets ? units(su) : "–", su >= 0 ? "won" : "lost", r.our_bets ? `${r.our_won}-${r.our_bets - r.our_won} won, ${r.our_pct}%` : "No picks",
+        r.our_bets ? `At suggested stakes${rk != null ? `, ${rk > 0 ? "+" : ""}${rk.toFixed(1)}% per unit risked` : ""}` : ""); })()}
     ${grp("model", "Model winners", `${r.pct}%`, "", `${r.right.toLocaleString()} of ${r.picks.toLocaleString()} fights`, `Betting each: <span class="${r.units >= 0 ? "won" : "lost"}">${units(r.units)}</span>`)}
     ${grp("value", "Value picks", r.value_bets ? units(r.value_units) : "–", r.value_units >= 0 ? "won" : "lost", r.value_bets ? `${r.value_won}-${r.value_bets - r.value_won} won` : "No value picks", r.value_bets ? roi(r.value_roi_pct) : "")}
   </div>
@@ -1282,12 +1292,11 @@ async function viewEvent(s) {
     <p class="where">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}</p>
     ${e.record && e.record.locked && e.record.our_bets ? `<div class="share-row"><button class="pill" type="button" onclick="shareResultsImage('${esc(s)}')">Download results image</button><span>Square image of our picks and results on this card, for X and Instagram.</span></div>` : ""}
     ${e.record && e.record.picks ? `<div class="stats">
-      <div class="stat"><b>${e.record.right}/${e.record.picks}</b><span>model winners (${Math.round(e.record.right / e.record.picks * 100)}%)</span></div>
-      <div class="stat"><b class="${e.record.units >= 0 ? "won" : "lost"}">${units(e.record.units)}</b><span>betting every model winner</span></div>
-      <div class="stat"><b>${e.record.value_bets ? `${e.record.value_won}/${e.record.value_bets}` : "–"}</b><span>value picks won</span></div>
-      <div class="stat"><b class="${e.record.value_units >= 0 ? "won" : "lost"}">${e.record.value_bets ? units(e.record.value_units) : "–"}</b><span>betting value picks</span></div>
       <div class="stat"><b>${e.record.our_bets ? `${e.record.our_won}/${e.record.our_bets}` : "–"}</b><span>our picks won</span></div>
       <div class="stat"><b class="${(e.record.our_staked ?? e.record.our_units) >= 0 ? "won" : "lost"}">${e.record.our_bets ? units(e.record.our_staked ?? e.record.our_units) : "–"}</b><span>our picks, suggested stakes</span></div>
+      <div class="stat"><b>${e.record.value_bets ? `${e.record.value_won}/${e.record.value_bets}` : "–"}</b><span>value picks won</span></div>
+      <div class="stat"><b class="${e.record.value_units >= 0 ? "won" : "lost"}">${e.record.value_bets ? units(e.record.value_units) : "–"}</b><span>betting value picks, 1u</span></div>
+      <div class="stat"><b>${e.record.right}/${e.record.picks}</b><span>model winners (${Math.round(e.record.right / e.record.picks * 100)}%), <span class="${e.record.units >= 0 ? "won" : "lost"}">${units(e.record.units)}</span> betting each</span></div>
       <div class="stat"><b>${e.favorites_right}/${e.record.picks}</b><span>betting favorites won</span></div></div>` : ""}
     ${rows}`;
 }
@@ -1650,7 +1659,8 @@ async function viewCompare(q) {
   const listFor = d => fx.filter(x => !d || x.weight_class === d);
   const opts = `<datalist id="fxlist-a">${listFor(dB).map(x => `<option value="${esc(x.name)}">`).join("")}</datalist>
     <datalist id="fxlist-b">${listFor(dA).map(x => `<option value="${esc(x.name)}">`).join("")}</datalist>`;
-  const box = (k, F) => { const d = k === "a" ? dB : dA;
+  const box = (k, F) => { const own = k === "a" ? dA : dB, other = k === "a" ? dB : dA;   // own division, or the one this corner is limited to
+    const d = F ? own : other ? other + " only" : null;
     return `<label class="cmp-in ${k}"><span>${k === "a" ? "Red corner" : "Blue corner"}${d ? ` · ${esc(d)}` : ""}</span>
     <input list="fxlist-${k}" data-k="${k}" placeholder="${d ? "Type a " + esc(d.toLowerCase()) : "Type a fighter"}" value="${F ? esc(F.name) : ""}" autocomplete="off"></label>`; };
   let body = `<div class="empty">Pick two fighters to see who our ratings favor and how they compare.</div>`;
@@ -1738,9 +1748,9 @@ function yearTable(mr) {
   const row = r => `<tr><td>${esc(r.year || "All years")}</td>
     <td class="n">${r.our_bets ? `${r.our_won}-${r.our_bets - r.our_won}` : "–"}</td>
     <td class="n ${r.our_units >= 0 ? "won" : "lost"}">${r.our_bets ? units(r.our_units) : "–"}</td>
-    <td class="n hide-sm">${r.our_bets ? (r.our_roi_pct > 0 ? "+" : "") + pc(r.our_roi_pct) : "–"}</td>
+    <td class="n hide-sm">${r.our_bets ? (r.our_roi_pct > 0 ? "+" : "") + Number(r.our_roi_pct).toFixed(1) + "%" : "–"}</td>
     <td class="n ${r.our_staked_units >= 0 ? "won" : "lost"}">${r.our_risked ? units(r.our_staked_units) : "–"}</td>
-    <td class="n hide-sm">${stk(r) != null ? (stk(r) > 0 ? "+" : "") + stk(r) + "%" : "–"}</td>
+    <td class="n hide-sm">${stk(r) != null ? (stk(r) > 0 ? "+" : "") + stk(r).toFixed(1) + "%" : "–"}</td>
     <td class="n">${pc(r.pct)}</td></tr>`;
   return `<h2>Year by year</h2>
     <p class="note">Our picks each year at the average sportsbook's closing price.</p>
