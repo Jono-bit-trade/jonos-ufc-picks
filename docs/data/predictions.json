@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T01:41Z",
+ "updated": "2026-11-09T02:25Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -51,7 +51,7 @@
     "picks_b": 1,
     "high_a": 1,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -220,6 +220,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -238.0,
+     "b": 195.0
     }
    ],
    "edge_a": 0.02,
@@ -249,7 +254,7 @@
     "picks_b": 1,
     "high_a": 2,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -418,6 +423,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.023,
@@ -447,7 +457,7 @@
     "picks_b": 1,
     "high_a": 0,
     "high_b": 1,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -607,6 +617,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
    "edge_a": 0.025,
@@ -636,7 +651,7 @@
     "picks_b": 3,
     "high_a": 1,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -805,6 +820,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "edge_a": 0.022,
@@ -834,7 +854,7 @@
     "picks_b": 0,
     "high_a": 4,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1006,6 +1026,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -900.0,
      "b": 600.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -900.0,
+     "b": 600.0
     }
    ],
    "edge_a": 0.053,
@@ -1035,7 +1060,7 @@
     "picks_b": 0,
     "high_a": 1,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1164,6 +1189,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -142.0,
      "b": 120.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -142.0,
+     "b": 120.0
     }
    ],
    "edge_a": -0.039,
@@ -1193,7 +1223,7 @@
     "picks_b": 2,
     "high_a": 0,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1312,6 +1342,11 @@
      "t": "2026-11-09T01:41Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": -0.003,
@@ -1341,7 +1376,7 @@
     "picks_b": 2,
     "high_a": 0,
     "high_b": 1,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1475,6 +1510,11 @@
      "t": "2026-11-09T01:41Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "edge_a": 0.005,
@@ -1504,7 +1544,7 @@
     "picks_b": 3,
     "high_a": 1,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1641,6 +1681,11 @@
      "t": "2026-11-09T01:41Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.044,
@@ -1670,7 +1715,7 @@
     "picks_b": 4,
     "high_a": 0,
     "high_b": 2,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1804,6 +1849,11 @@
      "t": "2026-11-09T01:41Z",
      "a": 285.0,
      "b": -360.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": 285.0,
+     "b": -360.0
     }
    ],
    "edge_a": -0.015,
@@ -1833,7 +1883,7 @@
     "picks_b": 3,
     "high_a": 0,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -1967,6 +2017,11 @@
      "t": "2026-11-09T01:41Z",
      "a": 195.0,
      "b": -238.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
+     "a": 195.0,
+     "b": -238.0
     }
    ],
    "edge_a": 0.001,
@@ -2047,7 +2102,7 @@
     "picks_b": 1,
     "high_a": 2,
     "high_b": 0,
-    "url": "https://splitpicks.com/events/ufc-334-gane-vs-hokit.html",
+    "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
@@ -2182,6 +2237,11 @@
     },
     {
      "t": "2026-11-09T01:41Z",
+     "a": -105.0,
+     "b": -115.0
+    },
+    {
+     "t": "2026-11-09T02:25Z",
      "a": -105.0,
      "b": -115.0
     }
