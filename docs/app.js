@@ -105,7 +105,19 @@ function status(f) {
     const mark = f.pick ? `<span class="tick ${r.pick_won ? "won" : "lost"}">${r.pick_won ? "Pick won" : "Pick lost"}</span>` : "";
     return `<div class="status"><span class="final">${who}</span>${esc((r.detail || "").replace(/^Final\s*-?\s*/i, ""))} ${mark}</div>`;
   }
-  return f.start ? `<div class="status">${new Date(f.start).toLocaleTimeString([], {hour: "numeric", minute: "2-digit"})}${f.segment ? ", " + esc(f.segment) : ""}</div>` : "";
+  return "";   // upcoming: the time is in the section header (cardSections)
+}
+// group the card into Main card / Prelims / Early prelims, in card order, with each section's start and channel
+function cardSections(p, fs, render, compact) {
+  const segOf = f => (p.schedule || []).find(sg => sg.start === f.start);
+  const groups = [];
+  for (const [f, i] of fs) { const sg = segOf(f), key = sg ? sg.segment : (groups.at(-1)?.key || f.segment || "");
+    if (!groups.length || groups.at(-1).key !== key) groups.push({key, sg, items: []});
+    groups.at(-1).items.push([f, i]); }
+  const wrap = items => compact ? `<div class="compact">${items.map(render).join("")}</div>` : items.map(render).join("");
+  if (groups.length === 1 && !groups[0].key) return wrap(groups[0].items);
+  return groups.map(g => { const when = g.sg ? new Date(g.sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : "";
+    return `<section class="seg"><div class="seg-h"><h2>${esc(g.key || "More fights")}</h2><span>${[when, g.sg && g.sg.tv && g.sg.tv.length ? esc(g.sg.tv.join(", ")) : "", `${g.items.length} fight${g.items.length > 1 ? "s" : ""}`].filter(Boolean).join(" · ")}</span></div>${wrap(g.items)}</section>`; }).join("");
 }
 
 function analystList(e, a, b, winner) {
@@ -153,7 +165,7 @@ function expertBar(e, a, b, winner) {
 
 function bout(f, i, edge) {
   const pa = f.p_a, line = f.market_p_a, m = f.method || {};
-  const tag = (debut, rating, rec) => (debut ? "UFC debut" : "EDGE " + rating) + (rec ? ` · ${esc(rec)}` : "");
+  const tag = (debut, rating, rec) => `<span class="nw">${debut ? "UFC debut" : "EDGE " + rating}</span>` + (rec ? ` · <span class="nw">${esc(rec)}</span>` : "");
   let pickHtml;
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
@@ -181,9 +193,9 @@ function bout(f, i, edge) {
   return `<article id="bout-${i}" class="bout${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${f.state === "in" ? " is-live" : ""}${ring}">
     ${status(f)}
     <div class="corners">
-      <div class="a">${photo(f.a_id, f.a)}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
+      <div class="a">${photo(f.a_id, f.a, "lg")}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
       <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}${tierTag(f.tier || tierOf(f.p_a))}</div>
-      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b)}</div>
+      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b, "lg")}</div>
     </div>
     ${f.hidden ? `<div class="pct hidp"><span class="pa">${line != null ? pct(line) : "–"}</span><span class="lbl">Betting line</span><span class="pb">${line != null ? (100 - Math.round(100 * line)) + "%" : "–"}</span></div>
     <div class="bar hid" role="img" aria-label="Betting line ${line != null ? pct(line) : "not posted"} for ${esc(f.a)}"><div class="fill" style="width:${(line ?? 0.5) * 100}%"></div></div>
@@ -569,26 +581,28 @@ async function viewCard() {
   $("#updated").textContent = `Data updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}.`;
   if (!p.fights.length) return `<h1>Next card</h1><div class="empty">${esc(p.message || "No bouts listed yet.")}</div>`;
   const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && (mr.since || mr.all);
-  const track = !mr ? "" : `<div class="rstrip">
-    <span><b>Our picks ${esc(yr.year)}</b> ${yr.our_won}/${yr.our_bets} <em class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</em></span>
-    <span><b>Since ${mr.from || 2020}</b> ${all.our_won}/${all.our_bets} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em></span>
-    <span><b>Winners ${esc(yr.year)}</b> ${yr.pct}%</span>
-    <a href="#/record">Full record</a></div>`;
+  const share = p.fights.some(f => f.our_pick && f.state !== "post") && !p.gated
+    ? `<button class="pill" type="button" onclick="sharePicksImage()" title="Square image of this week's picks, sized for X and Instagram">Download picks image</button>` : "";
+  const how = `<details class="howq"><summary aria-label="How to read this card" title="How to read this card">?</summary><div class="howq-p"><b>How to read this card</b><p>The bar is our chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts we track are picking.</p><p><b>Our pick</b>: we beat the line by 3+ points and the fighter is the betting favorite or 70%+ to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No pick when both fighters are debuting. Stakes (1.5u, 1u or 0.5u) are sized by price. "Best price" shows when one book beats the average line.</p><p><b>Value pick</b>: beats the line, but an underdog the model isn't confident in.</p></div></details>`;
+  const track = `<div class="cardbar">${mr ? `<div class="cb-rec">
+    <span><b>Our picks ${esc(yr.year)}</b> ${yr.our_won}-${yr.our_bets - yr.our_won} <em class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</em></span>
+    <span><b>Since ${mr.from || 2020}</b> ${all.our_won}-${all.our_bets - all.our_won} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em></span>
+    <span class="hide-sm"><b>Winners ${esc(yr.year)}</b> ${yr.pct}%</span>
+    <a href="#/record">Full record</a></div>` : ""}<div class="cb-act">${share}<button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button>${how}</div></div>`;
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
-  return `${liveCenter(p)}<h1>${esc(p.event)}</h1>
-    <p class="where">${dateLong(p.date)}${p.location ? ", " + esc(p.location) : ""}</p>${track}
-    ${p.fights.some(f => f.our_pick && f.state !== "post") && !p.gated ? `<div class="share-row"><button class="pill" type="button" onclick="sharePicksImage()">Download picks image</button><span>Square image of this week's picks, sized for X and Instagram.</span></div>` : ""}
+  const first = (p.schedule || []).map(sg => sg.start).sort()[0] || p.fights[0].start;
+  return `${liveCenter(p)}<section class="feat solo cardhero">${featMain(p, first, true)}</section>${track}
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
-    <details class="explain"><summary>How to read this card</summary><p class="note">The bar is the model's chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts we track are picking. "Our pick" is the selective pick: the model beats the line by 3+ points and the fighter is either the betting favorite or 70%+ likely to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No our pick when both fighters are debuting. The stake (1.5u, 1u or 0.5u) is sized by price; "Best price" shows when one book beats the average line. "Value pick" means it beats the line but is an underdog the model isn't confident in. In a near coin flip (45-55%), the value pick is also the model's winner.</p></details>
+    <div class="card-slips"><h2>Our picks</h2>${picksStrip(p)}</div>
     ${lockBanner(p)}
-    ${stageNote(p)}
+    <div class="stage-wide">${stageNote(p)}</div>
     ${cardToggle()}
     ${(() => { const only = picksOnly(), keep = f => !only || f.our_pick || f.pick || f.locked;
       const fs = p.fights.map((f, i) => [f, i]).filter(([f]) => keep(f));
       const empty = only && !fs.length ? `<div class="empty">No picks on this card yet.</div>` : "";
-      return empty || (cardView() === "compact" ? `<div class="compact">${fs.map(([f, i]) => compactRow(f, i, p.edge_threshold)).join("")}</div>`
-        : fs.map(([f, i]) => bout(f, i, p.edge_threshold)).join("")); })()}
+      const compact = cardView() === "compact";
+      return empty || cardSections(p, fs, ([f, i]) => compact ? compactRow(f, i, p.edge_threshold) : bout(f, i, p.edge_threshold), compact); })()}
     </div>${cardSide(p, mr)}</div>`;
 }
 
@@ -634,10 +648,10 @@ function compactRow(f, i, edge) {
   const ring = w && called ? (called === w ? " ring-won" : " ring-lost") : "";
   const sideA = (f.hidden ? line : pa) >= 0.5, last = n => esc(n.split(" ").slice(-1)[0]);
   return `<details id="bout-${i}" class="crow${ring}"><summary>
-      <span class="cr-a${sideA ? " fav" : ""}">${esc(f.a)}</span>
+      <span class="cr-a${sideA ? " fav" : ""}">${photo(f.a_id, f.a, "sm")}<span>${esc(f.a)}</span></span>
       <span class="cr-p${f.hidden ? " hidp" : ""}">${f.hidden ? `<b class="pa${sideA ? " hi" : ""}">${line != null ? pct(line) : "–"}</b><span class="cr-l">line · ${lockIcon}</span><b class="pb${sideA ? "" : " hi"}">${line != null ? (100 - Math.round(100 * line)) + "%" : "–"}</b>`
         : `<b class="pa${sideA ? " hi" : ""}">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb${sideA ? "" : " hi"}">${100 - Math.round(100 * pa)}%</b>`}</span>
-      <span class="cr-b${!sideA ? " fav" : ""}">${esc(f.b)}</span>
+      <span class="cr-b${!sideA ? " fav" : ""}"><span>${esc(f.b)}</span>${photo(f.b_id, f.b, "sm")}</span>
       <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.locked ? `<span class="mini-lock">${lockIcon}Locked</span>` : f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
     </summary>${bout(f, i, edge)}</details>`;
 }
@@ -935,8 +949,9 @@ function portrait(id, name, cls) {
 }
 const updatedAt = iso => iso ? new Date(iso).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : "";
 // home lead: this week's main event and the picks for the card, left-aligned like a fight preview
-function feature(p, up) {
-  const m = p.fights[0], start = (up || []).find(u => u.date === p.date)?.start || m.start;
+// the main-event showcase: home page (with the picks beside it) and the top of the card page (onCard)
+function featMain(p, start, onCard) {
+  const m = p.fights[0];
   const [ev, sub] = String(p.event).split(/:\s*/);
   const side = (s) => { const nm = m[s], pa = s === "a" ? m.p_a : m.p_a == null ? null : 1 - m.p_a, ln = m.market_p_a == null ? null : s === "a" ? m.market_p_a : 1 - m.market_p_a;
     const ours = m.p_a == null ? null : s === "a" ? Math.round(100 * m.p_a) : 100 - Math.round(100 * m.p_a);
@@ -944,6 +959,24 @@ function feature(p, up) {
     return `<a class="ft-f ${fav ? "fav" : ""}" href="#/fighter/${esc(m[s + "_slug"])}">${portrait(m[s + "_id"], nm)}
       <span class="ft-n"><b>${esc(nm)}</b><small>${rankOf(m[s + "_slug"])}${flagOf(m[s + "_slug"], true)}</small></span>
       <span class="ft-p"><b>${m.hidden ? lockIcon : ours + "%"}</b><small>Line ${ln == null ? "–" : (s === "a" ? pct(ln) : (100 - Math.round(100 * m.market_p_a)) + "%")} · ${odds(m["odds_" + s])}</small></span></a>`; };
+  return `    <div class="ft-main">
+      <div class="ft-show">
+        <span class="ft-k">${onCard && p.fights.some(f => f.state && f.state !== "pre") ? "Fight night" : "Next card"}</span>
+        <${onCard ? "h1" : "h2"} class="ft-ev">${(() => { const mm = String(ev).match(/^(UFC)\s+(.*)$/i); return mm ? `${esc(mm[1])} <em>${esc(mm[2])}</em>` : esc(ev); })()}</${onCard ? "h1" : "h2"}>
+        ${sub ? `<p class="ft-main-ev">${esc(sub)}</p>` : ""}
+        <div class="ft-facts"><span><small>Date</small><b>${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}</b></span>
+          ${p.location ? `<span><small>Where</small><b>${esc(p.location.split(",").slice(0, 2).join(","))}</b></span>` : ""}
+          ${start ? `<span class="cd"><small>Starts in</small><b>${esc(countdown(start).replace(/^In /, ""))}</b></span>` : ""}</div>
+      </div>
+      <div class="ft-fight">${side("a")}<span class="ft-vs">vs</span>${side("b")}</div>
+      ${(p.schedule || []).length && !onCard ? `<div class="ft-sched">${p.schedule.map(sg => `<span><b>${esc(sg.segment)}</b>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"})}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</span>`).join("")}</div>` : ""}
+      <p class="ft-leg">${m.hidden ? "Our number on this fight is for members." : "Big number: our chance. Line: the sportsbook's, with their cut taken out."}</p>
+      <div class="ft-act">${onCard ? "" : `<a class="btn" href="#/card">All ${p.fights.length} fights</a>`}<a class="pill" href="#/fight/0">Breakdown of the main event</a></div>
+    </div>`;
+}
+
+function feature(p, up) {
+  const start = (up || []).find(u => u.date === p.date)?.start || p.fights[0].start;
   const ours = p.fights.filter(f => f.our_pick);
   const pickRow = f => { const o = f.our_pick === f.a ? f.odds_a : f.odds_b, opp = f.our_pick === f.a ? f.b : f.a;
     const done = f.state === "post" && f.result && f.result.winner, res = done ? (f.result.winner === f.our_pick ? "won" : "lost") : "";
@@ -952,20 +985,7 @@ function feature(p, up) {
       ${f.take ? `<span class="pk-t">“${esc(f.take)}”</span>` : ""}</a>`; };
   const locked = p.gated && p.locked_count ? `<a class="ft-pk lock" href="#/pricing">${lockIcon}<span class="pk-n"><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</b><small>for members</small></span></a>` : "";
   return `<section class="feat">
-    <div class="ft-main">
-      <div class="ft-show">
-        <span class="ft-k">Next card</span>
-        <h2 class="ft-ev">${(() => { const mm = String(ev).match(/^(UFC)\s+(.*)$/i); return mm ? `${esc(mm[1])} <em>${esc(mm[2])}</em>` : esc(ev); })()}</h2>
-        ${sub ? `<p class="ft-main-ev">${esc(sub)}</p>` : ""}
-        <div class="ft-facts"><span><small>Date</small><b>${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}</b></span>
-          ${p.location ? `<span><small>Where</small><b>${esc(p.location.split(",").slice(0, 2).join(","))}</b></span>` : ""}
-          ${start ? `<span class="cd"><small>Starts in</small><b>${esc(countdown(start).replace(/^In /, ""))}</b></span>` : ""}</div>
-      </div>
-      <div class="ft-fight">${side("a")}<span class="ft-vs">vs</span>${side("b")}</div>
-      ${(p.schedule || []).length ? `<div class="ft-sched">${p.schedule.map(sg => `<span><b>${esc(sg.segment)}</b>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"})}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</span>`).join("")}</div>` : ""}
-      <p class="ft-leg">${m.hidden ? "Our number on this fight is for members." : "Big number: our chance. Line: the sportsbook's, with their cut taken out."}</p>
-      <div class="ft-act"><a class="btn" href="#/card">All ${p.fights.length} fights</a><a class="pill" href="#/fight/0">Breakdown of the main event</a></div>
-    </div>
+${featMain(p, start)}
     <aside class="ft-side">
       <div class="ft-sh"><h2>This week's picks</h2>${p.updated ? `<small>Lines as of ${esc(updatedAt(p.updated))}</small>` : ""}</div>
       ${p.take_preview ? `<p class="ft-prev">${esc(p.take_preview)} <span>— Jono</span></p>` : ""}
@@ -1984,7 +2004,7 @@ async function route() {
   const keepFocus = document.activeElement && document.activeElement.id === "fsearch";
   $("#view").innerHTML = html;
   const h1 = page !== "home" && $("#view h1");
-  if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["card", "events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record"].includes(page))
+  if (h1 && !h1.nextElementSibling?.classList.contains("powered") && ["events", "event", "fighters", "fighter", "rankings", "movers", "compare", "record"].includes(page))
     h1.insertAdjacentHTML("afterend", `<p class="powered"><span></span>
       <button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button></p>`);
   if (keepFocus) { const b = $("#fsearch"); b.focus(); b.setSelectionRange(b.value.length, b.value.length); }

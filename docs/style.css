@@ -1711,3 +1711,72 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
   .fc-t { grid-column: 1 / -1; grid-row: 2; }
   .fc-r b { font-size: 20px; }
 }
+
+/* ---- card page refresh: banner, slim bar, sections, calmer fight boxes ---- */
+.feat.solo { display: block; }
+.cardhero { margin-top: 6px; }
+.cardhero .ft-show { margin-bottom: 14px; }
+.cardhero .ft-act { margin-top: 10px; }
+.cardbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 18px; padding: 10px 14px;
+  background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--gold); border-radius: 3px; }
+.cb-rec { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; flex: 1 1 auto; }
+.cb-rec b { font: 700 14px var(--display); color: var(--quiet); margin-right: 4px; }
+.cb-rec em { font: 900 17px var(--display); font-style: normal; margin-left: 4px; }
+.cb-rec a { font: 700 14px var(--display); color: #e2bf55; }
+.cb-act { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.howq { position: relative; }
+.howq > summary { list-style: none; cursor: pointer; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--rule); color: var(--ink); font: 800 15px var(--display); }
+.howq > summary::-webkit-details-marker { display: none; }
+.howq[open] > summary { border-color: var(--gold); color: var(--gold); }
+.howq-p { position: absolute; right: 0; top: calc(100% + 8px); z-index: 6; width: min(520px, calc(100vw - 32px)); padding: 14px 16px;
+  background: #1b1d23; border: 1px solid var(--rule); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,.45); font-size: 14px; line-height: 1.5; }
+.howq-p p { margin: 8px 0 0; color: #c9ccd3; }
+.seg { margin: 0 0 18px; }
+.seg-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 22px 0 10px; padding-bottom: 8px; border-bottom: 2px solid var(--rule); }
+.seg:first-child .seg-h { margin-top: 6px; }
+.seg-h h2 { margin: 0; font: 900 22px var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.seg-h span { font-size: 14px; color: var(--quiet); }
+.seg .compact { display: grid; gap: 8px; }
+/* calmer fight boxes: white names with a small corner dot, bigger headshots */
+.bout .corners .a .name, .bout .corners .b .name, .bout .corners .a .name .fl, .bout .corners .b .name .fl { color: var(--ink); }
+.bout .corners .a .name::before, .bout .corners .b .name::after { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  vertical-align: middle; position: relative; top: -2px; }
+.bout .corners .a .name::before { background: var(--red); margin-right: 8px; }
+.bout .corners .b .name::after { background: var(--blue); margin-left: 8px; }
+.ph.lg { width: 84px; height: 84px; font-size: 24px; }
+/* compact rows: small headshots */
+.crow .cr-a, .crow .cr-b { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.crow .cr-b { justify-content: flex-end; }
+.crow .ph.sm { width: 34px; height: 34px; font-size: 12px; }
+/* phone and tablet: the picks as slips above the fights (the side panel is hidden there) */
+.card-slips { display: none; }
+.card-slips h2 { margin: 4px 0 10px; }
+@media (max-width: 1000px) { .card-slips { display: block; margin-bottom: 14px; } .stage-wide { display: none; } }
+@media (max-width: 640px) {
+  .cardbar { padding: 10px 12px; } .cb-rec { gap: 2px 14px; } .cb-act { margin-left: 0; }
+  .crow .ph.sm { width: 28px; height: 28px; }
+  .seg-h h2 { font-size: 19px; }
+}
+.nw { white-space: nowrap; }
+.cardhero .ft-ev { font-size: clamp(52px, 7vw, 96px); }
+.cardhero .pt { max-width: 230px; }
+.cardhero .ft-p b { font-size: 46px; }
+.cardhero .ft-show { padding-bottom: 12px; }
+@media (max-width: 640px) {
+  /* phone compact rows: names and headshots on top, the chances centered under them */
+  .crow > summary { grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+  .crow .cr-a { grid-column: 1; grid-row: 1; }
+  .crow .cr-b { grid-column: 2; grid-row: 1; }
+  .crow .cr-p { grid-column: 1 / -1; grid-row: 2; justify-content: center; }
+  .crow .cr-pick { grid-column: 1 / -1; grid-row: 3; }
+  .crow .cr-a > span:last-child, .crow .cr-b > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+  .cardhero .ft-p b { font-size: 38px; }
+}
+.cardhero .pt { max-width: 190px; }
+.cardhero .ft-show { margin-bottom: 10px; }
+.cardhero .ft-leg { margin-top: 10px; }
+.cardbar { position: relative; }
+.howq { position: static; }
+.howq-p { right: 0; top: calc(100% + 6px); }
+@media (max-width: 640px) { .howq-p { left: 0; right: 0; width: auto; } }
