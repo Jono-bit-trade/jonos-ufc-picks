@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T04:05Z",
+ "updated": "2026-11-09T17:40Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -107,11 +107,11 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.556,
-   "p_a": 0.695,
+   "p_a": 0.694,
    "model_pick": "Ciryl Gane",
    "tier": "Medium",
-   "fair_odds_a": -228,
-   "fair_odds_b": 228,
+   "fair_odds_a": -227,
+   "fair_odds_b": 227,
    "market_p_a": 0.675,
    "odds_a": -238.0,
    "odds_b": 195.0,
@@ -259,9 +259,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -238.0,
+     "b": 195.0
     }
    ],
-   "edge_a": 0.02,
+   "edge_a": 0.019,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -270,17 +275,17 @@
    "moved_against": false,
    "method": {
     "DEC": 0.255,
-    "KO": 0.616,
+    "KO": 0.617,
     "SUB": 0.129
    },
    "how": {
     "a": {
      "DEC": 0.196,
-     "KO": 0.394,
+     "KO": 0.393,
      "SUB": 0.105
     },
     "b": {
-     "DEC": 0.058,
+     "DEC": 0.059,
      "KO": 0.223,
      "SUB": 0.024
     }
@@ -356,11 +361,11 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.57,
-   "p_a": 0.654,
+   "p_a": 0.653,
    "model_pick": "Kayla Harrison",
    "tier": "Medium",
-   "fair_odds_a": -189,
-   "fair_odds_b": 189,
+   "fair_odds_a": -188,
+   "fair_odds_b": 188,
    "market_p_a": 0.631,
    "odds_a": -192.0,
    "odds_b": 160.0,
@@ -508,9 +513,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
-   "edge_a": 0.023,
+   "edge_a": 0.022,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -520,16 +530,16 @@
    "method": {
     "DEC": 0.454,
     "KO": 0.287,
-    "SUB": 0.26
+    "SUB": 0.259
    },
    "how": {
     "a": {
-     "DEC": 0.266,
-     "KO": 0.178,
-     "SUB": 0.211
+     "DEC": 0.265,
+     "KO": 0.177,
+     "SUB": 0.21
     },
     "b": {
-     "DEC": 0.188,
+     "DEC": 0.189,
      "KO": 0.109,
      "SUB": 0.049
     }
@@ -602,7 +612,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.577,
-   "p_a": 0.619,
+   "p_a": 0.618,
    "model_pick": "Caio Borralho",
    "tier": "Medium",
    "fair_odds_a": -162,
@@ -754,9 +764,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
-   "edge_a": 0.025,
+   "edge_a": 0.024,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -857,11 +872,11 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.543,
-   "p_a": 0.605,
+   "p_a": 0.604,
    "model_pick": "Uros Medic",
    "tier": "Medium",
-   "fair_odds_a": -153,
-   "fair_odds_b": 153,
+   "fair_odds_a": -152,
+   "fair_odds_b": 152,
    "market_p_a": 0.583,
    "odds_a": -155.0,
    "odds_b": 130.0,
@@ -1009,9 +1024,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
-   "edge_a": 0.022,
+   "edge_a": 0.021,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -1020,7 +1040,7 @@
    "moved_against": false,
    "method": {
     "DEC": 0.372,
-    "KO": 0.434,
+    "KO": 0.433,
     "SUB": 0.195
    },
    "how": {
@@ -1118,8 +1138,8 @@
    "p_a": 0.916,
    "model_pick": "Bilal Hasan",
    "tier": "High",
-   "fair_odds_a": -1093,
-   "fair_odds_b": 1093,
+   "fair_odds_a": -1094,
+   "fair_odds_b": 1094,
    "market_p_a": 0.863,
    "odds_a": -900.0,
    "odds_b": 600.0,
@@ -1267,6 +1287,11 @@
      "t": "2026-11-09T04:05Z",
      "a": -900.0,
      "b": 600.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -900.0,
+     "b": 600.0
     }
    ],
    "edge_a": 0.053,
@@ -1288,7 +1313,7 @@
      "SUB": 0.179
     },
     "b": {
-     "DEC": 0.043,
+     "DEC": 0.042,
      "KO": 0.027,
      "SUB": 0.014
     }
@@ -1370,7 +1395,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.463,
-   "p_a": 0.525,
+   "p_a": 0.523,
    "model_pick": "Charles Radtke",
    "tier": "Low",
    "fair_odds_a": -110,
@@ -1482,9 +1507,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -142.0,
      "b": 120.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -142.0,
+     "b": 120.0
     }
    ],
-   "edge_a": -0.039,
+   "edge_a": -0.041,
    "pick": "Charles Radtke",
    "our_pick": null,
    "stake": null,
@@ -1492,18 +1522,18 @@
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.534,
+    "DEC": 0.533,
     "KO": 0.306,
     "SUB": 0.161
    },
    "how": {
     "a": {
-     "DEC": 0.286,
-     "KO": 0.162,
+     "DEC": 0.285,
+     "KO": 0.161,
      "SUB": 0.077
     },
     "b": {
-     "DEC": 0.248,
+     "DEC": 0.249,
      "KO": 0.144,
      "SUB": 0.084
     }
@@ -1585,7 +1615,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.31,
-   "p_a": 0.394,
+   "p_a": 0.393,
    "model_pick": "Chris Duncan",
    "tier": "Medium",
    "fair_odds_a": 154,
@@ -1685,6 +1715,11 @@
     },
     {
      "t": "2026-11-09T04:05Z",
+     "a": 142.0,
+     "b": -170.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
      "a": 142.0,
      "b": -170.0
     }
@@ -1907,6 +1942,11 @@
      "t": "2026-11-09T04:05Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "edge_a": 0.005,
@@ -1998,7 +2038,7 @@
     "at": "2026-11-09T04:05Z"
    },
    "why": [
-    "Our chance 68% vs the line's 63% (5 points of value)",
+    "Our chance 67% vs the line's 63% (4 points of value)",
     "Rated 84 points higher",
     "Bigger bettors on him: 97% of DraftKings money from 67% of bets"
    ],
@@ -2014,11 +2054,11 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.755,
-   "p_a": 0.675,
+   "p_a": 0.674,
    "model_pick": "Donte Johnson",
    "tier": "Medium",
-   "fair_odds_a": -208,
-   "fair_odds_b": 208,
+   "fair_odds_a": -207,
+   "fair_odds_b": 207,
    "market_p_a": 0.631,
    "odds_a": -192.0,
    "odds_b": 160.0,
@@ -2131,9 +2171,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
-   "edge_a": 0.044,
+   "edge_a": 0.043,
    "pick": "Donte Johnson",
    "our_pick": "Donte Johnson",
    "stake": 1.5,
@@ -2351,9 +2396,14 @@
      "t": "2026-11-09T04:05Z",
      "a": 295.0,
      "b": -375.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": 295.0,
+     "b": -375.0
     }
    ],
-   "edge_a": -0.014,
+   "edge_a": -0.015,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -2454,7 +2504,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.331,
-   "p_a": 0.326,
+   "p_a": 0.325,
    "model_pick": "Bia Mesquita",
    "tier": "Medium",
    "fair_odds_a": 207,
@@ -2571,9 +2621,14 @@
      "t": "2026-11-09T04:05Z",
      "a": 195.0,
      "b": -238.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": 195.0,
+     "b": -238.0
     }
    ],
-   "edge_a": 0.001,
+   "edge_a": 0.0,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -2588,7 +2643,7 @@
    "how": {
     "a": {
      "DEC": 0.203,
-     "KO": 0.101,
+     "KO": 0.1,
      "SUB": 0.022
     },
     "b": {
@@ -2744,11 +2799,11 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.534,
-   "p_a": 0.459,
+   "p_a": 0.457,
    "model_pick": "Samuel Sanches",
    "tier": "Low",
-   "fair_odds_a": 118,
-   "fair_odds_b": -118,
+   "fair_odds_a": 119,
+   "fair_odds_b": -119,
    "market_p_a": 0.489,
    "odds_a": -105.0,
    "odds_b": -115.0,
@@ -2861,9 +2916,14 @@
      "t": "2026-11-09T04:05Z",
      "a": -105.0,
      "b": -115.0
+    },
+    {
+     "t": "2026-11-09T17:40Z",
+     "a": -105.0,
+     "b": -115.0
     }
    ],
-   "edge_a": -0.031,
+   "edge_a": -0.032,
    "pick": "Samuel Sanches",
    "our_pick": "Samuel Sanches",
    "stake": 1.5,
@@ -2877,12 +2937,12 @@
    },
    "how": {
     "a": {
-     "DEC": 0.256,
+     "DEC": 0.255,
      "KO": 0.104,
      "SUB": 0.099
     },
     "b": {
-     "DEC": 0.26,
+     "DEC": 0.261,
      "KO": 0.204,
      "SUB": 0.077
     }
