@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T23:58Z",
+ "updated": "2026-11-09T01:13Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -396,7 +396,7 @@
   {
    "fighter": "Cory Sandhagen",
    "rating": 1774,
-   "rd": 95,
+   "rd": 96,
    "last_fight": "2026-07-11",
    "division": "Bantamweight",
    "record": "11-6"
@@ -1199,7 +1199,7 @@
     {
      "fighter": "Cory Sandhagen",
      "rating": 1774,
-     "rd": 95,
+     "rd": 96,
      "last_fight": "2026-07-11",
      "division": "Bantamweight",
      "record": "11-6"
@@ -1675,7 +1675,7 @@
     {
      "fighter": "Mackenzie Dern",
      "rating": 1686,
-     "rd": 95,
+     "rd": 96,
      "last_fight": "2026-08-15",
      "division": "Women's Strawweight",
      "record": "12-5"
