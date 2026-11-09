@@ -18,11 +18,25 @@ import pandas as pd
 from common import path, SITE, no_vig, payout
 from config import GLICKO, WIN_SCORE, EDGE
 from picks import our_side, expert_lean, stake, winner_side, tier
-from config import EXPERT_LEAN_AS_PICK as LEAN_AS_PICK
+from config import EXPERT_LEAN_AS_PICK as LEAN_AS_PICK, LINE_MOVE_AGAINST
+from get_odds import norm as wnorm
 from ratings import Glicko2, SCALE
 
 OUT = os.path.join(SITE, "data")
 
+
+
+def line_moves():
+    """Line movement per fight from ESPN's per-book opening and closing lines (same books at both ends,
+    averaged): fair chance for A at close minus at open, keyed date|a|b. Mostly 2023 on."""
+    from get_odds import norm as wnorm
+    try:
+        h = read("espn_odds_history.csv").dropna(subset=["open_a", "open_b", "close_a", "close_b"])
+    except Exception:
+        return {}
+    h = h.assign(mv=no_vig(h["close_a"], h["close_b"]) - no_vig(h["open_a"], h["open_b"]))
+    h["k"] = [f"{d}|{wnorm(a)}|{wnorm(b)}" for d, a, b in zip(h["date"], h["a"], h["b"])]
+    return h.groupby("k")["mv"].mean().dropna().to_dict()
 
 def slug(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower()
@@ -419,6 +433,7 @@ def main():
     first_fight = pd.concat([fights[["date", "a"]].rename(columns={"a": "n"}), fights[["date", "b"]].rename(columns={"b": "n"})]) \
         .groupby("n")["date"].min().to_dict()
     fights["event_name"] = [e if isinstance(e, str) and e else ev_names.get(d, "") for e, d in zip(fights["event"], fights["date"])]
+    moves = line_moves()
     for (date, ), card in fights.groupby(["date"], sort=False):
         name = next((n for n in card["event_name"] if n), "") or "UFC card"
         loc = next((l for l in card["location"] if isinstance(l, str) and l), "")
@@ -463,6 +478,13 @@ def main():
                 from_experts = False
                 if not ours and lean and LEAN_AS_PICK:   # expert lean fills in where the model has no our pick
                     ours, from_experts = lean, True
+                if ours and LINE_MOVE_AGAINST is not None:   # line moved against our side, open -> close: pass
+                    mv = moves.get(f"{f.date}|{wnorm(f.a)}|{wnorm(f.b)}")
+                    if mv is None:
+                        mv = moves.get(f"{f.date}|{wnorm(f.b)}|{wnorm(f.a)}")
+                        mv = -mv if mv is not None else None
+                    if mv is not None and ((ours == "a" and mv < -LINE_MOVE_AGAINST) or (ours == "b" and mv > LINE_MOVE_AGAINST)):
+                        ours = None
                 if ours and SKIP_BOTH_DEBUT and first_fight.get(f.a) == f.date and first_fight.get(f.b) == f.date:
                     ours = None   # both making their UFC debut: no our pick (config.OUR_PICKS_SKIP_BOTH_DEBUT)
                 if ours:   # our pick, as on the live card

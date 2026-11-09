@@ -54,7 +54,8 @@ OUR_PICKS_SKIP_BOTH_DEBUT = True
 # (fair chance, open -> now). Tested Nov 2026 on 2024 and 2025, the years with opening lines:
 # 2024 +4.4u -> +17.2u, 2025 +2.6u -> +18.0u (flat), win rate 79% -> 88-90%; the dropped picks lost
 # -22u. Similar at cutoffs from 0 to 5 points. Small 2023/2026 samples showed no gain, and the rule
-# was found on 2024-25, so it applies to live picks from UFC 334 on; the past record is unchanged.
+# was found on 2024-25 (in-sample there). Applied to the past record wherever opening lines exist
+# (2023 on; none before) and to live picks from UFC 334 on.
 # None turns it off.
 LINE_MOVE_AGAINST = 0.01
 
