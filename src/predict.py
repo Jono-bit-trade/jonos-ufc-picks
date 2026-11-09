@@ -160,6 +160,55 @@ PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "mov
 MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "edge_a")   # our numbers: members only
 
 
+def pick_runs(start, end):
+    """Scheduled runs that can still change picks (the fight-week workflow's crons, minus the 20-minute live-score ones),
+    between two UTC datetimes."""
+    import re as _re
+    wf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".github", "workflows", "fight-week.yml")
+    try:
+        crons = _re.findall(r'cron:\s*"([^"]+)"', open(wf).read())
+    except OSError:
+        return []
+    def field(x, lo, hi):
+        return set(range(lo, hi + 1)) if x == "*" else {int(v) for v in x.split(",")}
+    out = []
+    for c in crons:
+        m, h, dom, mon, dow = c.split()
+        if any(ch in m + h for ch in "/-"):
+            continue   # live status/results runs don't re-pick
+        M, H, D = field(m, 0, 59), field(h, 0, 23), field(dow, 0, 6)
+        day = start.replace(hour=0, minute=0, second=0, microsecond=0)
+        while day <= end:
+            if (day.weekday() + 1) % 7 in D:
+                for hh in H:
+                    for mm in M:
+                        t = day.replace(hour=hh, minute=mm)
+                        if start < t <= end:
+                            out.append(t)
+            day += dt.timedelta(days=1)
+    return sorted(out)
+
+
+def final_status(fights):
+    """Picks are final once no scheduled update that could change them is left before the first fight
+    (the line-movement pass can drop a pick until then). Returns (final, when picks become final, UTC ISO)."""
+    starts = []
+    for f in fights:
+        try:
+            starts.append(dt.datetime.strptime(f["start"], "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc))
+        except (KeyError, TypeError, ValueError):
+            pass
+    if any(f.get("state") in ("in", "post") for f in fights):
+        return True, None
+    if not starts:
+        return False, None
+    first = min(starts)
+    runs = pick_runs(NOW - dt.timedelta(days=1), first - dt.timedelta(minutes=10))
+    later = [t for t in runs if t > NOW]
+    last = runs[-1] if runs else None
+    return not later, last.strftime("%Y-%m-%dT%H:%MZ") if last else None
+
+
 def public_card(full):
     """The card as a free visitor gets it once the paywall is on: betting lines for every fight, our chances and picks only on
     finished fights and on the free sample (the first pick at -250 or better). The full file is for members and,
@@ -594,6 +643,7 @@ def main():
     full = {"updated": NOW.strftime("%Y-%m-%dT%H:%MZ"), "event": str(first.get("event") or "Next UFC card"),
             "date": str(first["date"]), "location": str(first.get("location") or ""), "card_source": source,
             "edge_threshold": EDGE, "big_edge": BIG_EDGE, "model": cfg, "schedule": schedule(card), "fights": out}
+    full["final"], full["final_at"] = final_status(out)
     json.dump(full, open(os.path.join(OUT, "predictions.json"), "w"), indent=1)
     json.dump(public_card(full), open(os.path.join(OUT, "predictions_public.json"), "w"), indent=1)
     publish_common(fights, log, G)

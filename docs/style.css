@@ -1681,3 +1681,13 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .moved{display:inline-block;margin:6px 0 0;padding:3px 8px;border:1px dashed #4a4d55;border-radius:2px;font-size:12.5px;color:var(--quiet)}
 /* past card: our pick dropped because the line moved against it */
 .lean.passed, .lean.passed { color: var(--quiet); background: rgba(150,150,150,.12); border-color: var(--rule); font-weight: 600; }
+/* early vs. final picks */
+.stage { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 4px; margin: 0 6px 4px 0; vertical-align: middle; line-height: 1.4; }
+.stage.early { color: var(--gold); border: 1px dashed var(--gold); background: transparent; }
+.stage.final { color: var(--night, #111); background: var(--green); border: 1px solid var(--green); }
+.ticket .stage { align-self: flex-start; margin-bottom: 6px; }
+.stage-note { font-size: 13px; color: var(--quiet); margin: 0 0 12px; line-height: 1.5; }
+.stage-note .stage { margin-right: 8px; }
+.ticket .stage.early { color: var(--night); border-color: var(--night); }
+.ticket .stage.final { color: var(--gold); background: var(--night); border-color: var(--night); }
