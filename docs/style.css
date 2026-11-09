@@ -1842,3 +1842,19 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .he-s em { font-style: normal; } .he-s .ha { color: #f07a7e; } .he-s .hb { color: #7fb0f3; }
 .he-best { margin: 14px 0 0; font-size: 15px; color: var(--quiet); } .he-best b { color: var(--ink); }
 @media (max-width: 480px) { .he-r { grid-template-columns: 92px 1fr 46px; column-gap: 10px; } .he-r > b { font-size: 19px; } }
+/* public betting splits (DraftKings): money and bets bars */
+.sbar2 { margin: 10px 0 4px; }
+.sb-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 6px; font-size: 14px; }
+.sb-h b { font-weight: 700; } .sb-h span { color: var(--quiet); font-size: 12.5px; }
+.sb-h .sharp { font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--gold); background: rgba(224,178,58,.12); padding: 1px 8px; border-radius: 8px; }
+.sb-r { display: grid; grid-template-columns: 52px 40px 1fr 40px; align-items: center; gap: 8px; font-size: 13px; margin: 3px 0; }
+.sb-l { color: var(--quiet); } .sb-n { font-variant-numeric: tabular-nums; font-weight: 700; } .sb-r .sb-n:last-child { text-align: right; }
+.sb-t { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--rule); }
+.sb-t i { display: block; height: 100%; } .sb-t .a { background: var(--red); } .sb-t .b { background: var(--blue); }
+.cr-spl { font-size: 12px; color: var(--quiet); margin-right: 8px; white-space: nowrap; }
+/* compact rows: fixed columns so the chances line up whatever is in the right column */
+@media (min-width: 641px) {
+  .crow > summary { grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr) 320px; }
+  .crow .cr-p { justify-content: center; }
+  .crow .cr-pick { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 4px 0; }
+}

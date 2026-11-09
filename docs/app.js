@@ -146,6 +146,17 @@ function grapChips(slug) {
     ? "Takes fights to the mat: 2.5+ takedowns or 1+ submission attempts per 15 minutes" : "Stops 80%+ of takedowns and rarely gets submitted"}">${f === "Big grappler" ? "Grappler" : "Grappling D"}</span>`).join("");
 }
 
+// public betting at DraftKings: share of money and share of bets on each side
+function splitBar(sp, a, b) {
+  if (!sp || sp.handle_a == null || sp.bets_a == null) return "";
+  const P = x => Math.round(100 * x), ln = n => esc(String(n).split(" ").at(-1));
+  const row = (lab, x, y) => `<div class="sb-r"><span class="sb-l">${lab}</span><span class="sb-n">${P(x)}%</span>
+    <span class="sb-t"><i class="a" style="width:${100 * x / (x + y || 1)}%"></i><i class="b" style="width:${100 * y / (x + y || 1)}%"></i></span><span class="sb-n">${P(y)}%</span></div>`;
+  const gap = sp.handle_a - sp.bets_a, sharp = Math.abs(gap) >= 0.2 ? (gap > 0 ? a : b) : null;
+  return `<div class="sbar2" title="DraftKings public betting splits${sp.at ? ", as of " + esc(sp.at) : ""}">
+    <div class="sb-h"><b>Public betting</b><span>DraftKings</span>${sharp ? `<em class="sharp" title="Much more of the money than of the bets is on one side: bigger bettors are on ${esc(sharp)}">Bigger bettors on ${ln(sharp)}</em>` : ""}</div>
+    ${row("Money", sp.handle_a, sp.handle_b)}${row("Bets", sp.bets_a, sp.bets_b)}</div>`;
+}
 function expertBar(e, a, b, winner) {
   if (!e || !(e.picks_a + e.picks_b)) return "";
   const n = e.picks_a + e.picks_b, L = e.analysts || [];
@@ -237,10 +248,9 @@ function bout(f, i, edge) {
     </div>
     <div class="legend"><span>Fair ${odds(f.fair_odds_a)}</span><span class="hide-sm">Line ${line != null ? pct(line) + " / " + (100 - Math.round(100 * line)) + "%" : "not posted"}</span><span>Fair ${odds(f.fair_odds_b)}</span></div>`}
     ${expertBar(f.experts, f.a, f.b, f.state === "post" ? f.winner : null)}
+    ${f.hidden ? "" : splitBar(f.splits, f.a, f.b)}
     ${pickHtml}
     <details class="moves-d"><summary><span class="moves">${spark(withOpen(f.line_history, f))}<span>${moved}</span><span>${books}</span></span></summary>${lineChart(f.line_history, f)}</details>
-    ${f.splits ? `<div class="splits">DraftKings bettors: ${Math.round(f.splits.handle_a * 100)}% of money, ${Math.round(f.splits.bets_a * 100)}% of bets on ${esc(f.a.split(" ").at(-1))} · ${Math.round(f.splits.handle_b * 100)}% / ${Math.round(f.splits.bets_b * 100)}% on ${esc(f.b.split(" ").at(-1))}${
-      Math.abs(f.splits.handle_a - f.splits.bets_a) >= 0.2 ? ` <b class="sharp">Money ≠ bets: bigger bettors on ${esc((f.splits.handle_a > f.splits.bets_a ? f.a : f.b).split(" ").at(-1))}</b>` : ""}</div>` : ""}
   </article>`;
 }
 
@@ -513,6 +523,7 @@ async function viewFight(x, y) {
         ${F.f && F.f.take ? takeHtml(F.f.take) : ""}
         ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
         ${expertBar(F.experts, F.a, F.b, null)}
+        ${F.f && !F.f.hidden ? splitBar(F.f.splits, F.a, F.b) : ""}
         ${F.hist ? lineChart(F.hist, F.f) : ""}
         ${F.f && !F.f.hidden ? bookPanel(F.f, F.ours === F.a ? "a" : F.ours === F.b ? "b" : null) : ""}
       </section>
@@ -683,7 +694,8 @@ function compactRow(f, i, edge) {
       <span class="cr-p${f.hidden ? " hidp" : ""}">${f.hidden ? `<b class="pa${sideA ? " hi" : ""}">${line != null ? pct(line) : "–"}</b><span class="cr-l">line · ${lockIcon}</span><b class="pb${sideA ? "" : " hi"}">${line != null ? (100 - Math.round(100 * line)) + "%" : "–"}</b>`
         : `<b class="pa${sideA ? " hi" : ""}">${pct(pa)}</b><span class="cr-l">${line != null ? "line " + pct(line) : "no line"}</span><b class="pb${sideA ? "" : " hi"}">${100 - Math.round(100 * pa)}%</b>`}</span>
       <span class="cr-b${!sideA ? " fav" : ""}"><span>${esc(f.b)}</span>${photo(f.b_id, f.b, "sm")}</span>
-      <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.locked ? `<span class="mini-lock">${lockIcon}Locked</span>` : f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
+      <span class="cr-pick">${tierTag(f.tier || tierOf(pa), true)}${f.splits && !f.hidden ? (() => { const sp = f.splits, onA = sp.handle_a >= sp.handle_b, nm = onA ? f.a : f.b;
+        return `<span class="cr-spl" title="DraftKings public betting">Money ${Math.round(100 * (onA ? sp.handle_a : sp.handle_b))}% ${last(nm)} · bets ${Math.round(100 * (onA ? sp.bets_a : sp.bets_b))}%</span>`; })() : ""}${f.locked ? `<span class="mini-lock">${lockIcon}Locked</span>` : f.our_pick ? `<span class="mini-ticket">${last(f.our_pick)} ${odds(f.our_pick === f.a ? f.odds_a : f.odds_b)}${f.stake ? " · " + f.stake + "u" : ""}</span>${f.our_pick === f.pick ? `<span class="vtag">Value</span>` : ""}` : f.pick ? `<span class="vtag">Value ${last(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>` : f.expert_lean ? `<span class="lean">Lean ${last(f.expert_lean)}</span>` : ""}</span>
     </summary>${bout(f, i, edge)}</details>`;
 }
 
