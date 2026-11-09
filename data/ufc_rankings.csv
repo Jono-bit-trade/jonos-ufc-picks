@@ -87,8 +87,8 @@ Welterweight,5,Gabriel Bonfim,gabriel-bonfim,2026-11-09
 Welterweight,6,Sean Brady,sean-brady,2026-11-09
 Welterweight,7,Belal Muhammad,belal-muhammad,2026-11-09
 Welterweight,8,Leon Edwards,leon-edwards,2026-11-09
-Welterweight,9,Mike Malott,mike-malott,2026-11-09
 Welterweight,9,Kamaru Usman,kamaru-usman,2026-11-09
+Welterweight,9,Mike Malott,mike-malott,2026-11-09
 Welterweight,11,Yaroslav Amosov,yaroslav-amosov,2026-11-09
 Welterweight,12,Uroš Medić,uros-medic,2026-11-09
 Welterweight,13,Joaquin Buckley,joaquin-buckley,2026-11-09
@@ -232,14 +232,12 @@ Bantamweight,14,Marlon Vera,marlon-vera,2026-11-09
 Bantamweight,15,Raoni Barcelos,raoni-barcelos,2026-11-09
 Featherweight,6,Arnold Allen,arnold-allen,2026-11-09
 Featherweight,7,Pat Sabatini,pat-sabatini,2026-11-09
-Featherweight,8,Pavel Andrusca,pavel-andrusca,2026-11-09
-Featherweight,9,Youssef Zalal,youssef-zalal,2026-11-09
-Featherweight,10,Aaron Pico,aaron-pico,2026-11-09
-Featherweight,11,Kevin Vallejos,kevin-vallejos,2026-11-09
-Featherweight,12,Joanderson Brito,joanderson-brito,2026-11-09
-Featherweight,13,Melquizael Costa,melquizael-costa,2026-11-09
-Featherweight,14,Steve Garcia,steve-garcia,2026-11-09
-Featherweight,15,Jamall Emmers,jamall-emmers,2026-11-09
+Featherweight,9,Aaron Pico,aaron-pico,2026-11-09
+Featherweight,10,Kevin Vallejos,kevin-vallejos,2026-11-09
+Featherweight,11,Joanderson Brito,joanderson-brito,2026-11-09
+Featherweight,13,Steve Garcia,steve-garcia,2026-11-09
+Featherweight,14,Jamall Emmers,jamall-emmers,2026-11-09
+Featherweight,15,Patricio Pitbull,patricio-freire,2026-11-09
 Lightweight,6,Quillan Salkilld,quillan-salkilld,2026-11-09
 Lightweight,7,Tom Nolan,tom-nolan,2026-11-09
 Lightweight,8,Benoît Saint Denis,benoit-saint-denis,2026-11-09
@@ -287,16 +285,17 @@ Light Heavyweight,15,Modestas Bukauskas,modestas-bukauskas,2026-11-09
 Heavyweight,3,Alex Pereira,alex-pereira,2026-11-09
 Heavyweight,4,Sergei Pavlovich,sergei-pavlovich,2026-11-09
 Heavyweight,5,Josh Hokit,josh-hokit,2026-11-09
-Heavyweight,6,Curtis Blaydes,curtis-blaydes,2026-11-09
-Heavyweight,8,Waldo Cortes Acosta,waldo-cortes-acosta,2026-11-09
+Heavyweight,6,Rizvan Kuniev,rizvan-kuniev,2026-11-09
+Heavyweight,7,Curtis Blaydes,curtis-blaydes,2026-11-09
+Heavyweight,8,Johnny Walker,johnny-walker,2026-11-09
 Heavyweight,9,Vitor Petrino,vitor-petrino,2026-11-09
 Heavyweight,10,Mario Pinto,mario-pinto,2026-11-09
-Heavyweight,12,Johnny Walker,johnny-walker,2026-11-09
+Heavyweight,12,Waldo Cortes Acosta,waldo-cortes-acosta,2026-11-09
 Heavyweight,13,Brando Peričić,brando-pericic,2026-11-09
 Heavyweight,14,Serghei Spivac,serghei-spivac,2026-11-09
 Heavyweight,15,Anthony Wint,anthony-wint,2026-11-09
-Women's Strawweight,2,Virna Jandiroba,virna-jandiroba,2026-11-09
-Women's Strawweight,3,Tatiana Suarez,tatiana-suarez,2026-11-09
+Women's Strawweight,1,Tatiana Suarez,tatiana-suarez,2026-11-09
+Women's Strawweight,2,Zhang Weili,zhang-weili,2026-11-09
 Women's Strawweight,6,Fatima Kline,fatima-kline,2026-11-09
 Women's Strawweight,7,Piera Rodriguez,piera-rodriguez,2026-11-09
 Women's Strawweight,8,Iasmin Lucindo,iasmin-lucindo,2026-11-09
@@ -313,9 +312,8 @@ Women's Flyweight,7,Rose Namajunas,rose-namajunas,2026-11-09
 Women's Flyweight,9,Maycee Barber,maycee-barber,2026-11-09
 Women's Flyweight,10,Tracy Cortez,tracy-cortez,2026-11-09
 Women's Flyweight,11,Casey O'Neill,casey-oneill,2026-11-09
-Women's Flyweight,12,Miranda Maverick,miranda-maverick,2026-11-09
-Women's Flyweight,13,Regina Tarin,regina-malpica-rivera,2026-11-09
-Women's Flyweight,14,Karine Silva,karine-silva,2026-11-09
+Women's Flyweight,12,Karine Silva,karine-silva,2026-11-09
+Women's Flyweight,13,Miranda Maverick,miranda-maverick,2026-11-09
 Women's Flyweight,15,Carli Judice,carli-judice,2026-11-09
 Women's Bantamweight,1,Joselyne Edwards,joselyne-edwards,2026-11-09
 Women's Bantamweight,2,Ailin Perez,ailin-perez,2026-11-09

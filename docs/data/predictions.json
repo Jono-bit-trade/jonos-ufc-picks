@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T17:40Z",
+ "updated": "2026-11-09T23:23Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -47,10 +47,10 @@
    "record_a": "14-2-0",
    "record_b": "10-0-0",
    "experts": {
-    "picks_a": 3,
-    "picks_b": 1,
+    "picks_a": 4,
+    "picks_b": 2,
     "high_a": 1,
-    "high_b": 0,
+    "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
@@ -62,6 +62,15 @@
       "method": null,
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "190-129",
+      "units": -26.13,
       "winning": false
      },
      {
@@ -80,6 +89,15 @@
       "method": null,
       "record": "192-127",
       "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "200-110",
+      "units": -13.58,
       "winning": false
      },
      {
@@ -107,16 +125,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.556,
-   "p_a": 0.694,
+   "p_a": 0.683,
    "model_pick": "Ciryl Gane",
    "tier": "Medium",
-   "fair_odds_a": -227,
-   "fair_odds_b": 227,
-   "market_p_a": 0.675,
-   "odds_a": -238.0,
-   "odds_b": 195.0,
-   "best_a": -238.0,
-   "best_b": 195.0,
+   "fair_odds_a": -216,
+   "fair_odds_b": 216,
+   "market_p_a": 0.664,
+   "odds_a": -225.0,
+   "odds_b": 185.0,
+   "best_a": -225.0,
+   "best_b": 185.0,
    "open_a": -265.0,
    "open_b": 215.0,
    "books": 1.0,
@@ -125,8 +143,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -238.0,
-     "b": 195.0
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "line_history": [
@@ -264,9 +282,14 @@
      "t": "2026-11-09T17:40Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
-   "edge_a": 0.019,
+   "edge_a": 0.02,
    "pick": null,
    "our_pick": null,
    "stake": null,
@@ -274,20 +297,20 @@
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.255,
-    "KO": 0.617,
-    "SUB": 0.129
+    "DEC": 0.254,
+    "KO": 0.618,
+    "SUB": 0.128
    },
    "how": {
     "a": {
-     "DEC": 0.196,
-     "KO": 0.393,
-     "SUB": 0.105
+     "DEC": 0.193,
+     "KO": 0.387,
+     "SUB": 0.103
     },
     "b": {
-     "DEC": 0.059,
-     "KO": 0.223,
-     "SUB": 0.024
+     "DEC": 0.061,
+     "KO": 0.231,
+     "SUB": 0.025
     }
    }
   },
@@ -301,9 +324,9 @@
    "record_a": "19-1-0",
    "record_b": "23-5-0",
    "experts": {
-    "picks_a": 3,
+    "picks_a": 5,
     "picks_b": 1,
-    "high_a": 2,
+    "high_a": 3,
     "high_b": 0,
     "url": null,
     "win_a": 0,
@@ -328,6 +351,15 @@
       "winning": false
      },
      {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "190-129",
+      "units": -26.13,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "b",
       "conf": "Med",
@@ -343,6 +375,15 @@
       "method": "Submission",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "200-110",
+      "units": -13.58,
       "winning": false
      }
     ]
@@ -518,6 +559,11 @@
      "t": "2026-11-09T17:40Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.022,
@@ -555,10 +601,10 @@
    "record_a": "18-2-0",
    "record_b": "11-3-0",
    "experts": {
-    "picks_a": 2,
-    "picks_b": 1,
+    "picks_a": 3,
+    "picks_b": 2,
     "high_a": 0,
-    "high_b": 1,
+    "high_b": 2,
     "url": null,
     "win_a": 0,
     "win_b": 0,
@@ -570,6 +616,15 @@
       "method": null,
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "190-129",
+      "units": -26.13,
       "winning": false
      },
      {
@@ -589,15 +644,24 @@
       "record": "192-127",
       "units": -10.22,
       "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.96,
-    "handle_b": 0.04,
-    "bets_a": 0.63,
-    "bets_b": 0.38,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.97,
+    "handle_b": 0.03,
+    "bets_a": 0.69,
+    "bets_b": 0.31,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -612,16 +676,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.577,
-   "p_a": 0.618,
+   "p_a": 0.624,
    "model_pick": "Caio Borralho",
    "tier": "Medium",
-   "fair_odds_a": -162,
-   "fair_odds_b": 162,
-   "market_p_a": 0.593,
-   "odds_a": -162.0,
-   "odds_b": 136.0,
-   "best_a": -162.0,
-   "best_b": 136.0,
+   "fair_odds_a": -166,
+   "fair_odds_b": 166,
+   "market_p_a": 0.6,
+   "odds_a": -166.0,
+   "odds_b": 140.0,
+   "best_a": -166.0,
+   "best_b": 140.0,
    "open_a": -135.0,
    "open_b": 114.0,
    "books": 1.0,
@@ -630,8 +694,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -162.0,
-     "b": 136.0
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "line_history": [
@@ -769,6 +833,11 @@
      "t": "2026-11-09T17:40Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": 0.024,
@@ -779,19 +848,19 @@
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.522,
-    "KO": 0.278,
-    "SUB": 0.2
+    "DEC": 0.523,
+    "KO": 0.276,
+    "SUB": 0.201
    },
    "how": {
     "a": {
-     "DEC": 0.346,
-     "KO": 0.112,
-     "SUB": 0.16
+     "DEC": 0.349,
+     "KO": 0.113,
+     "SUB": 0.161
     },
     "b": {
-     "DEC": 0.176,
-     "KO": 0.166,
+     "DEC": 0.173,
+     "KO": 0.163,
      "SUB": 0.04
     }
    }
@@ -806,9 +875,9 @@
    "record_a": "14-3-0",
    "record_b": "29-15-0",
    "experts": {
-    "picks_a": 1,
+    "picks_a": 3,
     "picks_b": 3,
-    "high_a": 1,
+    "high_a": 2,
     "high_b": 0,
     "url": null,
     "win_a": 0,
@@ -821,6 +890,15 @@
       "method": "KO/TKO",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "190-129",
+      "units": -26.13,
       "winning": false
      },
      {
@@ -849,15 +927,24 @@
       "record": "192-127",
       "units": -10.22,
       "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.82,
-    "handle_b": 0.18,
-    "bets_a": 0.59,
-    "bets_b": 0.41,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.46,
+    "handle_b": 0.54,
+    "bets_a": 0.57,
+    "bets_b": 0.43,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -872,16 +959,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.543,
-   "p_a": 0.604,
+   "p_a": 0.593,
    "model_pick": "Uros Medic",
    "tier": "Medium",
-   "fair_odds_a": -152,
-   "fair_odds_b": 152,
-   "market_p_a": 0.583,
-   "odds_a": -155.0,
-   "odds_b": 130.0,
-   "best_a": -155.0,
-   "best_b": 130.0,
+   "fair_odds_a": -146,
+   "fair_odds_b": 146,
+   "market_p_a": 0.572,
+   "odds_a": -148.0,
+   "odds_b": 124.0,
+   "best_a": -148.0,
+   "best_b": 124.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -890,8 +977,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -155.0,
-     "b": 130.0
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "line_history": [
@@ -1029,6 +1116,11 @@
      "t": "2026-11-09T17:40Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "edge_a": 0.021,
@@ -1040,19 +1132,19 @@
    "moved_against": false,
    "method": {
     "DEC": 0.372,
-    "KO": 0.433,
-    "SUB": 0.195
+    "KO": 0.43,
+    "SUB": 0.198
    },
    "how": {
     "a": {
-     "DEC": 0.208,
-     "KO": 0.347,
-     "SUB": 0.049
+     "DEC": 0.204,
+     "KO": 0.341,
+     "SUB": 0.048
     },
     "b": {
-     "DEC": 0.164,
-     "KO": 0.086,
-     "SUB": 0.146
+     "DEC": 0.168,
+     "KO": 0.089,
+     "SUB": 0.15
     }
    }
   },
@@ -1066,9 +1158,9 @@
    "record_a": "10-0-0",
    "record_b": "11-4-0",
    "experts": {
-    "picks_a": 4,
+    "picks_a": 6,
     "picks_b": 0,
-    "high_a": 4,
+    "high_a": 6,
     "high_b": 0,
     "url": null,
     "win_a": 0,
@@ -1102,6 +1194,15 @@
       "winning": false
      },
      {
+      "name": "Slayers Picks",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "a",
       "conf": "High",
@@ -1109,18 +1210,28 @@
       "record": "197-119",
       "units": -24.75,
       "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "190-129",
+      "units": -26.13,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.06,
-    "handle_b": 0.94,
-    "bets_a": 0.53,
-    "bets_b": 0.47,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.01,
+    "handle_b": 0.99,
+    "bets_a": 0.63,
+    "bets_b": 0.38,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [
-    "Our chance 92% vs the line's 86% (6 points of value)",
+    "Our chance 93% vs the line's 88% (5 points of value)",
+    "6 of 6 analysts agree",
     "Rated 209 points higher"
    ],
    "weight_class": "Flyweight",
@@ -1135,16 +1246,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.75,
-   "p_a": 0.916,
+   "p_a": 0.927,
    "model_pick": "Bilal Hasan",
    "tier": "High",
-   "fair_odds_a": -1094,
-   "fair_odds_b": 1094,
-   "market_p_a": 0.863,
-   "odds_a": -900.0,
-   "odds_b": 600.0,
-   "best_a": -900.0,
-   "best_b": 600.0,
+   "fair_odds_a": -1271,
+   "fair_odds_b": 1271,
+   "market_p_a": 0.88,
+   "odds_a": -1100.0,
+   "odds_b": 700.0,
+   "best_a": -1100.0,
+   "best_b": 700.0,
    "open_a": -950.0,
    "open_b": 625.0,
    "books": 1.0,
@@ -1153,8 +1264,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -900.0,
-     "b": 600.0
+     "a": -1100.0,
+     "b": 700.0
     }
    ],
    "line_history": [
@@ -1292,9 +1403,14 @@
      "t": "2026-11-09T17:40Z",
      "a": -900.0,
      "b": 600.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -1100.0,
+     "b": 700.0
     }
    ],
-   "edge_a": 0.053,
+   "edge_a": 0.047,
    "pick": "Bilal Hasan",
    "our_pick": "Bilal Hasan",
    "stake": 0.5,
@@ -1302,20 +1418,20 @@
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.369,
-    "KO": 0.437,
+    "DEC": 0.367,
+    "KO": 0.439,
     "SUB": 0.194
    },
    "how": {
     "a": {
-     "DEC": 0.327,
-     "KO": 0.41,
-     "SUB": 0.179
+     "DEC": 0.33,
+     "KO": 0.415,
+     "SUB": 0.182
     },
     "b": {
-     "DEC": 0.042,
-     "KO": 0.027,
-     "SUB": 0.014
+     "DEC": 0.037,
+     "KO": 0.024,
+     "SUB": 0.012
     }
    }
   },
@@ -1330,9 +1446,9 @@
    "record_b": "12-5-0",
    "experts": {
     "picks_a": 4,
-    "picks_b": 0,
+    "picks_b": 2,
     "high_a": 1,
-    "high_b": 0,
+    "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
@@ -1344,6 +1460,15 @@
       "method": null,
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "190-129",
+      "units": -26.13,
       "winning": false
      },
      {
@@ -1372,17 +1497,31 @@
       "record": "197-119",
       "units": -24.75,
       "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 1.0,
-    "handle_b": 0.0,
-    "bets_a": 0.67,
-    "bets_b": 0.33,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.95,
+    "handle_b": 0.05,
+    "bets_a": 0.65,
+    "bets_b": 0.35,
+    "at": "2026-11-09T23:23Z"
    },
-   "why": [],
+   "why": [
+    "Our chance 54% vs the line's 58%",
+    "Close fight and 4 of 6 analysts pick Thompson",
+    "Rated 83 points higher",
+    "Bigger bettors on him: 95% of DraftKings money from 65% of bets"
+   ],
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
@@ -1395,16 +1534,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.463,
-   "p_a": 0.523,
+   "p_a": 0.542,
    "model_pick": "Charles Radtke",
    "tier": "Low",
-   "fair_odds_a": -110,
-   "fair_odds_b": 110,
-   "market_p_a": 0.563,
-   "odds_a": -142.0,
-   "odds_b": 120.0,
-   "best_a": -142.0,
-   "best_b": 120.0,
+   "fair_odds_a": -119,
+   "fair_odds_b": 119,
+   "market_p_a": 0.583,
+   "odds_a": -155.0,
+   "odds_b": 130.0,
+   "best_a": -155.0,
+   "best_b": 130.0,
    "open_a": -142.0,
    "open_b": 120.0,
    "books": 1.0,
@@ -1413,8 +1552,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -142.0,
-     "b": 120.0
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "line_history": [
@@ -1512,30 +1651,35 @@
      "t": "2026-11-09T17:40Z",
      "a": -142.0,
      "b": 120.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "edge_a": -0.041,
    "pick": "Charles Radtke",
-   "our_pick": null,
-   "stake": null,
-   "expert_lean": null,
+   "our_pick": "Stephen Thompson",
+   "stake": 1.5,
+   "expert_lean": "Stephen Thompson",
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.533,
+    "DEC": 0.534,
     "KO": 0.306,
-    "SUB": 0.161
+    "SUB": 0.16
    },
    "how": {
     "a": {
-     "DEC": 0.285,
-     "KO": 0.161,
-     "SUB": 0.077
+     "DEC": 0.296,
+     "KO": 0.167,
+     "SUB": 0.079
     },
     "b": {
-     "DEC": 0.249,
-     "KO": 0.144,
-     "SUB": 0.084
+     "DEC": 0.238,
+     "KO": 0.138,
+     "SUB": 0.081
     }
    }
   },
@@ -1550,13 +1694,22 @@
    "record_b": "15-3-0",
    "experts": {
     "picks_a": 2,
-    "picks_b": 2,
+    "picks_b": 4,
     "high_a": 0,
-    "high_b": 0,
+    "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "190-129",
+      "units": -26.13,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "b",
@@ -1592,15 +1745,24 @@
       "record": "205-117",
       "units": -5.93,
       "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 1.0,
-    "handle_b": 0.0,
-    "bets_a": 1.0,
-    "bets_b": 0.0,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.97,
+    "handle_b": 0.03,
+    "bets_a": 0.54,
+    "bets_b": 0.46,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -1722,6 +1884,11 @@
      "t": "2026-11-09T17:40Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "edge_a": -0.003,
@@ -1760,7 +1927,7 @@
    "record_b": "18-9-0",
    "experts": {
     "picks_a": 2,
-    "picks_b": 2,
+    "picks_b": 4,
     "high_a": 0,
     "high_b": 1,
     "url": null,
@@ -1802,15 +1969,33 @@
       "record": "197-119",
       "units": -24.75,
       "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "190-129",
+      "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.17,
-    "handle_b": 0.83,
+    "handle_a": 0.76,
+    "handle_b": 0.24,
     "bets_a": 0.33,
     "bets_b": 0.67,
-    "at": "2026-11-09T04:05Z"
+    "at": "2026-11-09T23:23Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -1947,6 +2132,11 @@
      "t": "2026-11-09T17:40Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "edge_a": 0.005,
@@ -1984,9 +2174,9 @@
    "record_a": "9-0-0",
    "record_b": "7-3-0",
    "experts": {
-    "picks_a": 1,
+    "picks_a": 3,
     "picks_b": 3,
-    "high_a": 1,
+    "high_a": 2,
     "high_b": 0,
     "url": null,
     "win_a": 0,
@@ -1999,6 +2189,15 @@
       "method": null,
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "190-129",
+      "units": -26.13,
       "winning": false
      },
      {
@@ -2027,20 +2226,29 @@
       "record": "200-111",
       "units": -4.25,
       "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.97,
-    "handle_b": 0.03,
+    "handle_a": 0.96,
+    "handle_b": 0.04,
     "bets_a": 0.67,
     "bets_b": 0.33,
-    "at": "2026-11-09T04:05Z"
+    "at": "2026-11-09T23:23Z"
    },
    "why": [
-    "Our chance 67% vs the line's 63% (4 points of value)",
+    "Our chance 65% vs the line's 61% (4 points of value)",
     "Rated 84 points higher",
-    "Bigger bettors on him: 97% of DraftKings money from 67% of bets"
+    "Bigger bettors on him: 96% of DraftKings money from 67% of bets"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -2054,16 +2262,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.755,
-   "p_a": 0.674,
+   "p_a": 0.654,
    "model_pick": "Donte Johnson",
    "tier": "Medium",
-   "fair_odds_a": -207,
-   "fair_odds_b": 207,
-   "market_p_a": 0.631,
-   "odds_a": -192.0,
-   "odds_b": 160.0,
-   "best_a": -192.0,
-   "best_b": 160.0,
+   "fair_odds_a": -189,
+   "fair_odds_b": 189,
+   "market_p_a": 0.609,
+   "odds_a": -175.0,
+   "odds_b": 145.0,
+   "best_a": -175.0,
+   "best_b": 145.0,
    "open_a": -170.0,
    "open_b": 142.0,
    "books": 1.0,
@@ -2072,8 +2280,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -192.0,
-     "b": 160.0
+     "a": -175.0,
+     "b": 145.0
     }
    ],
    "line_history": [
@@ -2176,9 +2384,14 @@
      "t": "2026-11-09T17:40Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": -175.0,
+     "b": 145.0
     }
    ],
-   "edge_a": 0.043,
+   "edge_a": 0.045,
    "pick": "Donte Johnson",
    "our_pick": "Donte Johnson",
    "stake": 1.5,
@@ -2186,20 +2399,20 @@
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.459,
-    "KO": 0.317,
-    "SUB": 0.223
+    "DEC": 0.462,
+    "KO": 0.318,
+    "SUB": 0.22
    },
    "how": {
     "a": {
-     "DEC": 0.281,
-     "KO": 0.205,
-     "SUB": 0.188
+     "DEC": 0.273,
+     "KO": 0.199,
+     "SUB": 0.183
     },
     "b": {
-     "DEC": 0.178,
-     "KO": 0.112,
-     "SUB": 0.035
+     "DEC": 0.19,
+     "KO": 0.119,
+     "SUB": 0.037
     }
    }
   },
@@ -2214,9 +2427,9 @@
    "record_b": "26-8-0",
    "experts": {
     "picks_a": 0,
-    "picks_b": 4,
+    "picks_b": 6,
     "high_a": 0,
-    "high_b": 2,
+    "high_b": 4,
     "url": null,
     "win_a": 0,
     "win_b": 0,
@@ -2231,12 +2444,30 @@
       "winning": false
      },
      {
+      "name": "Slayers Picks",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "190-129",
+      "units": -26.13,
       "winning": false
      },
      {
@@ -2260,11 +2491,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.11,
-    "handle_b": 0.89,
-    "bets_a": 0.33,
-    "bets_b": 0.67,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.85,
+    "handle_b": 0.15,
+    "bets_a": 0.15,
+    "bets_b": 0.85,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -2401,6 +2632,11 @@
      "t": "2026-11-09T17:40Z",
      "a": 295.0,
      "b": -375.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": 295.0,
+     "b": -375.0
     }
    ],
    "edge_a": -0.015,
@@ -2439,7 +2675,7 @@
    "record_b": "8-0-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 3,
+    "picks_b": 5,
     "high_a": 0,
     "high_b": 0,
     "url": null,
@@ -2474,6 +2710,15 @@
       "winning": false
      },
      {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "190-129",
+      "units": -26.13,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "a",
       "conf": "Low",
@@ -2481,15 +2726,24 @@
       "record": "192-127",
       "units": -10.22,
       "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.85,
-    "handle_b": 0.15,
-    "bets_a": 0.75,
-    "bets_b": 0.25,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.69,
+    "handle_b": 0.31,
+    "bets_a": 0.21,
+    "bets_b": 0.79,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -2504,16 +2758,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.331,
-   "p_a": 0.325,
+   "p_a": 0.315,
    "model_pick": "Bia Mesquita",
    "tier": "Medium",
-   "fair_odds_a": 207,
-   "fair_odds_b": -207,
-   "market_p_a": 0.325,
-   "odds_a": 195.0,
-   "odds_b": -238.0,
-   "best_a": 195.0,
-   "best_b": -238.0,
+   "fair_odds_a": 217,
+   "fair_odds_b": -217,
+   "market_p_a": 0.315,
+   "odds_a": 205.0,
+   "odds_b": -250.0,
+   "best_a": 205.0,
+   "best_b": -250.0,
    "open_a": 180.0,
    "open_b": -218.0,
    "books": 1.0,
@@ -2522,8 +2776,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 195.0,
-     "b": -238.0
+     "a": 205.0,
+     "b": -250.0
     }
    ],
    "line_history": [
@@ -2626,6 +2880,11 @@
      "t": "2026-11-09T17:40Z",
      "a": 195.0,
      "b": -238.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": 205.0,
+     "b": -250.0
     }
    ],
    "edge_a": 0.0,
@@ -2636,20 +2895,20 @@
    "check_news": false,
    "moved_against": false,
    "method": {
-    "DEC": 0.43,
-    "KO": 0.18,
-    "SUB": 0.39
+    "DEC": 0.427,
+    "KO": 0.178,
+    "SUB": 0.395
    },
    "how": {
     "a": {
-     "DEC": 0.203,
-     "KO": 0.1,
-     "SUB": 0.022
+     "DEC": 0.196,
+     "KO": 0.097,
+     "SUB": 0.021
     },
     "b": {
-     "DEC": 0.227,
-     "KO": 0.08,
-     "SUB": 0.368
+     "DEC": 0.23,
+     "KO": 0.081,
+     "SUB": 0.374
     }
    }
   },
@@ -2730,7 +2989,7 @@
    "record_b": "11-1-0",
    "experts": {
     "picks_a": 3,
-    "picks_b": 1,
+    "picks_b": 3,
     "high_a": 2,
     "high_b": 0,
     "url": null,
@@ -2772,20 +3031,37 @@
       "record": "197-119",
       "units": -24.75,
       "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "190-129",
+      "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "Slayers Picks",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "200-110",
+      "units": -13.58,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.03,
-    "handle_b": 0.97,
-    "bets_a": 0.25,
-    "bets_b": 0.75,
-    "at": "2026-11-09T04:05Z"
+    "handle_a": 0.35,
+    "handle_b": 0.65,
+    "bets_a": 0.33,
+    "bets_b": 0.67,
+    "at": "2026-11-09T23:23Z"
    },
    "why": [
-    "Our chance 54% vs the line's 51% (3 points of value)",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
-    "Bigger bettors on him: 97% of DraftKings money from 75% of bets"
+    "Our chance 55% vs the line's 52% (3 points of value)",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
    ],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2799,16 +3075,16 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.534,
-   "p_a": 0.457,
+   "p_a": 0.447,
    "model_pick": "Samuel Sanches",
    "tier": "Low",
-   "fair_odds_a": 119,
-   "fair_odds_b": -119,
-   "market_p_a": 0.489,
-   "odds_a": -105.0,
-   "odds_b": -115.0,
-   "best_a": -105.0,
-   "best_b": -115.0,
+   "fair_odds_a": 124,
+   "fair_odds_b": -124,
+   "market_p_a": 0.478,
+   "odds_a": 100.0,
+   "odds_b": -120.0,
+   "best_a": 100.0,
+   "best_b": -120.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -2817,8 +3093,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -105.0,
-     "b": -115.0
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "line_history": [
@@ -2921,6 +3197,11 @@
      "t": "2026-11-09T17:40Z",
      "a": -105.0,
      "b": -115.0
+    },
+    {
+     "t": "2026-11-09T23:23Z",
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "edge_a": -0.032,
@@ -2932,19 +3213,19 @@
    "moved_against": false,
    "method": {
     "DEC": 0.516,
-    "KO": 0.308,
-    "SUB": 0.176
+    "KO": 0.31,
+    "SUB": 0.175
    },
    "how": {
     "a": {
-     "DEC": 0.255,
-     "KO": 0.104,
-     "SUB": 0.099
+     "DEC": 0.249,
+     "KO": 0.101,
+     "SUB": 0.096
     },
     "b": {
-     "DEC": 0.261,
-     "KO": 0.204,
-     "SUB": 0.077
+     "DEC": 0.266,
+     "KO": 0.208,
+     "SUB": 0.079
     }
    }
   }
