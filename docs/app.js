@@ -300,19 +300,30 @@ function worthIt(mr) {
 // return per bet next to the usual benchmarks for professional bettors
 function roiBench(s, v, from) {
   const ours = s.our_roi_pct, fav = v && v.fights ? Math.round(1000 * v.line_units / v.fights) / 10 : null;
-  const st = s.our_risked ? Math.round(1000 * s.our_staked_units / s.our_risked) / 10 : null;   // return on units risked at the suggested stakes
   const sg = x => (x > 0 ? "+" : "") + x + "%";
   const max = 12, X = x => Math.max(0, Math.min(100, (x + 3) / (max + 3) * 100));
   return `<section class="roi">
-    <div class="roi-h"><b>Return per bet: <span class="won">${sg(ours)}</span> flat${st != null ? `, <span class="won">${sg(st)}</span> at our suggested stakes` : ""}</b>
-      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from}, at the average sportsbook's closing price, flat 1 unit and at the suggested stakes (1.5u, 1u or 0.5u by price):</p></div>
+    <div class="roi-h"><b>Return per bet: <span class="won">${sg(ours)}</span>, flat 1 unit</b>
+      <p>Experienced bettors typically aim for 3-7% per bet over the long run, and anything above 10% is rare and hard to keep up. Winning 55% of bets at standard -110 odds, a mark of a sharp bettor, works out to about +5%. Betting every favorite loses ${fav != null ? Math.abs(fav) + "%" : "money"}. Our picks since ${from}, flat 1 unit at the average sportsbook's closing price:</p></div>
     <div class="roi-rows">
-      ${[["Every favorite", fav, null, "neg"], ["Our picks, flat 1u", ours, null, "us"], st != null ? ["Our picks, suggested stakes", st, null, "st"] : null,
+      ${[["Every favorite", fav, null, "neg"], ["Our picks, flat 1u", ours, null, "us"],
         ["Experienced bettors' target", 3, 7, "band"], ["Sharp bettor (55% at -110)", 5, null, "band1"]].filter(r => r && r[1] != null).map(([lab, lo, hi, k]) => {
         const left = hi != null ? X(lo) : Math.min(X(0), X(lo)), w = hi != null ? X(hi) - X(lo) : Math.abs(X(lo) - X(0));
         return `<div class="rr ${k}"><span class="rr-l">${lab}</span><span class="rr-t"><i class="z" style="left:${X(0)}%"></i><i class="b" style="left:${left}%;width:${Math.max(w, 1)}%"></i></span>
           <b class="rr-v">${hi != null ? `${lo}-${hi}%` : sg(lo)}</b></div>`; }).join("")}
     </div></section>`;
+}
+// the headline comparison: our picks vs. betting every favorite, flat 1 unit at the same closing prices
+function favCompare(s, v, from) {
+  if (!s || !v || v.line_units == null) return "";
+  const a = s.our_units, b = v.line_units, m = Math.max(Math.abs(a), Math.abs(b)) || 1, w = x => Math.max(2, Math.round(100 * Math.abs(x) / m));
+  return `<section class="favcmp"><h2>${kick("Since " + from, "gold")}Our picks vs. betting every favorite</h2>
+    <p>Flat 1 unit a bet at the average sportsbook's closing price, on every UFC card since ${from}.</p>
+    <div class="fc-rows">
+      <div class="fc-r fc-us"><span class="fc-l">Our picks<small>${s.our_won}-${s.our_bets - s.our_won}, ${s.our_bets.toLocaleString()} picks</small></span><span class="fc-t"><i style="width:${w(a)}%"></i></span><b class="${a >= 0 ? "won" : "lost"}">${units(a)}</b></div>
+      <div class="fc-r fc-fav"><span class="fc-l">Every favorite<small>${v.fights.toLocaleString()} fights</small></span><span class="fc-t"><i style="width:${w(b)}%"></i></span><b class="${b >= 0 ? "won" : "lost"}">${units(b)}</b></div>
+    </div>
+    <p class="note">The favorite wins most fights, but the price eats the profit. We only bet when the line is off.</p></section>`;
 }
 async function viewPricing() {
   const [mr] = await Promise.all([get("model_record.json")]);
@@ -341,6 +352,7 @@ async function viewPricing() {
       ${v ? `<div><b class="lost">${units(v.line_units)}</b><span>betting every favorite instead</span></div>` : ""}
       <div><b class="won">+${s.our_roi_pct}%</b><span>return per bet, flat 1u</span></div>
       ${v && v.disagree ? `<div><b>${v.disagree_model_right}-${v.disagree - v.disagree_model_right}</b><span>when we disagree with the line (${(100 * v.disagree_model_right / v.disagree).toFixed(1)}% vs ${v.disagree_line_expected}% expected)</span></div>` : ""}</div>` : ""}
+    ${favCompare(s, v, mr.from || 2020)}
     ${s && s.our_roi_pct != null ? roiBench(s, v, mr.from || 2020) : ""}
     <div class="plans">${cards.map(card).join("")}</div>
     <h2>${kick("Compare", "gold")}What's included</h2>

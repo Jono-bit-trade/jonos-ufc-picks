@@ -1691,3 +1691,23 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .stage-note .stage { margin-right: 8px; }
 .ticket .stage.early { color: var(--night); border-color: var(--night); }
 .ticket .stage.final { color: var(--gold); background: var(--night); border-color: var(--night); }
+/* pricing: our picks vs. every favorite */
+.favcmp { margin: 28px 0; padding: 22px 24px; border: 1px solid var(--rule); border-radius: 12px; background: color-mix(in srgb, var(--paper) 4%, transparent); }
+.favcmp h2 { margin: 0 0 6px; }
+.favcmp > p { margin: 0 0 16px; color: var(--quiet); }
+.fc-rows { display: grid; gap: 12px; }
+.fc-r { display: grid; grid-template-columns: 170px 1fr 90px; align-items: center; gap: 14px; }
+.fc-l { font-weight: 700; display: flex; flex-direction: column; }
+.fc-l small { font-weight: 500; color: var(--quiet); font-size: 12px; }
+.fc-t { height: 18px; background: color-mix(in srgb, var(--rule) 60%, transparent); border-radius: 4px; overflow: hidden; }
+.fc-t i { display: block; height: 100%; border-radius: 4px; }
+.fc-r.fc-us .fc-t i { background: var(--green); }
+.fc-r.fc-fav .fc-t i { background: var(--red); }
+.fc-r b { font-size: 24px; text-align: right; font-variant-numeric: tabular-nums; }
+.favcmp .note { margin: 14px 0 0; }
+@media (max-width: 560px) {
+  .favcmp { padding: 18px 16px; }
+  .fc-r { grid-template-columns: 1fr auto; gap: 6px 12px; }
+  .fc-t { grid-column: 1 / -1; grid-row: 2; }
+  .fc-r b { font-size: 20px; }
+}
