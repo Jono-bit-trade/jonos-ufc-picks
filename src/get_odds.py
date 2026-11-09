@@ -10,7 +10,7 @@ how each line moved from its opening, and picks can be graded against the close.
 
 Run:  python src/get_odds.py
 """
-import os, unicodedata, datetime as dt
+import os, json, unicodedata, datetime as dt
 import requests
 import pandas as pd
 from common import path, api_key
@@ -49,19 +49,26 @@ def parse(events):
     for ev in events:
         a, b = ev["home_team"], ev["away_team"]
         prices = {a: [], b: []}
+        per_book = []   # [book, price a, price b] in American odds, for line shopping
         for bk in ev.get("bookmakers", []):
             for m in bk.get("markets", []):
                 if m.get("key") == "h2h":
+                    got = {o.get("name"): o.get("price") for o in m.get("outcomes", [])}
                     for o in m.get("outcomes", []):
                         if o.get("name") in prices:
                             prices[o["name"]].append(o["price"])
+                    if got.get(a) and got.get(b):
+                        per_book.append([bk.get("title") or bk.get("key"), to_american(got[a]), to_american(got[b])])
         if not prices[a] or not prices[b]:
             continue
+        best = lambda i: ", ".join(x[0] for x in per_book if x[i] == max(y[i] for y in per_book)) if per_book else None
         rows.append({"commence": ev["commence_time"], "a": a, "b": b,
                      "odds_a": to_american(pd.Series(prices[a]).mean()),
                      "odds_b": to_american(pd.Series(prices[b]).mean()),
                      "best_a": to_american(max(prices[a])), "best_b": to_american(max(prices[b])),
-                     "books": min(len(prices[a]), len(prices[b])), "source": "odds-api"})
+                     "books": min(len(prices[a]), len(prices[b])), "source": "odds-api",
+                     "best_book_a": best(1), "best_book_b": best(2),
+                     "book_prices": json.dumps(sorted(per_book, key=lambda x: str(x[0]).lower()))})
     return pd.DataFrame(rows)
 
 
@@ -106,6 +113,9 @@ def espn_lines():
     df = pd.DataFrame({"commence": c["start"], "a": c["a"], "b": c["b"], "odds_a": c["espn_odds_a"],
                        "odds_b": c["espn_odds_b"], "best_a": c["espn_odds_a"], "best_b": c["espn_odds_b"],
                        "books": 1, "source": "espn"})
+    book = c["espn_book"].fillna("ESPN") if "espn_book" in c else pd.Series("ESPN", index=c.index)
+    df["best_book_a"] = df["best_book_b"] = book.values
+    df["book_prices"] = [json.dumps([[bk, a, b]]) for bk, a, b in zip(book, c["espn_odds_a"], c["espn_odds_b"])]
     return df
 
 
@@ -143,11 +153,18 @@ def attach(card, odds):
     matching names in either order."""
     card = card.copy()
     lut = {}
+    def flip(bp):   # the per-book prices with the corners swapped
+        try:
+            return json.dumps([[k, y, x] for k, x, y in json.loads(bp)])
+        except (TypeError, ValueError):
+            return None
     for o in odds.itertuples():
-        lut[(norm(o.a), norm(o.b))] = (o.odds_a, o.odds_b, o.best_a, o.best_b, o.books, o.source)
-        lut[(norm(o.b), norm(o.a))] = (o.odds_b, o.odds_a, o.best_b, o.best_a, o.books, o.source)
-    cols = ["odds_a", "odds_b", "best_a", "best_b", "books", "odds_source"]
-    got = [lut.get((norm(a), norm(b)), (None,) * 6) for a, b in zip(card["a"], card["b"])]
+        bp, ba, bb = getattr(o, "book_prices", None), getattr(o, "best_book_a", None), getattr(o, "best_book_b", None)
+        bp = bp if isinstance(bp, str) else None
+        lut[(norm(o.a), norm(o.b))] = (o.odds_a, o.odds_b, o.best_a, o.best_b, o.books, o.source, ba, bb, bp)
+        lut[(norm(o.b), norm(o.a))] = (o.odds_b, o.odds_a, o.best_b, o.best_a, o.books, o.source, bb, ba, flip(bp))
+    cols = ["odds_a", "odds_b", "best_a", "best_b", "books", "odds_source", "best_book_a", "best_book_b", "book_prices"]
+    got = [lut.get((norm(a), norm(b)), (None,) * 9) for a, b in zip(card["a"], card["b"])]
     card[cols] = pd.DataFrame(got, index=card.index, columns=cols)
     mv = movement()
     opens, hist = [], []

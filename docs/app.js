@@ -163,6 +163,19 @@ function expertBar(e, a, b, winner) {
   </div>`;
 }
 
+// line shopping: which sportsbook has the best price on a side ("" with one book)
+const bestAt = (f, side) => { const bp = f.book_prices || [], k = side === "a" ? f.best_book_a : f.best_book_b;
+  return bp.length > 1 && k ? ` at ${esc(k.split(", ")[0])}` : ""; };
+function bookPanel(f, pickSide) {
+  const bp = (f.book_prices || []).filter(x => x.a != null && x.b != null);
+  if (bp.length < 2) return "";
+  const ba = Math.max(...bp.map(x => pay(x.a))), bb = Math.max(...bp.map(x => pay(x.b)));
+  const last = n => esc(String(n).split(" ").at(-1));
+  return `<section class="books"><h3>Line shopping<span>${bp.length} sportsbooks · best price in green</span></h3>
+    <div class="tablewrap"><table class="bk-t"><thead><tr><th>Sportsbook</th><th class="n${pickSide === "a" ? " ours" : ""}">${last(f.a)}</th><th class="n${pickSide === "b" ? " ours" : ""}">${last(f.b)}</th></tr></thead><tbody>
+    ${bp.map(x => `<tr><td>${esc(x.book)}</td><td class="n${pay(x.a) === ba ? " best" : ""}">${odds(x.a)}</td><td class="n${pay(x.b) === bb ? " best" : ""}">${odds(x.b)}</td></tr>`).join("")}</tbody></table></div>
+    ${f.odds_a != null ? `<p class="small">The line we compare against is the average of these, ${odds(f.odds_a)} / ${odds(f.odds_b)}. Getting the best price is extra return the record doesn't count.</p>` : ""}</section>`;
+}
 function bout(f, i, edge) {
   const pa = f.p_a, line = f.market_p_a, m = f.method || {};
   const tag = (debut, rating, rec) => `<span class="nw">${debut ? "UFC debut" : "EDGE " + rating}</span>` + (rec ? ` · <span class="nw">${esc(rec)}</span>` : "");
@@ -171,7 +184,7 @@ function bout(f, i, edge) {
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
   if (f.locked || f.hidden) pickHtml = lockedPick(f);
   else if (f.our_pick) pickHtml = stageTag(f) + `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${
-    bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}</span>` : ""}${leanTag}`
+    bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick value">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
@@ -184,7 +197,9 @@ function bout(f, i, edge) {
   const moved = f.open_a != null && f.odds_a != null && (f.open_a !== f.odds_a)
     ? `Opened ${odds(f.open_a)} / ${odds(f.open_b)}, now ${odds(f.odds_a)} / ${odds(f.odds_b)}`
     : f.odds_a != null ? `Line ${odds(f.odds_a)} / ${odds(f.odds_b)}` : "";
-  const books = f.books ? `${f.books} book${f.books > 1 ? "s" : ""}, best ${odds(f.best_a)} / ${odds(f.best_b)}` : "";
+  const nb = (f.book_prices || []).length || f.books || 0;
+  const books = nb > 1 ? `${nb} books, best ${odds(f.best_a)}${bestAt(f, "a")} / ${odds(f.best_b)}${bestAt(f, "b")}`
+    : nb === 1 && f.book_prices && f.book_prices[0] ? `Line from ${esc(f.book_prices[0].book)}` : f.books ? "1 book" : "";
   const pa100 = Math.round(pa * 100);
   // ring: did our pick (or, without one, the model's pick) win?
   const w = f.state === "post" && f.result ? f.result.winner : null;
@@ -484,6 +499,7 @@ async function viewFight(x, y) {
         ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
         ${expertBar(F.experts, F.a, F.b, null)}
         ${F.hist ? lineChart(F.hist, F.f) : ""}
+        ${F.f && !F.f.hidden ? bookPanel(F.f, F.ours === F.a ? "a" : F.ours === F.b ? "b" : null) : ""}
       </section>
     </div>
     <h2>${kick("Recent form", "gold")}Last 5 fights</h2>
@@ -673,7 +689,7 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       ${done || f.state === "in" ? "" : stageTag(f)}
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
-      ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}</span>` : ""}
+      ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}
       ${(() => { const isA = f.our_pick === f.a, ln = f.market_p_a == null ? null : isA ? f.market_p_a : 1 - f.market_p_a, us = f.p_a == null ? null : isA ? f.p_a : 1 - f.p_a;
         return ln != null && us != null && us > ln ? `<span class="tk-val">The line says <b>${Math.round(100 * ln)}%</b>. We say <b>${Math.round(100 * us)}%</b>.</span>`
           : f.expert_lean === f.our_pick ? `<span class="tk-val">Close fight; most of the tracked analysts agree on this side.</span>` : ""; })()}

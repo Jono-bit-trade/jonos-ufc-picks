@@ -1820,3 +1820,12 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .bout.tap:hover { border-color: #e2bf55 !important; }
 .bout.tap:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .crow > .bout.tap { cursor: pointer; }
+/* fight page: every sportsbook's price */
+.books { margin-top: 16px; }
+.books h3 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin: 0 0 8px; font: 800 18px var(--display); text-transform: uppercase; }
+.books h3 span { font: 500 13px "Barlow", sans-serif; text-transform: none; color: var(--quiet); }
+.bk-t { width: 100%; border-collapse: collapse; font-size: 14px; }
+.bk-t th, .bk-t td { padding: 7px 10px; border-bottom: 1px solid var(--rule); text-align: left; }
+.bk-t .n { text-align: right; font-variant-numeric: tabular-nums; }
+.bk-t th.ours { color: var(--gold); }
+.bk-t td.best { color: var(--green); font-weight: 800; }

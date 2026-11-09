@@ -407,6 +407,7 @@ def load_card(fights):
                 card[f"{col}_{s}"] = np.nan
     card = attach(card, odds) if not odds.empty else card.assign(odds_a=np.nan, odds_b=np.nan, best_a=np.nan,
                                                                   best_b=np.nan, books=np.nan, odds_source=None,
+                                                                  best_book_a=None, best_book_b=None, book_prices=None,
                                                                   open_a=np.nan, open_b=np.nan,
                                                                   line_history=[[]] * len(card))
     if "bout_order" not in card:
@@ -523,8 +524,8 @@ def main():
     meth = MethodModel().fit(hist).predict(up)
 
     card = card.set_index("fight_id")
-    for c in ["odds_a", "odds_b", "best_a", "best_b", "open_a", "open_b", "books"]:
-        up[c] = card[c].reindex(up.index)
+    for c in ["odds_a", "odds_b", "best_a", "best_b", "open_a", "open_b", "books", "best_book_a", "best_book_b", "book_prices"]:
+        up[c] = card[c].reindex(up.index) if c in card else None
     up["fair_a"] = no_vig(up["odds_a"], up["odds_b"])
     has = up["fair_a"].notna()
     up["p_final"] = up["p_model"]
@@ -631,6 +632,10 @@ def main():
             "market_p_a": num(f["fair_a"]), "odds_a": num(f["odds_a"], 0), "odds_b": num(f["odds_b"], 0),
             "best_a": num(f["best_a"], 0), "best_b": num(f["best_b"], 0),
             "open_a": num(f["open_a"], 0), "open_b": num(f["open_b"], 0), "books": num(f["books"], 0),
+            "best_book_a": f["best_book_a"] if isinstance(f.get("best_book_a"), str) else None,
+            "best_book_b": f["best_book_b"] if isinstance(f.get("best_book_b"), str) else None,
+            "book_prices": [{"book": k, "a": num(x, 0), "b": num(y, 0)} for k, x, y in json.loads(f["book_prices"])]
+                           if isinstance(f.get("book_prices"), str) else [],
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
             "edge_a": edge, "pick": pick, "our_pick": our_pick,
             "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"]) if our_pick else None,
