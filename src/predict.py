@@ -352,7 +352,8 @@ def why(f, ex, sp, pick):
     pf, fair = f.get("p_final"), f.get("fair_a")
     if pf == pf and fair == fair and pf is not None and fair is not None:
         mine, line = (pf, fair) if on_a else (1 - pf, 1 - fair)
-        m_, l_ = round(100 * mine), round(100 * line)
+        r = lambda x: int(np.floor(100 * round(float(x), 3) + 0.5))   # as the site shows it: 3 decimals, then half up
+        m_, l_ = r(mine), r(line)
         out.append(f"Our chance {m_}% vs the line's {l_}%" + (f" ({m_ - l_} points of value)" if m_ - l_ >= 1 else ""))
     if isinstance(f.get("expert_lean"), str) and f["expert_lean"] == pick and ex:
         k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]

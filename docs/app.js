@@ -77,12 +77,13 @@ function lineChart(hist, f) {
   const d = pts.map((x, i) => (i ? "L" : "M") + X(x.t).toFixed(1) + " " + Y(x.p).toFixed(1)).join("");
   const area = d + ` L${X(pts.at(-1).t).toFixed(1)} ${Y(lo).toFixed(1)} L${X(t0).toFixed(1)} ${Y(lo).toFixed(1)} Z`;
   const first = pts[0], last = pts.at(-1), day = t => new Date(t).toLocaleDateString(undefined, {month: "short", day: "numeric"});
+  const tm = t => new Date(t).toLocaleString(undefined, {month: "short", day: "numeric", hour: "numeric"});
   const toward = last.p > first.p ? f.a : last.p < first.p ? f.b : null;
   return `<figure class="lchart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(f.a)}'s chance by the line moved from ${pct(first.p)} to ${pct(last.p)}">
       <line x1="${P.l}" x2="${W - P.r}" y1="${Y(0.5)}" y2="${Y(0.5)}" class="mid"/>
       <path d="${area}" class="area"/><path d="${d}" class="ln"/>
       <circle cx="${X(first.t)}" cy="${Y(first.p)}" r="3.5" class="dot"/><circle cx="${X(last.t)}" cy="${Y(last.p)}" r="4.5" class="dot now"/>
-      <text x="${P.l}" y="${H - 4}">${first.open ? "Open" : day(first.t)}</text><text x="${W - P.r}" y="${H - 4}" text-anchor="end">${day(last.t)}</text>
+      <text x="${P.l}" y="${H - 4}">${first.open ? "Open" : day(first.t) === day(last.t) ? tm(first.t) : day(first.t)}</text><text x="${W - P.r}" y="${H - 4}" text-anchor="end">${!f.state || f.state === "pre" ? "Now" : day(last.t)}</text>
     </svg><figcaption><span>Line for ${esc(f.a.split(" ").at(-1))}: <b>${odds(first.a)}</b> → <b>${odds(last.a)}</b> (${pct(first.p)} → ${pct(last.p)})</span>${
       toward ? `<span class="mv">Moving toward ${esc(toward.split(" ").at(-1))}${f.our_pick ? (toward === f.our_pick ? " · with our pick" : " · against our pick") : ""}</span>` : `<span class="mv">No movement</span>`}</figcaption></figure>`;
 }
@@ -178,19 +179,34 @@ function expertBar(e, a, b, winner) {
 const bestAt = (f, side) => { const bp = f.book_prices || [], k = side === "a" ? f.best_book_a : f.best_book_b;
   return bp.length > 1 && k ? ` at ${esc(k.split(", ")[0])}` : ""; };
 // how it ends: who wins and by what, from the method model (context, not a pick)
-function howEnds(f) {
+function howEnds(f, inPanel) {
   const h = f && f.how; if (!h || !h.a || !h.b) return "";
   const last = n => esc(String(n).split(" ").at(-1)), P = x => Math.round(100 * x);
   const rows = [["KO", "KO/TKO"], ["SUB", "Submission"], ["DEC", "Decision"]];
   let best = null;
   for (const [k] of rows) for (const sd of ["a", "b"]) if (!best || h[sd][k] > best.p) best = {sd, k, p: h[sd][k]};
   const lab = {KO: "KO/TKO", SUB: "submission", DEC: "decision"};
-  return `<section class="howend"><h2>${kick("How it ends", "gold")}How it ends</h2>
+  return `<section class="howend${inPanel ? " in" : ""}">${inPanel ? "<h3>How it ends</h3>" : `<h2>${kick("How it ends", "gold")}How it ends</h2>`}
     <p class="note">Who wins and how, from each fighter's finishing and durability record. Shown for context: we don't make method picks.</p>
     <div class="he-rows">${rows.map(([k, nm]) => { const a = h.a[k], b = h.b[k];
       return `<div class="he-r"><span class="he-l">${nm}</span><span class="he-t"><i class="ha" style="width:${100 * a}%"></i><i class="hb" style="width:${100 * b}%"></i></span><b>${P(a + b)}%</b>
         <span class="he-s"><em class="ha">${last(f.a)} ${P(a)}%</em><em class="hb">${last(f.b)} ${P(b)}%</em></span></div>`; }).join("")}</div>
     <p class="he-best">Most likely: <b>${esc(best.sd === "a" ? f.a : f.b)} by ${lab[best.k]}</b> (${P(best.p)}%)</p></section>`;
+}
+function marketSummary(F) {
+  const f = F.f || {}, last = n => esc(String(n).split(" ").at(-1)), chips = [];
+  const chip = (txt, side) => chips.push(`<span class="mk-c${side && F.ours ? (side === F.ours ? " with" : " against") : ""}">${txt}</span>`);
+  const pts = withOpen(F.hist || [], f).map(h => fair(h.a, h.b)).filter(p => p != null);
+  if (pts.length > 1) { const d = pts.at(-1) - pts[0], side = Math.abs(d) < 0.005 ? null : d > 0 ? F.a : F.b;
+    chip(side ? `Line moving toward ${last(side)}` : "Line steady", side); }
+  const sp = f.splits;
+  if (sp && !f.hidden && sp.handle_a != null) { const gap = sp.handle_a - sp.bets_a;
+    if (Math.abs(gap) >= 0.2) { const side = gap > 0 ? F.a : F.b; chip(`Bigger bettors on ${last(side)}`, side); }
+    else { const side = sp.handle_a >= 0.5 ? F.a : F.b; chip(`Most money on ${last(side)}`, side); } }
+  const e = F.experts;
+  if (e && e.picks_a + e.picks_b) { const side = e.picks_a === e.picks_b ? null : e.picks_a > e.picks_b ? F.a : F.b;
+    chip(side ? `Experts ${Math.max(e.picks_a, e.picks_b)}-${Math.min(e.picks_a, e.picks_b)} ${last(side)}` : "Experts split", side); }
+  return chips.length ? `<div class="mk-sum">${chips.join("")}</div>` : "";
 }
 function bookPanel(f, pickSide) {
   const bp = (f.book_prices || []).filter(x => x.a != null && x.b != null);
@@ -516,23 +532,26 @@ async function viewFight(x, y) {
     <section class="fx-face"><div class="lc-face">${corner("a")}<span class="lc-vs">VS</span>${corner("b")}</div>
       ${F.p != null ? `<div class="lc-bar"><i class="a" style="width:${Math.round(100 * F.p)}%"></i><i class="b"></i>${F.line != null ? `<em style="left:${Math.round(100 * F.line)}%" title="Betting line"></em>` : ""}</div>
       <p class="fx-legend">Big numbers: our chance. White tick: the betting line${F.line != null ? ` (${pct(F.line)} / ${(100 - Math.round(100 * F.line)) + "%"})` : ""}.</p>` : F.f && F.f.hidden ? `<p class="fx-legend">Big numbers: the betting line's chance. <a href="#/pricing">Members</a> see ours.</p>` : ""}</section>
+    <section class="fx-callbar">
+      <div class="fx-cb-l"><h2>Our call</h2>${F.winner && (F.ours || (F.value && !F.passed)) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}</div>
+      <div class="fx-cb-r">${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
+        ${F.f && F.f.take ? takeHtml(F.f.take) : ""}
+        ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}</div>
+    </section>
     <div class="fx-grid">
       <section class="fx-panel"><h2>${kick("Styles", "gold")}Head to head</h2>
-        ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + "" : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}</section>
-      <section class="fx-panel"><h2>${kick(METHOD, "gold")}Our call</h2>${F.winner && (F.ours || (F.value && !F.passed)) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
-        ${F.f && F.f.take ? takeHtml(F.f.take) : ""}
-        ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
-        ${expertBar(F.experts, F.a, F.b, null)}
+        ${A && A.radar || B && B.radar ? radarDual(A && A.radar, B && B.radar, {name: F.a}, {name: F.b}) + "" : `<p class="note">Style profiles appear once both fighters have three UFC fights with stats.</p>`}
+        ${F.f && !F.f.hidden ? howEnds(F.f, true) : ""}</section>
+      ${(() => { const body = `${expertBar(F.experts, F.a, F.b, null)}
         ${F.f && !F.f.hidden ? splitBar(F.f.splits, F.a, F.b) : ""}
         ${F.hist ? lineChart(F.hist, F.f) : ""}
-        ${F.f && !F.f.hidden ? bookPanel(F.f, F.ours === F.a ? "a" : F.ours === F.b ? "b" : null) : ""}
-      </section>
+        ${F.f && !F.f.hidden ? bookPanel(F.f, F.ours === F.a ? "a" : F.ours === F.b ? "b" : null) : ""}`;
+        return body.trim() ? `<section class="fx-panel fx-market"><h2>The market</h2>${marketSummary(F)}${body}</section>` : ""; })()}
     </div>
-    ${F.f && !F.f.hidden ? howEnds(F.f) : ""}
-    <h2>${kick("Recent form", "gold")}Last 5 fights</h2>
-    <div class="l5grid">${last5(A, F.a, "a")}${last5(B, F.b, "b")}</div>
-    <h2>${kick("Tale of the tape", "gold")}Side by side</h2>
-    <div class="fx-tape">${tape(A, B, F.rounds)}</div>
+    <section class="fx-panel fx-sec"><h2>${kick("Recent form", "gold")}Last 5 fights</h2>
+      <div class="l5grid">${last5(A, F.a, "a")}${last5(B, F.b, "b")}</div></section>
+    <section class="fx-panel fx-sec"><h2>${kick("Tale of the tape", "gold")}Side by side</h2>
+      <div class="fx-tape">${tape(A, B, F.rounds)}</div></section>
     <p class="fx-links"><a class="pill" href="#/compare?a=${esc(F.a_slug)}&b=${esc(F.b_slug)}&booked=1">Open in Who wins?</a><a class="pill" href="#/fighter/${esc(F.a_slug)}">${esc(F.a)}</a><a class="pill" href="#/fighter/${esc(F.b_slug)}">${esc(F.b)}</a></p>`;
 }
 
