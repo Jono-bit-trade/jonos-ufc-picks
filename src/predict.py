@@ -156,7 +156,7 @@ def model_pick(a, b, p_final, fair_a, lean=None):
 
 
 
-PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "moved_against")
+PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "moved_against", "posted")
 MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "how", "edge_a")   # our numbers: members only
 
 
@@ -603,6 +603,12 @@ def main():
         log = log.drop_duplicates("fight_id", keep="last")
         log.to_csv(logf, index=False)
 
+    # when each our pick first went up, and at what price (closing line value on the card)
+    posted = {}
+    if not log.empty and "our_pick_first_seen" in log:
+        for q in log.drop_duplicates("fight_id", keep="last").itertuples():
+            if isinstance(q.our_pick, str) and isinstance(q.our_pick_first_seen, str) and pd.notna(q.our_pick_first_odds):
+                posted[q.fight_id] = (q.our_pick, q.our_pick_first_seen, float(q.our_pick_first_odds))
     out = []
     for fid, f in up.iterrows():
         c = card.loc[fid]
@@ -647,6 +653,7 @@ def main():
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "moved_against": bool(f.get("moved_against")) if f.get("moved_against") == f.get("moved_against") else False,
+            "posted": {"at": posted[fid][1], "odds": num(posted[fid][2], 0)} if our_pick and fid in posted and posted[fid][0] == our_pick else None,
             "method": {k: round(float(how_a.loc[fid, k] + how_b.loc[fid, k]), 3) for k in how_a.columns},
             "how": {"a": {k: round(float(how_a.loc[fid, k]), 3) for k in how_a.columns},
                     "b": {k: round(float(how_b.loc[fid, k]), 3) for k in how_b.columns}},

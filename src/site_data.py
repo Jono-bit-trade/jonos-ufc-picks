@@ -31,7 +31,8 @@ def line_moves():
     averaged): fair chance for A at close minus at open, keyed date|a|b. Mostly 2023 on."""
     from get_odds import norm as wnorm
     try:
-        h = read("espn_odds_history.csv").dropna(subset=["open_a", "open_b", "close_a", "close_b"])
+        from common import pregame_books
+        h = pregame_books(read("espn_odds_history.csv")).dropna(subset=["open_a", "open_b", "close_a", "close_b"])
     except Exception:
         return {}
     h = h.assign(mv=no_vig(h["close_a"], h["close_b"]) - no_vig(h["open_a"], h["open_b"]))

@@ -72,45 +72,84 @@ def market_blend_walk(r):
     return pd.concat(out)
 
 
+def espn_lines():
+    """Opening and closing lines per fight from ESPN (the same books at both ends, averaged), keyed
+    date|a|b. The opening lines in fights.csv mix sources, which shows movement that never happened."""
+    from get_odds import norm as wnorm
+    try:
+        from common import pregame_books
+        h = pregame_books(pd.read_csv(path("espn_odds_history.csv"))).dropna(subset=["open_a", "open_b", "close_a", "close_b"])
+    except Exception:
+        return {}
+    ok = lambda x, y: (x.abs() >= 100) & (y.abs() >= 100) & ((x < 0) | (y < 0))
+    h = h[ok(h["open_a"], h["open_b"]) & ok(h["close_a"], h["close_b"])].copy()
+    h["fo"], h["fc"] = no_vig(h["open_a"], h["open_b"]), no_vig(h["close_a"], h["close_b"])
+    h["k"] = [f"{d}|{wnorm(a)}|{wnorm(b)}" for d, a, b in zip(h["date"], h["a"], h["b"])]
+    g = h.groupby("k").agg(fo=("fo", "mean"), fc=("fc", "mean"), oa=("open_a", "median"), ob=("open_b", "median"))
+    return g.to_dict("index")
+
+
 def early_line(r):
-    """The same blend fitted against the OPENING line, bets placed at opening odds.
-    Also: how often the line then moved toward the model's side (closing line value)."""
-    r = r.dropna(subset=["open_a", "open_b", "odds_a", "odds_b"]).copy()
-    if len(r) < 300:
-        return None
-    r["fair_open"] = no_vig(r["open_a"], r["open_b"])
-    r["fair_close"] = no_vig(r["odds_a"], r["odds_b"])
+    """The model's picks made at the OPENING line (ESPN, 2023 on), bets placed at opening odds,
+    and how often the line then moved toward the model's side (closing line value).
+    The blend is fitted on earlier fights only and applied to the opening line."""
+    from get_odds import norm as wnorm
+    lines = espn_lines()
+    r = r.dropna(subset=["odds_a", "odds_b"]).copy()
+    r["fair"] = no_vig(r["odds_a"], r["odds_b"])
     y = (r["winner"] == "a").astype(int)
-    out = []
-    for yr in range(BLEND_FROM, TEST_YEARS.stop):
-        tr, te = r["date"] < str(yr), r["date"].str.startswith(str(yr))
-        if te.sum() == 0 or tr.sum() < 200:
+    rows = []
+    for i, x in zip(r.index, r.itertuples()):
+        g = lines.get(f"{x.date}|{wnorm(x.a)}|{wnorm(x.b)}")
+        if g is not None:
+            rows.append((i, g["fo"], g["fc"], g["oa"], g["ob"]))
             continue
-        b = MarketBlend().fit(r.loc[tr, "fair_open"], r.loc[tr, "p"], y[tr])
-        d = r[te].copy()
+        g = lines.get(f"{x.date}|{wnorm(x.b)}|{wnorm(x.a)}")
+        if g is not None:
+            rows.append((i, 1 - g["fo"], 1 - g["fc"], g["ob"], g["oa"]))
+    if len(rows) < 300:
+        return None, None
+    e = pd.DataFrame(rows, columns=["i", "fair_open", "fair_close", "eo_a", "eo_b"]).set_index("i")
+    e = r.join(e, how="inner")
+    out = []
+    for yr in sorted(e["date"].str[:4].unique()):
+        tr = r["date"] < yr
+        if tr.sum() < 1000:
+            continue
+        b = MarketBlend().fit(r.loc[tr, "fair"], r.loc[tr, "p"], y[tr])
+        d = e[e["date"].str.startswith(yr)].copy()
         d["p_open_blend"] = b.predict(d["fair_open"], d["p"])
         out.append(d)
-    if not out:
-        return None
     s = pd.concat(out)
-    rows = []
-    for e in EDGES:
-        side_a = s["p_open_blend"] - s["fair_open"] > e
-        side_b = s["fair_open"] - s["p_open_blend"] > e
+    s = s[s["date"] >= "2023"]   # ESPN's book-by-book opening lines are nearly complete from 2023 on
+    moved = s["fair_close"] - s["fair_open"]
+    rows, summary = [], None
+    for ed in EDGES:
+        side_a = s["p_open_blend"] - s["fair_open"] > ed
+        side_b = s["fair_open"] - s["p_open_blend"] > ed
         picked = side_a | side_b
-        moved = s["fair_close"] - s["fair_open"]
         toward = ((side_a & (moved > 0.005)) | (side_b & (moved < -0.005)))[picked]
-        changed = (moved.abs() > 0.005)[picked]
-        at_open = bets(s.assign(odds_a=s["open_a"], odds_b=s["open_b"], p=s["p_open_blend"]), e)
-        at_close = bets(s.assign(p=s["p_open_blend"] + s["fair_close"] - s["fair_open"]), e)   # same picks graded at the close
-        rows.append({"edge": e, **{k + "_open": v for k, v in at_open.items()},
-                     "roi_close_%": at_close["roi_%"],
-                     "moved_toward_%": 100 * toward.sum() / max(changed.sum(), 1)})
+        away = ((side_a & (moved < -0.005)) | (side_b & (moved > 0.005)))[picked]
+        at_open = bets(s.assign(odds_a=s["eo_a"], odds_b=s["eo_b"], p=s["p_open_blend"], fair=s["fair_open"]), ed)
+        at_close = bets(s.assign(p=s["p_open_blend"] + s["fair_close"] - s["fair_open"], fair=s["fair_close"]), ed)   # same picks graded at the close
+        pct = 100 * toward.sum() / max(toward.sum() + away.sum(), 1)
+        rows.append({"edge": ed, **{k + "_open": v for k, v in at_open.items()},
+                     "roi_close_%": at_close["roi_%"], "moved_toward_%": pct})
+        if abs(ed - 0.03) < 1e-9:
+            yrs = s["date"].str[:4]
+            summary = {"from": int(yrs.min()), "to": int(yrs.max()), "fights": int(len(s)), "picks": int(picked.sum()),
+                       "toward": int(toward.sum()), "away": int(away.sum()), "flat": int(picked.sum() - toward.sum() - away.sum()),
+                       "pct": round(pct, 1), "units_open": round(float(at_open["units"]), 1),
+                       "units_close": round(float(at_close["units"]), 1),
+                       "by_year": [{"year": yv, "picks": int((picked & (yrs == yv)).sum()),
+                                    "pct": round(100 * toward[yrs[picked] == yv].sum() / max(toward[yrs[picked] == yv].sum() + away[yrs[picked] == yv].sum(), 1), 1)}
+                                   for yv in sorted(yrs.unique())]}
     t = pd.DataFrame(rows)
-    print(f"\nSTAGE 3: early line, {len(s)} fights with opening lines")
+    print(f"\nSTAGE 3: early line (ESPN opening lines), {len(s)} fights")
     print(t.round(2).to_string(index=False))
+    print(summary)
     s.to_csv(path("backtest_early.csv"), index=False)
-    return t
+    return t, summary
 
 
 def main():
@@ -167,7 +206,7 @@ def main():
               open(path("market_blend.json"), "w"))
     s.to_csv(path("backtest_blend.csv"), index=False)
     byyear = [{"year": yr, **bets(d, 0.03, "p_blend")} for yr, d in s.groupby(s["date"].str[:4])]
-    early = early_line(r)
+    early, early_moves = early_line(r)
     clean = lambda df: json.loads(df.round(4).to_json(orient="records"))
     json.dump({"run_at": dt.datetime.now().strftime("%Y-%m-%d"), "best": {"features": best[0], "learner": best[1]},
                "stage1": clean(res), "stage2": clean(pd.DataFrame([
@@ -176,7 +215,7 @@ def main():
                    {"probability": "Line + model blend", **score(s["p_blend"].values, y)}])),
                "roi": clean(roi), "by_year": clean(pd.DataFrame(byyear)),
                "years": f"{BLEND_FROM}-{TEST_YEARS.stop - 1}", "fights": int(len(s)),
-               "early": clean(early) if early is not None else None},
+               "early": clean(early) if early is not None else None, "early_moves": early_moves},
               open(path("backtest_summary.json"), "w"), indent=1)
 
     res.insert(0, "run_at", dt.datetime.now().strftime("%Y-%m-%d %H:%M"))

@@ -225,7 +225,7 @@ function bout(f, i, edge) {
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
   if (f.locked || f.hidden) pickHtml = lockedPick(f);
-  else if (f.our_pick) pickHtml = stageTag(f) + `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${
+  else if (f.our_pick) pickHtml = stageTag(f) + `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${postedLine(f)}${
     bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick value">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
@@ -314,7 +314,7 @@ function gatePredictions(p) {
     if (i === sampleAt) return {...f, sample: true};
     if (f.state === "post") return f;   // finished fights show their picks: that's the public record
     const had = !!(f.our_pick || f.pick || f.expert_lean);
-    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, locked: had, hidden: true,
+    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, posted: null, locked: had, hidden: true,
       p_a: null, p_model_a: null, model_pick: null, tier: null, fair_odds_a: null, fair_odds_b: null, method: null, edge_a: null,
       experts: f.experts ? {...f.experts, win_a: 0, win_b: 0, analysts: (f.experts.analysts || []).map(x => ({...x, winning: false}))} : f.experts};
   });
@@ -331,6 +331,27 @@ async function getPred() {
   if (p) { CARD_FINAL = !!p.final; CARD_FINAL_AT = p.final_at || null; }
   return p;
 }
+// when an our pick first went up and at what price, and whether the line has since moved our way
+function postedInfo(f) {
+  const P = f && f.posted;
+  if (!P || !P.at || P.odds == null || !f.our_pick) return null;
+  const now = f.our_pick === f.a ? f.odds_a : f.odds_b;
+  const imp = o => o == null ? null : o < 0 ? -o / (-o + 100) : 100 / (o + 100);
+  const d = now == null ? 0 : imp(now) - imp(P.odds);
+  const dir = Math.abs(d) < 0.005 ? "same" : d > 0 ? "ours" : "against";
+  const t = new Date(P.at.replace("Z", ":00Z"));
+  const when = isNaN(t) ? "" : t.toLocaleString([], {weekday: "short", hour: "numeric", minute: "2-digit"});
+  return {when, odds: P.odds, now, dir};
+}
+function postedLine(f, cls = "posted") {
+  const x = postedInfo(f);
+  if (!x || f.state !== "pre") return "";
+  const tail = x.dir === "same" ? "" : x.dir === "ours"
+    ? ` · now ${odds(x.now)}, <em class="pmv">line moved our way</em>`
+    : ` · now ${odds(x.now)}, line moved against`;
+  return `<span class="${cls}" title="When this pick first went up, and the price then. Lines that move toward our picks after we post them are the best sign the edge is real.">Posted ${esc(x.when)} at ${odds(x.odds)}${tail}</span>`;
+}
+
 // early vs. final picks: picks can still change (the line-movement pass) until the last update before the first fight
 let CARD_FINAL = false, CARD_FINAL_AT = null;
 const stageTag = f => f.state && f.state !== "pre" ? "" : CARD_FINAL
@@ -519,7 +540,7 @@ async function viewFight(x, y) {
         : `<span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>`}
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
-  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">${F.f && F.state === "pre" ? (CARD_FINAL ? "Final pick" : "Early pick") : "Our pick"}</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span></div>`
+  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">${F.f && F.state === "pre" ? (CARD_FINAL ? "Final pick" : "Early pick") : "Our pick"}</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span>${F.f ? postedLine(F.f, "fx-posted") : ""}</div>`
     : F.passed ? `<div class="fx-call none"><span class="fx-k">Passed</span><b>The line moved against ${F.passed === true ? "our side" : esc(F.passed)}</b><span>We had a pick here, but the line moved more than 1 point the other way between open and close, so we passed.</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
@@ -736,6 +757,7 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       ${done || f.state === "in" ? "" : stageTag(f)}
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
+      ${postedLine(f, "tk-posted")}
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}
       ${(() => { const isA = f.our_pick === f.a, ln = f.market_p_a == null ? null : isA ? f.market_p_a : 1 - f.market_p_a, us = f.p_a == null ? null : isA ? f.p_a : 1 - f.p_a;
         return ln != null && us != null && us > ln ? `<span class="tk-val">The line says <b>${Math.round(100 * ln)}%</b>. We say <b>${Math.round(100 * us)}%</b>.</span>`
@@ -2044,6 +2066,12 @@ async function viewHow() {
       ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs and long shots.")}
       ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price. If the line moves against it during the week, we pass.")}
     </div>
+    ${b.early_moves && b.early_moves.picks ? (() => { const E = b.early_moves, u = x => (x >= 0 ? "+" : "") + x.toFixed(1) + "u";
+      return `<section class="early-edge"><span class="pf-kick">Bet early</span>
+      <div class="ee-row"><div><b>${Math.round(E.pct)}%</b><span>of the time, the line moved toward our side after we picked at the opening line</span></div>
+        <div><b class="${E.units_open >= 0 ? "won" : "lost"}">${u(E.units_open)}</b><span>those picks at opening prices</span></div>
+        <div><b class="${E.units_close >= 0 ? "won" : "lost"}">${u(E.units_close)}</b><span>the same picks at closing prices</span></div></div>
+      <p class="note">${E.from}-${E.to}: ${E.picks.toLocaleString()} picks made against the opening line (${E.toward} lines moved our way, ${E.away} against), flat 1 unit. The market usually comes around to our side, so most of the edge is in the early price. That's why picks go up as the lines open, with the time and price they were posted.</p></section>`; })() : ""}
     ${S ? `<div class="hw-stats">
       <div><b>${S.our_pct}%</b><span>of our picks won since ${mr.from || 2020}</span></div>
       <div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets, ${S.our_roi_pct > 0 ? "+" : ""}${S.our_roi_pct}% per bet</span></div>

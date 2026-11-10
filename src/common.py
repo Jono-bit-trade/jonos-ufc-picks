@@ -48,3 +48,11 @@ def api_key(name, file="key.txt"):
         return os.environ[name].strip()
     f = os.path.join(ROOT, file)
     return open(f).read().strip() if os.path.exists(f) else None
+
+
+def pregame_books(df):
+    """Drop in-play feeds (e.g. "ESPN Bet - Live Odds") from ESPN's book-by-book lines: their
+    "closing" price is often taken mid-fight, far from the pre-fight line."""
+    if df is None or df.empty or "book" not in df:
+        return df
+    return df[~df["book"].astype(str).str.contains("live", case=False)]

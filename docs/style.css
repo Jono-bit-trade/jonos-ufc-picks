@@ -1884,3 +1884,20 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 @media (max-width: 860px) { .fx-grid .fx-market { order: -1; } }
 @media (max-width: 480px) { .fx-sec { padding: 12px 8px; } .fx-sec > h2 { padding: 0 6px; } }
 .cb-n { font-size: 12px; color: var(--quiet); margin-left: 6px; }
+
+/* posted time and price on each pick, and which way the line has moved since */
+.posted, .tk-posted, .fx-posted { display: block; font-size: 12px; color: var(--quiet); margin-top: 4px; line-height: 1.4; }
+.posted b, .tk-posted b, .fx-posted b { font-weight: 600; }
+.bout .posted { flex-basis: 100%; }
+/* "Bet early": picks at the opening line vs the close */
+.early-edge { border: 1px solid var(--rule); border-left: 3px solid var(--gold); border-radius: 12px; padding: 16px 18px; margin: 22px 0; background: var(--paper); }
+.early-edge .ee-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 10px 0 6px; }
+.early-edge .ee-row b { display: block; font-size: 26px; line-height: 1.1; }
+.early-edge .ee-row span { font-size: 13px; color: var(--quiet); }
+@media (max-width: 600px) { .early-edge .ee-row { grid-template-columns: 1fr; gap: 10px; } }
+.ticket .tk-posted { color: rgba(27, 31, 42, .78); }
+.ticket .tk-posted b.won { color: #0f5a2c; }
+.ticket.won .tk-posted, .ticket.lost .tk-posted { display: none; }
+.early-edge .ee-row span { line-height: 1.35; display: block; }
+.posted .pmv, .tk-posted .pmv, .fx-posted .pmv { font: inherit; font-style: normal; font-weight: 600; color: var(--green); }
+#view .ticket .tk-posted .pmv { color: #0f5a2c; }

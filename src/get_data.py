@@ -281,7 +281,8 @@ def build(offline=False):
     sp = read_csv("expert_consensus.csv")   # SplitPicks shows each bout's line: a last resort
     sp = sp.rename(columns={"sp_odds_a": "odds_a", "sp_odds_b": "odds_b"})[["date", "a", "b", "odds_a", "odds_b"]] \
         if not sp.empty else sp
-    eo = read_csv("espn_odds_history.csv")   # every book's opening and closing line, from ESPN's core API
+    from common import pregame_books
+    eo = pregame_books(read_csv("espn_odds_history.csv"))   # every book's opening and closing line, from ESPN's core API (in-play feeds dropped)
     if not eo.empty:
         # the average price across books, as decimal payouts (a plain average of American odds
         # breaks across even money): what you'd get at a typical book, not the best one
