@@ -358,8 +358,8 @@ def why(f, ex, sp, pick):
         mine, line = (pf, fair) if on_a else (1 - pf, 1 - fair)
         r = lambda x: int(np.floor(100 * round(float(x), 3) + 0.5))   # as the site shows it: 3 decimals, then half up
         m_, l_ = r(mine), r(line)
-        if not lean or m_ >= l_:   # an analyst pick shows our chance only when it backs the pick
-            out.append(f"Our chance {m_}% vs the line's {l_}%" + (f" ({m_ - l_} points of value)" if m_ - l_ >= 1 else ""))
+        if m_ >= l_:   # our chance is shown only when it backs the pick (a posted pick stays up after the line moves)
+            out.append(f"Our chance {m_}% vs the line's {l_}%" + (f" ({m_ - l_} point{'s' if m_ - l_ != 1 else ''} of value)" if m_ - l_ >= 1 else ""))
     if not lean and ex and ex["picks_a"] + ex["picks_b"] >= 5:
         k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]
         if k / n >= 0.65:
@@ -573,6 +573,16 @@ def main():
     # freeze fights that have started: keep their last pre-fight prediction
     logf = path("pick_log.csv")
     log = read("pick_log.csv")
+    # posted picks stay up: once an our pick has gone up it isn't pulled or flipped before the fight
+    # (most of the edge is in the early price, and every posted pick is graded)
+    if not log.empty and "our_pick" in log:
+        prev = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")["our_pick"]
+        prev = prev[prev.apply(lambda x: isinstance(x, str))]
+        keep = up.index.isin(prev.index)
+        for fid in up.index[keep]:
+            was = prev[fid]
+            if was in (up.at[fid, "a"], up.at[fid, "b"]) and up.at[fid, "our_pick"] != was:
+                up.at[fid, "our_pick"] = was
     started = card["state"].reindex(up.index).isin(["in", "post"])
     if not log.empty:
         lg = log.set_index("fight_id")

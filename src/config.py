@@ -51,13 +51,13 @@ OUR_PICKS_MAX_FAVORITE = None # e.g. -300 to skip picks shorter than -300; None 
 OUR_PICKS_SKIP_BOTH_DEBUT = True
 
 # Line-movement filter: no our pick when the line has moved against our side by more than this
-# (fair chance, open -> now). Tested Nov 2026 on 2024 and 2025, the years with opening lines:
-# 2024 +4.4u -> +17.2u, 2025 +2.6u -> +18.0u (flat), win rate 79% -> 88-90%; the dropped picks lost
-# -22u. Similar at cutoffs from 0 to 5 points. Small 2023/2026 samples showed no gain, and the rule
-# was found on 2024-25 (in-sample there). Applied to the past record wherever opening lines exist
-# (2023 on; none before) and to live picks from UFC 334 on.
-# None turns it off.
-LINE_MOVE_AGAINST = 0.01
+# (fair chance, open -> now). OFF since Nov 9, 2026. Its earlier gain on 2024-25 came from an
+# in-play book feed whose "closing" prices were taken mid-fight; on clean pre-fight lines the
+# picks it dropped were about break-even (-0.8u over 2023-26). Picks made at the opening line
+# earn most of the edge (+21u at opening prices vs +1u at closing, 2023-26), so picks now go up
+# as the lines open and stay up (predict.py keeps a posted pick through fight night).
+# A number (e.g. 0.01) turns it back on.
+LINE_MOVE_AGAINST = None
 
 # Suggested stake for our picks, by price. Tested Oct 2026 against flat 1 unit on 2020-22 and
 # 2023-26: more units in both (+27.9 vs +27.0, +43.0 vs +36.8) with less risked, return per unit

@@ -354,9 +354,7 @@ function postedLine(f, cls = "posted") {
 
 // early vs. final picks: picks can still change (the line-movement pass) until the last update before the first fight
 let CARD_FINAL = false, CARD_FINAL_AT = null;
-const stageTag = f => f.state && f.state !== "pre" ? "" : CARD_FINAL
-  ? `<span class="stage final" title="Set before the first fight. It won't change.">Final pick</span>`
-  : `<span class="stage early" title="If the line moves more than 1 point against it before fight day, we pass. Final picks are set on fight day.">Early pick</span>`;
+const stageTag = f => "";   // picks stay up once posted: no early/final stage any more
 function finalTime() {   // the last scheduled update, rounded up to the half hour (scheduled runs can start a little late)
   if (!CARD_FINAL_AT) return "";
   const t = new Date(CARD_FINAL_AT); if (isNaN(t)) return "";
@@ -365,9 +363,7 @@ function finalTime() {   // the last scheduled update, rounded up to the half ho
 }
 function stageNote(p) {
   if (!p || !(p.fights || []).some(f => (f.our_pick || f.locked) && (!f.state || f.state === "pre"))) return "";
-  return CARD_FINAL
-    ? `<p class="stage-note final"><span class="stage final">Final picks</span>Set before the first fight. These won't change.</p>`
-    : `<p class="stage-note"><span class="stage early">Early picks</span>Posted as the lines open. If a line moves more than 1 point against one of them before fight day, we pass on it. Final picks are set on fight day${finalTime() ? `, by about ${esc(finalTime())}` : ""}.</p>`;
+  return `<p class="stage-note"><span class="stage early">Bet early</span>Picks go up as the lines open and stay up through fight night. Most of the edge is in the early price, so each pick shows when it was posted and where the line has gone since.</p>`;
 }
 const planBtns = (small) => PLANS ? `<div class="lock-btns${small ? " sm" : ""}">${PLANS.plans.map(pl => `<a class="${pl.best ? "btn" : "pill"}" href="#/pricing">${esc(pl.name)} · $${pl.price}</a>`).join("")}</div>` : "";
 const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
@@ -540,7 +536,7 @@ async function viewFight(x, y) {
         : `<span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>`}
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
-  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">${F.f && F.state === "pre" ? (CARD_FINAL ? "Final pick" : "Early pick") : "Our pick"}</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span>${F.f ? postedLine(F.f, "fx-posted") : ""}</div>`
+  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">Our pick</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span>${F.f ? postedLine(F.f, "fx-posted") : ""}</div>`
     : F.passed ? `<div class="fx-call none"><span class="fx-k">Passed</span><b>The line moved against ${F.passed === true ? "our side" : esc(F.passed)}</b><span>We had a pick here, but the line moved more than 1 point the other way between open and close, so we passed.</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
@@ -1216,13 +1212,7 @@ async function sharePicksImage() {
   x.fillStyle = "#9a9ea8"; x.font = B("600 30px"); x.fillText(`${ev} · ${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}`, 80, 262);
   x.fillStyle = "#fff"; x.font = D("900 88px"); x.fillText("OUR PICKS", 80, 350);
   x.fillStyle = gold; x.font = D("800 44px"); x.fillText(String(sub || "").toUpperCase(), 80, 404);
-  // early or final: an early pick can still be dropped if the line moves against it
-  const live = p.fights.some(f => f.state && f.state !== "pre"), fin = CARD_FINAL || live;
-  { const sw = x.measureText(String(sub || "").toUpperCase()).width, lab = fin ? "FINAL PICKS" : "EARLY PICKS";
-    x.font = D("800 22px"); const lw = x.measureText(lab).width + 24, bx = 80 + sw + 22, by = 374;
-    if (fin) { x.fillStyle = "#3dbe6c"; x.fillRect(bx, by, lw, 34); x.fillStyle = "#0d1a12"; }
-    else { x.strokeStyle = gold; x.lineWidth = 2; x.setLineDash([6, 4]); x.strokeRect(bx, by, lw, 34); x.setLineDash([]); x.fillStyle = gold; }
-    x.fillText(lab, bx + 12, by + 25); }
+  const live = p.fights.some(f => f.state && f.state !== "pre");
   // picks
   let y = 470; const rows = ours.slice(0, 6), rowH = rows.length > 4 ? 82 : rows.length <= 3 ? 136 : 100, big = rowH > 90;
   for (const f of rows) {
@@ -1884,7 +1874,7 @@ function yearTable(mr) {
       <li><b>Prices:</b> the average of 3+ sportsbooks' closing lines where we have them (most fights from 2019 on), otherwise the one closing line. A better price than average is upside the record doesn't count.</li>
       <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter.</li>
       <li><b>Close fights:</b> where the model has no pick but 65%+ of tracked analysts agree, their side is our pick (since April 2026).</li>
-      <li><b>Line movement:</b> if the line moved more than 1 point against our side between open and close, we pass. Applied from 2023 on, where opening lines exist; earlier cards have none.</li>
+      <li><b>Posted picks stay up:</b> once a pick goes up it isn't pulled, whatever the line does, and it's graded at the price when the fight starts.</li>
       <li><b>Why 2020:</b> earlier fights still train the model, but there was too little history before then to grade fairly.</li></ul></details>
     <div class="tablewrap"><table class="yr-t"><thead><tr><th>Year</th><th class="n">Our picks</th><th class="n">Units, flat</th><th class="n hide-sm">Per bet</th>
       <th class="n">Units, stakes</th><th class="n hide-sm">Per unit risked</th><th class="n">Winners picked</th></tr></thead><tbody>
@@ -2064,7 +2054,7 @@ async function viewHow() {
       ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating, weighted by how the fight ended and who it was against.")}
       ${step(2, "Predict the fight", "Rating, form, experience, age, reach and finishing history give each fighter a chance to win.")}
       ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs and long shots.")}
-      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price. If the line moves against it during the week, we pass.")}
+      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price. Picks go up as the lines open and stay up.")}
     </div>
     ${b.early_moves && b.early_moves.picks ? (() => { const E = b.early_moves, u = x => (x >= 0 ? "+" : "") + x.toFixed(1) + "u";
       return `<section class="early-edge"><span class="pf-kick">Bet early</span>
@@ -2077,7 +2067,7 @@ async function viewHow() {
       <div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets, ${S.our_roi_pct > 0 ? "+" : ""}${S.our_roi_pct}% per bet</span></div>
       <div><b>${S.pct}%</b><span>of all fights' winners picked</span></div>
       <div><b>${S.our_bets}</b><span>picks graded at the average sportsbook's price</span></div></div>` : ""}
-    <p class="note">Results before Oct 31, 2026 come from testing the method on past cards, each fight predicted only from earlier fights, with today's pick rules applied to every card (the line-movement pass from 2023 on, where opening lines exist). Every pick since then was posted and locked before the fight.</p>
+    <p class="note">Results before Oct 31, 2026 come from testing the method on past cards, each fight predicted only from earlier fights, with today's pick rules applied to every card. Every pick since then was posted and locked before the fight.</p>
     <details class="tech"><summary>Technical detail: model tests, betting by edge, and situational edges</summary>
     <p class="note">Each year is predicted from earlier fights only. Log loss and Brier score the chances: lower is better. Last run ${esc(b.run_at)}.</p>
     <h2>The model alone</h2><div class="tablewrap"><table class="bt"><thead>${row(["Probability", "Log loss", "Brier", "Winners"], true)}</thead><tbody>${s1}</tbody></table></div>
