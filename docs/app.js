@@ -665,7 +665,7 @@ async function viewCard() {
   const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && (mr.since || mr.all);
   const share = p.fights.some(f => f.our_pick && f.state !== "post") && !p.gated
     ? `<button class="pill" type="button" onclick="sharePicksImage()" title="Square image of this week's picks, sized for X and Instagram">Download picks image</button>` : "";
-  const how = `<details class="howq"><summary aria-label="How to read this card" title="How to read this card">?</summary><div class="howq-p"><b>How to read this card</b><p>The bar is our chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts we track are picking.</p><p><b>Our pick</b>: we beat the line by 3+ points and the fighter is the betting favorite or 70%+ to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No pick when both fighters are debuting. Stakes (1.5u, 1u or 0.5u) are sized by price. "Best price" shows when one book beats the average line.</p><p><b>Value pick</b>: beats the line, but an underdog the model isn't confident in.</p></div></details>`;
+  const how = `<details class="howq"><summary aria-label="How to read this card" title="How to read this card">?</summary><div class="howq-p"><b>How to read this card</b><p>The bar is our chance for each fighter. The white tick is the betting line with the bookmaker's cut removed. The thinner bar shows how the analysts we track are picking.</p><p><b>Our pick</b>: we beat the line by 3+ points and the fighter is the betting favorite or 70%+ to win (no underdogs longer than +150). In close fights (line 40-60%) where 65%+ of the analysts agree, their side is tagged "Expert lean" and becomes our pick if the model has none. No pick when both fighters are debuting. Stakes are sized by price (1.5u, 1u or 0.5u), and halved when our edge is only 3-5 points. "Best price" shows when one book beats the average line.</p><p><b>Value pick</b>: beats the line, but an underdog the model isn't confident in.</p></div></details>`;
   const track = `<div class="cardbar">${mr ? `<div class="cb-rec">
     <span><b>Our picks ${esc(yr.year)}</b> ${yr.our_won}-${yr.our_bets - yr.our_won} <em class="${yr.our_units >= 0 ? "won" : "lost"}">${units(yr.our_units)}</em><small class="cb-n">flat 1u</small></span>
     <span><b>Since ${mr.from || 2020}</b> ${all.our_won}-${all.our_bets - all.our_won} <em class="${all.our_units >= 0 ? "won" : "lost"}">${units(all.our_units)}</em><small class="cb-n">flat 1u</small></span>
@@ -1882,7 +1882,7 @@ function yearTable(mr) {
     <p class="note">Our picks each year at the average sportsbook's closing price.</p>
     <details class="fine"><summary>How it's graded</summary><ul>
       <li><b>Prices:</b> the average of 3+ sportsbooks' closing lines where we have them (most fights from 2019 on), otherwise the one closing line. A better price than average is upside the record doesn't count.</li>
-      <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter.</li>
+      <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter. Half that when our edge is 3-5 points (5+ points gets the full stake; analyst picks keep it).</li>
       <li><b>Close fights:</b> where the model has no pick but 65%+ of tracked analysts agree, their side is our pick (since April 2026).</li>
       <li><b>Early and final picks:</b> picks go up as the lines open. One is pulled only if the line moves and our edge for it is gone before fight day; picks are graded at the price when the fight starts.</li>
       <li><b>Why 2020:</b> earlier fights still train the model, but there was too little history before then to grade fairly.</li></ul></details>
@@ -2064,7 +2064,7 @@ async function viewHow() {
       ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating, weighted by how the fight ended and who it was against.")}
       ${step(2, "Predict the fight", "Rating, form, experience, age, reach and finishing history give each fighter a chance to win.")}
       ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs, long shots and five-round fights.")}
-      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price. Picks go up as the lines open; if our edge is gone by fight day, we pass.")}
+      ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price and by how big our edge is. Picks go up as the lines open; if our edge is gone by fight day, we pass.")}
     </div>
     ${b.early_moves && b.early_moves.picks ? (() => { const E = b.early_moves, gap = 100 * (E.units_open - E.units_close) / E.picks;
       return `<section class="early-edge"><span class="pf-kick">Bet early</span>

@@ -493,7 +493,7 @@ def main():
                     right = (ours == "a") == won_a
                     o = f.odds_a if ours == "a" else f.odds_b
                     u = float(payout(o)) if right else -1.0
-                    st = stake(float(o))
+                    st = stake(float(o), None if from_experts else ((pf - fair) if ours == "a" else (fair - pf)))
                     our = {"side": ours, "right": right, "odds": num(o), "units": round(u, 2), "from_experts": from_experts,
                            "stake": st, "staked_units": round(st * u, 2)}
                     rec["our_bets"] += 1

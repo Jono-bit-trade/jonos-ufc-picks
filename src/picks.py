@@ -37,15 +37,17 @@ def our_side(p_final, fair, odds_a, odds_b):
     return side
 
 
-def stake(odds):
-    """Suggested units for an our pick at these odds (config.STAKES)."""
-    from config import STAKES
+def stake(odds, edge=None):
+    """Suggested units for an our pick at these odds (config.STAKES), halved for a model pick whose
+    edge over the line is under config.FULL_STAKE_EDGE. edge=None (analyst picks): the full stake."""
+    from config import STAKES, FULL_STAKE_EDGE
     if odds is None or odds != odds:
-        return 1.0
-    for floor, units in STAKES:
-        if odds >= floor:
-            return units
-    return STAKES[-1][1]
+        units = 1.0
+    else:
+        units = next((u for floor, u in STAKES if odds >= floor), STAKES[-1][1])
+    if edge is not None and edge == edge and FULL_STAKE_EDGE and edge < FULL_STAKE_EDGE:
+        units = units / 2
+    return units
 
 
 def expert_lean(fair_a, picks_a, picks_b):

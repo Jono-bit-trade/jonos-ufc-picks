@@ -64,6 +64,10 @@ LINE_MOVE_AGAINST = None
 # 2023-26: more units in both (+27.9 vs +27.0, +43.0 vs +36.8) with less risked, return per unit
 # risked +11.4% vs +9.4% and +7.8% vs +5.6%. Staking by edge or Kelly risked more for the same return.
 STAKES = [(-199, 1.5), (-399, 1.0), (-100000, 0.5)]   # odds at or above the first number -> stake
+# Model picks whose edge over the line is under this get half the stake above (analyst picks keep it).
+# Tested Nov 2026: return per unit risked rose in every split (2020-22 7.4->8.5%, 2023-26 5.0->6.6%,
+# 2020-23 8.5->9.9%, 2024-26 3.3->5.0%); fewer units in total (+63.8 -> +56.4u since 2020) on 30% less risked.
+FULL_STAKE_EDGE = 0.05
 
 # The live record: picks made before each fight from this date on are written to data/ledger.csv
 # once graded and never recalculated, whatever later changes the model or data get.

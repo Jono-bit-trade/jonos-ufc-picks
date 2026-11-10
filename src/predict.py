@@ -73,7 +73,9 @@ def update_ledger(log, fights):
                 row[f"{k}_units"] = round(float(payout(o)) if pk == winner else -1.0, 3)
             row["model_rule"] = 2
             row["our_source"] = None if not ours else "model" if ours == vp else "experts"   # model pick or expert lean
-            row["stake"] = stake(row["our_odds"]) if ours else None
+            ed = None if row["our_source"] != "model" or p.p_final != p.p_final or p.fair_a != p.fair_a else \
+                float(p.p_final - p.fair_a) * (1 if ours == p.a else -1)   # analyst picks keep the full stake
+            row["stake"] = stake(row["our_odds"], ed) if ours else None
             row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
             fo = lambda c: getattr(p, c, None) if pd.notna(getattr(p, c, None)) else None
             row["our_first_odds"], row["value_first_odds"] = (fo("our_pick_first_odds") if ours else None), (fo("pick_first_odds") if vp else None)
@@ -663,7 +665,8 @@ def main():
                            if isinstance(f.get("book_prices"), str) else [],
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
             "edge_a": edge, "pick": pick, "our_pick": our_pick,
-            "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"]) if our_pick else None,
+            "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"],
+                                               (edge if our_pick == f["a"] else -edge) if (our_pick == pick and edge is not None) else None) if our_pick else None,
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "moved_against": bool(f.get("moved_against")) if f.get("moved_against") == f.get("moved_against") else False,
