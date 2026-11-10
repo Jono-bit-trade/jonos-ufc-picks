@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T02:32Z",
+ "updated": "2026-11-10T02:42Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -307,6 +307,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.019,
@@ -605,6 +610,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.022,
@@ -701,9 +711,9 @@
    "splits": {
     "handle_a": 0.97,
     "handle_b": 0.03,
-    "bets_a": 0.67,
-    "bets_b": 0.33,
-    "at": "2026-11-10T02:32Z"
+    "bets_a": 0.68,
+    "bets_b": 0.32,
+    "at": "2026-11-10T02:41Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -900,6 +910,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": 0.024,
@@ -1007,7 +1022,7 @@
     "handle_b": 0.53,
     "bets_a": 0.61,
     "bets_b": 0.39,
-    "at": "2026-11-10T02:32Z"
+    "at": "2026-11-10T02:41Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1204,6 +1219,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -148.0,
      "b": 124.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "edge_a": 0.021,
@@ -1311,7 +1331,7 @@
     "handle_b": 0.99,
     "bets_a": 0.65,
     "bets_b": 0.35,
-    "at": "2026-11-10T02:32Z"
+    "at": "2026-11-10T02:41Z"
    },
    "why": [
     "Our chance 93% vs the line's 88% (5 points of value)",
@@ -1512,6 +1532,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -1100.0,
      "b": 700.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -1100.0,
+     "b": 700.0
     }
    ],
    "edge_a": 0.045,
@@ -1618,16 +1643,15 @@
     ]
    },
    "splits": {
-    "handle_a": 0.95,
-    "handle_b": 0.05,
-    "bets_a": 0.68,
-    "bets_b": 0.32,
-    "at": "2026-11-10T02:32Z"
+    "handle_a": 0.81,
+    "handle_b": 0.19,
+    "bets_a": 0.65,
+    "bets_b": 0.35,
+    "at": "2026-11-10T02:41Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Thompson",
-    "Rated 83 points higher",
-    "Bigger bettors on him: 95% of DraftKings money from 68% of bets"
+    "Rated 83 points higher"
    ],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1783,6 +1807,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "edge_a": -0.042,
@@ -1891,11 +1920,14 @@
    "splits": {
     "handle_a": 0.96,
     "handle_b": 0.04,
-    "bets_a": 0.59,
-    "bets_b": 0.41,
-    "at": "2026-11-10T02:32Z"
+    "bets_a": 0.53,
+    "bets_b": 0.47,
+    "at": "2026-11-10T02:41Z"
    },
-   "why": [],
+   "why": [
+    "Close fight and 4 of 6 analysts pick Duncan",
+    "Our chance 60% vs the line's 59% (1 point of value)"
+   ],
    "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
@@ -2040,16 +2072,24 @@
      "t": "2026-11-10T02:32Z",
      "a": 136.0,
      "b": -162.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": 136.0,
+     "b": -162.0
     }
    ],
    "edge_a": -0.004,
    "pick": null,
-   "our_pick": null,
-   "stake": null,
+   "our_pick": "Chris Duncan",
+   "stake": 1.5,
    "expert_lean": "Chris Duncan",
    "check_news": false,
-   "moved_against": true,
-   "posted": null,
+   "moved_against": false,
+   "posted": {
+    "at": "2026-11-10T02:42Z",
+    "odds": -162.0
+   },
    "method": {
     "DEC": 0.445,
     "KO": 0.329,
@@ -2147,7 +2187,7 @@
     "handle_b": 0.24,
     "bets_a": 0.37,
     "bets_b": 0.63,
-    "at": "2026-11-10T02:32Z"
+    "at": "2026-11-10T02:41Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -2309,6 +2349,11 @@
      "t": "2026-11-10T02:32Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "edge_a": 0.005,
@@ -2414,14 +2459,14 @@
    "splits": {
     "handle_a": 0.95,
     "handle_b": 0.05,
-    "bets_a": 0.7,
-    "bets_b": 0.3,
-    "at": "2026-11-10T02:32Z"
+    "bets_a": 0.71,
+    "bets_b": 0.29,
+    "at": "2026-11-10T02:41Z"
    },
    "why": [
     "Our chance 66% vs the line's 61% (5 points of value)",
     "Rated 84 points higher",
-    "Bigger bettors on him: 95% of DraftKings money from 70% of bets"
+    "Bigger bettors on him: 95% of DraftKings money from 71% of bets"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -2582,6 +2627,11 @@
      "t": "2026-11-10T02:32Z",
      "a": -175.0,
      "b": 145.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": -175.0,
+     "b": 145.0
     }
    ],
    "edge_a": 0.046,
@@ -2692,7 +2742,7 @@
     "handle_b": 0.63,
     "bets_a": 0.11,
     "bets_b": 0.89,
-    "at": "2026-11-10T02:32Z"
+    "at": "2026-11-10T02:41Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -2854,6 +2904,11 @@
      "t": "2026-11-10T02:32Z",
      "a": 295.0,
      "b": -375.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
+     "a": 295.0,
+     "b": -375.0
     }
    ],
    "edge_a": -0.015,
@@ -2961,7 +3016,7 @@
     "handle_b": 0.43,
     "bets_a": 0.16,
     "bets_b": 0.84,
-    "at": "2026-11-10T02:32Z"
+    "at": "2026-11-10T02:41Z"
    },
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -3121,6 +3176,11 @@
     },
     {
      "t": "2026-11-10T02:32Z",
+     "a": 210.0,
+     "b": -258.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
      "a": 210.0,
      "b": -258.0
     }
@@ -3297,7 +3357,7 @@
     "handle_b": 0.71,
     "bets_a": 0.33,
     "bets_b": 0.67,
-    "at": "2026-11-10T02:32Z"
+    "at": "2026-11-10T02:41Z"
    },
    "why": [
     "Our chance 55% vs the line's 52% (3 points of value)",
@@ -3460,6 +3520,11 @@
     },
     {
      "t": "2026-11-10T02:32Z",
+     "a": 100.0,
+     "b": -120.0
+    },
+    {
+     "t": "2026-11-10T02:42Z",
      "a": 100.0,
      "b": -120.0
     }
