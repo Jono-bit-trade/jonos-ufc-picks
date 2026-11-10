@@ -349,16 +349,18 @@ def why(f, ex, sp, pick):
     me, opp = ("a", "b") if on_a else ("b", "a")
     out = []
     him = "her" if str(f.get("gender", "M")).upper().startswith("F") else "him"
+    lean = isinstance(f.get("expert_lean"), str) and f["expert_lean"] == pick and ex
+    if lean:   # an analyst pick: lead with the analysts, the real reason behind it
+        k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]
+        out.append(f"Close fight and {k} of {n} analysts pick {pick.split()[-1]}")
     pf, fair = f.get("p_final"), f.get("fair_a")
     if pf == pf and fair == fair and pf is not None and fair is not None:
         mine, line = (pf, fair) if on_a else (1 - pf, 1 - fair)
         r = lambda x: int(np.floor(100 * round(float(x), 3) + 0.5))   # as the site shows it: 3 decimals, then half up
         m_, l_ = r(mine), r(line)
-        out.append(f"Our chance {m_}% vs the line's {l_}%" + (f" ({m_ - l_} points of value)" if m_ - l_ >= 1 else ""))
-    if isinstance(f.get("expert_lean"), str) and f["expert_lean"] == pick and ex:
-        k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]
-        out.append(f"Close fight and {k} of {n} analysts pick {pick.split()[-1]}")
-    elif ex and ex["picks_a"] + ex["picks_b"] >= 5:
+        if not lean or m_ >= l_:   # an analyst pick shows our chance only when it backs the pick
+            out.append(f"Our chance {m_}% vs the line's {l_}%" + (f" ({m_ - l_} points of value)" if m_ - l_ >= 1 else ""))
+    if not lean and ex and ex["picks_a"] + ex["picks_b"] >= 5:
         k, n = ex[f"picks_{me}"], ex["picks_a"] + ex["picks_b"]
         if k / n >= 0.65:
             out.append(f"{k} of {n} analysts agree")
