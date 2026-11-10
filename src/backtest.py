@@ -135,15 +135,25 @@ def early_line(r):
         pct = 100 * toward.sum() / max(toward.sum() + away.sum(), 1)
         rows.append({"edge": ed, **{k + "_open": v for k, v in at_open.items()},
                      "roi_close_%": at_close["roi_%"], "moved_toward_%": pct})
-        if abs(ed - 0.03) < 1e-9:
-            yrs = s["date"].str[:4]
-            summary = {"from": int(yrs.min()), "to": int(yrs.max()), "fights": int(len(s)), "picks": int(picked.sum()),
-                       "toward": int(toward.sum()), "away": int(away.sum()), "flat": int(picked.sum() - toward.sum() - away.sum()),
-                       "pct": round(pct, 1), "units_open": round(float(at_open["units"]), 1),
-                       "units_close": round(float(at_close["units"]), 1),
-                       "by_year": [{"year": yv, "picks": int((picked & (yrs == yv)).sum()),
-                                    "pct": round(100 * toward[yrs[picked] == yv].sum() / max(toward[yrs[picked] == yv].sum() + away[yrs[picked] == yv].sum(), 1), 1)}
-                                   for yv in sorted(yrs.unique())]}
+    # the summary on the site: our picks' own rule (3+ points over the opening line, on the favorite at the
+    # opening price), each graded at the opening price and at the closing price, so it lines up with the record
+    side_a = (s["p_open_blend"] - s["fair_open"] > 0.03) & (s["eo_a"] < 0)
+    side_b = (s["fair_open"] - s["p_open_blend"] > 0.03) & (s["eo_b"] < 0)
+    picked = side_a | side_b
+    won = np.where(side_a, s["winner"] == "a", s["winner"] == "b")
+    o_open = np.where(side_a, s["eo_a"], s["eo_b"])
+    o_close = np.where(side_a, s["odds_a"], s["odds_b"])
+    u_open = np.where(won, payout(o_open), -1.0)[picked.values]
+    u_close = np.where(won, payout(o_close), -1.0)[picked.values]
+    toward = ((side_a & (moved > 0.005)) | (side_b & (moved < -0.005)))[picked]
+    away = ((side_a & (moved < -0.005)) | (side_b & (moved > 0.005)))[picked]
+    yrs = s["date"].str[:4]
+    pct = 100 * toward.sum() / max(toward.sum() + away.sum(), 1)
+    summary = {"from": int(yrs.min()), "to": int(yrs.max()), "fights": int(len(s)), "picks": int(picked.sum()),
+               "won": int(won[picked.values].sum()), "toward": int(toward.sum()), "away": int(away.sum()),
+               "flat": int(picked.sum() - toward.sum() - away.sum()), "pct": round(float(pct), 1),
+               "units_open": round(float(np.nansum(u_open)), 1), "units_close": round(float(np.nansum(u_close)), 1),
+               "rule": "our picks: 3+ points over the opening line, favorites"}
     t = pd.DataFrame(rows)
     print(f"\nSTAGE 3: early line (ESPN opening lines), {len(s)} fights")
     print(t.round(2).to_string(index=False))

@@ -1901,3 +1901,5 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .early-edge .ee-row span { line-height: 1.35; display: block; }
 .posted .pmv, .tk-posted .pmv, .fx-posted .pmv { font: inherit; font-style: normal; font-weight: 600; color: var(--green); }
 #view .ticket .tk-posted .pmv { color: #0f5a2c; }
+/* last-5 table on narrow phones: let the date line wrap so a title fight + long odds fit */
+@media (max-width: 420px) { .l5-o small { white-space: normal; } .l5-t td { font-size: 13px; } .fd { padding: 2px 6px; } }

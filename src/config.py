@@ -53,9 +53,10 @@ OUR_PICKS_SKIP_BOTH_DEBUT = True
 # Line-movement filter: no our pick when the line has moved against our side by more than this
 # (fair chance, open -> now). OFF since Nov 9, 2026. Its earlier gain on 2024-25 came from an
 # in-play book feed whose "closing" prices were taken mid-fight; on clean pre-fight lines the
-# picks it dropped were about break-even (-0.8u over 2023-26). Picks made at the opening line
-# earn most of the edge (+21u at opening prices vs +1u at closing, 2023-26), so picks now go up
-# as the lines open and stay up (predict.py keeps a posted pick through fight night).
+# picks it dropped were about break-even (-0.8u over 2023-26). Picks now go up as the lines open
+# and are pulled only if our edge for them is gone at the current line (predict.py): on 2023-26,
+# opening-line picks still standing at the close made +7.3u at opening prices; those whose edge
+# was gone went 11-11, -7.1u. The opening price was worth about 2.5 points per bet over the close.
 # A number (e.g. 0.01) turns it back on.
 LINE_MOVE_AGAINST = None
 

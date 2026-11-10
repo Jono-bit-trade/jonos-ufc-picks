@@ -573,16 +573,16 @@ def main():
     # freeze fights that have started: keep their last pre-fight prediction
     logf = path("pick_log.csv")
     log = read("pick_log.csv")
-    # posted picks stay up: once an our pick has gone up it isn't pulled or flipped before the fight
-    # (most of the edge is in the early price, and every posted pick is graded)
+    # a posted pick is pulled only when our edge for it is gone (it no longer passes the pick rules at the
+    # current line). Tested Nov 2026 on 2023-26 opening/closing lines: picks made at the open that were still
+    # picks at the close made +7.3u at opening prices; the ones whose edge was gone by the close went 11-11, -7.1u.
+    # moved_against marks a pulled pick so the card can say we passed.
     if not log.empty and "our_pick" in log:
         prev = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")["our_pick"]
         prev = prev[prev.apply(lambda x: isinstance(x, str))]
-        keep = up.index.isin(prev.index)
-        for fid in up.index[keep]:
-            was = prev[fid]
-            if was in (up.at[fid, "a"], up.at[fid, "b"]) and up.at[fid, "our_pick"] != was:
-                up.at[fid, "our_pick"] = was
+        for fid in up.index[up.index.isin(prev.index)]:
+            if prev[fid] in (up.at[fid, "a"], up.at[fid, "b"]) and not isinstance(up.at[fid, "our_pick"], str):
+                up.at[fid, "moved_against"] = True
     started = card["state"].reindex(up.index).isin(["in", "post"])
     if not log.empty:
         lg = log.set_index("fight_id")
