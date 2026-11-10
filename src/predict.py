@@ -577,12 +577,16 @@ def main():
     # current line). Tested Nov 2026 on 2023-26 opening/closing lines: picks made at the open that were still
     # picks at the close made +7.3u at opening prices; the ones whose edge was gone by the close went 11-11, -7.1u.
     # moved_against marks a pulled pick so the card can say we passed.
+    up["pulled"] = None   # the pick we passed on, kept until fight night (pick_log.csv carries it between runs)
     if not log.empty and "our_pick" in log:
-        prev = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")["our_pick"]
-        prev = prev[prev.apply(lambda x: isinstance(x, str))]
-        for fid in up.index[up.index.isin(prev.index)]:
-            if prev[fid] in (up.at[fid, "a"], up.at[fid, "b"]) and not isinstance(up.at[fid, "our_pick"], str):
-                up.at[fid, "moved_against"] = True
+        last = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")
+        for fid in up.index[up.index.isin(last.index)]:
+            if isinstance(up.at[fid, "our_pick"], str):
+                continue
+            was = last.at[fid, "our_pick"] if isinstance(last.at[fid, "our_pick"], str) else \
+                (last.at[fid, "pulled"] if "pulled" in last and isinstance(last.at[fid, "pulled"], str) else None)
+            if was in (up.at[fid, "a"], up.at[fid, "b"]):
+                up.at[fid, "pulled"], up.at[fid, "moved_against"] = was, True
     started = card["state"].reindex(up.index).isin(["in", "post"])
     if not log.empty:
         lg = log.set_index("fight_id")
@@ -593,7 +597,7 @@ def main():
     fresh = up[~started].reset_index()
     if len(fresh):
         cols = ["fight_id", "date", "a", "b", "p_model", "p_final", "fair_a", "odds_a", "odds_b",
-                "open_a", "open_b", "edge_a", "pick", "our_pick", "expert_lean"]
+                "open_a", "open_b", "edge_a", "pick", "our_pick", "expert_lean", "pulled"]
         new = fresh[cols].assign(run=NOW.strftime("%Y-%m-%dT%H:%MZ"))
         # the price when each pick first appeared, kept while the pick stays the same: closing line value later
         prev = log.drop_duplicates("fight_id", keep="last").set_index("fight_id") if not log.empty else pd.DataFrame()
