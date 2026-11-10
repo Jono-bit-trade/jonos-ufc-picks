@@ -1,27 +1,28 @@
-fight_id,date,a,b,winner,result,model_pick,model_odds,our_pick,our_odds,expert_lean,logged_at,model_units,our_units,stake,our_staked_units,value_pick,value_odds,value_units,our_source,model_rule
-2026-10-31|Nick Klein|Joe Kropschot,2026-10-31,Nick Klein,Joe Kropschot,Joe Kropschot,b,Joe Kropschot,-310.0,Joe Kropschot,-310.0,,2026-10-31T20:26Z,0.323,0.323,1.0,0.323,Joe Kropschot,-310.0,0.323,model,2
-2026-10-31|Talita Alencar|Piera Rodriguez,2026-10-31,Talita Alencar,Piera Rodriguez,Piera Rodriguez,b,Piera Rodriguez,-298.0,,,,2026-10-31T20:26Z,0.336,,,,,,,,2
-2026-10-31|Lucia Szabová|Tainara Lisboa,2026-10-31,Lucia Szabová,Tainara Lisboa,Lucia Szabová,a,Lucia Szabová,-700.0,Lucia Szabová,-700.0,,2026-10-31T20:26Z,0.143,0.143,0.5,0.071,Lucia Szabová,-700.0,0.143,model,2
-2026-10-31|Zach Reese|Mickey Gall,2026-10-31,Zach Reese,Mickey Gall,Zach Reese,a,Zach Reese,-440.0,Zach Reese,-440.0,,2026-10-31T20:26Z,0.227,0.227,0.5,0.114,Zach Reese,-440.0,0.227,model,2
-2026-10-31|Rodrigo Sezinando|Theodor Berggren,2026-10-31,Rodrigo Sezinando,Theodor Berggren,Rodrigo Sezinando,a,Rodrigo Sezinando,-175.0,,,,2026-10-31T22:49Z,0.571,,,,,,,,2
-2026-10-31|Julian Erosa|JeongYeong Lee,2026-10-31,Julian Erosa,JeongYeong Lee,Julian Erosa,a,Julian Erosa,120.0,,,,2026-10-31T22:49Z,1.2,,,,Julian Erosa,120.0,1.2,,2
-2026-10-31|Francis Marshall|Dakota Hope,2026-10-31,Francis Marshall,Dakota Hope,Dakota Hope,b,Francis Marshall,-205.0,,,,2026-10-31T22:49Z,-1.0,,,,,,,,2
-2026-10-31|Jean-Paul Lebosnoyani|Farman Hasanov,2026-10-31,Jean-Paul Lebosnoyani,Farman Hasanov,Jean-Paul Lebosnoyani,a,Jean-Paul Lebosnoyani,-278.0,,,,2026-10-31T23:52Z,0.36,,,,,,,,2
-2026-10-31|Yana Santos|Luana Santos,2026-10-31,Yana Santos,Luana Santos,Luana Santos,b,Luana Santos,-340.0,,,,2026-11-01T00:32Z,0.294,,,,,,,,2
-2026-10-31|Ode Osbourne|Cody Durden,2026-10-31,Ode Osbourne,Cody Durden,Cody Durden,b,Cody Durden,-125.0,,,,2026-11-01T01:04Z,0.8,,,,,,,,2
-2026-10-31|Randy Brown|Jacobe Smith,2026-10-31,Randy Brown,Jacobe Smith,Jacobe Smith,b,Jacobe Smith,-285.0,,,,2026-11-01T01:35Z,0.351,,,,,,,,2
-2026-10-31|Renato Moicano|Tom Nolan,2026-10-31,Renato Moicano,Tom Nolan,Tom Nolan,b,Renato Moicano,-130.0,Renato Moicano,-130.0,Renato Moicano,2026-11-01T02:07Z,-1.0,-1.0,1.5,-1.5,,,,experts,2
-2026-11-07|Jonny Parsons|José Souza,2026-11-07,Jonny Parsons,José Souza,José Souza,b,José Souza,-192.0,,,,2026-11-07T21:56Z,0.521,,,,,,,,2
-2026-11-07|Seokhyeon Ko|Wellington Turman,2026-11-07,Seokhyeon Ko,Wellington Turman,Seokhyeon Ko,a,Seokhyeon Ko,-650.0,Seokhyeon Ko,-650.0,,2026-11-07T22:04Z,0.154,0.154,0.5,0.077,Seokhyeon Ko,-650.0,0.154,model,2
-2026-11-07|Mantas Kondratavicius|Andre Petroski,2026-11-07,Mantas Kondratavicius,Andre Petroski,Andre Petroski,b,Mantas Kondratavicius,-310.0,Mantas Kondratavicius,-310.0,,2026-11-07T22:36Z,-1.0,-1.0,1.0,-1.0,Mantas Kondratavicius,-310.0,-1.0,model,2
-2026-11-07|Austin Bashi|Carlos Calderon,2026-11-07,Austin Bashi,Carlos Calderon,Austin Bashi,a,Austin Bashi,-675.0,Austin Bashi,-675.0,,2026-11-07T22:52Z,0.148,0.148,0.5,0.074,Austin Bashi,-675.0,0.148,model,2
-2026-11-07|Jose Delano|Murtazali Magomedov,2026-11-07,Jose Delano,Murtazali Magomedov,Murtazali Magomedov,b,Murtazali Magomedov,102.0,Murtazali Magomedov,102.0,Murtazali Magomedov,2026-11-07T23:07Z,1.02,1.02,1.5,1.53,,,,experts,2
-2026-11-07|Karine Silva|Gabriella Fernandes,2026-11-07,Karine Silva,Gabriella Fernandes,Karine Silva,a,Karine Silva,-238.0,Karine Silva,-238.0,,2026-11-07T23:31Z,0.42,0.42,1.0,0.42,Karine Silva,-238.0,0.42,model,2
-2026-11-07|Gabriel Lorenço|Thomas Petersen,2026-11-07,Gabriel Lorenço,Thomas Petersen,Thomas Petersen,b,Gabriel Lorenço,136.0,Gabriel Lorenço,136.0,Gabriel Lorenço,2026-11-08T00:03Z,-1.0,-1.0,1.5,-1.5,,,,experts,2
-2026-11-07|Priscila Cachoeira|Nina Milošević,2026-11-07,Priscila Cachoeira,Nina Milošević,Nina Milošević,b,Nina Milošević,-520.0,Nina Milošević,-520.0,,2026-11-08T00:18Z,0.192,0.192,0.5,0.096,Nina Milošević,-520.0,0.192,model,2
-2026-11-07|Mitch Raposo|Marcos Degli,2026-11-07,Mitch Raposo,Marcos Degli,Mitch Raposo,a,Marcos Degli,-245.0,,,,2026-11-08T00:18Z,-1.0,,,,Mitch Raposo,200.0,2.0,,2
-2026-11-07|Keiichiro Nakamura|Ollie Schmid,2026-11-07,Keiichiro Nakamura,Ollie Schmid,Ollie Schmid,b,Keiichiro Nakamura,-375.0,,,,2026-11-08T00:18Z,-1.0,,,,,,,,2
-2026-11-07|Billy Elekana|Lucas Fernando,2026-11-07,Billy Elekana,Lucas Fernando,Lucas Fernando,b,Lucas Fernando,-355.0,,,,2026-11-08T00:18Z,0.282,,,,,,,,2
-2026-11-07|Davey Grant|Elijah Smith,2026-11-07,Davey Grant,Elijah Smith,Elijah Smith,b,Elijah Smith,-345.0,,,,2026-11-08T02:34Z,0.29,,,,,,,,2
-2026-11-07|Tatiana Suarez|Virna Jandiroba,2026-11-07,Tatiana Suarez,Virna Jandiroba,Tatiana Suarez,a,Tatiana Suarez,-218.0,Tatiana Suarez,-218.0,,2026-11-08T02:50Z,0.459,0.459,1.0,0.459,Tatiana Suarez,-218.0,0.459,model,2
-2026-11-07|Waldo Cortes-Acosta|Johnny Walker,2026-11-07,Waldo Cortes-Acosta,Johnny Walker,Johnny Walker,b,Waldo Cortes-Acosta,-225.0,,,,2026-11-08T03:29Z,-1.0,,,,,,,,2
+fight_id,date,a,b,winner,result,model_pick,model_odds,our_pick,our_odds,expert_lean,logged_at,model_units,our_units,stake,our_staked_units,value_pick,value_odds,value_units,our_source,model_rule,our_first_odds,value_first_odds,our_clv,value_clv
+2026-10-31|Nick Klein|Joe Kropschot,2026-10-31,Nick Klein,Joe Kropschot,Joe Kropschot,b,Joe Kropschot,-310.0,Joe Kropschot,-310.0,,2026-10-31T20:26Z,0.323,0.323,1.0,0.323,Joe Kropschot,-310.0,0.323,model,2,,,,
+2026-10-31|Talita Alencar|Piera Rodriguez,2026-10-31,Talita Alencar,Piera Rodriguez,Piera Rodriguez,b,Piera Rodriguez,-298.0,,,,2026-10-31T20:26Z,0.336,,,,,,,,2,,,,
+2026-10-31|Lucia Szabová|Tainara Lisboa,2026-10-31,Lucia Szabová,Tainara Lisboa,Lucia Szabová,a,Lucia Szabová,-700.0,Lucia Szabová,-700.0,,2026-10-31T20:26Z,0.143,0.143,0.5,0.071,Lucia Szabová,-700.0,0.143,model,2,,,,
+2026-10-31|Zach Reese|Mickey Gall,2026-10-31,Zach Reese,Mickey Gall,Zach Reese,a,Zach Reese,-440.0,Zach Reese,-440.0,,2026-10-31T20:26Z,0.227,0.227,0.5,0.114,Zach Reese,-440.0,0.227,model,2,,,,
+2026-10-31|Rodrigo Sezinando|Theodor Berggren,2026-10-31,Rodrigo Sezinando,Theodor Berggren,Rodrigo Sezinando,a,Rodrigo Sezinando,-175.0,,,,2026-10-31T22:49Z,0.571,,,,,,,,2,,,,
+2026-10-31|Julian Erosa|JeongYeong Lee,2026-10-31,Julian Erosa,JeongYeong Lee,Julian Erosa,a,Julian Erosa,120.0,,,,2026-10-31T22:49Z,1.2,,,,Julian Erosa,120.0,1.2,,2,,,,
+2026-10-31|Francis Marshall|Dakota Hope,2026-10-31,Francis Marshall,Dakota Hope,Dakota Hope,b,Francis Marshall,-205.0,,,,2026-10-31T22:49Z,-1.0,,,,,,,,2,,,,
+2026-10-31|Jean-Paul Lebosnoyani|Farman Hasanov,2026-10-31,Jean-Paul Lebosnoyani,Farman Hasanov,Jean-Paul Lebosnoyani,a,Jean-Paul Lebosnoyani,-278.0,,,,2026-10-31T23:52Z,0.36,,,,,,,,2,,,,
+2026-10-31|Yana Santos|Luana Santos,2026-10-31,Yana Santos,Luana Santos,Luana Santos,b,Luana Santos,-340.0,,,,2026-11-01T00:32Z,0.294,,,,,,,,2,,,,
+2026-10-31|Ode Osbourne|Cody Durden,2026-10-31,Ode Osbourne,Cody Durden,Cody Durden,b,Cody Durden,-125.0,,,,2026-11-01T01:04Z,0.8,,,,,,,,2,,,,
+2026-10-31|Randy Brown|Jacobe Smith,2026-10-31,Randy Brown,Jacobe Smith,Jacobe Smith,b,Jacobe Smith,-285.0,,,,2026-11-01T01:35Z,0.351,,,,,,,,2,,,,
+2026-10-31|Renato Moicano|Tom Nolan,2026-10-31,Renato Moicano,Tom Nolan,Tom Nolan,b,Renato Moicano,-130.0,Renato Moicano,-130.0,Renato Moicano,2026-11-01T02:07Z,-1.0,-1.0,1.5,-1.5,,,,experts,2,,,,
+2026-11-07|Jonny Parsons|José Souza,2026-11-07,Jonny Parsons,José Souza,José Souza,b,José Souza,-192.0,,,,2026-11-07T21:56Z,0.521,,,,,,,,2,,,,
+2026-11-07|Seokhyeon Ko|Wellington Turman,2026-11-07,Seokhyeon Ko,Wellington Turman,Seokhyeon Ko,a,Seokhyeon Ko,-650.0,Seokhyeon Ko,-650.0,,2026-11-07T22:04Z,0.154,0.154,0.5,0.077,Seokhyeon Ko,-650.0,0.154,model,2,,,,
+2026-11-07|Mantas Kondratavicius|Andre Petroski,2026-11-07,Mantas Kondratavicius,Andre Petroski,Andre Petroski,b,Mantas Kondratavicius,-310.0,Mantas Kondratavicius,-310.0,,2026-11-07T22:36Z,-1.0,-1.0,1.0,-1.0,Mantas Kondratavicius,-310.0,-1.0,model,2,,,,
+2026-11-07|Austin Bashi|Carlos Calderon,2026-11-07,Austin Bashi,Carlos Calderon,Austin Bashi,a,Austin Bashi,-675.0,Austin Bashi,-675.0,,2026-11-07T22:52Z,0.148,0.148,0.5,0.074,Austin Bashi,-675.0,0.148,model,2,,,,
+2026-11-07|Jose Delano|Murtazali Magomedov,2026-11-07,Jose Delano,Murtazali Magomedov,Murtazali Magomedov,b,Murtazali Magomedov,102.0,Murtazali Magomedov,102.0,Murtazali Magomedov,2026-11-07T23:07Z,1.02,1.02,1.5,1.53,,,,experts,2,,,,
+2026-11-07|Karine Silva|Gabriella Fernandes,2026-11-07,Karine Silva,Gabriella Fernandes,Karine Silva,a,Karine Silva,-238.0,Karine Silva,-238.0,,2026-11-07T23:31Z,0.42,0.42,1.0,0.42,Karine Silva,-238.0,0.42,model,2,,,,
+2026-11-07|Gabriel Lorenço|Thomas Petersen,2026-11-07,Gabriel Lorenço,Thomas Petersen,Thomas Petersen,b,Gabriel Lorenço,136.0,Gabriel Lorenço,136.0,Gabriel Lorenço,2026-11-08T00:03Z,-1.0,-1.0,1.5,-1.5,,,,experts,2,,,,
+2026-11-07|Priscila Cachoeira|Nina Milošević,2026-11-07,Priscila Cachoeira,Nina Milošević,Nina Milošević,b,Nina Milošević,-520.0,Nina Milošević,-520.0,,2026-11-08T00:18Z,0.192,0.192,0.5,0.096,Nina Milošević,-520.0,0.192,model,2,,,,
+2026-11-07|Mitch Raposo|Marcos Degli,2026-11-07,Mitch Raposo,Marcos Degli,Mitch Raposo,a,Marcos Degli,-245.0,,,,2026-11-08T00:18Z,-1.0,,,,Mitch Raposo,200.0,2.0,,2,,,,
+2026-11-07|Keiichiro Nakamura|Ollie Schmid,2026-11-07,Keiichiro Nakamura,Ollie Schmid,Ollie Schmid,b,Keiichiro Nakamura,-375.0,,,,2026-11-08T00:18Z,-1.0,,,,,,,,2,,,,
+2026-11-07|Billy Elekana|Lucas Fernando,2026-11-07,Billy Elekana,Lucas Fernando,Lucas Fernando,b,Lucas Fernando,-355.0,,,,2026-11-08T00:18Z,0.282,,,,,,,,2,,,,
+2026-11-07|Davey Grant|Elijah Smith,2026-11-07,Davey Grant,Elijah Smith,Elijah Smith,b,Elijah Smith,-345.0,,,,2026-11-08T02:34Z,0.29,,,,,,,,2,,,,
+2026-11-07|Tatiana Suarez|Virna Jandiroba,2026-11-07,Tatiana Suarez,Virna Jandiroba,Tatiana Suarez,a,Tatiana Suarez,-218.0,Tatiana Suarez,-218.0,,2026-11-08T02:50Z,0.459,0.459,1.0,0.459,Tatiana Suarez,-218.0,0.459,model,2,,,,
+2026-11-07|Waldo Cortes-Acosta|Johnny Walker,2026-11-07,Waldo Cortes-Acosta,Johnny Walker,Johnny Walker,b,Waldo Cortes-Acosta,-225.0,,,,2026-11-08T03:29Z,-1.0,,,,,,,,2,,,,
+2026-11-07|Jonny Parsons|Jose Henrique,2026-11-07,Jonny Parsons,Jose Henrique,José Souza,b,Jose Henrique,-225.0,,,,2026-11-02T22:43Z,-1.0,,,,,,,,2,,,,

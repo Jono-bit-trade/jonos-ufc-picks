@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T02:42Z",
+ "updated": "2026-11-10T02:52Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -119,7 +119,7 @@
    "state": "pre",
    "status": "Sat, November 14th at 9:00 PM EST",
    "result": null,
-   "rating_a": 1866,
+   "rating_a": 1868,
    "rating_b": 1769,
    "debut_a": false,
    "debut_b": false,
@@ -305,6 +305,11 @@
      "t": "2026-11-10T02:42Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "locked": false,
@@ -397,7 +402,7 @@
    "state": "pre",
    "status": "Sat, November 14th at 9:00 PM EST",
    "result": null,
-   "rating_a": 1738,
+   "rating_a": 1739,
    "rating_b": 1825,
    "debut_a": false,
    "debut_b": false,
@@ -583,6 +588,11 @@
      "t": "2026-11-10T02:42Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "locked": false,
@@ -672,8 +682,8 @@
    "state": "pre",
    "status": "Sat, November 14th at 9:00 PM EST",
    "result": null,
-   "rating_a": 1781,
-   "rating_b": 1716,
+   "rating_a": 1782,
+   "rating_b": 1718,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.6,
@@ -858,6 +868,11 @@
      "t": "2026-11-10T02:42Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "locked": false,
@@ -956,8 +971,8 @@
    "state": "pre",
    "status": "Sat, November 14th at 9:00 PM EST",
    "result": null,
-   "rating_a": 1707,
-   "rating_b": 1678,
+   "rating_a": 1711,
+   "rating_b": 1680,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.572,
@@ -1142,6 +1157,11 @@
      "t": "2026-11-10T02:42Z",
      "a": -148.0,
      "b": 124.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "locked": false,
@@ -1241,7 +1261,7 @@
    "status": "Sat, November 14th at 9:00 PM EST",
    "result": null,
    "rating_a": 1579,
-   "rating_b": 1370,
+   "rating_b": 1367,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.88,
@@ -1426,6 +1446,11 @@
      "t": "2026-11-10T02:42Z",
      "a": -1100.0,
      "b": 700.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": -1100.0,
+     "b": 700.0
     }
    ],
    "locked": true,
@@ -1519,7 +1544,7 @@
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Thompson",
-    "Rated 83 points higher"
+    "Rated 85 points higher"
    ],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1528,16 +1553,16 @@
    "state": "pre",
    "status": "Sat, November 14th at 7:00 PM EST",
    "result": null,
-   "rating_a": 1687,
+   "rating_a": 1689,
    "rating_b": 1604,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.463,
-   "p_a": 0.541,
+   "p_model_a": 0.462,
+   "p_a": 0.549,
    "model_pick": "Charles Radtke",
    "tier": "Low",
-   "fair_odds_a": -118,
-   "fair_odds_b": 118,
+   "fair_odds_a": -122,
+   "fair_odds_b": 122,
    "market_p_a": 0.583,
    "odds_a": -155.0,
    "odds_b": 130.0,
@@ -1680,9 +1705,14 @@
      "t": "2026-11-10T02:42Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
-   "edge_a": -0.042,
+   "edge_a": -0.034,
    "pick": "Charles Radtke",
    "our_pick": "Stephen Thompson",
    "stake": 1.5,
@@ -1694,20 +1724,20 @@
     "odds": -155.0
    },
    "method": {
-    "DEC": 0.534,
+    "DEC": 0.533,
     "KO": 0.306,
     "SUB": 0.16
    },
    "how": {
     "a": {
-     "DEC": 0.295,
-     "KO": 0.167,
-     "SUB": 0.079
+     "DEC": 0.298,
+     "KO": 0.17,
+     "SUB": 0.081
     },
     "b": {
-     "DEC": 0.239,
-     "KO": 0.139,
-     "SUB": 0.081
+     "DEC": 0.235,
+     "KO": 0.136,
+     "SUB": 0.08
     }
    },
    "sample": true
@@ -1800,8 +1830,8 @@
    "state": "pre",
    "status": "Sat, November 14th at 7:00 PM EST",
    "result": null,
-   "rating_a": 1622,
-   "rating_b": 1646,
+   "rating_a": 1625,
+   "rating_b": 1649,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.407,
@@ -1936,6 +1966,11 @@
      "t": "2026-11-10T02:42Z",
      "a": 136.0,
      "b": -162.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": 136.0,
+     "b": -162.0
     }
    ],
    "locked": true,
@@ -2034,7 +2069,7 @@
    "state": "pre",
    "status": "Sat, November 14th at 7:00 PM EST",
    "result": null,
-   "rating_a": 1649,
+   "rating_a": 1647,
    "rating_b": 1566,
    "debut_a": false,
    "debut_b": false,
@@ -2185,6 +2220,11 @@
      "t": "2026-11-10T02:42Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "locked": false,
@@ -2283,8 +2323,8 @@
    "state": "pre",
    "status": "Sat, November 14th at 7:00 PM EST",
    "result": null,
-   "rating_a": 1627,
-   "rating_b": 1544,
+   "rating_a": 1628,
+   "rating_b": 1545,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.609,
@@ -2432,6 +2472,11 @@
     },
     {
      "t": "2026-11-10T02:42Z",
+     "a": -175.0,
+     "b": 145.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
      "a": -175.0,
      "b": 145.0
     }
@@ -2683,6 +2728,11 @@
      "t": "2026-11-10T02:42Z",
      "a": 295.0,
      "b": -375.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
+     "a": 295.0,
+     "b": -375.0
     }
    ],
    "locked": false,
@@ -2781,8 +2831,8 @@
    "state": "pre",
    "status": "Sat, November 14th at 5:00 PM EST",
    "result": null,
-   "rating_a": 1568,
-   "rating_b": 1676,
+   "rating_a": 1569,
+   "rating_b": 1673,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.309,
@@ -2930,6 +2980,11 @@
     },
     {
      "t": "2026-11-10T02:42Z",
+     "a": 210.0,
+     "b": -258.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
      "a": 210.0,
      "b": -258.0
     }
@@ -3221,6 +3276,11 @@
     },
     {
      "t": "2026-11-10T02:42Z",
+     "a": 100.0,
+     "b": -120.0
+    },
+    {
+     "t": "2026-11-10T02:52Z",
      "a": 100.0,
      "b": -120.0
     }
