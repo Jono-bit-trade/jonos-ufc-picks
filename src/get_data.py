@@ -116,7 +116,7 @@ def drop_known(new, known, days=2):
 
 def valid_line(oa, ob):
     """A believable two-way moneyline: both numbers real (|odds| >= 100), the bookmaker's
-    margin between -3% and +30%, and not both fighters priced as clear favorites."""
+    margin between -1% and +15% (UFC books run about 3-8%), and not both fighters priced as clear favorites."""
     from common import implied
     try:
         oa, ob = float(oa), float(ob)
@@ -125,7 +125,7 @@ def valid_line(oa, ob):
     if oa != oa or ob != ob or abs(oa) < 100 or abs(ob) < 100:
         return False
     over = float(implied(oa)) + float(implied(ob))
-    return 0.97 <= over <= 1.30 and not (oa < -130 and ob < -130)
+    return 0.99 <= over <= 1.15 and not (oa < -130 and ob < -130)
 
 
 def clean_lines(fights):
@@ -148,9 +148,10 @@ def one_spelling(fights):
     """Each fighter under one spelling everywhere ("Kai Kara-France" / "Kai Kara France"),
     so ratings and records aren't split. Uses the most recent spelling."""
     import re, unicodedata
-    key = lambda n: re.sub(r"[^a-z]", "", unicodedata.normalize("NFKD", str(n)).encode("ascii", "ignore").decode().lower())
-    for s_ in "ab":
-        fights[s_] = fights[s_].astype(str).str.strip()
+    from get_odds import ALIASES, FOLD
+    key = lambda n: re.sub(r"[^a-z]", "", unicodedata.normalize("NFKD", str(n).translate(FOLD)).encode("ascii", "ignore").decode().lower())
+    for s_ in "ab":   # data/name_map.csv first: the same fighter under different names ("Peter Yan" / "Petr Yan")
+        fights[s_] = fights[s_].astype(str).str.strip().map(lambda n: ALIASES.get(n, n))
     long = pd.concat([fights[["date", "a"]].rename(columns={"a": "n"}), fights[["date", "b"]].rename(columns={"b": "n"})])
     long = long.sort_values("date")
     best = {}
@@ -163,7 +164,56 @@ def one_spelling(fights):
         fights[s_] = new
     fights["fight_id"] = fights["date"] + "|" + fights["a"] + "|" + fights["b"]
     print(f"names: unified {changed} spellings")
+    return drop_duplicate_bouts(fights)
+
+
+def fix_from_espn(fights, eh):
+    """Where ESPN has the bout, trust its winner (the main history has a few backwards) and fill a
+    missing method/round (the main history's 'OTHER' with no finish)."""
+    if eh is None or eh.empty:
+        return fights
+    from get_odds import norm
+    lut = {}
+    for r in eh.itertuples():
+        for d in pd.date_range(pd.Timestamp(r.date) - pd.Timedelta(days=1), periods=3).strftime("%Y-%m-%d"):
+            lut[(d, frozenset((norm(r.a), norm(r.b))))] = r
+    flipped = filled = 0
+    for i, r in fights.iterrows():
+        e = lut.get((r["date"], frozenset((norm(r["a"]), norm(r["b"])))))
+        if e is None:
+            continue
+        same = norm(e.a) == norm(r["a"])
+        if e.winner in ("a", "b") and r["winner"] in ("a", "b"):
+            w = e.winner if same else {"a": "b", "b": "a"}[e.winner]
+            if w != r["winner"]:
+                print(f"results: {r['date']} {r['a']} vs {r['b']}: winner corrected from ESPN")
+                fights.at[i, "winner"] = w
+                flipped += 1
+        if r.get("method") == "OTHER" and not isinstance(r.get("finish"), str) and isinstance(getattr(e, "method", None), str) and e.method in ("KO", "SUB", "DEC"):
+            fights.at[i, "method"], fights.at[i, "finish"] = e.method, getattr(e, "finish", None)
+            if pd.notna(getattr(e, "end_round", None)):
+                fights.at[i, "end_round"] = e.end_round
+            filled += 1
+    print(f"results: {flipped} winners corrected and {filled} missing methods filled from ESPN")
     return fights
+
+
+def drop_duplicate_bouts(fights, days=2):
+    """The same bout listed twice (a source with two spellings of a name): keep the fuller row."""
+    d = pd.to_datetime(fights["date"])
+    pair = [tuple(sorted((a, b))) for a, b in zip(fights["a"], fights["b"])]
+    full = fights.notna().sum(axis=1) + (fights.get("method", pd.Series("", index=fights.index)).astype(str) != "OTHER") * 5
+    order = sorted(range(len(fights)), key=lambda i: -full.iat[i])
+    seen, drop = {}, []
+    for i in order:
+        k = pair[i]
+        if any(abs((d.iat[i] - x).days) <= days for x in seen.get(k, [])):
+            drop.append(fights.index[i])
+        else:
+            seen.setdefault(k, []).append(d.iat[i])
+    if drop:
+        print(f"names: dropped {len(drop)} duplicate bouts: " + "; ".join(f"{fights.at[i, 'date']} {fights.at[i, 'a']} vs {fights.at[i, 'b']}" for i in drop[:10]))
+    return fights.drop(index=drop)
 
 
 def canonical(df, known):
@@ -303,6 +353,7 @@ def build(offline=False):
             eo[c] = [dec_to_us(x) for x in eo[c]]
         eo = eo.rename(columns={"close_a": "odds_a", "close_b": "odds_b"})
     fights = one_spelling(fights)
+    fights = fix_from_espn(fights, espn_hist)
     fights = clean_lines(fights)
     if not eo.empty:   # where 3+ books' closing lines exist, grade at their average: what a typical book paid
         fights = average_book_close(fights, eo[eo["books"] >= 3])

@@ -28,10 +28,13 @@ def name_map():
 ALIASES = name_map()
 
 
+FOLD = str.maketrans({"ł": "l", "Ł": "L", "ø": "o", "Ø": "O", "đ": "d", "Đ": "D", "ß": "ss", "æ": "ae", "Æ": "AE", "ı": "i"})   # letters NFKD doesn't split
+
+
 def norm(name):
     """'José Aldo Jr.' -> 'josealdo'. Used to match names across sites."""
     name = ALIASES.get(name, name)
-    s = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode().lower()
+    s = unicodedata.normalize("NFKD", str(name).translate(FOLD)).encode("ascii", "ignore").decode().lower()
     for junk in [" jr.", " jr", " sr.", ".", "'", "-"]:
         s = s.replace(junk, " " if junk == "-" else "")
     return "".join(ch for ch in s if ch.isalnum())   # spacing differs between sites ("Aori Qileng" / "Aoriqileng")

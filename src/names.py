@@ -14,7 +14,8 @@ from common import path
 
 
 def parts(n):
-    s = unicodedata.normalize("NFKD", str(n)).encode("ascii", "ignore").decode().lower()
+    from get_odds import FOLD
+    s = unicodedata.normalize("NFKD", str(n).translate(FOLD)).encode("ascii", "ignore").decode().lower()
     s = re.sub(r"\b(jr|sr|ii|iii)\b\.?", "", s).replace("-", "").replace("'", "").replace(".", "")
     return [p for p in s.split() if p]
 
