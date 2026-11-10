@@ -1,2 +1,2 @@
-lines missing for 0 bouts since 2023-01-01 (by month: {})
-lines found for 0 bouts (0 book rows); 0 still without lines | ESPN answered: {}
+lines missing for 469 bouts since 2023-01-01 (by month: {'2023-08': 2, '2024-08': 3, '2024-09': 9, '2024-10': 5, '2025-12': 12, '2026-01': 22, '2026-02': 40, '2026-03': 52, '2026-04': 50, '2026-05': 52, '2026-06': 44, '2026-07': 38, '2026-08': 79, '2026-09': 38, '2026-10': 23})
+lines found for 0 bouts (0 book rows); 469 still without lines | ESPN answered: {'200': 469, 'slow (5s+)': 0}

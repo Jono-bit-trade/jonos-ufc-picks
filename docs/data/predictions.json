@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T02:23Z",
+ "updated": "2026-11-10T02:27Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -297,6 +297,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.02,
@@ -306,6 +311,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.254,
     "KO": 0.618,
@@ -584,6 +590,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.022,
@@ -593,6 +604,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.454,
     "KO": 0.287,
@@ -681,7 +693,7 @@
     "handle_b": 0.03,
     "bets_a": 0.66,
     "bets_b": 0.34,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -868,6 +880,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": 0.024,
@@ -877,6 +894,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.523,
     "KO": 0.276,
@@ -974,7 +992,7 @@
     "handle_b": 0.53,
     "bets_a": 0.6,
     "bets_b": 0.4,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1161,6 +1179,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -148.0,
      "b": 124.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "edge_a": 0.021,
@@ -1170,6 +1193,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.372,
     "KO": 0.43,
@@ -1267,7 +1291,7 @@
     "handle_b": 0.99,
     "bets_a": 0.65,
     "bets_b": 0.35,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [
     "Our chance 93% vs the line's 88% (5 points of value)",
@@ -1458,6 +1482,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -1100.0,
      "b": 700.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -1100.0,
+     "b": 700.0
     }
    ],
    "edge_a": 0.047,
@@ -1467,6 +1496,10 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": {
+    "at": "2026-11-08T16:07Z",
+    "odds": -900.0
+   },
    "method": {
     "DEC": 0.367,
     "KO": 0.439,
@@ -1564,7 +1597,7 @@
     "handle_b": 0.05,
     "bets_a": 0.68,
     "bets_b": 0.32,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Thompson",
@@ -1715,6 +1748,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "edge_a": -0.041,
@@ -1724,6 +1762,10 @@
    "expert_lean": "Stephen Thompson",
    "check_news": false,
    "moved_against": false,
+   "posted": {
+    "at": "2026-11-09T23:23Z",
+    "odds": -155.0
+   },
    "method": {
     "DEC": 0.534,
     "KO": 0.306,
@@ -1821,7 +1863,7 @@
     "handle_b": 0.04,
     "bets_a": 0.56,
     "bets_b": 0.44,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -1958,6 +2000,11 @@
      "t": "2026-11-10T02:23Z",
      "a": 136.0,
      "b": -162.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": 136.0,
+     "b": -162.0
     }
    ],
    "edge_a": -0.003,
@@ -1967,6 +2014,7 @@
    "expert_lean": "Chris Duncan",
    "check_news": false,
    "moved_against": true,
+   "posted": null,
    "method": {
     "DEC": 0.445,
     "KO": 0.329,
@@ -2064,7 +2112,7 @@
     "handle_b": 0.24,
     "bets_a": 0.38,
     "bets_b": 0.62,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -2216,6 +2264,11 @@
      "t": "2026-11-10T02:23Z",
      "a": 170.0,
      "b": -205.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": 170.0,
+     "b": -205.0
     }
    ],
    "edge_a": 0.005,
@@ -2225,6 +2278,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.398,
     "KO": 0.421,
@@ -2322,7 +2376,7 @@
     "handle_b": 0.04,
     "bets_a": 0.73,
     "bets_b": 0.27,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [
     "Our chance 65% vs the line's 61% (4 points of value)",
@@ -2478,6 +2532,11 @@
      "t": "2026-11-10T02:23Z",
      "a": -175.0,
      "b": 145.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": -175.0,
+     "b": 145.0
     }
    ],
    "edge_a": 0.045,
@@ -2487,6 +2546,10 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": {
+    "at": "2026-11-08T17:05Z",
+    "odds": -170.0
+   },
    "method": {
     "DEC": 0.462,
     "KO": 0.318,
@@ -2584,7 +2647,7 @@
     "handle_b": 0.63,
     "bets_a": 0.11,
     "bets_b": 0.89,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -2736,6 +2799,11 @@
      "t": "2026-11-10T02:23Z",
      "a": 295.0,
      "b": -375.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": 295.0,
+     "b": -375.0
     }
    ],
    "edge_a": -0.015,
@@ -2745,6 +2813,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.493,
     "KO": 0.317,
@@ -2842,7 +2911,7 @@
     "handle_b": 0.41,
     "bets_a": 0.17,
     "bets_b": 0.83,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -2994,6 +3063,11 @@
      "t": "2026-11-10T02:23Z",
      "a": 205.0,
      "b": -250.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": 205.0,
+     "b": -250.0
     }
    ],
    "edge_a": 0.0,
@@ -3003,6 +3077,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.427,
     "KO": 0.178,
@@ -3069,6 +3144,7 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": null,
    "method": {
     "DEC": 0.343,
     "KO": 0.398,
@@ -3166,7 +3242,7 @@
     "handle_b": 0.71,
     "bets_a": 0.33,
     "bets_b": 0.67,
-    "at": "2026-11-10T02:23Z"
+    "at": "2026-11-10T02:27Z"
    },
    "why": [
     "Our chance 55% vs the line's 52% (3 points of value)",
@@ -3321,6 +3397,11 @@
      "t": "2026-11-10T02:23Z",
      "a": 100.0,
      "b": -120.0
+    },
+    {
+     "t": "2026-11-10T02:27Z",
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "edge_a": -0.032,
@@ -3330,6 +3411,10 @@
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
+   "posted": {
+    "at": "2026-11-08T23:58Z",
+    "odds": -102.0
+   },
    "method": {
     "DEC": 0.516,
     "KO": 0.31,
