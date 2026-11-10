@@ -10,261 +10,261 @@
    "learner": "market",
    "log_loss": 0.6065,
    "brier": 0.2096,
-   "accuracy": 0.6649
+   "accuracy": 0.6653
   },
   {
    "features": "glicko_only",
    "learner": "logistic",
-   "log_loss": 0.6749,
-   "brier": 0.2411,
-   "accuracy": 0.5731
+   "log_loss": 0.6743,
+   "brier": 0.2408,
+   "accuracy": 0.5742
   },
   {
    "features": "core",
    "learner": "logistic",
-   "log_loss": 0.6553,
-   "brier": 0.2317,
-   "accuracy": 0.6108
+   "log_loss": 0.6548,
+   "brier": 0.2314,
+   "accuracy": 0.6079
   },
   {
    "features": "core+form",
    "learner": "logistic",
-   "log_loss": 0.6541,
-   "brier": 0.2311,
+   "log_loss": 0.6538,
+   "brier": 0.231,
    "accuracy": 0.6131
   },
   {
    "features": "core+form+context",
    "learner": "logistic",
-   "log_loss": 0.654,
+   "log_loss": 0.6541,
    "brier": 0.2311,
-   "accuracy": 0.6106
+   "accuracy": 0.612
   },
   {
    "features": "all",
    "learner": "logistic",
-   "log_loss": 0.6499,
-   "brier": 0.2292,
-   "accuracy": 0.6218
+   "log_loss": 0.6508,
+   "brier": 0.2295,
+   "accuracy": 0.6189
   },
   {
    "features": "all",
    "learner": "boost",
-   "log_loss": 0.6585,
-   "brier": 0.2331,
-   "accuracy": 0.6076
+   "log_loss": 0.6574,
+   "brier": 0.2326,
+   "accuracy": 0.6133
   },
   {
    "features": "all",
    "learner": "blend",
-   "log_loss": 0.6508,
-   "brier": 0.2295,
-   "accuracy": 0.6213
+   "log_loss": 0.6518,
+   "brier": 0.23,
+   "accuracy": 0.6198
   }
  ],
  "stage2": [
   {
    "probability": "Betting line",
-   "log_loss": 0.6042,
-   "brier": 0.2086,
-   "accuracy": 0.668
+   "log_loss": 0.6041,
+   "brier": 0.2085,
+   "accuracy": 0.6685
   },
   {
    "probability": "Model alone",
-   "log_loss": 0.6545,
-   "brier": 0.2313,
-   "accuracy": 0.6124
+   "log_loss": 0.6542,
+   "brier": 0.2312,
+   "accuracy": 0.6126
   },
   {
    "probability": "Line + model blend",
-   "log_loss": 0.6022,
+   "log_loss": 0.6024,
    "brier": 0.2081,
-   "accuracy": 0.675
+   "accuracy": 0.6754
   }
  ],
  "roi": [
   {
    "edge": 0.0,
-   "bets": 4437,
-   "win_%": 59.0264,
-   "units": -120.7638,
-   "roi_%": -2.7217
+   "bets": 4443,
+   "win_%": 59.3968,
+   "units": -109.9762,
+   "roi_%": -2.4753
   },
   {
    "edge": 0.01,
-   "bets": 3649,
-   "win_%": 61.0578,
-   "units": -38.3649,
-   "roi_%": -1.0514
+   "bets": 3638,
+   "win_%": 61.5173,
+   "units": -35.4322,
+   "roi_%": -0.9739
   },
   {
    "edge": 0.02,
-   "bets": 2622,
-   "win_%": 63.8444,
-   "units": -4.3122,
-   "roi_%": -0.1645
+   "bets": 2579,
+   "win_%": 64.7538,
+   "units": -5.9502,
+   "roi_%": -0.2307
   },
   {
    "edge": 0.03,
-   "bets": 1672,
-   "win_%": 69.1986,
-   "units": 31.0023,
-   "roi_%": 1.8542
+   "bets": 1635,
+   "win_%": 69.419,
+   "units": 10.5636,
+   "roi_%": 0.6461
   },
   {
    "edge": 0.04,
-   "bets": 1096,
-   "win_%": 73.9964,
-   "units": 30.2631,
-   "roi_%": 2.7612
+   "bets": 1075,
+   "win_%": 74.8837,
+   "units": 35.2925,
+   "roi_%": 3.283
   },
   {
    "edge": 0.05,
-   "bets": 726,
-   "win_%": 75.4821,
-   "units": 32.6579,
-   "roi_%": 4.4983
+   "bets": 720,
+   "win_%": 75.5556,
+   "units": 21.6319,
+   "roi_%": 3.0044
   }
  ],
  "by_year": [
   {
    "year": "2018",
-   "bets": 252,
-   "win_%": 58.7302,
-   "units": -6.7402,
-   "roi_%": -2.6747
+   "bets": 253,
+   "win_%": 58.498,
+   "units": -7.7402,
+   "roi_%": -3.0594
   },
   {
    "year": "2019",
-   "bets": 210,
-   "win_%": 60.4762,
-   "units": -17.2308,
-   "roi_%": -8.2052
+   "bets": 211,
+   "win_%": 60.1896,
+   "units": -19.8318,
+   "roi_%": -9.399
   },
   {
    "year": "2020",
    "bets": 106,
-   "win_%": 78.3019,
-   "units": 11.599,
-   "roi_%": 10.9425
+   "win_%": 77.3585,
+   "units": 9.4329,
+   "roi_%": 8.899
   },
   {
    "year": "2021",
-   "bets": 153,
-   "win_%": 64.0523,
-   "units": 0.1198,
-   "roi_%": 0.0783
+   "bets": 149,
+   "win_%": 65.1007,
+   "units": -0.6505,
+   "roi_%": -0.4366
   },
   {
    "year": "2022",
-   "bets": 144,
-   "win_%": 71.5278,
-   "units": 14.0629,
-   "roi_%": 9.7659
+   "bets": 131,
+   "win_%": 74.8092,
+   "units": 11.9495,
+   "roi_%": 9.1217
   },
   {
    "year": "2023",
-   "bets": 187,
-   "win_%": 70.0535,
-   "units": 3.7798,
-   "roi_%": 2.0213
+   "bets": 190,
+   "win_%": 71.0526,
+   "units": 4.7004,
+   "roi_%": 2.4739
   },
   {
    "year": "2024",
-   "bets": 199,
-   "win_%": 73.3668,
-   "units": 4.8913,
-   "roi_%": 2.4579
+   "bets": 189,
+   "win_%": 75.1323,
+   "units": 7.9691,
+   "roi_%": 4.2164
   },
   {
    "year": "2025",
-   "bets": 219,
-   "win_%": 76.7123,
-   "units": 14.9629,
-   "roi_%": 6.8324
+   "bets": 213,
+   "win_%": 75.5869,
+   "units": 3.1739,
+   "roi_%": 1.4901
   },
   {
    "year": "2026",
-   "bets": 202,
-   "win_%": 75.7426,
-   "units": 5.5577,
-   "roi_%": 2.7513
+   "bets": 193,
+   "win_%": 75.1295,
+   "units": 1.5604,
+   "roi_%": 0.8085
   }
  ],
  "years": "2018-2026",
- "fights": 4437,
+ "fights": 4443,
  "early": [
   {
    "edge": 0.0,
-   "bets_open": 1144,
-   "win_%_open": 64.6853,
-   "units_open": 7.119,
-   "roi_%_open": 0.6223,
-   "roi_close_%": -1.0572,
-   "moved_toward_%": 59.4231
+   "bets_open": 1162,
+   "win_%_open": 64.1997,
+   "units_open": 0.169,
+   "roi_%_open": 0.0145,
+   "roi_close_%": -1.1311,
+   "moved_toward_%": 59.5644
   },
   {
    "edge": 0.01,
-   "bets_open": 927,
-   "win_%_open": 66.2352,
-   "units_open": -7.3821,
-   "roi_%_open": -0.7963,
-   "roi_close_%": -0.6104,
-   "moved_toward_%": 62.114
+   "bets_open": 930,
+   "win_%_open": 66.129,
+   "units_open": -10.8012,
+   "roi_%_open": -1.1614,
+   "roi_close_%": -1.6823,
+   "moved_toward_%": 61.9385
   },
   {
    "edge": 0.02,
-   "bets_open": 708,
-   "win_%_open": 69.9153,
-   "units_open": 17.187,
-   "roi_%_open": 2.4275,
-   "roi_close_%": 0.4238,
-   "moved_toward_%": 64.3642
+   "bets_open": 698,
+   "win_%_open": 69.6275,
+   "units_open": 11.0115,
+   "roi_%_open": 1.5776,
+   "roi_close_%": -0.9282,
+   "moved_toward_%": 64.6688
   },
   {
    "edge": 0.03,
-   "bets_open": 481,
-   "win_%_open": 73.1809,
-   "units_open": 21.3908,
-   "roi_%_open": 4.4472,
-   "roi_close_%": 0.2124,
-   "moved_toward_%": 71.1316
+   "bets_open": 492,
+   "win_%_open": 71.9512,
+   "units_open": 10.3635,
+   "roi_%_open": 2.1064,
+   "roi_close_%": -1.4012,
+   "moved_toward_%": 70.6818
   },
   {
    "edge": 0.04,
-   "bets_open": 252,
-   "win_%_open": 76.9841,
-   "units_open": 20.0715,
-   "roi_%_open": 7.9649,
-   "roi_close_%": 0.452,
-   "moved_toward_%": 72.807
+   "bets_open": 246,
+   "win_%_open": 76.0163,
+   "units_open": 15.194,
+   "roi_%_open": 6.1764,
+   "roi_close_%": -1.4177,
+   "moved_toward_%": 71.8182
   },
   {
    "edge": 0.05,
    "bets_open": 73,
    "win_%_open": 78.0822,
-   "units_open": 10.228,
-   "roi_%_open": 14.0109,
-   "roi_close_%": 6.8497,
-   "moved_toward_%": 69.2308
+   "units_open": 9.7835,
+   "roi_%_open": 13.4021,
+   "roi_close_%": 6.1337,
+   "moved_toward_%": 66.6667
   }
  ],
  "early_moves": {
   "from": 2023,
   "to": 2026,
-  "fights": 1146,
-  "picks": 480,
-  "toward": 308,
-  "away": 125,
-  "flat": 47,
-  "pct": 71.1,
-  "units_open": 21.4,
-  "units_close": 1.1,
+  "fights": 1164,
+  "picks": 488,
+  "toward": 311,
+  "away": 129,
+  "flat": 48,
+  "pct": 70.7,
+  "units_open": 10.4,
+  "units_close": -7.1,
   "by_year": [
    {
     "year": "2023",
-    "picks": 30,
-    "pct": 69.2
+    "picks": 33,
+    "pct": 69.0
    },
    {
     "year": "2024",
@@ -273,13 +273,13 @@
    },
    {
     "year": "2025",
-    "picks": 197,
-    "pct": 65.4
+    "picks": 202,
+    "pct": 65.2
    },
    {
     "year": "2026",
     "picks": 39,
-    "pct": 78.9
+    "pct": 75.7
    }
   ]
  }

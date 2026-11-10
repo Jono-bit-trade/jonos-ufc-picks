@@ -6,10 +6,10 @@
   "model"
  ],
  "coef": [
-  0.5603,
-  0.3225
+  0.5676,
+  0.3156
  ],
- "intercept": 0.2077,
+ "intercept": 0.202,
  "min_picks": 20,
  "trained_on_bouts": 323
 }
