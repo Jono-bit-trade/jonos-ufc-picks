@@ -6,14 +6,14 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "C. Gane -225",
+ "details": "C. Gane -218",
  "overUnder": 3.5,
- "overOdds": 110.0,
+ "overOdds": 124.0,
  "underOdds": -160.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 185,
+  "moneyLine": 180,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -27,12 +27,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 2.85,
-    "displayValue": "37/20",
-    "alternateDisplayValue": "+185",
-    "decimal": 2.85,
-    "fraction": "37/20",
-    "american": "+185"
+    "value": 2.8,
+    "displayValue": "9/5",
+    "alternateDisplayValue": "+180",
+    "decimal": 2.8,
+    "fraction": "9/5",
+    "american": "+180"
    }
   },
   "athlete": {
@@ -42,7 +42,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -225,
+  "moneyLine": -218,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -56,12 +56,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 1.44,
-    "displayValue": "4/9",
-    "alternateDisplayValue": "-225",
-    "decimal": 1.44,
-    "fraction": "4/9",
-    "american": "-225"
+    "value": 1.45,
+    "displayValue": "50/109",
+    "alternateDisplayValue": "-218",
+    "decimal": 1.45,
+    "fraction": "50/109",
+    "american": "-218"
    }
   },
   "athlete": {
@@ -163,12 +163,12 @@
  },
  "current": {
   "over": {
-   "value": 2.1,
-   "displayValue": "11/10",
-   "alternateDisplayValue": "+110",
-   "decimal": 2.1,
-   "fraction": "11/10",
-   "american": "+110"
+   "value": 2.24,
+   "displayValue": "31/25",
+   "alternateDisplayValue": "+124",
+   "decimal": 2.24,
+   "fraction": "31/25",
+   "american": "+124"
   },
   "under": {
    "value": 1.62,
