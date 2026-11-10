@@ -50,16 +50,16 @@
   {
    "features": "all",
    "learner": "boost",
-   "log_loss": 0.6583,
-   "brier": 0.2331,
-   "accuracy": 0.6124
+   "log_loss": 0.6594,
+   "brier": 0.2336,
+   "accuracy": 0.6085
   },
   {
    "features": "all",
    "learner": "blend",
-   "log_loss": 0.6514,
+   "log_loss": 0.6513,
    "brier": 0.2298,
-   "accuracy": 0.6187
+   "accuracy": 0.6189
   }
  ],
  "stage2": [
@@ -253,34 +253,14 @@
   "from": 2023,
   "to": 2026,
   "fights": 1164,
-  "picks": 488,
-  "toward": 311,
-  "away": 129,
-  "flat": 48,
-  "pct": 70.7,
-  "units_open": 10.4,
-  "units_close": -7.1,
-  "by_year": [
-   {
-    "year": "2023",
-    "picks": 33,
-    "pct": 69.0
-   },
-   {
-    "year": "2024",
-    "picks": 214,
-    "pct": 75.3
-   },
-   {
-    "year": "2025",
-    "picks": 202,
-    "pct": 65.2
-   },
-   {
-    "year": "2026",
-    "picks": 39,
-    "pct": 75.7
-   }
-  ]
+  "picks": 476,
+  "won": 345,
+  "toward": 302,
+  "away": 127,
+  "flat": 47,
+  "pct": 70.4,
+  "units_open": 0.2,
+  "units_close": -11.9,
+  "rule": "our picks: 3+ points over the opening line, favorites"
  }
 }
