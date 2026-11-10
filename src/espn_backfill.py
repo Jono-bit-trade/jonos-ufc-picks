@@ -139,5 +139,53 @@ def main(minutes=300):
     print(f"done: {retry} bouts to retry | ESPN answered: {dict(SEEN)}")
 
 
+def odds_gaps(minutes=40, since="2023-01-01"):
+    """Fetch lines again for past bouts that were marked done but have no lines saved
+    (ESPN sometimes had none yet, or answered with a different layout). Each bout is tried
+    once a week at most (data/espn_odds_gap_tried.txt), so a bout ESPN truly has no lines
+    for doesn't cost a request every day."""
+    h = pd.read_csv(path("espn_history.csv"), dtype=str).dropna(subset=["espn_fight", "espn_event", "espn_id_a", "espn_id_b"])
+    for c in ("espn_fight", "espn_event", "espn_id_a", "espn_id_b"):
+        h[c] = h[c].str.replace(r"\.0$", "", regex=True)
+    h = h[(h["date"] >= since) & (h["date"] < time.strftime("%Y-%m-%d"))].drop_duplicates("espn_fight")
+    f = path("espn_odds_history.csv")
+    have = set(pd.read_csv(f, dtype=str)["espn_fight"].str.replace(r"\.0$", "", regex=True)) if os.path.exists(f) else set()
+    tried_f = path("espn_odds_gap_tried.txt")
+    tried = {}
+    if os.path.exists(tried_f):
+        for ln in open(tried_f).read().split():
+            k, _, t = ln.partition(",")
+            tried[k] = t
+    week_ago = time.strftime("%Y-%m-%d", time.gmtime(time.time() - 7 * 86400))
+    todo = h[~h["espn_fight"].isin(have) & ~h["espn_fight"].map(lambda k: tried.get(k, "") > week_ago)]
+    todo = todo.sort_values("date", ascending=False)
+    print(f"lines missing for {len(todo)} bouts since {since} (by month: {todo['date'].str[:7].value_counts().sort_index().to_dict()})")
+    stop, got, empty, raw = time.time() + minutes * 60, [], 0, None
+    today = time.strftime("%Y-%m-%d")
+    for r in todo.to_dict("records"):
+        if time.time() > stop:
+            print("time limit reached: the next run carries on")
+            break
+        js = get(BASE.format(e=r["espn_event"], c=r["espn_fight"]) + "/odds")
+        rows = odds_rows(js, r)
+        got += rows
+        if not rows:
+            empty += 1
+            if raw is None and js is not None:
+                raw = {"fight": r["espn_fight"], "date": r["date"], "response": js,
+                       "first_item": (get(js["items"][0]["$ref"]) if js.get("items") and "$ref" in js["items"][0] else None)}
+        tried[r["espn_fight"]] = today
+    if got:
+        pd.DataFrame(got).to_csv(f, mode="a", header=not os.path.exists(f), index=False)
+    open(tried_f, "w").write("".join(f"{k},{t}\n" for k, t in sorted(tried.items())))
+    if raw is not None:
+        os.makedirs(path("raw"), exist_ok=True)
+        json.dump(raw, open(path("raw", "espn_odds_gap_sample.json"), "w"), indent=1, default=str)
+    print(f"lines found for {len({x['espn_fight'] for x in got})} bouts ({len(got)} book rows); {empty} still without lines | ESPN answered: {dict(SEEN)}")
+
+
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 300)
+    if len(sys.argv) > 1 and sys.argv[1] == "--odds-gaps":
+        odds_gaps(int(sys.argv[2]) if len(sys.argv) > 2 else 40)
+    else:
+        main(int(sys.argv[1]) if len(sys.argv) > 1 else 300)

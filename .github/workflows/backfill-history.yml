@@ -44,6 +44,10 @@ jobs:
       - name: Save progress
         run: 'bash .github/save.sh "Backfill: ESPN past cards"'
 
+      - name: Lines missing for bouts already fetched (up to 40 minutes)
+        continue-on-error: true
+        run: timeout 45m python src/espn_backfill.py --odds-gaps 40 2>&1 | tee data/logs/espn_odds_gaps.log | tail -n 20
+
       - name: ESPN fight stats and lines (up to 4.5 hours)
         continue-on-error: true
         run: python src/espn_backfill.py ${{ inputs.minutes || '270' }} 2>&1 | tee data/logs/espn_backfill.log | tail -n 100
