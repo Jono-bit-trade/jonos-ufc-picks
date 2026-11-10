@@ -45,11 +45,33 @@ def schedule_strength(t):
     return t
 
 
+UK = {"England", "Scotland", "Wales", "Northern Ireland", "United Kingdom"}
+
+
+def venue(t):
+    """Home country (the fighter's country hosts the card) and the UFC Apex (the small cage: Las Vegas
+    cards from mid-2020 with no title fight, which is nearly every Apex card; arena cards in Vegas
+    are the numbered events, which almost always have a title fight)."""
+    from get_odds import norm
+    c = pd.read_csv(path("fighter_countries.csv")) if os.path.exists(path("fighter_countries.csv")) else pd.DataFrame(columns=["name", "country"])
+    cc = {norm(n): ("United Kingdom" if x in UK else x) for n, x in zip(c["name"], c["country"]) if isinstance(x, str)}
+    loc = t["location"].astype(str).str.split(",").str[-1].str.strip().replace({"United States": "USA"})
+    loc = loc.where(~loc.isin(UK), "United Kingdom")
+    t = t.copy()
+    t["home_a"] = [int(cc.get(norm(a)) == l) for a, l in zip(t["a"], loc)]
+    t["home_b"] = [int(cc.get(norm(b)) == l) for b, l in zip(t["b"], loc)]
+    t["known_country"] = [int(norm(a) in cc and norm(b) in cc) for a, b in zip(t["a"], t["b"])]
+    vegas = t["location"].astype(str).str.contains("Las Vegas")
+    titled = t.groupby("date")["title"].transform(lambda x: (x == 1).any())
+    t["apex"] = (vegas & (t["date"] >= "2020-06-01") & ~titled).astype(int)
+    return t
+
+
 def sides(t):
     """Every fight from each fighter's side: columns describe 'me' (a) and 'opp' (b)."""
     t = t[t["winner"].isin(["a", "b"]) & t["odds_a"].notna() & t["odds_b"].notna()].copy()
     f = flip(t)
-    for x, y in [("sos_a", "sos_b"), ("ko_loss_last_a", "ko_loss_last_b"), ("won_last_a", "won_last_b")]:
+    for x, y in [("sos_a", "sos_b"), ("ko_loss_last_a", "ko_loss_last_b"), ("won_last_a", "won_last_b"), ("home_a", "home_b")]:
         f[x], f[y] = t[y].values, t[x].values
     both = pd.concat([t, f], ignore_index=True)
     both["fair"] = no_vig(both["odds_a"], both["odds_b"])
@@ -100,12 +122,23 @@ def situations(s):
         "Price: small favorites (-101 to -149)": (s["odds_a"] < -100) & (s["odds_a"] > -150),
         "Price: small underdogs (+100 to +150)": (s["odds_a"] >= 100) & (s["odds_a"] <= 150),
         "Price: big underdogs (+300 or longer)": s["odds_a"] >= 300,
+        "Turnaround: back within 60 days": s["layoff_a"] <= 60,
+        "Turnaround: back within 60 days, as favorite": (s["layoff_a"] <= 60) & fav,
+        "Turnaround: opponent back within 60 days": s["layoff_b"] <= 60,
+        "Home: fighting in home country": (s["home_a"] == 1) & (s["home_b"] == 0),
+        "Home: fighting in home country, as underdog": (s["home_a"] == 1) & (s["home_b"] == 0) & dog,
+        "Home: fighting in home country, as favorite": (s["home_a"] == 1) & (s["home_b"] == 0) & fav,
+        "Form: lost last fight (any way)": s["won_last_a"] == 0,
+        "Apex (small cage): favorites": (s["apex"] == 1) & fav,
+        "Apex (small cage): underdogs": (s["apex"] == 1) & dog,
+        "Apex (small cage): favorites -250 or shorter": (s["apex"] == 1) & (s["odds_a"] <= -250),
     }
 
 
 def main():
     t, _ = build(pd.read_csv(path("fights.csv")))
     t = schedule_strength(t)
+    t = venue(t)
     s = sides(t)
     rows = []
     for name, mask in situations(s).items():

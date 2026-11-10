@@ -2040,7 +2040,7 @@ async function viewHow() {
   const ed = await get("edges.json", true);
   const sg = x => x == null ? "–" : (x > 0 ? "+" : "") + x.toFixed(1) + "%";
   const edges = !ed ? "" : `<h2>Edges: where the line has been wrong</h2>
-    <p class="note">Flat bets on the fighter in each situation, tested in two separate periods: a real edge shows up in both. Layoff returners and +300 underdogs are already built into our chances.</p>
+    <p class="note">Flat bets on the fighter in each situation, tested in two separate periods: a real edge shows up in both. Layoff returners, +300 underdogs and five-round fights (where the line is too sure of the favorite) are built into our chances.</p>
     <div class="tablewrap"><table class="bt"><thead>${row(["Situation", ...ed.periods.flatMap(p => [p + " fights", "Won", "Line said", "Per bet"]), "Verdict"], true)}</thead><tbody>${
     ed.rows.filter(r => r.verdict !== "too few fights").sort((a, b) => (a.verdict > b.verdict ? 1 : -1))
       .map(r => row([esc(r.situation), ...ed.periods.flatMap(p => [r["n " + p], pct1(r["won " + p]), pct1(r["line said " + p]), sg(r["roi " + p])]), esc(r.verdict)])).join("")}</tbody></table></div>`;
@@ -2053,7 +2053,7 @@ async function viewHow() {
     <div class="hw">
       ${step(1, "Rate every fighter", "Every UFC fight since 2010 feeds a rating, weighted by how the fight ended and who it was against.")}
       ${step(2, "Predict the fight", "Rating, form, experience, age, reach and finishing history give each fighter a chance to win.")}
-      ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs and long shots.")}
+      ${step(3, "Blend with the line", "The line knows things we don't (injuries, camps), so we blend with it, plus adjustments for layoffs, long shots and five-round fights.")}
       ${step(4, "Find the value", "Beat the line by 3+ points on a favorite or 70%+ fighter, or experts agree in a close fight: that's a pick, sized by price. Picks go up as the lines open and stay up.")}
     </div>
     ${b.early_moves && b.early_moves.picks ? (() => { const E = b.early_moves, u = x => (x >= 0 ? "+" : "") + x.toFixed(1) + "u";

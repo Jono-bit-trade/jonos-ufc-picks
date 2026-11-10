@@ -123,21 +123,27 @@ class MethodByWinner:
 
 
 # ---- market blend: the last step, AFTER the model is built ----
-SITUATIONS = ["layoff", "bigdog"]
+SITUATIONS = ["layoff", "bigdog", "five_rounds"]
 
 
 def situations(df):
-    """Two situations the line has misjudged in both 2013-2019 and 2020-2026 (src/edges.py),
-    and that lowered the blend's log loss in both 2018-2023 and 2024-2026:
+    """Situations the line has misjudged, each tested in walk-forward blends:
       layoff: back after 15+ months (fighters returning from long layoffs win less than priced)
       bigdog: +300 or longer underdogs (win less often than their odds imply)
-    Each is +1 for fighter A, -1 for fighter B, 0 for neither or both."""
+      five_rounds: five-round fights, as the line's log-odds (the line is too sure of the favorite in
+        five-rounders: a -300 favorite wins about 69%, not 73%). Lowered log loss in 2017-20, 2021-23
+        and 2024-26 (Nov 2026); age, debut, KO loss, Apex, home country, altitude and others did not.
+    layoff and bigdog are +1 for fighter A, -1 for fighter B, 0 for neither or both."""
     la = pd.to_numeric(df.get("long_layoff_a", 0), errors="coerce").fillna(0)
     lb = pd.to_numeric(df.get("long_layoff_b", 0), errors="coerce").fillna(0)
     oa = pd.to_numeric(df.get("odds_a"), errors="coerce")
     ob = pd.to_numeric(df.get("odds_b"), errors="coerce")
+    from common import no_vig
+    fair = pd.Series(np.asarray(no_vig(oa, ob), float), index=df.index).clip(0.01, 0.99)
+    five = pd.to_numeric(df.get("five_rounds", 0), errors="coerce").fillna(0)
     return pd.DataFrame({"layoff": (la - lb).values,
-                         "bigdog": ((oa >= 300).astype(int) - (ob >= 300).astype(int)).values})
+                         "bigdog": ((oa >= 300).astype(int) - (ob >= 300).astype(int)).values,
+                         "five_rounds": (five * np.log(fair / (1 - fair))).fillna(0).values})
 
 
 class MarketBlend:
