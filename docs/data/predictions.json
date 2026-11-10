@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T03:35Z",
+ "updated": "2026-11-10T03:15Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -332,11 +332,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -225.0,
      "b": 185.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -225.0,
-     "b": 185.0
     }
    ],
    "edge_a": -0.035,
@@ -660,11 +655,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -192.0,
      "b": 160.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -192.0,
-     "b": 160.0
     }
    ],
    "edge_a": -0.022,
@@ -763,7 +753,7 @@
     "handle_b": 0.03,
     "bets_a": 0.71,
     "bets_b": 0.29,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -985,11 +975,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -166.0,
      "b": 140.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -166.0,
-     "b": 140.0
     }
    ],
    "edge_a": 0.029,
@@ -1093,11 +1078,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.47,
-    "handle_b": 0.53,
+    "handle_a": 0.46,
+    "handle_b": 0.54,
     "bets_a": 0.59,
     "bets_b": 0.41,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1319,11 +1304,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -148.0,
      "b": 124.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -148.0,
-     "b": 124.0
     }
    ],
    "edge_a": 0.025,
@@ -1431,7 +1411,7 @@
     "handle_b": 0.99,
     "bets_a": 0.65,
     "bets_b": 0.35,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
    "why": [
     "Our chance 93% vs the line's 88% (5 points of value)",
@@ -1657,11 +1637,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -1100.0,
      "b": 700.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -1100.0,
-     "b": 700.0
     }
    ],
    "edge_a": 0.051,
@@ -1772,7 +1747,7 @@
     "handle_b": 0.19,
     "bets_a": 0.65,
     "bets_b": 0.35,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Thompson",
@@ -1957,11 +1932,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -155.0,
      "b": 130.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -155.0,
-     "b": 130.0
     }
    ],
    "edge_a": -0.03,
@@ -2068,11 +2038,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.97,
-    "handle_b": 0.03,
-    "bets_a": 0.59,
-    "bets_b": 0.41,
-    "at": "2026-11-10T03:35Z"
+    "handle_a": 0.96,
+    "handle_b": 0.04,
+    "bets_a": 0.57,
+    "bets_b": 0.43,
+    "at": "2026-11-10T03:15Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Duncan",
@@ -2247,11 +2217,6 @@
      "t": "2026-11-10T03:15Z",
      "a": 136.0,
      "b": -162.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": 136.0,
-     "b": -162.0
     }
    ],
    "edge_a": -0.007,
@@ -2358,11 +2323,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.77,
-    "handle_b": 0.23,
-    "bets_a": 0.42,
-    "bets_b": 0.58,
-    "at": "2026-11-10T03:35Z"
+    "handle_a": 0.78,
+    "handle_b": 0.22,
+    "bets_a": 0.43,
+    "bets_b": 0.57,
+    "at": "2026-11-10T03:15Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -2549,11 +2514,6 @@
      "t": "2026-11-10T03:15Z",
      "a": 170.0,
      "b": -205.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": 170.0,
-     "b": -205.0
     }
    ],
    "edge_a": -0.0,
@@ -2659,14 +2619,14 @@
    "splits": {
     "handle_a": 0.95,
     "handle_b": 0.05,
-    "bets_a": 0.72,
-    "bets_b": 0.28,
-    "at": "2026-11-10T03:35Z"
+    "bets_a": 0.71,
+    "bets_b": 0.29,
+    "at": "2026-11-10T03:15Z"
    },
    "why": [
     "Our chance 66% vs the line's 61% (5 points of value)",
     "Rated 83 points higher",
-    "Bigger bettors on him: 95% of DraftKings money from 72% of bets"
+    "Bigger bettors on him: 95% of DraftKings money from 71% of bets"
    ],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -2852,11 +2812,6 @@
      "t": "2026-11-10T03:15Z",
      "a": -175.0,
      "b": 145.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": -175.0,
-     "b": 145.0
     }
    ],
    "edge_a": 0.052,
@@ -2967,7 +2922,7 @@
     "handle_b": 0.63,
     "bets_a": 0.11,
     "bets_b": 0.89,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -3154,11 +3109,6 @@
      "t": "2026-11-10T03:15Z",
      "a": 295.0,
      "b": -375.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": 295.0,
-     "b": -375.0
     }
    ],
    "edge_a": -0.023,
@@ -3266,7 +3216,7 @@
     "handle_b": 0.38,
     "bets_a": 0.19,
     "bets_b": 0.81,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
    "why": [],
    "weight_class": "Women's Bantamweight",
@@ -3453,11 +3403,6 @@
      "t": "2026-11-10T03:15Z",
      "a": 210.0,
      "b": -258.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": 210.0,
-     "b": -258.0
     }
    ],
    "edge_a": -0.006,
@@ -3632,9 +3577,12 @@
     "handle_b": 0.71,
     "bets_a": 0.33,
     "bets_b": 0.67,
-    "at": "2026-11-10T03:35Z"
+    "at": "2026-11-10T03:15Z"
    },
-   "why": [],
+   "why": [
+    "Our chance 54% vs the line's 52% (2 points of value)",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
+   ],
    "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
@@ -3819,21 +3767,19 @@
      "t": "2026-11-10T03:15Z",
      "a": 100.0,
      "b": -120.0
-    },
-    {
-     "t": "2026-11-10T03:35Z",
-     "a": 100.0,
-     "b": -120.0
     }
    ],
    "edge_a": -0.023,
    "pick": null,
-   "our_pick": null,
-   "stake": null,
+   "our_pick": "Samuel Sanches",
+   "stake": 1.5,
    "expert_lean": null,
    "check_news": false,
-   "moved_against": true,
-   "posted": null,
+   "moved_against": false,
+   "posted": {
+    "at": "2026-11-08T23:58Z",
+    "odds": -102.0
+   },
    "method": {
     "DEC": 0.516,
     "KO": 0.308,
