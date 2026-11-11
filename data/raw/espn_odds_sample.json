@@ -6,15 +6,15 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "C. Gane -225",
+ "details": "C. Gane -205",
  "overUnder": 3.5,
  "spread": -5.5,
- "overOdds": 124.0,
- "underOdds": -160.0,
+ "overOdds": 130.0,
+ "underOdds": -166.0,
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 185,
+  "moneyLine": 170,
   "spreadOdds": 120.0,
   "open": {
    "favorite": false,
@@ -79,21 +79,21 @@
     "american": "+120"
    },
    "moneyLine": {
-    "value": 2.85,
-    "displayValue": "37/20",
-    "alternateDisplayValue": "+185",
-    "decimal": 2.85,
-    "fraction": "37/20",
-    "american": "+185"
+    "value": 2.7,
+    "displayValue": "17/10",
+    "alternateDisplayValue": "+170",
+    "decimal": 2.7,
+    "fraction": "17/10",
+    "american": "+170"
    },
    "victoryMethod": {
     "koTkoDq": {
-     "value": 5.0,
-     "displayValue": "4/1",
-     "alternateDisplayValue": "+400",
-     "decimal": 5.0,
-     "fraction": "4/1",
-     "american": "+400"
+     "value": 5.5,
+     "displayValue": "9/2",
+     "alternateDisplayValue": "+450",
+     "decimal": 5.5,
+     "fraction": "9/2",
+     "american": "+450"
     },
     "submission": {
      "value": 10.0,
@@ -120,7 +120,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -225,
+  "moneyLine": -205,
   "spreadOdds": -160.0,
   "open": {
    "favorite": true,
@@ -185,21 +185,21 @@
     "american": "-160"
    },
    "moneyLine": {
-    "value": 1.44,
-    "displayValue": "4/9",
-    "alternateDisplayValue": "-225",
-    "decimal": 1.44,
-    "fraction": "4/9",
-    "american": "-225"
+    "value": 1.48,
+    "displayValue": "20/41",
+    "alternateDisplayValue": "-205",
+    "decimal": 1.48,
+    "fraction": "20/41",
+    "american": "-205"
    },
    "victoryMethod": {
     "koTkoDq": {
-     "value": 2.1,
-     "displayValue": "11/10",
-     "alternateDisplayValue": "+110",
-     "decimal": 2.1,
-     "fraction": "11/10",
-     "american": "+110"
+     "value": 2.2,
+     "displayValue": "6/5",
+     "alternateDisplayValue": "+120",
+     "decimal": 2.2,
+     "fraction": "6/5",
+     "american": "+120"
     },
     "submission": {
      "value": 10.0,
@@ -396,20 +396,20 @@
  },
  "current": {
   "over": {
-   "value": 2.24,
-   "displayValue": "31/25",
-   "alternateDisplayValue": "+124",
-   "decimal": 2.24,
-   "fraction": "31/25",
-   "american": "+124"
+   "value": 2.3,
+   "displayValue": "13/10",
+   "alternateDisplayValue": "+130",
+   "decimal": 2.3,
+   "fraction": "13/10",
+   "american": "+130"
   },
   "under": {
-   "value": 1.62,
-   "displayValue": "5/8",
-   "alternateDisplayValue": "-160",
-   "decimal": 1.62,
-   "fraction": "5/8",
-   "american": "-160"
+   "value": 1.6,
+   "displayValue": "50/83",
+   "alternateDisplayValue": "-166",
+   "decimal": 1.6,
+   "fraction": "50/83",
+   "american": "-166"
   },
   "total": {
    "alternateDisplayValue": "3.5",

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T15:24Z",
+ "updated": "2026-11-11T21:17Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -14,7 +14,7 @@
   {
    "segment": "Early prelims",
    "start": "2026-11-14T22:00Z",
-   "bouts": 3,
+   "bouts": 4,
    "tv": [
     "Paramount+"
    ]
@@ -123,11 +123,11 @@
    "rating_b": 1769,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.664,
-   "odds_a": -225.0,
-   "odds_b": 185.0,
-   "best_a": -225.0,
-   "best_b": 185.0,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
    "open_a": -265.0,
    "open_b": 215.0,
    "books": 1.0,
@@ -136,16 +136,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -225.0,
-     "b": 185.0
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -238.0,
-     "b": 195.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -238.0,
@@ -340,9 +335,14 @@
      "t": "2026-11-11T15:24Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
-   "locked": true,
+   "locked": false,
    "hidden": true,
    "our_pick": null,
    "pick": null,
@@ -436,10 +436,10 @@
    "rating_b": 1825,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.625,
-   "odds_a": -192.0,
+   "market_p_a": 0.62,
+   "odds_a": -180.0,
    "odds_b": 154.0,
-   "best_a": -192.0,
+   "best_a": -180.0,
    "best_b": 154.0,
    "open_a": -192.0,
    "open_b": 160.0,
@@ -449,16 +449,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -192.0,
+     "a": -180.0,
      "b": 154.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -192.0,
-     "b": 160.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -192.0,
@@ -652,6 +647,11 @@
     {
      "t": "2026-11-11T15:24Z",
      "a": -192.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -180.0,
      "b": 154.0
     }
    ],
@@ -728,13 +728,7 @@
      }
     ]
    },
-   "splits": {
-    "handle_a": 0.9,
-    "handle_b": 0.1,
-    "bets_a": 0.78,
-    "bets_b": 0.22,
-    "at": "2026-11-11T01:27Z"
-   },
+   "splits": null,
    "weight_class": "Middleweight",
    "rounds": 3,
    "segment": "",
@@ -746,11 +740,11 @@
    "rating_b": 1718,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.593,
-   "odds_a": -162.0,
-   "odds_b": 136.0,
-   "best_a": -162.0,
-   "best_b": 136.0,
+   "market_p_a": 0.583,
+   "odds_a": -155.0,
+   "odds_b": 130.0,
+   "best_a": -155.0,
+   "best_b": 130.0,
    "open_a": -135.0,
    "open_b": 114.0,
    "books": 1.0,
@@ -759,16 +753,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -162.0,
-     "b": 136.0
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -162.0,
-     "b": 136.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -162.0,
@@ -963,6 +952,11 @@
      "t": "2026-11-11T15:24Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "locked": false,
@@ -1048,11 +1042,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.6,
-    "handle_b": 0.4,
-    "bets_a": 0.68,
-    "bets_b": 0.32,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.43,
+    "handle_b": 0.57,
+    "bets_a": 0.64,
+    "bets_b": 0.36,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1065,11 +1059,11 @@
    "rating_b": 1680,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.572,
-   "odds_a": -148.0,
-   "odds_b": 124.0,
-   "best_a": -148.0,
-   "best_b": 124.0,
+   "market_p_a": 0.583,
+   "odds_a": -155.0,
+   "odds_b": 130.0,
+   "best_a": -155.0,
+   "best_b": 130.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -1078,16 +1072,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -148.0,
-     "b": 124.0
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -170.0,
-     "b": 142.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -170.0,
@@ -1282,6 +1271,11 @@
      "t": "2026-11-11T15:24Z",
      "a": -148.0,
      "b": 124.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "locked": false,
@@ -1367,11 +1361,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.06,
-    "handle_b": 0.94,
-    "bets_a": 0.68,
-    "bets_b": 0.32,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.2,
+    "handle_b": 0.8,
+    "bets_a": 0.77,
+    "bets_b": 0.23,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -1384,11 +1378,11 @@
    "rating_b": 1367,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.88,
-   "odds_a": -1100.0,
-   "odds_b": 700.0,
-   "best_a": -1100.0,
-   "best_b": 700.0,
+   "market_p_a": 0.887,
+   "odds_a": -1200.0,
+   "odds_b": 750.0,
+   "best_a": -1200.0,
+   "best_b": 750.0,
    "open_a": -950.0,
    "open_b": 625.0,
    "books": 1.0,
@@ -1397,16 +1391,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -1100.0,
-     "b": 700.0
+     "a": -1200.0,
+     "b": 750.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -900.0,
-     "b": 600.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -900.0,
@@ -1601,6 +1590,11 @@
      "t": "2026-11-11T15:24Z",
      "a": -1100.0,
      "b": 700.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -1200.0,
+     "b": 750.0
     }
    ],
    "locked": true,
@@ -1686,16 +1680,15 @@
     ]
    },
    "splits": {
-    "handle_a": 0.77,
-    "handle_b": 0.23,
-    "bets_a": 0.55,
-    "bets_b": 0.45,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.57,
+    "handle_b": 0.43,
+    "bets_a": 0.58,
+    "bets_b": 0.42,
+    "at": "2026-11-11T21:16Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Thompson",
-    "Rated 85 points higher",
-    "Bigger bettors on him: 77% of DraftKings money from 55% of bets"
+    "Rated 85 points higher"
    ],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1732,11 +1725,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -142.0,
-     "b": 120.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -142.0,
@@ -1929,6 +1917,11 @@
     },
     {
      "t": "2026-11-11T15:24Z",
+     "a": -155.0,
+     "b": 130.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
      "a": -155.0,
      "b": 130.0
     }
@@ -2039,11 +2032,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.8,
-    "handle_b": 0.2,
-    "bets_a": 0.62,
-    "bets_b": 0.38,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.79,
+    "handle_b": 0.21,
+    "bets_a": 0.5,
+    "bets_b": 0.5,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2056,11 +2049,11 @@
    "rating_b": 1649,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.407,
-   "odds_a": 136.0,
-   "odds_b": -162.0,
-   "best_a": 136.0,
-   "best_b": -162.0,
+   "market_p_a": 0.396,
+   "odds_a": 142.0,
+   "odds_b": -170.0,
+   "best_a": 142.0,
+   "best_b": -170.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -2069,16 +2062,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 136.0,
-     "b": -162.0
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": 142.0,
-     "b": -170.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": 142.0,
@@ -2273,9 +2261,14 @@
      "t": "2026-11-11T15:24Z",
      "a": 136.0,
      "b": -162.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
-   "locked": true,
+   "locked": false,
    "hidden": true,
    "our_pick": null,
    "pick": null,
@@ -2358,11 +2351,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.29,
-    "handle_b": 0.71,
-    "bets_a": 0.3,
-    "bets_b": 0.7,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.27,
+    "handle_b": 0.73,
+    "bets_a": 0.25,
+    "bets_b": 0.75,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2393,11 +2386,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": 180.0,
-     "b": -218.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": 180.0,
@@ -2590,6 +2578,11 @@
     },
     {
      "t": "2026-11-11T15:24Z",
+     "a": 164.0,
+     "b": -198.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
      "a": 164.0,
      "b": -198.0
     }
@@ -2677,11 +2670,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.96,
-    "handle_b": 0.04,
-    "bets_a": 0.8,
-    "bets_b": 0.2,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.95,
+    "handle_b": 0.05,
+    "bets_a": 0.81,
+    "bets_b": 0.19,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -2694,11 +2687,11 @@
    "rating_b": 1545,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.604,
+   "market_p_a": 0.598,
    "odds_a": -170.0,
-   "odds_b": 142.0,
+   "odds_b": 136.0,
    "best_a": -170.0,
-   "best_b": 142.0,
+   "best_b": 136.0,
    "open_a": -170.0,
    "open_b": 142.0,
    "books": 1.0,
@@ -2708,15 +2701,10 @@
     {
      "book": "DraftKings",
      "a": -170.0,
-     "b": 142.0
+     "b": 136.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -170.0,
-     "b": 142.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -180.0,
@@ -2911,6 +2899,11 @@
      "t": "2026-11-11T15:24Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -170.0,
+     "b": 136.0
     }
    ],
    "locked": true,
@@ -2996,11 +2989,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.35,
-    "handle_b": 0.65,
-    "bets_a": 0.11,
-    "bets_b": 0.89,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.25,
+    "handle_b": 0.75,
+    "bets_a": 0.07,
+    "bets_b": 0.93,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -3013,11 +3006,11 @@
    "rating_b": 1680,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.243,
-   "odds_a": 295.0,
-   "odds_b": -375.0,
-   "best_a": 295.0,
-   "best_b": -375.0,
+   "market_p_a": 0.234,
+   "odds_a": 310.0,
+   "odds_b": -395.0,
+   "best_a": 310.0,
+   "best_b": -395.0,
    "open_a": 285.0,
    "open_b": -360.0,
    "books": 1.0,
@@ -3026,16 +3019,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 295.0,
-     "b": -375.0
+     "a": 310.0,
+     "b": -395.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": 285.0,
-     "b": -360.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": 285.0,
@@ -3230,9 +3218,14 @@
      "t": "2026-11-11T15:24Z",
      "a": 295.0,
      "b": -375.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": 310.0,
+     "b": -395.0
     }
    ],
-   "locked": false,
+   "locked": true,
    "hidden": true,
    "our_pick": null,
    "pick": null,
@@ -3315,11 +3308,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.44,
-    "handle_b": 0.56,
-    "bets_a": 0.08,
-    "bets_b": 0.92,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.26,
+    "handle_b": 0.74,
+    "bets_a": 0.06,
+    "bets_b": 0.94,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
@@ -3332,11 +3325,11 @@
    "rating_b": 1673,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.304,
-   "odds_a": 215.0,
-   "odds_b": -265.0,
-   "best_a": 215.0,
-   "best_b": -265.0,
+   "market_p_a": 0.309,
+   "odds_a": 210.0,
+   "odds_b": -258.0,
+   "best_a": 210.0,
+   "best_b": -258.0,
    "open_a": 180.0,
    "open_b": -218.0,
    "books": 1.0,
@@ -3345,16 +3338,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 215.0,
-     "b": -265.0
+     "a": 210.0,
+     "b": -258.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": 180.0,
-     "b": -218.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": 180.0,
@@ -3549,6 +3537,71 @@
      "t": "2026-11-11T15:24Z",
      "a": 215.0,
      "b": -265.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": 210.0,
+     "b": -258.0
+    }
+   ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Juan Diaz",
+   "b": "Alatengheili",
+   "a_slug": "juan-diaz",
+   "b_slug": "alatengheili",
+   "a_id": "5310574",
+   "b_id": "3154389",
+   "record_a": "16-1-1",
+   "record_b": "18-10-2",
+   "experts": null,
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 0.94,
+    "bets_b": 0.06,
+    "at": "2026-11-11T21:16Z"
+   },
+   "weight_class": "Bantamweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-14T22:00Z",
+   "state": "pre",
+   "status": "Sat, November 14th at 5:00 PM EST",
+   "result": null,
+   "rating_a": 1595,
+   "rating_b": 1591,
+   "debut_a": false,
+   "debut_b": false,
+   "market_p_a": 0.753,
+   "odds_a": -410.0,
+   "odds_b": 280.0,
+   "best_a": -410.0,
+   "best_b": 280.0,
+   "open_a": -325.0,
+   "open_b": 260.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -410.0,
+     "b": 280.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": -410.0,
+     "b": 280.0
     }
    ],
    "locked": false,
@@ -3634,11 +3687,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.61,
-    "handle_b": 0.39,
-    "bets_a": 0.54,
-    "bets_b": 0.46,
-    "at": "2026-11-11T01:27Z"
+    "handle_a": 0.82,
+    "handle_b": 0.18,
+    "bets_a": 0.48,
+    "bets_b": 0.52,
+    "at": "2026-11-11T21:16Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -3651,11 +3704,11 @@
    "rating_b": 1500,
    "debut_a": false,
    "debut_b": true,
-   "market_p_a": 0.483,
-   "odds_a": -102.0,
-   "odds_b": -118.0,
-   "best_a": -102.0,
-   "best_b": -118.0,
+   "market_p_a": 0.478,
+   "odds_a": 100.0,
+   "odds_b": -120.0,
+   "best_a": 100.0,
+   "best_b": -120.0,
    "open_a": -115.0,
    "open_b": -105.0,
    "books": 1.0,
@@ -3664,16 +3717,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -102.0,
-     "b": -118.0
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T18:46Z",
-     "a": -120.0,
-     "b": 100.0
-    },
     {
      "t": "2026-11-08T20:14Z",
      "a": -120.0,
@@ -3868,6 +3916,11 @@
      "t": "2026-11-11T15:24Z",
      "a": -102.0,
      "b": -118.0
+    },
+    {
+     "t": "2026-11-11T21:17Z",
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "locked": false,
@@ -3882,5 +3935,5 @@
  "final": false,
  "final_at": "2026-11-14T20:07Z",
  "gated": true,
- "locked_count": 4
+ "locked_count": 3
 }
