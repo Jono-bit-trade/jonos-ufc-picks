@@ -1974,3 +1974,20 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .rf-bars { max-height: 200px; }
 @media (max-width: 700px) { .rf-bars text { font-size: 34px; } .rf-bars text.rf-v { font-size: 30px; } }
 .bestbet .bb-k { font-size: 11px; padding: 6px 9px; }
+
+/* champion's crown: tilted on the head of the photo */
+.crown { position: absolute; z-index: 3; pointer-events: none; display: block; filter: drop-shadow(0 2px 2px rgba(0,0,0,.55)); }
+.crown svg { display: block; width: 100%; height: auto; }
+#view .ph.champ, .ph.champ { overflow: visible; }
+.ph.champ img { border-radius: 50%; }
+.ph.champ .crown { width: 58%; top: -30%; left: 46%; transform: rotate(16deg); transform-origin: 30% 100%; }
+.ph.sm.champ .crown { width: 62%; top: -34%; }
+.pt.champ .crown { width: 30%; top: -1%; left: 50%; transform: translateX(-38%) rotate(16deg); transform-origin: 50% 100%; }
+.ph.champ, .pt.champ { animation: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .crown { transition: transform .25s ease; }
+  a:hover .ph.champ .crown, .ph.champ:hover .crown { transform: rotate(8deg) translateY(-2px); }
+}
+.ph.champ .crown { width: 52%; top: -17%; left: 27%; transform: rotate(14deg); }
+.ph.sm.champ .crown { width: 56%; top: -22%; left: 26%; }
+.pt.champ .crown { width: 32%; top: -2%; }

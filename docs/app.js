@@ -26,12 +26,21 @@ function photoSrc(id, name) {
   if (PHOTOS.mode === "commons_first") return [c && c.src, espn].filter(Boolean);
   return [espn, c && c.src].filter(Boolean);
 }
+// current UFC champions get a tilted gold crown on their photo
+const CROWN = `<i class="crown" aria-hidden="true"><svg viewBox="0 0 64 46"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#f0b429"/><stop offset="1" stop-color="#b7791f"/></linearGradient></defs>
+  <path d="M5 35 L9 11 L21 25 L32 5 L43 25 L55 11 L59 35 Z" fill="url(#cg)" stroke="#6b4a0e" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="4" y="34" width="56" height="9" rx="2.5" fill="url(#cg)" stroke="#6b4a0e" stroke-width="2"/>
+  <circle cx="9" cy="10" r="3.4" fill="#fff3c4" stroke="#6b4a0e" stroke-width="1.6"/><circle cx="32" cy="4.6" r="3.8" fill="#fff3c4" stroke="#6b4a0e" stroke-width="1.6"/><circle cx="55" cy="10" r="3.4" fill="#fff3c4" stroke="#6b4a0e" stroke-width="1.6"/>
+  <circle cx="20" cy="38.5" r="2.4" fill="#e5484d"/><circle cx="32" cy="38.5" r="2.6" fill="#3d84e8"/><circle cx="44" cy="38.5" r="2.4" fill="#3dbe6c"/></svg></i>`;
+const isChamp = name => { const r = RANK[slug(name || "")]; return !!(r && r.rank === 0 && r.div); };
+
 function photo(id, name, size = "md") {
   const ini = esc(String(name || "?").split(/\s+/).map(w => w[0]).slice(0, 2).join(""));
   const srcs = photoSrc(id, name);
-  if (!srcs.length) return `<span class="ph ${size}" aria-hidden="true"><span>${ini}</span></span>`;
+  const ch = isChamp(name), cc = ch ? " champ" : "", cr = ch ? CROWN : "";
+  if (!srcs.length) return `<span class="ph ${size}${cc}" aria-hidden="true"><span>${ini}</span>${cr}</span>`;
   const next = srcs[1] ? `if(!this.dataset.f){this.dataset.f=1;this.src='${esc(srcs[1])}'}else this.remove()` : "this.remove()";
-  return `<span class="ph ${size}"><img loading="lazy" alt="" src="${esc(srcs[0])}" onerror="${next}"><span>${ini}</span></span>`;
+  return `<span class="ph ${size}${cc}"><img loading="lazy" alt="" src="${esc(srcs[0])}" onerror="${next}"><span>${ini}</span>${cr}</span>`;
 }
 const units = u => u == null ? "–" : (u > 0 ? "+" : u < 0 ? "−" : "") + Math.abs(u).toFixed(1) + "u";
 const recLine = r => !r || !r.picks ? "" :
@@ -1055,7 +1064,8 @@ function portrait(id, name, cls) {
   const ini = esc(String(name || "?").split(/\s+/).map(w => w[0]).slice(0, 2).join(""));
   const srcs = photoSrc(id, name);
   const next = srcs[1] ? `if(!this.dataset.f){this.dataset.f=1;this.src='${esc(srcs[1])}'}else this.remove()` : "this.remove()";
-  return `<span class="pt ${cls || ""}"><span class="pt-i">${ini}</span>${srcs.length ? `<img alt="" src="${esc(srcs[0])}" onerror="${next}">` : ""}</span>`;
+  const ch = isChamp(name);
+  return `<span class="pt ${cls || ""}${ch ? " champ" : ""}"><span class="pt-i">${ini}</span>${srcs.length ? `<img alt="" src="${esc(srcs[0])}" onerror="${next}">` : ""}${ch ? CROWN : ""}</span>`;
 }
 const updatedAt = iso => iso ? new Date(iso).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"}) : "";
 // home lead: this week's main event and the picks for the card, left-aligned like a fight preview
