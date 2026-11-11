@@ -4,6 +4,9 @@
                 camp, often because someone got hurt). first_seen is the first run that saw it.
   missed weight: the weight class at first sight and at the last pre-fight sight. A bout that
                 turns into a catchweight in fight week is usually a missed weight.
+  pre-UFC record: each fighter's pro record as ESPN shows it before the fight (record_a/record_b,
+                last pre-fight sight). ESPN's history only has today's record, so a debut's record
+                at the time can't be rebuilt for past cards without a leak; this logs it from now.
 
 ESPN's scoreboard is read for each upcoming event date (docs/data/upcoming.json). One row per bout:
 data/card_log.csv. It only grows from today; nothing like it exists for past cards.
@@ -55,11 +58,15 @@ def main():
             mains[d] = m
         for r in card.itertuples():
             seen.append({"key": f"{r.date}|{'|'.join(sorted((norm(r.a), norm(r.b))))}", "date": r.date, "event": r.event,
-                         "a": r.a, "b": r.b, "weight_class": r.weight_class})
+                         "a": r.a, "b": r.b, "weight_class": r.weight_class,
+                         "rec": {r.a: getattr(r, "record_a", None), r.b: getattr(r, "record_b", None)}})
         time.sleep(1)
     f = path("card_log.csv")
     log = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame(
         columns=["key", "date", "event", "a", "b", "first_seen", "last_seen", "wc_first", "wc_last"])
+    for c in ("record_a", "record_b"):
+        if c not in log:
+            log[c] = None
     log = log.set_index("key")
     for s in seen:
         if s["key"] in log.index:
@@ -67,6 +74,11 @@ def main():
         else:
             log.loc[s["key"]] = {"date": s["date"], "event": s["event"], "a": s["a"], "b": s["b"], "first_seen": now,
                                  "last_seen": now, "wc_first": s["weight_class"], "wc_last": s["weight_class"]}
+        ra, rb = s["rec"].get(log.at[s["key"], "a"]), s["rec"].get(log.at[s["key"], "b"])
+        if isinstance(ra, str) and ra:
+            log.at[s["key"], "record_a"] = ra
+        if isinstance(rb, str) and rb:
+            log.at[s["key"], "record_b"] = rb
     log.reset_index().to_csv(f, index=False)
     if mains and os.path.exists(up):   # main-event names and ESPN ids, for the photos on the schedule
         ev = json.load(open(up))
