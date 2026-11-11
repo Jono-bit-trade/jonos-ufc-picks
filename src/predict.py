@@ -158,7 +158,7 @@ def model_pick(a, b, p_final, fair_a, lean=None):
 
 
 
-PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "moved_against", "posted")
+PREMIUM = ("our_pick", "pick", "stake", "why", "expert_lean", "check_news", "moved_against", "posted", "bet_to")
 MODEL = ("p_a", "p_model_a", "model_pick", "tier", "fair_odds_a", "fair_odds_b", "method", "how", "edge_a")   # our numbers: members only
 
 
@@ -436,6 +436,30 @@ def blended(p_market, p_model, rows=None):
     return 1 / (1 + np.exp(-z))
 
 
+def bet_to(f, side, from_experts):
+    """The worst price for our pick where it still passes our rules ("playable to"): a model pick while
+    the line's no-vig chance stays 3+ points under our current chance (held fixed: as the line moves our
+    way the blend nudges our chance up too, so this is the safe side); an analyst pick while the fight
+    stays close by the line (EXPERT_LEAN_LINE). Same bookmaker margin as now. Rounded to 5, toward
+    the safe side. None if unknown."""
+    from config import EXPERT_LEAN_LINE
+    implied = lambda o: -o / (-o + 100) if o < 0 else 100 / (o + 100)
+    oa, ob, pf = f.get("odds_a"), f.get("odds_b"), f.get("p_final")
+    if any(x is None or x != x for x in (oa, ob, pf)):
+        return None
+    over = float(implied(oa) + implied(ob))
+    mine = pf if side == "a" else 1 - pf
+    fair = EXPERT_LEAN_LINE[1] if from_experts else mine - EDGE
+    q = fair * over                       # the most this side's price can imply
+    if not 0.05 < q < 0.97:
+        return None
+    if q >= 0.5:
+        o = -100 * q / (1 - q)
+        return int(-5 * (-o // 5))         # toward the safe side: -207 -> -205
+    o = 100 * (1 - q) / q
+    return int(5 * -(-o // 5))             # +112 -> +115
+
+
 def model_features():
     f = path("model_config.json")
     if os.path.exists(f):
@@ -665,6 +689,7 @@ def main():
                            if isinstance(f.get("book_prices"), str) else [],
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
             "edge_a": edge, "pick": pick, "our_pick": our_pick,
+            "bet_to": bet_to(f, "a" if our_pick == f["a"] else "b", our_pick != pick) if our_pick else None,
             "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"],
                                                (edge if our_pick == f["a"] else -edge) if (our_pick == pick and edge is not None) else None) if our_pick else None,
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,

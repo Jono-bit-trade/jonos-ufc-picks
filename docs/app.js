@@ -225,7 +225,7 @@ function bout(f, i, edge) {
   const leanTag = f.expert_lean ? `<span class="lean" title="Close fight by the line, and 65%+ of the analysts agree">Expert lean: ${esc(f.expert_lean)}</span>` : "";
   const bestP = f.our_pick ? (f.our_pick === f.a ? f.best_a : f.best_b) : null, cur = f.our_pick ? (f.our_pick === f.a ? f.odds_a : f.odds_b) : null;
   if (f.locked || f.hidden) pickHtml = lockedPick(f);
-  else if (f.our_pick) pickHtml = stageTag(f) + `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${postedLine(f)}${
+  else if (f.our_pick) pickHtml = stageTag(f) + `<span class="pick ours">Our pick${f.our_pick === f.expert_lean && f.our_pick !== f.pick ? " (expert lean)" : ""}: ${esc(f.our_pick)} ${odds(cur)}${f.stake ? ` · ${f.stake}u` : ""}${betToText(f) ? ` · <span class="betto" title="${BET_TO_TIP}">${betToText(f)}</span>` : ""}</span>${f.our_pick === f.pick ? `<span class="vtag" title="Also the value pick: our chance beats the line by more than 3 points">Value</span>` : ""}${postedLine(f)}${
     bestP != null && cur != null && (bestP > 0 ? bestP / 100 : 100 / -bestP) > (cur > 0 ? cur / 100 : 100 / -cur) ? `<span class="shop">Best price ${odds(bestP)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}${leanTag}`
     + (f.check_news ? `<span class="news">Big gap: check the news</span>` : "");
   else if (f.pick) pickHtml = `<span class="pick value">Value pick: ${esc(f.pick)} ${odds(f.pick === f.a ? f.odds_a : f.odds_b)}</span>`
@@ -314,7 +314,7 @@ function gatePredictions(p) {
     if (i === sampleAt) return {...f, sample: true};
     if (f.state === "post") return f;   // finished fights show their picks: that's the public record
     const had = !!(f.our_pick || f.pick || f.expert_lean);
-    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, posted: null, locked: had, hidden: true,
+    return {...f, our_pick: null, pick: null, stake: null, why: null, expert_lean: null, check_news: null, posted: null, bet_to: null, locked: had, hidden: true,
       p_a: null, p_model_a: null, model_pick: null, tier: null, fair_odds_a: null, fair_odds_b: null, method: null, edge_a: null,
       experts: f.experts ? {...f.experts, win_a: 0, win_b: 0, analysts: (f.experts.analysts || []).map(x => ({...x, winning: false}))} : f.experts};
   });
@@ -351,6 +351,10 @@ function postedLine(f, cls = "posted") {
     : ` · now ${odds(x.now)}, line moved against`;
   return `<span class="${cls}" title="When this pick first went up, and the price then. Lines that move toward our picks after we post them are the best sign the edge is real.">Posted ${esc(x.when)} at ${odds(x.odds)}${tail}</span>`;
 }
+
+// "bet to": the worst price where the pick still passes our rules (members)
+const betToText = f => f && f.bet_to != null && f.our_pick && (!f.state || f.state === "pre") ? `bet to ${odds(f.bet_to)}` : "";
+const BET_TO_TIP = "The worst price where this pick still passes our rules. Past it, our edge is gone: skip it rather than chase the line.";
 
 // early vs. final picks: picks can still change (the line-movement pass) until the last update before the first fight
 let CARD_FINAL = false, CARD_FINAL_AT = null;
@@ -540,7 +544,7 @@ async function viewFight(x, y) {
         : `<span class="lc-pct">${pct(ch)}</span><span class="lc-odds">${o != null ? odds(o) : "no line"}</span>`}
       ${F.winner === nm ? `<span class="lc-tag won">Winner</span>` : F.ours === nm ? `<span class="lc-tag ours">Our pick${F.stake ? " · " + F.stake + "u" : ""}</span>` : F.value === nm ? `<span class="lc-tag value">Value pick</span>` : ""}</a>`; };
   const form = P => P && P.fights ? P.fights.filter(z => ["W", "L", "D"].includes(z.result)).slice(0, 5).reverse().map(z => `<span class="fm ${z.result}" title="${esc(z.result)} vs ${esc(z.opp)}, ${esc(z.date)}">${z.result}</span>`).join("") : "";
-  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">${F.f && F.state === "pre" ? (CARD_FINAL ? "Final pick" : "Early pick") : "Our pick"}</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span>${F.f ? postedLine(F.f, "fx-posted") : ""}</div>`
+  const call = F.f && (F.f.locked || F.f.hidden) ? (lockedPick(F.f) || `<div class="fx-call none"><span class="fx-k">Members</span><b>Our chance on this fight</b><span>and whether the line is off. <a href="#/pricing">See plans</a></span></div>`) : F.ours ? `<div class="fx-call ours"><span class="fx-k">${F.f && F.state === "pre" ? (CARD_FINAL ? "Final pick" : "Early pick") : "Our pick"}</span><b>${esc(F.ours)} ${odds(F.ours_odds)}</b><span>${F.stake ? F.stake + "u stake · " : ""}${betToText(F.f) ? `<span title="${BET_TO_TIP}">${betToText(F.f)}</span> · ` : ""}${F.ours === F.value ? "beats the line" : F.ours === F.lean ? "expert lean" : ""}</span>${F.f ? postedLine(F.f, "fx-posted") : ""}</div>`
     : F.passed ? `<div class="fx-call none"><span class="fx-k">Passed</span><b>The line moved against ${F.passed === true ? "our side" : esc(F.passed)}</b><span>We had a pick here, but the line moved more than 1 point the other way between open and close, so we passed.</span></div>`
     : F.value ? `<div class="fx-call value"><span class="fx-k">Value pick</span><b>${esc(F.value)} ${odds(F.value === F.a ? F.odds_a : F.odds_b)}</b><span>beats the line, but not a confident enough pick to bet</span></div>`
     : `<div class="fx-call none"><span class="fx-k">No bet</span><b>${F.line == null ? "No line yet" : "Fairly priced"}</b><span>${F.line == null ? "We'll rate it once odds post." : "Our chance and the line are within 3 points."}</span></div>`;
@@ -757,6 +761,7 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       ${done || f.state === "in" ? "" : stageTag(f)}
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
+      ${betToText(f) ? `<span class="tk-posted tk-betto" title="${BET_TO_TIP}">Playable to ${odds(f.bet_to)} · <a href="#/units">sizing guide</a></span>` : ""}
       ${postedLine(f, "tk-posted")}
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}
       ${(() => { const isA = f.our_pick === f.a, ln = f.market_p_a == null ? null : isA ? f.market_p_a : 1 - f.market_p_a, us = f.p_a == null ? null : isA ? f.p_a : 1 - f.p_a;
@@ -1677,6 +1682,35 @@ async function viewAbout() {
     <p class="note">For fun and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>`;
 }
 
+function viewUnits() {
+  document.title = "Units and bankroll · Octagon Edge";
+  const ex = (pct, br) => `$${(br * pct / 100).toFixed(0)}`;
+  return `<div class="ptitle"><h1>Units and bankroll</h1></div>
+  <div class="prose units-guide">
+    <p class="lede">Every pick comes with a stake in units. Here's what that means and how to use it.</p>
+    <h2>What a unit is</h2>
+    <p>A unit is your standard bet size, set as a small slice of your betting bankroll: the money you've set aside for betting and can afford to lose. Most bettors use <b>1 to 2% of their bankroll</b> per unit.</p>
+    <div class="ug-table"><table><thead><tr><th>Bankroll</th><th>1 unit at 1%</th><th>1 unit at 2%</th></tr></thead><tbody>
+      ${[500, 1000, 2500, 5000].map(b => `<tr><td>$${b.toLocaleString()}</td><td>${ex(1, b)}</td><td>${ex(2, b)}</td></tr>`).join("")}
+    </tbody></table></div>
+    <p>Keep the unit the same week to week. Raise it when your bankroll has grown, not after a good night, and never to chase a loss. Records here are in units so they mean the same thing whatever you bet.</p>
+    <h2>Why stakes vary</h2>
+    <ul>
+      <li><b>By price:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter. Heavy favorites win often, but one loss wipes out several wins, so they get less.</li>
+      <li><b>By edge:</b> when our chance beats the line by only 3 to 5 points, the stake is halved. Picks with a 5+ point edge, and analyst picks, get the full stake.</li>
+      <li>Tested on past cards, these stakes made more per unit risked than betting everything at 1 unit.</li>
+    </ul>
+    <h2>"Bet to" prices</h2>
+    <p>Each pick shows the worst price where it still passes our rules, like <b>Johnson -170 · bet to -185</b>. If the line has moved past that, skip it: our edge is gone, and chasing a worse number is how a winning record turns into a losing bankroll. Lines move toward our picks about 70% of the time after we post, so earlier is usually better.</p>
+    <h2>Shop for the best price</h2>
+    <p>Different sportsbooks post different prices for the same fight. Having two or three accounts and taking the best number adds up over a season, often more than any single pick.</p>
+    <h2>Expect losing stretches</h2>
+    <p>Even a winning approach has bad weeks and bad months; 2025 was close to break-even for us. Flat, steady unit sizes are what let you ride those out. Don't bet more than you can afford to lose.</p>
+    <p class="note">21+ only where legal. If betting stops being fun, help is free and confidential: call or text 1-800-GAMBLER (US). Nothing here is financial advice.</p>
+    <p><a href="#/card">See this card's picks →</a></p>
+  </div>`;
+}
+
 function viewTerms() {
   return `<h1>Terms of use</h1><div class="legal">
     <p class="where">Last updated ${esc(dateLong("2026-11-08"))}</p>
@@ -1882,7 +1916,7 @@ function yearTable(mr) {
     <p class="note">Our picks each year at the average sportsbook's closing price.</p>
     <details class="fine"><summary>How it's graded</summary><ul>
       <li><b>Prices:</b> the average of 3+ sportsbooks' closing lines where we have them (most fights from 2019 on), otherwise the one closing line. A better price than average is upside the record doesn't count.</li>
-      <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter. Half that when our edge is 3-5 points (5+ points gets the full stake; analyst picks keep it).</li>
+      <li><b>Stakes:</b> 1.5u at -199 or longer, 1u from -200 to -399, 0.5u at -400 or shorter. Half that when our edge is 3-5 points (5+ points gets the full stake; analyst picks keep it). <a href="#/units">How to size your bets</a>.</li>
       <li><b>Close fights:</b> where the model has no pick but 65%+ of tracked analysts agree, their side is our pick (since April 2026).</li>
       <li><b>Early and final picks:</b> picks go up as the lines open. One is pulled only if the line moves and our edge for it is gone before fight day; picks are graded at the price when the fight starts.</li>
       <li><b>Why 2020:</b> earlier fights still train the model, but there was too little history before then to grade fairly.</li></ul></details>
@@ -2110,7 +2144,7 @@ async function route() {
   document.querySelectorAll("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === ({event: "events", fighter: "fighters", movers: "rankings", compare: "rankings", fight: "card"}[page] || page)));
   const views = {home: viewHome, card: viewCard, events: () => viewEvents(q), event: () => viewEvent(parts[1]),
     fighters: () => viewFighters(q), fighter: () => viewFighter(parts[1]), experts: viewExperts,
-    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), pricing: viewPricing, account: viewAccount, record: () => viewRecord(q), how: viewHow, about: viewAbout, terms: viewTerms, privacy: viewPrivacy, credits: viewCredits};
+    rankings: () => viewRankings(q), movers: viewMovers, compare: () => viewCompare(q), fight: () => viewFight(parts[1], parts[2]), pricing: viewPricing, account: viewAccount, record: () => viewRecord(q), how: viewHow, units: viewUnits, about: viewAbout, terms: viewTerms, privacy: viewPrivacy, credits: viewCredits};
   const skel = setTimeout(() => { $("#view").innerHTML = SKEL; }, 150);   // placeholder if the data is slow
   const html = await (views[page] || viewHome)();
   clearTimeout(skel);

@@ -1903,3 +1903,16 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 #view .ticket .tk-posted .pmv { color: #0f5a2c; }
 /* last-5 table on narrow phones: let the date line wrap so a title fight + long odds fit */
 @media (max-width: 420px) { .l5-o small { white-space: normal; } .l5-t td { font-size: 13px; } .fd { padding: 2px 6px; } }
+
+/* units and bankroll guide */
+.units-guide { max-width: 720px; }
+.units-guide h2 { font-size: 20px; margin: 28px 0 8px; }
+.units-guide p, .units-guide li { line-height: 1.6; color: var(--ink, #e8ecf2); }
+.units-guide ul { padding-left: 20px; margin: 8px 0; }
+.units-guide li { margin: 6px 0; }
+.units-guide .ug-table { max-width: 420px; margin: 12px 0 14px; }
+.units-guide table { width: 100%; border-collapse: collapse; }
+.units-guide th, .units-guide td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+.units-guide th { color: var(--quiet); font-weight: 600; font-size: 13px; }
+.betto { white-space: nowrap; }
+#view .ticket .tk-betto a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
