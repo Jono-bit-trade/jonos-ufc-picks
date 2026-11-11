@@ -677,11 +677,11 @@ async function viewCard() {
     <a href="#/record">Full record</a></div>` : ""}<div class="cb-act">${share}<button class="sharebtn" type="button" aria-label="Share this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button>${how}</div></div>`;
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
   const first = (p.schedule || []).map(sg => sg.start).sort()[0] || p.fights[0].start;
-  return `${liveCenter(p)}<section class="feat solo cardhero">${featMain(p, first, true)}</section>${track}
+  return `${liveCenter(p)}${track}
+    <section class="card-top">${bestBet(p)}<div class="card-slips"><h2>Our picks</h2>${picksStrip(p)}</div>${lockBanner(p)}</section>
+    <section class="feat solo cardhero">${featMain(p, first, true)}</section>
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
-    <div class="card-slips"><h2>Our picks</h2>${picksStrip(p)}</div>
-    ${lockBanner(p)}
     <div class="stage-wide">${stageNote(p)}</div>
     ${cardToggle()}
     ${(() => { const only = picksOnly(), keep = f => !only || f.our_pick || f.pick || f.locked;
@@ -743,6 +743,33 @@ function compactRow(f, i, edge) {
     </summary>${bout(f, i, edge)}</details>`;
 }
 
+// ---------------- best bet: the card's biggest-edge model pick ----------------
+function bestBetPick(p) {
+  let best = null;
+  (p && p.fights || []).forEach((f, i) => {
+    if (!f.our_pick || f.our_pick !== f.pick || f.p_a == null || f.market_p_a == null) return;
+    const isA = f.our_pick === f.a, us = isA ? f.p_a : 1 - f.p_a, ln = isA ? f.market_p_a : 1 - f.market_p_a;
+    if (!best || us - ln > best.edge) best = {f, i, us, ln, edge: us - ln, isA};
+  });
+  return best;
+}
+function bestBet(p, link) {
+  const B = bestBetPick(p);
+  if (!B) return p && p.gated && p.locked_count ? `<a class="bestbet locked" href="#/pricing"><span class="bb-k">${lockIcon}Best bet</span>
+      <div class="bb-main"><b>Our biggest edge on this card</b><span>Members see the pick, the price to bet it to and why.</span></div><span class="bb-go">See plans →</span></a>` : "";
+  const {f, i, us, ln, isA} = B, o = isA ? f.odds_a : f.odds_b, opp = isA ? f.b : f.a;
+  const done = f.state === "post" && f.result && f.result.winner, res = done ? (f.result.winner === f.our_pick ? "won" : "lost") : "";
+  const pts = Math.round(100 * us) - Math.round(100 * ln);
+  const go = link ? `href="${link}"` : `href="#bout-${i}" onclick="event.preventDefault();document.getElementById('bout-${i}')?.scrollIntoView({behavior:'smooth',block:'start'})"`;
+  return `<a class="bestbet ${res}" ${go}>
+    <span class="bb-k">Best bet${res ? ` · ${res === "won" ? "Won" : "Lost"}` : ""}</span>
+    <div class="bb-main"><b>${esc(f.our_pick)} ${odds(o)}</b><span>vs ${esc(opp)}${f.stake ? ` · ${f.stake}u` : ""}${betToText(f) ? ` · ${betToText(f)}` : ""}</span></div>
+    <div class="bb-meter" title="Our chance vs the betting line's, with the bookmaker's cut removed">
+      <div class="bb-bar"><i style="width:${Math.round(100 * us)}%"></i><em style="left:${Math.round(100 * ln)}%"></em></div>
+      <span>Our chance <b>${Math.round(100 * us)}%</b> · line ${Math.round(100 * ln)}% · <b class="won">+${pts} pts</b></span></div>
+    <span class="bb-go">Why →</span></a>`;
+}
+
 // ---------------- this week's picks, units chart, fight-night bar ----------------
 const pay = o => o > 0 ? o / 100 : 100 / -o;
 function picksStrip(p) {
@@ -761,7 +788,7 @@ function picksStrip(p) {
       <span class="tk-opp">vs ${esc(opp)}</span>
       ${done || f.state === "in" ? "" : stageTag(f)}
       <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
-      ${betToText(f) ? `<span class="tk-posted tk-betto" title="${BET_TO_TIP}">Playable to ${odds(f.bet_to)} · <a href="#/units">sizing guide</a></span>` : ""}
+      ${betToText(f) ? `<span class="tk-posted tk-betto" title="${BET_TO_TIP}">Playable to ${odds(f.bet_to)}</span>` : ""}
       ${postedLine(f, "tk-posted")}
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}
       ${(() => { const isA = f.our_pick === f.a, ln = f.market_p_a == null ? null : isA ? f.market_p_a : 1 - f.market_p_a, us = f.p_a == null ? null : isA ? f.p_a : 1 - f.p_a;
@@ -1002,7 +1029,7 @@ function countdown(start) {
 }
 
 // home: the brand band with three proof cards
-function proofBand(mr, L) {
+function proofBand(mr, L, p, b) {
   if (!mr || !mr.since) return "";
   const yr = mr.years && mr.years[0], s = mr.since, hi = s.tiers && s.tiers.High;
   const live = L && L.fights ? `${L.our_won}-${L.our_bets - L.our_won}` : null;
@@ -1013,19 +1040,13 @@ function proofBand(mr, L) {
       <p>${s.vs_line ? `Our picks are up <b class="won">${units(s.our_units)}</b> since ${mr.from || 2020}. Betting every favorite on the same cards lost <b class="lost">${units(s.vs_line.line_units)}</b>.` : ""} Every pick goes up before the fight and gets graded after it, win or lose.</p>
       <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/record">See every result</a></div></div>
     <div class="pf-cards">
-      <a class="pf-card c1" href="#/record"><span class="pf-l">Winners picked</span><b>${yr ? yr.pct : s.pct}%</b>
-        <span class="pf-s">${yr ? `${yr.right}/${yr.picks} fights in ${esc(yr.year)}` : ""} · ${s.pct}% across ${s.picks.toLocaleString()} since ${mr.from || 2020}</span><span class="pf-go">See the full record →</span></a>
-      <a class="pf-card c2" href="#/card"><span class="pf-l">High-confidence picks</span><b>${hi ? hi.pct : "–"}%</b>
-        <span class="pf-s">${hi ? `${hi.right.toLocaleString()} of ${hi.picks.toLocaleString()} won since ${mr.from || 2020}, our chance 70%+` : ""}</span><span class="pf-go">This week's card →</span></a>
-      <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
-        <span class="pf-s">${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, flat 1u</span><span class="pf-go">Full record →</span></a>
-    
-      ${s.vs_line ? `<a class="pf-card c4" href="#/pricing"><span class="pf-l">Return per bet</span><b class="won">+${s.our_roi_pct}%</b>
-        <span class="pf-s">flat 1u since ${mr.from || 2020}, ${s.our_risked ? `+${(100 * s.our_staked_units / s.our_risked).toFixed(1)}% at suggested stakes` : ""}</span><span class="pf-go">See plans →</span></a>
-      <a class="pf-card c5" href="#/record"><span class="pf-l">When we disagree with the line</span><b>${s.vs_line.disagree_model_right}-${s.vs_line.disagree - s.vs_line.disagree_model_right}</b>
-        <span class="pf-s">our side won ${(100 * s.vs_line.disagree_model_right / s.vs_line.disagree).toFixed(1)}%; the line expected ${s.vs_line.disagree_line_expected}%</span><span class="pf-go">See the proof →</span></a>
-      <a class="pf-card c6" href="#/record"><span class="pf-l">Betting every favorite</span><b class="lost">${units(s.vs_line.line_units)}</b>
-        <span class="pf-s">every fight with a line, same prices, since ${mr.from || 2020}</span><span class="pf-go">Why favorites lose →</span></a>` : ""}
+      <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks since ${mr.from || 2020}</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
+        <span class="pf-s">${s.our_won}-${s.our_bets - s.our_won}, flat 1u${s.our_roi_pct != null ? ` · ${s.our_roi_pct > 0 ? "+" : ""}${s.our_roi_pct}% per bet` : ""}</span><span class="pf-go">Every result →</span></a>
+      ${b && b.early_moves && b.early_moves.picks ? `<a class="pf-card c2" href="#/how"><span class="pf-l">Lines move our way</span><b>${Math.round(b.early_moves.pct)}%</b>
+        <span class="pf-s">of the time after we post a pick, ${b.early_moves.from}-${b.early_moves.to}. The early price is worth having.</span><span class="pf-go">How it works →</span></a>` : ""}
+      ${(() => { const n = p && p.fights ? p.fights.filter(f => f.our_pick).length + (p.gated ? p.locked_count || 0 : 0) : 0, B = bestBetPick(p);
+        return p && p.fights && p.fights.length ? `<a class="pf-card c1" href="#/card"><span class="pf-l">${esc(p.event || "This card")}</span><b>${n} pick${n === 1 ? "" : "s"}</b>
+        <span class="pf-s">${B ? `Best bet: ${esc(B.f.our_pick)} ${odds(B.isA ? B.f.odds_a : B.f.odds_b)}` : n ? "Posted as the lines open" : "Picks go up as the lines open"}</span><span class="pf-go">This week's picks →</span></a>` : ""; })()}
     </div></section>`;
 }
 
@@ -1298,9 +1319,10 @@ async function viewHome() {
   const L = await get("ledger.json", true), recap = p && liveOn(p) ? "" : await lastCard(ev);
   const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
   const live = "", record = "";
-  if (hero === "FEATURE") return `${proofBand(mr, L)}${feature(p, up)}${recap}${whyEdge()}${newsletterBox()}
+  const bt = await get("backtest.json", true);
+  if (hero === "FEATURE") return `${proofBand(mr, L, p, bt)}${feature(p, up)}${recap}${whyEdge()}${newsletterBox()}
     <div class="home2">${homeLower(ev, ex, up, p)}</div>${closingCta(mr)}${homePlans()}`;
-  return `${proofBand(mr, L)}${recap}${hero}
+  return `${proofBand(mr, L, p, bt)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
 }
 
@@ -2054,11 +2076,39 @@ async function downloadLedger() {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 window.downloadLedger = downloadLedger;
+// recent form: the last 10 cards and profit by month (our picks, flat 1u)
+function recentForm(rr) {
+  if (!rr || !rr.rows) return "";
+  const cards = {}, months = {};
+  for (const x of rr.rows) if (x[4]) {
+    const c = cards[x[0]] = cards[x[0]] || {w: 0, l: 0, u: 0}; x[4][0] ? c.w++ : c.l++; c.u += x[4][1];
+    const m = x[0].slice(0, 7); months[m] = (months[m] || 0) + x[4][1];
+  }
+  const last = Object.keys(cards).sort().slice(-10);
+  if (!last.length) return "";
+  const tot = last.reduce((a, d) => ({w: a.w + cards[d].w, l: a.l + cards[d].l, u: a.u + cards[d].u}), {w: 0, l: 0, u: 0});
+  const chips = last.map(d => { const c = cards[d];
+    return `<a class="rf-chip ${c.u > 0.005 ? "won" : c.u < -0.005 ? "lost" : ""}" href="#/events" title="${esc(dateLong(d))}: ${c.w}-${c.l}, ${units(c.u)}"><b>${c.w}-${c.l}</b><span>${units(Math.round(c.u * 10) / 10)}</span><small>${new Date(d + "T12:00").toLocaleDateString(undefined, {month: "short", day: "numeric"})}</small></a>`; }).join("");
+  const ms = Object.keys(months).sort().slice(-12), mx = Math.max(1, ...ms.map(m => Math.abs(months[m])));
+  const W = 1100, H = 170, mid = H / 2, bw = W / ms.length;
+  const bars = ms.map((m, i) => { const v = months[m], h = Math.abs(v) / mx * (mid - 18), x = i * bw + bw * 0.18, w = bw * 0.64;
+    return `<g><rect x="${x.toFixed(1)}" y="${(v >= 0 ? mid - h : mid).toFixed(1)}" width="${w.toFixed(1)}" height="${Math.max(1, h).toFixed(1)}" rx="3" class="${v >= 0 ? "pos" : "neg"}"><title>${m}: ${units(Math.round(v * 10) / 10)}</title></rect>
+      <text x="${(x + w / 2).toFixed(1)}" y="${(v >= 0 ? mid - h - 5 : mid + h + 13).toFixed(1)}" class="rf-v">${units(Math.round(v * 10) / 10).replace("u", "")}</text>
+      <text x="${(x + w / 2).toFixed(1)}" y="${H - 2}" class="rf-m">${new Date(m + "-15T12:00").toLocaleDateString(undefined, {month: "short"})}</text></g>`; }).join("");
+  return `<section class="recent-form">
+    <div class="rf-head"><h2>Recent form</h2><span>Last ${last.length} cards: <b>${tot.w}-${tot.l}</b> <b class="${tot.u >= 0 ? "won" : "lost"}">${units(Math.round(tot.u * 10) / 10)}</b> <small>our picks, flat 1u</small></span></div>
+    <div class="rf-chips">${chips}</div>
+    <h3>Profit by month</h3>
+    <svg class="rf-bars" viewBox="0 0 ${W} ${H}" role="img" aria-label="Our picks, units by month, last ${ms.length} months"><line x1="0" x2="${W}" y1="${mid}" y2="${mid}" class="rf-zero"/>${bars}</svg>
+  </section>`;
+}
+
 async function viewRecord(q) {
   const [L, mr, rr] = await Promise.all([get("ledger.json", true), get("model_record.json"), get("record_rows.json", true)]);
   const tf = q && q.get("tf") || "ytd";
   const rows = L && L.rows ? L.rows : [];
   return `<h1>Record</h1>
+    ${recentForm(rr)}
     ${vsLine(mr)}
     ${mr ? `<h2>Our picks vs. the betting line, ${mr.from || 2020} on</h2>${unitsChart(mr.curve, lineCurve(rr))}
 ` : ""}

@@ -1916,3 +1916,61 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .units-guide th { color: var(--quiet); font-weight: 600; font-size: 13px; }
 .betto { white-space: nowrap; }
 #view .ticket .tk-betto a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* card page: picks first */
+.card-top { margin: 14px 0 22px; }
+.card-top .card-slips h2 { margin-top: 14px; }
+
+/* best bet spotlight */
+.bestbet { display: grid; grid-template-columns: auto 1fr minmax(220px, 32%) auto; align-items: center; gap: 18px; padding: 14px 18px;
+  border: 1px solid var(--gold); border-radius: 14px; background: linear-gradient(90deg, rgba(212,160,23,.14), rgba(212,160,23,.03) 60%);
+  color: var(--ink); text-decoration: none; transition: transform .15s; }
+.bestbet:hover { transform: translateY(-1px); }
+.bestbet .bb-k { display: inline-flex; align-items: center; gap: 6px; font: 700 12px/1 var(--body, inherit); letter-spacing: .12em; text-transform: uppercase;
+  color: #111; background: var(--gold); padding: 7px 10px; border-radius: 6px; white-space: nowrap; }
+.bestbet .bb-k svg { width: 12px; height: 12px; }
+.bestbet .bb-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.bestbet .bb-main b { font: 800 26px/1.05 var(--display); }
+.bestbet .bb-main span, .bestbet .bb-meter span { font-size: 13px; color: var(--quiet); }
+.bestbet .bb-meter { display: flex; flex-direction: column; gap: 6px; }
+.bestbet .bb-bar { position: relative; height: 8px; border-radius: 4px; background: rgba(255,255,255,.08); }
+.bestbet .bb-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 4px; background: var(--gold); }
+.bestbet .bb-bar em { position: absolute; top: -3px; width: 2px; height: 14px; background: #fff; }
+.bestbet .bb-meter b { color: var(--ink); }
+.bestbet .bb-go { font-size: 13px; font-weight: 600; color: var(--gold); white-space: nowrap; }
+.bestbet.won { border-color: var(--green); } .bestbet.lost { border-color: var(--red); opacity: .85; }
+.bestbet.locked { grid-template-columns: auto 1fr auto; }
+@media (max-width: 760px) {
+  .bestbet { grid-template-columns: 1fr auto; gap: 10px 12px; padding: 12px 14px; }
+  .bestbet .bb-k { grid-column: 1 / -1; justify-self: start; }
+  .bestbet .bb-main { grid-column: 1 / -1; }
+  .bestbet .bb-main b { font-size: 22px; }
+  .bestbet .bb-meter { grid-column: 1; }
+  .bestbet .bb-go { grid-column: 2; align-self: end; }
+  .bestbet.locked { grid-template-columns: 1fr; } .bestbet.locked .bb-go { grid-column: 1; }
+}
+
+/* home: three proof cards */
+.pf-cards { grid-template-columns: repeat(3, 1fr); }
+.pf-card.c1 b { font-size: 40px; }
+
+/* record: recent form */
+.recent-form { border: 1px solid var(--rule); border-radius: 14px; padding: 16px 18px; margin: 10px 0 26px; background: var(--paper); }
+.recent-form h2 { margin: 0; font-size: 22px; }
+.recent-form h3 { margin: 18px 0 6px; font-size: 14px; color: var(--quiet); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.rf-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 12px; }
+.rf-head span { font-size: 15px; } .rf-head small { color: var(--quiet); }
+.rf-chips { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; }
+.rf-chip { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; border-radius: 10px; border: 1px solid var(--rule);
+  color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; }
+.rf-chip b { font: 800 18px/1 var(--display); } .rf-chip span { font-size: 12px; } .rf-chip small { font-size: 11px; color: var(--quiet); }
+.rf-chip.won { border-color: rgba(61,190,108,.55); background: rgba(61,190,108,.08); } .rf-chip.won span { color: var(--green); }
+.rf-chip.lost { border-color: rgba(229,72,77,.5); background: rgba(229,72,77,.07); } .rf-chip.lost span { color: var(--red); }
+.rf-bars { width: 100%; height: auto; display: block; }
+.rf-bars .pos { fill: var(--green); } .rf-bars .neg { fill: var(--red); }
+.rf-bars .rf-zero { stroke: var(--rule); stroke-width: 1; }
+.rf-bars text { font-size: 11px; fill: var(--quiet); text-anchor: middle; font-variant-numeric: tabular-nums; }
+@media (max-width: 700px) { .rf-chips { grid-template-columns: repeat(5, minmax(0, 1fr)); } .pf-cards { grid-template-columns: 1fr; } }
+.rf-bars { max-height: 200px; }
+@media (max-width: 700px) { .rf-bars text { font-size: 34px; } .rf-bars text.rf-v { font-size: 30px; } }
+.bestbet .bb-k { font-size: 11px; padding: 6px 9px; }
