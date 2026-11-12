@@ -653,7 +653,7 @@
        "id": "3154389",
        "uid": "s:3301~a:3154389",
        "type": "athlete",
-       "order": 2,
+       "order": 1,
        "winner": false,
        "athlete": {
         "fullName": "Alatengheili",
@@ -680,7 +680,7 @@
        "id": "5310574",
        "uid": "s:3301~a:5310574",
        "type": "athlete",
-       "order": 1,
+       "order": 2,
        "winner": false,
        "athlete": {
         "fullName": "Juan Diaz",
