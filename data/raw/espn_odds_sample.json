@@ -6,7 +6,7 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "C. Gane -205",
+ "details": "C. Gane -198",
  "overUnder": 3.5,
  "spread": -5.5,
  "overOdds": 130.0,
@@ -14,7 +14,7 @@
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 170,
+  "moneyLine": 164,
   "spreadOdds": 120.0,
   "open": {
    "favorite": false,
@@ -79,21 +79,21 @@
     "american": "+120"
    },
    "moneyLine": {
-    "value": 2.7,
-    "displayValue": "17/10",
-    "alternateDisplayValue": "+170",
-    "decimal": 2.7,
-    "fraction": "17/10",
-    "american": "+170"
+    "value": 2.64,
+    "displayValue": "41/25",
+    "alternateDisplayValue": "+164",
+    "decimal": 2.64,
+    "fraction": "41/25",
+    "american": "+164"
    },
    "victoryMethod": {
     "koTkoDq": {
-     "value": 5.5,
-     "displayValue": "9/2",
-     "alternateDisplayValue": "+450",
-     "decimal": 5.5,
-     "fraction": "9/2",
-     "american": "+450"
+     "value": 5.0,
+     "displayValue": "4/1",
+     "alternateDisplayValue": "+400",
+     "decimal": 5.0,
+     "fraction": "4/1",
+     "american": "+400"
     },
     "submission": {
      "value": 10.0,
@@ -120,7 +120,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -205,
+  "moneyLine": -198,
   "spreadOdds": -160.0,
   "open": {
    "favorite": true,
@@ -185,12 +185,12 @@
     "american": "-160"
    },
    "moneyLine": {
-    "value": 1.48,
-    "displayValue": "20/41",
-    "alternateDisplayValue": "-205",
-    "decimal": 1.48,
-    "fraction": "20/41",
-    "american": "-205"
+    "value": 1.5,
+    "displayValue": "50/99",
+    "alternateDisplayValue": "-198",
+    "decimal": 1.5,
+    "fraction": "50/99",
+    "american": "-198"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -210,12 +210,12 @@
      "american": "+900"
     },
     "points": {
-     "value": 4.5,
-     "displayValue": "7/2",
-     "alternateDisplayValue": "+350",
-     "decimal": 4.5,
-     "fraction": "7/2",
-     "american": "+350"
+     "value": 4.8,
+     "displayValue": "19/5",
+     "alternateDisplayValue": "+380",
+     "decimal": 4.8,
+     "fraction": "19/5",
+     "american": "+380"
     }
    }
   },
