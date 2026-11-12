@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T01:40Z",
+ "updated": "2026-11-12T03:49Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -47,14 +47,41 @@
    "record_a": "14-2-0",
    "record_b": "10-0-0",
    "experts": {
-    "picks_a": 4,
-    "picks_b": 2,
-    "high_a": 1,
+    "picks_a": 12,
+    "picks_b": 3,
+    "high_a": 5,
     "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "We Want Picks",
       "side": "a",
@@ -65,12 +92,39 @@
       "winning": false
      },
      {
+      "name": "Kunath",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
+     },
+     {
       "name": "MMA Experts",
       "side": "b",
       "conf": "High",
       "method": null,
       "record": "190-129",
       "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
       "winning": false
      },
      {
@@ -92,6 +146,24 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "a",
       "conf": "Med",
@@ -107,6 +179,15 @@
       "method": "KO/TKO",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
       "winning": false
      }
     ]
@@ -142,11 +223,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-08T21:58Z",
-     "a": -238.0,
-     "b": 195.0
-    },
-    {
      "t": "2026-11-08T22:22Z",
      "a": -238.0,
      "b": 195.0
@@ -340,6 +416,11 @@
      "t": "2026-11-12T01:40Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "locked": false,
@@ -360,14 +441,32 @@
    "record_a": "19-1-0",
    "record_b": "23-5-0",
    "experts": {
-    "picks_a": 5,
-    "picks_b": 1,
-    "high_a": 3,
-    "high_b": 0,
+    "picks_a": 10,
+    "picks_b": 5,
+    "high_a": 5,
+    "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -387,12 +486,48 @@
       "winning": false
      },
      {
+      "name": "Kunath",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
       "name": "MMA Experts",
       "side": "a",
       "conf": "High",
       "method": "Decision",
       "record": "190-129",
       "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
       "winning": false
      },
      {
@@ -405,6 +540,15 @@
       "winning": false
      },
      {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "a",
       "conf": "Med",
@@ -414,12 +558,30 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "a",
       "conf": "Low",
       "method": "Submission",
       "record": "200-110",
       "units": -13.58,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "183-108",
+      "units": -13.95,
       "winning": false
      }
     ]
@@ -455,11 +617,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-08T21:58Z",
-     "a": -192.0,
-     "b": 160.0
-    },
-    {
      "t": "2026-11-08T22:22Z",
      "a": -192.0,
      "b": 160.0
@@ -653,6 +810,11 @@
      "t": "2026-11-12T01:40Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "locked": false,
@@ -673,14 +835,41 @@
    "record_a": "18-2-0",
    "record_b": "11-3-0",
    "experts": {
-    "picks_a": 3,
-    "picks_b": 2,
-    "high_a": 0,
+    "picks_a": 8,
+    "picks_b": 7,
+    "high_a": 1,
     "high_b": 2,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "We Want Picks",
       "side": "b",
@@ -697,6 +886,15 @@
       "method": null,
       "record": "190-129",
       "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "153-85",
+      "units": -0.48,
       "winning": false
      },
      {
@@ -718,12 +916,66 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "a",
       "conf": "Low",
       "method": "Decision",
       "record": "200-110",
       "units": -13.58,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "183-108",
+      "units": -13.95,
       "winning": false
      }
     ]
@@ -759,11 +1011,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-08T21:58Z",
-     "a": -162.0,
-     "b": 136.0
-    },
-    {
      "t": "2026-11-08T22:22Z",
      "a": -162.0,
      "b": 136.0
@@ -955,6 +1202,11 @@
     },
     {
      "t": "2026-11-12T01:40Z",
+     "a": -155.0,
+     "b": 130.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
      "a": -155.0,
      "b": 130.0
     }
@@ -977,14 +1229,41 @@
    "record_a": "14-3-0",
    "record_b": "29-15-0",
    "experts": {
-    "picks_a": 3,
-    "picks_b": 3,
-    "high_a": 2,
+    "picks_a": 10,
+    "picks_b": 5,
+    "high_a": 4,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": true
+     },
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": true
+     },
+     {
+      "name": "TheWeasle",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "DFS By The Numbers",
       "side": "a",
@@ -1001,6 +1280,24 @@
       "method": null,
       "record": "190-129",
       "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
       "winning": false
      },
      {
@@ -1022,6 +1319,33 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "b",
       "conf": "Low",
@@ -1038,16 +1362,29 @@
       "record": "200-110",
       "units": -13.58,
       "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.44,
-    "handle_b": 0.56,
-    "bets_a": 0.64,
-    "bets_b": 0.36,
-    "at": "2026-11-12T01:40Z"
+    "handle_a": 0.14,
+    "handle_b": 0.86,
+    "bets_a": 0.62,
+    "bets_b": 0.38,
+    "at": "2026-11-12T03:48Z"
    },
+   "why": [
+    "Close fight and 10 of 15 analysts pick Medic",
+    "Our chance 61% vs the line's 58% (3 points of value)"
+   ],
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
@@ -1059,6 +1396,12 @@
    "rating_b": 1680,
    "debut_a": false,
    "debut_b": false,
+   "p_model_a": 0.545,
+   "p_a": 0.608,
+   "model_pick": "Uros Medic",
+   "tier": "Medium",
+   "fair_odds_a": -155,
+   "fair_odds_b": 155,
    "market_p_a": 0.583,
    "odds_a": -155.0,
    "odds_b": 130.0,
@@ -1077,11 +1420,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": -170.0,
-     "b": 142.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": -166.0,
@@ -1276,15 +1614,43 @@
      "t": "2026-11-12T01:40Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
-   "locked": false,
-   "hidden": true,
-   "our_pick": null,
+   "edge_a": 0.025,
    "pick": null,
-   "stake": null,
-   "why": null,
-   "expert_lean": null
+   "our_pick": "Uros Medic",
+   "bet_to": -165,
+   "stake": 1.5,
+   "expert_lean": "Uros Medic",
+   "check_news": false,
+   "moved_against": false,
+   "posted": {
+    "at": "2026-11-12T03:49Z",
+    "odds": -155.0
+   },
+   "method": {
+    "DEC": 0.373,
+    "KO": 0.432,
+    "SUB": 0.195
+   },
+   "how": {
+    "a": {
+     "DEC": 0.211,
+     "KO": 0.347,
+     "SUB": 0.05
+    },
+    "b": {
+     "DEC": 0.162,
+     "KO": 0.085,
+     "SUB": 0.145
+    }
+   },
+   "sample": true
   },
   {
    "a": "Bilal Hasan",
@@ -1296,14 +1662,50 @@
    "record_a": "10-0-0",
    "record_b": "11-4-0",
    "experts": {
-    "picks_a": 6,
+    "picks_a": 15,
     "picks_b": 0,
-    "high_a": 6,
+    "high_a": 14,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -1332,12 +1734,48 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
       "record": "200-110",
       "units": -13.58,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
       "winning": false
      },
      {
@@ -1357,15 +1795,24 @@
       "record": "190-129",
       "units": -26.13,
       "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.19,
-    "handle_b": 0.81,
-    "bets_a": 0.75,
-    "bets_b": 0.25,
-    "at": "2026-11-12T01:40Z"
+    "handle_a": 0.23,
+    "handle_b": 0.77,
+    "bets_a": 0.76,
+    "bets_b": 0.24,
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -1397,11 +1844,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-08T21:58Z",
-     "a": -900.0,
-     "b": 600.0
-    },
-    {
      "t": "2026-11-08T22:22Z",
      "a": -900.0,
      "b": 600.0
@@ -1593,6 +2035,11 @@
     },
     {
      "t": "2026-11-12T01:40Z",
+     "a": -1200.0,
+     "b": 750.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
      "a": -1200.0,
      "b": 750.0
     }
@@ -1615,14 +2062,41 @@
    "record_a": "17-9-1",
    "record_b": "12-5-0",
    "experts": {
-    "picks_a": 4,
-    "picks_b": 2,
-    "high_a": 1,
+    "picks_a": 9,
+    "picks_b": 6,
+    "high_a": 4,
     "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "We Want Picks",
       "side": "a",
@@ -1639,6 +2113,15 @@
       "method": null,
       "record": "190-129",
       "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "153-85",
+      "units": -0.48,
       "winning": false
      },
      {
@@ -1660,12 +2143,48 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "a",
       "conf": "Med",
       "method": "Decision",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
       "winning": false
      },
      {
@@ -1676,6 +2195,15 @@
       "record": "200-110",
       "units": -13.58,
       "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
      }
     ]
    },
@@ -1684,12 +2212,8 @@
     "handle_b": 0.45,
     "bets_a": 0.57,
     "bets_b": 0.43,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
-   "why": [
-    "Close fight and 4 of 6 analysts pick Thompson",
-    "Rated 85 points higher"
-   ],
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
@@ -1701,17 +2225,11 @@
    "rating_b": 1604,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.462,
-   "p_a": 0.553,
-   "model_pick": "Stephen Thompson",
-   "tier": "Low",
-   "fair_odds_a": -123,
-   "fair_odds_b": 123,
-   "market_p_a": 0.583,
-   "odds_a": -155.0,
-   "odds_b": 130.0,
-   "best_a": -155.0,
-   "best_b": 130.0,
+   "market_p_a": 0.572,
+   "odds_a": -148.0,
+   "odds_b": 124.0,
+   "best_a": -148.0,
+   "best_b": 124.0,
    "open_a": -142.0,
    "open_b": 120.0,
    "books": 1.0,
@@ -1720,16 +2238,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -155.0,
-     "b": 130.0
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": -142.0,
-     "b": 120.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": -142.0,
@@ -1924,38 +2437,20 @@
      "t": "2026-11-12T01:40Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": -148.0,
+     "b": 124.0
     }
    ],
-   "edge_a": -0.03,
-   "pick": "Charles Radtke",
-   "our_pick": "Stephen Thompson",
-   "bet_to": -165,
-   "stake": 1.5,
-   "expert_lean": "Stephen Thompson",
-   "check_news": false,
-   "moved_against": false,
-   "posted": {
-    "at": "2026-11-09T23:23Z",
-    "odds": -155.0
-   },
-   "method": {
-    "DEC": 0.534,
-    "KO": 0.306,
-    "SUB": 0.16
-   },
-   "how": {
-    "a": {
-     "DEC": 0.3,
-     "KO": 0.172,
-     "SUB": 0.081
-    },
-    "b": {
-     "DEC": 0.234,
-     "KO": 0.135,
-     "SUB": 0.079
-    }
-   },
-   "sample": true
+   "locked": true,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
   },
   {
    "a": "Drew Dober",
@@ -1967,14 +2462,32 @@
    "record_a": "29-15-0",
    "record_b": "15-3-0",
    "experts": {
-    "picks_a": 2,
-    "picks_b": 4,
-    "high_a": 0,
+    "picks_a": 7,
+    "picks_b": 8,
+    "high_a": 1,
     "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
      {
       "name": "MMA Experts",
       "side": "b",
@@ -1982,6 +2495,24 @@
       "method": null,
       "record": "190-129",
       "units": -26.13,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "101-50",
+      "units": -2.01,
       "winning": false
      },
      {
@@ -2003,12 +2534,48 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "b",
       "conf": "Med",
       "method": "Decision",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "165-122",
+      "units": -43.14,
       "winning": false
      },
      {
@@ -2028,15 +2595,24 @@
       "record": "200-110",
       "units": -13.58,
       "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.77,
-    "handle_b": 0.23,
+    "handle_a": 0.73,
+    "handle_b": 0.27,
     "bets_a": 0.5,
     "bets_b": 0.5,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2049,11 +2625,11 @@
    "rating_b": 1649,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.396,
-   "odds_a": 142.0,
-   "odds_b": -170.0,
-   "best_a": 142.0,
-   "best_b": -170.0,
+   "market_p_a": 0.378,
+   "odds_a": 154.0,
+   "odds_b": -185.0,
+   "best_a": 154.0,
+   "best_b": -185.0,
    "open_a": 142.0,
    "open_b": -170.0,
    "books": 1.0,
@@ -2062,16 +2638,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 142.0,
-     "b": -170.0
+     "a": 154.0,
+     "b": -185.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": 142.0,
-     "b": -170.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": 142.0,
@@ -2266,6 +2837,11 @@
      "t": "2026-11-12T01:40Z",
      "a": 142.0,
      "b": -170.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": 154.0,
+     "b": -185.0
     }
    ],
    "locked": false,
@@ -2286,8 +2862,8 @@
    "record_a": "39-19-0",
    "record_b": "18-9-0",
    "experts": {
-    "picks_a": 2,
-    "picks_b": 4,
+    "picks_a": 5,
+    "picks_b": 10,
     "high_a": 0,
     "high_b": 1,
     "url": null,
@@ -2295,12 +2871,48 @@
     "win_b": 0,
     "analysts": [
      {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
       "name": "We Want Picks",
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "101-50",
+      "units": -2.01,
       "winning": false
      },
      {
@@ -2322,6 +2934,33 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "a",
       "conf": "Med",
@@ -2340,6 +2979,15 @@
       "winning": false
      },
      {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "b",
       "conf": "Low",
@@ -2347,15 +2995,24 @@
       "record": "200-110",
       "units": -13.58,
       "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.32,
-    "handle_b": 0.68,
+    "handle_a": 0.33,
+    "handle_b": 0.67,
     "bets_a": 0.26,
     "bets_b": 0.74,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2368,11 +3025,11 @@
    "rating_b": 1566,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.363,
-   "odds_a": 164.0,
-   "odds_b": -198.0,
-   "best_a": 164.0,
-   "best_b": -198.0,
+   "market_p_a": 0.343,
+   "odds_a": 180.0,
+   "odds_b": -218.0,
+   "best_a": 180.0,
+   "best_b": -218.0,
    "open_a": 180.0,
    "open_b": -218.0,
    "books": 1.0,
@@ -2381,16 +3038,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 164.0,
-     "b": -198.0
+     "a": 180.0,
+     "b": -218.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": 180.0,
-     "b": -218.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": 180.0,
@@ -2585,6 +3237,11 @@
      "t": "2026-11-12T01:40Z",
      "a": 164.0,
      "b": -198.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": 180.0,
+     "b": -218.0
     }
    ],
    "locked": false,
@@ -2605,14 +3262,32 @@
    "record_a": "9-0-0",
    "record_b": "7-3-0",
    "experts": {
-    "picks_a": 3,
-    "picks_b": 3,
+    "picks_a": 9,
+    "picks_b": 6,
     "high_a": 2,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
      {
       "name": "We Want Picks",
       "side": "a",
@@ -2632,6 +3307,15 @@
       "winning": false
      },
      {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
+     {
       "name": "138 MMA",
       "side": "b",
       "conf": "Med",
@@ -2641,12 +3325,57 @@
       "winning": false
      },
      {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
+     },
+     {
       "name": "DFS By The Numbers",
       "side": "b",
       "conf": "Med",
       "method": "Decision",
       "record": "197-119",
       "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
       "winning": false
      },
      {
@@ -2666,15 +3395,24 @@
       "record": "200-110",
       "units": -13.58,
       "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.92,
-    "handle_b": 0.08,
-    "bets_a": 0.75,
-    "bets_b": 0.25,
-    "at": "2026-11-12T01:40Z"
+    "handle_a": 0.93,
+    "handle_b": 0.07,
+    "bets_a": 0.74,
+    "bets_b": 0.26,
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -2687,11 +3425,11 @@
    "rating_b": 1545,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.593,
-   "odds_a": -162.0,
-   "odds_b": 136.0,
-   "best_a": -162.0,
-   "best_b": 136.0,
+   "market_p_a": 0.609,
+   "odds_a": -175.0,
+   "odds_b": 145.0,
+   "best_a": -175.0,
+   "best_b": 145.0,
    "open_a": -170.0,
    "open_b": 142.0,
    "books": 1.0,
@@ -2700,16 +3438,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -162.0,
-     "b": 136.0
+     "a": -175.0,
+     "b": 145.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": -185.0,
-     "b": 154.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": -185.0,
@@ -2904,6 +3637,11 @@
      "t": "2026-11-12T01:40Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": -175.0,
+     "b": 145.0
     }
    ],
    "locked": true,
@@ -2925,13 +3663,40 @@
    "record_b": "26-8-0",
    "experts": {
     "picks_a": 0,
-    "picks_b": 6,
+    "picks_b": 15,
     "high_a": 0,
-    "high_b": 4,
+    "high_b": 7,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "We Want Picks",
       "side": "b",
@@ -2948,6 +3713,15 @@
       "method": "KO/TKO",
       "record": "200-110",
       "units": -13.58,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "183-108",
+      "units": -13.95,
       "winning": false
      },
      {
@@ -2969,6 +3743,24 @@
       "winning": false
      },
      {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
       "name": "Lucrative James",
       "side": "b",
       "conf": "Med",
@@ -2985,15 +3777,42 @@
       "record": "192-127",
       "units": -10.22,
       "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
      }
     ]
    },
    "splits": {
-    "handle_a": 0.25,
-    "handle_b": 0.75,
+    "handle_a": 0.2,
+    "handle_b": 0.8,
     "bets_a": 0.07,
     "bets_b": 0.93,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -3025,11 +3844,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-08T21:58Z",
-     "a": 285.0,
-     "b": -360.0
-    },
-    {
      "t": "2026-11-08T22:22Z",
      "a": 285.0,
      "b": -360.0
@@ -3223,6 +4037,11 @@
      "t": "2026-11-12T01:40Z",
      "a": 310.0,
      "b": -395.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": 310.0,
+     "b": -395.0
     }
    ],
    "locked": true,
@@ -3244,13 +4063,58 @@
    "record_b": "8-0-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 5,
+    "picks_b": 14,
     "high_a": 0,
-    "high_b": 0,
+    "high_b": 3,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "b",
+      "conf": "Low",
+      "method": "Submission",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "b",
@@ -3267,6 +4131,42 @@
       "method": null,
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "183-108",
+      "units": -13.95,
       "winning": false
      },
      {
@@ -3312,7 +4212,7 @@
     "handle_b": 0.9,
     "bets_a": 0.06,
     "bets_b": 0.94,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Women's Bantamweight",
    "rounds": 3,
@@ -3343,11 +4243,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": 180.0,
-     "b": -218.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": 190.0,
@@ -3542,6 +4437,11 @@
      "t": "2026-11-12T01:40Z",
      "a": 210.0,
      "b": -258.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": 210.0,
+     "b": -258.0
     }
    ],
    "locked": false,
@@ -3561,13 +4461,113 @@
    "b_id": "5310574",
    "record_a": "18-10-2",
    "record_b": "16-1-1",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 10,
+    "high_a": 0,
+    "high_b": 4,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "192-127",
+      "units": -10.22,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "197-119",
+      "units": -24.75,
+      "winning": false
+     },
+     {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-116",
+      "units": -12.64,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "183-108",
+      "units": -13.95,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.0,
     "handle_b": 1.0,
     "bets_a": 0.05,
     "bets_b": 0.95,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Bantamweight",
    "rounds": 3,
@@ -3607,6 +4607,11 @@
      "t": "2026-11-12T01:40Z",
      "a": 320.0,
      "b": -410.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": 320.0,
+     "b": -410.0
     }
    ],
    "locked": true,
@@ -3627,14 +4632,41 @@
    "record_a": "10-2-0",
    "record_b": "11-1-0",
    "experts": {
-    "picks_a": 3,
-    "picks_b": 3,
+    "picks_a": 9,
+    "picks_b": 6,
     "high_a": 2,
-    "high_b": 0,
+    "high_b": 1,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "207-117",
+      "units": 7.18,
+      "winning": false
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "216-112",
+      "units": 23.75,
+      "winning": false
+     },
+     {
+      "name": "TheWeasle",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "101-50",
+      "units": -2.01,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -3654,12 +4686,39 @@
       "winning": false
      },
      {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "153-85",
+      "units": -0.48,
+      "winning": false
+     },
+     {
       "name": "We Want Picks",
       "side": "a",
       "conf": "Med",
       "method": null,
       "record": "205-117",
       "units": -5.93,
+      "winning": false
+     },
+     {
+      "name": "JakeGerberMMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "205-114",
+      "units": -12.23,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "205-116",
+      "units": -12.64,
       "winning": false
      },
      {
@@ -3681,12 +4740,39 @@
       "winning": false
      },
      {
+      "name": "Half The Battle",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "165-122",
+      "units": -43.14,
+      "winning": false
+     },
+     {
       "name": "Slayers Picks",
       "side": "b",
       "conf": "Low",
       "method": "KO/TKO",
       "record": "200-110",
       "units": -13.58,
+      "winning": false
+     },
+     {
+      "name": "Kunath",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "179-116",
+      "units": -13.59,
+      "winning": false
+     },
+     {
+      "name": "HopperoMMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "183-108",
+      "units": -13.95,
       "winning": false
      }
     ]
@@ -3696,7 +4782,7 @@
     "handle_b": 0.28,
     "bets_a": 0.44,
     "bets_b": 0.56,
-    "at": "2026-11-12T01:40Z"
+    "at": "2026-11-12T03:48Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -3727,11 +4813,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-08T21:58Z",
-     "a": -112.0,
-     "b": -108.0
-    },
     {
      "t": "2026-11-08T22:22Z",
      "a": -118.0,
@@ -3926,6 +5007,11 @@
      "t": "2026-11-12T01:40Z",
      "a": 100.0,
      "b": -120.0
+    },
+    {
+     "t": "2026-11-12T03:49Z",
+     "a": 100.0,
+     "b": -120.0
     }
    ],
    "locked": false,
@@ -3940,5 +5026,5 @@
  "final": false,
  "final_at": "2026-11-14T20:07Z",
  "gated": true,
- "locked_count": 4
+ "locked_count": 5
 }
