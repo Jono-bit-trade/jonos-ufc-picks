@@ -259,9 +259,9 @@ function bout(f, i, edge) {
   return `<article id="bout-${i}" data-href="${fightLink(i)}" tabindex="0" title="Open the fight analysis" class="bout tap${i === 0 ? " main" : ""}${f.state === "post" ? " done" : ""}${f.state === "in" ? " is-live" : ""}${ring}">
     ${status(f)}
     <div class="corners">
-      <div class="a">${photo(f.a_id, f.a, "lg")}<div><div class="name">${fighterLink(f.a, f.a_slug)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
+      <div class="a">${photo(f.a_id, f.a, "lg")}<div><div class="name">${fighterLink(f.a, f.a_slug)}${jonoFav(f.a)}</div><div class="meta">${rankOf(f.a_slug)}${flagOf(f.a_slug, true)}${tag(f.debut_a, f.rating_a, f.record_a)}</div>${grapChips(f.a_slug)}</div></div>
       <div class="class">${esc(f.weight_class)}${f.rounds === 5 ? "<br>5 rounds" : ""}${tierTag(f.tier || tierOf(f.p_a))}</div>
-      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b, "lg")}</div>
+      <div class="b"><div><div class="name">${fighterLink(f.b, f.b_slug)}${jonoFav(f.b)}</div><div class="meta">${rankOf(f.b_slug)}${flagOf(f.b_slug, true)}${tag(f.debut_b, f.rating_b, f.record_b)}</div>${grapChips(f.b_slug)}</div>${photo(f.b_id, f.b, "lg")}</div>
     </div>
     ${f.hidden ? `<div class="pct hidp"><span class="pa">${line != null ? pct(line) : "–"}</span><span class="lbl">Betting line</span><span class="pb">${line != null ? (100 - Math.round(100 * line)) + "%" : "–"}</span></div>
     <div class="bar hid" role="img" aria-label="Betting line ${line != null ? pct(line) : "not posted"} for ${esc(f.a)}"><div class="fill" style="width:${(line ?? 0.5) * 100}%"></div></div>
@@ -284,6 +284,9 @@ function bout(f, i, edge) {
 // add ?preview=free, ?preview=event or ?preview=monthly to any page to see the site as that visitor (?preview=off to stop).
 let PLANS = null, TAKES = {};
 // Jono's own words on a pick (docs/takes.json: {"<card date>": {"preview": "...", "fights": {"<fighter>": "..."}}})
+// and Jono's favorite fighters ({"favorites": ["Bia Mesquita", ...]}): a fan's star, not a pick, never graded
+const isJonoFav = name => (TAKES.favorites || []).some(n => slug(n) === slug(name || ""));
+const jonoFav = name => isJonoFav(name) ? `<span class="jfav" title="One of Jono's favorite fighters. A fan's star, not a pick: it isn't bet or graded.">★ Jono's favorite</span>` : "";
 function attachTakes(p) {
   const t = p && TAKES[p.date]; if (!t) return p;
   const fx = t.fights || {};
@@ -1441,7 +1444,7 @@ async function viewEvent(s) {
       + (!op && b.passed ? `<span class="lean passed" title="The line moved more than 1 point against this side between open and close, so we passed.">Passed: line moved against ${esc(b.passed === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
       : !vp ? "" : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
-    const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
+    const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${jonoFav(n)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
       <div class="meta">${flagOf(sl, true)}${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
     const graded = op || mp;   // our pick if we made one, otherwise the model's pick
     const ring = graded && graded.right != null ? (graded.right ? " ring-won" : " ring-lost") : "";
