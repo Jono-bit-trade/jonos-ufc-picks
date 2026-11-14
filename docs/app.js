@@ -50,10 +50,10 @@ const METHOD = "EDGE Rating";
 // confidence tier from our chance for the favored side: High 70%+, Medium 58-70%, Low under 58%
 const tierOf = p => p == null ? null : Math.max(p, 1 - p) >= 0.70 ? "High" : Math.max(p, 1 - p) >= 0.58 ? "Medium" : "Low";
 const tierTag = (t, short) => t ? `<span class="tier t-${t.toLowerCase()}" title="${t} confidence: our chance ${t === "High" ? "70%+" : t === "Medium" ? "58-70%" : "under 58%"}. See accuracy by tier on the Record page.">${short ? t.slice(0, t === "Medium" ? 3 : 4) : t + " confidence"}</span>` : "";
-// Jono's favorite fighters (docs/favorites.json): a gold star by the name everywhere it links
+// Liked fighters (docs/favorites.json): fighters Jono keeps seeing great performances from. A gold star by the name everywhere it links; not a pick, never graded
 // current UFC champions (from the official rankings): a gold CHAMP tag by the name everywhere it links
 const champTag = s => RANK[s] && RANK[s].rank === 0 ? `<span class="champtag" title="Current UFC ${esc(RANK[s].div)} champion">Champ</span>` : "";
-const favStar = s => FAV[s] ? `<span class="fav" title="Jono's favorite${FAV[s].note ? ": " + esc(FAV[s].note) : ""}">★</span>` : "";
+const favStar = s => FAV[s] ? `<span class="fav" title="Liked fighter: consistently great performances${FAV[s].note ? ". " + esc(FAV[s].note) : ""}. Not a pick.">★</span>` : "";
 // flag (and country name) for a fighter; flags from flag-icons (MIT)
 // official UFC rank in the fighter's division: gold "C" for a champion, "#5" for ranked
 const rankOf = (s, long) => { const r = RANK[s]; if (!r || r.div == null || (r.rank === 0 && !long)) return "";
@@ -1479,8 +1479,8 @@ async function viewFighters(q) {
   return `<h1>Fighters</h1>
     <div class="filters"><input id="fsearch" type="search" placeholder="Search any fighter since 2010" value="${esc(q.get("q") || "")}" aria-label="Search fighters">
       <select onchange="location.hash='#/fighters?div='+encodeURIComponent(this.value)" aria-label="Division"><option value="">All divisions</option>${divs.map(d => `<option ${d === div ? "selected" : ""}>${esc(d)}</option>`).join("")}</select>
-      <a class="favbtn${favOnly ? " on" : ""}" href="#/fighters${favOnly ? "" : "?fav=1"}">★ Favorites${Object.keys(FAV).length ? ` (${Object.keys(FAV).length})` : ""}</a></div>
-    <p class="note">${favOnly ? "Favorites." : term ? "" : "Active fighters, best first."}</p>
+      <a class="favbtn${favOnly ? " on" : ""}" href="#/fighters${favOnly ? "" : "?fav=1"}">★ Liked${Object.keys(FAV).length ? ` (${Object.keys(FAV).length})` : ""}</a></div>
+    <p class="note">${favOnly ? "Liked fighters: ones I keep seeing great performances from. The star isn't a pick." : term ? "" : "Active fighters, best first."}</p>
     <div class="grid">${list.slice(0, 120).map(f => `<a class="fcard" href="#/fighter/${esc(f.slug)}">${photo(f.espn_id, f.name, "md")}<div><b>${esc(f.name)}${champTag(f.slug)}${favStar(f.slug)}</b>
       <span class="small">${esc(f.record)} · ${esc(f.weight_class)}</span><span class="small">EDGE ${f.rating}</span></div></a>`).join("")}</div>
     ${list.length > 120 ? `<p class="note">Showing 120 of ${list.length}: search to narrow it down.</p>` : ""}`;
@@ -1616,7 +1616,7 @@ async function viewFighter(s) {
       <figure class="fh-ph">${photo(f.espn_id, f.name, "xl")}${(() => { const c = PHOTOS.photos[f.slug]; const used = c && photoSrc(f.espn_id, f.name)[0] === c.src;
         return used ? `<figcaption>Photo: ${esc(c.author || "Wikimedia Commons")}, <a href="${esc(c.license_url || c.page)}" target="_blank" rel="noopener">${esc(c.license)}</a></figcaption>` : ""; })()}</figure>
       <div class="fh-main">
-        <h1>${esc(f.name)}</h1>${FAV[f.slug] ? `<p class="favtag">★ Jono's favorite${FAV[f.slug].note ? ` · ${esc(FAV[f.slug].note)}` : ""}</p>` : ""}
+        <h1>${esc(f.name)}</h1>${FAV[f.slug] ? `<p class="favtag">★ Liked fighter: consistently great performances${FAV[f.slug].note ? ` · ${esc(FAV[f.slug].note)}` : ""}</p>` : ""}
         ${fighterBadges(f)}
         <p class="fh-sub">${RANK[f.slug] && RANK[f.slug].rank === 0 ? "" : rankOf(f.slug, true)}${RANK[f.slug] && RANK[f.slug].p4p ? `<span class="urank p4p">#${RANK[f.slug].p4p} P4P</span>` : ""}${flagOf(f.slug, true)}${esc(f.weight_class)}${f.stance ? ", " + esc(f.stance) : ""}${f.age ? `, age ${f.age}` : ""}${f.height_cm ? `, ${cm(f.height_cm)}` : ""}${f.reach_cm ? `, ${inch(f.reach_cm)} reach` : ""}</p>
         ${g.birthplace || g.trains_at ? `<p class="fh-sub small">${g.birthplace ? "From " + esc(g.birthplace) : ""}${g.birthplace && g.trains_at ? ". " : ""}${g.trains_at ? "Trains at " + esc(g.trains_at) : ""}${g.fighting_style ? ". " + esc(g.fighting_style) : ""}</p>` : ""}
