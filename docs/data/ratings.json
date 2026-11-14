@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T22:34Z",
+ "updated": "2026-11-14T22:41Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -298,12 +298,12 @@
    "record": "7-1"
   },
   {
-   "fighter": "Joe Pyfer",
+   "fighter": "Zhang Weili",
    "rating": 1795,
-   "rd": 117,
-   "last_fight": "2026-03-28",
-   "division": "Middleweight",
-   "record": "7-1"
+   "rd": 104,
+   "last_fight": "2025-11-15",
+   "division": "Women's Flyweight",
+   "record": "10-3"
   },
   {
    "fighter": "Leon Edwards",
@@ -322,12 +322,12 @@
    "record": "22-9"
   },
   {
-   "fighter": "Zhang Weili",
+   "fighter": "Joe Pyfer",
    "rating": 1795,
-   "rd": 104,
-   "last_fight": "2025-11-15",
-   "division": "Women's Flyweight",
-   "record": "10-3"
+   "rd": 117,
+   "last_fight": "2026-03-28",
+   "division": "Middleweight",
+   "record": "7-1"
   },
   {
    "fighter": "Umar Nurmagomedov",
@@ -362,20 +362,20 @@
    "record": "9-3"
   },
   {
-   "fighter": "Joshua Van",
-   "rating": 1782,
-   "rd": 103,
-   "last_fight": "2026-09-19",
-   "division": "Flyweight",
-   "record": "11-1"
-  },
-  {
    "fighter": "Caio Borralho",
    "rating": 1782,
    "rd": 115,
    "last_fight": "2026-03-07",
    "division": "Middleweight",
    "record": "8-1"
+  },
+  {
+   "fighter": "Joshua Van",
+   "rating": 1782,
+   "rd": 103,
+   "last_fight": "2026-09-19",
+   "division": "Flyweight",
+   "record": "11-1"
   },
   {
    "fighter": "Jack Della Maddalena",
@@ -386,20 +386,20 @@
    "record": "8-2"
   },
   {
-   "fighter": "Gabriel Bonfim",
-   "rating": 1778,
-   "rd": 116,
-   "last_fight": "2026-06-06",
-   "division": "Welterweight",
-   "record": "7-1"
-  },
-  {
    "fighter": "Arnold Allen",
    "rating": 1778,
    "rd": 102,
    "last_fight": "2026-05-16",
    "division": "Featherweight",
    "record": "12-3"
+  },
+  {
+   "fighter": "Gabriel Bonfim",
+   "rating": 1778,
+   "rd": 116,
+   "last_fight": "2026-06-06",
+   "division": "Welterweight",
+   "record": "7-1"
   }
  ],
  "divisions": [
@@ -439,20 +439,20 @@
      "record": "9-3"
     },
     {
-     "fighter": "Josh Hokit",
-     "rating": 1769,
-     "rd": 141,
-     "last_fight": "2026-06-14",
-     "division": "Heavyweight",
-     "record": "4-0"
-    },
-    {
      "fighter": "Curtis Blaydes",
      "rating": 1769,
      "rd": 93,
      "last_fight": "2026-09-12",
      "division": "Heavyweight",
      "record": "15-6"
+    },
+    {
+     "fighter": "Josh Hokit",
+     "rating": 1769,
+     "rd": 141,
+     "last_fight": "2026-06-14",
+     "division": "Heavyweight",
+     "record": "4-0"
     },
     {
      "fighter": "Jailton Almeida",
@@ -1745,20 +1745,20 @@
      "record": "17-13"
     },
     {
-     "fighter": "Amanda Lemos",
-     "rating": 1627,
-     "rd": 97,
-     "last_fight": "2026-08-08",
-     "division": "Women's Strawweight",
-     "record": "9-7"
-    },
-    {
      "fighter": "Tecia Pennington",
      "rating": 1627,
      "rd": 99,
      "last_fight": "2025-11-08",
      "division": "Women's Strawweight",
      "record": "11-8"
+    },
+    {
+     "fighter": "Amanda Lemos",
+     "rating": 1627,
+     "rd": 97,
+     "last_fight": "2026-08-08",
+     "division": "Women's Strawweight",
+     "record": "9-7"
     },
     {
      "fighter": "Tabatha Ricci",
