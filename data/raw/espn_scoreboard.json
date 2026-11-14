@@ -1047,7 +1047,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "11-6-0"
+         "summary": "11-7-0"
         }
        ]
       },
@@ -1081,8 +1081,8 @@
       }
      ],
      "status": {
-      "clock": 96.0,
-      "displayClock": "1:36",
+      "clock": 203.0,
+      "displayClock": "3:23",
       "period": 1,
       "type": {
        "id": "3",
@@ -1104,6 +1104,13 @@
       }
      ],
      "details": [
+      {
+       "id": "26589",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "26588",
        "type": {
@@ -1165,13 +1172,6 @@
        "type": {
         "id": "4",
         "text": "Staredown"
-       }
-      },
-      {
-       "id": "26579",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
        }
       }
      ],
