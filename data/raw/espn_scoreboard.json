@@ -579,17 +579,17 @@
       }
      ],
      "status": {
-      "clock": 150.0,
-      "displayClock": "2:30",
-      "period": 1,
+      "clock": 58.0,
+      "displayClock": "0:58",
+      "period": 2,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R1, 2:30",
-       "shortDetail": "R1, 2:30"
+       "detail": "R2, 0:58",
+       "shortDetail": "R2, 0:58"
       }
      },
      "broadcasts": [
@@ -602,6 +602,62 @@
      ],
      "details": [
       {
+       "id": "26531",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26530",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26524",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26523",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26522",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26521",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26520",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26519",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
        "id": "26518",
        "type": {
         "id": "12",
@@ -613,55 +669,6 @@
        "type": {
         "id": "13",
         "text": "Takedown"
-       }
-      },
-      {
-       "id": "26516",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26515",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26514",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26513",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26512",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26511",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26510",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
