@@ -6,7 +6,7 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "C. Gane -225",
+ "details": "C. Gane -230",
  "overUnder": 3.5,
  "spread": -5.5,
  "overOdds": 130.0,
@@ -14,7 +14,7 @@
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 185,
+  "moneyLine": 190,
   "spreadOdds": 130.0,
   "open": {
    "favorite": false,
@@ -79,12 +79,12 @@
     "american": "+130"
    },
    "moneyLine": {
-    "value": 2.85,
-    "displayValue": "37/20",
-    "alternateDisplayValue": "+185",
-    "decimal": 2.85,
-    "fraction": "37/20",
-    "american": "+185"
+    "value": 2.9,
+    "displayValue": "19/10",
+    "alternateDisplayValue": "+190",
+    "decimal": 2.9,
+    "fraction": "19/10",
+    "american": "+190"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -120,7 +120,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -225,
+  "moneyLine": -230,
   "spreadOdds": -175.0,
   "open": {
    "favorite": true,
@@ -185,12 +185,12 @@
     "american": "-175"
    },
    "moneyLine": {
-    "value": 1.44,
-    "displayValue": "4/9",
-    "alternateDisplayValue": "-225",
-    "decimal": 1.44,
-    "fraction": "4/9",
-    "american": "-225"
+    "value": 1.43,
+    "displayValue": "10/23",
+    "alternateDisplayValue": "-230",
+    "decimal": 1.43,
+    "fraction": "10/23",
+    "american": "-230"
    },
    "victoryMethod": {
     "koTkoDq": {
