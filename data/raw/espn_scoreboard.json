@@ -508,7 +508,7 @@
      "timeValid": true,
      "neutralSite": false,
      "playByPlayAvailable": false,
-     "recent": false,
+     "recent": true,
      "venue": {
       "id": "1830",
       "fullName": "Madison Square Garden",
@@ -636,7 +636,7 @@
      "timeValid": true,
      "neutralSite": false,
      "playByPlayAvailable": false,
-     "recent": false,
+     "recent": true,
      "venue": {
       "id": "1830",
       "fullName": "Madison Square Garden",
@@ -764,7 +764,7 @@
      "timeValid": true,
      "neutralSite": false,
      "playByPlayAvailable": false,
-     "recent": false,
+     "recent": true,
      "venue": {
       "id": "1830",
       "fullName": "Madison Square Garden",
@@ -892,7 +892,7 @@
      "timeValid": true,
      "neutralSite": false,
      "playByPlayAvailable": false,
-     "recent": false,
+     "recent": true,
      "venue": {
       "id": "1830",
       "fullName": "Madison Square Garden",
