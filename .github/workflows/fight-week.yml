@@ -15,10 +15,10 @@ on:
   workflow_dispatch:                # adds a "Run workflow" button on the Actions tab
     inputs:
       kind:
-        description: "full (results and history), or lines (picks, then live results on fight night)"
+        description: "full (results and history), lines (picks, then live results on fight night), or live (results only)"
         default: full
         type: choice
-        options: [full, lines]
+        options: [full, lines, live]
   push:
     paths: ["data/name_map.csv", "src/**", ".github/workflows/fight-week.yml"]   # a fix or a code change: refresh the board
 
@@ -148,18 +148,23 @@ jobs:
           sys.exit(0 if on.any() else 1)
           PY
           }
-          end=$(( $(date +%s) + 270*60 ))
+          # check ESPN every 2 minutes; rebuild and publish as soon as a fight starts or ends
+          # (a fight's state or result changes), and at least every 4th check otherwise
+          sig() { python -c "import pandas as pd; c = pd.read_csv('data/espn_card.csv'); print(c.reindex(columns=['espn_fight','state','winner','method','end_round']).to_csv(index=False))" 2>/dev/null | md5sum; }
+          end=$(( $(date +%s) + 270*60 )); n=0
           while live && [ "$(date +%s)" -lt "$end" ]; do
-            sleep 420
+            sleep 120
             git fetch -q origin main && git checkout -q origin/main -- src || true   # pick up fixes pushed mid-card
-            python src/espn.py || true
-            python src/get_data.py --offline && python src/predict.py && python src/site_data.py || true
-            bash .github/save.sh "Update live" || true
+            before=$(sig); python src/espn.py || true; after=$(sig); n=$((n + 1))
+            if [ "$before" != "$after" ] || [ $((n % 4)) -eq 0 ]; then
+              python src/get_data.py --offline && python src/predict.py && python src/site_data.py || true
+              bash .github/save.sh "Update live" || true
+            fi
           done
           # out of time with fights still to go: queue the next live run so the card never goes stale
           if live; then
             echo "Fights still to go: queueing the next live run"
-            gh workflow run fight-week.yml --ref main -f kind=lines || echo "could not queue the next run"
+            gh workflow run fight-week.yml --ref main -f kind=live || echo "could not queue the next run"
           fi
         env:
           GH_TOKEN: ${{ github.token }}
