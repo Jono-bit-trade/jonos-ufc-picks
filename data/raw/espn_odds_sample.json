@@ -104,12 +104,12 @@
      "american": "+900"
     },
     "points": {
-     "value": 7.5,
-     "displayValue": "13/2",
-     "alternateDisplayValue": "+650",
-     "decimal": 7.5,
-     "fraction": "13/2",
-     "american": "+650"
+     "value": 8.5,
+     "displayValue": "15/2",
+     "alternateDisplayValue": "+750",
+     "decimal": 8.5,
+     "fraction": "15/2",
+     "american": "+750"
     }
    }
   },
@@ -210,12 +210,12 @@
      "american": "+1000"
     },
     "points": {
-     "value": 4.8,
-     "displayValue": "19/5",
-     "alternateDisplayValue": "+380",
-     "decimal": 4.8,
-     "fraction": "19/5",
-     "american": "+380"
+     "value": 4.5,
+     "displayValue": "7/2",
+     "alternateDisplayValue": "+350",
+     "decimal": 4.5,
+     "fraction": "7/2",
+     "american": "+350"
     }
    }
   },
