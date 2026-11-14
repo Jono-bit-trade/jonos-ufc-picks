@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T23:13Z",
+ "updated": "2026-11-14T23:15Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -234,20 +234,20 @@
    "record": "6-0"
   },
   {
-   "fighter": "Sean O'Malley",
-   "rating": 1811,
-   "rd": 99,
-   "last_fight": "2026-06-14",
-   "division": "Bantamweight",
-   "record": "12-3"
-  },
-  {
    "fighter": "Movsar Evloev",
    "rating": 1811,
    "rd": 110,
    "last_fight": "2026-10-24",
    "division": "Featherweight",
    "record": "10-1"
+  },
+  {
+   "fighter": "Sean O'Malley",
+   "rating": 1811,
+   "rd": 99,
+   "last_fight": "2026-06-14",
+   "division": "Bantamweight",
+   "record": "12-3"
   },
   {
    "fighter": "Paddy Pimblett",
@@ -298,14 +298,6 @@
    "record": "7-1"
   },
   {
-   "fighter": "Zhang Weili",
-   "rating": 1795,
-   "rd": 104,
-   "last_fight": "2025-11-15",
-   "division": "Women's Flyweight",
-   "record": "10-3"
-  },
-  {
    "fighter": "Leon Edwards",
    "rating": 1795,
    "rd": 97,
@@ -328,6 +320,14 @@
    "last_fight": "2026-03-28",
    "division": "Middleweight",
    "record": "7-1"
+  },
+  {
+   "fighter": "Zhang Weili",
+   "rating": 1795,
+   "rd": 104,
+   "last_fight": "2025-11-15",
+   "division": "Women's Flyweight",
+   "record": "10-3"
   },
   {
    "fighter": "Umar Nurmagomedov",
@@ -439,20 +439,20 @@
      "record": "9-3"
     },
     {
-     "fighter": "Curtis Blaydes",
-     "rating": 1769,
-     "rd": 93,
-     "last_fight": "2026-09-12",
-     "division": "Heavyweight",
-     "record": "15-6"
-    },
-    {
      "fighter": "Josh Hokit",
      "rating": 1769,
      "rd": 141,
      "last_fight": "2026-06-14",
      "division": "Heavyweight",
      "record": "4-0"
+    },
+    {
+     "fighter": "Curtis Blaydes",
+     "rating": 1769,
+     "rd": 93,
+     "last_fight": "2026-09-12",
+     "division": "Heavyweight",
+     "record": "15-6"
     },
     {
      "fighter": "Jailton Almeida",
@@ -620,14 +620,6 @@
      "record": "4-0"
     },
     {
-     "fighter": "Volkan Oezdemir",
-     "rating": 1681,
-     "rd": 101,
-     "last_fight": "2025-11-22",
-     "division": "Light Heavyweight",
-     "record": "9-7"
-    },
-    {
      "fighter": "Jamahal Hill",
      "rating": 1681,
      "rd": 109,
@@ -636,12 +628,12 @@
      "record": "7-4"
     },
     {
-     "fighter": "Bogdan Guskov",
-     "rating": 1664,
-     "rd": 122,
-     "last_fight": "2026-07-25",
+     "fighter": "Volkan Oezdemir",
+     "rating": 1681,
+     "rd": 101,
+     "last_fight": "2025-11-22",
      "division": "Light Heavyweight",
-     "record": "4-2"
+     "record": "9-7"
     },
     {
      "fighter": "Roman Dolidze",
@@ -650,6 +642,14 @@
      "last_fight": "2026-08-22",
      "division": "Light Heavyweight",
      "record": "9-6"
+    },
+    {
+     "fighter": "Bogdan Guskov",
+     "rating": 1664,
+     "rd": 122,
+     "last_fight": "2026-07-25",
+     "division": "Light Heavyweight",
+     "record": "4-2"
     }
    ]
   },
@@ -987,20 +987,20 @@
      "record": "9-4"
     },
     {
-     "fighter": "Chris Padilla",
-     "rating": 1711,
-     "rd": 136,
-     "last_fight": "2026-08-22",
-     "division": "Lightweight",
-     "record": "5-0"
-    },
-    {
      "fighter": "Beneil Dariush",
      "rating": 1711,
      "rd": 91,
      "last_fight": "2026-05-02",
      "division": "Lightweight",
      "record": "17-8"
+    },
+    {
+     "fighter": "Chris Padilla",
+     "rating": 1711,
+     "rd": 136,
+     "last_fight": "2026-08-22",
+     "division": "Lightweight",
+     "record": "5-0"
     },
     {
      "fighter": "Rafael Fiziev",
@@ -1314,20 +1314,20 @@
      "record": "14-5"
     },
     {
-     "fighter": "Asu Almabayev",
-     "rating": 1719,
-     "rd": 117,
-     "last_fight": "2026-06-27",
-     "division": "Flyweight",
-     "record": "7-1"
-    },
-    {
      "fighter": "Brandon Moreno",
      "rating": 1719,
      "rd": 95,
      "last_fight": "2026-09-12",
      "division": "Flyweight",
      "record": "12-7"
+    },
+    {
+     "fighter": "Asu Almabayev",
+     "rating": 1719,
+     "rd": 117,
+     "last_fight": "2026-06-27",
+     "division": "Flyweight",
+     "record": "7-1"
     },
     {
      "fighter": "Kyoji Horiguchi",
@@ -1511,20 +1511,20 @@
      "record": "2-1"
     },
     {
-     "fighter": "Nora Cornolle",
-     "rating": 1569,
-     "rd": 123,
-     "last_fight": "2026-09-05",
-     "division": "Women's Bantamweight",
-     "record": "4-3"
-    },
-    {
      "fighter": "Macy Chiasson",
      "rating": 1569,
      "rd": 102,
      "last_fight": "2026-02-28",
      "division": "Women's Bantamweight",
      "record": "8-6"
+    },
+    {
+     "fighter": "Nora Cornolle",
+     "rating": 1569,
+     "rd": 123,
+     "last_fight": "2026-09-05",
+     "division": "Women's Bantamweight",
+     "record": "4-3"
     }
    ]
   },
