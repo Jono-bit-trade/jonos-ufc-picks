@@ -507,7 +507,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "1830",
@@ -583,13 +583,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "145",
-       "name": "STATUS_PRE_FIGHT",
+       "id": "139",
+       "name": "STATUS_FIGHTERS_WALKING",
        "state": "in",
        "completed": false,
-       "description": "Pre-fight",
-       "detail": "Pre-fight",
-       "shortDetail": "Pre-fight"
+       "description": "Walkouts",
+       "detail": "Walkouts",
+       "shortDetail": "Walkouts"
       }
      },
      "broadcasts": [
@@ -598,6 +598,22 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26511",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26510",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
@@ -2186,13 +2202,26 @@
     {
      "language": "en-US",
      "rel": [
+      "live",
+      "desktop",
+      "event"
+     ],
+     "href": "https://www.espn.com/mma/fightcenter/_/id/600061400",
+     "text": "Gamecast",
+     "shortText": "Gamecast",
+     "isExternal": false,
+     "isPremium": false
+    },
+    {
+     "language": "en-US",
+     "rel": [
       "summary",
       "desktop",
       "event"
      ],
      "href": "https://www.espn.com/mma/fightcenter/_/id/600061400/league/ufc",
-     "text": "Gamecast",
-     "shortText": "Gamecast",
+     "text": "FightCenter",
+     "shortText": "FightCenter",
      "isExternal": false,
      "isPremium": false
     }
@@ -2211,13 +2240,13 @@
    ],
    "status": {
     "type": {
-     "id": "1",
-     "name": "STATUS_SCHEDULED",
-     "state": "pre",
+     "id": "2",
+     "name": "STATUS_IN_PROGRESS",
+     "state": "in",
      "completed": false,
-     "description": "Scheduled",
-     "detail": "Scheduled",
-     "shortDetail": "Scheduled"
+     "description": "In Progress",
+     "detail": "In Progress",
+     "shortDetail": "In Progress"
     }
    }
   }
