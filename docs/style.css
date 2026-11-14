@@ -1992,8 +1992,3 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .ph.sm.champ .crown { width: 56%; top: -22%; left: 26%; }
 .pt.champ .crown { width: 32%; top: -2%; }
 
-/* Jono's favorite: a fan's star, not a pick */
-.jfav { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .02em;
-  color: #111; background: linear-gradient(90deg, #ffe08a, #f0b429); vertical-align: middle; white-space: nowrap; }
-.bout .b .name .jfav { margin-left: 0; margin-right: 0; display: table; margin-left: auto; margin-top: 3px; }
-.bout .a .name .jfav { display: table; margin-left: 0; margin-top: 3px; }
