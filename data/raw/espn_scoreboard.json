@@ -1284,17 +1284,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 1,
+      "clock": 124.0,
+      "displayClock": "2:04",
+      "period": 2,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
+       "id": "2",
+       "name": "STATUS_IN_PROGRESS",
        "state": "in",
        "completed": false,
-       "description": "End of Round",
-       "detail": "End R1",
-       "shortDetail": "End R1"
+       "description": "In Progress",
+       "detail": "R2, 2:04",
+       "shortDetail": "R2, 2:04"
       }
      },
      "broadcasts": [
@@ -1306,6 +1306,34 @@
       }
      ],
      "details": [
+      {
+       "id": "26616",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "26615",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26614",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26613",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
       {
        "id": "26612",
        "type": {
@@ -1346,13 +1374,6 @@
        "type": {
         "id": "2",
         "text": "Walkout"
-       }
-      },
-      {
-       "id": "26593",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
