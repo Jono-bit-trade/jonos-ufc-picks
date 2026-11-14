@@ -54,9 +54,23 @@ def parse(html):
 def main():
     if OFFLINE:
         return
-    r = requests.get(URL, params=PARAMS, timeout=30, headers={"User-Agent": "Mozilla/5.0 (compatible; jonos-ufc-picks)"})
-    r.raise_for_status()
-    rows = parse(r.text)
+    # the page lists 10 fights at a time (tb_page=1, 2, ...): read pages until one adds nothing new
+    import time
+    pages, seen, first = [], set(), None
+    for n in range(1, 6):
+        r = requests.get(URL, params={**PARAMS, "tb_page": str(n)}, timeout=30,
+                         headers={"User-Agent": "Mozilla/5.0 (compatible; jonos-ufc-picks)"})
+        r.raise_for_status()
+        first = first or r
+        got = parse(r.text)
+        new = got[~got["title"].isin(seen)] if not got.empty else got
+        if new.empty:
+            break
+        pages.append(new)
+        seen |= set(new["title"])
+        time.sleep(2)   # polite between pages
+    rows = pd.concat(pages, ignore_index=True) if pages else parse(first.text)
+    r = first
     if rows.empty:   # the page changed: keep it so the parser can be fixed
         os.makedirs(path("raw"), exist_ok=True)
         open(path("raw", "dk_splits.html"), "w").write(r.text)
