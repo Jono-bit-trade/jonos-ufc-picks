@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T23:05Z",
+ "updated": "2026-11-14T23:13Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -1604,20 +1604,20 @@
      "record": "10-3"
     },
     {
-     "fighter": "Katlyn Cerminara",
-     "rating": 1661,
-     "rd": 100,
-     "last_fight": "2026-10-17",
-     "division": "Women's Flyweight",
-     "record": "12-6"
-    },
-    {
      "fighter": "Casey O'Neill",
      "rating": 1661,
      "rd": 117,
      "last_fight": "2026-09-19",
      "division": "Women's Flyweight",
      "record": "7-2"
+    },
+    {
+     "fighter": "Katlyn Cerminara",
+     "rating": 1661,
+     "rd": 100,
+     "last_fight": "2026-10-17",
+     "division": "Women's Flyweight",
+     "record": "12-6"
     },
     {
      "fighter": "Carli Judice",

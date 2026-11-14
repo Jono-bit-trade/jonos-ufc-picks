@@ -1,10 +1,20 @@
 {
- "bets": 11,
- "wins": 10,
- "units": 4.26,
- "roi_pct": 38.7,
+ "bets": 12,
+ "wins": 11,
+ "units": 4.47,
+ "roi_pct": 37.2,
  "moved_toward_pct": 100.0,
  "recent": [
+  {
+   "date": "2026-11-14",
+   "fight": "Alatengheili vs Juan Diaz",
+   "pick": "Juan Diaz",
+   "odds": -485,
+   "won": true,
+   "method": "DEC",
+   "units": 0.21,
+   "moved_toward": true
+  },
   {
    "date": "2026-11-07",
    "fight": "Seokhyeon Ko vs Wellington Turman",
@@ -117,12 +127,22 @@
   }
  ],
  "ours": {
-  "bets": 12,
-  "wins": 9,
-  "units": 0.08,
-  "roi_pct": 0.7,
-  "moved_toward_pct": 90.9,
+  "bets": 13,
+  "wins": 10,
+  "units": 0.29,
+  "roi_pct": 2.2,
+  "moved_toward_pct": 91.7,
   "recent": [
+   {
+    "date": "2026-11-14",
+    "fight": "Alatengheili vs Juan Diaz",
+    "pick": "Juan Diaz",
+    "odds": -485,
+    "won": true,
+    "method": "DEC",
+    "units": 0.21,
+    "moved_toward": true
+   },
    {
     "date": "2026-11-07",
     "fight": "Seokhyeon Ko vs Wellington Turman",
