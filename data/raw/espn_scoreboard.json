@@ -1056,7 +1056,7 @@
        "uid": "s:3301~a:5310274",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Bia Mesquita",
         "displayName": "Bia Mesquita",
@@ -1081,18 +1081,19 @@
       }
      ],
      "status": {
-      "clock": 246.0,
-      "displayClock": "4:06",
+      "clock": 96.0,
+      "displayClock": "1:36",
       "period": 1,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R1, 4:06",
-       "shortDetail": "R1, 4:06"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1103,6 +1104,55 @@
       }
      ],
      "details": [
+      {
+       "id": "26588",
+       "type": {
+        "id": "20",
+        "text": "Unofficial Winner Submission"
+       }
+      },
+      {
+       "id": "26587",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26586",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26585",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "26584",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26583",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26582",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26581",
        "type": {
@@ -1122,27 +1172,6 @@
        "type": {
         "id": "3",
         "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26592",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26591",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26590",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
@@ -1215,6 +1244,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1242,6 +1272,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1257,13 +1288,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 14th at 5:00 PM EST",
-       "shortDetail": "11/14 - 5:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [

@@ -7560,3 +7560,4 @@ fight_id,date,event,location,weight_class,gender,title,rounds,bout_order,a,b,win
 2026-11-07|Waldo Cortes-Acosta|Johnny Walker,2026-11-07,UFC Fight Night: Cortes Acosta vs. Walker,"Las Vegas, NV, USA",Heavyweight,M,False,5.0,1.0,Waldo Cortes-Acosta,Johnny Walker,b,KO,KO/TKO,3.0,,-205.0,170.0,,,,,,,-192.0,160.0,,,,,,,,,espn
 2026-11-14|Alatengheili|Juan Diaz,2026-11-14,UFC 334: Gane vs. Hokit,"New York, NY, USA",Bantamweight,M,False,3.0,12.0,Alatengheili,Juan Diaz,b,DEC,U-DEC,3.0,,310.0,-420.0,,,,,,,,,,,,,,,,,espn
 2026-11-14|Evan Elder|Samuel Sanches,2026-11-14,UFC 334: Gane vs. Hokit,"New York, NY, USA",Lightweight,M,False,3.0,13.0,Evan Elder,Samuel Sanches,a,DEC,U-DEC,3.0,,-104.0,-118.0,,,,,,,,,,,,,,,,,espn
+2026-11-14|Macy Chiasson|Bia Mesquita,2026-11-14,UFC 334: Gane vs. Hokit,"New York, NY, USA",Women's Bantamweight,F,False,3.0,11.0,Macy Chiasson,Bia Mesquita,b,SUB,SUB,1.0,,194.0,-245.0,,,,,,,,,,,,,,,,,espn
