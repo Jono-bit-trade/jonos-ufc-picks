@@ -1482,7 +1482,7 @@
        "uid": "s:3301~a:5144068",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Cesar Almeida",
         "displayName": "Cesar Almeida",
@@ -1535,18 +1535,19 @@
       }
      ],
      "status": {
-      "clock": 234.0,
-      "displayClock": "3:54",
+      "clock": 101.0,
+      "displayClock": "1:41",
       "period": 1,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R1, 3:54",
-       "shortDetail": "R1, 3:54"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1557,6 +1558,55 @@
       }
      ],
      "details": [
+      {
+       "id": "26662",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26661",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26660",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26659",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26658",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26657",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26656",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
       {
        "id": "26655",
        "type": {
@@ -1576,27 +1626,6 @@
        "type": {
         "id": "3",
         "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26652",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26651",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26650",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
@@ -1669,6 +1698,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1696,6 +1726,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1711,13 +1742,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 14th at 7:00 PM EST",
-       "shortDetail": "11/14 - 7:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [
