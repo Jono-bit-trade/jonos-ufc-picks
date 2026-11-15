@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:53Z",
+ "updated": "2026-11-15T01:58Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -247,11 +247,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T21:39Z",
-     "a": -225.0,
-     "b": 185.0
-    },
-    {
      "t": "2026-11-14T21:47Z",
      "a": -225.0,
      "b": 185.0
@@ -443,6 +438,11 @@
     },
     {
      "t": "2026-11-15T01:53Z",
+     "a": -230.0,
+     "b": 190.0
+    },
+    {
+     "t": "2026-11-15T01:58Z",
      "a": -230.0,
      "b": 190.0
     }
@@ -665,11 +665,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T21:39Z",
-     "a": -170.0,
-     "b": 142.0
-    },
-    {
      "t": "2026-11-14T21:47Z",
      "a": -170.0,
      "b": 142.0
@@ -861,6 +856,11 @@
     },
     {
      "t": "2026-11-15T01:53Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-15T01:58Z",
      "a": -170.0,
      "b": 142.0
     }
@@ -1083,11 +1083,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T21:39Z",
-     "a": -155.0,
-     "b": 136.0
-    },
-    {
      "t": "2026-11-14T21:47Z",
      "a": -155.0,
      "b": 136.0
@@ -1279,6 +1274,11 @@
     },
     {
      "t": "2026-11-15T01:53Z",
+     "a": -155.0,
+     "b": 130.0
+    },
+    {
+     "t": "2026-11-15T01:58Z",
      "a": -155.0,
      "b": 130.0
     }
@@ -1473,7 +1473,7 @@
    },
    "why": [
     "Close fight and 12 of 17 analysts pick Medic",
-    "Our chance 61% vs the line's 58% (3 points of value)"
+    "Our chance 63% vs the line's 60% (3 points of value)"
    ],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -1486,17 +1486,17 @@
    "rating_b": 1680,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.548,
-   "p_a": 0.608,
+   "p_model_a": 0.546,
+   "p_a": 0.625,
    "model_pick": "Uros Medic",
    "tier": "Medium",
-   "fair_odds_a": -155,
-   "fair_odds_b": 155,
-   "market_p_a": 0.583,
-   "odds_a": -155.0,
-   "odds_b": 130.0,
-   "best_a": -155.0,
-   "best_b": 130.0,
+   "fair_odds_a": -166,
+   "fair_odds_b": 166,
+   "market_p_a": 0.6,
+   "odds_a": -166.0,
+   "odds_b": 140.0,
+   "best_a": -166.0,
+   "best_b": 140.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -1505,16 +1505,11 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -155.0,
-     "b": 130.0
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-14T21:39Z",
-     "a": -155.0,
-     "b": 130.0
-    },
     {
      "t": "2026-11-14T21:47Z",
      "a": -155.0,
@@ -1709,6 +1704,11 @@
      "t": "2026-11-15T01:53Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-15T01:58Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": 0.025,
@@ -1724,20 +1724,20 @@
     "odds": -155.0
    },
    "method": {
-    "DEC": 0.372,
-    "KO": 0.434,
-    "SUB": 0.194
+    "DEC": 0.371,
+    "KO": 0.44,
+    "SUB": 0.19
    },
    "how": {
     "a": {
-     "DEC": 0.21,
-     "KO": 0.349,
-     "SUB": 0.05
+     "DEC": 0.216,
+     "KO": 0.358,
+     "SUB": 0.051
     },
     "b": {
-     "DEC": 0.162,
-     "KO": 0.085,
-     "SUB": 0.145
+     "DEC": 0.155,
+     "KO": 0.082,
+     "SUB": 0.139
     }
    },
    "sample": true
@@ -1952,11 +1952,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T21:39Z",
-     "a": -1000.0,
-     "b": 650.0
-    },
-    {
      "t": "2026-11-14T21:47Z",
      "a": -1000.0,
      "b": 650.0
@@ -2150,6 +2145,11 @@
      "t": "2026-11-15T01:53Z",
      "a": -1050.0,
      "b": 675.0
+    },
+    {
+     "t": "2026-11-15T01:58Z",
+     "a": -1050.0,
+     "b": 675.0
     }
    ],
    "locked": true,
@@ -2167,7 +2167,7 @@
    "b_slug": "charles-radtke",
    "a_id": "2615077",
    "b_id": "4416297",
-   "record_a": "17-9-1",
+   "record_a": "18-9-1",
    "record_b": "12-5-0",
    "experts": {
     "picks_a": 11,
@@ -2175,7 +2175,7 @@
     "high_a": 4,
     "high_b": 1,
     "url": null,
-    "win_a": 0,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -2185,7 +2185,7 @@
       "method": "Decision",
       "record": "216-112",
       "units": 23.75,
-      "winning": false
+      "winning": true
      },
      {
       "name": "Bedtime MMA",
@@ -2194,7 +2194,7 @@
       "method": "KO/TKO",
       "record": "207-117",
       "units": 7.18,
-      "winning": false
+      "winning": true
      },
      {
       "name": "TheWeasle",
@@ -2340,17 +2340,29 @@
     "bets_b": 0.43,
     "at": "2026-11-14T23:15Z"
    },
+   "why": [],
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
    "start": "2026-11-15T00:00Z",
-   "state": "in",
-   "status": "R3, 4:07",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 3 2:54",
+   "result": {
+    "winner": "Stephen Thompson",
+    "draw": false,
+    "detail": "KO/TKO, round 3 2:54",
+    "pick_won": false
+   },
    "rating_a": 1689,
    "rating_b": 1604,
    "debut_a": false,
    "debut_b": false,
+   "p_model_a": 0.46,
+   "p_a": 0.5,
+   "model_pick": "Charles Radtke",
+   "tier": "Low",
+   "fair_odds_a": -100,
+   "fair_odds_b": 100,
    "market_p_a": 0.532,
    "odds_a": -125.0,
    "odds_b": 105.0,
@@ -2564,13 +2576,33 @@
      "b": 105.0
     }
    ],
-   "locked": true,
-   "hidden": true,
+   "edge_a": -0.032,
+   "pick": "Charles Radtke",
    "our_pick": null,
-   "pick": null,
+   "bet_to": null,
    "stake": null,
-   "why": null,
-   "expert_lean": null
+   "expert_lean": null,
+   "check_news": false,
+   "moved_against": true,
+   "posted": null,
+   "method": {
+    "DEC": 0.532,
+    "KO": 0.306,
+    "SUB": 0.162
+   },
+   "how": {
+    "a": {
+     "DEC": 0.252,
+     "KO": 0.144,
+     "SUB": 0.068
+    },
+    "b": {
+     "DEC": 0.28,
+     "KO": 0.162,
+     "SUB": 0.094
+    }
+   },
+   "sample": false
   },
   {
    "a": "Drew Dober",
@@ -3442,19 +3474,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.4,
-    "KO": 0.418,
+    "DEC": 0.399,
+    "KO": 0.417,
     "SUB": 0.183
    },
    "how": {
     "a": {
      "DEC": 0.15,
-     "KO": 0.103,
-     "SUB": 0.119
+     "KO": 0.104,
+     "SUB": 0.12
     },
     "b": {
-     "DEC": 0.25,
-     "KO": 0.314,
+     "DEC": 0.249,
+     "KO": 0.313,
      "SUB": 0.064
     }
    },
@@ -3893,18 +3925,18 @@
    },
    "method": {
     "DEC": 0.449,
-    "KO": 0.314,
+    "KO": 0.315,
     "SUB": 0.236
    },
    "how": {
     "a": {
-     "DEC": 0.316,
+     "DEC": 0.315,
      "KO": 0.231,
      "SUB": 0.21
     },
     "b": {
-     "DEC": 0.133,
-     "KO": 0.083,
+     "DEC": 0.134,
+     "KO": 0.084,
      "SUB": 0.026
     }
    },
@@ -4344,7 +4376,7 @@
    },
    "method": {
     "DEC": 0.486,
-    "KO": 0.321,
+    "KO": 0.322,
     "SUB": 0.193
    },
    "how": {
@@ -4781,20 +4813,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.428,
-    "KO": 0.18,
-    "SUB": 0.392
+    "DEC": 0.429,
+    "KO": 0.181,
+    "SUB": 0.391
    },
    "how": {
     "a": {
-     "DEC": 0.204,
-     "KO": 0.1,
+     "DEC": 0.205,
+     "KO": 0.102,
      "SUB": 0.022
     },
     "b": {
-     "DEC": 0.224,
-     "KO": 0.08,
-     "SUB": 0.37
+     "DEC": 0.223,
+     "KO": 0.079,
+     "SUB": 0.368
     }
    },
    "sample": false
@@ -5208,8 +5240,8 @@
    },
    "method": {
     "DEC": 0.472,
-    "KO": 0.3,
-    "SUB": 0.228
+    "KO": 0.301,
+    "SUB": 0.227
    },
    "how": {
     "a": {
@@ -5218,8 +5250,8 @@
      "SUB": 0.022
     },
     "b": {
-     "DEC": 0.271,
-     "KO": 0.162,
+     "DEC": 0.272,
+     "KO": 0.161,
      "SUB": 0.206
     }
    },
@@ -5645,18 +5677,18 @@
    "moved_against": true,
    "posted": null,
    "method": {
-    "DEC": 0.524,
+    "DEC": 0.523,
     "KO": 0.294,
     "SUB": 0.183
    },
    "how": {
     "a": {
-     "DEC": 0.308,
+     "DEC": 0.307,
      "KO": 0.123,
      "SUB": 0.119
     },
     "b": {
-     "DEC": 0.216,
+     "DEC": 0.217,
      "KO": 0.17,
      "SUB": 0.064
     }
@@ -5667,5 +5699,5 @@
  "final": true,
  "final_at": null,
  "gated": true,
- "locked_count": 3
+ "locked_count": 2
 }

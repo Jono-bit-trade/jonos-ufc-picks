@@ -1,8 +1,8 @@
 {
- "bets": 14,
+ "bets": 15,
  "wins": 12,
- "units": 3.72,
- "roi_pct": 26.6,
+ "units": 2.72,
+ "roi_pct": 18.1,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -30,6 +30,16 @@
    "fight": "Donte Johnson vs Cesar Almeida",
    "pick": "Donte Johnson",
    "odds": -218,
+   "won": false,
+   "method": "KO",
+   "units": -1.0,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-14",
+   "fight": "Stephen Thompson vs Charles Radtke",
+   "pick": "Charles Radtke",
+   "odds": 105,
    "won": false,
    "method": "KO",
    "units": -1.0,
