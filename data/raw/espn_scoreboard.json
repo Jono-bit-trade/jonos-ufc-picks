@@ -1274,7 +1274,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "21-9-0"
+         "summary": "21-10-0"
         }
        ]
       },
@@ -1332,8 +1332,8 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
+      "clock": 300.0,
+      "displayClock": "5:00",
       "period": 3,
       "type": {
        "id": "3",
