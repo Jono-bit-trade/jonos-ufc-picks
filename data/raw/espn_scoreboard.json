@@ -2646,8 +2646,8 @@
       }
      ],
      "status": {
-      "clock": 277.0,
-      "displayClock": "4:37",
+      "clock": 116.0,
+      "displayClock": "1:56",
       "period": 2,
       "type": {
        "id": "31",
@@ -2655,8 +2655,8 @@
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 4:37",
-       "shortDetail": "R2, 4:37"
+       "detail": "R2, 1:56",
+       "shortDetail": "R2, 1:56"
       }
      },
      "broadcasts": [
@@ -2668,6 +2668,13 @@
       }
      ],
      "details": [
+      {
+       "id": "26796",
+       "type": {
+        "id": "11",
+        "text": "Round Unpause"
+       }
+      },
       {
        "id": "26795",
        "type": {
@@ -2729,13 +2736,6 @@
        "type": {
         "id": "16",
         "text": "Submission Attempt"
-       }
-      },
-      {
-       "id": "26786",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
        }
       }
      ],
