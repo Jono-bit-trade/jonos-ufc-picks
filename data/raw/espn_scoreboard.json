@@ -2897,8 +2897,8 @@
       }
      ],
      "status": {
-      "clock": 270.0,
-      "displayClock": "4:30",
+      "clock": 103.0,
+      "displayClock": "1:43",
       "period": 3,
       "type": {
        "id": "31",
@@ -2906,8 +2906,8 @@
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R3, 4:30",
-       "shortDetail": "R3, 4:30"
+       "detail": "R3, 1:43",
+       "shortDetail": "R3, 1:43"
       }
      },
      "broadcasts": [
@@ -2919,6 +2919,34 @@
       }
      ],
      "details": [
+      {
+       "id": "26854",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26853",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "26852",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26851",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26850",
        "type": {
@@ -2959,34 +2987,6 @@
        "type": {
         "id": "13",
         "text": "Takedown"
-       }
-      },
-      {
-       "id": "26844",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26843",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26842",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26841",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
        }
       }
      ],
