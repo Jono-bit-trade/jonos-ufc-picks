@@ -3370,17 +3370,17 @@
       }
      ],
      "status": {
-      "clock": 10.0,
-      "displayClock": "0:10",
-      "period": 3,
+      "clock": 221.0,
+      "displayClock": "3:41",
+      "period": 4,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R3, 0:10",
-       "shortDetail": "R3, 0:10"
+       "detail": "R4, 3:41",
+       "shortDetail": "R4, 3:41"
       }
      },
      "broadcasts": [
@@ -3392,6 +3392,48 @@
       }
      ],
      "details": [
+      {
+       "id": "26926",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26925",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26924",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26923",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26922",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26921",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26920",
        "type": {
@@ -3415,48 +3457,6 @@
       },
       {
        "id": "26917",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26916",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26915",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26914",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26913",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26912",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26911",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
