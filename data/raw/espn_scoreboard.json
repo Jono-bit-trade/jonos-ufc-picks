@@ -3155,17 +3155,17 @@
       }
      ],
      "status": {
-      "clock": 191.0,
-      "displayClock": "3:11",
-      "period": 3,
+      "clock": 277.0,
+      "displayClock": "4:37",
+      "period": 4,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R3, 3:11",
-       "shortDetail": "R3, 3:11"
+       "detail": "R4, 4:37",
+       "shortDetail": "R4, 4:37"
       }
      },
      "broadcasts": [
@@ -3177,6 +3177,34 @@
       }
      ],
      "details": [
+      {
+       "id": "26882",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26881",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26880",
+       "type": {
+        "id": "15",
+        "text": "Reversal"
+       }
+      },
+      {
+       "id": "26879",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26878",
        "type": {
@@ -3217,34 +3245,6 @@
        "type": {
         "id": "5",
         "text": "Round Start"
-       }
-      },
-      {
-       "id": "26872",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26871",
-       "type": {
-        "id": "16",
-        "text": "Submission Attempt"
-       }
-      },
-      {
-       "id": "26870",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
-       }
-      },
-      {
-       "id": "26869",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
        }
       }
      ],
