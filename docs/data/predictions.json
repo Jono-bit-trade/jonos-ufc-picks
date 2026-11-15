@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T06:10Z",
+ "updated": "2026-11-15T14:08Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -59,16 +59,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.433,
-   "p_a": 0.465,
+   "p_a": 0.458,
    "model_pick": "Jiri Prochazka",
    "tier": "Low",
-   "fair_odds_a": 115,
-   "fair_odds_b": -115,
-   "market_p_a": 0.428,
-   "odds_a": 124.0,
-   "odds_b": -148.0,
-   "best_a": 124.0,
-   "best_b": -148.0,
+   "fair_odds_a": 118,
+   "fair_odds_b": -118,
+   "market_p_a": 0.417,
+   "odds_a": 130.0,
+   "odds_b": -155.0,
+   "best_a": 130.0,
+   "best_b": -155.0,
    "open_a": 124.0,
    "open_b": -148.0,
    "books": 1.0,
@@ -77,8 +77,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 124.0,
-     "b": -148.0
+     "a": 130.0,
+     "b": -155.0
     }
    ],
    "line_history": [
@@ -91,9 +91,14 @@
      "t": "2026-11-15T06:10Z",
      "a": 124.0,
      "b": -148.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
+     "a": 130.0,
+     "b": -155.0
     }
    ],
-   "edge_a": 0.037,
+   "edge_a": 0.041,
    "pick": "Jiri Prochazka",
    "our_pick": null,
    "bet_to": null,
@@ -103,19 +108,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.238,
-    "KO": 0.634,
+    "DEC": 0.237,
+    "KO": 0.636,
     "SUB": 0.128
    },
    "how": {
     "a": {
-     "DEC": 0.13,
-     "KO": 0.253,
-     "SUB": 0.082
+     "DEC": 0.129,
+     "KO": 0.249,
+     "SUB": 0.08
     },
     "b": {
-     "DEC": 0.107,
-     "KO": 0.381,
+     "DEC": 0.108,
+     "KO": 0.386,
      "SUB": 0.047
     }
    }
@@ -150,16 +155,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.409,
-   "p_a": 0.455,
+   "p_a": 0.464,
    "model_pick": "Kevin Vallejos",
    "tier": "Low",
-   "fair_odds_a": 120,
-   "fair_odds_b": -120,
-   "market_p_a": 0.449,
-   "odds_a": 114.0,
-   "odds_b": -135.0,
-   "best_a": 114.0,
-   "best_b": -135.0,
+   "fair_odds_a": 116,
+   "fair_odds_b": -116,
+   "market_p_a": 0.457,
+   "odds_a": 110.0,
+   "odds_b": -130.0,
+   "best_a": 110.0,
+   "best_b": -130.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
@@ -168,8 +173,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 114.0,
-     "b": -135.0
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "line_history": [
@@ -182,6 +187,11 @@
      "t": "2026-11-15T06:10Z",
      "a": 114.0,
      "b": -135.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "edge_a": 0.006,
@@ -194,20 +204,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.473,
-    "KO": 0.349,
-    "SUB": 0.178
+    "DEC": 0.474,
+    "KO": 0.346,
+    "SUB": 0.181
    },
    "how": {
     "a": {
-     "DEC": 0.249,
-     "KO": 0.062,
-     "SUB": 0.144
+     "DEC": 0.253,
+     "KO": 0.063,
+     "SUB": 0.147
     },
     "b": {
-     "DEC": 0.224,
-     "KO": 0.287,
-     "SUB": 0.034
+     "DEC": 0.22,
+     "KO": 0.283,
+     "SUB": 0.033
     }
    }
   },
@@ -274,6 +284,11 @@
     },
     {
      "t": "2026-11-15T06:10Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
      "a": -162.0,
      "b": 136.0
     }
@@ -370,6 +385,11 @@
      "t": "2026-11-15T06:10Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.0,
@@ -459,6 +479,11 @@
     },
     {
      "t": "2026-11-15T06:10Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -620,6 +645,11 @@
      "t": "2026-11-15T06:10Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.001,
@@ -679,16 +709,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.504,
-   "p_a": 0.466,
+   "p_a": 0.475,
    "model_pick": "Alessandro Costa",
    "tier": "Low",
-   "fair_odds_a": 114,
-   "fair_odds_b": -114,
-   "market_p_a": 0.449,
-   "odds_a": 114.0,
-   "odds_b": -135.0,
-   "best_a": 114.0,
-   "best_b": -135.0,
+   "fair_odds_a": 110,
+   "fair_odds_b": -110,
+   "market_p_a": 0.457,
+   "odds_a": 110.0,
+   "odds_b": -130.0,
+   "best_a": 110.0,
+   "best_b": -130.0,
    "open_a": 130.0,
    "open_b": -155.0,
    "books": 1.0,
@@ -697,8 +727,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 114.0,
-     "b": -135.0
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "line_history": [
@@ -711,6 +741,11 @@
      "t": "2026-11-15T06:10Z",
      "a": 114.0,
      "b": -135.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "edge_a": 0.018,
@@ -724,19 +759,19 @@
    "posted": null,
    "method": {
     "DEC": 0.471,
-    "KO": 0.335,
-    "SUB": 0.194
+    "KO": 0.334,
+    "SUB": 0.195
    },
    "how": {
     "a": {
-     "DEC": 0.208,
-     "KO": 0.127,
-     "SUB": 0.131
+     "DEC": 0.212,
+     "KO": 0.13,
+     "SUB": 0.134
     },
     "b": {
-     "DEC": 0.263,
-     "KO": 0.208,
-     "SUB": 0.063
+     "DEC": 0.259,
+     "KO": 0.204,
+     "SUB": 0.061
     }
    }
   },
@@ -770,16 +805,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.538,
-   "p_a": 0.628,
+   "p_a": 0.641,
    "model_pick": "Jake Matthews",
    "tier": "Medium",
-   "fair_odds_a": -169,
-   "fair_odds_b": 169,
-   "market_p_a": 0.604,
-   "odds_a": -170.0,
-   "odds_b": 142.0,
-   "best_a": -170.0,
-   "best_b": 142.0,
+   "fair_odds_a": -178,
+   "fair_odds_b": 178,
+   "market_p_a": 0.616,
+   "odds_a": -180.0,
+   "odds_b": 150.0,
+   "best_a": -180.0,
+   "best_b": 150.0,
    "open_a": -166.0,
    "open_b": 140.0,
    "books": 1.0,
@@ -788,8 +823,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -170.0,
-     "b": 142.0
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "line_history": [
@@ -802,6 +837,11 @@
      "t": "2026-11-15T06:10Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-15T14:08Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "edge_a": 0.024,
@@ -814,20 +854,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.404,
-    "KO": 0.349,
-    "SUB": 0.246
+    "DEC": 0.405,
+    "KO": 0.345,
+    "SUB": 0.249
    },
    "how": {
     "a": {
-     "DEC": 0.268,
-     "KO": 0.145,
-     "SUB": 0.214
+     "DEC": 0.274,
+     "KO": 0.148,
+     "SUB": 0.219
     },
     "b": {
-     "DEC": 0.136,
-     "KO": 0.204,
-     "SUB": 0.032
+     "DEC": 0.131,
+     "KO": 0.197,
+     "SUB": 0.031
     }
    }
   },
