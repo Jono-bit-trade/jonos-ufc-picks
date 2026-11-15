@@ -1011,6 +1011,7 @@ async function lastCard(ev) {
       ${won ? `<span class="lc-w">W</span>` : ""}</a>`; };
   const pickLine = b => { const p = b.our_pick || b.value_pick || b.model_pick; if (!p || !b.winner) return "";
     const lab = b.our_pick ? "Our pick" : b.value_pick ? "Value pick" : "Model";
+    if (p.push) return `<span class="lc-p push">${lab}: ${esc(p.side === "a" ? b.a : b.b)} · push</span>`;
     return `<span class="lc-p ${p.right ? "won" : "lost"}">${lab}: ${esc(p.side === "a" ? b.a : b.b)} ${p.right ? "✓" : "✗"}${b.our_pick && p.units != null ? ` <b>${units(p.units)}</b>` : ""}</span>`; };
   const how = b => b.winner === "draw" || b.winner === "nc" ? "No winner" : [b.finish, b.round ? `R${b.round}` : ""].filter(Boolean).join(" · ");
   const bouts = e.bouts.filter(b => b.winner).slice(0, 3).map(b => `<div class="lc-b">
@@ -1438,7 +1439,7 @@ async function viewEvent(s) {
     const call = !mp ? "" : `${tierTag(mp.tier || tierOf(b.final_p_a), true)}<span class="tick ${mp.right ? "won" : "lost"}">Model${mp.lean ? " (expert lean)" : ""} ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
     const op = b.our_pick;
     const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "")
-      + (!op && b.passed ? `<span class="lean passed" title="The line moved more than 1 point against this side between open and close, so we passed.">Passed: line moved against ${esc(b.passed === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.right ? "won" : "lost"}">Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.right ? "✓" : "✗"} ${units(op.units)}</span>`
+      + (!op && b.passed ? `<span class="lean passed" title="The line moved more than 1 point against this side between open and close, so we passed.">Passed: line moved against ${esc(b.passed === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.push ? "push" : op.right ? "won" : "lost"}"${op.push ? ` title="${b.winner === "nc" ? "No contest" : "Draw"}: stake back, not counted as a win or a loss."` : ""}>Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.push ? "· push" : `${op.right ? "✓" : "✗"} ${units(op.units)}`}</span>`
       : !vp ? "" : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}

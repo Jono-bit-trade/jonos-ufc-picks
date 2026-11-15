@@ -527,7 +527,15 @@ def main():
             hit = 0
             for k, b in enumerate(bouts):
                 L = locked.get((date, frozenset((norm(b["a"]), norm(b["b"])))))
-                if L is None or b["winner"] not in ("a", "b"):
+                if L is None or b["winner"] not in ("a", "b", "draw", "nc"):
+                    continue
+                if b["winner"] in ("draw", "nc"):   # a push: our pick shows, stake back, not a bet
+                    sd = "a" if isinstance(L.get("our_pick"), str) and norm(L.get("our_pick")) == norm(b["a"]) else \
+                        "b" if isinstance(L.get("our_pick"), str) and norm(L.get("our_pick")) == norm(b["b"]) else None
+                    b.pop("passed", None)
+                    if sd:
+                        b["our_pick"] = {"side": sd, "right": None, "push": True, "odds": num(L.get("our_odds")), "units": 0.0,
+                                         "from_experts": L.get("our_source") == "experts", "stake": num(L.get("stake"), 2), "staked_units": 0.0}
                     continue
                 hit += 1
                 b.pop("passed", None)   # live cards show what was locked
@@ -555,7 +563,9 @@ def main():
                             rec["bets"] += 1; rec["units"] += m_["units"]
                     if v_:
                         rec["value_bets"] += 1; rec["value_won"] += int(v_["right"]); rec["value_units"] += v_["units"] or 0
-                    if o_:
+                    if o_ and o_.get("push"):
+                        rec["our_pushes"] = rec.get("our_pushes", 0) + 1
+                    elif o_:
                         rec["our_bets"] += 1; rec["our_won"] += int(o_["right"]); rec["our_units"] += o_["units"] or 0
                         rec["our_staked"] += o_.get("staked_units") or 0
                 graded_rows[g0:] = [{"date": date, "pick": b["model_pick"], "value": b["value_pick"], "our": b["our_pick"],

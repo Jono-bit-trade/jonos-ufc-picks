@@ -133,7 +133,9 @@ def update_ledger(log, fights):
     summ = {"from": LEDGER_FROM, "fights": 0, "model_right": 0, "our_bets": 0, "our_won": 0, "our_units": 0.0,
             "our_risked": 0.0, "our_staked_units": 0.0, "value_bets": 0, "value_won": 0, "value_units": 0.0, "rows": []}
     if not led.empty:
-        o = led[led["our_pick"].notna()]
+        push = led["result"].isin(["draw", "nc"]) if "result" in led else pd.Series(False, index=led.index)
+        o = led[led["our_pick"].notna() & ~push]   # a draw or no-contest is a push: stake back, not a bet
+        summ["our_pushes"] = int((led["our_pick"].notna() & push).sum())
         summ.update({"fights": int(len(led)), "model_right": int((led["model_pick"] == led["winner"]).sum()),
                      "our_bets": int(len(o)), "our_won": int((o["our_pick"] == o["winner"]).sum()),
                      "our_units": round(float(o["our_units"].sum()), 2), "our_risked": round(float(o["stake"].sum()), 2),
@@ -141,7 +143,7 @@ def update_ledger(log, fights):
                      **{f"{k}_{m}": v for k in ("model", "experts") for m, v in (lambda q: (
                          ("bets", int(len(q))), ("won", int((q["our_pick"] == q["winner"]).sum())),
                          ("staked_units", round(float(q["our_staked_units"].sum()), 2))))(o[o["our_source"] == k])},
-                     **({"value_bets": int(led["value_pick"].notna().sum()),
+                     **({"value_bets": int((led["value_pick"].notna() & ~push).sum()),
                          "value_won": int((led["value_pick"] == led["winner"]).sum()),
                          "value_units": round(float(pd.to_numeric(led["value_units"], errors="coerce").sum()), 2)} if "value_pick" in led else {}),
                      **{f"{k}_clv": (lambda c: {"bets": int(c.notna().sum()), "beat": int((c > 0).sum()), "even": int((c == 0).sum()),

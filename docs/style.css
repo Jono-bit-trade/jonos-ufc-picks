@@ -1992,3 +1992,4 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .ph.sm.champ .crown { width: 56%; top: -22%; left: 26%; }
 .pt.champ .crown { width: 32%; top: -2%; }
 
+.vpick.ours.push, .lc-p.push { color: var(--quiet); border-color: var(--rule); }
