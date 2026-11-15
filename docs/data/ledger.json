@@ -2,10 +2,10 @@
  "from": "2026-10-31",
  "fights": 39,
  "model_right": 26,
- "our_bets": 17,
+ "our_bets": 16,
  "our_won": 11,
  "our_units": -1.45,
- "our_risked": 15.0,
+ "our_risked": 13.5,
  "our_staked_units": -1.48,
  "value_bets": 17,
  "value_won": 12,
@@ -1104,10 +1104,11 @@
    "tier": "High"
   }
  ],
+ "our_pushes": 1,
  "model_bets": 13,
  "model_won": 10,
  "model_staked_units": -0.01,
- "experts_bets": 4,
+ "experts_bets": 3,
  "experts_won": 1,
  "experts_staked_units": -1.47,
  "our_clv": {
