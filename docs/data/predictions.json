@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T04:56Z",
+ "updated": "2026-11-15T04:59Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -282,7 +282,7 @@
    "a_id": "4332765",
    "b_id": "2516131",
    "record_a": "19-1-0",
-   "record_b": "23-5-0",
+   "record_b": "23-6-0",
    "experts": {
     "picks_a": 11,
     "picks_b": 6,
@@ -460,11 +460,11 @@
    "segment": "",
    "start": "2026-11-15T02:00Z",
    "state": "post",
-   "status": "Submission, round 4 3:35",
+   "status": "Submission, round 4 1:29",
    "result": {
     "winner": "Kayla Harrison",
     "draw": false,
-    "detail": "Submission, round 4 3:35",
+    "detail": "Submission, round 4 1:29",
     "pick_won": false
    },
    "rating_a": 1739,
