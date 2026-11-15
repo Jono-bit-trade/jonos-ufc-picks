@@ -1993,3 +1993,44 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .pt.champ .crown { width: 32%; top: -2%; }
 
 .vpick.ours.push, .lc-p.push { color: var(--quiet); border-color: var(--rule); }
+
+/* fight night: updated stamp */
+.lc-head .lc-upd { margin-left: auto; font-size: 12px; color: var(--quiet); font-variant-numeric: tabular-nums; }
+
+/* tonight's units race */
+.lc-race { margin: 12px 0; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 12px; }
+.lc-race .lr-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--quiet); }
+.lc-race .lr-head b { font: 800 22px/1 var(--display); }
+.lc-race svg { display: block; width: 100%; height: auto; max-height: 130px; }
+.lc-race .lr-zero { stroke: var(--rule); stroke-dasharray: 4 4; }
+.lc-race .lr-line { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.lc-race .lr-line.up { stroke: var(--green); } .lc-race .lr-line.down { stroke: var(--red); }
+.lc-race circle { stroke: var(--paper, #141619); stroke-width: 2; }
+.lc-race circle.won { fill: var(--green); } .lc-race circle.lost { fill: var(--red); }
+
+/* result stamps on our picks */
+.ticket { position: relative; overflow: visible; }
+.stamp { position: absolute; top: 10px; right: 10px; z-index: 4; display: flex; flex-direction: column; align-items: center; line-height: 1;
+  padding: 6px 10px 5px; border: 3px solid currentColor; border-radius: 8px; font: 900 24px/1 var(--display); letter-spacing: .04em;
+  transform: rotate(-12deg); pointer-events: none; background: rgba(0,0,0,.08); }
+.stamp small { font: 700 11px/1.2 var(--body, inherit); letter-spacing: 0; margin-top: 2px; }
+.stamp.won { color: #0f7a3a; } .stamp.lost { color: #b3261e; }
+#view .ticket.won .stamp, #view .ticket.lost .stamp { opacity: .92; }
+.stamp.pop { animation: stampIn .55s cubic-bezier(.2, 1.6, .4, 1) both; }
+@keyframes stampIn { 0% { transform: rotate(-12deg) scale(3); opacity: 0; } 60% { opacity: 1; } 100% { transform: rotate(-12deg) scale(1); opacity: .92; } }
+.ticket .tk-res { display: none; }
+
+/* confetti */
+.confetti { position: absolute; inset: 0; pointer-events: none; z-index: 5; overflow: visible; }
+.confetti i { position: absolute; top: 40%; width: 7px; height: 11px; border-radius: 2px; opacity: 0; animation: conf 1.4s ease-out forwards; }
+@keyframes conf { 0% { opacity: 1; transform: translate(0, 0) rotate(0); } 100% { opacity: 0; transform: translate(var(--dx), calc(var(--dy) + 160px)) rotate(var(--r)); } }
+@media (prefers-reduced-motion: reduce) { .stamp.pop { animation: none; } .confetti { display: none; } }
+.lc-head .lc-count { margin-left: auto; } .lc-head .lc-upd { margin-left: 4px; }
+.lc-rounds em time { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
+.lc-slip li { position: relative; overflow: visible; }
+.lc-slip .bs-res { position: relative; }
+.stamp.sm { position: absolute; top: 50%; right: calc(100% + 10px); font-size: 14px; padding: 3px 7px; border-width: 2px; margin-top: -13px; }
+.stamp.sm.won { color: var(--green); } .stamp.sm.lost { color: var(--red); }
+.stamp.sm { position: static; display: inline-flex; vertical-align: middle; margin: -4px 10px -4px 0; transform: rotate(-10deg); top: auto; right: auto; }
+.stamp.sm.pop { animation: stampInSm .5s cubic-bezier(.2, 1.6, .4, 1) both; }
+@keyframes stampInSm { 0% { transform: rotate(-10deg) scale(3); opacity: 0; } 100% { transform: rotate(-10deg) scale(1); opacity: 1; } }

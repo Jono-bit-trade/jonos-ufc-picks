@@ -671,8 +671,8 @@ function tape(a, b, rounds) {
 async function viewCard() {
   const [p] = await Promise.all([getPred(), loadGrap()]);
   if (!p) return `<div class="empty">No predictions yet: the first scheduled run fills this in.</div>`;
-  clearTimeout(window.refresh);
-  if (p.fights.some(f => f.state === "in")) window.refresh = setTimeout(route, 120000);   // fight night: refresh every 2 minutes
+  livePoll(p);
+  setTimeout(revealPicks, 300);
   $("#updated").textContent = `Data updated ${new Date(p.updated).toLocaleString()} from ${p.card_source}.`;
   if (!p.fights.length) return `<h1>Next card</h1><div class="empty">${esc(p.message || "No bouts listed yet.")}</div>`;
   const mr = await get("model_record.json"), yr = mr && mr.years[0], all = mr && (mr.since || mr.all);
@@ -805,6 +805,8 @@ function picksStrip(p) {
           : f.expert_lean === f.our_pick ? `<span class="tk-val">Close fight; most of the tracked analysts agree on this side.</span>` : ""; })()}
       ${f.take ? `<span class="tk-why tk-take">“${esc(f.take)}”</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
+      ${res ? (() => { const st = f.stake || 1, u = res === "won" ? st * pay(o) : -st;
+        return `<span class="stamp ${res}" data-reveal="${esc((f.start || p.date || "").slice(0, 10) + "|" + f.a + "|" + f.b)}">${res === "won" ? "WIN" : "L"}<small>${units(Math.round(u * 100) / 100)}</small></span>`; })() : ""}
     </a>`;
   }).join("")}${teaser}</div>`;
 }
@@ -844,6 +846,34 @@ function ledgerCurve(rows) {
 }
 
 // ---- fight night live centre: the fight on now, the tally so far, and the whole card as a timeline ----
+// fight night: check for new data every 30 seconds in the background (all card long, between fights too)
+// and redraw only when something changed, keeping the reader's place on the page
+function cardLive(p) {
+  const fs = p && p.fights || [];
+  if (fs.some(f => f.state === "in")) return true;
+  const st = fs.map(f => Date.parse(f.start || "")).filter(x => x === x);
+  if (!st.length || !fs.some(f => f.state === "pre")) return false;
+  const now = Date.now();
+  return now > Math.min(...st) - 45 * 6e4 && now < Math.max(...st) + 6 * 36e5;
+}
+let LIVE_POLL = null, LIVE_STAMP = null;
+function livePoll(p) {
+  clearTimeout(LIVE_POLL); clearTimeout(window.refresh);
+  if (!p || !(cardLive(p) || liveOn(p))) { LIVE_STAMP = null; return; }
+  LIVE_STAMP = p.updated;
+  const page = location.hash;
+  LIVE_POLL = setTimeout(async function tick() {
+    if (location.hash !== page) return;
+    try {
+      const r = await fetch("data/predictions.json?t=" + Date.now(), {cache: "no-store"});
+      const q = r.ok ? await r.json() : null;
+      if (q && q.updated && q.updated !== LIVE_STAMP) {
+        const y = window.scrollY; await route(); window.scrollTo(0, y); return;
+      }
+    } catch (e) {}
+    LIVE_POLL = setTimeout(tick, 30000);
+  }, 30000);
+}
 function liveOn(p) {
   const fs = p && p.fights || [];
   if (fs.some(f => f.state === "in")) return true;
@@ -886,7 +916,7 @@ function liveCenter(p) {
       <div class="lc-label">${x.f.state === "in" ? `<span class="live">Now fighting</span>` : `<span class="lc-next">${label}</span>`}
         <span class="lc-status">${x.f.state === "in" ? esc(/pre-?fight|scheduled/i.test(x.f.status || "") ? "Walkouts" : x.f.status || "In progress") : x.f.weight_class ? esc(x.f.weight_class) : ""}</span></div>
       <div class="lc-face">${corner(x.f, "a")}<span class="lc-vs">VS</span>${corner(x.f, "b")}</div>
-      ${x.f.state === "in" ? roundClock(x.f) : ""}
+      ${x.f.state === "in" ? roundClock(x.f, p.updated) : ""}
       ${x.f.p_a != null ? `<div class="lc-bar" title="Our chance"><i class="a" style="width:${Math.round(100 * x.f.p_a)}%"></i><i class="b"></i>${x.f.market_p_a != null ? `<em style="left:${Math.round(100 * x.f.market_p_a)}%" title="Betting line"></em>` : ""}</div>` : ""}
       <a class="lc-more" href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${x.i}')?.scrollIntoView({behavior:'smooth'}),400)">Full breakdown</a>
     </div>`;
@@ -900,32 +930,74 @@ function liveCenter(p) {
     return `<li class="lc-pip ${cls}${f.our_pick ? " has-pick" : ""}"><a href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${x.i}')?.scrollIntoView({behavior:'smooth'}),400)">
       <span class="dot"></span><span class="who">${ln(f.a)} <small>vs</small> ${ln(f.b)}</span><span class="sub">${sub}</span>${f.our_pick ? `<span class="star" title="Our pick: ${esc(f.our_pick)}">●</span>` : ""}</a></li>`;
   };
-  setTimeout(() => resultMoments(order), 50);
+  setTimeout(() => { resultMoments(order); revealPicks(); }, 50);
+  // tonight's units race: our picks at suggested stakes, after each finished fight
+  const race = (() => {
+    let cum = 0; const pts = [{u: 0}];
+    for (const {f} of done) {
+      const w = f.result && f.result.winner; if (!f.our_pick || !w || !["a", "b"].includes(w === f.a ? "a" : w === f.b ? "b" : "")) continue;
+      const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1, won = w === f.our_pick;
+      cum += won ? st * pay(o) : -st; pts.push({u: cum, won, who: f.our_pick});
+    }
+    if (pts.length < 2) return "";
+    const W = 1000, H = 130, P = 16, lo = Math.min(0, ...pts.map(x => x.u)), hi = Math.max(0, ...pts.map(x => x.u)), span = hi - lo || 1;
+    const X = i => P + i * (W - 2 * P) / Math.max(1, pts.length - 1), Y = u => H - P - (u - lo) / span * (H - 2 * P);
+    const line = pts.map((x, i) => `${i ? "L" : "M"}${X(i).toFixed(1)},${Y(x.u).toFixed(1)}`).join("");
+    return `<div class="lc-race"><div class="lr-head"><span>Tonight's units</span><b class="${cum >= 0 ? "won" : "lost"}">${units(r2(cum))}</b></div>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Our picks tonight, units after each result"><line x1="${P}" x2="${W - P}" y1="${Y(0).toFixed(1)}" y2="${Y(0).toFixed(1)}" class="lr-zero"/>
+      <path d="${line}" class="lr-line ${cum >= 0 ? "up" : "down"}"/>${pts.slice(1).map((x, k) => `<circle cx="${X(k + 1).toFixed(1)}" cy="${Y(x.u).toFixed(1)}" r="6" class="${x.won ? "won" : "lost"}"><title>${esc(x.who)} ${x.won ? "won" : "lost"}: ${units(r2(x.u))} tonight</title></circle>`).join("")}</svg></div>`;
+  })();
   return `<section class="livecenter">
-    <div class="lc-head"><span class="live">Live</span><b>${esc(p.event)}</b><span class="lc-count">Fight ${Math.min(done.length + 1, order.length)} of ${order.length}</span></div>
+    <div class="lc-head"><span class="live">Live</span><b>${esc(p.event)}</b><span class="lc-count">Fight ${Math.min(done.length + 1, order.length)} of ${order.length}</span><span class="lc-upd" data-upd="${esc(p.updated || "")}">${(() => { const t = Date.parse(p.updated || ""); if (!(t === t)) return ""; const x = Math.max(0, Math.round((Date.now() - t) / 1000)); return x < 90 ? `Updated ${x}s ago` : `Updated ${Math.round(x / 60)} min ago`; })()}</span></div>
     <div class="lc-tally">
       <div><b>${ow}-${ol}</b><span>Our picks</span><em class="${ou >= 0 ? "won" : "lost"}">${units(r2(ou))}</em></div>
       <div><b>${vw}-${vl}</b><span>Value picks</span><em class="${vu >= 0 ? "won" : "lost"}">${units(r2(vu))}</em></div>
       <div><b>${mw}/${mn}</b><span>Model winners</span><em class="${mu >= 0 ? "won" : "lost"}">${units(r2(mu))}</em></div>
     </div>
+    ${race}
     ${betSlip(order)}
     ${now ? spot(now) : spot(next, "Up next")}
     ${last && last.f.result ? `<div class="lc-last"><span>Last result</span><b>${esc(last.f.result.winner || "Draw")}</b> def. ${esc(last.f.result.winner === last.f.a ? last.f.b : last.f.a)} <small>${esc((last.f.result.detail || "").replace(/^Final\s*-?\s*/i, ""))}</small></div>` : ""}
     ${now && next ? `<div class="lc-upnext"><span>Up next</span>${esc(next.f.a)} vs ${esc(next.f.b)}${next.f.our_pick ? ` <em>Our pick: ${esc(next.f.our_pick)}${next.f.stake ? " " + next.f.stake + "u" : ""}</em>` : ""}</div>` : ""}
     <ol class="lc-line">${order.map(pip).join("")}</ol>
-    <p class="lc-foot">Units: our picks at suggested stakes; value picks and model winners at a flat 1u. Green: our call won. Red: it lost. Gold dot: one of our picks. Updates every few minutes; this page refreshes itself.</p>
+    <p class="lc-foot">Units: our picks at suggested stakes; value picks and model winners at a flat 1u. Green: our call won. Red: it lost. Gold dot: one of our picks. Results land a few minutes after each fight ends; this page checks for them every 30 seconds.</p>
   </section>`;
 }
 
 // round clock: one segment per scheduled round, finished rounds filled, the current one pulsing
-function roundClock(f) {
+function roundClock(f, at) {
   const n = f.rounds || 3, m = /R(?:ound)?\s*(\d+)/i.exec(f.status || ""), cur = m ? +m[1] : 0;
   const t = /(\d+:\d\d)/.exec(f.status || "");   // ESPN's live clock counts down: time left in the round
   const left = t ? (([mm, ss]) => +mm * 60 + +ss)(t[1].split(":")) : null;
-  return `<div class="lc-rounds" aria-label="${cur ? `Round ${cur} of ${n}` : `${n} rounds`}">
+  // the clock keeps running between ESPN snapshots (an estimate, re-synced on every update)
+  const run = cur && left != null && at ? ` data-rc-left="${left}" data-rc-at="${esc(at)}" data-rc-round="${cur}" data-rc-n="${n}"` : "";
+  return `<div class="lc-rounds"${run} aria-label="${cur ? `Round ${cur} of ${n}` : `${n} rounds`}">
     ${Array.from({length: n}, (_, k) => `<span class="${k + 1 < cur ? "done" : k + 1 === cur ? "now" : ""}"${k + 1 === cur && left != null ? ` style="--f:${Math.round(100 * (300 - left) / 300)}%"` : ""}><b>R${k + 1}</b></span>`).join("")}
-    <em>${cur ? `Round ${cur} of ${n}${t ? ` · ${t[1]} left` : ""}` : `${n} rounds · walkouts`}</em></div>`;
+    <em>${cur ? `Round ${cur} of ${n}${t ? ` · <time class="rc-t">${t[1]}</time> left` : ""}` : `${n} rounds · walkouts`}</em></div>`;
 }
+// once a second: run the round clocks forward from their snapshot and age the "updated" stamp
+function tickLive() {
+  const now = Date.now();
+  document.querySelectorAll("[data-rc-left]").forEach(el => {
+    const at = Date.parse(el.dataset.rcAt); if (!(at === at)) return;
+    const left = +el.dataset.rcLeft - (now - at) / 1000, cur = +el.dataset.rcRound, n = +el.dataset.rcN;
+    const em = el.querySelector("em"), seg = el.querySelector("span.now");
+    if (left > 0) {
+      const mm = Math.floor(left / 60), ss = Math.floor(left % 60);
+      if (em) em.innerHTML = `Round ${cur} of ${n} · <time class="rc-t">about ${mm}:${String(ss).padStart(2, "0")}</time> left`;
+      if (seg) seg.style.setProperty("--f", `${Math.round(100 * (300 - left) / 300)}%`);
+    } else if (em) {
+      em.innerHTML = cur < n ? `End of round ${cur} · waiting for the next update` : `Final round over · waiting for the result`;
+      if (seg) seg.style.setProperty("--f", "100%");
+    }
+  });
+  document.querySelectorAll("[data-upd]").forEach(el => {
+    const t = Date.parse(el.dataset.upd); if (!(t === t)) return;
+    const s_ = Math.max(0, Math.round((now - t) / 1000));
+    el.textContent = s_ < 90 ? `Updated ${s_}s ago` : `Updated ${Math.round(s_ / 60)} min ago`;
+  });
+}
+setInterval(tickLive, 1000);
 // tonight's bet slip: every one of our picks with its price, stake and where it stands
 function betSlip(order) {
   const rows = order.filter(x => x.f.our_pick), nLocked = order.filter(x => x.f.locked).length;
@@ -936,7 +1008,8 @@ function betSlip(order) {
     const o = f.our_pick === f.a ? f.odds_a : f.odds_b, st = f.stake || 1, w = f.state === "post" && f.result ? f.result.winner : null;
     let cls = "pend", res = "Pending";
     if (f.state === "in") { cls = "lv"; res = "Live"; risk += st; }
-    else if (w) { const u = w === f.our_pick ? st * pay(o) : -st; settled += u; cls = u >= 0 ? "won" : "lost"; res = units(Math.round(u * 100) / 100); }
+    else if (w) { const u = w === f.our_pick ? st * pay(o) : -st; settled += u; cls = u >= 0 ? "won" : "lost";
+      res = `<span class="stamp sm ${cls}" data-reveal="${esc((f.start || "").slice(0, 10) + "|" + f.a + "|" + f.b)}">${cls === "won" ? "WIN" : "L"}</span>${units(Math.round(u * 100) / 100)}`; }
     else if (f.state === "post") { cls = "void"; res = "No result"; }
     else risk += st;
     return `<li class="${cls}"><a href="#/card" onclick="setTimeout(()=>document.getElementById('bout-${i}')?.scrollIntoView({behavior:'smooth'}),400)">
@@ -945,6 +1018,29 @@ function betSlip(order) {
   }).join("");
   return `<details class="lc-slip" open><summary><span>Bet slip</span><b class="${settled >= 0 ? "won" : "lost"}">${units(Math.round(settled * 100) / 100)}</b><small>settled · ${Math.round(risk * 10) / 10}u still to go</small></summary>
     <ol>${li}</ol></details>`;
+}
+// the first time a visitor sees one of our picks settled: the stamp lands, with confetti on a win
+function revealPicks() {
+  let seen = [];
+  try { seen = JSON.parse(localStorage.getItem("revealed") || "[]"); } catch (e) {}
+  const fresh = [...document.querySelectorAll(".stamp[data-reveal]")].filter(el => !seen.includes(el.dataset.reveal));
+  if (!fresh.length) return;
+  const calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  fresh.forEach((el, k) => setTimeout(() => {
+    el.classList.add("pop");
+    if (!calm && el.classList.contains("won")) confetti(el.closest(".ticket, .lc-slip li") || el);
+  }, 250 + k * 450));
+  try { localStorage.setItem("revealed", JSON.stringify(seen.concat(fresh.map(el => el.dataset.reveal)).slice(-200))); } catch (e) {}
+}
+function confetti(host) {
+  const box = document.createElement("span"); box.className = "confetti"; box.setAttribute("aria-hidden", "true");
+  const cs = ["#f0b429", "#3dbe6c", "#ffffff", "#ffe08a", "#3d84e8"];
+  for (let i = 0; i < 36; i++) {
+    const b = document.createElement("i");
+    b.style.cssText = `left:${50 + (Math.random() - .5) * 30}%;background:${cs[i % cs.length]};--dx:${(Math.random() - .5) * 260}px;--dy:${-60 - Math.random() * 140}px;--r:${Math.random() * 720 - 360}deg;animation-delay:${Math.random() * .12}s`;
+    box.appendChild(b);
+  }
+  host.appendChild(box); setTimeout(() => box.remove(), 1800);
 }
 // a fight that ended since the last refresh: flash its pill and pop a short line with the result
 let LC_SEEN = null;
@@ -1298,6 +1394,7 @@ document.addEventListener("keydown", e => {
 async function viewHome() {
   const [p, ev, ex, up] = await Promise.all([getPred(), get("events/index.json"), get("experts.json"), get("upcoming.json")]);
   let hero = `<div class="empty">The next card appears here as soon as it's announced.</div>`, picksH = "";
+  livePoll(p);   // fight night: the home page checks for new results too
   if (p && p.fights.length && liveOn(p)) {
     hero = liveCenter(p); picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
     clearTimeout(window.refresh); window.refresh = setTimeout(route, 120000);
