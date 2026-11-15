@@ -2192,17 +2192,17 @@
       }
      ],
      "status": {
-      "clock": 185.0,
-      "displayClock": "3:05",
-      "period": 2,
+      "clock": 247.0,
+      "displayClock": "4:07",
+      "period": 3,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 3:05",
-       "shortDetail": "R2, 3:05"
+       "detail": "R3, 4:07",
+       "shortDetail": "R3, 4:07"
       }
      },
      "broadcasts": [
@@ -2214,6 +2214,34 @@
       }
      ],
      "details": [
+      {
+       "id": "26724",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26723",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26722",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26721",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26720",
        "type": {
@@ -2254,34 +2282,6 @@
        "type": {
         "id": "13",
         "text": "Takedown"
-       }
-      },
-      {
-       "id": "26714",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26713",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26712",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26732",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
        }
       }
      ],
