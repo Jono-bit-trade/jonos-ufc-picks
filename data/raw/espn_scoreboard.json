@@ -1931,7 +1931,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "29-15-0"
+         "summary": "29-16-0"
         }
        ]
       },
@@ -1983,7 +1983,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "15-3-0"
+         "summary": "16-3-0"
         }
        ]
       }
@@ -2192,17 +2192,17 @@
       }
      ],
      "status": {
-      "clock": 245.0,
-      "displayClock": "4:05",
-      "period": 1,
+      "clock": 185.0,
+      "displayClock": "3:05",
+      "period": 2,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R1, 4:05",
-       "shortDetail": "R1, 4:05"
+       "detail": "R2, 3:05",
+       "shortDetail": "R2, 3:05"
       }
      },
      "broadcasts": [
@@ -2214,6 +2214,41 @@
       }
      ],
      "details": [
+      {
+       "id": "26720",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26719",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26718",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26717",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26716",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26715",
        "type": {
@@ -2247,27 +2282,6 @@
        "type": {
         "id": "3",
         "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26731",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26730",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26709",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
