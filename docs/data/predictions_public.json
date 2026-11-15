@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T00:38Z",
+ "updated": "2026-11-15T00:47Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -247,11 +247,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T20:05Z",
-     "a": -230.0,
-     "b": 190.0
-    },
-    {
      "t": "2026-11-14T20:13Z",
      "a": -230.0,
      "b": 190.0
@@ -443,6 +438,11 @@
     },
     {
      "t": "2026-11-15T00:38Z",
+     "a": -225.0,
+     "b": 185.0
+    },
+    {
+     "t": "2026-11-15T00:47Z",
      "a": -225.0,
      "b": 185.0
     }
@@ -665,11 +665,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T20:05Z",
-     "a": -166.0,
-     "b": 140.0
-    },
-    {
      "t": "2026-11-14T20:13Z",
      "a": -166.0,
      "b": 140.0
@@ -861,6 +856,11 @@
     },
     {
      "t": "2026-11-15T00:38Z",
+     "a": -170.0,
+     "b": 142.0
+    },
+    {
+     "t": "2026-11-15T00:47Z",
      "a": -170.0,
      "b": 142.0
     }
@@ -1083,11 +1083,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T20:05Z",
-     "a": -155.0,
-     "b": 136.0
-    },
-    {
      "t": "2026-11-14T20:13Z",
      "a": -155.0,
      "b": 136.0
@@ -1279,6 +1274,11 @@
     },
     {
      "t": "2026-11-15T00:38Z",
+     "a": -155.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-15T00:47Z",
      "a": -155.0,
      "b": 136.0
     }
@@ -1486,7 +1486,7 @@
    "rating_b": 1680,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.547,
+   "p_model_a": 0.548,
    "p_a": 0.619,
    "model_pick": "Uros Medic",
    "tier": "Medium",
@@ -1510,11 +1510,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-14T20:05Z",
-     "a": -155.0,
-     "b": 130.0
-    },
     {
      "t": "2026-11-14T20:13Z",
      "a": -155.0,
@@ -1709,6 +1704,11 @@
      "t": "2026-11-15T00:38Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-15T00:47Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
    "edge_a": 0.025,
@@ -1724,14 +1724,14 @@
     "odds": -155.0
    },
    "method": {
-    "DEC": 0.372,
-    "KO": 0.436,
+    "DEC": 0.371,
+    "KO": 0.437,
     "SUB": 0.192
    },
    "how": {
     "a": {
      "DEC": 0.214,
-     "KO": 0.354,
+     "KO": 0.355,
      "SUB": 0.051
     },
     "b": {
@@ -1952,11 +1952,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T20:05Z",
-     "a": -1000.0,
-     "b": 650.0
-    },
-    {
      "t": "2026-11-14T20:13Z",
      "a": -1000.0,
      "b": 650.0
@@ -2148,6 +2143,11 @@
     },
     {
      "t": "2026-11-15T00:38Z",
+     "a": -1050.0,
+     "b": 675.0
+    },
+    {
+     "t": "2026-11-15T00:47Z",
      "a": -1050.0,
      "b": 675.0
     }
@@ -2370,11 +2370,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T20:05Z",
-     "a": -130.0,
-     "b": 110.0
-    },
-    {
      "t": "2026-11-14T20:13Z",
      "a": -130.0,
      "b": 110.0
@@ -2566,6 +2561,11 @@
     },
     {
      "t": "2026-11-15T00:38Z",
+     "a": -130.0,
+     "b": 110.0
+    },
+    {
+     "t": "2026-11-15T00:47Z",
      "a": -130.0,
      "b": 110.0
     }
@@ -2762,8 +2762,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-15T00:00Z",
-   "state": "pre",
-   "status": "Sat, November 14th at 7:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1625,
    "rating_b": 1649,
@@ -2772,20 +2772,14 @@
    "market_p_a": 0.384,
    "odds_a": 150.0,
    "odds_b": -180.0,
-   "best_a": 150.0,
-   "best_b": -180.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": 142.0,
    "open_b": -170.0,
-   "books": 1.0,
-   "best_book_a": "DraftKings",
-   "best_book_b": "DraftKings",
-   "book_prices": [
-    {
-     "book": "DraftKings",
-     "a": 150.0,
-     "b": -180.0
-    }
-   ],
+   "books": null,
+   "best_book_a": null,
+   "best_book_b": null,
+   "book_prices": [],
    "line_history": [
     {
      "t": "2026-11-14T20:05Z",
@@ -3011,8 +3005,8 @@
     "high_a": 0,
     "high_b": 3,
     "url": null,
-    "win_a": 0,
-    "win_b": 0,
+    "win_a": 1,
+    "win_b": 1,
     "analysts": [
      {
       "name": "SplitAces_",
@@ -3021,7 +3015,7 @@
       "method": "KO/TKO",
       "record": "216-112",
       "units": 23.75,
-      "winning": false
+      "winning": true
      },
      {
       "name": "Bedtime MMA",
@@ -3030,7 +3024,7 @@
       "method": "Submission",
       "record": "207-117",
       "units": 7.18,
-      "winning": false
+      "winning": true
      },
      {
       "name": "FALSE PROFIT",
@@ -3176,17 +3170,29 @@
     "bets_b": 0.69,
     "at": "2026-11-14T23:15Z"
    },
+   "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
    "start": "2026-11-15T00:00Z",
-   "state": "in",
-   "status": "Pre-fight",
-   "result": null,
+   "state": "post",
+   "status": "KO/TKO, round 1 3:29",
+   "result": {
+    "winner": "Terrance McKinney",
+    "draw": false,
+    "detail": "KO/TKO, round 1 3:29",
+    "pick_won": false
+   },
    "rating_a": 1647,
    "rating_b": 1566,
    "debut_a": false,
    "debut_b": false,
+   "p_model_a": 0.379,
+   "p_a": 0.342,
+   "model_pick": "Terrance McKinney",
+   "tier": "Medium",
+   "fair_odds_a": 192,
+   "fair_odds_b": -192,
    "market_p_a": 0.343,
    "odds_a": 180.0,
    "odds_b": -218.0,
@@ -3400,13 +3406,33 @@
      "b": -218.0
     }
    ],
-   "locked": false,
-   "hidden": true,
-   "our_pick": null,
+   "edge_a": -0.0,
    "pick": null,
+   "our_pick": null,
+   "bet_to": null,
    "stake": null,
-   "why": null,
-   "expert_lean": null
+   "expert_lean": null,
+   "check_news": false,
+   "moved_against": false,
+   "posted": null,
+   "method": {
+    "DEC": 0.399,
+    "KO": 0.418,
+    "SUB": 0.184
+   },
+   "how": {
+    "a": {
+     "DEC": 0.15,
+     "KO": 0.104,
+     "SUB": 0.12
+    },
+    "b": {
+     "DEC": 0.248,
+     "KO": 0.314,
+     "SUB": 0.064
+    }
+   },
+   "sample": false
   },
   {
    "a": "Donte Johnson",
@@ -3842,7 +3868,7 @@
    "method": {
     "DEC": 0.449,
     "KO": 0.315,
-    "SUB": 0.236
+    "SUB": 0.237
    },
    "how": {
     "a": {
@@ -3851,7 +3877,7 @@
      "SUB": 0.211
     },
     "b": {
-     "DEC": 0.134,
+     "DEC": 0.133,
      "KO": 0.083,
      "SUB": 0.026
     }
@@ -4291,8 +4317,8 @@
     "odds": -395.0
    },
    "method": {
-    "DEC": 0.486,
-    "KO": 0.321,
+    "DEC": 0.485,
+    "KO": 0.322,
     "SUB": 0.193
    },
    "how": {
@@ -4303,7 +4329,7 @@
     },
     "b": {
      "DEC": 0.372,
-     "KO": 0.268,
+     "KO": 0.269,
      "SUB": 0.172
     }
    },
@@ -4729,20 +4755,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.427,
+    "DEC": 0.428,
     "KO": 0.18,
-    "SUB": 0.393
+    "SUB": 0.392
    },
    "how": {
     "a": {
-     "DEC": 0.204,
-     "KO": 0.1,
+     "DEC": 0.205,
+     "KO": 0.101,
      "SUB": 0.022
     },
     "b": {
-     "DEC": 0.224,
+     "DEC": 0.223,
      "KO": 0.08,
-     "SUB": 0.371
+     "SUB": 0.37
     }
    },
    "sample": false
@@ -5166,8 +5192,8 @@
      "SUB": 0.022
     },
     "b": {
-     "DEC": 0.272,
-     "KO": 0.162,
+     "DEC": 0.271,
+     "KO": 0.161,
      "SUB": 0.206
     }
    },
@@ -5594,7 +5620,7 @@
    "posted": null,
    "method": {
     "DEC": 0.524,
-    "KO": 0.294,
+    "KO": 0.293,
     "SUB": 0.183
    },
    "how": {
@@ -5604,7 +5630,7 @@
      "SUB": 0.119
     },
     "b": {
-     "DEC": 0.215,
+     "DEC": 0.216,
      "KO": 0.17,
      "SUB": 0.064
     }

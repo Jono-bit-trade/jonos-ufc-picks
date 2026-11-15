@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T00:38Z",
+ "updated": "2026-11-15T00:47Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -1745,20 +1745,20 @@
      "record": "17-13"
     },
     {
-     "fighter": "Tecia Pennington",
-     "rating": 1627,
-     "rd": 99,
-     "last_fight": "2025-11-08",
-     "division": "Women's Strawweight",
-     "record": "11-8"
-    },
-    {
      "fighter": "Amanda Lemos",
      "rating": 1627,
      "rd": 97,
      "last_fight": "2026-08-08",
      "division": "Women's Strawweight",
      "record": "9-7"
+    },
+    {
+     "fighter": "Tecia Pennington",
+     "rating": 1627,
+     "rd": 99,
+     "last_fight": "2025-11-08",
+     "division": "Women's Strawweight",
+     "record": "11-8"
     },
     {
      "fighter": "Tabatha Ricci",
