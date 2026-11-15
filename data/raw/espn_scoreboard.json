@@ -2395,17 +2395,17 @@
       }
      ],
      "status": {
-      "clock": 213.0,
-      "displayClock": "3:33",
-      "period": 2,
+      "clock": 268.0,
+      "displayClock": "4:28",
+      "period": 3,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 3:33",
-       "shortDetail": "R2, 3:33"
+       "detail": "R3, 4:28",
+       "shortDetail": "R3, 4:28"
       }
      },
      "broadcasts": [
@@ -2418,66 +2418,73 @@
      ],
      "details": [
       {
-       "id": "26760",
+       "id": "26774",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26773",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26759",
+       "id": "26772",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26771",
        "type": {
         "id": "5",
         "text": "Round Start"
        }
       },
       {
-       "id": "26758",
+       "id": "26770",
        "type": {
         "id": "18",
         "text": "Round End"
        }
       },
       {
-       "id": "26757",
+       "id": "26764",
        "type": {
-        "id": "5",
-        "text": "Round Start"
+        "id": "13",
+        "text": "Takedown"
        }
       },
       {
-       "id": "26756",
+       "id": "26763",
        "type": {
-        "id": "4",
-        "text": "Staredown"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26755",
+       "id": "26762",
        "type": {
-        "id": "3",
-        "text": "Tale of the tape"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26754",
+       "id": "26761",
        "type": {
-        "id": "2",
-        "text": "Walkout"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26753",
+       "id": "26760",
        "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26752",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       }
      ],
