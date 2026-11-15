@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T05:47Z",
+ "updated": "2026-11-15T05:54Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -42,6 +42,14 @@
    "record": "9-1"
   },
   {
+   "fighter": "Ciryl Gane",
+   "rating": 1883,
+   "rd": 102,
+   "last_fight": "2026-11-14",
+   "division": "Heavyweight",
+   "record": "12-2"
+  },
+  {
    "fighter": "Kamaru Usman",
    "rating": 1872,
    "rd": 97,
@@ -56,14 +64,6 @@
    "last_fight": "2026-10-24",
    "division": "Bantamweight",
    "record": "13-4"
-  },
-  {
-   "fighter": "Ciryl Gane",
-   "rating": 1868,
-   "rd": 105,
-   "last_fight": "2026-06-14",
-   "division": "Heavyweight",
-   "record": "11-2"
   },
   {
    "fighter": "Max Holloway",
@@ -408,11 +408,11 @@
    "fighters": [
     {
      "fighter": "Ciryl Gane",
-     "rating": 1868,
-     "rd": 105,
-     "last_fight": "2026-06-14",
+     "rating": 1883,
+     "rd": 102,
+     "last_fight": "2026-11-14",
      "division": "Heavyweight",
-     "record": "11-2"
+     "record": "12-2"
     },
     {
      "fighter": "Alex Pereira",
@@ -447,20 +447,20 @@
      "record": "15-6"
     },
     {
-     "fighter": "Josh Hokit",
-     "rating": 1769,
-     "rd": 141,
-     "last_fight": "2026-06-14",
-     "division": "Heavyweight",
-     "record": "4-0"
-    },
-    {
      "fighter": "Jailton Almeida",
      "rating": 1755,
      "rd": 109,
      "last_fight": "2026-02-07",
      "division": "Heavyweight",
      "record": "8-3"
+    },
+    {
+     "fighter": "Josh Hokit",
+     "rating": 1743,
+     "rd": 133,
+     "last_fight": "2026-11-14",
+     "division": "Heavyweight",
+     "record": "4-1"
     },
     {
      "fighter": "Mario Pinto",

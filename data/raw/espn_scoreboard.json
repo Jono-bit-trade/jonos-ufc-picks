@@ -3318,6 +3318,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 141.0,
+         "displayValue": "141.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 47.0,
+           "displayValue": "47",
+           "period": 0
+          },
+          {
+           "value": 47.0,
+           "displayValue": "47",
+           "period": 0
+          },
+          {
+           "value": 47.0,
+           "displayValue": "47",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -3333,7 +3357,7 @@
        "uid": "s:3301~a:4426000",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Ciryl Gane",
         "displayName": "Ciryl Gane",
@@ -3358,6 +3382,30 @@
          }
         ]
        },
+       "linescores": [
+        {
+         "value": 144.0,
+         "displayValue": "144.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 48.0,
+           "displayValue": "48",
+           "period": 0
+          },
+          {
+           "value": 48.0,
+           "displayValue": "48",
+           "period": 0
+          },
+          {
+           "value": 48.0,
+           "displayValue": "48",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -3370,18 +3418,19 @@
       }
      ],
      "status": {
-      "clock": 173.0,
-      "displayClock": "2:53",
+      "clock": 0.0,
+      "displayClock": "-",
       "period": 5,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R5, 2:53",
-       "shortDetail": "R5, 2:53"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -3392,6 +3441,62 @@
       }
      ],
      "details": [
+      {
+       "id": "26940",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "26939",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26938",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26937",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26936",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26935",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26934",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26933",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26932",
        "type": {
@@ -3404,62 +3509,6 @@
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26930",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26929",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26928",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26927",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26926",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26925",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26924",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26923",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
        }
       }
      ],

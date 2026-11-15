@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-15T05:47Z",
- "event": "UFC 334: Gane vs. Hokit",
- "date": "2026-11-14",
- "location": "New York, NY, USA",
+ "updated": "2026-11-15T05:54Z",
+ "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
+ "date": "2026-11-21",
+ "location": "Doha, Qatar",
  "card_source": "ESPN",
  "edge_threshold": 0.03,
  "big_edge": 0.1,
@@ -12,25 +12,17 @@
  },
  "schedule": [
   {
-   "segment": "Early prelims",
-   "start": "2026-11-14T22:00Z",
-   "bouts": 4,
-   "tv": [
-    "Paramount+"
-   ]
-  },
-  {
    "segment": "Prelims",
-   "start": "2026-11-15T00:00Z",
-   "bouts": 4,
+   "start": "2026-11-21T15:00Z",
+   "bouts": 5,
    "tv": [
     "Paramount+"
    ]
   },
   {
    "segment": "Main card",
-   "start": "2026-11-15T02:00Z",
-   "bouts": 5,
+   "start": "2026-11-21T18:00Z",
+   "bouts": 6,
    "tv": [
     "Paramount+"
    ]
@@ -38,208 +30,57 @@
  ],
  "fights": [
   {
-   "a": "Ciryl Gane",
-   "b": "Josh Hokit",
-   "a_slug": "ciryl-gane",
-   "b_slug": "josh-hokit",
-   "a_id": "4426000",
-   "b_id": "4049391",
-   "record_a": "14-2-0",
-   "record_b": "10-0-0",
-   "experts": {
-    "picks_a": 14,
-    "picks_b": 3,
-    "high_a": 5,
-    "high_b": 1,
-    "url": null,
-    "win_a": 0,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": false
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Jiri Prochazka",
+   "b": "Navajo Stirling",
+   "a_slug": "jiri-prochazka",
+   "b_slug": "navajo-stirling",
+   "a_id": "3156612",
+   "b_id": "5216713",
+   "record_a": "32-6-1",
+   "record_b": "11-0-0",
+   "experts": null,
    "splits": {
-    "handle_a": 0.12,
-    "handle_b": 0.88,
-    "bets_a": 0.42,
-    "bets_b": 0.58,
+    "handle_a": 0.44,
+    "handle_b": 0.56,
+    "bets_a": 0.17,
+    "bets_b": 0.83,
     "at": "2026-11-14T23:15Z"
    },
-   "weight_class": "Heavyweight",
+   "weight_class": "Light Heavyweight",
    "rounds": 5,
    "segment": "",
-   "start": "2026-11-15T02:00Z",
-   "state": "in",
-   "status": "R5, 2:53",
+   "start": "2026-11-21T18:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1868,
-   "rating_b": 1769,
+   "rating_a": 1774,
+   "rating_b": 1755,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.675,
-   "odds_a": -238.0,
-   "odds_b": 195.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
+   "market_p_a": 0.428,
+   "odds_a": 124.0,
+   "odds_b": -148.0,
+   "best_a": 124.0,
+   "best_b": -148.0,
+   "open_a": 124.0,
+   "open_b": -148.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 124.0,
+     "b": -148.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": 124.0,
+     "b": -148.0
+    }
+   ],
    "locked": true,
    "hidden": true,
    "our_pick": null,
@@ -249,950 +90,303 @@
    "expert_lean": null
   },
   {
-   "a": "Kayla Harrison",
-   "b": "Amanda Nunes",
-   "a_slug": "kayla-harrison",
-   "b_slug": "amanda-nunes",
-   "a_id": "4332765",
-   "b_id": "2516131",
-   "record_a": "20-1-0",
-   "record_b": "23-6-0",
-   "experts": {
-    "picks_a": 11,
-    "picks_b": 6,
-    "high_a": 6,
-    "high_b": 1,
-    "url": null,
-    "win_a": 1,
-    "win_b": 1,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "Submission",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "High",
-      "method": "Submission",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "a",
-      "conf": "High",
-      "method": "Submission",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "b",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "a",
-      "conf": "Low",
-      "method": "Submission",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Aljamain Sterling",
+   "b": "Kevin Vallejos",
+   "a_slug": "aljamain-sterling",
+   "b_slug": "kevin-vallejos",
+   "a_id": "3031559",
+   "b_id": "5145681",
+   "record_a": "26-5-0",
+   "record_b": "18-1-0",
+   "experts": null,
    "splits": {
-    "handle_a": 0.3,
-    "handle_b": 0.7,
-    "bets_a": 0.45,
-    "bets_b": 0.55,
+    "handle_a": 0.34,
+    "handle_b": 0.66,
+    "bets_a": 0.36,
+    "bets_b": 0.64,
     "at": "2026-11-14T23:15Z"
    },
-   "why": [],
-   "weight_class": "Women's Bantamweight",
-   "rounds": 5,
-   "segment": "",
-   "start": "2026-11-15T02:00Z",
-   "state": "post",
-   "status": "Submission, round 4 1:29",
-   "result": {
-    "winner": "Kayla Harrison",
-    "draw": false,
-    "detail": "Submission, round 4 1:29",
-    "pick_won": false
-   },
-   "rating_a": 1739,
-   "rating_b": 1825,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.573,
-   "p_a": 0.59,
-   "model_pick": "Kayla Harrison",
-   "tier": "Medium",
-   "fair_odds_a": -144,
-   "fair_odds_b": 144,
-   "market_p_a": 0.6,
-   "odds_a": -166.0,
-   "odds_b": 140.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": -0.01,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": false,
-   "posted": null,
-   "method": {
-    "DEC": 0.459,
-    "KO": 0.288,
-    "SUB": 0.254
-   },
-   "how": {
-    "a": {
-     "DEC": 0.232,
-     "KO": 0.155,
-     "SUB": 0.192
-    },
-    "b": {
-     "DEC": 0.227,
-     "KO": 0.133,
-     "SUB": 0.062
-    }
-   },
-   "sample": false
-  },
-  {
-   "a": "Caio Borralho",
-   "b": "Yousri Belgaroui",
-   "a_slug": "caio-borralho",
-   "b_slug": "yousri-belgaroui",
-   "a_id": "4835137",
-   "b_id": "5149815",
-   "record_a": "19-2-0",
-   "record_b": "11-4-0",
-   "experts": {
-    "picks_a": 9,
-    "picks_b": 8,
-    "high_a": 1,
-    "high_b": 2,
-    "url": null,
-    "win_a": 0,
-    "win_b": 2,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "TheWeasle",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "a",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "b",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.66,
-    "handle_b": 0.34,
-    "bets_a": 0.63,
-    "bets_b": 0.37,
-    "at": "2026-11-14T23:15Z"
-   },
-   "why": [],
-   "weight_class": "Middleweight",
+   "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-15T02:00Z",
-   "state": "post",
-   "status": "Unanimous decision, round 3 5:00",
-   "result": {
-    "winner": "Caio Borralho",
-    "draw": false,
-    "detail": "Unanimous decision, round 3 5:00",
-    "pick_won": false
-   },
-   "rating_a": 1782,
-   "rating_b": 1718,
+   "start": "2026-11-21T18:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 1:00 PM EST",
+   "result": null,
+   "rating_a": 1851,
+   "rating_b": 1744,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.579,
-   "p_a": 0.612,
-   "model_pick": "Caio Borralho",
-   "tier": "Medium",
-   "fair_odds_a": -158,
-   "fair_odds_b": 158,
-   "market_p_a": 0.583,
-   "odds_a": -155.0,
-   "odds_b": 130.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": 0.029,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": false,
-   "posted": null,
-   "method": {
-    "DEC": 0.518,
-    "KO": 0.286,
-    "SUB": 0.197
-   },
-   "how": {
-    "a": {
-     "DEC": 0.325,
-     "KO": 0.108,
-     "SUB": 0.152
-    },
-    "b": {
-     "DEC": 0.193,
-     "KO": 0.178,
-     "SUB": 0.044
+   "market_p_a": 0.449,
+   "odds_a": 114.0,
+   "odds_b": -135.0,
+   "best_a": 114.0,
+   "best_b": -135.0,
+   "open_a": 102.0,
+   "open_b": -122.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 114.0,
+     "b": -135.0
     }
-   },
-   "sample": false
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": 114.0,
+     "b": -135.0
+    }
+   ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
   },
   {
-   "a": "Uros Medic",
-   "b": "Kevin Holland",
-   "a_slug": "uros-medic",
-   "b_slug": "kevin-holland",
-   "a_id": "4685870",
-   "b_id": "3943695",
-   "record_a": "14-3-1",
-   "record_b": "29-15-1",
-   "experts": {
-    "picks_a": 12,
-    "picks_b": 5,
-    "high_a": 5,
-    "high_b": 0,
-    "url": null,
-    "win_a": 1,
-    "win_b": 1,
-    "analysts": [
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "TheWeasle",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "b",
-      "conf": "Low",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Dan Hooker",
+   "b": "Brian Ortega",
+   "a_slug": "dan-hooker",
+   "b_slug": "brian-ortega",
+   "a_id": "3109135",
+   "b_id": "3045737",
+   "record_a": "24-15-0",
+   "record_b": "16-5-0",
+   "experts": null,
    "splits": {
-    "handle_a": 0.49,
-    "handle_b": 0.51,
-    "bets_a": 0.62,
-    "bets_b": 0.38,
+    "handle_a": 0.8,
+    "handle_b": 0.2,
+    "bets_a": 0.7,
+    "bets_b": 0.3,
     "at": "2026-11-14T23:15Z"
    },
    "why": [
-    "Close fight and 12 of 17 analysts pick Medic",
-    "Our chance 62% vs the line's 59% (3 points of value)"
+    "Our chance 63% vs the line's 59% (4 points of value)",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
    ],
-   "weight_class": "Welterweight",
+   "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-15T02:00Z",
-   "state": "post",
-   "status": "Final",
-   "result": {
-    "winner": null,
-    "draw": false,
-    "detail": "Final",
-    "pick_won": false
-   },
-   "rating_a": 1711,
-   "rating_b": 1680,
+   "start": "2026-11-21T18:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 1:00 PM EST",
+   "result": null,
+   "rating_a": 1630,
+   "rating_b": 1747,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.546,
-   "p_a": 0.618,
-   "model_pick": "Uros Medic",
+   "p_model_a": 0.263,
+   "p_a": 0.628,
+   "model_pick": "Dan Hooker",
    "tier": "Medium",
-   "fair_odds_a": -162,
-   "fair_odds_b": 162,
+   "fair_odds_a": -169,
+   "fair_odds_b": 169,
    "market_p_a": 0.593,
    "odds_a": -162.0,
    "odds_b": 136.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": 0.025,
-   "pick": null,
-   "our_pick": "Uros Medic",
+   "best_a": -162.0,
+   "best_b": 136.0,
+   "open_a": -162.0,
+   "open_b": 136.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -162.0,
+     "b": 136.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": -162.0,
+     "b": 136.0
+    }
+   ],
+   "edge_a": 0.034,
+   "pick": "Dan Hooker",
+   "our_pick": "Dan Hooker",
    "bet_to": -165,
-   "stake": 1.5,
-   "expert_lean": "Uros Medic",
+   "stake": 0.75,
+   "expert_lean": null,
    "check_news": false,
-   "moved_against": true,
+   "moved_against": false,
    "posted": {
-    "at": "2026-11-12T03:49Z",
-    "odds": -155.0
+    "at": "2026-11-15T05:54Z",
+    "odds": -162.0
    },
    "method": {
-    "DEC": 0.377,
-    "KO": 0.411,
-    "SUB": 0.213
+    "DEC": 0.512,
+    "KO": 0.315,
+    "SUB": 0.173
    },
    "how": {
     "a": {
-     "DEC": 0.187,
-     "KO": 0.311,
-     "SUB": 0.044
+     "DEC": 0.345,
+     "KO": 0.213,
+     "SUB": 0.069
     },
     "b": {
-     "DEC": 0.19,
-     "KO": 0.099,
-     "SUB": 0.169
+     "DEC": 0.167,
+     "KO": 0.102,
+     "SUB": 0.104
     }
    },
-   "sample": false
+   "sample": true
   },
   {
-   "a": "Bilal Hasan",
-   "b": "Luis Gurule",
-   "a_slug": "bilal-hasan",
-   "b_slug": "luis-gurule",
-   "a_id": "5264405",
-   "b_id": "5218137",
-   "record_a": "10-1-0",
-   "record_b": "12-4-0",
-   "experts": {
-    "picks_a": 17,
-    "picks_b": 0,
-    "high_a": 15,
-    "high_b": 0,
-    "url": null,
-    "win_a": 2,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Kyoji Horiguchi",
+   "b": "Asu Almabayev",
+   "a_slug": "kyoji-horiguchi",
+   "b_slug": "asu-almabayev",
+   "a_id": "2613374",
+   "b_id": "4294926",
+   "record_a": "36-6-0",
+   "record_b": "24-3-0",
+   "experts": null,
    "splits": {
-    "handle_a": 0.2,
-    "handle_b": 0.8,
-    "bets_a": 0.83,
-    "bets_b": 0.17,
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
     "at": "2026-11-14T23:15Z"
    },
-   "why": [
-    "Our chance 93% vs the line's 88% (5 points of value)",
-    "17 of 17 analysts agree",
-    "Rated 212 points higher"
-   ],
    "weight_class": "Flyweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-15T02:00Z",
-   "state": "post",
-   "status": "Split decision, round 3 5:00",
-   "result": {
-    "winner": "Luis Gurule",
-    "draw": false,
-    "detail": "Split decision, round 3 5:00",
-    "pick_won": false
-   },
-   "rating_a": 1579,
-   "rating_b": 1367,
+   "start": "2026-11-21T18:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 1:00 PM EST",
+   "result": null,
+   "rating_a": 1718,
+   "rating_b": 1719,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.77,
-   "p_a": 0.929,
-   "model_pick": "Bilal Hasan",
-   "tier": "High",
-   "fair_odds_a": -1303,
-   "fair_odds_b": 1303,
-   "market_p_a": 0.876,
-   "odds_a": -1050.0,
-   "odds_b": 675.0,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
+   "open_a": -205.0,
+   "open_b": 170.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -205.0,
+     "b": 170.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": -205.0,
+     "b": 170.0
+    }
+   ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Jared Cannonier",
+   "b": "Ikram Aliskerov",
+   "a_slug": "jared-cannonier",
+   "b_slug": "ikram-aliskerov",
+   "a_id": "3154860",
+   "b_id": "4684776",
+   "record_a": "18-10-0",
+   "record_b": "18-2-0",
+   "experts": null,
+   "splits": {
+    "handle_a": 0.21,
+    "handle_b": 0.79,
+    "bets_a": 0.14,
+    "bets_b": 0.86,
+    "at": "2026-11-14T23:15Z"
+   },
+   "weight_class": "Middleweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-21T18:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 1:00 PM EST",
+   "result": null,
+   "rating_a": 1668,
+   "rating_b": 1751,
+   "debut_a": false,
+   "debut_b": false,
+   "market_p_a": 0.256,
+   "odds_a": 275.0,
+   "odds_b": -345.0,
+   "best_a": 275.0,
+   "best_b": -345.0,
+   "open_a": 280.0,
+   "open_b": -355.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 275.0,
+     "b": -345.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": 275.0,
+     "b": -345.0
+    }
+   ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Aleksandre Topuria",
+   "b": "Santiago Luna",
+   "a_slug": "aleksandre-topuria",
+   "b_slug": "santiago-luna",
+   "a_id": "5185662",
+   "b_id": "5307799",
+   "record_a": "7-1-0",
+   "record_b": "8-1-0",
+   "experts": null,
+   "splits": null,
+   "weight_class": "Bantamweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-21T18:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 1:00 PM EST",
+   "result": null,
+   "rating_a": 1617,
+   "rating_b": 1561,
+   "debut_a": false,
+   "debut_b": false,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
    "best_a": null,
    "best_b": null,
    "open_a": null,
@@ -1202,1687 +396,219 @@
    "best_book_b": null,
    "book_prices": [],
    "line_history": [],
-   "edge_a": 0.053,
-   "pick": "Bilal Hasan",
-   "our_pick": "Bilal Hasan",
-   "bet_to": -1475,
-   "stake": 0.5,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": {
-    "at": "2026-11-08T16:07Z",
-    "odds": -900.0
-   },
-   "method": {
-    "DEC": 0.394,
-    "KO": 0.42,
-    "SUB": 0.185
-   },
-   "how": {
-    "a": {
-     "DEC": 0.272,
-     "KO": 0.344,
-     "SUB": 0.146
-    },
-    "b": {
-     "DEC": 0.123,
-     "KO": 0.076,
-     "SUB": 0.039
-    }
-   },
-   "sample": false
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
   },
   {
-   "a": "Stephen Thompson",
-   "b": "Charles Radtke",
-   "a_slug": "stephen-thompson",
-   "b_slug": "charles-radtke",
-   "a_id": "2615077",
-   "b_id": "4416297",
-   "record_a": "18-9-1",
-   "record_b": "12-6-0",
-   "experts": {
-    "picks_a": 11,
-    "picks_b": 6,
-    "high_a": 4,
-    "high_b": 1,
-    "url": null,
-    "win_a": 2,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "TheWeasle",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "a",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "b",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Shamil Gaziev",
+   "b": "Tallison Teixeira",
+   "a_slug": "shamil-gaziev",
+   "b_slug": "tallison-teixeira",
+   "a_id": "5145498",
+   "b_id": "5212856",
+   "record_a": "15-3-0",
+   "record_b": "9-2-0",
+   "experts": null,
    "splits": {
-    "handle_a": 0.55,
-    "handle_b": 0.45,
+    "handle_a": 0.27,
+    "handle_b": 0.73,
     "bets_a": 0.57,
     "bets_b": 0.43,
     "at": "2026-11-14T23:15Z"
    },
-   "why": [],
+   "weight_class": "Heavyweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-21T15:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1602,
+   "rating_b": 1569,
+   "debut_a": false,
+   "debut_b": false,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
+   "odds_b": 170.0,
+   "best_a": -205.0,
+   "best_b": 170.0,
+   "open_a": -225.0,
+   "open_b": 185.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -205.0,
+     "b": 170.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": -205.0,
+     "b": 170.0
+    }
+   ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Amir Albazi",
+   "b": "Alessandro Costa",
+   "a_slug": "amir-albazi",
+   "b_slug": "alessandro-costa",
+   "a_id": "4684848",
+   "b_id": "5074121",
+   "record_a": "17-3-0",
+   "record_b": "17-5-0",
+   "experts": null,
+   "splits": {
+    "handle_a": 0.35,
+    "handle_b": 0.65,
+    "bets_a": 0.22,
+    "bets_b": 0.78,
+    "at": "2026-11-14T23:15Z"
+   },
+   "weight_class": "Flyweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-21T15:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1640,
+   "rating_b": 1581,
+   "debut_a": false,
+   "debut_b": false,
+   "market_p_a": 0.449,
+   "odds_a": 114.0,
+   "odds_b": -135.0,
+   "best_a": 114.0,
+   "best_b": -135.0,
+   "open_a": 130.0,
+   "open_b": -155.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 114.0,
+     "b": -135.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": 114.0,
+     "b": -135.0
+    }
+   ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Jake Matthews",
+   "b": "Tahir Abdullayev",
+   "a_slug": "jake-matthews",
+   "b_slug": "tahir-abdullayev",
+   "a_id": "3089915",
+   "b_id": "4394753",
+   "record_a": "23-8-0",
+   "record_b": "20-3-0",
+   "experts": null,
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
+    "at": "2026-11-14T23:15Z"
+   },
    "weight_class": "Welterweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-15T00:00Z",
-   "state": "post",
-   "status": "KO/TKO, round 3 2:54",
-   "result": {
-    "winner": "Stephen Thompson",
-    "draw": false,
-    "detail": "KO/TKO, round 3 2:54",
-    "pick_won": false
-   },
-   "rating_a": 1689,
-   "rating_b": 1604,
+   "start": "2026-11-21T15:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1677,
+   "rating_b": 1579,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.46,
-   "p_a": 0.5,
-   "model_pick": "Charles Radtke",
-   "tier": "Low",
-   "fair_odds_a": -100,
-   "fair_odds_b": 100,
-   "market_p_a": 0.532,
-   "odds_a": -125.0,
-   "odds_b": 105.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": -0.032,
-   "pick": "Charles Radtke",
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": null,
-   "method": {
-    "DEC": 0.532,
-    "KO": 0.306,
-    "SUB": 0.162
-   },
-   "how": {
-    "a": {
-     "DEC": 0.25,
-     "KO": 0.143,
-     "SUB": 0.067
-    },
-    "b": {
-     "DEC": 0.282,
-     "KO": 0.162,
-     "SUB": 0.095
+   "market_p_a": 0.604,
+   "odds_a": -170.0,
+   "odds_b": 142.0,
+   "best_a": -170.0,
+   "best_b": 142.0,
+   "open_a": -166.0,
+   "open_b": 140.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -170.0,
+     "b": 142.0
     }
-   },
-   "sample": false
-  },
-  {
-   "a": "Drew Dober",
-   "b": "Chris Duncan",
-   "a_slug": "drew-dober",
-   "b_slug": "chris-duncan",
-   "a_id": "2951202",
-   "b_id": "4867356",
-   "record_a": "29-16-0",
-   "record_b": "16-3-0",
-   "experts": {
-    "picks_a": 7,
-    "picks_b": 10,
-    "high_a": 1,
-    "high_b": 1,
-    "url": null,
-    "win_a": 1,
-    "win_b": 1,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "Low",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "Low",
-      "method": "Submission",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.72,
-    "handle_b": 0.28,
-    "bets_a": 0.5,
-    "bets_b": 0.5,
-    "at": "2026-11-14T23:15Z"
-   },
-   "why": [],
-   "weight_class": "Lightweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-15T00:00Z",
-   "state": "post",
-   "status": "Unanimous decision, round 3 5:00",
-   "result": {
-    "winner": "Chris Duncan",
-    "draw": false,
-    "detail": "Unanimous decision, round 3 5:00",
-    "pick_won": false
-   },
-   "rating_a": 1625,
-   "rating_b": 1649,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.312,
-   "p_a": 0.376,
-   "model_pick": "Chris Duncan",
-   "tier": "Medium",
-   "fair_odds_a": 166,
-   "fair_odds_b": -166,
-   "market_p_a": 0.384,
-   "odds_a": 150.0,
-   "odds_b": -180.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": -0.008,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": null,
-   "method": {
-    "DEC": 0.436,
-    "KO": 0.316,
-    "SUB": 0.248
-   },
-   "how": {
-    "a": {
-     "DEC": 0.151,
-     "KO": 0.123,
-     "SUB": 0.028
-    },
-    "b": {
-     "DEC": 0.285,
-     "KO": 0.193,
-     "SUB": 0.22
-    }
-   },
-   "sample": false
-  },
-  {
-   "a": "Jim Miller",
-   "b": "Terrance McKinney",
-   "a_slug": "jim-miller",
-   "b_slug": "terrance-mckinney",
-   "a_id": "2335718",
-   "b_id": "4425604",
-   "record_a": "39-20-0",
-   "record_b": "19-9-0",
-   "experts": {
-    "picks_a": 5,
-    "picks_b": 12,
-    "high_a": 0,
-    "high_b": 3,
-    "url": null,
-    "win_a": 1,
-    "win_b": 1,
-    "analysts": [
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.52,
-    "handle_b": 0.48,
-    "bets_a": 0.31,
-    "bets_b": 0.69,
-    "at": "2026-11-14T23:15Z"
-   },
-   "why": [],
-   "weight_class": "Lightweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-15T00:00Z",
-   "state": "post",
-   "status": "KO/TKO, round 1 1:53",
-   "result": {
-    "winner": "Terrance McKinney",
-    "draw": false,
-    "detail": "KO/TKO, round 1 1:53",
-    "pick_won": false
-   },
-   "rating_a": 1647,
-   "rating_b": 1566,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.379,
-   "p_a": 0.342,
-   "model_pick": "Terrance McKinney",
-   "tier": "Medium",
-   "fair_odds_a": 192,
-   "fair_odds_b": -192,
-   "market_p_a": 0.343,
-   "odds_a": 180.0,
-   "odds_b": -218.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": -0.0,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": false,
-   "posted": null,
-   "method": {
-    "DEC": 0.4,
-    "KO": 0.417,
-    "SUB": 0.182
-   },
-   "how": {
-    "a": {
-     "DEC": 0.15,
-     "KO": 0.104,
-     "SUB": 0.118
-    },
-    "b": {
-     "DEC": 0.251,
-     "KO": 0.313,
-     "SUB": 0.064
-    }
-   },
-   "sample": false
-  },
-  {
-   "a": "Donte Johnson",
-   "b": "Cesar Almeida",
-   "a_slug": "donte-johnson",
-   "b_slug": "cesar-almeida",
-   "a_id": "5302831",
-   "b_id": "5144068",
-   "record_a": "9-1-0",
-   "record_b": "8-3-0",
-   "experts": {
-    "picks_a": 11,
-    "picks_b": 6,
-    "high_a": 2,
-    "high_b": 0,
-    "url": null,
-    "win_a": 2,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "a",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "a",
-      "conf": "Low",
-      "method": "Submission",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Low",
-      "method": null,
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.62,
-    "handle_b": 0.38,
-    "bets_a": 0.75,
-    "bets_b": 0.25,
-    "at": "2026-11-14T23:15Z"
-   },
-   "why": [
-    "Our chance 71% vs the line's 66% (5 points of value)",
-    "Rated 83 points higher"
    ],
-   "weight_class": "Catch Weight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-15T00:00Z",
-   "state": "post",
-   "status": "KO/TKO, round 1 3:20",
-   "result": {
-    "winner": "Cesar Almeida",
-    "draw": false,
-    "detail": "KO/TKO, round 1 3:20",
-    "pick_won": false
-   },
-   "rating_a": 1628,
-   "rating_b": 1545,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.762,
-   "p_a": 0.707,
-   "model_pick": "Donte Johnson",
-   "tier": "High",
-   "fair_odds_a": -242,
-   "fair_odds_b": 242,
-   "market_p_a": 0.657,
-   "odds_a": -218.0,
-   "odds_b": 180.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": 0.05,
-   "pick": "Donte Johnson",
-   "our_pick": "Donte Johnson",
-   "bet_to": -240,
-   "stake": 1.0,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": {
-    "at": "2026-11-08T17:05Z",
-    "odds": -170.0
-   },
-   "method": {
-    "DEC": 0.449,
-    "KO": 0.315,
-    "SUB": 0.236
-   },
-   "how": {
-    "a": {
-     "DEC": 0.315,
-     "KO": 0.231,
-     "SUB": 0.21
-    },
-    "b": {
-     "DEC": 0.134,
-     "KO": 0.084,
-     "SUB": 0.026
+   "line_history": [
+    {
+     "t": "2026-11-15T05:54Z",
+     "a": -170.0,
+     "b": 142.0
     }
-   },
-   "sample": false
-  },
-  {
-   "a": "Jared Gordon",
-   "b": "Melquizael Costa",
-   "a_slug": "jared-gordon",
-   "b_slug": "melquizael-costa",
-   "a_id": "3894823",
-   "b_id": "4425763",
-   "record_a": "21-10-0",
-   "record_b": "27-8-0",
-   "experts": {
-    "picks_a": 0,
-    "picks_b": 17,
-    "high_a": 0,
-    "high_b": 8,
-    "url": null,
-    "win_a": 0,
-    "win_b": 2,
-    "analysts": [
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "Bedtime MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": "Submission",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     }
-    ]
-   },
-   "splits": {
-    "handle_a": 0.24,
-    "handle_b": 0.76,
-    "bets_a": 0.09,
-    "bets_b": 0.91,
-    "at": "2026-11-14T23:15Z"
-   },
-   "why": [
-    "Our chance 84% vs the line's 77% (7 points of value)",
-    "17 of 17 analysts agree",
-    "Rated 99 points higher"
    ],
-   "weight_class": "Lightweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-14T22:00Z",
-   "state": "post",
-   "status": "Unanimous decision, round 3 5:00",
-   "result": {
-    "winner": "Melquizael Costa",
-    "draw": false,
-    "detail": "Unanimous decision, round 3 5:00",
-    "pick_won": true
-   },
-   "rating_a": 1580,
-   "rating_b": 1680,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.188,
-   "p_a": 0.16,
-   "model_pick": "Melquizael Costa",
-   "tier": "High",
-   "fair_odds_a": 526,
-   "fair_odds_b": -526,
-   "market_p_a": 0.234,
-   "odds_a": 310.0,
-   "odds_b": -395.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": -0.074,
-   "pick": "Melquizael Costa",
-   "our_pick": "Melquizael Costa",
-   "bet_to": -540,
-   "stake": 1.0,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": {
-    "at": "2026-11-11T21:17Z",
-    "odds": -395.0
-   },
-   "method": {
-    "DEC": 0.486,
-    "KO": 0.321,
-    "SUB": 0.193
-   },
-   "how": {
-    "a": {
-     "DEC": 0.113,
-     "KO": 0.053,
-     "SUB": 0.021
-    },
-    "b": {
-     "DEC": 0.373,
-     "KO": 0.269,
-     "SUB": 0.172
-    }
-   },
-   "sample": false
-  },
-  {
-   "a": "Macy Chiasson",
-   "b": "Bia Mesquita",
-   "a_slug": "macy-chiasson",
-   "b_slug": "bia-mesquita",
-   "a_id": "4334306",
-   "b_id": "5310274",
-   "record_a": "11-7-0",
-   "record_b": "9-0-0",
-   "experts": {
-    "picks_a": 1,
-    "picks_b": 16,
-    "high_a": 0,
-    "high_b": 3,
-    "url": null,
-    "win_a": 0,
-    "win_b": 2,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Low",
-      "method": "Submission",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "High",
-      "method": "Submission",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "High",
-      "method": "Submission",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "Low",
-      "method": "Submission",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "Low",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "Low",
-      "method": "Submission",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     }
-    ]
-   },
-   "splits": null,
-   "why": [],
-   "weight_class": "Women's Bantamweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-11-14T22:00Z",
-   "state": "post",
-   "status": "Submission, round 1 3:23",
-   "result": {
-    "winner": "Bia Mesquita",
-    "draw": false,
-    "detail": "Submission, round 1 3:23",
-    "pick_won": false
-   },
-   "rating_a": 1569,
-   "rating_b": 1673,
-   "debut_a": false,
-   "debut_b": false,
-   "p_model_a": 0.328,
-   "p_a": 0.303,
-   "model_pick": "Bia Mesquita",
-   "tier": "Medium",
-   "fair_odds_a": 230,
-   "fair_odds_b": -230,
-   "market_p_a": 0.309,
-   "odds_a": 210.0,
-   "odds_b": -258.0,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": -0.006,
-   "pick": null,
+   "locked": false,
+   "hidden": true,
    "our_pick": null,
-   "bet_to": null,
+   "pick": null,
    "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": false,
-   "posted": null,
-   "method": {
-    "DEC": 0.427,
-    "KO": 0.18,
-    "SUB": 0.393
-   },
-   "how": {
-    "a": {
-     "DEC": 0.205,
-     "KO": 0.101,
-     "SUB": 0.022
-    },
-    "b": {
-     "DEC": 0.223,
-     "KO": 0.079,
-     "SUB": 0.37
-    }
-   },
-   "sample": false
+   "why": null,
+   "expert_lean": null
   },
   {
-   "a": "Alatengheili",
-   "b": "Juan Diaz",
-   "a_slug": "alatengheili",
-   "b_slug": "juan-diaz",
-   "a_id": "3154389",
-   "b_id": "5310574",
-   "record_a": "18-11-2",
-   "record_b": "17-1-1",
-   "experts": {
-    "picks_a": 0,
-    "picks_b": 15,
-    "high_a": 0,
-    "high_b": 5,
-    "url": null,
-    "win_a": 0,
-    "win_b": 2,
-    "analysts": [
-     {
-      "name": "SplitAces_",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "Bedtime MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "138 MMA",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "High",
-      "method": "Submission",
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "High",
-      "method": "Decision",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "High",
-      "method": "Decision",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "High",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Nikolas Motta",
+   "b": "Dom Mar Fan",
+   "a_slug": "nikolas-motta",
+   "b_slug": "dom-mar-fan",
+   "a_id": "3897242",
+   "b_id": "5157806",
+   "record_a": "15-6-0",
+   "record_b": "9-3-0",
+   "experts": null,
    "splits": null,
-   "why": [
-    "Our chance 85% vs the line's 80% (5 points of value)",
-    "15 of 15 analysts agree"
-   ],
-   "weight_class": "Bantamweight",
+   "weight_class": "Lightweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-14T22:00Z",
-   "state": "post",
-   "status": "Unanimous decision, round 3 5:00",
-   "result": {
-    "winner": "Juan Diaz",
-    "draw": false,
-    "detail": "Unanimous decision, round 3 5:00",
-    "pick_won": true
-   },
-   "rating_a": 1591,
-   "rating_b": 1595,
+   "start": "2026-11-21T15:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1515,
+   "rating_b": 1469,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.37,
-   "p_a": 0.151,
-   "model_pick": "Juan Diaz",
-   "tier": "High",
-   "fair_odds_a": 562,
-   "fair_odds_b": -562,
-   "market_p_a": 0.204,
-   "odds_a": 370.0,
-   "odds_b": -485.0,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
    "best_a": null,
    "best_b": null,
    "open_a": null,
@@ -2892,237 +618,39 @@
    "best_book_b": null,
    "book_prices": [],
    "line_history": [],
-   "edge_a": -0.053,
-   "pick": "Juan Diaz",
-   "our_pick": "Juan Diaz",
-   "bet_to": -580,
-   "stake": 0.5,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": {
-    "at": "2026-11-12T01:40Z",
-    "odds": -410.0
-   },
-   "method": {
-    "DEC": 0.473,
-    "KO": 0.301,
-    "SUB": 0.225
-   },
-   "how": {
-    "a": {
-     "DEC": 0.205,
-     "KO": 0.142,
-     "SUB": 0.022
-    },
-    "b": {
-     "DEC": 0.269,
-     "KO": 0.16,
-     "SUB": 0.203
-    }
-   },
-   "sample": false
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
   },
   {
-   "a": "Evan Elder",
-   "b": "Samuel Sanches",
-   "a_slug": "evan-elder",
-   "b_slug": "samuel-sanches",
-   "a_id": "5037883",
-   "b_id": "5293557",
-   "record_a": "11-2-0",
-   "record_b": "11-2-0",
-   "experts": {
-    "picks_a": 9,
-    "picks_b": 8,
-    "high_a": 2,
-    "high_b": 1,
-    "url": null,
-    "win_a": 2,
-    "win_b": 0,
-    "analysts": [
-     {
-      "name": "Bedtime MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "207-117",
-      "units": 7.18,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "216-112",
-      "units": 23.75,
-      "winning": true
-     },
-     {
-      "name": "TheWeasle",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "101-50",
-      "units": -2.01,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "200-111",
-      "units": -4.25,
-      "winning": false
-     },
-     {
-      "name": "138 MMA",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "192-127",
-      "units": -10.22,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "153-85",
-      "units": -0.48,
-      "winning": false
-     },
-     {
-      "name": "We Want Picks",
-      "side": "a",
-      "conf": "Med",
-      "method": null,
-      "record": "205-117",
-      "units": -5.93,
-      "winning": false
-     },
-     {
-      "name": "JakeGerberMMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "205-114",
-      "units": -12.23,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "205-116",
-      "units": -12.64,
-      "winning": false
-     },
-     {
-      "name": "DFS By The Numbers",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "197-119",
-      "units": -24.75,
-      "winning": false
-     },
-     {
-      "name": "MMA Experts",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "190-129",
-      "units": -26.13,
-      "winning": false
-     },
-     {
-      "name": "Half The Battle",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "165-122",
-      "units": -43.14,
-      "winning": false
-     },
-     {
-      "name": "FALSE PROFIT",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "92-54",
-      "units": -1.79,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "34-26",
-      "units": -8.75,
-      "winning": false
-     },
-     {
-      "name": "Slayers Picks",
-      "side": "b",
-      "conf": "Low",
-      "method": "KO/TKO",
-      "record": "200-110",
-      "units": -13.58,
-      "winning": false
-     },
-     {
-      "name": "Kunath",
-      "side": "b",
-      "conf": "Low",
-      "method": null,
-      "record": "179-116",
-      "units": -13.59,
-      "winning": false
-     },
-     {
-      "name": "HopperoMMA",
-      "side": "a",
-      "conf": "Low",
-      "method": "Decision",
-      "record": "183-108",
-      "units": -13.95,
-      "winning": false
-     }
-    ]
-   },
+   "a": "Diyar Nurgozhay",
+   "b": "Alik Lorenz",
+   "a_slug": "diyar-nurgozhay",
+   "b_slug": "alik-lorenz",
+   "a_id": "5213352",
+   "b_id": "5220971",
+   "record_a": "12-2-0",
+   "record_b": "8-2-0",
+   "experts": null,
    "splits": null,
-   "why": [],
-   "weight_class": "Lightweight",
+   "weight_class": "Light Heavyweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-14T22:00Z",
-   "state": "post",
-   "status": "Unanimous decision, round 3 5:00",
-   "result": {
-    "winner": "Evan Elder",
-    "draw": false,
-    "detail": "Unanimous decision, round 3 5:00",
-    "pick_won": false
-   },
-   "rating_a": 1510,
+   "start": "2026-11-21T15:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1472,
    "rating_b": 1500,
    "debut_a": false,
    "debut_b": true,
-   "p_model_a": 0.549,
-   "p_a": 0.445,
-   "model_pick": "Samuel Sanches",
-   "tier": "Low",
-   "fair_odds_a": 125,
-   "fair_odds_b": -125,
-   "market_p_a": 0.468,
-   "odds_a": 105.0,
-   "odds_b": -125.0,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
    "best_a": null,
    "best_b": null,
    "open_a": null,
@@ -3132,37 +660,17 @@
    "best_book_b": null,
    "book_prices": [],
    "line_history": [],
-   "edge_a": -0.023,
-   "pick": null,
+   "locked": false,
+   "hidden": true,
    "our_pick": null,
-   "bet_to": null,
+   "pick": null,
    "stake": null,
-   "expert_lean": null,
-   "check_news": false,
-   "moved_against": true,
-   "posted": null,
-   "method": {
-    "DEC": 0.524,
-    "KO": 0.294,
-    "SUB": 0.182
-   },
-   "how": {
-    "a": {
-     "DEC": 0.308,
-     "KO": 0.124,
-     "SUB": 0.118
-    },
-    "b": {
-     "DEC": 0.216,
-     "KO": 0.17,
-     "SUB": 0.064
-    }
-   },
-   "sample": false
+   "why": null,
+   "expert_lean": null
   }
  ],
- "final": true,
- "final_at": null,
+ "final": false,
+ "final_at": "2026-11-21T14:07Z",
  "gated": true,
  "locked_count": 1
 }

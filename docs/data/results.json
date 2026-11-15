@@ -1,37 +1,27 @@
 {
- "bets": 16,
+ "bets": 17,
  "wins": 12,
- "units": 1.72,
- "roi_pct": 10.7,
+ "units": 0.72,
+ "roi_pct": 4.2,
  "moved_toward_pct": 100.0,
  "recent": [
   {
    "date": "2026-11-14",
-   "fight": "Alatengheili vs Juan Diaz",
-   "pick": "Juan Diaz",
-   "odds": -485,
-   "won": true,
-   "method": "DEC",
-   "units": 0.21,
-   "moved_toward": true
-  },
-  {
-   "date": "2026-11-14",
-   "fight": "Jared Gordon vs Melquizael Costa",
-   "pick": "Melquizael Costa",
-   "odds": -395,
-   "won": true,
-   "method": "DEC",
-   "units": 0.25,
-   "moved_toward": true
-  },
-  {
-   "date": "2026-11-14",
-   "fight": "Donte Johnson vs Cesar Almeida",
-   "pick": "Donte Johnson",
-   "odds": -218,
+   "fight": "Ciryl Gane vs Josh Hokit",
+   "pick": "Josh Hokit",
+   "odds": 195,
    "won": false,
-   "method": "KO",
+   "method": "DEC",
+   "units": -1.0,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-14",
+   "fight": "Bilal Hasan vs Luis Gurule",
+   "pick": "Bilal Hasan",
+   "odds": -1050,
+   "won": false,
+   "method": "DEC",
    "units": -1.0,
    "moved_toward": true
   },
@@ -47,62 +37,32 @@
   },
   {
    "date": "2026-11-14",
-   "fight": "Bilal Hasan vs Luis Gurule",
-   "pick": "Bilal Hasan",
-   "odds": -1050,
-   "won": false,
-   "method": "DEC",
-   "units": -1.0,
-   "moved_toward": true
-  },
-  {
-   "date": "2026-11-07",
-   "fight": "Seokhyeon Ko vs Wellington Turman",
-   "pick": "Seokhyeon Ko",
-   "odds": -650,
-   "won": true,
-   "method": "DEC",
-   "units": 0.15,
-   "moved_toward": true
-  },
-  {
-   "date": "2026-11-07",
-   "fight": "Mantas Kondratavicius vs Andre Petroski",
-   "pick": "Mantas Kondratavicius",
-   "odds": -310,
+   "fight": "Donte Johnson vs Cesar Almeida",
+   "pick": "Donte Johnson",
+   "odds": -218,
    "won": false,
    "method": "KO",
    "units": -1.0,
    "moved_toward": true
   },
   {
-   "date": "2026-11-07",
-   "fight": "Austin Bashi vs Carlos Calderon",
-   "pick": "Austin Bashi",
-   "odds": -675,
-   "won": true,
-   "method": "SUB",
-   "units": 0.15,
-   "moved_toward": true
-  },
-  {
-   "date": "2026-11-07",
-   "fight": "Karine Silva vs Gabriella Fernandes",
-   "pick": "Karine Silva",
-   "odds": -238,
+   "date": "2026-11-14",
+   "fight": "Jared Gordon vs Melquizael Costa",
+   "pick": "Melquizael Costa",
+   "odds": -395,
    "won": true,
    "method": "DEC",
-   "units": 0.42,
+   "units": 0.25,
    "moved_toward": true
   },
   {
-   "date": "2026-11-07",
-   "fight": "Priscila Cachoeira vs Nina Milo\u0161evi\u0107",
-   "pick": "Nina Milo\u0161evi\u0107",
-   "odds": -520,
+   "date": "2026-11-14",
+   "fight": "Alatengheili vs Juan Diaz",
+   "pick": "Juan Diaz",
+   "odds": -485,
    "won": true,
-   "method": "KO",
-   "units": 0.19,
+   "method": "DEC",
+   "units": 0.21,
    "moved_toward": true
   },
   {
@@ -126,13 +86,53 @@
    "moved_toward": true
   },
   {
-   "date": "2026-10-31",
-   "fight": "Zach Reese vs Mickey Gall",
-   "pick": "Zach Reese",
-   "odds": -440,
+   "date": "2026-11-07",
+   "fight": "Priscila Cachoeira vs Nina Milo\u0161evi\u0107",
+   "pick": "Nina Milo\u0161evi\u0107",
+   "odds": -520,
+   "won": true,
+   "method": "KO",
+   "units": 0.19,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Karine Silva vs Gabriella Fernandes",
+   "pick": "Karine Silva",
+   "odds": -238,
    "won": true,
    "method": "DEC",
-   "units": 0.23,
+   "units": 0.42,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Austin Bashi vs Carlos Calderon",
+   "pick": "Austin Bashi",
+   "odds": -675,
+   "won": true,
+   "method": "SUB",
+   "units": 0.15,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Mantas Kondratavicius vs Andre Petroski",
+   "pick": "Mantas Kondratavicius",
+   "odds": -310,
+   "won": false,
+   "method": "KO",
+   "units": -1.0,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Seokhyeon Ko vs Wellington Turman",
+   "pick": "Seokhyeon Ko",
+   "odds": -650,
+   "won": true,
+   "method": "DEC",
+   "units": 0.15,
    "moved_toward": true
   },
   {
@@ -147,6 +147,16 @@
   },
   {
    "date": "2026-10-31",
+   "fight": "Julian Erosa vs JeongYeong Lee",
+   "pick": "Julian Erosa",
+   "odds": 120,
+   "won": true,
+   "method": "KO",
+   "units": 1.2,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-10-31",
    "fight": "Lucia Szabov\u00e1 vs Tainara Lisboa",
    "pick": "Lucia Szabov\u00e1",
    "odds": -700,
@@ -157,12 +167,12 @@
   },
   {
    "date": "2026-10-31",
-   "fight": "Julian Erosa vs JeongYeong Lee",
-   "pick": "Julian Erosa",
-   "odds": 120,
+   "fight": "Zach Reese vs Mickey Gall",
+   "pick": "Zach Reese",
+   "odds": -440,
    "won": true,
-   "method": "KO",
-   "units": 1.2,
+   "method": "DEC",
+   "units": 0.23,
    "moved_toward": true
   }
  ],
