@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T04:53Z",
+ "updated": "2026-11-15T04:56Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -250,14 +250,6 @@
    "record": "10-1"
   },
   {
-   "fighter": "Paddy Pimblett",
-   "rating": 1808,
-   "rd": 114,
-   "last_fight": "2026-07-11",
-   "division": "Lightweight",
-   "record": "8-1"
-  },
-  {
    "fighter": "Ian Machado Garry",
    "rating": 1808,
    "rd": 105,
@@ -266,12 +258,28 @@
    "record": "10-2"
   },
   {
+   "fighter": "Paddy Pimblett",
+   "rating": 1808,
+   "rd": 114,
+   "last_fight": "2026-07-11",
+   "division": "Lightweight",
+   "record": "8-1"
+  },
+  {
    "fighter": "Diego Lopes",
    "rating": 1807,
    "rd": 109,
    "last_fight": "2026-06-14",
    "division": "Featherweight",
    "record": "7-3"
+  },
+  {
+   "fighter": "Kayla Harrison",
+   "rating": 1805,
+   "rd": 140,
+   "last_fight": "2026-11-14",
+   "division": "Women's Bantamweight",
+   "record": "4-0"
   },
   {
    "fighter": "Lerone Murphy",
@@ -362,6 +370,14 @@
    "record": "18-7"
   },
   {
+   "fighter": "Amanda Nunes",
+   "rating": 1791,
+   "rd": 104,
+   "last_fight": "2026-11-14",
+   "division": "Women's Bantamweight",
+   "record": "16-3"
+  },
+  {
    "fighter": "Sergei Pavlovich",
    "rating": 1788,
    "rd": 106,
@@ -384,22 +400,6 @@
    "last_fight": "2026-05-02",
    "division": "Welterweight",
    "record": "8-2"
-  },
-  {
-   "fighter": "Arnold Allen",
-   "rating": 1778,
-   "rd": 102,
-   "last_fight": "2026-05-16",
-   "division": "Featherweight",
-   "record": "12-3"
-  },
-  {
-   "fighter": "Gabriel Bonfim",
-   "rating": 1778,
-   "rd": 116,
-   "last_fight": "2026-06-06",
-   "division": "Welterweight",
-   "record": "7-1"
   }
  ],
  "divisions": [
@@ -1408,11 +1408,19 @@
    "fighters": [
     {
      "fighter": "Kayla Harrison",
-     "rating": 1739,
-     "rd": 151,
-     "last_fight": "2025-06-07",
+     "rating": 1805,
+     "rd": 140,
+     "last_fight": "2026-11-14",
      "division": "Women's Bantamweight",
-     "record": "3-0"
+     "record": "4-0"
+    },
+    {
+     "fighter": "Amanda Nunes",
+     "rating": 1791,
+     "rd": 104,
+     "last_fight": "2026-11-14",
+     "division": "Women's Bantamweight",
+     "record": "16-3"
     },
     {
      "fighter": "Luana Santos",
@@ -1515,14 +1523,6 @@
      "rating": 1569,
      "rd": 123,
      "last_fight": "2026-09-05",
-     "division": "Women's Bantamweight",
-     "record": "4-3"
-    },
-    {
-     "fighter": "Chelsea Chandler",
-     "rating": 1567,
-     "rd": 122,
-     "last_fight": "2026-10-17",
      "division": "Women's Bantamweight",
      "record": "4-3"
     }
