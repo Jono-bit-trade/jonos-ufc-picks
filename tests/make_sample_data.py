@@ -14,7 +14,7 @@ BOUTS = [  # (red, blue, weight class, state, winner index, status detail, odds 
     ("Tommy McMillen", "Manolo Zecchini", "Featherweight", "post", 0, "Final - KO/TKO", "-450", "+340"),
     ("Jose Delano", "Robert Ruchala", "Featherweight", "in", None, "Round 2", "-250", "+200"),
     ("Virna Jandiroba", "Tabatha Ricci", "Women's Strawweight", "pre", None, "", "-120", "+100"),
-    ("Renato Moicano", "Chris Duncan", "Lightweight", "pre", None, "", "+150", "-180"),
+    ("Renato Moicano", "Donald Cerrone", "Lightweight", "pre", None, "", "+150", "-180"),
 ]
 
 
