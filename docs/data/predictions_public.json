@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T04:08Z",
+ "updated": "2026-11-15T04:13Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -247,11 +247,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-15T00:18Z",
-     "a": -225.0,
-     "b": 185.0
-    },
-    {
      "t": "2026-11-15T00:21Z",
      "a": -225.0,
      "b": 185.0
@@ -443,6 +438,11 @@
     },
     {
      "t": "2026-11-15T04:08Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-15T04:13Z",
      "a": -238.0,
      "b": 195.0
     }
@@ -639,8 +639,8 @@
    "rounds": 5,
    "segment": "",
    "start": "2026-11-15T02:00Z",
-   "state": "pre",
-   "status": "Sat, November 14th at 9:00 PM EST",
+   "state": "in",
+   "status": "Pre-fight",
    "result": null,
    "rating_a": 1739,
    "rating_b": 1825,
@@ -649,20 +649,14 @@
    "market_p_a": 0.6,
    "odds_a": -166.0,
    "odds_b": 140.0,
-   "best_a": -166.0,
-   "best_b": 140.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": -192.0,
    "open_b": 160.0,
-   "books": 1.0,
-   "best_book_a": "DraftKings",
-   "best_book_b": "DraftKings",
-   "book_prices": [
-    {
-     "book": "DraftKings",
-     "a": -166.0,
-     "b": 140.0
-    }
-   ],
+   "books": null,
+   "best_book_a": null,
+   "best_book_b": null,
+   "book_prices": [],
    "line_history": [
     {
      "t": "2026-11-15T00:18Z",
@@ -889,7 +883,7 @@
     "high_b": 2,
     "url": null,
     "win_a": 0,
-    "win_b": 0,
+    "win_b": 2,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -898,7 +892,7 @@
       "method": "KO/TKO",
       "record": "207-117",
       "units": 7.18,
-      "winning": false
+      "winning": true
      },
      {
       "name": "SplitAces_",
@@ -907,7 +901,7 @@
       "method": "KO/TKO",
       "record": "216-112",
       "units": 23.75,
-      "winning": false
+      "winning": true
      },
      {
       "name": "TheWeasle",
@@ -1053,17 +1047,29 @@
     "bets_b": 0.37,
     "at": "2026-11-14T23:15Z"
    },
+   "why": [],
    "weight_class": "Middleweight",
    "rounds": 3,
    "segment": "",
    "start": "2026-11-15T02:00Z",
-   "state": "in",
-   "status": "R3, 1:43",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 -",
+   "result": {
+    "winner": "Caio Borralho",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 -",
+    "pick_won": false
+   },
    "rating_a": 1782,
    "rating_b": 1718,
    "debut_a": false,
    "debut_b": false,
+   "p_model_a": 0.579,
+   "p_a": 0.612,
+   "model_pick": "Caio Borralho",
+   "tier": "Medium",
+   "fair_odds_a": -158,
+   "fair_odds_b": 158,
    "market_p_a": 0.583,
    "odds_a": -155.0,
    "odds_b": 130.0,
@@ -1277,13 +1283,33 @@
      "b": 130.0
     }
    ],
-   "locked": false,
-   "hidden": true,
-   "our_pick": null,
+   "edge_a": 0.029,
    "pick": null,
+   "our_pick": null,
+   "bet_to": null,
    "stake": null,
-   "why": null,
-   "expert_lean": null
+   "expert_lean": null,
+   "check_news": false,
+   "moved_against": false,
+   "posted": null,
+   "method": {
+    "DEC": 0.518,
+    "KO": 0.286,
+    "SUB": 0.196
+   },
+   "how": {
+    "a": {
+     "DEC": 0.324,
+     "KO": 0.108,
+     "SUB": 0.152
+    },
+    "b": {
+     "DEC": 0.193,
+     "KO": 0.178,
+     "SUB": 0.045
+    }
+   },
+   "sample": false
   },
   {
    "a": "Uros Medic",
@@ -1718,18 +1744,18 @@
    },
    "method": {
     "DEC": 0.377,
-    "KO": 0.411,
+    "KO": 0.41,
     "SUB": 0.213
    },
    "how": {
     "a": {
      "DEC": 0.187,
-     "KO": 0.311,
+     "KO": 0.31,
      "SUB": 0.044
     },
     "b": {
-     "DEC": 0.189,
-     "KO": 0.099,
+     "DEC": 0.19,
+     "KO": 0.1,
      "SUB": 0.169
     }
    },
@@ -2179,7 +2205,7 @@
      "SUB": 0.147
     },
     "b": {
-     "DEC": 0.122,
+     "DEC": 0.123,
      "KO": 0.076,
      "SUB": 0.039
     }
@@ -3057,18 +3083,18 @@
    "posted": null,
    "method": {
     "DEC": 0.436,
-    "KO": 0.317,
+    "KO": 0.316,
     "SUB": 0.247
    },
    "how": {
     "a": {
-     "DEC": 0.153,
-     "KO": 0.125,
+     "DEC": 0.152,
+     "KO": 0.124,
      "SUB": 0.029
     },
     "b": {
-     "DEC": 0.283,
-     "KO": 0.192,
+     "DEC": 0.284,
+     "KO": 0.193,
      "SUB": 0.218
     }
    },
@@ -3508,12 +3534,12 @@
     "a": {
      "DEC": 0.15,
      "KO": 0.104,
-     "SUB": 0.12
+     "SUB": 0.119
     },
     "b": {
      "DEC": 0.25,
-     "KO": 0.312,
-     "SUB": 0.063
+     "KO": 0.313,
+     "SUB": 0.064
     }
    },
    "sample": false
@@ -3961,7 +3987,7 @@
      "SUB": 0.21
     },
     "b": {
-     "DEC": 0.135,
+     "DEC": 0.134,
      "KO": 0.084,
      "SUB": 0.026
     }
@@ -4402,7 +4428,7 @@
    },
    "method": {
     "DEC": 0.486,
-    "KO": 0.322,
+    "KO": 0.321,
     "SUB": 0.193
    },
    "how": {
@@ -4841,16 +4867,16 @@
    "method": {
     "DEC": 0.429,
     "KO": 0.181,
-    "SUB": 0.39
+    "SUB": 0.391
    },
    "how": {
     "a": {
-     "DEC": 0.207,
-     "KO": 0.102,
-     "SUB": 0.023
+     "DEC": 0.206,
+     "KO": 0.101,
+     "SUB": 0.022
     },
     "b": {
-     "DEC": 0.222,
+     "DEC": 0.223,
      "KO": 0.079,
      "SUB": 0.368
     }
@@ -5271,12 +5297,12 @@
    },
    "how": {
     "a": {
-     "DEC": 0.205,
+     "DEC": 0.206,
      "KO": 0.142,
      "SUB": 0.022
     },
     "b": {
-     "DEC": 0.269,
+     "DEC": 0.268,
      "KO": 0.159,
      "SUB": 0.203
     }
@@ -5709,7 +5735,7 @@
    },
    "how": {
     "a": {
-     "DEC": 0.307,
+     "DEC": 0.308,
      "KO": 0.123,
      "SUB": 0.119
     },

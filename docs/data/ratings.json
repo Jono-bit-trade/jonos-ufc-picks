@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T04:08Z",
+ "updated": "2026-11-15T04:13Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -290,6 +290,14 @@
    "record": "13-2"
   },
   {
+   "fighter": "Caio Borralho",
+   "rating": 1802,
+   "rd": 111,
+   "last_fight": "2026-11-14",
+   "division": "Middleweight",
+   "record": "9-1"
+  },
+  {
    "fighter": "Jean Silva",
    "rating": 1797,
    "rd": 116,
@@ -314,20 +322,20 @@
    "record": "22-9"
   },
   {
-   "fighter": "Leon Edwards",
-   "rating": 1795,
-   "rd": 98,
-   "last_fight": "2025-11-15",
-   "division": "Welterweight",
-   "record": "14-5"
-  },
-  {
    "fighter": "Zhang Weili",
    "rating": 1795,
    "rd": 104,
    "last_fight": "2025-11-15",
    "division": "Women's Flyweight",
    "record": "10-3"
+  },
+  {
+   "fighter": "Leon Edwards",
+   "rating": 1795,
+   "rd": 98,
+   "last_fight": "2025-11-15",
+   "division": "Welterweight",
+   "record": "14-5"
   },
   {
    "fighter": "Umar Nurmagomedov",
@@ -368,14 +376,6 @@
    "last_fight": "2026-09-19",
    "division": "Flyweight",
    "record": "11-1"
-  },
-  {
-   "fighter": "Caio Borralho",
-   "rating": 1782,
-   "rd": 115,
-   "last_fight": "2026-03-07",
-   "division": "Middleweight",
-   "record": "8-1"
   },
   {
    "fighter": "Jack Della Maddalena",
@@ -697,6 +697,14 @@
      "record": "9-2"
     },
     {
+     "fighter": "Caio Borralho",
+     "rating": 1802,
+     "rd": 111,
+     "last_fight": "2026-11-14",
+     "division": "Middleweight",
+     "record": "9-1"
+    },
+    {
      "fighter": "Joe Pyfer",
      "rating": 1795,
      "rd": 117,
@@ -711,14 +719,6 @@
      "last_fight": "2026-05-09",
      "division": "Middleweight",
      "record": "18-7"
-    },
-    {
-     "fighter": "Caio Borralho",
-     "rating": 1782,
-     "rd": 115,
-     "last_fight": "2026-03-07",
-     "division": "Middleweight",
-     "record": "8-1"
     },
     {
      "fighter": "Gregory Rodrigues",
@@ -769,12 +769,12 @@
      "record": "6-1"
     },
     {
-     "fighter": "Yousri Belgaroui",
-     "rating": 1718,
-     "rd": 156,
-     "last_fight": "2026-09-12",
+     "fighter": "Vicente Luque",
+     "rating": 1717,
+     "rd": 89,
+     "last_fight": "2026-08-15",
      "division": "Middleweight",
-     "record": "3-0"
+     "record": "17-9"
     }
    ]
   },
