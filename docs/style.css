@@ -2034,3 +2034,15 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .stamp.sm { position: static; display: inline-flex; vertical-align: middle; margin: -4px 10px -4px 0; transform: rotate(-10deg); top: auto; right: auto; }
 .stamp.sm.pop { animation: stampInSm .5s cubic-bezier(.2, 1.6, .4, 1) both; }
 @keyframes stampInSm { 0% { transform: rotate(-10deg) scale(3); opacity: 0; } 100% { transform: rotate(-10deg) scale(1); opacity: 1; } }
+
+/* live record strip under the header */
+.livebadge{display:block;background:#111319;border-bottom:1px solid #23262e;color:var(--ink);text-decoration:none;font:600 13px "Barlow Condensed",sans-serif;letter-spacing:.02em}
+.livebadge[hidden]{display:none}
+.livebadge .lbi{max-width:1240px;margin:0 auto;padding:6px 16px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.livebadge .lb-l{color:#8b93a2;text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+.livebadge b{font-size:15px;color:#fff}
+.livebadge em{font-style:normal;font-size:14px}
+.livebadge .lb-go{margin-left:auto;color:var(--gold);font-size:13px}
+.livebadge:hover .lb-go{text-decoration:underline}
+.livebadge .lb-dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.18);flex:none}
+@media (max-width:420px){.livebadge .lb-s{display:none}.livebadge .lb-go{font-size:0}.livebadge .lb-go::after{content:"Graded →";font-size:13px}}

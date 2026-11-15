@@ -4,7 +4,10 @@ const pct = p => p == null ? "–" : Math.round(p * 100) + "%";
 const odds = o => o == null ? "–" : (o > 0 ? "+" : "") + Math.round(o);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 const cache = {};
+// first visit: the page's data starts downloading alongside photos and flags instead of after them
+const WARM = {};
 const get = (f, fresh) => {
+  if (WARM[f] && Date.now() - WARM[f].t < 15000) return WARM[f].p;
   if (!fresh && cache[f]) return cache[f];
   return cache[f] = fetch("data/" + f + "?t=" + (fresh ? Date.now() : Math.floor(Date.now() / 60000)), {cache: "no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
 };
@@ -2290,8 +2293,27 @@ async function viewHow() {
 // ---------------- router ----------------
 let photosLoaded = false;
 const SKEL = `<div class="skel" aria-label="Loading"><i class="s-h"></i><i class="s-b"></i><i class="s-b"></i><i class="s-b short"></i></div>`;
+const WARM_FILES = {home: ["predictions.json", "events/index.json", "experts.json", "upcoming.json", "model_record.json", "movers.json", "backtest.json"],
+  card: ["predictions.json", "experts.json", "grappling_flags.json"], events: ["events/index.json", "upcoming.json", "model_record.json"],
+  record: ["ledger.json", "model_record.json", "record_rows.json"], fighters: ["fighters/index.json"], fighter: ["fighters/index.json"],
+  rankings: ["ratings.json", "fighters/index.json"]};
+function warm() {
+  const page = (location.hash.slice(1) || "/").split("?")[0].split("/").filter(Boolean)[0] || "home";
+  for (const f of new Set([...(WARM_FILES[page] || []), "ledger.json"])) WARM[f] = {p: get(f, true), t: Date.now()};
+}
+// the live record in the header: what a new visitor should see first, units included
+async function liveBadge() {
+  const L = await get("ledger.json"), s = L && L.summary || L;
+  const el = $("#livebadge");
+  if (!el || !s || !s.our_bets) return;
+  const u = s.our_staked_units ?? s.our_units, rec = `${s.our_won}-${s.our_bets - s.our_won}${s.our_pushes ? "-" + s.our_pushes : ""}`;
+  const since = new Date(s.from + "T12:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"});
+  el.innerHTML = `<span class="lbi"><span class="lb-dot"></span><span class="lb-l">Live record<span class="lb-s"> since ${since}</span></span><b>${rec}</b><em class="${u >= 0 ? "won" : "lost"}">${u >= 0 ? "+" : ""}${u.toFixed(1)}u</em><span class="lb-go">Every pick graded →</span></span>`;
+  el.title = `Our picks since the site went public (${new Date(s.from + "T12:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"})}), graded at the suggested stakes`;
+  el.hidden = false;
+}
 async function route() {
-  if (!photosLoaded) { photosLoaded = true; const [ph, co, rk, fv] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true),
+  if (!photosLoaded) { warm(); liveBadge(); photosLoaded = true; const [ph, co, rk, fv] = await Promise.all([get("photos.json"), get("countries.json", true), get("ufc_ranks.json", true),
     fetch("favorites.json?t=" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => []),
     fetch("plans.json?t=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null).then(x => { PLANS = x; }),
     fetch("takes.json?t=" + Date.now()).then(r => r.ok ? r.json() : {}).catch(() => ({})).then(x => { TAKES = x || {}; })]);

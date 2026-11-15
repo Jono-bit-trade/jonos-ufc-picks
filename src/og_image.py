@@ -39,7 +39,7 @@ def state():
 
 def check():
     n, st = numbers(), state()
-    fresh = st.get("key") == n["key"] and os.path.exists(os.path.join(OUT, st.get("file", "-")))
+    fresh = st.get("key") == n["key"] and st.get("file", "").endswith(".jpg") and os.path.exists(os.path.join(OUT, st.get("file", "-")))
     print("fresh" if fresh else "stale")
 
 
@@ -50,7 +50,7 @@ def render():
     html = open(os.path.join(ROOT, "src", "og_template.html")).read()
     for k, val in {"CAGE": cage, "{{PCT}}": n["pct"], "{{UNITS}}": n["units"], "{{FROM}}": n["from"], "{{FAV}}": n["fav"] or "–"}.items():
         html = html.replace(k, str(val))
-    name = f"og-{n['key']}.png"
+    name = f"og-{n['key']}.jpg"   # JPEG: about a quarter the size of the PNG, so link previews load faster
     with sync_playwright() as pw:
         b = pw.chromium.launch()
         pg = b.new_page(viewport={"width": 1200, "height": 630})
@@ -64,9 +64,9 @@ def render():
         pg.set_content(html, wait_until="networkidle")
         pg.evaluate("document.fonts.ready")
         pg.wait_for_timeout(500)
-        pg.screenshot(path=os.path.join(OUT, name))
+        pg.screenshot(path=os.path.join(OUT, name), type="jpeg", quality=86)
         b.close()
-    for old in glob.glob(os.path.join(OUT, "og-*.png")):
+    for old in glob.glob(os.path.join(OUT, "og-*.*")):
         if os.path.basename(old) != name:
             os.remove(old)
     json.dump({"key": n["key"], "file": name,
