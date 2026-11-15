@@ -2646,17 +2646,17 @@
       }
      ],
      "status": {
-      "clock": 178.0,
-      "displayClock": "2:58",
-      "period": 1,
+      "clock": 277.0,
+      "displayClock": "4:37",
+      "period": 2,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R1, 2:58",
-       "shortDetail": "R1, 2:58"
+       "detail": "R2, 4:37",
+       "shortDetail": "R2, 4:37"
       }
      },
      "broadcasts": [
@@ -2669,45 +2669,73 @@
      ],
      "details": [
       {
-       "id": "26784",
+       "id": "26795",
+       "type": {
+        "id": "8",
+        "text": "Pause Reason Low Blow"
+       }
+      },
+      {
+       "id": "26794",
+       "type": {
+        "id": "6",
+        "text": "Round Pause"
+       }
+      },
+      {
+       "id": "26793",
        "type": {
         "id": "5",
         "text": "Round Start"
        }
       },
       {
-       "id": "26783",
+       "id": "26792",
        "type": {
-        "id": "4",
-        "text": "Staredown"
+        "id": "18",
+        "text": "Round End"
        }
       },
       {
-       "id": "26782",
+       "id": "26791",
        "type": {
-        "id": "3",
-        "text": "Tale of the tape"
+        "id": "16",
+        "text": "Submission Attempt"
        }
       },
       {
-       "id": "26781",
+       "id": "26790",
        "type": {
-        "id": "2",
-        "text": "Walkout"
+        "id": "13",
+        "text": "Takedown"
        }
       },
       {
-       "id": "26780",
+       "id": "26789",
        "type": {
-        "id": "2",
-        "text": "Walkout"
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       },
       {
-       "id": "26779",
+       "id": "26788",
        "type": {
-        "id": "1",
-        "text": "Fight Open"
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26787",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "26786",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
        }
       }
      ],
