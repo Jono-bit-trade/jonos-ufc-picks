@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T19:43Z",
+ "updated": "2026-11-15T22:17Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -44,7 +44,7 @@
     "handle_b": 0.51,
     "bets_a": 0.17,
     "bets_b": 0.83,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Light Heavyweight",
    "rounds": 5,
@@ -53,7 +53,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1774,
+   "rating_a": 1773,
    "rating_b": 1755,
    "debut_a": false,
    "debut_b": false,
@@ -94,6 +94,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 130.0,
+     "b": -155.0
     }
    ],
    "locked": true,
@@ -119,7 +124,7 @@
     "handle_b": 0.38,
     "bets_a": 0.56,
     "bets_b": 0.44,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -128,7 +133,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1851,
+   "rating_a": 1850,
    "rating_b": 1744,
    "debut_a": false,
    "debut_b": false,
@@ -169,6 +174,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 114.0,
      "b": -135.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 114.0,
+     "b": -135.0
     }
    ],
    "locked": false,
@@ -194,7 +204,7 @@
     "handle_b": 0.05,
     "bets_a": 0.69,
     "bets_b": 0.31,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [
     "Our chance 63% vs the line's 60% (3 points of value)",
@@ -255,6 +265,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": 0.034,
@@ -270,19 +285,19 @@
     "odds": -162.0
    },
    "method": {
-    "DEC": 0.513,
-    "KO": 0.316,
-    "SUB": 0.172
+    "DEC": 0.516,
+    "KO": 0.314,
+    "SUB": 0.171
    },
    "how": {
     "a": {
-     "DEC": 0.349,
-     "KO": 0.215,
-     "SUB": 0.07
+     "DEC": 0.351,
+     "KO": 0.214,
+     "SUB": 0.069
     },
     "b": {
-     "DEC": 0.164,
-     "KO": 0.1,
+     "DEC": 0.165,
+     "KO": 0.099,
      "SUB": 0.102
     }
    },
@@ -303,7 +318,7 @@
     "handle_b": 0.0,
     "bets_a": 1.0,
     "bets_b": 0.0,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -353,6 +368,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -198.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -198.0,
+     "b": 170.0
     }
    ],
    "locked": false,
@@ -378,7 +398,7 @@
     "handle_b": 0.13,
     "bets_a": 0.5,
     "bets_b": 0.5,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -387,7 +407,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1668,
+   "rating_a": 1667,
    "rating_b": 1751,
    "debut_a": false,
    "debut_b": false,
@@ -426,6 +446,11 @@
     },
     {
      "t": "2026-11-15T19:43Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -495,7 +520,7 @@
     "handle_b": 0.7,
     "bets_a": 0.64,
     "bets_b": 0.36,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Heavyweight",
    "rounds": 3,
@@ -545,6 +570,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "locked": false,
@@ -570,7 +600,7 @@
     "handle_b": 0.83,
     "bets_a": 0.36,
     "bets_b": 0.64,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -579,8 +609,8 @@
    "state": "pre",
    "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
-   "rating_a": 1640,
-   "rating_b": 1581,
+   "rating_a": 1639,
+   "rating_b": 1582,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.457,
@@ -620,6 +650,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 110.0,
      "b": -130.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "locked": false,
@@ -645,7 +680,7 @@
     "handle_b": 0.86,
     "bets_a": 0.59,
     "bets_b": 0.41,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -695,6 +730,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "locked": false,
@@ -723,7 +763,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
-   "rating_a": 1515,
+   "rating_a": 1513,
    "rating_b": 1469,
    "debut_a": false,
    "debut_b": false,

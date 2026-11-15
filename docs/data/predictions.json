@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T19:43Z",
+ "updated": "2026-11-15T22:17Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -44,7 +44,7 @@
     "handle_b": 0.51,
     "bets_a": 0.17,
     "bets_b": 0.83,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -54,11 +54,11 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1774,
+   "rating_a": 1773,
    "rating_b": 1755,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.433,
+   "p_model_a": 0.434,
    "p_a": 0.458,
    "model_pick": "Jiri Prochazka",
    "tier": "Low",
@@ -101,6 +101,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 130.0,
+     "b": -155.0
     }
    ],
    "edge_a": 0.041,
@@ -113,18 +118,18 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.237,
-    "KO": 0.636,
-    "SUB": 0.128
+    "DEC": 0.238,
+    "KO": 0.634,
+    "SUB": 0.127
    },
    "how": {
     "a": {
      "DEC": 0.129,
      "KO": 0.249,
-     "SUB": 0.08
+     "SUB": 0.081
     },
     "b": {
-     "DEC": 0.108,
+     "DEC": 0.109,
      "KO": 0.386,
      "SUB": 0.047
     }
@@ -145,7 +150,7 @@
     "handle_b": 0.38,
     "bets_a": 0.56,
     "bets_b": 0.44,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Featherweight",
@@ -155,11 +160,11 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1851,
+   "rating_a": 1850,
    "rating_b": 1744,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.409,
+   "p_model_a": 0.407,
    "p_a": 0.455,
    "model_pick": "Kevin Vallejos",
    "tier": "Low",
@@ -202,6 +207,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 114.0,
      "b": -135.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 114.0,
+     "b": -135.0
     }
    ],
    "edge_a": 0.006,
@@ -214,20 +224,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.473,
-    "KO": 0.349,
-    "SUB": 0.178
+    "DEC": 0.476,
+    "KO": 0.348,
+    "SUB": 0.176
    },
    "how": {
     "a": {
-     "DEC": 0.249,
-     "KO": 0.062,
-     "SUB": 0.144
+     "DEC": 0.251,
+     "KO": 0.061,
+     "SUB": 0.142
     },
     "b": {
-     "DEC": 0.224,
-     "KO": 0.287,
-     "SUB": 0.034
+     "DEC": 0.225,
+     "KO": 0.286,
+     "SUB": 0.035
     }
    }
   },
@@ -246,7 +256,7 @@
     "handle_b": 0.05,
     "bets_a": 0.69,
     "bets_b": 0.31,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [
     "Our chance 63% vs the line's 60% (3 points of value)",
@@ -307,6 +317,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": 0.034,
@@ -322,19 +337,19 @@
     "odds": -162.0
    },
    "method": {
-    "DEC": 0.513,
-    "KO": 0.316,
-    "SUB": 0.172
+    "DEC": 0.516,
+    "KO": 0.314,
+    "SUB": 0.171
    },
    "how": {
     "a": {
-     "DEC": 0.349,
-     "KO": 0.215,
-     "SUB": 0.07
+     "DEC": 0.351,
+     "KO": 0.214,
+     "SUB": 0.069
     },
     "b": {
-     "DEC": 0.164,
-     "KO": 0.1,
+     "DEC": 0.165,
+     "KO": 0.099,
      "SUB": 0.102
     }
    }
@@ -354,7 +369,7 @@
     "handle_b": 0.0,
     "bets_a": 1.0,
     "bets_b": 0.0,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -411,6 +426,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -198.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -198.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.0,
@@ -423,19 +443,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.583,
-    "KO": 0.274,
-    "SUB": 0.143
+    "DEC": 0.584,
+    "KO": 0.273,
+    "SUB": 0.142
    },
    "how": {
     "a": {
-     "DEC": 0.393,
+     "DEC": 0.394,
      "KO": 0.188,
-     "SUB": 0.061
+     "SUB": 0.06
     },
     "b": {
      "DEC": 0.19,
-     "KO": 0.086,
+     "KO": 0.085,
      "SUB": 0.082
     }
    }
@@ -455,7 +475,7 @@
     "handle_b": 0.13,
     "bets_a": 0.5,
     "bets_b": 0.5,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -465,7 +485,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1668,
+   "rating_a": 1667,
    "rating_b": 1751,
    "debut_a": false,
    "debut_b": false,
@@ -512,6 +532,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 275.0,
      "b": -345.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 275.0,
+     "b": -345.0
     }
    ],
    "edge_a": -0.023,
@@ -524,19 +549,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.509,
-    "KO": 0.333,
+    "DEC": 0.513,
+    "KO": 0.33,
     "SUB": 0.157
    },
    "how": {
     "a": {
      "DEC": 0.128,
-     "KO": 0.068,
+     "KO": 0.067,
      "SUB": 0.037
     },
     "b": {
-     "DEC": 0.382,
-     "KO": 0.266,
+     "DEC": 0.384,
+     "KO": 0.263,
      "SUB": 0.12
     }
    }
@@ -564,12 +589,12 @@
    "rating_b": 1561,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.41,
-   "p_a": 0.41,
+   "p_model_a": 0.407,
+   "p_a": 0.407,
    "model_pick": "Santiago Luna",
    "tier": "Medium",
-   "fair_odds_a": 144,
-   "fair_odds_b": -144,
+   "fair_odds_a": 146,
+   "fair_odds_b": -146,
    "market_p_a": null,
    "odds_a": null,
    "odds_b": null,
@@ -594,18 +619,18 @@
    "method": {
     "DEC": 0.54,
     "KO": 0.304,
-    "SUB": 0.156
+    "SUB": 0.155
    },
    "how": {
     "a": {
-     "DEC": 0.236,
-     "KO": 0.092,
-     "SUB": 0.082
+     "DEC": 0.235,
+     "KO": 0.091,
+     "SUB": 0.081
     },
     "b": {
-     "DEC": 0.304,
-     "KO": 0.212,
-     "SUB": 0.074
+     "DEC": 0.305,
+     "KO": 0.213,
+     "SUB": 0.075
     }
    }
   },
@@ -624,7 +649,7 @@
     "handle_b": 0.7,
     "bets_a": 0.64,
     "bets_b": 0.36,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -681,6 +706,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": 0.002,
@@ -693,19 +723,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.3,
-    "KO": 0.555,
+    "DEC": 0.303,
+    "KO": 0.551,
     "SUB": 0.145
    },
    "how": {
     "a": {
-     "DEC": 0.189,
-     "KO": 0.389,
-     "SUB": 0.087
+     "DEC": 0.191,
+     "KO": 0.387,
+     "SUB": 0.088
     },
     "b": {
-     "DEC": 0.111,
-     "KO": 0.166,
+     "DEC": 0.112,
+     "KO": 0.165,
      "SUB": 0.058
     }
    }
@@ -725,7 +755,7 @@
     "handle_b": 0.83,
     "bets_a": 0.36,
     "bets_b": 0.64,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -735,12 +765,12 @@
    "state": "pre",
    "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
-   "rating_a": 1640,
-   "rating_b": 1581,
+   "rating_a": 1639,
+   "rating_b": 1582,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.504,
-   "p_a": 0.475,
+   "p_model_a": 0.507,
+   "p_a": 0.476,
    "model_pick": "Alessandro Costa",
    "tier": "Low",
    "fair_odds_a": 110,
@@ -782,6 +812,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 110.0,
      "b": -130.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "edge_a": 0.018,
@@ -794,20 +829,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.471,
-    "KO": 0.334,
-    "SUB": 0.195
+    "DEC": 0.474,
+    "KO": 0.332,
+    "SUB": 0.194
    },
    "how": {
     "a": {
-     "DEC": 0.212,
-     "KO": 0.13,
-     "SUB": 0.134
+     "DEC": 0.214,
+     "KO": 0.129,
+     "SUB": 0.132
     },
     "b": {
-     "DEC": 0.259,
-     "KO": 0.204,
-     "SUB": 0.061
+     "DEC": 0.26,
+     "KO": 0.203,
+     "SUB": 0.062
     }
    }
   },
@@ -826,7 +861,7 @@
     "handle_b": 0.86,
     "bets_a": 0.59,
     "bets_b": 0.41,
-    "at": "2026-11-15T19:42Z"
+    "at": "2026-11-15T22:17Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -840,7 +875,7 @@
    "rating_b": 1579,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.538,
+   "p_model_a": 0.54,
    "p_a": 0.641,
    "model_pick": "Jake Matthews",
    "tier": "Medium",
@@ -883,6 +918,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-15T22:17Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "edge_a": 0.024,
@@ -895,19 +935,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.405,
-    "KO": 0.345,
-    "SUB": 0.249
+    "DEC": 0.41,
+    "KO": 0.342,
+    "SUB": 0.248
    },
    "how": {
     "a": {
-     "DEC": 0.274,
-     "KO": 0.148,
-     "SUB": 0.219
+     "DEC": 0.277,
+     "KO": 0.147,
+     "SUB": 0.217
     },
     "b": {
-     "DEC": 0.131,
-     "KO": 0.197,
+     "DEC": 0.133,
+     "KO": 0.196,
      "SUB": 0.031
     }
    }
@@ -931,16 +971,16 @@
    "state": "pre",
    "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
-   "rating_a": 1515,
+   "rating_a": 1513,
    "rating_b": 1469,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.35,
-   "p_a": 0.35,
+   "p_model_a": 0.374,
+   "p_a": 0.374,
    "model_pick": "Dom Mar Fan",
    "tier": "Medium",
-   "fair_odds_a": 185,
-   "fair_odds_b": -185,
+   "fair_odds_a": 168,
+   "fair_odds_b": -168,
    "market_p_a": null,
    "odds_a": null,
    "odds_b": null,
@@ -964,19 +1004,19 @@
    "posted": null,
    "method": {
     "DEC": 0.415,
-    "KO": 0.385,
-    "SUB": 0.199
+    "KO": 0.384,
+    "SUB": 0.201
    },
    "how": {
     "a": {
-     "DEC": 0.171,
-     "KO": 0.111,
-     "SUB": 0.068
+     "DEC": 0.178,
+     "KO": 0.124,
+     "SUB": 0.072
     },
     "b": {
-     "DEC": 0.245,
-     "KO": 0.274,
-     "SUB": 0.131
+     "DEC": 0.238,
+     "KO": 0.26,
+     "SUB": 0.129
     }
    }
   },
@@ -1003,12 +1043,12 @@
    "rating_b": 1500,
    "debut_a": false,
    "debut_b": true,
-   "p_model_a": 0.535,
-   "p_a": 0.535,
+   "p_model_a": 0.531,
+   "p_a": 0.531,
    "model_pick": "Diyar Nurgozhay",
    "tier": "Low",
-   "fair_odds_a": -115,
-   "fair_odds_b": 115,
+   "fair_odds_a": -113,
+   "fair_odds_b": 113,
    "market_p_a": null,
    "odds_a": null,
    "odds_b": null,
@@ -1032,19 +1072,19 @@
    "posted": null,
    "method": {
     "DEC": 0.352,
-    "KO": 0.493,
-    "SUB": 0.155
+    "KO": 0.492,
+    "SUB": 0.156
    },
    "how": {
     "a": {
-     "DEC": 0.189,
-     "KO": 0.285,
-     "SUB": 0.061
+     "DEC": 0.187,
+     "KO": 0.283,
+     "SUB": 0.06
     },
     "b": {
-     "DEC": 0.163,
-     "KO": 0.208,
-     "SUB": 0.095
+     "DEC": 0.165,
+     "KO": 0.209,
+     "SUB": 0.096
     }
    }
   }
