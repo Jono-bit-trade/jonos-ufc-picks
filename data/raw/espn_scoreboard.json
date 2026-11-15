@@ -1244,6 +1244,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 84.0,
+         "displayValue": "84.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -1259,7 +1283,7 @@
        "uid": "s:3301~a:4425763",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Melquizael Costa",
         "displayName": "Melquizael Costa",
@@ -1272,6 +1296,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 87.0,
+         "displayValue": "87.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -1284,18 +1332,19 @@
       }
      ],
      "status": {
-      "clock": 1.0,
-      "displayClock": "0:01",
+      "clock": 0.0,
+      "displayClock": "-",
       "period": 3,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
-       "state": "in",
-       "completed": false,
-       "description": "End of Round",
-       "detail": "End R3",
-       "shortDetail": "End R3"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1306,6 +1355,20 @@
       }
      ],
      "details": [
+      {
+       "id": "26637",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "26636",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "26635",
        "type": {
@@ -1360,20 +1423,6 @@
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26607",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26606",
-       "type": {
-        "id": "13",
-        "text": "Takedown"
        }
       }
      ],
@@ -1446,6 +1495,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1473,6 +1523,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1488,13 +1539,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 14th at 7:00 PM EST",
-       "shortDetail": "11/14 - 7:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [

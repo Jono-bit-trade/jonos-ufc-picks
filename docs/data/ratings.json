@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T23:58Z",
+ "updated": "2026-11-15T00:01Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -300,7 +300,7 @@
   {
    "fighter": "Leon Edwards",
    "rating": 1795,
-   "rd": 97,
+   "rd": 98,
    "last_fight": "2025-11-15",
    "division": "Welterweight",
    "record": "14-5"
@@ -620,20 +620,20 @@
      "record": "4-0"
     },
     {
-     "fighter": "Jamahal Hill",
-     "rating": 1681,
-     "rd": 109,
-     "last_fight": "2025-06-21",
-     "division": "Light Heavyweight",
-     "record": "7-4"
-    },
-    {
      "fighter": "Volkan Oezdemir",
      "rating": 1681,
      "rd": 101,
      "last_fight": "2025-11-22",
      "division": "Light Heavyweight",
      "record": "9-7"
+    },
+    {
+     "fighter": "Jamahal Hill",
+     "rating": 1681,
+     "rd": 109,
+     "last_fight": "2025-06-21",
+     "division": "Light Heavyweight",
+     "record": "7-4"
     },
     {
      "fighter": "Roman Dolidze",
@@ -832,7 +832,7 @@
     {
      "fighter": "Leon Edwards",
      "rating": 1795,
-     "rd": 97,
+     "rd": 98,
      "last_fight": "2025-11-15",
      "division": "Welterweight",
      "record": "14-5"
