@@ -2186,7 +2186,7 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "12-5-0"
+         "summary": "12-6-0"
         }
        ]
       }
@@ -2355,6 +2355,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2382,6 +2383,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2397,13 +2399,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "145",
+       "name": "STATUS_PRE_FIGHT",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 14th at 9:00 PM EST",
-       "shortDetail": "11/14 - 9:00 PM EST"
+       "description": "Pre-fight",
+       "detail": "Pre-fight",
+       "shortDetail": "Pre-fight"
       }
      },
      "broadcasts": [
