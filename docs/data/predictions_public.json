@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T04:13Z",
+ "updated": "2026-11-15T04:18Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -247,11 +247,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-15T00:21Z",
-     "a": -225.0,
-     "b": 185.0
-    },
-    {
      "t": "2026-11-15T00:28Z",
      "a": -225.0,
      "b": 185.0
@@ -443,6 +438,11 @@
     },
     {
      "t": "2026-11-15T04:13Z",
+     "a": -238.0,
+     "b": 195.0
+    },
+    {
+     "t": "2026-11-15T04:18Z",
      "a": -238.0,
      "b": 195.0
     }
@@ -874,7 +874,7 @@
    "b_slug": "yousri-belgaroui",
    "a_id": "4835137",
    "b_id": "5149815",
-   "record_a": "18-2-0",
+   "record_a": "19-2-0",
    "record_b": "11-3-0",
    "experts": {
     "picks_a": 9,
@@ -1053,11 +1053,11 @@
    "segment": "",
    "start": "2026-11-15T02:00Z",
    "state": "post",
-   "status": "Unanimous decision, round 3 -",
+   "status": "Unanimous decision, round 3 5:00",
    "result": {
     "winner": "Caio Borralho",
     "draw": false,
-    "detail": "Unanimous decision, round 3 -",
+    "detail": "Unanimous decision, round 3 5:00",
     "pick_won": false
    },
    "rating_a": 1782,
