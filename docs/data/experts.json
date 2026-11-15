@@ -1,170 +1,154 @@
 {
  "first": "2026-04-04",
- "last": "2026-11-07",
+ "last": "2026-11-14",
  "consensus": {
-  "bets": 323,
-  "won": 214,
-  "units": -7.72,
-  "roi_pct": -2.4,
-  "win_pct": 66.3
+  "bets": 335,
+  "won": 224,
+  "units": -4.53,
+  "roi_pct": -1.4,
+  "win_pct": 66.9
  },
  "favorites": {
-  "bouts": 328,
-  "won_pct": 68.3
+  "bouts": 340,
+  "won_pct": 68.5
  },
  "against_the_line": {
-  "bets": 40,
-  "won": 16,
-  "units": -5.19,
-  "roi_pct": -13.0,
+  "bets": 41,
+  "won": 17,
+  "units": -4.23,
+  "roi_pct": -10.3,
   "note": "consensus pick was the betting underdog"
  },
  "by_strength": [
   {
    "consensus": "Split (50-65%)",
-   "bets": 71,
-   "won": 34,
-   "units": -9.35,
-   "roi_pct": -13.2,
-   "line_expected_pct": 52.3
+   "bets": 77,
+   "won": 39,
+   "units": -6.98,
+   "roi_pct": -9.1,
+   "line_expected_pct": 52.8
   },
   {
    "consensus": "Lean (65-80%)",
-   "bets": 68,
-   "won": 45,
-   "units": 6.54,
-   "roi_pct": 9.6,
-   "line_expected_pct": 58.2
+   "bets": 69,
+   "won": 46,
+   "units": 6.99,
+   "roi_pct": 10.1,
+   "line_expected_pct": 58.3
   },
   {
    "consensus": "Strong (80%+)",
-   "bets": 184,
-   "won": 135,
-   "units": -4.92,
-   "roi_pct": -2.7,
-   "line_expected_pct": 72.6
+   "bets": 189,
+   "won": 139,
+   "units": -4.53,
+   "roi_pct": -2.4,
+   "line_expected_pct": 72.7
   }
  ],
  "test": {
-  "bouts": 328,
-  "cards": 30,
-  "log_loss_line": 0.6225,
-  "log_loss_line_refit": 0.6276,
-  "log_loss_line_plus_experts": 0.6318,
-  "expert_weight": 0.056,
+  "bouts": 340,
+  "cards": 31,
+  "log_loss_line": 0.6231,
+  "log_loss_line_refit": 0.6268,
+  "log_loss_line_plus_experts": 0.6308,
+  "expert_weight": 0.045,
   "helps": false
  },
  "analysts": [
   {
    "analyst": "SplitAces_",
-   "bets": 328,
-   "won": 216,
-   "units": 23.75,
-   "roi_pct": 7.2,
-   "win_pct": 65.9,
-   "underdog_picks": 94,
-   "underdogs_won": 43,
+   "bets": 340,
+   "won": 225,
+   "units": 25.3,
+   "roi_pct": 7.4,
+   "win_pct": 66.2,
+   "underdog_picks": 96,
+   "underdogs_won": 44,
    "high_confidence": {
-    "bets": 54,
-    "won": 47,
-    "units": 11.06,
-    "roi_pct": 20.5
+    "bets": 55,
+    "won": 48,
+    "units": 11.69,
+    "roi_pct": 21.3
    }
   },
   {
    "analyst": "Bedtime MMA",
-   "bets": 324,
-   "won": 207,
-   "units": 7.18,
-   "roi_pct": 2.2,
-   "win_pct": 63.9,
-   "underdog_picks": 83,
-   "underdogs_won": 35,
+   "bets": 336,
+   "won": 213,
+   "units": 4.16,
+   "roi_pct": 1.2,
+   "win_pct": 63.4,
+   "underdog_picks": 88,
+   "underdogs_won": 36,
    "high_confidence": {
-    "bets": 95,
-    "won": 73,
-    "units": 9.35,
-    "roi_pct": 9.8
-   }
-  },
-  {
-   "analyst": "The MMA Guru",
-   "bets": 238,
-   "won": 153,
-   "units": -0.48,
-   "roi_pct": -0.2,
-   "win_pct": 64.3,
-   "underdog_picks": 49,
-   "underdogs_won": 17,
-   "high_confidence": {
-    "bets": 90,
-    "won": 67,
-    "units": 4.53,
-    "roi_pct": 5.0
-   }
-  },
-  {
-   "analyst": "FALSE PROFIT",
-   "bets": 146,
-   "won": 92,
-   "units": -1.79,
-   "roi_pct": -1.2,
-   "win_pct": 63.0,
-   "underdog_picks": 35,
-   "underdogs_won": 15,
-   "high_confidence": {
-    "bets": 19,
-    "won": 16,
-    "units": 1.14,
-    "roi_pct": 6.0
-   }
-  },
-  {
-   "analyst": "TheWeasle",
-   "bets": 151,
-   "won": 101,
-   "units": -2.01,
-   "roi_pct": -1.3,
-   "win_pct": 66.9,
-   "underdog_picks": 22,
-   "underdogs_won": 7,
-   "high_confidence": {
-    "bets": 89,
-    "won": 62,
-    "units": -0.93,
-    "roi_pct": -1.0
+    "bets": 100,
+    "won": 75,
+    "units": 7.46,
+    "roi_pct": 7.5
    }
   },
   {
    "analyst": "Lucrative James",
-   "bets": 311,
-   "won": 200,
-   "units": -4.25,
-   "roi_pct": -1.4,
-   "win_pct": 64.3,
-   "underdog_picks": 56,
-   "underdogs_won": 22,
+   "bets": 322,
+   "won": 209,
+   "units": -0.25,
+   "roi_pct": -0.1,
+   "win_pct": 64.9,
+   "underdog_picks": 59,
+   "underdogs_won": 24,
+   "high_confidence": {
+    "bets": 95,
+    "won": 65,
+    "units": -8.6,
+    "roi_pct": -9.1
+   }
+  },
+  {
+   "analyst": "TheWeasle",
+   "bets": 163,
+   "won": 109,
+   "units": -1.26,
+   "roi_pct": -0.8,
+   "win_pct": 66.9,
+   "underdog_picks": 25,
+   "underdogs_won": 8,
+   "high_confidence": {
+    "bets": 96,
+    "won": 67,
+    "units": -0.52,
+    "roi_pct": -0.5
+   }
+  },
+  {
+   "analyst": "The MMA Guru",
+   "bets": 250,
+   "won": 159,
+   "units": -3.7,
+   "roi_pct": -1.5,
+   "win_pct": 63.6,
+   "underdog_picks": 54,
+   "underdogs_won": 18,
    "high_confidence": {
     "bets": 92,
-    "won": 63,
-    "units": -9.12,
-    "roi_pct": -9.9
+    "won": 68,
+    "units": 3.94,
+    "roi_pct": 4.3
    }
   },
   {
    "analyst": "We Want Picks",
-   "bets": 322,
-   "won": 205,
-   "units": -5.93,
-   "roi_pct": -1.8,
+   "bets": 333,
+   "won": 212,
+   "units": -6.2,
+   "roi_pct": -1.9,
    "win_pct": 63.7,
-   "underdog_picks": 68,
-   "underdogs_won": 27,
+   "underdog_picks": 71,
+   "underdogs_won": 28,
    "high_confidence": {
-    "bets": 105,
-    "won": 74,
-    "units": -3.75,
-    "roi_pct": -3.6
+    "bets": 113,
+    "won": 79,
+    "units": -4.38,
+    "roi_pct": -3.9
    }
   },
   {
@@ -184,51 +168,67 @@
    }
   },
   {
-   "analyst": "138 MMA",
-   "bets": 319,
-   "won": 192,
-   "units": -10.22,
-   "roi_pct": -3.2,
-   "win_pct": 60.2,
-   "underdog_picks": 85,
-   "underdogs_won": 30,
-   "high_confidence": {
-    "bets": 48,
-    "won": 32,
-    "units": -6.43,
-    "roi_pct": -13.4
-   }
-  },
-  {
-   "analyst": "JakeGerberMMA",
-   "bets": 319,
-   "won": 205,
-   "units": -12.23,
-   "roi_pct": -3.8,
-   "win_pct": 64.3,
-   "underdog_picks": 47,
-   "underdogs_won": 18,
-   "high_confidence": {
-    "bets": 90,
-    "won": 66,
-    "units": -1.72,
-    "roi_pct": -1.9
-   }
-  },
-  {
    "analyst": "Artem MMA",
-   "bets": 321,
-   "won": 205,
-   "units": -12.64,
-   "roi_pct": -3.9,
-   "win_pct": 63.9,
-   "underdog_picks": 50,
-   "underdogs_won": 19,
+   "bets": 333,
+   "won": 216,
+   "units": -6.93,
+   "roi_pct": -2.1,
+   "win_pct": 64.9,
+   "underdog_picks": 52,
+   "underdogs_won": 21,
    "high_confidence": {
-    "bets": 84,
+    "bets": 85,
     "won": 56,
-    "units": -11.05,
-    "roi_pct": -13.2
+    "units": -12.05,
+    "roi_pct": -14.2
+   }
+  },
+  {
+   "analyst": "FALSE PROFIT",
+   "bets": 158,
+   "won": 99,
+   "units": -3.75,
+   "roi_pct": -2.4,
+   "win_pct": 62.7,
+   "underdog_picks": 37,
+   "underdogs_won": 15,
+   "high_confidence": {
+    "bets": 21,
+    "won": 18,
+    "units": 1.84,
+    "roi_pct": 8.8
+   }
+  },
+  {
+   "analyst": "138 MMA",
+   "bets": 331,
+   "won": 199,
+   "units": -10.5,
+   "roi_pct": -3.2,
+   "win_pct": 60.1,
+   "underdog_picks": 91,
+   "underdogs_won": 32,
+   "high_confidence": {
+    "bets": 51,
+    "won": 34,
+    "units": -6.23,
+    "roi_pct": -12.2
+   }
+  },
+  {
+   "analyst": "Kunath",
+   "bets": 307,
+   "won": 188,
+   "units": -11.47,
+   "roi_pct": -3.7,
+   "win_pct": 61.2,
+   "underdog_picks": 80,
+   "underdogs_won": 27,
+   "high_confidence": {
+    "bets": 207,
+    "won": 137,
+    "units": -4.42,
+    "roi_pct": -2.1
    }
   },
   {
@@ -249,114 +249,114 @@
   },
   {
    "analyst": "Slayers Picks",
-   "bets": 310,
-   "won": 200,
-   "units": -13.58,
-   "roi_pct": -4.4,
-   "win_pct": 64.5,
-   "underdog_picks": 46,
+   "bets": 322,
+   "won": 208,
+   "units": -13.98,
+   "roi_pct": -4.3,
+   "win_pct": 64.6,
+   "underdog_picks": 47,
    "underdogs_won": 18,
    "high_confidence": {
-    "bets": 15,
-    "won": 13,
-    "units": 1.08,
-    "roi_pct": 7.2
+    "bets": 17,
+    "won": 14,
+    "units": 0.34,
+    "roi_pct": 2.0
    }
   },
   {
-   "analyst": "Kunath",
-   "bets": 295,
-   "won": 179,
-   "units": -13.59,
+   "analyst": "JakeGerberMMA",
+   "bets": 331,
+   "won": 211,
+   "units": -15.25,
    "roi_pct": -4.6,
-   "win_pct": 60.7,
-   "underdog_picks": 78,
-   "underdogs_won": 26,
+   "win_pct": 63.7,
+   "underdog_picks": 52,
+   "underdogs_won": 19,
    "high_confidence": {
-    "bets": 203,
-    "won": 134,
-    "units": -4.69,
-    "roi_pct": -2.3
+    "bets": 91,
+    "won": 66,
+    "units": -2.72,
+    "roi_pct": -3.0
    }
   },
   {
    "analyst": "HopperoMMA",
-   "bets": 291,
-   "won": 183,
-   "units": -13.95,
-   "roi_pct": -4.8,
-   "win_pct": 62.9,
-   "underdog_picks": 61,
-   "underdogs_won": 22,
+   "bets": 303,
+   "won": 190,
+   "units": -15.6,
+   "roi_pct": -5.2,
+   "win_pct": 62.7,
+   "underdog_picks": 65,
+   "underdogs_won": 23,
    "high_confidence": {
-    "bets": 121,
-    "won": 81,
-    "units": -4.81,
-    "roi_pct": -4.0
+    "bets": 124,
+    "won": 83,
+    "units": -5.07,
+    "roi_pct": -4.1
    }
   },
   {
    "analyst": "DFS By The Numbers",
-   "bets": 316,
-   "won": 197,
-   "units": -24.75,
-   "roi_pct": -7.8,
-   "win_pct": 62.3,
-   "underdog_picks": 54,
-   "underdogs_won": 18,
+   "bets": 328,
+   "won": 206,
+   "units": -22.44,
+   "roi_pct": -6.8,
+   "win_pct": 62.8,
+   "underdog_picks": 56,
+   "underdogs_won": 19,
    "high_confidence": {
-    "bets": 133,
-    "won": 91,
-    "units": -12.54,
-    "roi_pct": -9.4
+    "bets": 136,
+    "won": 93,
+    "units": -13.05,
+    "roi_pct": -9.6
    }
   },
   {
    "analyst": "MMA Experts",
-   "bets": 319,
-   "won": 190,
-   "units": -26.13,
-   "roi_pct": -8.2,
-   "win_pct": 59.6,
-   "underdog_picks": 78,
+   "bets": 331,
+   "won": 196,
+   "units": -29.64,
+   "roi_pct": -9.0,
+   "win_pct": 59.2,
+   "underdog_picks": 81,
    "underdogs_won": 26,
    "high_confidence": {
-    "bets": 213,
-    "won": 128,
-    "units": -31.76,
-    "roi_pct": -14.9
+    "bets": 222,
+    "won": 132,
+    "units": -35.12,
+    "roi_pct": -15.8
    }
   },
   {
    "analyst": "Broke by Decision",
-   "bets": 60,
-   "won": 34,
-   "units": -8.75,
-   "roi_pct": -14.6,
-   "win_pct": 56.7,
+   "bets": 72,
+   "won": 43,
+   "units": -7.53,
+   "roi_pct": -10.5,
+   "win_pct": 59.7,
    "underdog_picks": 7,
    "underdogs_won": 2,
    "high_confidence": {
-    "bets": 16,
-    "won": 9,
+    "bets": 19,
+    "won": 11,
     "units": -3.44,
-    "roi_pct": -21.5
+    "roi_pct": -18.1
    }
   },
   {
    "analyst": "Half The Battle",
-   "bets": 287,
-   "won": 165,
-   "units": -43.14,
-   "roi_pct": -15.0,
-   "win_pct": 57.5,
-   "underdog_picks": 66,
+   "bets": 299,
+   "won": 171,
+   "units": -46.61,
+   "roi_pct": -15.6,
+   "win_pct": 57.2,
+   "underdog_picks": 69,
    "underdogs_won": 16,
    "high_confidence": {
-    "bets": 119,
-    "won": 86,
-    "units": -4.6,
-    "roi_pct": -3.9
+    "bets": 124,
+    "won": 90,
+    "units": -4.13,
+    "roi_pct": -3.3
    }
   }
  ]
