@@ -460,8 +460,8 @@ def bet_to(f, side, from_experts):
     mine = pf if side == "a" else 1 - pf
     fair = EXPERT_LEAN_LINE[1] if from_experts else mine - EDGE
     q = fair * over                       # the most this side's price can imply
-    if not 0.05 < q < 0.97:
-        return None
+    if not 0.05 < q < 0.97 or implied(oa if side == "a" else ob) > q + 1e-9:
+        return None                       # already past it (an analyst pick kept after the line moved)
     if q >= 0.5:
         o = -100 * q / (1 - q)
         return int(-5 * (-o // 5))         # toward the safe side: -207 -> -205
@@ -627,6 +627,16 @@ def main():
     if not log.empty and "our_pick" in log:
         last = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")
         for fid in up.index[up.index.isin(last.index)]:
+            # a posted analyst pick stays up through fight night (Nov 2026): analysts' counts and the line
+            # shift during the week, and the two analyst picks pulled at UFC 334 both won. Model picks are
+            # still pulled when their edge is gone (tested on 2023-26 lines).
+            q0 = last.loc[fid]
+            if isinstance(q0.get("our_pick"), str) and q0.get("our_pick") == q0.get("expert_lean") and q0.get("our_pick") != q0.get("pick") \
+                    and q0["our_pick"] in (up.at[fid, "a"], up.at[fid, "b"]) and up.at[fid, "our_pick"] != q0["our_pick"]:
+                up.at[fid, "our_pick"] = q0["our_pick"]
+                up.at[fid, "expert_lean"] = q0["our_pick"]
+                up.at[fid, "stake"] = _st(up.loc[fid])
+                continue
             if isinstance(up.at[fid, "our_pick"], str):
                 continue
             was = last.at[fid, "our_pick"] if isinstance(last.at[fid, "our_pick"], str) else \

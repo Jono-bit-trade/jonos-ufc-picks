@@ -44,7 +44,9 @@ OUR_PICKS_ANY_FAVORITE = True # ...or the pick is the betting favorite. Value pi
                               # 2023-26 (+12u); they lost in 2018-19 (-27u), when the line blend
                               # had only 1-2 years of predictions to learn from. Added Oct 2026.
 OUR_PICKS_MAX_UNDERDOG = 150  # no underdogs longer than +150 (those lost money)
-OUR_PICKS_MAX_FAVORITE = None # e.g. -300 to skip picks shorter than -300; None keeps them
+OUR_PICKS_MAX_FAVORITE = -599 # no picks at -600 or shorter (Nov 2026): about break-even in both 2020-23 (+2.4% per
+                              # bet) and 2024-26 (-3.1%), against +10% / +7% at -400 to -599. The fight still shows our
+                              # chance and the value; it just isn't posted as a pick.
 
 # No our picks when both fighters are making their UFC debut: the model has no UFC information on
 # either, and those picks went 15-8, -5.1u, 2020-2026. (Debutant vs veteran picks stay.) Oct 2026.
