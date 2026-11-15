@@ -3370,8 +3370,8 @@
       }
      ],
      "status": {
-      "clock": 202.0,
-      "displayClock": "3:22",
+      "clock": 10.0,
+      "displayClock": "0:10",
       "period": 3,
       "type": {
        "id": "31",
@@ -3379,8 +3379,8 @@
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R3, 3:22",
-       "shortDetail": "R3, 3:22"
+       "detail": "R3, 0:10",
+       "shortDetail": "R3, 0:10"
       }
      },
      "broadcasts": [
@@ -3392,6 +3392,13 @@
       }
      ],
      "details": [
+      {
+       "id": "26920",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
       {
        "id": "26919",
        "type": {
@@ -3450,13 +3457,6 @@
       },
       {
        "id": "26911",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26910",
        "type": {
         "id": "12",
         "text": "Takedown Attempt"
