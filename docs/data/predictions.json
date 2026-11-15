@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:27Z",
+ "updated": "2026-11-15T01:30Z",
  "event": "UFC 334: Gane vs. Hokit",
  "date": "2026-11-14",
  "location": "New York, NY, USA",
@@ -254,11 +254,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T21:00Z",
-     "a": -225.0,
-     "b": 185.0
-    },
-    {
      "t": "2026-11-14T21:07Z",
      "a": -225.0,
      "b": 185.0
@@ -452,6 +447,11 @@
      "t": "2026-11-15T01:27Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-15T01:30Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "edge_a": -0.035,
@@ -477,7 +477,7 @@
     "b": {
      "DEC": 0.072,
      "KO": 0.271,
-     "SUB": 0.028
+     "SUB": 0.029
     }
    }
   },
@@ -673,7 +673,7 @@
    "rating_b": 1825,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.571,
+   "p_model_a": 0.574,
    "p_a": 0.592,
    "model_pick": "Kayla Harrison",
    "tier": "Medium",
@@ -697,11 +697,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-14T21:00Z",
-     "a": -170.0,
-     "b": 142.0
-    },
     {
      "t": "2026-11-14T21:07Z",
      "a": -170.0,
@@ -896,9 +891,14 @@
      "t": "2026-11-15T01:27Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-15T01:30Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
-   "edge_a": -0.012,
+   "edge_a": -0.011,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -908,18 +908,18 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.458,
+    "DEC": 0.459,
     "KO": 0.288,
     "SUB": 0.253
    },
    "how": {
     "a": {
-     "DEC": 0.237,
-     "KO": 0.161,
+     "DEC": 0.238,
+     "KO": 0.16,
      "SUB": 0.194
     },
     "b": {
-     "DEC": 0.221,
+     "DEC": 0.22,
      "KO": 0.128,
      "SUB": 0.059
     }
@@ -1117,7 +1117,7 @@
    "rating_b": 1718,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.575,
+   "p_model_a": 0.577,
    "p_a": 0.618,
    "model_pick": "Caio Borralho",
    "tier": "Medium",
@@ -1141,11 +1141,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-14T21:00Z",
-     "a": -155.0,
-     "b": 136.0
-    },
     {
      "t": "2026-11-14T21:07Z",
      "a": -155.0,
@@ -1340,9 +1335,14 @@
      "t": "2026-11-15T01:27Z",
      "a": -155.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-15T01:30Z",
+     "a": -155.0,
+     "b": 136.0
     }
    ],
-   "edge_a": 0.028,
+   "edge_a": 0.029,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1352,18 +1352,18 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.52,
+    "DEC": 0.521,
     "KO": 0.277,
-    "SUB": 0.203
+    "SUB": 0.202
    },
    "how": {
     "a": {
-     "DEC": 0.341,
+     "DEC": 0.342,
      "KO": 0.114,
-     "SUB": 0.162
+     "SUB": 0.161
     },
     "b": {
-     "DEC": 0.179,
+     "DEC": 0.178,
      "KO": 0.163,
      "SUB": 0.041
     }
@@ -1589,11 +1589,6 @@
    ],
    "line_history": [
     {
-     "t": "2026-11-14T21:00Z",
-     "a": -155.0,
-     "b": 130.0
-    },
-    {
      "t": "2026-11-14T21:07Z",
      "a": -155.0,
      "b": 130.0
@@ -1787,6 +1782,11 @@
      "t": "2026-11-15T01:27Z",
      "a": -155.0,
      "b": 130.0
+    },
+    {
+     "t": "2026-11-15T01:30Z",
+     "a": -155.0,
+     "b": 130.0
     }
    ],
    "edge_a": 0.025,
@@ -1802,9 +1802,9 @@
     "odds": -155.0
    },
    "method": {
-    "DEC": 0.371,
+    "DEC": 0.372,
     "KO": 0.434,
-    "SUB": 0.195
+    "SUB": 0.194
    },
    "how": {
     "a": {
@@ -1813,7 +1813,7 @@
      "SUB": 0.05
     },
     "b": {
-     "DEC": 0.161,
+     "DEC": 0.162,
      "KO": 0.085,
      "SUB": 0.145
     }
@@ -2015,12 +2015,12 @@
    "rating_b": 1367,
    "debut_a": false,
    "debut_b": false,
-   "p_model_a": 0.769,
+   "p_model_a": 0.77,
    "p_a": 0.929,
    "model_pick": "Bilal Hasan",
    "tier": "High",
-   "fair_odds_a": -1302,
-   "fair_odds_b": 1302,
+   "fair_odds_a": -1303,
+   "fair_odds_b": 1303,
    "market_p_a": 0.876,
    "odds_a": -1050.0,
    "odds_b": 675.0,
@@ -2039,11 +2039,6 @@
     }
    ],
    "line_history": [
-    {
-     "t": "2026-11-14T21:00Z",
-     "a": -1000.0,
-     "b": 650.0
-    },
     {
      "t": "2026-11-14T21:07Z",
      "a": -1000.0,
@@ -2238,12 +2233,17 @@
      "t": "2026-11-15T01:27Z",
      "a": -1050.0,
      "b": 675.0
+    },
+    {
+     "t": "2026-11-15T01:30Z",
+     "a": -1050.0,
+     "b": 675.0
     }
    ],
    "edge_a": 0.053,
    "pick": "Bilal Hasan",
    "our_pick": "Bilal Hasan",
-   "bet_to": -1470,
+   "bet_to": -1475,
    "stake": 0.5,
    "expert_lean": null,
    "check_news": false,
@@ -2253,13 +2253,13 @@
     "odds": -900.0
    },
    "method": {
-    "DEC": 0.369,
+    "DEC": 0.368,
     "KO": 0.441,
-    "SUB": 0.19
+    "SUB": 0.191
    },
    "how": {
     "a": {
-     "DEC": 0.332,
+     "DEC": 0.331,
      "KO": 0.418,
      "SUB": 0.179
     },
@@ -2455,8 +2455,8 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-15T00:00Z",
-   "state": "pre",
-   "status": "Sat, November 14th at 7:00 PM EST",
+   "state": "in",
+   "status": "Walkouts",
    "result": null,
    "rating_a": 1689,
    "rating_b": 1604,
@@ -2471,20 +2471,14 @@
    "market_p_a": 0.532,
    "odds_a": -125.0,
    "odds_b": 105.0,
-   "best_a": -125.0,
-   "best_b": 105.0,
+   "best_a": null,
+   "best_b": null,
    "open_a": -142.0,
    "open_b": 120.0,
-   "books": 1.0,
-   "best_book_a": "DraftKings",
-   "best_book_b": "DraftKings",
-   "book_prices": [
-    {
-     "book": "DraftKings",
-     "a": -125.0,
-     "b": 105.0
-    }
-   ],
+   "books": null,
+   "best_book_a": null,
+   "best_book_b": null,
+   "book_prices": [],
    "line_history": [
     {
      "t": "2026-11-14T21:00Z",
@@ -2699,18 +2693,18 @@
    "method": {
     "DEC": 0.532,
     "KO": 0.306,
-    "SUB": 0.162
+    "SUB": 0.163
    },
    "how": {
     "a": {
-     "DEC": 0.272,
-     "KO": 0.155,
-     "SUB": 0.073
+     "DEC": 0.25,
+     "KO": 0.143,
+     "SUB": 0.067
     },
     "b": {
-     "DEC": 0.261,
-     "KO": 0.151,
-     "SUB": 0.088
+     "DEC": 0.282,
+     "KO": 0.163,
+     "SUB": 0.095
     }
    }
   },
@@ -2899,9 +2893,14 @@
    "rounds": 3,
    "segment": "",
    "start": "2026-11-15T00:00Z",
-   "state": "in",
-   "status": "End R3",
-   "result": null,
+   "state": "post",
+   "status": "Unanimous decision, round 3 5:00",
+   "result": {
+    "winner": "Chris Duncan",
+    "draw": false,
+    "detail": "Unanimous decision, round 3 5:00",
+    "pick_won": false
+   },
    "rating_a": 1625,
    "rating_b": 1649,
    "debut_a": false,
@@ -3135,18 +3134,18 @@
    "moved_against": true,
    "posted": null,
    "method": {
-    "DEC": 0.435,
+    "DEC": 0.436,
     "KO": 0.317,
     "SUB": 0.247
    },
    "how": {
     "a": {
-     "DEC": 0.156,
-     "KO": 0.126,
+     "DEC": 0.154,
+     "KO": 0.125,
      "SUB": 0.029
     },
     "b": {
-     "DEC": 0.28,
+     "DEC": 0.282,
      "KO": 0.192,
      "SUB": 0.218
     }
@@ -3578,18 +3577,18 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.399,
+    "DEC": 0.4,
     "KO": 0.418,
-    "SUB": 0.184
+    "SUB": 0.183
    },
    "how": {
     "a": {
      "DEC": 0.15,
-     "KO": 0.104,
-     "SUB": 0.12
+     "KO": 0.103,
+     "SUB": 0.119
     },
     "b": {
-     "DEC": 0.248,
+     "DEC": 0.25,
      "KO": 0.314,
      "SUB": 0.064
     }
@@ -4028,14 +4027,14 @@
    },
    "method": {
     "DEC": 0.449,
-    "KO": 0.315,
-    "SUB": 0.237
+    "KO": 0.314,
+    "SUB": 0.236
    },
    "how": {
     "a": {
-     "DEC": 0.315,
+     "DEC": 0.316,
      "KO": 0.231,
-     "SUB": 0.211
+     "SUB": 0.21
     },
     "b": {
      "DEC": 0.133,
@@ -4477,18 +4476,18 @@
     "odds": -395.0
    },
    "method": {
-    "DEC": 0.485,
-    "KO": 0.322,
+    "DEC": 0.486,
+    "KO": 0.321,
     "SUB": 0.193
    },
    "how": {
     "a": {
-     "DEC": 0.114,
+     "DEC": 0.113,
      "KO": 0.053,
      "SUB": 0.021
     },
     "b": {
-     "DEC": 0.372,
+     "DEC": 0.373,
      "KO": 0.269,
      "SUB": 0.172
     }
@@ -4920,12 +4919,12 @@
    },
    "how": {
     "a": {
-     "DEC": 0.205,
-     "KO": 0.101,
+     "DEC": 0.204,
+     "KO": 0.1,
      "SUB": 0.022
     },
     "b": {
-     "DEC": 0.223,
+     "DEC": 0.224,
      "KO": 0.08,
      "SUB": 0.37
     }
@@ -5340,18 +5339,18 @@
    },
    "method": {
     "DEC": 0.472,
-    "KO": 0.301,
-    "SUB": 0.227
+    "KO": 0.3,
+    "SUB": 0.228
    },
    "how": {
     "a": {
-     "DEC": 0.201,
+     "DEC": 0.2,
      "KO": 0.139,
      "SUB": 0.022
     },
     "b": {
      "DEC": 0.271,
-     "KO": 0.161,
+     "KO": 0.162,
      "SUB": 0.206
     }
    }
@@ -5777,13 +5776,13 @@
    "posted": null,
    "method": {
     "DEC": 0.524,
-    "KO": 0.293,
+    "KO": 0.294,
     "SUB": 0.183
    },
    "how": {
     "a": {
      "DEC": 0.308,
-     "KO": 0.124,
+     "KO": 0.123,
      "SUB": 0.119
     },
     "b": {

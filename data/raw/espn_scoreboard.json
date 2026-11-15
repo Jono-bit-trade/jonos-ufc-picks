@@ -1901,6 +1901,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 82.0,
+         "displayValue": "82.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -1916,7 +1940,7 @@
        "uid": "s:3301~a:4867356",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Chris Duncan",
         "displayName": "Chris Duncan",
@@ -1929,6 +1953,30 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 89.0,
+         "displayValue": "89.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
        "statistics": [],
        "records": [
         {
@@ -1941,18 +1989,19 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
+      "clock": 300.0,
+      "displayClock": "5:00",
       "period": 3,
       "type": {
-       "id": "142",
-       "name": "STATUS_END_OF_ROUND",
-       "state": "in",
-       "completed": false,
-       "description": "End of Round",
-       "detail": "End R3",
-       "shortDetail": "End R3"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1963,6 +2012,20 @@
       }
      ],
      "details": [
+      {
+       "id": "26711",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "26710",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "26708",
        "type": {
@@ -2018,20 +2081,6 @@
         "id": "12",
         "text": "Takedown Attempt"
        }
-      },
-      {
-       "id": "26700",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26699",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
       }
      ],
      "format": {
@@ -2071,7 +2120,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "1830",
@@ -2103,6 +2152,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2130,6 +2180,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -2145,13 +2196,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "139",
+       "name": "STATUS_FIGHTERS_WALKING",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 14th at 7:00 PM EST",
-       "shortDetail": "11/14 - 7:00 PM EST"
+       "description": "Walkouts",
+       "detail": "Walkouts",
+       "shortDetail": "Walkouts"
       }
      },
      "broadcasts": [
@@ -2160,6 +2211,15 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26709",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {

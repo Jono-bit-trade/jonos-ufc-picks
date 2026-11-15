@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:27Z",
+ "updated": "2026-11-15T01:30Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -234,14 +234,6 @@
    "record": "6-0"
   },
   {
-   "fighter": "Movsar Evloev",
-   "rating": 1811,
-   "rd": 110,
-   "last_fight": "2026-10-24",
-   "division": "Featherweight",
-   "record": "10-1"
-  },
-  {
    "fighter": "Sean O'Malley",
    "rating": 1811,
    "rd": 99,
@@ -250,12 +242,12 @@
    "record": "12-3"
   },
   {
-   "fighter": "Paddy Pimblett",
-   "rating": 1808,
-   "rd": 114,
-   "last_fight": "2026-07-11",
-   "division": "Lightweight",
-   "record": "8-1"
+   "fighter": "Movsar Evloev",
+   "rating": 1811,
+   "rd": 110,
+   "last_fight": "2026-10-24",
+   "division": "Featherweight",
+   "record": "10-1"
   },
   {
    "fighter": "Ian Machado Garry",
@@ -264,6 +256,14 @@
    "last_fight": "2026-08-15",
    "division": "Welterweight",
    "record": "10-2"
+  },
+  {
+   "fighter": "Paddy Pimblett",
+   "rating": 1808,
+   "rd": 114,
+   "last_fight": "2026-07-11",
+   "division": "Lightweight",
+   "record": "8-1"
   },
   {
    "fighter": "Diego Lopes",
@@ -298,12 +298,12 @@
    "record": "7-1"
   },
   {
-   "fighter": "Joe Pyfer",
+   "fighter": "Zhang Weili",
    "rating": 1795,
-   "rd": 117,
-   "last_fight": "2026-03-28",
-   "division": "Middleweight",
-   "record": "7-1"
+   "rd": 104,
+   "last_fight": "2025-11-15",
+   "division": "Women's Flyweight",
+   "record": "10-3"
   },
   {
    "fighter": "Leon Edwards",
@@ -322,12 +322,12 @@
    "record": "22-9"
   },
   {
-   "fighter": "Zhang Weili",
+   "fighter": "Joe Pyfer",
    "rating": 1795,
-   "rd": 104,
-   "last_fight": "2025-11-15",
-   "division": "Women's Flyweight",
-   "record": "10-3"
+   "rd": 117,
+   "last_fight": "2026-03-28",
+   "division": "Middleweight",
+   "record": "7-1"
   },
   {
    "fighter": "Umar Nurmagomedov",
@@ -386,20 +386,20 @@
    "record": "8-2"
   },
   {
-   "fighter": "Arnold Allen",
-   "rating": 1778,
-   "rd": 102,
-   "last_fight": "2026-05-16",
-   "division": "Featherweight",
-   "record": "12-3"
-  },
-  {
    "fighter": "Gabriel Bonfim",
    "rating": 1778,
    "rd": 116,
    "last_fight": "2026-06-06",
    "division": "Welterweight",
    "record": "7-1"
+  },
+  {
+   "fighter": "Arnold Allen",
+   "rating": 1778,
+   "rd": 102,
+   "last_fight": "2026-05-16",
+   "division": "Featherweight",
+   "record": "12-3"
   }
  ],
  "divisions": [
@@ -987,20 +987,20 @@
      "record": "9-4"
     },
     {
-     "fighter": "Beneil Dariush",
-     "rating": 1711,
-     "rd": 91,
-     "last_fight": "2026-05-02",
-     "division": "Lightweight",
-     "record": "17-8"
-    },
-    {
      "fighter": "Chris Padilla",
      "rating": 1711,
      "rd": 136,
      "last_fight": "2026-08-22",
      "division": "Lightweight",
      "record": "5-0"
+    },
+    {
+     "fighter": "Beneil Dariush",
+     "rating": 1711,
+     "rd": 91,
+     "last_fight": "2026-05-02",
+     "division": "Lightweight",
+     "record": "17-8"
     },
     {
      "fighter": "Rafael Fiziev",
@@ -1314,20 +1314,20 @@
      "record": "14-5"
     },
     {
-     "fighter": "Brandon Moreno",
-     "rating": 1719,
-     "rd": 95,
-     "last_fight": "2026-09-12",
-     "division": "Flyweight",
-     "record": "12-7"
-    },
-    {
      "fighter": "Asu Almabayev",
      "rating": 1719,
      "rd": 117,
      "last_fight": "2026-06-27",
      "division": "Flyweight",
      "record": "7-1"
+    },
+    {
+     "fighter": "Brandon Moreno",
+     "rating": 1719,
+     "rd": 95,
+     "last_fight": "2026-09-12",
+     "division": "Flyweight",
+     "record": "12-7"
     },
     {
      "fighter": "Kyoji Horiguchi",
