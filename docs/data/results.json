@@ -1,8 +1,8 @@
 {
- "bets": 15,
+ "bets": 16,
  "wins": 12,
- "units": 2.72,
- "roi_pct": 18.1,
+ "units": 1.72,
+ "roi_pct": 10.7,
  "moved_toward_pct": 100.0,
  "recent": [
   {
@@ -42,6 +42,16 @@
    "odds": 105,
    "won": false,
    "method": "KO",
+   "units": -1.0,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-14",
+   "fight": "Bilal Hasan vs Luis Gurule",
+   "pick": "Bilal Hasan",
+   "odds": -1050,
+   "won": false,
+   "method": "DEC",
    "units": -1.0,
    "moved_toward": true
   },
@@ -157,11 +167,11 @@
   }
  ],
  "ours": {
-  "bets": 15,
+  "bets": 16,
   "wins": 11,
-  "units": -0.46,
-  "roi_pct": -3.1,
-  "moved_toward_pct": 92.9,
+  "units": -1.46,
+  "roi_pct": -9.1,
+  "moved_toward_pct": 93.3,
   "recent": [
    {
     "date": "2026-11-14",
@@ -190,6 +200,16 @@
     "odds": -218,
     "won": false,
     "method": "KO",
+    "units": -1.0,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-14",
+    "fight": "Bilal Hasan vs Luis Gurule",
+    "pick": "Bilal Hasan",
+    "odds": -1050,
+    "won": false,
+    "method": "DEC",
     "units": -1.0,
     "moved_toward": true
    },
