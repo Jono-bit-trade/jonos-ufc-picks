@@ -10,6 +10,7 @@ from ESPN's sportsbooks (espn_backfill.py) and SplitPicks attached where a fight
 Run:  python src/get_data.py            (download + merge)
       python src/get_data.py --offline  (merge files already in data/raw)
 """
+import re
 import os, sys, requests, numpy as np, pandas as pd
 from common import path
 
@@ -228,6 +229,24 @@ def canonical(df, known):
 NOT_UFC = r"contender series|road to ufc|ultimate fighter|tuf |looking for a fight"
 
 
+def no_winner(r):
+    """ESPN often marks a draw as just "Final" or "Majority decision" with no winner flag. A finished
+    bout with no winner that went the scheduled distance (or says decision/draw) is a draw; one that
+    ended early is a no-contest."""
+    w = r.get("winner")
+    if isinstance(w, str) and w:
+        return w
+    if r.get("state") != "post":
+        return w
+    d = str(r.get("status_detail") or "")
+    if re.search(r"no contest|overturned", d, re.I):
+        return "nc"
+    rounds, end = pd.to_numeric(r.get("rounds"), errors="coerce"), pd.to_numeric(r.get("end_round"), errors="coerce")
+    if re.search(r"draw|decision", d, re.I) or (rounds == rounds and end == end and end >= rounds):
+        return "draw"
+    return "nc"
+
+
 def espn_results(name="espn_results.csv"):
     """Finished bouts from ESPN, in fights.csv columns (no stats or attributes)."""
     f = path(name)
@@ -236,6 +255,7 @@ def espn_results(name="espn_results.csv"):
     e = pd.read_csv(f)
     if "winner" not in e:
         return pd.DataFrame()
+    e["winner"] = e.apply(no_winner, axis=1)
     e = e[e["winner"].isin(["a", "b", "draw"])].copy()
     if "event" in e:   # ESPN's UFC calendar also lists the Contender Series and other non-UFC shows
         e = e[~e["event"].fillna("").str.contains(NOT_UFC, case=False, regex=True)]

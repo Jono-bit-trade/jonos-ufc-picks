@@ -39,14 +39,19 @@ def update_ledger(log, fights):
     f = path("ledger.csv")
     led = pd.read_csv(f) if os.path.exists(f) else pd.DataFrame()
     done = set(led["fight_id"]) if not led.empty else set()
+    pair = lambda d, a, b: (d, frozenset((norm(a), norm(b))))
+    seen = {pair(r.date, r.a, r.b) for r in led.itertuples()} if not led.empty else set()
     res = {}
     for r in fights[fights["winner"].isin(["a", "b", "draw", "nc"])].itertuples():
         for d in pd.date_range(pd.Timestamp(r.date) - pd.Timedelta(days=1), periods=3).strftime("%Y-%m-%d"):
             res[(d, frozenset((norm(r.a), norm(r.b))))] = (r.a if r.winner == "a" else r.b if r.winner == "b" else None, r.winner)
     new = []
     if not log.empty:
-        for p in log[log["date"] >= LEDGER_FROM].itertuples():
-            if p.fight_id in done:
+        cand = log[log["date"] >= LEDGER_FROM].copy()
+        cand["_has"] = cand["our_pick"].apply(lambda x: isinstance(x, str)) if "our_pick" in cand else False
+        cand = cand.sort_values(["_has", "run"], ascending=False)   # a bout logged twice: keep the row with our pick, then the latest
+        for p in cand.itertuples():
+            if p.fight_id in done or pair(p.date, p.a, p.b) in seen:
                 continue
             r = res.get((p.date, frozenset((norm(p.a), norm(p.b)))))
             if r is None:
@@ -75,13 +80,15 @@ def update_ledger(log, fights):
             row["our_source"] = None if not ours else "model" if ours == vp else "experts"   # model pick or expert lean
             ed = None if row["our_source"] != "model" or p.p_final != p.p_final or p.fair_a != p.fair_a else \
                 float(p.p_final - p.fair_a) * (1 if ours == p.a else -1)   # analyst picks keep the full stake
-            row["stake"] = stake(row["our_odds"], ed) if ours else None
+            ls = getattr(p, "stake", None)
+            row["stake"] = (float(ls) if ls is not None and ls == ls else stake(row["our_odds"], ed)) if ours else None
             row["our_staked_units"] = round(row["stake"] * row["our_units"], 3) if ours else None
             fo = lambda c: getattr(p, c, None) if pd.notna(getattr(p, c, None)) else None
             row["our_first_odds"], row["value_first_odds"] = (fo("our_pick_first_odds") if ours else None), (fo("pick_first_odds") if vp else None)
             row["our_clv"] = clv(row["our_first_odds"], row["our_odds"]) if ours else None
             row["value_clv"] = clv(row["value_first_odds"], row["value_odds"]) if vp else None
             new.append(row)
+            seen.add(pair(p.date, p.a, p.b))
     # rows locked before value picks were tracked: add the value pick logged before that fight
     if not led.empty and not log.empty and ("value_pick" not in led or led["value_pick"].isna().any()):
         lp = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")
@@ -596,6 +603,17 @@ def main():
         both_new = (up["debut_a"] == 1) & (up["debut_b"] == 1)
         up.loc[both_new, "our_pick"] = None
 
+    # the suggested stake for each our pick (halved on a 3-5 point model edge; analyst picks keep it)
+    from picks import stake as _stake
+    def _st(r):
+        o = r["our_pick"]
+        if not isinstance(o, str):
+            return None
+        isa = o == r["a"]
+        e = r["edge_a"] if pd.notna(r.get("edge_a")) else None
+        return _stake(r["odds_a"] if isa else r["odds_b"], ((e if isa else -e) if (o == r.get("pick") and e is not None) else None))
+    up["stake"] = up.apply(_st, axis=1)
+
     # freeze fights that have started: keep their last pre-fight prediction
     logf = path("pick_log.csv")
     log = read("pick_log.csv")
@@ -614,16 +632,32 @@ def main():
             if was in (up.at[fid, "a"], up.at[fid, "b"]):
                 up.at[fid, "pulled"], up.at[fid, "moved_against"] = was, True
     started = card["state"].reindex(up.index).isin(["in", "post"])
+    # final picks don't change: once the last scheduled pick update before the first fight has run, later runs
+    # (fight night's live loop) keep each fight's pick, stake and pass as logged then; prices still update.
+    _recs = card.reset_index().to_dict("records")
+    _fin, _fin_at = final_status([{"start": str(r.get("start") or ""), "state": r.get("state")} for r in _recs])
+    if not log.empty and "run" in log and _fin_at:
+        lk = log.drop_duplicates("fight_id", keep="last").set_index("fight_id")
+        lk = lk[lk["run"].astype(str) >= _fin_at]
+        for fid in up.index[~started & up.index.isin(lk.index)]:
+            q = lk.loc[fid]
+            up.at[fid, "our_pick"] = q["our_pick"] if isinstance(q.get("our_pick"), str) else None
+            if "stake" in lk and pd.notna(q.get("stake")):
+                up.at[fid, "stake"] = float(q["stake"])
+            if isinstance(q.get("pulled"), str):
+                up.at[fid, "pulled"], up.at[fid, "moved_against"] = q["pulled"], True
+            elif not isinstance(up.at[fid, "our_pick"], str):
+                up.at[fid, "pulled"], up.at[fid, "moved_against"] = None, False
     if not log.empty:
         lg = log.set_index("fight_id")
         frozen = up.index[started & up.index.isin(lg.index)]
-        for c in ["p_model", "p_final", "fair_a", "odds_a", "odds_b", "edge_a", "pick", "our_pick", "expert_lean"]:
+        for c in ["p_model", "p_final", "fair_a", "odds_a", "odds_b", "edge_a", "pick", "our_pick", "expert_lean", "stake"]:
             if c in lg:
                 up.loc[frozen, c] = lg.loc[frozen, c]
     fresh = up[~started].reset_index()
     if len(fresh):
         cols = ["fight_id", "date", "a", "b", "p_model", "p_final", "fair_a", "odds_a", "odds_b",
-                "open_a", "open_b", "edge_a", "pick", "our_pick", "expert_lean", "pulled"]
+                "open_a", "open_b", "edge_a", "pick", "our_pick", "expert_lean", "pulled", "stake"]
         new = fresh[cols].assign(run=NOW.strftime("%Y-%m-%dT%H:%MZ"))
         # the price when each pick first appeared, kept while the pick stays the same: closing line value later
         prev = log.drop_duplicates("fight_id", keep="last").set_index("fight_id") if not log.empty else pd.DataFrame()
@@ -690,8 +724,7 @@ def main():
             "line_history": c.get("line_history") if isinstance(c.get("line_history"), list) else [],
             "edge_a": edge, "pick": pick, "our_pick": our_pick,
             "bet_to": bet_to(f, "a" if our_pick == f["a"] else "b", our_pick != pick) if our_pick else None,
-            "stake": __import__("picks").stake(f["odds_a"] if our_pick == f["a"] else f["odds_b"],
-                                               (edge if our_pick == f["a"] else -edge) if (our_pick == pick and edge is not None) else None) if our_pick else None,
+            "stake": float(f["stake"]) if our_pick and pd.notna(f.get("stake")) else None,
             "expert_lean": f["expert_lean"] if isinstance(f.get("expert_lean"), str) else None,
             "check_news": edge is not None and abs(edge) >= BIG_EDGE,
             "moved_against": bool(f.get("moved_against")) if f.get("moved_against") == f.get("moved_against") else False,

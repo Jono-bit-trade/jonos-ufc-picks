@@ -181,8 +181,14 @@ def parse(js):
             if how_text:
                 detail = f"{how_text}, round {_get(status, 'period')} {_get(status, 'displayClock') or ''}".strip()
             winner = "a" if cs[0].get("winner") else "b" if cs[1].get("winner") else None
-            if state == "post" and winner is None and re.search(r"draw", detail, re.I):
-                winner = "draw"
+            if state == "post" and winner is None:   # ESPN often shows a draw as just "Final" or "Majority decision"
+                per, regs = _get(status, "period"), _get(comp, "format", "regulation", "periods")
+                if re.search(r"no contest|overturned", detail, re.I):
+                    winner = "nc"
+                elif re.search(r"draw|decision", detail, re.I) or (per and regs and int(per) >= int(regs)):
+                    winner = "draw"
+                else:
+                    winner = "nc"
             periods = _get(comp, "format", "regulation", "periods")
             wc = weight_class(_get(comp, "type", "text") or _get(comp, "type", "abbreviation") or "")
             odds_a, odds_b, book = _odds(comp, cs)
