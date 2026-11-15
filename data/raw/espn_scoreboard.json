@@ -1941,17 +1941,17 @@
       }
      ],
      "status": {
-      "clock": 202.0,
-      "displayClock": "3:22",
-      "period": 2,
+      "clock": 261.0,
+      "displayClock": "4:21",
+      "period": 3,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 3:22",
-       "shortDetail": "R2, 3:22"
+       "detail": "R3, 4:21",
+       "shortDetail": "R3, 4:21"
       }
      },
      "broadcasts": [
@@ -1963,6 +1963,20 @@
       }
      ],
      "details": [
+      {
+       "id": "26700",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26699",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "26698",
        "type": {
@@ -2017,13 +2031,6 @@
        "type": {
         "id": "2",
         "text": "Walkout"
-       }
-      },
-      {
-       "id": "26690",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
