@@ -363,6 +363,19 @@ def history(first_year=2010):
     f = path("espn_history.csv")
     old = pd.read_csv(f, dtype={"espn_event": str, "espn_fight": str}) if os.path.exists(f) else pd.DataFrame()
     done = set(old["espn_event"].dropna()) if "espn_event" in old else set()
+    # a card fetched before ESPN filled in every result (a winner but no method, or no winner at all): fetch it
+    # once more, a few days later (data/espn_refetched.txt keeps it to once)
+    rf = path("espn_refetched.txt")
+    refetched = set(open(rf).read().split()) if os.path.exists(rf) else set()
+    if len(old) and "method" in old:
+        gap = old[old["state"].eq("post") & (old["method"].isna() | old["winner"].isna())
+                  & (pd.to_datetime(old["date"], errors="coerce") < pd.Timestamp.today() - pd.Timedelta(days=3))
+                  & (pd.to_datetime(old["date"], errors="coerce") > pd.Timestamp.today() - pd.Timedelta(days=800))]
+        again = set(gap["espn_event"].dropna().astype(str)) - refetched
+        if again:
+            print(f"fetching {len(again)} cards again for missing results")
+            done -= again
+            refetched |= again
     today = dt.date.today().strftime("%Y%m%d")
     rows = []
     for year in range(first_year, dt.date.today().year + 1):
@@ -385,6 +398,7 @@ def history(first_year=2010):
         allr = allr.drop_duplicates("espn_fight", keep="last").sort_values(["date", "bout_order"])
         allr.to_csv(f, index=False)
         print("espn_history.csv:", len(allr), "finished bouts")
+    open(rf, "w").write("\n".join(sorted(refetched)) + "\n")
 
 
 if __name__ == "__main__":
