@@ -3155,17 +3155,17 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 232.0,
+      "displayClock": "3:52",
+      "period": 1,
       "type": {
-       "id": "139",
-       "name": "STATUS_FIGHTERS_WALKING",
+       "id": "31",
+       "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
-       "description": "Walkouts",
-       "detail": "Walkouts",
-       "shortDetail": "Walkouts"
+       "description": "In Progress",
+       "detail": "R1, 3:52",
+       "shortDetail": "R1, 3:52"
       }
      },
      "broadcasts": [
@@ -3177,6 +3177,27 @@
       }
      ],
      "details": [
+      {
+       "id": "26821",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26820",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26819",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
+      },
       {
        "id": "26818",
        "type": {
