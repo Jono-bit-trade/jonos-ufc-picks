@@ -1941,17 +1941,17 @@
       }
      ],
      "status": {
-      "clock": 261.0,
-      "displayClock": "4:21",
+      "clock": 0.0,
+      "displayClock": "-",
       "period": 3,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
+       "id": "142",
+       "name": "STATUS_END_OF_ROUND",
        "state": "in",
        "completed": false,
-       "description": "In Progress",
-       "detail": "R3, 4:21",
-       "shortDetail": "R3, 4:21"
+       "description": "End of Round",
+       "detail": "End R3",
+       "shortDetail": "End R3"
       }
      },
      "broadcasts": [
@@ -1964,6 +1964,62 @@
      ],
      "details": [
       {
+       "id": "26708",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26707",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26706",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26705",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26704",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26703",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26702",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26701",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
        "id": "26700",
        "type": {
         "id": "5",
@@ -1975,62 +2031,6 @@
        "type": {
         "id": "18",
         "text": "Round End"
-       }
-      },
-      {
-       "id": "26698",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26697",
-       "type": {
-        "id": "18",
-        "text": "Round End"
-       }
-      },
-      {
-       "id": "26696",
-       "type": {
-        "id": "12",
-        "text": "Takedown Attempt"
-       }
-      },
-      {
-       "id": "26695",
-       "type": {
-        "id": "5",
-        "text": "Round Start"
-       }
-      },
-      {
-       "id": "26694",
-       "type": {
-        "id": "4",
-        "text": "Staredown"
-       }
-      },
-      {
-       "id": "26693",
-       "type": {
-        "id": "3",
-        "text": "Tale of the tape"
-       }
-      },
-      {
-       "id": "26692",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "26691",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
        }
       }
      ],
