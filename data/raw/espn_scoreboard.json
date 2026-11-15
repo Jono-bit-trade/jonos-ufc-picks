@@ -1732,14 +1732,14 @@
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "18-9-0"
+         "summary": "19-9-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 209.0,
-      "displayClock": "3:29",
+      "clock": 113.0,
+      "displayClock": "1:53",
       "period": 1,
       "type": {
        "id": "3",
@@ -1761,6 +1761,13 @@
       }
      ],
      "details": [
+      {
+       "id": "26674",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
       {
        "id": "26673",
        "type": {
@@ -1822,13 +1829,6 @@
        "type": {
         "id": "2",
         "text": "Walkout"
-       }
-      },
-      {
-       "id": "26664",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
        }
       }
      ],
