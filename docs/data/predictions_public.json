@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T19:43Z",
+ "updated": "2026-11-15T22:19Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -53,7 +53,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1774,
+   "rating_a": 1773,
    "rating_b": 1755,
    "debut_a": false,
    "debut_b": false,
@@ -94,6 +94,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
+     "a": 130.0,
+     "b": -155.0
     }
    ],
    "locked": true,
@@ -128,7 +133,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1851,
+   "rating_a": 1850,
    "rating_b": 1744,
    "debut_a": false,
    "debut_b": false,
@@ -169,6 +174,11 @@
      "t": "2026-11-15T19:43Z",
      "a": 114.0,
      "b": -135.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
+     "a": 114.0,
+     "b": -135.0
     }
    ],
    "locked": false,
@@ -197,7 +207,7 @@
     "at": "2026-11-15T19:42Z"
    },
    "why": [
-    "Our chance 63% vs the line's 60% (3 points of value)",
+    "Our chance 64% vs the line's 60% (4 points of value)",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
     "Bigger bettors on him: 95% of DraftKings money from 69% of bets"
    ],
@@ -213,11 +223,11 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.263,
-   "p_a": 0.634,
+   "p_a": 0.637,
    "model_pick": "Dan Hooker",
    "tier": "Medium",
-   "fair_odds_a": -173,
-   "fair_odds_b": 173,
+   "fair_odds_a": -176,
+   "fair_odds_b": 176,
    "market_p_a": 0.6,
    "odds_a": -166.0,
    "odds_b": 140.0,
@@ -255,12 +265,17 @@
      "t": "2026-11-15T19:43Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
-   "edge_a": 0.034,
+   "edge_a": 0.038,
    "pick": "Dan Hooker",
    "our_pick": "Dan Hooker",
-   "bet_to": -165,
+   "bet_to": -170,
    "stake": 0.75,
    "expert_lean": null,
    "check_news": false,
@@ -270,20 +285,20 @@
     "odds": -162.0
    },
    "method": {
-    "DEC": 0.513,
-    "KO": 0.316,
-    "SUB": 0.172
+    "DEC": 0.516,
+    "KO": 0.314,
+    "SUB": 0.17
    },
    "how": {
     "a": {
-     "DEC": 0.349,
+     "DEC": 0.353,
      "KO": 0.215,
-     "SUB": 0.07
+     "SUB": 0.069
     },
     "b": {
-     "DEC": 0.164,
-     "KO": 0.1,
-     "SUB": 0.102
+     "DEC": 0.163,
+     "KO": 0.098,
+     "SUB": 0.101
     }
    },
    "sample": true
@@ -353,6 +368,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -198.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
+     "a": -198.0,
+     "b": 170.0
     }
    ],
    "locked": false,
@@ -387,7 +407,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 1:00 PM EST",
    "result": null,
-   "rating_a": 1668,
+   "rating_a": 1667,
    "rating_b": 1751,
    "debut_a": false,
    "debut_b": false,
@@ -426,6 +446,11 @@
     },
     {
      "t": "2026-11-15T19:43Z",
+     "a": 275.0,
+     "b": -345.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
      "a": 275.0,
      "b": -345.0
     }
@@ -545,6 +570,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
+     "a": -225.0,
+     "b": 185.0
     }
    ],
    "locked": false,
@@ -579,8 +609,8 @@
    "state": "pre",
    "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
-   "rating_a": 1640,
-   "rating_b": 1581,
+   "rating_a": 1639,
+   "rating_b": 1582,
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.457,
@@ -618,6 +648,11 @@
     },
     {
      "t": "2026-11-15T19:43Z",
+     "a": 110.0,
+     "b": -130.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
      "a": 110.0,
      "b": -130.0
     }
@@ -695,6 +730,11 @@
      "t": "2026-11-15T19:43Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-15T22:19Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "locked": false,
@@ -723,7 +763,7 @@
    "state": "pre",
    "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
-   "rating_a": 1515,
+   "rating_a": 1513,
    "rating_b": 1469,
    "debut_a": false,
    "debut_b": false,
