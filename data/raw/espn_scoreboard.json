@@ -2323,7 +2323,7 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
+     "playByPlayAvailable": true,
      "recent": true,
      "venue": {
       "id": "1830",
@@ -2399,13 +2399,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "145",
-       "name": "STATUS_PRE_FIGHT",
+       "id": "139",
+       "name": "STATUS_FIGHTERS_WALKING",
        "state": "in",
        "completed": false,
-       "description": "Pre-fight",
-       "detail": "Pre-fight",
-       "shortDetail": "Pre-fight"
+       "description": "Walkouts",
+       "detail": "Walkouts",
+       "shortDetail": "Walkouts"
       }
      },
      "broadcasts": [
@@ -2414,6 +2414,29 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26754",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26753",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "26752",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
