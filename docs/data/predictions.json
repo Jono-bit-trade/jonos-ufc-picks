@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T17:10Z",
+ "updated": "2026-11-16T23:20Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-11-21T15:00Z",
-   "bouts": 5,
+   "bouts": 6,
    "tv": [
     "Paramount+"
    ]
@@ -22,7 +22,7 @@
   {
    "segment": "Main card",
    "start": "2026-11-21T18:00Z",
-   "bouts": 6,
+   "bouts": 5,
    "tv": [
     "Paramount+"
    ]
@@ -38,13 +38,77 @@
    "b_id": "5216713",
    "record_a": "32-6-1",
    "record_b": "11-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 4,
+    "high_a": 1,
+    "high_b": 3,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 0.49,
-    "handle_b": 0.51,
-    "bets_a": 0.17,
-    "bets_b": 0.83,
-    "at": "2026-11-15T23:34Z"
+    "handle_a": 0.14,
+    "handle_b": 0.86,
+    "bets_a": 0.23,
+    "bets_b": 0.77,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -59,16 +123,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.434,
-   "p_a": 0.458,
-   "model_pick": "Jiri Prochazka",
+   "p_a": 0.444,
+   "model_pick": "Navajo Stirling",
    "tier": "Low",
-   "fair_odds_a": 119,
-   "fair_odds_b": -119,
-   "market_p_a": 0.417,
-   "odds_a": 130.0,
-   "odds_b": -155.0,
-   "best_a": 130.0,
-   "best_b": -155.0,
+   "fair_odds_a": 125,
+   "fair_odds_b": -125,
+   "market_p_a": 0.396,
+   "odds_a": 142.0,
+   "odds_b": -170.0,
+   "best_a": 142.0,
+   "best_b": -170.0,
    "open_a": 124.0,
    "open_b": -148.0,
    "books": 1.0,
@@ -77,8 +141,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 130.0,
-     "b": -155.0
+     "a": 142.0,
+     "b": -170.0
     }
    ],
    "line_history": [
@@ -141,9 +205,14 @@
      "t": "2026-11-16T17:10Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": 142.0,
+     "b": -170.0
     }
    ],
-   "edge_a": 0.041,
+   "edge_a": 0.048,
    "pick": "Jiri Prochazka",
    "our_pick": null,
    "bet_to": null,
@@ -153,20 +222,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.238,
-    "KO": 0.635,
-    "SUB": 0.127
+    "DEC": 0.237,
+    "KO": 0.637,
+    "SUB": 0.126
    },
    "how": {
     "a": {
-     "DEC": 0.129,
-     "KO": 0.248,
-     "SUB": 0.08
+     "DEC": 0.125,
+     "KO": 0.241,
+     "SUB": 0.078
     },
     "b": {
-     "DEC": 0.109,
-     "KO": 0.386,
-     "SUB": 0.047
+     "DEC": 0.112,
+     "KO": 0.396,
+     "SUB": 0.048
     }
    }
   },
@@ -179,15 +248,82 @@
    "b_id": "5145681",
    "record_a": "26-5-0",
    "record_b": "18-1-0",
-   "experts": null,
-   "splits": {
-    "handle_a": 0.62,
-    "handle_b": 0.38,
-    "bets_a": 0.56,
-    "bets_b": 0.44,
-    "at": "2026-11-15T23:34Z"
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 4,
+    "high_a": 0,
+    "high_b": 3,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     }
+    ]
    },
-   "why": [],
+   "splits": {
+    "handle_a": 0.61,
+    "handle_b": 0.39,
+    "bets_a": 0.48,
+    "bets_b": 0.52,
+    "at": "2026-11-16T23:20Z"
+   },
+   "why": [
+    "Close fight and 4 of 6 analysts pick Vallejos",
+    "Our chance 54% vs the line's 54%"
+   ],
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
@@ -200,16 +336,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.407,
-   "p_a": 0.455,
+   "p_a": 0.464,
    "model_pick": "Kevin Vallejos",
    "tier": "Low",
-   "fair_odds_a": 120,
-   "fair_odds_b": -120,
-   "market_p_a": 0.449,
-   "odds_a": 114.0,
-   "odds_b": -135.0,
-   "best_a": 114.0,
-   "best_b": -135.0,
+   "fair_odds_a": 116,
+   "fair_odds_b": -116,
+   "market_p_a": 0.457,
+   "odds_a": 110.0,
+   "odds_b": -130.0,
+   "best_a": 110.0,
+   "best_b": -130.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
@@ -218,8 +354,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 114.0,
-     "b": -135.0
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "line_history": [
@@ -282,31 +418,39 @@
      "t": "2026-11-16T17:10Z",
      "a": 114.0,
      "b": -135.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": 110.0,
+     "b": -130.0
     }
    ],
    "edge_a": 0.006,
    "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
-   "expert_lean": null,
+   "our_pick": "Kevin Vallejos",
+   "bet_to": -165,
+   "stake": 1.5,
+   "expert_lean": "Kevin Vallejos",
    "check_news": false,
    "moved_against": false,
-   "posted": null,
+   "posted": {
+    "at": "2026-11-16T23:20Z",
+    "odds": -130.0
+   },
    "method": {
-    "DEC": 0.476,
-    "KO": 0.348,
-    "SUB": 0.177
+    "DEC": 0.477,
+    "KO": 0.344,
+    "SUB": 0.179
    },
    "how": {
     "a": {
-     "DEC": 0.251,
-     "KO": 0.061,
-     "SUB": 0.142
+     "DEC": 0.256,
+     "KO": 0.063,
+     "SUB": 0.145
     },
     "b": {
-     "DEC": 0.225,
-     "KO": 0.286,
+     "DEC": 0.221,
+     "KO": 0.281,
      "SUB": 0.034
     }
    }
@@ -320,18 +464,83 @@
    "b_id": "3045737",
    "record_a": "24-15-0",
    "record_b": "16-5-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 6,
+    "picks_b": 0,
+    "high_a": 1,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.95,
     "handle_b": 0.05,
-    "bets_a": 0.69,
-    "bets_b": 0.31,
-    "at": "2026-11-15T23:34Z"
+    "bets_a": 0.71,
+    "bets_b": 0.29,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [
-    "Our chance 64% vs the line's 60% (4 points of value)",
+    "Our chance 66% vs the line's 62% (4 points of value)",
+    "6 of 6 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
-    "Bigger bettors on him: 95% of DraftKings money from 69% of bets"
+    "Bigger bettors on him: 95% of DraftKings money from 71% of bets"
    ],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -345,16 +554,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.263,
-   "p_a": 0.637,
+   "p_a": 0.66,
    "model_pick": "Dan Hooker",
    "tier": "Medium",
-   "fair_odds_a": -176,
-   "fair_odds_b": 176,
-   "market_p_a": 0.6,
-   "odds_a": -166.0,
-   "odds_b": 140.0,
-   "best_a": -166.0,
-   "best_b": 140.0,
+   "fair_odds_a": -194,
+   "fair_odds_b": 194,
+   "market_p_a": 0.622,
+   "odds_a": -185.0,
+   "odds_b": 154.0,
+   "best_a": -185.0,
+   "best_b": 154.0,
    "open_a": -162.0,
    "open_b": 136.0,
    "books": 1.0,
@@ -363,8 +572,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -166.0,
-     "b": 140.0
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "line_history": [
@@ -427,12 +636,17 @@
      "t": "2026-11-16T17:10Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
-   "edge_a": 0.038,
+   "edge_a": 0.037,
    "pick": "Dan Hooker",
    "our_pick": "Dan Hooker",
-   "bet_to": -170,
+   "bet_to": -190,
    "stake": 0.75,
    "expert_lean": null,
    "check_news": false,
@@ -442,20 +656,20 @@
     "odds": -162.0
    },
    "method": {
-    "DEC": 0.516,
-    "KO": 0.314,
-    "SUB": 0.17
+    "DEC": 0.518,
+    "KO": 0.315,
+    "SUB": 0.166
    },
    "how": {
     "a": {
-     "DEC": 0.353,
-     "KO": 0.215,
-     "SUB": 0.069
+     "DEC": 0.365,
+     "KO": 0.223,
+     "SUB": 0.072
     },
     "b": {
-     "DEC": 0.163,
-     "KO": 0.098,
-     "SUB": 0.101
+     "DEC": 0.153,
+     "KO": 0.092,
+     "SUB": 0.095
     }
    }
   },
@@ -468,13 +682,77 @@
    "b_id": "4294926",
    "record_a": "36-6-0",
    "record_b": "24-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 6,
+    "picks_b": 0,
+    "high_a": 5,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 1.0,
-    "handle_b": 0.0,
-    "bets_a": 1.0,
-    "bets_b": 0.0,
-    "at": "2026-11-15T23:34Z"
+    "handle_a": 0.41,
+    "handle_b": 0.59,
+    "bets_a": 0.94,
+    "bets_b": 0.06,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -489,15 +767,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.33,
-   "p_a": 0.643,
+   "p_a": 0.646,
    "model_pick": "Kyoji Horiguchi",
    "tier": "Medium",
-   "fair_odds_a": -180,
-   "fair_odds_b": 180,
-   "market_p_a": 0.642,
-   "odds_a": -198.0,
+   "fair_odds_a": -183,
+   "fair_odds_b": 183,
+   "market_p_a": 0.645,
+   "odds_a": -205.0,
    "odds_b": 170.0,
-   "best_a": -198.0,
+   "best_a": -205.0,
    "best_b": 170.0,
    "open_a": -205.0,
    "open_b": 170.0,
@@ -507,7 +785,7 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -198.0,
+     "a": -205.0,
      "b": 170.0
     }
    ],
@@ -570,6 +848,11 @@
     {
      "t": "2026-11-16T17:10Z",
      "a": -198.0,
+     "b": 170.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": -205.0,
      "b": 170.0
     }
    ],
@@ -589,14 +872,14 @@
    },
    "how": {
     "a": {
-     "DEC": 0.395,
-     "KO": 0.188,
-     "SUB": 0.06
+     "DEC": 0.397,
+     "KO": 0.189,
+     "SUB": 0.061
     },
     "b": {
-     "DEC": 0.19,
-     "KO": 0.085,
-     "SUB": 0.082
+     "DEC": 0.188,
+     "KO": 0.084,
+     "SUB": 0.081
     }
    }
   },
@@ -609,13 +892,77 @@
    "b_id": "4684776",
    "record_a": "18-10-0",
    "record_b": "18-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 5,
+    "high_a": 1,
+    "high_b": 3,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 0.87,
-    "handle_b": 0.13,
-    "bets_a": 0.5,
-    "bets_b": 0.5,
-    "at": "2026-11-15T23:34Z"
+    "handle_a": 0.14,
+    "handle_b": 0.86,
+    "bets_a": 0.41,
+    "bets_b": 0.59,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -630,16 +977,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.189,
-   "p_a": 0.234,
+   "p_a": 0.251,
    "model_pick": "Ikram Aliskerov",
    "tier": "High",
-   "fair_odds_a": 328,
-   "fair_odds_b": -328,
-   "market_p_a": 0.256,
-   "odds_a": 275.0,
-   "odds_b": -345.0,
-   "best_a": 275.0,
-   "best_b": -345.0,
+   "fair_odds_a": 298,
+   "fair_odds_b": -298,
+   "market_p_a": 0.274,
+   "odds_a": 250.0,
+   "odds_b": -310.0,
+   "best_a": 250.0,
+   "best_b": -310.0,
    "open_a": 280.0,
    "open_b": -355.0,
    "books": 1.0,
@@ -648,8 +995,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 275.0,
-     "b": -345.0
+     "a": 250.0,
+     "b": -310.0
     }
    ],
    "line_history": [
@@ -712,9 +1059,14 @@
      "t": "2026-11-16T17:10Z",
      "a": 275.0,
      "b": -345.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": 250.0,
+     "b": -310.0
     }
    ],
-   "edge_a": -0.022,
+   "edge_a": -0.023,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -724,20 +1076,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.513,
-    "KO": 0.33,
+    "DEC": 0.514,
+    "KO": 0.329,
     "SUB": 0.157
    },
    "how": {
     "a": {
-     "DEC": 0.129,
-     "KO": 0.067,
-     "SUB": 0.037
+     "DEC": 0.139,
+     "KO": 0.072,
+     "SUB": 0.04
     },
     "b": {
-     "DEC": 0.384,
-     "KO": 0.262,
-     "SUB": 0.12
+     "DEC": 0.375,
+     "KO": 0.256,
+     "SUB": 0.117
     }
    }
   },
@@ -750,15 +1102,79 @@
    "b_id": "5307799",
    "record_a": "7-1-0",
    "record_b": "8-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 5,
+    "picks_b": 1,
+    "high_a": 4,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "why": [],
    "weight_class": "Bantamweight",
    "rounds": 3,
    "segment": "",
-   "start": "2026-11-21T18:00Z",
+   "start": "2026-11-21T15:00Z",
    "state": "pre",
-   "status": "Sat, November 21st at 1:00 PM EST",
+   "status": "Sat, November 21st at 10:00 AM EST",
    "result": null,
    "rating_a": 1617,
    "rating_b": 1561,
@@ -818,13 +1234,77 @@
    "b_id": "5212856",
    "record_a": "15-3-0",
    "record_b": "9-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 6,
+    "picks_b": 0,
+    "high_a": 4,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 0.3,
-    "handle_b": 0.7,
-    "bets_a": 0.64,
-    "bets_b": 0.36,
-    "at": "2026-11-15T23:34Z"
+    "handle_a": 0.24,
+    "handle_b": 0.76,
+    "bets_a": 0.68,
+    "bets_b": 0.32,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -839,16 +1319,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.337,
-   "p_a": 0.666,
+   "p_a": 0.644,
    "model_pick": "Shamil Gaziev",
    "tier": "Medium",
-   "fair_odds_a": -200,
-   "fair_odds_b": 200,
-   "market_p_a": 0.664,
-   "odds_a": -225.0,
-   "odds_b": 185.0,
-   "best_a": -225.0,
-   "best_b": 185.0,
+   "fair_odds_a": -181,
+   "fair_odds_b": 181,
+   "market_p_a": 0.642,
+   "odds_a": -198.0,
+   "odds_b": 170.0,
+   "best_a": -198.0,
+   "best_b": 170.0,
    "open_a": -225.0,
    "open_b": 185.0,
    "books": 1.0,
@@ -857,8 +1337,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -225.0,
-     "b": 185.0
+     "a": -198.0,
+     "b": 170.0
     }
    ],
    "line_history": [
@@ -921,9 +1401,14 @@
      "t": "2026-11-16T17:10Z",
      "a": -225.0,
      "b": 185.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": -198.0,
+     "b": 170.0
     }
    ],
-   "edge_a": 0.003,
+   "edge_a": 0.002,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -933,20 +1418,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.303,
-    "KO": 0.552,
-    "SUB": 0.145
+    "DEC": 0.304,
+    "KO": 0.55,
+    "SUB": 0.146
    },
    "how": {
     "a": {
-     "DEC": 0.191,
-     "KO": 0.387,
-     "SUB": 0.088
+     "DEC": 0.185,
+     "KO": 0.375,
+     "SUB": 0.085
     },
     "b": {
-     "DEC": 0.112,
-     "KO": 0.164,
-     "SUB": 0.058
+     "DEC": 0.12,
+     "KO": 0.175,
+     "SUB": 0.061
     }
    }
   },
@@ -959,13 +1444,77 @@
    "b_id": "5074121",
    "record_a": "17-3-0",
    "record_b": "17-5-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 3,
+    "high_a": 1,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 0.17,
-    "handle_b": 0.83,
-    "bets_a": 0.36,
-    "bets_b": 0.64,
-    "at": "2026-11-15T23:34Z"
+    "handle_a": 0.12,
+    "handle_b": 0.88,
+    "bets_a": 0.29,
+    "bets_b": 0.71,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -980,16 +1529,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.507,
-   "p_a": 0.475,
-   "model_pick": "Alessandro Costa",
+   "p_a": 0.53,
+   "model_pick": "Amir Albazi",
    "tier": "Low",
-   "fair_odds_a": 110,
-   "fair_odds_b": -110,
-   "market_p_a": 0.457,
-   "odds_a": 110.0,
-   "odds_b": -130.0,
-   "best_a": 110.0,
-   "best_b": -130.0,
+   "fair_odds_a": -113,
+   "fair_odds_b": 113,
+   "market_p_a": 0.511,
+   "odds_a": -115.0,
+   "odds_b": -105.0,
+   "best_a": -115.0,
+   "best_b": -105.0,
    "open_a": 130.0,
    "open_b": -155.0,
    "books": 1.0,
@@ -998,8 +1547,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 110.0,
-     "b": -130.0
+     "a": -115.0,
+     "b": -105.0
     }
    ],
    "line_history": [
@@ -1062,9 +1611,14 @@
      "t": "2026-11-16T17:10Z",
      "a": 110.0,
      "b": -130.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": -115.0,
+     "b": -105.0
     }
    ],
-   "edge_a": 0.018,
+   "edge_a": 0.019,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1074,20 +1628,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.474,
-    "KO": 0.332,
-    "SUB": 0.194
+    "DEC": 0.471,
+    "KO": 0.326,
+    "SUB": 0.203
    },
    "how": {
     "a": {
-     "DEC": 0.214,
-     "KO": 0.129,
-     "SUB": 0.132
+     "DEC": 0.239,
+     "KO": 0.144,
+     "SUB": 0.147
     },
     "b": {
-     "DEC": 0.26,
-     "KO": 0.203,
-     "SUB": 0.062
+     "DEC": 0.233,
+     "KO": 0.182,
+     "SUB": 0.055
     }
    }
   },
@@ -1100,13 +1654,77 @@
    "b_id": "4394753",
    "record_a": "23-8-0",
    "record_b": "20-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 6,
+    "picks_b": 0,
+    "high_a": 3,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "209-113",
+      "units": -0.25,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-117",
+      "units": -6.93,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "196-135",
+      "units": -29.64,
+      "winning": false
+     },
+     {
+      "name": "138 MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "199-132",
+      "units": -10.5,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "206-122",
+      "units": -22.44,
+      "winning": false
+     },
+     {
+      "name": "We Want Picks",
+      "side": "a",
+      "conf": "Low",
+      "method": null,
+      "record": "212-121",
+      "units": -6.2,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 0.14,
-    "handle_b": 0.86,
-    "bets_a": 0.59,
-    "bets_b": 0.41,
-    "at": "2026-11-15T23:34Z"
+    "handle_a": 0.36,
+    "handle_b": 0.64,
+    "bets_a": 0.7,
+    "bets_b": 0.3,
+    "at": "2026-11-16T23:20Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1121,16 +1739,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.54,
-   "p_a": 0.681,
+   "p_a": 0.704,
    "model_pick": "Jake Matthews",
-   "tier": "Medium",
-   "fair_odds_a": -214,
-   "fair_odds_b": 214,
-   "market_p_a": 0.657,
-   "odds_a": -218.0,
-   "odds_b": 180.0,
-   "best_a": -218.0,
-   "best_b": 180.0,
+   "tier": "High",
+   "fair_odds_a": -238,
+   "fair_odds_b": 238,
+   "market_p_a": 0.681,
+   "odds_a": -245.0,
+   "odds_b": 200.0,
+   "best_a": -245.0,
+   "best_b": 200.0,
    "open_a": -166.0,
    "open_b": 140.0,
    "books": 1.0,
@@ -1139,8 +1757,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -218.0,
-     "b": 180.0
+     "a": -245.0,
+     "b": 200.0
     }
    ],
    "line_history": [
@@ -1203,9 +1821,14 @@
      "t": "2026-11-16T17:10Z",
      "a": -218.0,
      "b": 180.0
+    },
+    {
+     "t": "2026-11-16T23:20Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
-   "edge_a": 0.024,
+   "edge_a": 0.023,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1215,20 +1838,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.413,
-    "KO": 0.33,
-    "SUB": 0.258
+    "DEC": 0.414,
+    "KO": 0.322,
+    "SUB": 0.264
    },
    "how": {
     "a": {
-     "DEC": 0.295,
-     "KO": 0.156,
-     "SUB": 0.23
+     "DEC": 0.305,
+     "KO": 0.161,
+     "SUB": 0.238
     },
     "b": {
-     "DEC": 0.118,
-     "KO": 0.173,
-     "SUB": 0.028
+     "DEC": 0.109,
+     "KO": 0.161,
+     "SUB": 0.026
     }
    }
   },
