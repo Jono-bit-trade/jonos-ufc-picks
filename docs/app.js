@@ -321,7 +321,7 @@ function pickNote(f, used) {
       `A ${d}-point ratings gap in ${me}'s favor. This should be a shorter price.`]); }
   if (f.expert_lean === f.our_pick && f.our_pick !== f.pick) facts.push([
     `The line calls it close, but most of the analysts we track are on ${me}.`,
-    `Near coin flip on the numbers. The analysts lean ${me}, and they've been right in spots like this.`]);
+    `Near coin flip on the numbers. The analysts lean ${me}, so that's the side.`]);
   if (us != null && ln != null) facts.push([
     `We make ${me} ${us}% to win. The line says ${ln}%.`,
     `${us}% for us, ${ln}% for the books. That gap is the bet.`,
