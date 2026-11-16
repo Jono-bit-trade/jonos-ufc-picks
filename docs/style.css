@@ -2046,3 +2046,40 @@ b, td, .n, .pct, .ft-p, .pk-o, .pl-s, .ev-c, .es-g, .stat { font-variant-numeric
 .livebadge:hover .lb-go{text-decoration:underline}
 .livebadge .lb-dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.18);flex:none}
 @media (max-width:420px){.livebadge .lb-s{display:none}.livebadge .lb-go{font-size:0}.livebadge .lb-go::after{content:"Graded →";font-size:13px}}
+
+/* ---- plainer look (Nov 2026): flat hero, one line of numbers, fewer gold labels, no glow ---- */
+.proof{background:#141519!important;border:1px solid #26282e!important;border-radius:4px!important;padding:24px 22px 20px!important}
+.proof::before,.feat::before{display:none!important}
+.pf-head h1{font-size:clamp(30px,5vw,46px)!important;line-height:1!important;margin:0 0 10px!important;letter-spacing:-.01em}
+.pf-head p{display:block!important;max-width:620px;color:#b9bfca;font-size:16px;line-height:1.5;margin:0 0 16px}
+.pf-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.tlink{color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#4a4f5a}
+.tlink:hover{text-decoration-color:var(--ink)}
+.pf-nums{display:flex;flex-wrap:wrap;gap:0;margin:20px 0 0;padding:14px 0 0;border-top:1px solid #26282e}
+.pf-nums div{padding:2px 22px 2px 0;margin-right:22px;border-right:1px solid #26282e}
+.pf-nums div:last-child{border-right:0;margin-right:0}
+.pf-nums dt{font-size:12.5px;color:#8b93a2;margin:0 0 3px}
+.pf-nums dd{margin:0;font:700 20px "Barlow Condensed",sans-serif;color:#fff;font-variant-numeric:tabular-nums}
+.pf-nums dd b{font-weight:700}
+@media (max-width:640px){.pf-nums{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}.pf-nums div{border:0;margin:0;padding:0}.pf-head p{font-size:15px}}
+.ft-k{background:none!important;color:#8b93a2!important;padding:0!important;letter-spacing:.04em!important;font-size:13px!important;text-transform:none!important;font-weight:600!important}
+.ft-ev em,.close-cta h2 em{color:inherit!important}
+.close-cta{background:#141519!important;border:1px solid #26282e!important}
+.close-cta h2{font-size:clamp(24px,3.2vw,32px)!important}
+.kicker{text-transform:none!important;letter-spacing:.02em!important;font-family:inherit!important;font-size:13px!important;font-weight:600!important;line-height:1!important;color:#8b93a2!important;margin-bottom:6px}
+.stage-note{margin:0 0 12px}
+details.stage-note summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;color:#c9ced8;font-weight:600}
+details.stage-note summary::-webkit-details-marker{display:none}
+details.stage-note summary::after{content:"?";display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;border:1px solid #4a4f5a;font-size:11px;color:#8b93a2}
+details.stage-note[open]{color:#9aa1ad}
+details.stage-note[open] summary{margin-bottom:4px}
+.tk-note,.pk-note{font-style:normal!important;opacity:.85;font-size:13px;line-height:1.4;margin-top:6px}
+.pk-note::before,.pk-note::after{content:none!important}
+.take.note b{color:#8b93a2}
+.misses{margin-top:16px;padding-top:14px;border-top:1px solid #26282e}
+.misses h3{margin:0 0 8px;font-size:15px;color:#c9ced8}
+.misses ul{margin:0;padding:0;list-style:none}
+.misses li{font-size:14px;line-height:1.5;color:#b9bfca;padding:3px 0}
+.misses li b{color:#fff}
+.misses li .lost{font-weight:700;margin-left:4px}
+.panel h2 .kicker,.lw-h h2 .kicker,h2 .kicker.gold{display:block;font-family:inherit!important;font-size:13px!important;font-weight:600!important;line-height:1!important;letter-spacing:.02em!important;text-transform:none!important;color:#8b93a2!important;margin-bottom:6px}

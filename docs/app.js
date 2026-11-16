@@ -246,7 +246,7 @@ function bout(f, i, edge) {
   else pickHtml = `<div class="nopick">${line == null ? "No betting line yet." : "No bet: the model and the line are within " + Math.round(edge * 100) + " points."}</div>`;
   if (f.moved_against && !f.our_pick && !f.locked && !f.hidden) pickHtml += `<span class="moved">No pick: we had one here, but the line moved and our edge is gone, so we passed.</span>`;
   if (f.sample && paywallOn() && (f.our_pick || f.pick)) pickHtml = `<span class="freetag">Free pick</span>` + pickHtml;
-  if (f.take) pickHtml += takeHtml(f.take);
+  if (f.take || f.note) pickHtml += noteHtml(f);
   if (f.our_pick && f.why && f.why.length) pickHtml += `<ul class="why">${f.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>`;
   const moved = f.open_a != null && f.odds_a != null && (f.open_a !== f.odds_a)
     ? `Opened ${odds(f.open_a)} / ${odds(f.open_b)}, now ${odds(f.odds_a)} / ${odds(f.odds_b)}`
@@ -288,13 +288,53 @@ function bout(f, i, edge) {
 let PLANS = null, TAKES = {};
 // Jono's own words on a pick (docs/takes.json: {"<card date>": {"preview": "...", "fights": {"<fighter>": "..."}}})
 function attachTakes(p) {
-  const t = p && TAKES[p.date]; if (!t) return p;
-  const fx = t.fights || {};
+  if (!p || !p.fights) return p;
+  const t = TAKES[p.date] || {}, fx = t.fights || {}, used = new Set();
   return {...p, take_preview: t.preview || "", fights: p.fights.map(f => {
     const txt = f.our_pick ? fx[f.our_pick] || fx[f.a] || fx[f.b] : !f.hidden && !f.locked ? fx[f.a] || fx[f.b] : null;
-    return txt ? {...f, take: txt} : f; })};
+    const note = !txt && f.our_pick ? pickNote(f, used) : "";
+    return txt ? {...f, take: txt} : note ? {...f, note} : f; })};
+}
+// a one-sentence read on a pick, from its own numbers. Each fact has a few wordings, and a card
+// never uses the same wording twice, so the notes don't read like a template.
+function pickNote(f, used) {
+  const isA = f.our_pick === f.a, opp = isA ? f.b : f.a, me = String(f.our_pick).split(" ").slice(-1)[0], them = String(opp).split(" ").slice(-1)[0];
+  const us = f.p_a == null ? null : Math.round(100 * (isA ? f.p_a : 1 - f.p_a)), ln = f.market_p_a == null ? null : Math.round(100 * (isA ? f.market_p_a : 1 - f.market_p_a));
+  const why = (f.why || []).join(" "), facts = [];
+  if (/[Oo]pponent .*layoff/.test(why)) facts.push([
+    `${them} hasn't fought in over 15 months. Fighters back from a layoff that long win less often than their odds say.`,
+    `Long layoff for ${them}. The line has underrated ring rust for years.`,
+    `${them} is coming back after more than a year out, which has been a losing spot to back.`]);
+  const sp = f.splits;
+  if (sp && sp.handle_a != null) { const h = Math.round(100 * (isA ? sp.handle_a : sp.handle_b)), b = Math.round(100 * (isA ? sp.bets_a : sp.bets_b));
+    if (h - b >= 15) facts.push([
+      `The bigger bets are on ${me}: ${h}% of the money from ${b}% of the tickets.`,
+      `Money and tickets don't match: ${h}% of the handle on ${me} from only ${b}% of bets. That's usually larger bettors.`]); }
+  const x = postedInfo(f);
+  if (x && x.dir === "ours") facts.push([
+    `We posted this at ${odds(x.odds)} and it's ${odds(x.now)} now. The market came our way.`,
+    `Moved from ${odds(x.odds)} to ${odds(x.now)} since it went up, a decent sign the number was right.`]);
+  const ra = f.rating_a, rb = f.rating_b;
+  if (ra != null && rb != null) { const d = Math.round(isA ? ra - rb : rb - ra);
+    if (d >= 60) facts.push([
+      `${me} rates ${d} points higher on EDGE, and the price doesn't fully reflect it.`,
+      `A ${d}-point ratings gap in ${me}'s favor. This should be a shorter price.`]); }
+  if (f.expert_lean === f.our_pick && f.our_pick !== f.pick) facts.push([
+    `The line calls it close, but most of the analysts we track are on ${me}.`,
+    `Near coin flip on the numbers. The analysts lean ${me}, and they've been right in spots like this.`]);
+  if (us != null && ln != null) facts.push([
+    `We make ${me} ${us}% to win. The line says ${ln}%.`,
+    `${us}% for us, ${ln}% for the books. That gap is the bet.`,
+    `The price is short of where we have it: ${us}% against the line's ${ln}%.`]);
+  let h = 0; for (const c of String(f.our_pick)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  for (const opts of facts) for (let k = 0; k < opts.length; k++) {
+    const t = opts[(h + k) % opts.length];
+    const tag = facts.indexOf(opts) + ":" + ((h + k) % opts.length);
+    if (!used.has(tag)) { used.add(tag); return t; } }
+  return "";
 }
 const takeHtml = (txt, cls) => txt ? `<blockquote class="take${cls ? " " + cls : ""}"><b>Jono's take</b>${esc(txt)}</blockquote>` : "";
+const noteHtml = f => f.take ? takeHtml(f.take) : f.note ? `<blockquote class="take note"><b>The read</b>${esc(f.note)}</blockquote>` : "";
 function previewPlan() {
   const q = new URLSearchParams((location.hash.split("?")[1]) || "");
   try { if (q.has("preview")) { const v = q.get("preview"); v === "off" ? sessionStorage.removeItem("oePreview") : sessionStorage.setItem("oePreview", v); }
@@ -382,8 +422,8 @@ function finalTime() {   // the last scheduled update, rounded up to the half ho
 function stageNote(p) {
   if (!p || !(p.fights || []).some(f => (f.our_pick || f.locked) && (!f.state || f.state === "pre"))) return "";
   return CARD_FINAL
-    ? `<p class="stage-note final"><span class="stage final">Final picks</span>Set before the first fight. These won't change.</p>`
-    : `<p class="stage-note"><span class="stage early">Early picks</span>Posted as the lines open, when the price is best. If a line moves and the model's edge is gone before fight day, we pass on that pick; analyst picks stay up. Final picks are set on fight day${finalTime() ? `, by about ${esc(finalTime())}` : ""}.</p>`;
+    ? `<p class="stage-note final">Final picks. These won't change.</p>`
+    : `<details class="stage-note"><summary>Early picks${finalTime() ? `, final by ${esc(finalTime())}` : ", final on fight day"}</summary>Posted early because that's when the price is best. If the line moves and the edge is gone before fight day, we pass on it. Analyst picks stay up.</details>`;
 }
 const planBtns = (small) => PLANS ? `<div class="lock-btns${small ? " sm" : ""}">${PLANS.plans.map(pl => `<a class="${pl.best ? "btn" : "pill"}" href="#/pricing">${esc(pl.name)} · $${pl.price}</a>`).join("")}</div>` : "";
 const lockIcon = `<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
@@ -446,7 +486,7 @@ async function viewPricing() {
   const s = mr && mr.since, v = s && s.vs_line, yr = mr && mr.years && mr.years[0];
   const cards = [{id: "free", name: "Free", price: 0, period: "", tagline: "See how every fight rates.", features: PLANS.free}, ...PLANS.plans];
   const mine = myPlan();
-  const card = pl => `<div class="plan${pl.best ? " best" : ""}${pl.id === "free" ? " free" : ""}">${pl.best ? `<span class="plan-flag">Best value</span>` : ""}
+  const card = pl => `<div class="plan${pl.best ? " best" : ""}${pl.id === "free" ? " free" : ""}">
       <h3>${esc(pl.name)}</h3><div class="plan-price">${pl.price ? `<b>$${pl.price}</b><span>/ ${esc(pl.period)}</span>` : `<b>$0</b>`}</div>
       <p class="plan-tag">${esc(pl.tagline)}</p>
       <ul>${pl.features.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
@@ -572,7 +612,7 @@ async function viewFight(x, y) {
     <section class="fx-callbar">
       <div class="fx-cb-l"><h2>Our call</h2>${F.winner && (F.ours || (F.value && !F.passed)) ? call.replace("</b>", mark(F.ours || F.value) + "</b>") : call}</div>
       <div class="fx-cb-r">${F.model ? `<div class="fx-model"><span>Model's winner</span><b>${esc(F.model)}${mark(F.model)}</b></div>` : ""}
-        ${F.f && F.f.take ? takeHtml(F.f.take) : ""}
+        ${F.f ? noteHtml(F.f) : ""}
         ${F.why && F.why.length ? `<ul class="why">${F.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}</div>
     </section>
     <div class="fx-grid">
@@ -690,7 +730,9 @@ async function viewCard() {
   if (liveOn(p)) window.refresh = setTimeout(route, 120000);
   const first = (p.schedule || []).map(sg => sg.start).sort()[0] || p.fights[0].start;
   return `${liveCenter(p)}${track}
-    <section class="card-top">${bestBet(p)}<div class="card-slips"><h2>Our picks</h2>${picksStrip(p)}</div>${lockBanner(p)}</section>
+    <section class="card-top">${bestBet(p)}${(() => { const B = bestBetPick(p), rest = B ? {...p, fights: p.fights.filter(f => f !== B.f)} : p;
+      const more = rest.fights.some(f => f.our_pick) || rest.gated && rest.locked_count;
+      return more ? `<div class="card-slips"><h2>${B ? "More picks" : "Our picks"}</h2>${picksStrip(rest)}</div>` : B ? stageNote(p) : ""; })()}${lockBanner(p)}</section>
     <section class="feat solo cardhero">${featMain(p, first, true)}</section>
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
@@ -768,7 +810,7 @@ function bestBetPick(p) {
 function bestBet(p, link) {
   const B = bestBetPick(p);
   if (!B) return p && p.gated && p.locked_count ? `<a class="bestbet locked" href="#/pricing"><span class="bb-k">${lockIcon}Best bet</span>
-      <div class="bb-main"><b>Our biggest edge on this card</b><span>Members see the pick, the price to bet it to and why.</span></div><span class="bb-go">See plans →</span></a>` : "";
+      <div class="bb-main"><b>Our biggest edge on this card</b><span>Members see the pick, the price to bet it to and why.</span></div><span class="bb-go">See plans</span></a>` : "";
   const {f, i, us, ln, isA} = B, o = isA ? f.odds_a : f.odds_b, opp = isA ? f.b : f.a;
   const done = f.state === "post" && f.result && f.result.winner, res = done ? (f.result.winner === f.our_pick ? "won" : "lost") : "";
   const pts = Math.round(100 * us) - Math.round(100 * ln);
@@ -779,7 +821,7 @@ function bestBet(p, link) {
     <div class="bb-meter" title="Our chance vs the betting line's, with the bookmaker's cut removed">
       <div class="bb-bar"><i style="width:${Math.round(100 * us)}%"></i><em style="left:${Math.round(100 * ln)}%"></em></div>
       <span>Our chance <b>${Math.round(100 * us)}%</b> · line ${Math.round(100 * ln)}% · <b class="won">+${pts} pts</b></span></div>
-    <span class="bb-go">Why →</span></a>`;
+    <span class="bb-go">Why</span></a>`;
 }
 
 // ---------------- this week's picks, units chart, fight-night bar ----------------
@@ -798,15 +840,14 @@ function picksStrip(p) {
     return `<a class="ticket ${res}" href="#/card">
       <span class="tk-name">${esc(f.our_pick)}</span>
       <span class="tk-opp">vs ${esc(opp)}</span>
-      ${done || f.state === "in" ? "" : stageTag(f)}
-      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}${tierTag(f.tier || tierOf(f.p_a), true)}${f.our_pick === f.pick ? `<i class="v">Value</i>` : f.expert_lean === f.our_pick ? `<i>Expert lean</i>` : ""}</span>
+      <span class="tk-row"><b>${odds(o)}</b>${f.stake ? `<b>${f.stake}u</b>` : ""}</span>
       ${betToText(f) ? `<span class="tk-posted tk-betto" title="${BET_TO_TIP}">Playable to ${odds(f.bet_to)}</span>` : ""}
       ${postedLine(f, "tk-posted")}
       ${best != null && o != null && pay(best) > pay(o) ? `<span class="tk-best">Best price ${odds(best)}${bestAt(f, f.our_pick === f.a ? "a" : "b")}</span>` : ""}
       ${(() => { const isA = f.our_pick === f.a, ln = f.market_p_a == null ? null : isA ? f.market_p_a : 1 - f.market_p_a, us = f.p_a == null ? null : isA ? f.p_a : 1 - f.p_a;
         return ln != null && us != null && us > ln ? `<span class="tk-val">The line says <b>${Math.round(100 * ln)}%</b>. We say <b>${Math.round(100 * us)}%</b>.</span>`
           : f.expert_lean === f.our_pick ? `<span class="tk-val">Close fight; most of the tracked analysts agree on this side.</span>` : ""; })()}
-      ${f.take ? `<span class="tk-why tk-take">“${esc(f.take)}”</span>` : ""}
+      ${f.take ? `<span class="tk-why tk-take">“${esc(f.take)}”</span>` : f.note ? `<span class="tk-why tk-note">${esc(f.note)}</span>` : ""}
       ${res ? `<span class="tk-res">${res === "won" ? "Won" : "Lost"}</span>` : ""}
       ${res ? (() => { const st = f.stake || 1, u = res === "won" ? st * pay(o) : -st;
         return `<span class="stamp ${res}" data-reveal="${esc((f.start || p.date || "").slice(0, 10) + "|" + f.a + "|" + f.b)}">${res === "won" ? "WIN" : "L"}<small>${units(Math.round(u * 100) / 100)}</small></span>`; })() : ""}
@@ -1096,7 +1137,7 @@ async function lastCard(ev) {
   if (!e || !e.bouts) return "";
   let r = e.record || {};
   const lr = L && L.rows ? L.rows.filter(g => g.date === e0.date) : [];
-  if (lr.length) { const o = lr.filter(g => g.our_pick);
+  if (lr.length) { const o = lr.filter(g => g.our_pick && g.winner && g.result !== "draw" && g.result !== "nc");   // a draw or no contest is a push, not a bet
     r = {our_bets: o.length, our_won: o.filter(g => g.winner && g.winner === g.our_pick).length,
          our_staked: Math.round(100 * o.reduce((s, g) => s + (g.our_staked_units || 0), 0)) / 100,
          right: lr.filter(g => g.model_pick === g.winner).length, picks: lr.length,
@@ -1125,8 +1166,18 @@ async function lastCard(ev) {
       ${r.value_bets ? `<span><b>${r.value_won}-${r.value_bets - r.value_won}</b><small>Value picks</small></span>` : ""}
       <span><small>${dateLong(e.date)}</small></span>
     </div>
-    <div class="lc-list">${bouts}</div>
+    <div class="lc-list">${bouts}</div>${misses(e, lr)}
   </section>`;
+}
+
+// the last card's losing picks, plainly: what we had, what the line had, what happened
+function misses(e, lr) {
+  const lost = (lr || []).filter(g => g.our_pick && g.winner && g.winner !== g.our_pick && g.result !== "draw" && g.result !== "nc");
+  if (!lost.length) return "";
+  const by = {}; for (const b of e.bouts || []) { by[b.a] = b; by[b.b] = b; }
+  return `<div class="misses"><h3>What we got wrong</h3><ul>${lost.map(g => { const b = by[g.our_pick] || {}, how = [b.finish, b.round ? `round ${b.round}` : ""].filter(Boolean).join(", ");
+    const o = g.our_odds ?? g.odds, us = g.our_p ?? g.p_ours, ln = g.line_p ?? g.market_p;
+    return `<li><b>${esc(g.our_pick)}</b>${o != null ? ` at ${odds(o)}` : ""} lost to ${esc(g.winner)}${how ? ` (${esc(how)})` : ""}.${us != null && ln != null ? ` We had ${Math.round(100 * us)}%, the line ${Math.round(100 * ln)}%.` : ""}${g.our_staked_units != null ? ` <span class="lost">${units(g.our_staked_units)}</span>` : ""}</li>`; }).join("")}</ul></div>`;
 }
 
 // ---------------- home ----------------
@@ -1140,23 +1191,19 @@ function countdown(start) {
 // home: the brand band with three proof cards
 function proofBand(mr, L, p, b) {
   if (!mr || !mr.since) return "";
-  const yr = mr.years && mr.years[0], s = mr.since, hi = s.tiers && s.tiers.High;
-  const live = L && L.fights ? `${L.our_won}-${L.our_bets - L.our_won}` : null;
-  const liveCards = L && L.rows ? new Set(L.rows.map(g => g.date)).size : 0, goLive = liveCards >= 10;
+  const s = mr.since, B = bestBetPick(p);
+  const n = p && p.fights ? p.fights.filter(f => f.our_pick).length + (p.gated ? p.locked_count || 0 : 0) : 0;
   return `<section class="proof">
     <div class="pf-head">
-      <h1>Beat the sportsbook, <em>not just the fight.</em></h1>
-      <p>${s.vs_line ? `Our picks are up <b class="won">${units(s.our_units)}</b> since ${mr.from || 2020}. Betting every favorite on the same cards lost <b class="lost">${units(s.vs_line.line_units)}</b>.` : ""} Every pick goes up before the fight and gets graded after it, win or lose.</p>
-      <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a><a class="pill" href="#/record">See every result</a></div></div>
-    <div class="pf-cards">
-      <a class="pf-card c3" href="#/record"><span class="pf-l">Our picks since ${mr.from || 2020}</span><b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b>
-        <span class="pf-s">${s.our_won}-${s.our_bets - s.our_won}, flat 1u${s.our_roi_pct != null ? ` · ${s.our_roi_pct > 0 ? "+" : ""}${s.our_roi_pct}% per bet` : ""}</span><span class="pf-go">Every result →</span></a>
-      ${b && b.early_moves && b.early_moves.picks ? `<a class="pf-card c2" href="#/how"><span class="pf-l">Lines move our way</span><b>${Math.round(b.early_moves.pct)}%</b>
-        <span class="pf-s">of the time after we post a pick, ${b.early_moves.from}-${b.early_moves.to}. The early price is worth having.</span><span class="pf-go">How it works →</span></a>` : ""}
-      ${(() => { const n = p && p.fights ? p.fights.filter(f => f.our_pick).length + (p.gated ? p.locked_count || 0 : 0) : 0, B = bestBetPick(p);
-        return p && p.fights && p.fights.length ? `<a class="pf-card c1" href="#/card"><span class="pf-l">${esc(p.event || "This card")}</span><b>${n} pick${n === 1 ? "" : "s"}</b>
-        <span class="pf-s">${B ? `Best bet: ${esc(B.f.our_pick)} ${odds(B.isA ? B.f.odds_a : B.f.odds_b)}` : n ? "Posted as the lines open" : "Picks go up as the lines open"}</span><span class="pf-go">This week's picks →</span></a>` : ""; })()}
-    </div></section>`;
+      <h1>UFC picks, graded in public</h1>
+      <p>A rating for every UFC fighter and a price for every fight. When our number and the sportsbook's disagree by enough, we bet it, and every pick stays on the record win or lose.</p>
+      <div class="pf-cta"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">This week's picks</a><a class="tlink" href="#/record">Every result since ${mr.from || 2020}</a></div></div>
+    <dl class="pf-nums">
+      <div><dt>Since ${mr.from || 2020}</dt><dd>${s.our_won}-${s.our_bets - s.our_won} <b class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</b></dd></div>
+      ${s.vs_line ? `<div><dt>Every favorite, same cards</dt><dd><b class="${s.vs_line.line_units >= 0 ? "won" : "lost"}">${units(s.vs_line.line_units)}</b></dd></div>` : ""}
+      ${b && b.early_moves && b.early_moves.picks ? `<div><dt>Line moved our way after posting</dt><dd>${Math.round(b.early_moves.pct)}%</dd></div>` : ""}
+      ${p && p.fights && p.fights.length ? `<div><dt>${esc(String(p.event || "This card").split(/:\s*/).pop())}</dt><dd>${n ? `${n} pick${n === 1 ? "" : "s"}${B ? `, ${esc(B.f.our_pick.split(" ").slice(-1)[0])} ${odds(B.isA ? B.f.odds_a : B.f.odds_b)}` : ""}` : "No picks yet"}</dd></div>` : ""}
+    </dl></section>`;
 }
 
 // a large, tightly cropped headshot (the ESPN cutout on a dark panel)
@@ -1178,7 +1225,7 @@ function featMain(p, start, onCard) {
     const fav = (m.hidden ? (ln ?? 0.5) : (pa ?? 0.5)) >= 0.5;
     return `<a class="ft-f ${fav ? "fav" : ""}" href="#/fighter/${esc(m[s + "_slug"])}">${portrait(m[s + "_id"], nm)}
       <span class="ft-n"><b>${esc(nm)}</b><small>${rankOf(m[s + "_slug"])}${flagOf(m[s + "_slug"], true)}</small></span>
-      <span class="ft-p"><b>${m.hidden ? lockIcon : ours + "%"}</b><small>Line ${ln == null ? "–" : (s === "a" ? pct(ln) : (100 - Math.round(100 * m.market_p_a)) + "%")} · ${odds(m["odds_" + s])}</small></span></a>`; };
+      <span class="ft-p"><b title="Our chance. Line: the sportsbook's chance with their cut taken out.">${m.hidden ? lockIcon : ours + "%"}</b><small>Line ${ln == null ? "–" : (s === "a" ? pct(ln) : (100 - Math.round(100 * m.market_p_a)) + "%")} · ${odds(m["odds_" + s])}</small></span></a>`; };
   return `    <div class="ft-main">
       <div class="ft-show">
         <span class="ft-k">${onCard && p.fights.some(f => f.state && f.state !== "pre") ? "Fight night" : "Next card"}</span>
@@ -1190,7 +1237,7 @@ function featMain(p, start, onCard) {
       </div>
       <div class="ft-fight">${side("a")}<span class="ft-vs">vs</span>${side("b")}</div>
       ${(p.schedule || []).length && !onCard ? `<div class="ft-sched">${p.schedule.map(sg => `<span><b>${esc(sg.segment)}</b>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit"})}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</span>`).join("")}</div>` : ""}
-      <p class="ft-leg">${m.hidden ? "Our number on this fight is for members." : "Big number: our chance. Line: the sportsbook's, with their cut taken out."}</p>
+      ${m.hidden ? `<p class="ft-leg">Our number on this fight is for members.</p>` : ""}
       <div class="ft-act">${onCard ? "" : `<a class="btn" href="#/card">All ${p.fights.length} fights</a>`}<a class="pill" href="#/fight/0">Breakdown of the main event</a></div>
     </div>`;
 }
@@ -1202,7 +1249,7 @@ function feature(p, up) {
     const done = f.state === "post" && f.result && f.result.winner, res = done ? (f.result.winner === f.our_pick ? "won" : "lost") : "";
     return `<a class="ft-pk ${res}" href="#/card"><span class="pk-n"><b>${esc(f.our_pick)}</b><small>vs ${esc(opp)}</small></span>
       <span class="pk-o"><b>${odds(o)}</b><small>${f.stake ? f.stake + "u" : ""}</small></span>${res ? `<span class="pk-r">${res === "won" ? "W" : "L"}</span>` : ""}
-      ${f.take ? `<span class="pk-t">“${esc(f.take)}”</span>` : ""}</a>`; };
+      ${f.take ? `<span class="pk-t">“${esc(f.take)}”</span>` : f.note ? `<span class="pk-t pk-note">${esc(f.note)}</span>` : ""}</a>`; };
   const locked = p.gated && p.locked_count ? `<a class="ft-pk lock" href="#/pricing">${lockIcon}<span class="pk-n"><b>${p.locked_count} more pick${p.locked_count > 1 ? "s" : ""}</b><small>for members</small></span></a>` : "";
   return `<section class="feat">
 ${featMain(p, start)}
@@ -1210,7 +1257,7 @@ ${featMain(p, start)}
       <div class="ft-sh"><h2>This week's picks</h2>${p.updated ? `<small>Lines as of ${esc(updatedAt(p.updated))}</small>` : ""}</div>
       ${p.take_preview ? `<p class="ft-prev">${esc(p.take_preview)} <span>— Jono</span></p>` : ""}
       ${picksStrip(p)}
-      <a class="ft-more" href="#/card">Full card and every number →</a>
+      <a class="ft-more" href="#/card">Full card</a>
     </aside>
   </section>`;
 }
@@ -1224,7 +1271,7 @@ function proofLine(mr, L) {
     <div class="pl-s">
       <span><small>Since ${mr.from || 2020}</small><b>${s.our_won}-${s.our_bets - s.our_won}</b><em class="${s.our_units >= 0 ? "won" : "lost"}">${units(s.our_units)}</em></span>
       ${yr ? `<span><small>Winners picked, ${esc(yr.year)}</small><b>${yr.pct}%</b></span>` : ""}
-      <a href="#/record">Full record →</a>
+      <a href="#/record">Full record</a>
     </div></div>`;
 }
 function whyEdge() {
@@ -1233,23 +1280,24 @@ function whyEdge() {
       <div><b>Math, not opinions</b><p>Every UFC fight since 2010 feeds one rating per fighter. No votes, no hype, no narratives.</p></div>
       <div><b>Who you beat matters</b><p>Finishing a champion moves a rating far more than a split decision over a newcomer. How you win and who you beat both count.</p></div>
       <div><b>Priced against the line</b><p>We only call a pick when our chance beats the sportsbook's by enough to matter. Most fights get no pick.</p></div>
-    </div><a class="we-more" href="#/how">How it works →</a></section>`;
+    </div><a class="we-more" href="#/how">How it works</a></section>`;
 }
 // the three plans on the home page, compact; each opens the Pricing page
 function homePlans() {
   if (!PLANS || !PLANS.plans) return "";
   const cards = [{id: "free", name: "Free", price: 0, tagline: "See how every fight rates.", features: PLANS.free}, ...PLANS.plans];
-  return `<section class="hplans"><div class="hp-h"><h2>Pick your plan</h2><a href="#/pricing">Compare plans →</a></div>
-    <div class="hp-g">${cards.map(pl => `<a class="hp-c${pl.best ? " best" : ""}" href="#/pricing">${pl.best ? `<span class="plan-flag">Best value</span>` : ""}
+  return `<section class="hplans"><div class="hp-h"><h2>Plans</h2><a href="#/pricing">Compare plans</a></div>
+    <div class="hp-g">${cards.map(pl => `<a class="hp-c${pl.best ? " best" : ""}" href="#/pricing">
       <h3>${esc(pl.name)}</h3><div class="plan-price">${pl.price ? `<b>$${pl.price}</b><span>/ ${esc(pl.period)}</span>` : `<b>$0</b>`}</div>
       <p class="plan-tag">${esc(pl.tagline)}</p><ul>${pl.features.slice(0, 3).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
       <span class="${pl.best ? "btn" : "pill"} hp-cta">${pl.id === "free" ? "What's free" : "See " + esc(pl.name)}</span></a>`).join("")}</div></section>`;
 }
 function closingCta(mr) {
   const s = mr && mr.since;
-  return `<section class="close-cta"><div><h2>Stop guessing. <em>Start betting the edge.</em></h2>
-    <p>${s ? `Our picks: ${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, <b class="won">${units(s.our_units)}</b>. ` : ""}Each week's picks go up before the first fight.</p></div>
-    <div class="cc-b"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">Get this week's picks</a></div></section>`;
+  if (!s) return "";
+  return `<section class="close-cta"><div><h2>Picks go up early in fight week</h2>
+    <p>${s.our_won}-${s.our_bets - s.our_won} since ${mr.from || 2020}, <b class="won">${units(s.our_units)}</b> at 1 unit a pick. Final picks are set the morning of the card.</p></div>
+    <div class="cc-b"><a class="btn" href="${paywallOn() && myPlan() === "free" ? "#/pricing" : "#/card"}">This week's picks</a></div></section>`;
 }
 function newsletterBox() {
   const n = PLANS && PLANS.newsletter;
@@ -1414,7 +1462,7 @@ async function viewHome() {
         <a href="#/fighter/${esc(m.b_slug)}">${portrait(m.b_id, m.b, "hero-pt")}<span class="n">${esc(m.b)}</span>${rankOf(m.b_slug)}${flagOf(m.b_slug, true)}<span class="pc b">${m.hidden ? lockIcon : (100 - Math.round(100 * m.p_a)) + "%"}</span><span class="ln">Line ${m.market_p_a != null ? (100 - Math.round(100 * m.market_p_a)) + "%" + " · " + odds(m.odds_b) : "not posted"}</span></a>
       </div>
       ${(p.schedule || []).length ? `<div class="tvsched">${p.schedule.map(sg => `<div class="tv"><b>${esc(sg.segment)}</b><span>${new Date(sg.start).toLocaleString(undefined, {weekday: "short", hour: "numeric", minute: "2-digit", timeZoneName: "short"})}</span><small>${sg.bouts} fight${sg.bouts > 1 ? "s" : ""}${sg.tv && sg.tv.length ? " · " + esc(sg.tv.join(", ")) : ""}</small></div>`).join("")}</div>` : ""}
-      <div class="legendline">${m.hidden ? `Our chance on this fight is for members. <a href="#/pricing">See plans</a>` : "Big number: our chance. Line: the betting line's chance with the bookmaker's cut removed, and the moneyline."}</div>
+      <div class="legendline">${m.hidden ? `Our chance on this fight is for members. <a href="#/pricing">See plans</a>` : "Big number is ours. Line is the sportsbook's, with their cut removed."}</div>
       <a class="btn" href="#/card">See all ${p.fights.length} bouts, picks and expert splits</a>
     </section>`;
     picksH = `<h2>${kick("This week", "gold")}Our picks</h2>${picksStrip(p)}`;
@@ -1431,7 +1479,7 @@ async function viewHome() {
   const firstStart = p && L && p.date === L.from ? ((p.schedule || [])[0] || {}).start || (p.fights[0] || {}).start : null;
   const live = "", record = "";
   const bt = await get("backtest.json", true);
-  if (hero === "FEATURE") return `${proofBand(mr, L, p, bt)}${feature(p, up)}${recap}${whyEdge()}${newsletterBox()}
+  if (hero === "FEATURE") return `${proofBand(mr, L, p, bt)}${feature(p, up)}${recap}${newsletterBox()}
     <div class="home2">${homeLower(ev, ex, up, p)}</div>${closingCta(mr)}${homePlans()}`;
   return `${proofBand(mr, L, p, bt)}${recap}${hero}
     <div class="homegrid"><div class="hg-main">${picksH}${record}</div>${homeLower(ev, ex, up, p)}</div>`;
@@ -1711,7 +1759,7 @@ async function viewFighter(s) {
     return `<a class="nextfight" href="${fightLink(nxi)}"><span class="nf-k">Next fight</span>
       <span class="nf-t"><b>vs ${esc(opp)}</b><small>${esc(pr.event)} · ${dateLong(pr.date)}${b.weight_class ? " · " + esc(b.weight_class) : ""}</small></span>
       <span class="nf-n">${ch != null ? `<b>${pct(ch)}</b><small>our chance${o != null ? " · " + odds(o) : ""}</small>` : b.hidden ? `<b>${lockIcon}</b><small>for members${o != null ? " · line " + odds(o) : ""}</small>` : o != null ? `<b>${odds(o)}</b><small>line</small>` : ""}</span>
-      ${mine ? `<span class="nf-pick">Our pick</span>` : against ? `<span class="nf-pick vs">We pick ${esc(opp)}</span>` : ""}<span class="nf-go">Breakdown →</span></a>`; })();
+      ${mine ? `<span class="nf-pick">Our pick</span>` : against ? `<span class="nf-pick vs">We pick ${esc(opp)}</span>` : ""}<span class="nf-go">Breakdown</span></a>`; })();
   return `<p><a href="#/fighters">← Fighters</a></p>${nextFight}
     <section class="fhero">
       <figure class="fh-ph">${photo(f.espn_id, f.name, "xl")}${(() => { const c = PHOTOS.photos[f.slug]; const used = c && photoSrc(f.espn_id, f.name)[0] === c.src;
@@ -1804,12 +1852,12 @@ async function viewAbout() {
       <section><h2>How we keep it honest</h2><ul class="dots">
         <li>Every pick is graded at the average sportsbook's price, never the best one</li>
         <li>Picks are locked before the fight and never edited after it</li>
-        <li>Ideas only make it into the model if they hold up in two separate stretches of years</li>
+        <li>Ideas only make it into the model if they hold up in each of three separate stretches of years</li>
         <li>No affiliate links and no sportsbook sponsorship: members pay for the picks, so our only job is getting them right</li></ul></section>
     </div>
     ${S ? `<div class="hw-stats"><div><b>${S.our_pct}%</b><span>our picks won since ${mr.from || 2020}</span></div><div><b class="${S.our_units >= 0 ? "won" : "lost"}">${units(S.our_units)}</b><span>flat 1-unit bets</span></div><div><b>${S.our_bets}</b><span>picks graded</span></div><div><b>7,500+</b><span>UFC fights since 2010 in the data</span></div></div>` : ""}
     <h2>Who's behind it</h2>
-    <p class="note">The data and the numbers update themselves through fight week. The picks and the notes on them are mine. The full method is on <a href="#/how">How it works</a>.</p>
+    <p class="note">The data, the numbers and the short read on each pick update themselves through fight week. Anything marked "Jono's take" is me. The full method is on <a href="#/how">How it works</a>.</p>
     <h2>Data and credits</h2>
     <p class="note">Results, cards and lines from ESPN; sportsbook prices from The Odds API; career stats from UFC.com; historical fights from the Ultimate UFC Dataset. Freely licensed fighter photos from Wikimedia Commons are credited on the <a href="#/credits">photo credits</a> page. Octagon Edge isn't affiliated with the UFC, ESPN or any sportsbook.</p>
     <p class="note">For fun and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>`;
@@ -1840,7 +1888,7 @@ function viewUnits() {
     <h2>Expect losing stretches</h2>
     <p>Even a winning approach has bad weeks and bad months; 2025 was close to break-even for us. Flat, steady unit sizes are what let you ride those out. Don't bet more than you can afford to lose.</p>
     <p class="note">21+ only where legal. If betting stops being fun, help is free and confidential: call or text 1-800-GAMBLER (US). Nothing here is financial advice.</p>
-    <p><a href="#/card">See this card's picks →</a></p>
+    <p><a href="#/card">See this card's picks</a></p>
   </div>`;
 }
 
@@ -1904,7 +1952,7 @@ function divisionCards(fx) {
         <span class="dc-sub"><span class="champtag">Champ</span>${flagOf(ch.s)}${rt(ch.s) ? `<b>${rt(ch.s)}</b>` : ""}</span></a>`
         : `<div class="dc-champ vacant"><span class="dc-div">${esc(d)}</span><span class="dc-name">Title vacant</span></div>`}
       <ol class="dc-list">${top.map(x => `<li><span class="dc-rk">#${x.rank}</span><span class="dc-f">${flagOf(x.s)}${fighterLink(nm(x.s), x.s)}</span><span class="dc-r">${rt(x.s) ?? "–"}</span></li>`).join("")}</ol>
-      <a class="dc-more" href="#/rankings?div=${encodeURIComponent(d)}">Our ratings for the division →</a>
+      <a class="dc-more" href="#/rankings?div=${encodeURIComponent(d)}">Our ratings for the division</a>
     </section>`; }).join("")}</div>`;
 }
 
@@ -2308,7 +2356,7 @@ async function liveBadge() {
   if (!el || !s || !s.our_bets) return;
   const u = s.our_staked_units ?? s.our_units, rec = `${s.our_won}-${s.our_bets - s.our_won}${s.our_pushes ? "-" + s.our_pushes : ""}`;
   const since = new Date(s.from + "T12:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"});
-  el.innerHTML = `<span class="lbi"><span class="lb-dot"></span><span class="lb-l">Live record<span class="lb-s"> since ${since}</span></span><b>${rec}</b><em class="${u >= 0 ? "won" : "lost"}">${u >= 0 ? "+" : ""}${u.toFixed(1)}u</em><span class="lb-go">Every pick graded →</span></span>`;
+  el.innerHTML = `<span class="lbi"><span class="lb-dot"></span><span class="lb-l">Live record<span class="lb-s"> since ${since}</span></span><b>${rec}</b><em class="${u >= 0 ? "won" : "lost"}">${u >= 0 ? "+" : ""}${u.toFixed(1)}u</em><span class="lb-go">Every pick graded</span></span>`;
   el.title = `Our picks since the site went public (${new Date(s.from + "T12:00:00").toLocaleDateString(undefined, {month: "short", day: "numeric"})}), graded at the suggested stakes`;
   el.hidden = false;
 }
