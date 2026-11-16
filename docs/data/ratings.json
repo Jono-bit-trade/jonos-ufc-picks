@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T23:34Z",
+ "updated": "2026-11-16T17:10Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -497,7 +497,7 @@
     {
      "fighter": "Brando Pericic",
      "rating": 1682,
-     "rd": 153,
+     "rd": 154,
      "last_fight": "2026-05-02",
      "division": "Heavyweight",
      "record": "3-0"
@@ -755,7 +755,7 @@
     {
      "fighter": "Anthony Hernandez",
      "rating": 1722,
-     "rd": 102,
+     "rd": 103,
      "last_fight": "2026-08-22",
      "division": "Middleweight",
      "record": "9-4"
@@ -1199,7 +1199,7 @@
     {
      "fighter": "Cory Sandhagen",
      "rating": 1774,
-     "rd": 95,
+     "rd": 96,
      "last_fight": "2026-07-11",
      "division": "Bantamweight",
      "record": "11-6"
