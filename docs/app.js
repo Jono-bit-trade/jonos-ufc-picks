@@ -1840,7 +1840,7 @@ async function viewExperts() {
 // ---------------- about and photo credits ----------------
 async function viewAbout() {
   const mr = await get("model_record.json"), S = mr ? (mr.since || mr.all) : null;
-  return `<h1>About Octagon Edge</h1>
+  return `<div class="about-photo" role="img" aria-label="A fighter in black and red boxing gloves"></div><h1>About Octagon Edge</h1>
     <p class="lede">I'm Jono. I got tired of UFC picks with nothing behind them, so I built a rating for every UFC fighter and a model that prices every fight. When my number and the sportsbook's disagree by enough, that's a pick. Every one goes up before the fight and gets graded after it.</p>
     <div class="about">
       <section><h2>What you get each week</h2><ul class="dots">
@@ -1923,6 +1923,7 @@ async function viewCredits() {
   const list = Object.values(PHOTOS.photos || {}).sort((a, b) => a.name < b.name ? -1 : 1);
   return `<h1>Photo credits</h1>
     <p class="note">${PHOTOS.mode === "espn_first" ? "Fighter photos come from ESPN where available; the" : PHOTOS.mode === "commons_first" ? "Fighters without a photo below use their ESPN headshot. The" : "The"} photos below are from Wikimedia Commons, used under the license shown. Thank you to every photographer who shares their work.</p>
+    <p class="note">Background photos from Unsplash, under the <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash License</a>: <a href="https://unsplash.com/photos/two-fighters-grappling-inside-a-cage-CtmroEwoSKY" target="_blank" rel="noopener">fighters grappling in a cage</a> by Gabriel F Rodrigues, <a href="https://unsplash.com/photos/a-couple-of-men-standing-next-to-each-other-in-a-cage-wEvO6fsQiG4" target="_blank" rel="noopener">two fighters in a cage</a> by Redd Francisco, <a href="https://unsplash.com/photos/man-in-black-and-red-boxing-gloves-CcJpFWrXlb8" target="_blank" rel="noopener">boxing gloves</a> by Vladislav Bychkov and <a href="https://unsplash.com/photos/two-fighters-competing-in-a-martial-arts-match-J26TT4wzMEE" target="_blank" rel="noopener">two fighters competing</a> by Michael Deubner.</p>
     <p class="note">Country flags: <a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener">flag-icons</a> by Panayiotis Lipiridis, MIT license. Countries are the ones ESPN lists for each fighter, or the country of birth on UFC.com.</p>
     ${list.length ? `<div class="tablewrap"><table><thead><tr><th>Fighter</th><th>Photographer</th><th>License</th><th class="hide-sm">Source</th></tr></thead><tbody>${list.map(c =>
       `<tr><td>${fighterLink(c.name)}</td><td>${esc(c.author || "Unknown")}</td><td>${c.license_url ? `<a href="${esc(c.license_url)}" target="_blank" rel="noopener">${esc(c.license)}</a>` : esc(c.license)}</td>
