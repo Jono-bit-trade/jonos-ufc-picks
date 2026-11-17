@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T13:14Z",
+ "updated": "2026-11-17T14:55Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -108,7 +108,7 @@
     "handle_b": 0.96,
     "bets_a": 0.32,
     "bets_b": 0.68,
-    "at": "2026-11-17T13:13Z"
+    "at": "2026-11-17T14:54Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Stirling",
@@ -223,6 +223,11 @@
      "t": "2026-11-17T13:14Z",
      "a": 130.0,
      "b": -155.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
+     "a": 130.0,
+     "b": -155.0
     }
    ],
    "edge_a": 0.041,
@@ -332,14 +337,14 @@
    "splits": {
     "handle_a": 0.17,
     "handle_b": 0.83,
-    "bets_a": 0.49,
-    "bets_b": 0.51,
-    "at": "2026-11-17T13:13Z"
+    "bets_a": 0.47,
+    "bets_b": 0.53,
+    "at": "2026-11-17T14:54Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Vallejos",
     "Our chance 54% vs the line's 54%",
-    "Bigger bettors on him: 83% of DraftKings money from 51% of bets"
+    "Bigger bettors on him: 83% of DraftKings money from 53% of bets"
    ],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -448,6 +453,11 @@
     },
     {
      "t": "2026-11-17T13:14Z",
+     "a": 110.0,
+     "b": -130.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
      "a": 110.0,
      "b": -130.0
     }
@@ -559,15 +569,14 @@
    "splits": {
     "handle_a": 0.98,
     "handle_b": 0.02,
-    "bets_a": 0.77,
-    "bets_b": 0.23,
-    "at": "2026-11-17T13:13Z"
+    "bets_a": 0.79,
+    "bets_b": 0.21,
+    "at": "2026-11-17T14:54Z"
    },
    "why": [
     "Our chance 66% vs the line's 62% (4 points of value)",
     "6 of 6 analysts agree",
-    "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
-    "Bigger bettors on him: 98% of DraftKings money from 77% of bets"
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)"
    ],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -676,6 +685,11 @@
     },
     {
      "t": "2026-11-17T13:14Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
      "a": -185.0,
      "b": 154.0
     }
@@ -787,9 +801,9 @@
    "splits": {
     "handle_a": 0.95,
     "handle_b": 0.05,
-    "bets_a": 0.92,
-    "bets_b": 0.08,
-    "at": "2026-11-17T13:13Z"
+    "bets_a": 0.89,
+    "bets_b": 0.11,
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -901,6 +915,11 @@
      "t": "2026-11-17T13:14Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
    "edge_a": 0.001,
@@ -1009,7 +1028,7 @@
     "handle_b": 0.9,
     "bets_a": 0.32,
     "bets_b": 0.68,
-    "at": "2026-11-17T13:13Z"
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -1121,6 +1140,11 @@
      "t": "2026-11-17T13:14Z",
      "a": 245.0,
      "b": -305.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
+     "a": 245.0,
+     "b": -305.0
     }
    ],
    "edge_a": -0.023,
@@ -1229,7 +1253,7 @@
     "handle_b": 0.0,
     "bets_a": 1.0,
     "bets_b": 0.0,
-    "at": "2026-11-17T13:13Z"
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Bantamweight",
@@ -1269,6 +1293,11 @@
    "line_history": [
     {
      "t": "2026-11-17T13:14Z",
+     "a": -290.0,
+     "b": 235.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
      "a": -290.0,
      "b": 235.0
     }
@@ -1375,11 +1404,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.59,
-    "handle_b": 0.41,
+    "handle_a": 0.6,
+    "handle_b": 0.4,
     "bets_a": 0.75,
     "bets_b": 0.25,
-    "at": "2026-11-17T13:13Z"
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -1491,6 +1520,11 @@
      "t": "2026-11-17T13:14Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
+     "a": -205.0,
+     "b": 170.0
     }
    ],
    "edge_a": 0.002,
@@ -1595,11 +1629,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.32,
-    "handle_b": 0.68,
-    "bets_a": 0.33,
-    "bets_b": 0.67,
-    "at": "2026-11-17T13:13Z"
+    "handle_a": 0.31,
+    "handle_b": 0.69,
+    "bets_a": 0.32,
+    "bets_b": 0.68,
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -1711,6 +1745,11 @@
      "t": "2026-11-17T13:14Z",
      "a": -115.0,
      "b": -105.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
+     "a": -115.0,
+     "b": -105.0
     }
    ],
    "edge_a": 0.019,
@@ -1815,11 +1854,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.18,
-    "handle_b": 0.82,
-    "bets_a": 0.73,
-    "bets_b": 0.27,
-    "at": "2026-11-17T13:13Z"
+    "handle_a": 0.19,
+    "handle_b": 0.81,
+    "bets_a": 0.75,
+    "bets_b": 0.25,
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1931,6 +1970,11 @@
      "t": "2026-11-17T13:14Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
    "edge_a": 0.023,
@@ -1975,7 +2019,7 @@
     "handle_b": 1.0,
     "bets_a": 0.0,
     "bets_b": 1.0,
-    "at": "2026-11-17T13:13Z"
+    "at": "2026-11-17T14:54Z"
    },
    "why": [
     "Our chance 65% vs the line's 61% (4 points of value)",
@@ -2018,6 +2062,11 @@
    "line_history": [
     {
      "t": "2026-11-17T13:14Z",
+     "a": 145.0,
+     "b": -175.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
      "a": 145.0,
      "b": -175.0
     }
@@ -2067,7 +2116,7 @@
     "handle_b": 0.0,
     "bets_a": 1.0,
     "bets_b": 0.0,
-    "at": "2026-11-17T13:13Z"
+    "at": "2026-11-17T14:54Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -2107,6 +2156,11 @@
    "line_history": [
     {
      "t": "2026-11-17T13:14Z",
+     "a": -250.0,
+     "b": 205.0
+    },
+    {
+     "t": "2026-11-17T14:55Z",
      "a": -250.0,
      "b": 205.0
     }
