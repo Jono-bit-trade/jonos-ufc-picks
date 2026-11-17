@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T23:20Z",
+ "updated": "2026-11-17T02:36Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -104,11 +104,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.14,
-    "handle_b": 0.86,
-    "bets_a": 0.23,
-    "bets_b": 0.77,
-    "at": "2026-11-16T23:20Z"
+    "handle_a": 0.2,
+    "handle_b": 0.8,
+    "bets_a": 0.24,
+    "bets_b": 0.76,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -208,6 +208,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": 142.0,
+     "b": -170.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": 142.0,
      "b": -170.0
     }
@@ -314,11 +319,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.61,
-    "handle_b": 0.39,
-    "bets_a": 0.48,
-    "bets_b": 0.52,
-    "at": "2026-11-16T23:20Z"
+    "handle_a": 0.67,
+    "handle_b": 0.33,
+    "bets_a": 0.52,
+    "bets_b": 0.48,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [
     "Close fight and 4 of 6 analysts pick Vallejos",
@@ -421,6 +426,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": 110.0,
+     "b": -130.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": 110.0,
      "b": -130.0
     }
@@ -532,15 +542,15 @@
    "splits": {
     "handle_a": 0.95,
     "handle_b": 0.05,
-    "bets_a": 0.71,
-    "bets_b": 0.29,
-    "at": "2026-11-16T23:20Z"
+    "bets_a": 0.72,
+    "bets_b": 0.28,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [
     "Our chance 66% vs the line's 62% (4 points of value)",
     "6 of 6 analysts agree",
     "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
-    "Bigger bettors on him: 95% of DraftKings money from 71% of bets"
+    "Bigger bettors on him: 95% of DraftKings money from 72% of bets"
    ],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -639,6 +649,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": -185.0,
+     "b": 154.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": -185.0,
      "b": 154.0
     }
@@ -748,11 +763,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.41,
-    "handle_b": 0.59,
-    "bets_a": 0.94,
-    "bets_b": 0.06,
-    "at": "2026-11-16T23:20Z"
+    "handle_a": 0.4,
+    "handle_b": 0.6,
+    "bets_a": 0.89,
+    "bets_b": 0.11,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -767,16 +782,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.33,
-   "p_a": 0.646,
+   "p_a": 0.638,
    "model_pick": "Kyoji Horiguchi",
    "tier": "Medium",
-   "fair_odds_a": -183,
-   "fair_odds_b": 183,
-   "market_p_a": 0.645,
-   "odds_a": -205.0,
-   "odds_b": 170.0,
-   "best_a": -205.0,
-   "best_b": 170.0,
+   "fair_odds_a": -176,
+   "fair_odds_b": 176,
+   "market_p_a": 0.637,
+   "odds_a": -198.0,
+   "odds_b": 164.0,
+   "best_a": -198.0,
+   "best_b": 164.0,
    "open_a": -205.0,
    "open_b": 170.0,
    "books": 1.0,
@@ -785,8 +800,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -205.0,
-     "b": 170.0
+     "a": -198.0,
+     "b": 164.0
     }
    ],
    "line_history": [
@@ -854,6 +869,11 @@
      "t": "2026-11-16T23:20Z",
      "a": -205.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
    "edge_a": 0.001,
@@ -866,20 +886,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.585,
+    "DEC": 0.584,
     "KO": 0.273,
-    "SUB": 0.142
+    "SUB": 0.143
    },
    "how": {
     "a": {
-     "DEC": 0.397,
-     "KO": 0.189,
-     "SUB": 0.061
+     "DEC": 0.392,
+     "KO": 0.187,
+     "SUB": 0.06
     },
     "b": {
-     "DEC": 0.188,
-     "KO": 0.084,
-     "SUB": 0.081
+     "DEC": 0.193,
+     "KO": 0.086,
+     "SUB": 0.083
     }
    }
   },
@@ -960,9 +980,9 @@
    "splits": {
     "handle_a": 0.14,
     "handle_b": 0.86,
-    "bets_a": 0.41,
-    "bets_b": 0.59,
-    "at": "2026-11-16T23:20Z"
+    "bets_a": 0.38,
+    "bets_b": 0.62,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -1062,6 +1082,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": 250.0,
+     "b": -310.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": 250.0,
      "b": -310.0
     }
@@ -1302,9 +1327,9 @@
    "splits": {
     "handle_a": 0.24,
     "handle_b": 0.76,
-    "bets_a": 0.68,
-    "bets_b": 0.32,
-    "at": "2026-11-16T23:20Z"
+    "bets_a": 0.67,
+    "bets_b": 0.33,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -1404,6 +1429,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": -198.0,
+     "b": 170.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": -198.0,
      "b": 170.0
     }
@@ -1512,9 +1542,9 @@
    "splits": {
     "handle_a": 0.12,
     "handle_b": 0.88,
-    "bets_a": 0.29,
-    "bets_b": 0.71,
-    "at": "2026-11-16T23:20Z"
+    "bets_a": 0.27,
+    "bets_b": 0.73,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -1614,6 +1644,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": -115.0,
+     "b": -105.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": -115.0,
      "b": -105.0
     }
@@ -1720,11 +1755,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.36,
-    "handle_b": 0.64,
-    "bets_a": 0.7,
-    "bets_b": 0.3,
-    "at": "2026-11-16T23:20Z"
+    "handle_a": 0.37,
+    "handle_b": 0.63,
+    "bets_a": 0.72,
+    "bets_b": 0.28,
+    "at": "2026-11-17T02:36Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -1824,6 +1859,11 @@
     },
     {
      "t": "2026-11-16T23:20Z",
+     "a": -245.0,
+     "b": 200.0
+    },
+    {
+     "t": "2026-11-17T02:36Z",
      "a": -245.0,
      "b": 200.0
     }
