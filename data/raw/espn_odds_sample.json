@@ -6,14 +6,14 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "N. Stirling -170",
+ "details": "N. Stirling -155",
  "overUnder": 2.5,
  "overOdds": 130.0,
  "underOdds": -166.0,
  "awayAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -170,
+  "moneyLine": -155,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -27,12 +27,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 1.58,
-    "displayValue": "10/17",
-    "alternateDisplayValue": "-170",
-    "decimal": 1.58,
-    "fraction": "10/17",
-    "american": "-170"
+    "value": 1.64,
+    "displayValue": "20/31",
+    "alternateDisplayValue": "-155",
+    "decimal": 1.64,
+    "fraction": "20/31",
+    "american": "-155"
    }
   },
   "athlete": {
@@ -42,7 +42,7 @@
  "homeAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 142,
+  "moneyLine": 130,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -56,12 +56,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 2.42,
-    "displayValue": "71/50",
-    "alternateDisplayValue": "+142",
-    "decimal": 2.42,
-    "fraction": "71/50",
-    "american": "+142"
+    "value": 2.3,
+    "displayValue": "13/10",
+    "alternateDisplayValue": "+130",
+    "decimal": 2.3,
+    "fraction": "13/10",
+    "american": "+130"
    }
   },
   "athlete": {
