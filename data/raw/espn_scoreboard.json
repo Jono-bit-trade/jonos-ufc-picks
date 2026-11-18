@@ -1129,8 +1129,8 @@
     {
      "id": "401927854",
      "uid": "s:3301~l:3321~e:600061665~c:401927854",
-     "date": "2026-11-21T18:00Z",
-     "endDate": "2026-11-21T18:00Z",
+     "date": "2026-11-21T15:00Z",
+     "endDate": "2026-11-21T15:00Z",
      "type": {
       "id": "970",
       "abbreviation": "Bantamweight"
@@ -1214,8 +1214,8 @@
        "state": "pre",
        "completed": false,
        "description": "Scheduled",
-       "detail": "Sat, November 21st at 1:00 PM EST",
-       "shortDetail": "11/21 - 1:00 PM EST"
+       "detail": "Sat, November 21st at 10:00 AM EST",
+       "shortDetail": "11/21 - 10:00 AM EST"
       }
      },
      "broadcasts": [
@@ -1231,7 +1231,7 @@
        "periods": 3
       }
      },
-     "startDate": "2026-11-21T18:00Z",
+     "startDate": "2026-11-21T15:00Z",
      "broadcast": "Paramount+",
      "geoBroadcasts": [
       {
