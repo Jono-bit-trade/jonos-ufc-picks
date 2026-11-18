@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T01:51Z",
+ "updated": "2026-11-18T16:33Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -250,20 +250,20 @@
    "record": "10-2"
   },
   {
-   "fighter": "Diego Lopes",
-   "rating": 1807,
-   "rd": 109,
-   "last_fight": "2026-06-14",
-   "division": "Featherweight",
-   "record": "7-3"
-  },
-  {
    "fighter": "Paddy Pimblett",
    "rating": 1807,
    "rd": 114,
    "last_fight": "2026-07-11",
    "division": "Lightweight",
    "record": "8-1"
+  },
+  {
+   "fighter": "Diego Lopes",
+   "rating": 1807,
+   "rd": 109,
+   "last_fight": "2026-06-14",
+   "division": "Featherweight",
+   "record": "7-3"
   },
   {
    "fighter": "Song Yadong",
@@ -298,20 +298,12 @@
    "record": "7-1"
   },
   {
-   "fighter": "Dustin Poirier",
+   "fighter": "Zhang Weili",
    "rating": 1795,
-   "rd": 91,
-   "last_fight": "2025-07-19",
-   "division": "Lightweight",
-   "record": "22-9"
-  },
-  {
-   "fighter": "Joe Pyfer",
-   "rating": 1795,
-   "rd": 117,
-   "last_fight": "2026-03-28",
-   "division": "Middleweight",
-   "record": "7-1"
+   "rd": 104,
+   "last_fight": "2025-11-15",
+   "division": "Women's Flyweight",
+   "record": "10-3"
   },
   {
    "fighter": "Leon Edwards",
@@ -322,12 +314,20 @@
    "record": "14-5"
   },
   {
-   "fighter": "Zhang Weili",
+   "fighter": "Joe Pyfer",
    "rating": 1795,
-   "rd": 104,
-   "last_fight": "2025-11-15",
-   "division": "Women's Flyweight",
-   "record": "10-3"
+   "rd": 117,
+   "last_fight": "2026-03-28",
+   "division": "Middleweight",
+   "record": "7-1"
+  },
+  {
+   "fighter": "Dustin Poirier",
+   "rating": 1795,
+   "rd": 91,
+   "last_fight": "2025-07-19",
+   "division": "Lightweight",
+   "record": "22-9"
   },
   {
    "fighter": "Lerone Murphy",
@@ -354,20 +354,20 @@
    "record": "16-3"
   },
   {
-   "fighter": "Sean Strickland",
-   "rating": 1791,
-   "rd": 89,
-   "last_fight": "2026-05-09",
-   "division": "Middleweight",
-   "record": "18-7"
-  },
-  {
    "fighter": "Mike Malott",
    "rating": 1791,
    "rd": 112,
    "last_fight": "2026-10-17",
    "division": "Welterweight",
    "record": "8-1"
+  },
+  {
+   "fighter": "Sean Strickland",
+   "rating": 1791,
+   "rd": 89,
+   "last_fight": "2026-05-09",
+   "division": "Middleweight",
+   "record": "18-7"
   },
   {
    "fighter": "Grant Dawson",
@@ -386,20 +386,20 @@
    "record": "9-3"
   },
   {
-   "fighter": "Joshua Van",
-   "rating": 1781,
-   "rd": 103,
-   "last_fight": "2026-09-19",
-   "division": "Flyweight",
-   "record": "11-1"
-  },
-  {
    "fighter": "Jack Della Maddalena",
    "rating": 1781,
    "rd": 111,
    "last_fight": "2026-05-02",
    "division": "Welterweight",
    "record": "8-2"
+  },
+  {
+   "fighter": "Joshua Van",
+   "rating": 1781,
+   "rd": 103,
+   "last_fight": "2026-09-19",
+   "division": "Flyweight",
+   "record": "11-1"
   }
  ],
  "divisions": [
@@ -620,20 +620,20 @@
      "record": "4-0"
     },
     {
-     "fighter": "Volkan Oezdemir",
-     "rating": 1680,
-     "rd": 101,
-     "last_fight": "2025-11-22",
-     "division": "Light Heavyweight",
-     "record": "9-7"
-    },
-    {
      "fighter": "Jamahal Hill",
      "rating": 1680,
      "rd": 109,
      "last_fight": "2025-06-21",
      "division": "Light Heavyweight",
      "record": "7-4"
+    },
+    {
+     "fighter": "Volkan Oezdemir",
+     "rating": 1680,
+     "rd": 101,
+     "last_fight": "2025-11-22",
+     "division": "Light Heavyweight",
+     "record": "9-7"
     },
     {
      "fighter": "Bogdan Guskov",
