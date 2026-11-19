@@ -6,7 +6,7 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "N. Stirling -162",
+ "details": "N. Stirling -175",
  "overUnder": 2.5,
  "spread": 13.5,
  "overOdds": 130.0,
@@ -14,7 +14,7 @@
  "awayAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -162,
+  "moneyLine": -175,
   "spreadOdds": -125.0,
   "open": {
    "favorite": true,
@@ -79,12 +79,12 @@
     "american": "-125"
    },
    "moneyLine": {
-    "value": 1.61,
-    "displayValue": "50/81",
-    "alternateDisplayValue": "-162",
-    "decimal": 1.61,
-    "fraction": "50/81",
-    "american": "-162"
+    "value": 1.57,
+    "displayValue": "4/7",
+    "alternateDisplayValue": "-175",
+    "decimal": 1.57,
+    "fraction": "4/7",
+    "american": "-175"
    },
    "victoryMethod": {
     "koTkoDq": {
@@ -120,7 +120,7 @@
  "homeAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 136,
+  "moneyLine": 145,
   "spreadOdds": -105.0,
   "open": {
    "favorite": false,
@@ -185,12 +185,12 @@
     "american": "-105"
    },
    "moneyLine": {
-    "value": 2.36,
-    "displayValue": "34/25",
-    "alternateDisplayValue": "+136",
-    "decimal": 2.36,
-    "fraction": "34/25",
-    "american": "+136"
+    "value": 2.45,
+    "displayValue": "29/20",
+    "alternateDisplayValue": "+145",
+    "decimal": 2.45,
+    "fraction": "29/20",
+    "american": "+145"
    },
    "victoryMethod": {
     "koTkoDq": {
