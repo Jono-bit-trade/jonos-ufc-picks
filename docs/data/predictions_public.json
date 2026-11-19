@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T16:40Z",
+ "updated": "2026-11-19T22:07Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-11-21T15:00Z",
-   "bouts": 6,
+   "bouts": 7,
    "tv": [
     "Paramount+"
    ]
@@ -39,7 +39,7 @@
    "record_a": "32-6-1",
    "record_b": "11-0-0",
    "experts": {
-    "picks_a": 4,
+    "picks_a": 5,
     "picks_b": 7,
     "high_a": 2,
     "high_b": 3,
@@ -47,6 +47,15 @@
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": true
+     },
      {
       "name": "Lucrative James",
       "side": "b",
@@ -149,14 +158,14 @@
     ]
    },
    "splits": {
-    "handle_a": 0.35,
-    "handle_b": 0.65,
+    "handle_a": 0.39,
+    "handle_b": 0.61,
     "bets_a": 0.38,
-    "bets_b": 0.63,
-    "at": "2026-11-19T04:11Z"
+    "bets_b": 0.62,
+    "at": "2026-11-19T22:06Z"
    },
    "why": [
-    "Close fight and 7 of 11 analysts pick Stirling"
+    "Close fight and 7 of 12 analysts pick Stirling"
    ],
    "weight_class": "Light Heavyweight",
    "rounds": 5,
@@ -312,6 +321,11 @@
      "t": "2026-11-19T16:40Z",
      "a": 145.0,
      "b": -175.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": 145.0,
+     "b": -175.0
     }
    ],
    "edge_a": 0.05,
@@ -355,7 +369,7 @@
    "record_a": "26-5-0",
    "record_b": "18-1-0",
    "experts": {
-    "picks_a": 2,
+    "picks_a": 3,
     "picks_b": 9,
     "high_a": 0,
     "high_b": 3,
@@ -363,6 +377,15 @@
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "b",
@@ -465,11 +488,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.33,
-    "handle_b": 0.67,
-    "bets_a": 0.57,
-    "bets_b": 0.43,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.62,
+    "handle_b": 0.38,
+    "bets_a": 0.56,
+    "bets_b": 0.44,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -482,11 +505,11 @@
    "rating_b": 1744,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.457,
-   "odds_a": 110.0,
-   "odds_b": -130.0,
-   "best_a": 110.0,
-   "best_b": -130.0,
+   "market_p_a": 0.449,
+   "odds_a": 114.0,
+   "odds_b": -135.0,
+   "best_a": 114.0,
+   "best_b": -135.0,
    "open_a": 102.0,
    "open_b": -122.0,
    "books": 1.0,
@@ -495,8 +518,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 110.0,
-     "b": -130.0
+     "a": 114.0,
+     "b": -135.0
     }
    ],
    "line_history": [
@@ -619,6 +642,11 @@
      "t": "2026-11-19T16:40Z",
      "a": 110.0,
      "b": -130.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": 114.0,
+     "b": -135.0
     }
    ],
    "locked": true,
@@ -639,7 +667,7 @@
    "record_a": "24-15-0",
    "record_b": "16-5-0",
    "experts": {
-    "picks_a": 11,
+    "picks_a": 12,
     "picks_b": 0,
     "high_a": 3,
     "high_b": 0,
@@ -647,6 +675,15 @@
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -749,11 +786,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.88,
-    "handle_b": 0.12,
-    "bets_a": 0.79,
-    "bets_b": 0.21,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.82,
+    "handle_b": 0.18,
+    "bets_a": 0.74,
+    "bets_b": 0.26,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -903,6 +940,11 @@
      "t": "2026-11-19T16:40Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "locked": true,
@@ -923,7 +965,7 @@
    "record_a": "36-6-0",
    "record_b": "24-3-0",
    "experts": {
-    "picks_a": 9,
+    "picks_a": 10,
     "picks_b": 2,
     "high_a": 7,
     "high_b": 1,
@@ -931,6 +973,15 @@
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -1033,11 +1084,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.81,
-    "handle_b": 0.19,
-    "bets_a": 0.86,
-    "bets_b": 0.14,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.83,
+    "handle_b": 0.17,
+    "bets_a": 0.81,
+    "bets_b": 0.19,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -1051,10 +1102,10 @@
    "debut_a": false,
    "debut_b": false,
    "market_p_a": 0.637,
-   "odds_a": -185.0,
-   "odds_b": 170.0,
-   "best_a": -185.0,
-   "best_b": 170.0,
+   "odds_a": -198.0,
+   "odds_b": 164.0,
+   "best_a": -198.0,
+   "best_b": 164.0,
    "open_a": -205.0,
    "open_b": 170.0,
    "books": 1.0,
@@ -1063,8 +1114,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -185.0,
-     "b": 170.0
+     "a": -198.0,
+     "b": 164.0
     }
    ],
    "line_history": [
@@ -1187,6 +1238,11 @@
      "t": "2026-11-19T16:40Z",
      "a": -185.0,
      "b": 170.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
    "locked": false,
@@ -1208,13 +1264,22 @@
    "record_b": "18-2-0",
    "experts": {
     "picks_a": 1,
-    "picks_b": 10,
+    "picks_b": 11,
     "high_a": 1,
     "high_b": 4,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -1317,11 +1382,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.23,
-    "handle_b": 0.77,
-    "bets_a": 0.22,
-    "bets_b": 0.78,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.36,
+    "handle_b": 0.64,
+    "bets_a": 0.3,
+    "bets_b": 0.7,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -1334,11 +1399,11 @@
    "rating_b": 1751,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.282,
-   "odds_a": 240.0,
-   "odds_b": -298.0,
-   "best_a": 240.0,
-   "best_b": -298.0,
+   "market_p_a": 0.286,
+   "odds_a": 235.0,
+   "odds_b": -290.0,
+   "best_a": 235.0,
+   "best_b": -290.0,
    "open_a": 280.0,
    "open_b": -355.0,
    "books": 1.0,
@@ -1347,8 +1412,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 240.0,
-     "b": -298.0
+     "a": 235.0,
+     "b": -290.0
     }
    ],
    "line_history": [
@@ -1471,6 +1536,11 @@
      "t": "2026-11-19T16:40Z",
      "a": 240.0,
      "b": -298.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": 235.0,
+     "b": -290.0
     }
    ],
    "locked": false,
@@ -1491,7 +1561,7 @@
    "record_a": "7-1-0",
    "record_b": "8-1-0",
    "experts": {
-    "picks_a": 10,
+    "picks_a": 11,
     "picks_b": 1,
     "high_a": 7,
     "high_b": 0,
@@ -1499,6 +1569,15 @@
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -1601,11 +1680,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.97,
-    "handle_b": 0.03,
-    "bets_a": 0.96,
-    "bets_b": 0.04,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.92,
+    "handle_b": 0.08,
+    "bets_a": 0.89,
+    "bets_b": 0.11,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Bantamweight",
    "rounds": 3,
@@ -1685,6 +1764,11 @@
      "t": "2026-11-19T16:40Z",
      "a": -285.0,
      "b": 230.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -285.0,
+     "b": 230.0
     }
    ],
    "locked": false,
@@ -1705,14 +1789,23 @@
    "record_a": "15-3-0",
    "record_b": "9-2-0",
    "experts": {
-    "picks_a": 10,
+    "picks_a": 11,
     "picks_b": 1,
-    "high_a": 6,
+    "high_a": 7,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -1815,11 +1908,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.86,
-    "handle_b": 0.14,
-    "bets_a": 0.86,
-    "bets_b": 0.14,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.92,
+    "handle_b": 0.08,
+    "bets_a": 0.84,
+    "bets_b": 0.16,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Heavyweight",
    "rounds": 3,
@@ -1969,6 +2062,11 @@
      "t": "2026-11-19T16:40Z",
      "a": -198.0,
      "b": 164.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -198.0,
+     "b": 164.0
     }
    ],
    "locked": false,
@@ -1990,13 +2088,22 @@
    "record_b": "17-5-0",
    "experts": {
     "picks_a": 6,
-    "picks_b": 5,
+    "picks_b": 6,
     "high_a": 1,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -2099,11 +2206,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.29,
-    "handle_b": 0.71,
-    "bets_a": 0.39,
-    "bets_b": 0.61,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.25,
+    "handle_b": 0.75,
+    "bets_a": 0.34,
+    "bets_b": 0.66,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -2253,6 +2360,11 @@
      "t": "2026-11-19T16:40Z",
      "a": -108.0,
      "b": -112.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -108.0,
+     "b": -112.0
     }
    ],
    "locked": false,
@@ -2273,14 +2385,23 @@
    "record_a": "23-8-0",
    "record_b": "20-3-0",
    "experts": {
-    "picks_a": 9,
+    "picks_a": 10,
     "picks_b": 2,
-    "high_a": 4,
+    "high_a": 5,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Lucrative James",
       "side": "a",
@@ -2383,11 +2504,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.31,
-    "handle_b": 0.69,
-    "bets_a": 0.82,
-    "bets_b": 0.18,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.75,
+    "handle_b": 0.25,
+    "bets_a": 0.79,
+    "bets_b": 0.21,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -2400,11 +2521,11 @@
    "rating_b": 1579,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.675,
-   "odds_a": -238.0,
-   "odds_b": 195.0,
-   "best_a": -238.0,
-   "best_b": 195.0,
+   "market_p_a": 0.688,
+   "odds_a": -245.0,
+   "odds_b": 210.0,
+   "best_a": -245.0,
+   "best_b": 210.0,
    "open_a": -166.0,
    "open_b": 140.0,
    "books": 1.0,
@@ -2413,8 +2534,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -238.0,
-     "b": 195.0
+     "a": -245.0,
+     "b": 210.0
     }
    ],
    "line_history": [
@@ -2537,6 +2658,11 @@
      "t": "2026-11-19T16:40Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -245.0,
+     "b": 210.0
     }
    ],
    "locked": false,
@@ -2558,13 +2684,22 @@
    "record_b": "9-3-0",
    "experts": {
     "picks_a": 3,
-    "picks_b": 4,
+    "picks_b": 5,
     "high_a": 1,
     "high_b": 0,
     "url": null,
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "HopperoMMA",
       "side": "a",
@@ -2633,9 +2768,9 @@
    "splits": {
     "handle_a": 0.68,
     "handle_b": 0.32,
-    "bets_a": 0.47,
-    "bets_b": 0.53,
-    "at": "2026-11-19T04:11Z"
+    "bets_a": 0.46,
+    "bets_b": 0.54,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -2648,11 +2783,11 @@
    "rating_b": 1469,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.4,
-   "odds_a": 140.0,
-   "odds_b": -166.0,
-   "best_a": 140.0,
-   "best_b": -166.0,
+   "market_p_a": 0.402,
+   "odds_a": 136.0,
+   "odds_b": -170.0,
+   "best_a": 136.0,
+   "best_b": -170.0,
    "open_a": 145.0,
    "open_b": -175.0,
    "books": 1.0,
@@ -2661,8 +2796,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 140.0,
-     "b": -166.0
+     "a": 136.0,
+     "b": -170.0
     }
    ],
    "line_history": [
@@ -2715,6 +2850,11 @@
      "t": "2026-11-19T16:40Z",
      "a": 140.0,
      "b": -166.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": 136.0,
+     "b": -170.0
     }
    ],
    "locked": true,
@@ -2735,7 +2875,7 @@
    "record_a": "12-2-0",
    "record_b": "8-2-0",
    "experts": {
-    "picks_a": 4,
+    "picks_a": 5,
     "picks_b": 1,
     "high_a": 1,
     "high_b": 0,
@@ -2743,6 +2883,15 @@
     "win_a": 0,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Bedtime MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "213-123",
+      "units": 4.16,
+      "winning": false
+     },
      {
       "name": "Kunath",
       "side": "a",
@@ -2791,11 +2940,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.97,
-    "handle_b": 0.03,
-    "bets_a": 0.93,
-    "bets_b": 0.07,
-    "at": "2026-11-19T04:11Z"
+    "handle_a": 0.98,
+    "handle_b": 0.02,
+    "bets_a": 0.83,
+    "bets_b": 0.17,
+    "at": "2026-11-19T22:06Z"
    },
    "weight_class": "Light Heavyweight",
    "rounds": 3,
@@ -2875,8 +3024,61 @@
      "t": "2026-11-19T16:40Z",
      "a": -245.0,
      "b": 200.0
+    },
+    {
+     "t": "2026-11-19T22:07Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
+   "a": "Shoaib Yousaf",
+   "b": "John Mitchell",
+   "a_slug": "shoaib-yousaf",
+   "b_slug": "john-mitchell",
+   "a_id": "4712356",
+   "b_id": "5080723",
+   "record_a": "14-3-0",
+   "record_b": "11-3-0",
+   "experts": null,
+   "splits": {
+    "handle_a": 0.35,
+    "handle_b": 0.65,
+    "bets_a": 0.55,
+    "bets_b": 0.45,
+    "at": "2026-11-19T22:06Z"
+   },
+   "weight_class": "Lightweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-11-21T15:00Z",
+   "state": "pre",
+   "status": "Sat, November 21st at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1500,
+   "rating_b": 1500,
+   "debut_a": true,
+   "debut_b": true,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "best_book_a": null,
+   "best_book_b": null,
+   "book_prices": [],
+   "line_history": [],
    "locked": false,
    "hidden": true,
    "our_pick": null,

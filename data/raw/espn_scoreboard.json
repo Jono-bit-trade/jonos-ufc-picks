@@ -497,6 +497,132 @@
    },
    "competitions": [
     {
+     "id": "401935762",
+     "uid": "s:3301~l:3321~e:600061665~c:401935762",
+     "date": "2026-11-21T15:00Z",
+     "endDate": "2026-11-21T15:00Z",
+     "type": {
+      "id": "986",
+      "abbreviation": "Lightweight"
+     },
+     "timeValid": true,
+     "neutralSite": false,
+     "playByPlayAvailable": false,
+     "recent": false,
+     "venue": {
+      "id": "11560",
+      "fullName": "ABHA Arena",
+      "address": {
+       "city": "Doha",
+       "country": "Qatar"
+      },
+      "indoor": true
+     },
+     "competitors": [
+      {
+       "id": "4712356",
+       "uid": "s:3301~a:4712356",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Shoaib Yousaf",
+        "displayName": "Shoaib Yousaf",
+        "shortName": "S. Yousaf",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
+         "alt": "England",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "14-3-0"
+        }
+       ]
+      },
+      {
+       "id": "5080723",
+       "uid": "s:3301~a:5080723",
+       "type": "athlete",
+       "order": 2,
+       "winner": false,
+       "athlete": {
+        "fullName": "John Mitchell",
+        "displayName": "John Mitchell",
+        "shortName": "J. Mitchell",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/irl.png",
+         "alt": "Ireland",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "11-3-0"
+        }
+       ]
+      }
+     ],
+     "status": {
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 0,
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sat, November 21st at 10:00 AM EST",
+       "shortDetail": "11/21 - 10:00 AM EST"
+      }
+     },
+     "broadcasts": [
+      {
+       "market": "national",
+       "names": [
+        "Paramount+"
+       ]
+      }
+     ],
+     "format": {
+      "regulation": {
+       "periods": 3
+      }
+     },
+     "startDate": "2026-11-21T15:00Z",
+     "broadcast": "Paramount+",
+     "geoBroadcasts": [
+      {
+       "type": {
+        "id": "4",
+        "shortName": "Streaming"
+       },
+       "market": {
+        "id": "1",
+        "type": "National"
+       },
+       "media": {
+        "shortName": "Paramount+"
+       },
+       "lang": "en",
+       "region": "us"
+      }
+     ],
+     "highlights": []
+    },
+    {
      "id": "401934356",
      "uid": "s:3301~l:3321~e:600061665~c:401934356",
      "date": "2026-11-21T15:00Z",
