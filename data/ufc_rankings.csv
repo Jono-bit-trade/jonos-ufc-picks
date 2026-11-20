@@ -26,8 +26,8 @@ Flyweight,8,Brandon Moreno,brandon-moreno,2026-11-20
 Flyweight,9,Amir Albazi,amir-albazi,2026-11-20
 Flyweight,10,Ramazan Temirov,ramazan-temirov,2026-11-20
 Flyweight,11,Tim Elliott,tim-elliott,2026-11-20
-Flyweight,12,Steve Erceg,steve-erceg,2026-11-20
 Flyweight,12,Sumudaerji,su-mudaerji,2026-11-20
+Flyweight,12,Steve Erceg,steve-erceg,2026-11-20
 Flyweight,14,Charles Johnson,charles-johnson,2026-11-20
 Flyweight,15,Tagir Ulanbekov,tagir-ulanbekov,2026-11-20
 Bantamweight,0,Petr Yan,petr-yan,2026-11-20
@@ -191,8 +191,8 @@ Women's Flyweight,14,Regina Tarin,regina-malpica-rivera,2026-11-20
 Women's Flyweight,15,Gabriella Fernandes,gabriella-fernandes,2026-11-20
 Women's Bantamweight,0,Kayla Harrison,kayla-harrison,2026-11-20
 Women's Bantamweight,1,Amanda Nunes,amanda-nunes,2026-11-20
-Women's Bantamweight,2,Julianna Peña,julianna-pena,2026-11-20
 Women's Bantamweight,2,Joselyne Edwards,joselyne-edwards,2026-11-20
+Women's Bantamweight,2,Julianna Peña,julianna-pena,2026-11-20
 Women's Bantamweight,4,Ailin Perez,ailin-perez,2026-11-20
 Women's Bantamweight,5,Luana Santos,luana-santos,2026-11-20
 Women's Bantamweight,6,Yana Santos,yana-santos,2026-11-20
@@ -253,8 +253,8 @@ Welterweight,2,Ian Machado Garry,ian-machado-garry,2026-11-20
 Welterweight,5,Sean Brady,sean-brady,2026-11-20
 Welterweight,6,Gabriel Bonfim,gabriel-bonfim,2026-11-20
 Welterweight,8,Mike Malott,mike-malott,2026-11-20
-Welterweight,9,Uroš Medić,uros-medic,2026-11-20
-Welterweight,10,Kevin Holland,kevin-holland,2026-11-20
+Welterweight,9,Kevin Holland,kevin-holland,2026-11-20
+Welterweight,10,Uroš Medić,uros-medic,2026-11-20
 Welterweight,11,Leon Edwards,leon-edwards,2026-11-20
 Welterweight,12,Kamaru Usman,kamaru-usman,2026-11-20
 Welterweight,14,Yaroslav Amosov,yaroslav-amosov,2026-11-20
@@ -295,14 +295,19 @@ Heavyweight,14,Serghei Spivac,serghei-spivac,2026-11-20
 Heavyweight,15,Anthony Wint,anthony-wint,2026-11-20
 Women's Strawweight,1,Tatiana Suarez,tatiana-suarez,2026-11-20
 Women's Strawweight,2,Zhang Weili,zhang-weili,2026-11-20
-Women's Strawweight,7,Piera Rodriguez,piera-rodriguez,2026-11-20
-Women's Strawweight,8,Iasmin Lucindo,iasmin-lucindo,2026-11-20
-Women's Strawweight,10,Loopy Godinez,loopy-godinez,2026-11-20
-Women's Strawweight,11,Yan Xiaonan,yan-xiaonan,2026-11-20
-Women's Strawweight,12,Mizuki,mizuki-inoue,2026-11-20
-Women's Strawweight,13,Tabatha Ricci,tabatha-ricci,2026-11-20
-Women's Strawweight,14,Amanda Lemos,amanda-lemos,2026-11-20
-Women's Strawweight,15,Sam Hughes,sam-hughes,2026-11-20
+Women's Strawweight,3,Denise Gomes,denise-gomes,2026-11-20
+Women's Strawweight,4,Gillian Robertson,gillian-robertson,2026-11-20
+Women's Strawweight,5,Fatima Kline,fatima-kline,2026-11-20
+Women's Strawweight,6,Piera Rodriguez,piera-rodriguez,2026-11-20
+Women's Strawweight,7,Iasmin Lucindo,iasmin-lucindo,2026-11-20
+Women's Strawweight,8,Alexia Thainara,alexia-thainara,2026-11-20
+Women's Strawweight,9,Loopy Godinez,loopy-godinez,2026-11-20
+Women's Strawweight,10,Yan Xiaonan,yan-xiaonan,2026-11-20
+Women's Strawweight,11,Mizuki,mizuki-inoue,2026-11-20
+Women's Strawweight,12,Tabatha Ricci,tabatha-ricci,2026-11-20
+Women's Strawweight,13,Amanda Lemos,amanda-lemos,2026-11-20
+Women's Strawweight,14,Sam Hughes,sam-hughes,2026-11-20
+Women's Strawweight,15,Talita Alencar,talita-alencar,2026-11-20
 Women's Flyweight,3,Jasmine Jasudavicius,jasmine-jasudavicius,2026-11-20
 Women's Flyweight,4,Manon Fiorot,manon-fiorot,2026-11-20
 Women's Flyweight,6,Zhang Weili,zhang-weili,2026-11-20
