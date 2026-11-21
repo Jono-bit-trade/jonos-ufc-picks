@@ -3147,7 +3147,7 @@
        "uid": "s:3301~a:5216713",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Navajo Stirling",
         "displayName": "Navajo Stirling",
@@ -3172,18 +3172,19 @@
       }
      ],
      "status": {
-      "clock": 8.0,
-      "displayClock": "0:08",
+      "clock": 298.0,
+      "displayClock": "4:58",
       "period": 2,
       "type": {
-       "id": "31",
-       "name": "STATUS_IN_PROGRESS_2",
-       "state": "in",
-       "completed": false,
-       "description": "In Progress",
-       "detail": "R2, 0:08",
-       "shortDetail": "R2, 0:08"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -3194,6 +3195,41 @@
       }
      ],
      "details": [
+      {
+       "id": "27267",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "27266",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27265",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27264",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27263",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
       {
        "id": "27270",
        "type": {
@@ -3228,27 +3264,6 @@
         "id": "3",
         "text": "Tale of the tape"
        }
-      },
-      {
-       "id": "27246",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "27245",
-       "type": {
-        "id": "2",
-        "text": "Walkout"
-       }
-      },
-      {
-       "id": "27244",
-       "type": {
-        "id": "1",
-        "text": "Fight Open"
-       }
       }
      ],
      "format": {
@@ -3282,26 +3297,13 @@
     {
      "language": "en-US",
      "rel": [
-      "live",
-      "desktop",
-      "event"
-     ],
-     "href": "https://www.espn.com/mma/fightcenter/_/id/600061665",
-     "text": "Gamecast",
-     "shortText": "Gamecast",
-     "isExternal": false,
-     "isPremium": false
-    },
-    {
-     "language": "en-US",
-     "rel": [
       "summary",
       "desktop",
       "event"
      ],
      "href": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc",
-     "text": "FightCenter",
-     "shortText": "FightCenter",
+     "text": "Gamecast",
+     "shortText": "Gamecast",
      "isExternal": false,
      "isPremium": false
     }
@@ -3318,13 +3320,13 @@
    ],
    "status": {
     "type": {
-     "id": "2",
-     "name": "STATUS_IN_PROGRESS",
-     "state": "in",
-     "completed": false,
-     "description": "In Progress",
-     "detail": "In Progress",
-     "shortDetail": "In Progress"
+     "id": "3",
+     "name": "STATUS_FINAL",
+     "state": "post",
+     "completed": true,
+     "description": "Final",
+     "detail": "Final",
+     "shortDetail": "Final"
     }
    }
   }

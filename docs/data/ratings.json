@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T20:47Z",
+ "updated": "2026-11-21T20:51Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -290,35 +290,19 @@
    "record": "9-1"
   },
   {
+   "fighter": "Navajo Stirling",
+   "rating": 1797,
+   "rd": 121,
+   "last_fight": "2026-11-21",
+   "division": "Light Heavyweight",
+   "record": "7-0"
+  },
+  {
    "fighter": "Jean Silva",
    "rating": 1796,
    "rd": 116,
    "last_fight": "2026-09-12",
    "division": "Featherweight",
-   "record": "7-1"
-  },
-  {
-   "fighter": "Kevin Vallejos",
-   "rating": 1795,
-   "rd": 131,
-   "last_fight": "2026-11-21",
-   "division": "Featherweight",
-   "record": "5-0"
-  },
-  {
-   "fighter": "Zhang Weili",
-   "rating": 1795,
-   "rd": 104,
-   "last_fight": "2025-11-15",
-   "division": "Women's Flyweight",
-   "record": "10-3"
-  },
-  {
-   "fighter": "Joe Pyfer",
-   "rating": 1795,
-   "rd": 117,
-   "last_fight": "2026-03-28",
-   "division": "Middleweight",
    "record": "7-1"
   },
   {
@@ -330,12 +314,36 @@
    "record": "14-5"
   },
   {
+   "fighter": "Joe Pyfer",
+   "rating": 1795,
+   "rd": 117,
+   "last_fight": "2026-03-28",
+   "division": "Middleweight",
+   "record": "7-1"
+  },
+  {
+   "fighter": "Kevin Vallejos",
+   "rating": 1795,
+   "rd": 131,
+   "last_fight": "2026-11-21",
+   "division": "Featherweight",
+   "record": "5-0"
+  },
+  {
    "fighter": "Dustin Poirier",
    "rating": 1795,
    "rd": 91,
    "last_fight": "2025-07-19",
    "division": "Lightweight",
    "record": "22-9"
+  },
+  {
+   "fighter": "Zhang Weili",
+   "rating": 1795,
+   "rd": 104,
+   "last_fight": "2025-11-15",
+   "division": "Women's Flyweight",
+   "record": "10-3"
   },
   {
    "fighter": "Lerone Murphy",
@@ -354,20 +362,20 @@
    "record": "8-2"
   },
   {
-   "fighter": "Mike Malott",
-   "rating": 1791,
-   "rd": 112,
-   "last_fight": "2026-10-17",
-   "division": "Welterweight",
-   "record": "8-1"
-  },
-  {
    "fighter": "Sean Strickland",
    "rating": 1791,
    "rd": 89,
    "last_fight": "2026-05-09",
    "division": "Middleweight",
    "record": "18-7"
+  },
+  {
+   "fighter": "Mike Malott",
+   "rating": 1791,
+   "rd": 112,
+   "last_fight": "2026-10-17",
+   "division": "Welterweight",
+   "record": "8-1"
   },
   {
    "fighter": "Amanda Nunes",
@@ -392,14 +400,6 @@
    "last_fight": "2026-05-30",
    "division": "Heavyweight",
    "record": "9-3"
-  },
-  {
-   "fighter": "Jack Della Maddalena",
-   "rating": 1781,
-   "rd": 111,
-   "last_fight": "2026-05-02",
-   "division": "Welterweight",
-   "record": "8-2"
   }
  ],
  "divisions": [
@@ -556,12 +556,12 @@
      "record": "18-7"
     },
     {
-     "fighter": "Jiri Prochazka",
-     "rating": 1773,
-     "rd": 114,
-     "last_fight": "2026-04-11",
+     "fighter": "Navajo Stirling",
+     "rating": 1797,
+     "rd": 121,
+     "last_fight": "2026-11-21",
      "division": "Light Heavyweight",
-     "record": "6-3"
+     "record": "7-0"
     },
     {
      "fighter": "Paulo Costa",
@@ -572,20 +572,20 @@
      "record": "8-4"
     },
     {
-     "fighter": "Navajo Stirling",
-     "rating": 1755,
-     "rd": 128,
-     "last_fight": "2026-08-01",
-     "division": "Light Heavyweight",
-     "record": "6-0"
-    },
-    {
      "fighter": "Reinier de Ridder",
      "rating": 1741,
      "rd": 118,
      "last_fight": "2026-08-22",
      "division": "Light Heavyweight",
      "record": "5-2"
+    },
+    {
+     "fighter": "Jiri Prochazka",
+     "rating": 1740,
+     "rd": 110,
+     "last_fight": "2026-11-21",
+     "division": "Light Heavyweight",
+     "record": "6-4"
     },
     {
      "fighter": "Dominick Reyes",
