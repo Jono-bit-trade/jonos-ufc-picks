@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T00:57Z",
+ "updated": "2026-11-21T03:58Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -44,7 +44,7 @@
     "high_a": 2,
     "high_b": 4,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -203,11 +203,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.53,
-    "handle_b": 0.47,
-    "bets_a": 0.47,
-    "bets_b": 0.53,
-    "at": "2026-11-21T00:56Z"
+    "handle_a": 0.55,
+    "handle_b": 0.45,
+    "bets_a": 0.48,
+    "bets_b": 0.52,
+    "at": "2026-11-21T03:58Z"
    },
    "why": [
     "Close fight and 10 of 17 analysts pick Stirling"
@@ -396,6 +396,11 @@
      "t": "2026-11-21T00:57Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
    "edge_a": 0.052,
@@ -443,7 +448,7 @@
     "high_a": 0,
     "high_b": 3,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -602,15 +607,14 @@
     ]
    },
    "splits": {
-    "handle_a": 0.71,
-    "handle_b": 0.29,
+    "handle_a": 0.72,
+    "handle_b": 0.28,
     "bets_a": 0.6,
     "bets_b": 0.4,
-    "at": "2026-11-21T00:56Z"
+    "at": "2026-11-21T03:58Z"
    },
    "why": [
-    "Close fight and 13 of 17 analysts pick Vallejos",
-    "Our chance 54% vs the line's 54%"
+    "Close fight and 13 of 17 analysts pick Vallejos"
    ],
    "weight_class": "Featherweight",
    "rounds": 3,
@@ -624,15 +628,15 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.407,
-   "p_a": 0.464,
+   "p_a": 0.47,
    "model_pick": "Kevin Vallejos",
    "tier": "Low",
-   "fair_odds_a": 116,
-   "fair_odds_b": -116,
-   "market_p_a": 0.457,
-   "odds_a": 110.0,
+   "fair_odds_a": 113,
+   "fair_odds_b": -113,
+   "market_p_a": 0.463,
+   "odds_a": 105.0,
    "odds_b": -130.0,
-   "best_a": 110.0,
+   "best_a": 105.0,
    "best_b": -130.0,
    "open_a": 102.0,
    "open_b": -122.0,
@@ -642,7 +646,7 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 110.0,
+     "a": 105.0,
      "b": -130.0
     }
    ],
@@ -796,12 +800,17 @@
      "t": "2026-11-21T00:57Z",
      "a": 110.0,
      "b": -130.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": 105.0,
+     "b": -130.0
     }
    ],
-   "edge_a": 0.006,
+   "edge_a": 0.007,
    "pick": null,
    "our_pick": "Kevin Vallejos",
-   "bet_to": -165,
+   "bet_to": -170,
    "stake": 1.5,
    "expert_lean": "Kevin Vallejos",
    "check_news": false,
@@ -811,19 +820,19 @@
     "odds": -130.0
    },
    "method": {
-    "DEC": 0.477,
-    "KO": 0.344,
-    "SUB": 0.179
+    "DEC": 0.478,
+    "KO": 0.342,
+    "SUB": 0.18
    },
    "how": {
     "a": {
-     "DEC": 0.256,
-     "KO": 0.063,
-     "SUB": 0.145
+     "DEC": 0.26,
+     "KO": 0.064,
+     "SUB": 0.147
     },
     "b": {
-     "DEC": 0.221,
-     "KO": 0.281,
+     "DEC": 0.218,
+     "KO": 0.278,
      "SUB": 0.034
     }
    }
@@ -844,7 +853,7 @@
     "high_b": 0,
     "url": null,
     "win_a": 1,
-    "win_b": 0,
+    "win_b": 1,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -1002,11 +1011,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.48,
-    "handle_b": 0.52,
+    "handle_a": 0.53,
+    "handle_b": 0.47,
     "bets_a": 0.7,
     "bets_b": 0.3,
-    "at": "2026-11-21T00:56Z"
+    "at": "2026-11-21T03:58Z"
    },
    "why": [
     "Our chance 66% vs the line's 62% (4 points of value)",
@@ -1197,6 +1206,11 @@
      "t": "2026-11-21T00:57Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "edge_a": 0.037,
@@ -1244,7 +1258,7 @@
     "high_a": 9,
     "high_b": 1,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -1405,9 +1419,9 @@
    "splits": {
     "handle_a": 0.54,
     "handle_b": 0.46,
-    "bets_a": 0.76,
-    "bets_b": 0.24,
-    "at": "2026-11-21T00:56Z"
+    "bets_a": 0.75,
+    "bets_b": 0.25,
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -1594,6 +1608,11 @@
      "t": "2026-11-21T00:57Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.001,
@@ -1639,7 +1658,7 @@
     "high_b": 5,
     "url": null,
     "win_a": 0,
-    "win_b": 1,
+    "win_b": 2,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -1797,11 +1816,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.43,
-    "handle_b": 0.57,
+    "handle_a": 0.52,
+    "handle_b": 0.48,
     "bets_a": 0.31,
     "bets_b": 0.69,
-    "at": "2026-11-21T00:56Z"
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -1816,16 +1835,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.189,
-   "p_a": 0.244,
+   "p_a": 0.255,
    "model_pick": "Ikram Aliskerov",
    "tier": "High",
-   "fair_odds_a": 310,
-   "fair_odds_b": -310,
-   "market_p_a": 0.266,
-   "odds_a": 260.0,
-   "odds_b": -325.0,
-   "best_a": 260.0,
-   "best_b": -325.0,
+   "fair_odds_a": 292,
+   "fair_odds_b": -292,
+   "market_p_a": 0.278,
+   "odds_a": 245.0,
+   "odds_b": -305.0,
+   "best_a": 245.0,
+   "best_b": -305.0,
    "open_a": 280.0,
    "open_b": -355.0,
    "books": 1.0,
@@ -1834,8 +1853,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": 260.0,
-     "b": -325.0
+     "a": 245.0,
+     "b": -305.0
     }
    ],
    "line_history": [
@@ -1988,6 +2007,11 @@
      "t": "2026-11-21T00:57Z",
      "a": 260.0,
      "b": -325.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": 245.0,
+     "b": -305.0
     }
    ],
    "edge_a": -0.023,
@@ -2000,20 +2024,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.513,
+    "DEC": 0.514,
     "KO": 0.329,
     "SUB": 0.157
    },
    "how": {
     "a": {
-     "DEC": 0.135,
-     "KO": 0.07,
-     "SUB": 0.039
+     "DEC": 0.141,
+     "KO": 0.073,
+     "SUB": 0.041
     },
     "b": {
-     "DEC": 0.379,
-     "KO": 0.259,
-     "SUB": 0.118
+     "DEC": 0.373,
+     "KO": 0.255,
+     "SUB": 0.117
     }
    }
   },
@@ -2032,7 +2056,7 @@
     "high_a": 9,
     "high_b": 0,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -2195,7 +2219,7 @@
     "handle_b": 0.11,
     "bets_a": 0.89,
     "bets_b": 0.11,
-    "at": "2026-11-21T00:56Z"
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Bantamweight",
@@ -2312,6 +2336,11 @@
      "t": "2026-11-21T00:57Z",
      "a": -278.0,
      "b": 225.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -278.0,
+     "b": 225.0
     }
    ],
    "edge_a": 0.01,
@@ -2356,7 +2385,7 @@
     "high_a": 9,
     "high_b": 0,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -2519,7 +2548,7 @@
     "handle_b": 0.15,
     "bets_a": 0.77,
     "bets_b": 0.23,
-    "at": "2026-11-21T00:56Z"
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Heavyweight",
@@ -2706,6 +2735,11 @@
      "t": "2026-11-21T00:57Z",
      "a": -192.0,
      "b": 160.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -192.0,
+     "b": 160.0
     }
    ],
    "edge_a": 0.002,
@@ -2751,7 +2785,7 @@
     "high_b": 2,
     "url": null,
     "win_a": 0,
-    "win_b": 1,
+    "win_b": 2,
     "analysts": [
      {
       "name": "SplitAces_",
@@ -2909,11 +2943,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.43,
-    "handle_b": 0.57,
-    "bets_a": 0.42,
-    "bets_b": 0.58,
-    "at": "2026-11-21T00:56Z"
+    "handle_a": 0.42,
+    "handle_b": 0.58,
+    "bets_a": 0.44,
+    "bets_b": 0.56,
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Flyweight",
@@ -3100,6 +3134,11 @@
      "t": "2026-11-21T00:57Z",
      "a": -108.0,
      "b": -112.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -108.0,
+     "b": -112.0
     }
    ],
    "edge_a": 0.019,
@@ -3144,7 +3183,7 @@
     "high_a": 8,
     "high_b": 0,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 0,
     "analysts": [
      {
@@ -3303,11 +3342,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.73,
-    "handle_b": 0.27,
+    "handle_a": 0.75,
+    "handle_b": 0.25,
     "bets_a": 0.84,
     "bets_b": 0.16,
-    "at": "2026-11-21T00:56Z"
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Welterweight",
@@ -3322,16 +3361,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.54,
-   "p_a": 0.699,
+   "p_a": 0.704,
    "model_pick": "Jake Matthews",
-   "tier": "Medium",
-   "fair_odds_a": -232,
-   "fair_odds_b": 232,
-   "market_p_a": 0.675,
-   "odds_a": -238.0,
-   "odds_b": 195.0,
-   "best_a": -238.0,
-   "best_b": 195.0,
+   "tier": "High",
+   "fair_odds_a": -238,
+   "fair_odds_b": 238,
+   "market_p_a": 0.681,
+   "odds_a": -245.0,
+   "odds_b": 200.0,
+   "best_a": -245.0,
+   "best_b": 200.0,
    "open_a": -166.0,
    "open_b": 140.0,
    "books": 1.0,
@@ -3340,8 +3379,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -238.0,
-     "b": 195.0
+     "a": -245.0,
+     "b": 200.0
     }
    ],
    "line_history": [
@@ -3494,9 +3533,14 @@
      "t": "2026-11-21T00:57Z",
      "a": -238.0,
      "b": 195.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -245.0,
+     "b": 200.0
     }
    ],
-   "edge_a": 0.024,
+   "edge_a": 0.023,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -3507,18 +3551,18 @@
    "posted": null,
    "method": {
     "DEC": 0.414,
-    "KO": 0.324,
-    "SUB": 0.262
+    "KO": 0.322,
+    "SUB": 0.264
    },
    "how": {
     "a": {
-     "DEC": 0.302,
-     "KO": 0.16,
-     "SUB": 0.236
+     "DEC": 0.305,
+     "KO": 0.161,
+     "SUB": 0.238
     },
     "b": {
-     "DEC": 0.111,
-     "KO": 0.164,
+     "DEC": 0.109,
+     "KO": 0.161,
      "SUB": 0.026
     }
    }
@@ -3539,7 +3583,7 @@
     "high_b": 0,
     "url": null,
     "win_a": 0,
-    "win_b": 1,
+    "win_b": 2,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -3697,11 +3741,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.7,
-    "handle_b": 0.3,
-    "bets_a": 0.58,
-    "bets_b": 0.42,
-    "at": "2026-11-21T00:56Z"
+    "handle_a": 0.71,
+    "handle_b": 0.29,
+    "bets_a": 0.55,
+    "bets_b": 0.45,
+    "at": "2026-11-21T03:58Z"
    },
    "why": [
     "Our chance 66% vs the line's 62% (4 points of value)",
@@ -3821,6 +3865,11 @@
      "t": "2026-11-21T00:57Z",
      "a": 150.0,
      "b": -180.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": 150.0,
+     "b": -180.0
     }
    ],
    "edge_a": -0.045,
@@ -3869,7 +3918,7 @@
     "high_b": 0,
     "url": null,
     "win_a": 1,
-    "win_b": 0,
+    "win_b": 1,
     "analysts": [
      {
       "name": "Bedtime MMA",
@@ -4011,9 +4060,9 @@
    "splits": {
     "handle_a": 0.88,
     "handle_b": 0.12,
-    "bets_a": 0.85,
-    "bets_b": 0.15,
-    "at": "2026-11-21T00:56Z"
+    "bets_a": 0.87,
+    "bets_b": 0.13,
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Light Heavyweight",
@@ -4130,6 +4179,11 @@
      "t": "2026-11-21T00:57Z",
      "a": -258.0,
      "b": 210.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
+     "a": -258.0,
+     "b": 210.0
     }
    ],
    "edge_a": 0.022,
@@ -4170,11 +4224,11 @@
    "record_b": "11-3-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.95,
-    "handle_b": 0.05,
-    "bets_a": 0.57,
-    "bets_b": 0.43,
-    "at": "2026-11-21T00:56Z"
+    "handle_a": 0.9,
+    "handle_b": 0.1,
+    "bets_a": 0.55,
+    "bets_b": 0.45,
+    "at": "2026-11-21T03:58Z"
    },
    "why": [],
    "weight_class": "Lightweight",
@@ -4219,6 +4273,11 @@
     },
     {
      "t": "2026-11-21T00:57Z",
+     "a": 120.0,
+     "b": -142.0
+    },
+    {
+     "t": "2026-11-21T03:58Z",
      "a": 120.0,
      "b": -142.0
     }
