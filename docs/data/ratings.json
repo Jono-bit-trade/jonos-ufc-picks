@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T03:58Z",
+ "updated": "2026-11-21T20:28Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -98,14 +98,6 @@
    "record": "11-5"
   },
   {
-   "fighter": "Aljamain Sterling",
-   "rating": 1850,
-   "rd": 92,
-   "last_fight": "2026-04-25",
-   "division": "Featherweight",
-   "record": "18-5"
-  },
-  {
    "fighter": "Alex Pereira",
    "rating": 1848,
    "rd": 102,
@@ -160,6 +152,14 @@
    "last_fight": "2026-11-07",
    "division": "Women's Strawweight",
    "record": "10-1"
+  },
+  {
+   "fighter": "Aljamain Sterling",
+   "rating": 1827,
+   "rd": 91,
+   "last_fight": "2026-11-21",
+   "division": "Featherweight",
+   "record": "18-6"
   },
   {
    "fighter": "Natalia Silva",
@@ -226,20 +226,20 @@
    "record": "6-0"
   },
   {
-   "fighter": "Sean O'Malley",
-   "rating": 1810,
-   "rd": 99,
-   "last_fight": "2026-06-14",
-   "division": "Bantamweight",
-   "record": "12-3"
-  },
-  {
    "fighter": "Movsar Evloev",
    "rating": 1810,
    "rd": 110,
    "last_fight": "2026-10-24",
    "division": "Featherweight",
    "record": "10-1"
+  },
+  {
+   "fighter": "Sean O'Malley",
+   "rating": 1810,
+   "rd": 99,
+   "last_fight": "2026-06-14",
+   "division": "Bantamweight",
+   "record": "12-3"
   },
   {
    "fighter": "Ian Machado Garry",
@@ -250,20 +250,20 @@
    "record": "10-2"
   },
   {
-   "fighter": "Paddy Pimblett",
-   "rating": 1807,
-   "rd": 114,
-   "last_fight": "2026-07-11",
-   "division": "Lightweight",
-   "record": "8-1"
-  },
-  {
    "fighter": "Diego Lopes",
    "rating": 1807,
    "rd": 109,
    "last_fight": "2026-06-14",
    "division": "Featherweight",
    "record": "7-3"
+  },
+  {
+   "fighter": "Paddy Pimblett",
+   "rating": 1807,
+   "rd": 114,
+   "last_fight": "2026-07-11",
+   "division": "Lightweight",
+   "record": "8-1"
   },
   {
    "fighter": "Song Yadong",
@@ -298,6 +298,14 @@
    "record": "7-1"
   },
   {
+   "fighter": "Kevin Vallejos",
+   "rating": 1795,
+   "rd": 131,
+   "last_fight": "2026-11-21",
+   "division": "Featherweight",
+   "record": "5-0"
+  },
+  {
    "fighter": "Zhang Weili",
    "rating": 1795,
    "rd": 104,
@@ -306,20 +314,20 @@
    "record": "10-3"
   },
   {
-   "fighter": "Leon Edwards",
-   "rating": 1795,
-   "rd": 98,
-   "last_fight": "2025-11-15",
-   "division": "Welterweight",
-   "record": "14-5"
-  },
-  {
    "fighter": "Joe Pyfer",
    "rating": 1795,
    "rd": 117,
    "last_fight": "2026-03-28",
    "division": "Middleweight",
    "record": "7-1"
+  },
+  {
+   "fighter": "Leon Edwards",
+   "rating": 1795,
+   "rd": 98,
+   "last_fight": "2025-11-15",
+   "division": "Welterweight",
+   "record": "14-5"
   },
   {
    "fighter": "Dustin Poirier",
@@ -346,14 +354,6 @@
    "record": "8-2"
   },
   {
-   "fighter": "Amanda Nunes",
-   "rating": 1791,
-   "rd": 104,
-   "last_fight": "2026-11-14",
-   "division": "Women's Bantamweight",
-   "record": "16-3"
-  },
-  {
    "fighter": "Mike Malott",
    "rating": 1791,
    "rd": 112,
@@ -368,6 +368,14 @@
    "last_fight": "2026-05-09",
    "division": "Middleweight",
    "record": "18-7"
+  },
+  {
+   "fighter": "Amanda Nunes",
+   "rating": 1791,
+   "rd": 104,
+   "last_fight": "2026-11-14",
+   "division": "Women's Bantamweight",
+   "record": "16-3"
   },
   {
    "fighter": "Grant Dawson",
@@ -392,14 +400,6 @@
    "last_fight": "2026-05-02",
    "division": "Welterweight",
    "record": "8-2"
-  },
-  {
-   "fighter": "Joshua Van",
-   "rating": 1781,
-   "rd": 103,
-   "last_fight": "2026-09-19",
-   "division": "Flyweight",
-   "record": "11-1"
   }
  ],
  "divisions": [
@@ -620,20 +620,20 @@
      "record": "4-0"
     },
     {
-     "fighter": "Jamahal Hill",
-     "rating": 1680,
-     "rd": 109,
-     "last_fight": "2025-06-21",
-     "division": "Light Heavyweight",
-     "record": "7-4"
-    },
-    {
      "fighter": "Volkan Oezdemir",
      "rating": 1680,
      "rd": 101,
      "last_fight": "2025-11-22",
      "division": "Light Heavyweight",
      "record": "9-7"
+    },
+    {
+     "fighter": "Jamahal Hill",
+     "rating": 1680,
+     "rd": 109,
+     "last_fight": "2025-06-21",
+     "division": "Light Heavyweight",
+     "record": "7-4"
     },
     {
      "fighter": "Bogdan Guskov",
@@ -721,6 +721,14 @@
      "record": "18-7"
     },
     {
+     "fighter": "Ikram Aliskerov",
+     "rating": 1774,
+     "rd": 120,
+     "last_fight": "2026-11-21",
+     "division": "Middleweight",
+     "record": "6-1"
+    },
+    {
      "fighter": "Gregory Rodrigues",
      "rating": 1773,
      "rd": 100,
@@ -743,14 +751,6 @@
      "last_fight": "2026-03-28",
      "division": "Middleweight",
      "record": "13-6"
-    },
-    {
-     "fighter": "Ikram Aliskerov",
-     "rating": 1751,
-     "rd": 127,
-     "last_fight": "2026-06-27",
-     "division": "Middleweight",
-     "record": "5-1"
     },
     {
      "fighter": "Anthony Hernandez",
@@ -987,6 +987,14 @@
      "record": "9-4"
     },
     {
+     "fighter": "Brian Ortega",
+     "rating": 1714,
+     "rd": 104,
+     "last_fight": "2026-11-21",
+     "division": "Lightweight",
+     "record": "8-6"
+    },
+    {
      "fighter": "Beneil Dariush",
      "rating": 1707,
      "rd": 91,
@@ -1017,14 +1025,6 @@
      "last_fight": "2026-08-22",
      "division": "Lightweight",
      "record": "5-0"
-    },
-    {
-     "fighter": "Renato Moicano",
-     "rating": 1697,
-     "rd": 92,
-     "last_fight": "2026-10-31",
-     "division": "Lightweight",
-     "record": "13-8"
     }
    ]
   },
@@ -1041,11 +1041,11 @@
     },
     {
      "fighter": "Aljamain Sterling",
-     "rating": 1850,
-     "rd": 92,
-     "last_fight": "2026-04-25",
+     "rating": 1827,
+     "rd": 91,
+     "last_fight": "2026-11-21",
      "division": "Featherweight",
-     "record": "18-5"
+     "record": "18-6"
     },
     {
      "fighter": "Movsar Evloev",
@@ -1072,6 +1072,14 @@
      "record": "7-1"
     },
     {
+     "fighter": "Kevin Vallejos",
+     "rating": 1795,
+     "rd": 131,
+     "last_fight": "2026-11-21",
+     "division": "Featherweight",
+     "record": "5-0"
+    },
+    {
      "fighter": "Lerone Murphy",
      "rating": 1793,
      "rd": 111,
@@ -1086,22 +1094,6 @@
      "last_fight": "2026-05-16",
      "division": "Featherweight",
      "record": "12-3"
-    },
-    {
-     "fighter": "Brian Ortega",
-     "rating": 1747,
-     "rd": 107,
-     "last_fight": "2025-08-23",
-     "division": "Featherweight",
-     "record": "8-5"
-    },
-    {
-     "fighter": "Kevin Vallejos",
-     "rating": 1744,
-     "rd": 139,
-     "last_fight": "2026-03-14",
-     "division": "Featherweight",
-     "record": "4-0"
     },
     {
      "fighter": "Pat Sabatini",
@@ -1150,6 +1142,14 @@
      "last_fight": "2025-12-06",
      "division": "Featherweight",
      "record": "4-0"
+    },
+    {
+     "fighter": "Youssef Zalal",
+     "rating": 1689,
+     "rd": 106,
+     "last_fight": "2026-04-25",
+     "division": "Featherweight",
+     "record": "8-4"
     }
    ]
   },
@@ -1306,6 +1306,14 @@
      "record": "8-3"
     },
     {
+     "fighter": "Kyoji Horiguchi",
+     "rating": 1745,
+     "rd": 112,
+     "last_fight": "2026-11-21",
+     "division": "Flyweight",
+     "record": "10-2"
+    },
+    {
      "fighter": "Alexandre Pantoja",
      "rating": 1733,
      "rd": 95,
@@ -1314,28 +1322,28 @@
      "record": "14-5"
     },
     {
-     "fighter": "Asu Almabayev",
-     "rating": 1719,
-     "rd": 117,
-     "last_fight": "2026-06-27",
-     "division": "Flyweight",
-     "record": "7-1"
-    },
-    {
-     "fighter": "Kyoji Horiguchi",
-     "rating": 1718,
-     "rd": 118,
-     "last_fight": "2026-06-20",
-     "division": "Flyweight",
-     "record": "9-2"
-    },
-    {
      "fighter": "Brandon Moreno",
      "rating": 1716,
      "rd": 93,
      "last_fight": "2026-09-12",
      "division": "Flyweight",
      "record": "12-7"
+    },
+    {
+     "fighter": "Asu Almabayev",
+     "rating": 1692,
+     "rd": 112,
+     "last_fight": "2026-11-21",
+     "division": "Flyweight",
+     "record": "7-2"
+    },
+    {
+     "fighter": "Amir Albazi",
+     "rating": 1672,
+     "rd": 121,
+     "last_fight": "2026-11-21",
+     "division": "Flyweight",
+     "record": "6-2"
     },
     {
      "fighter": "Imanol Rodriguez",
@@ -1352,14 +1360,6 @@
      "last_fight": "2026-07-11",
      "division": "Flyweight",
      "record": "8-5"
-    },
-    {
-     "fighter": "Amir Albazi",
-     "rating": 1639,
-     "rd": 128,
-     "last_fight": "2026-02-07",
-     "division": "Flyweight",
-     "record": "5-2"
     },
     {
      "fighter": "Allan Nascimento",
@@ -1745,20 +1745,20 @@
      "record": "17-13"
     },
     {
-     "fighter": "Tecia Pennington",
-     "rating": 1627,
-     "rd": 99,
-     "last_fight": "2025-11-08",
-     "division": "Women's Strawweight",
-     "record": "11-8"
-    },
-    {
      "fighter": "Amanda Lemos",
      "rating": 1627,
      "rd": 97,
      "last_fight": "2026-08-08",
      "division": "Women's Strawweight",
      "record": "9-7"
+    },
+    {
+     "fighter": "Tecia Pennington",
+     "rating": 1627,
+     "rd": 99,
+     "last_fight": "2025-11-08",
+     "division": "Women's Strawweight",
+     "record": "11-8"
     },
     {
      "fighter": "Tabatha Ricci",

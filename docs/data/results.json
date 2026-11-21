@@ -1,10 +1,30 @@
 {
- "bets": 17,
- "wins": 12,
- "units": 0.72,
- "roi_pct": 4.2,
+ "bets": 19,
+ "wins": 14,
+ "units": 1.82,
+ "roi_pct": 9.6,
  "moved_toward_pct": 100.0,
  "recent": [
+  {
+   "date": "2026-11-21",
+   "fight": "Nikolas Motta vs Dom Mar Fan",
+   "pick": "Dom Mar Fan",
+   "odds": -180,
+   "won": true,
+   "method": "DEC",
+   "units": 0.56,
+   "moved_toward": true
+  },
+  {
+   "date": "2026-11-21",
+   "fight": "Dan Hooker vs Brian Ortega",
+   "pick": "Dan Hooker",
+   "odds": -185,
+   "won": true,
+   "method": "DEC",
+   "units": 0.54,
+   "moved_toward": true
+  },
   {
    "date": "2026-11-14",
    "fight": "Ciryl Gane vs Josh Hokit",
@@ -67,16 +87,6 @@
   },
   {
    "date": "2026-11-07",
-   "fight": "Mitch Raposo vs Marcos Degli",
-   "pick": "Mitch Raposo",
-   "odds": 200,
-   "won": true,
-   "method": "DEC",
-   "units": 2.0,
-   "moved_toward": null
-  },
-  {
-   "date": "2026-11-07",
    "fight": "Tatiana Suarez vs Virna Jandiroba",
    "pick": "Tatiana Suarez",
    "odds": -218,
@@ -84,6 +94,16 @@
    "method": "DEC",
    "units": 0.46,
    "moved_toward": true
+  },
+  {
+   "date": "2026-11-07",
+   "fight": "Mitch Raposo vs Marcos Degli",
+   "pick": "Mitch Raposo",
+   "odds": 200,
+   "won": true,
+   "method": "DEC",
+   "units": 2.0,
+   "moved_toward": null
   },
   {
    "date": "2026-11-07",
@@ -177,30 +197,50 @@
   }
  ],
  "ours": {
-  "bets": 16,
-  "wins": 11,
-  "units": -1.46,
-  "roi_pct": -9.1,
-  "moved_toward_pct": 93.3,
+  "bets": 19,
+  "wins": 14,
+  "units": 0.41,
+  "roi_pct": 2.2,
+  "moved_toward_pct": 94.4,
   "recent": [
    {
-    "date": "2026-11-14",
-    "fight": "Alatengheili vs Juan Diaz",
-    "pick": "Juan Diaz",
-    "odds": -485,
+    "date": "2026-11-21",
+    "fight": "Nikolas Motta vs Dom Mar Fan",
+    "pick": "Dom Mar Fan",
+    "odds": -180,
     "won": true,
     "method": "DEC",
-    "units": 0.21,
+    "units": 0.56,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-21",
+    "fight": "Dan Hooker vs Brian Ortega",
+    "pick": "Dan Hooker",
+    "odds": -185,
+    "won": true,
+    "method": "DEC",
+    "units": 0.54,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-21",
+    "fight": "Aljamain Sterling vs Kevin Vallejos",
+    "pick": "Kevin Vallejos",
+    "odds": -130,
+    "won": true,
+    "method": "DEC",
+    "units": 0.77,
     "moved_toward": true
    },
    {
     "date": "2026-11-14",
-    "fight": "Jared Gordon vs Melquizael Costa",
-    "pick": "Melquizael Costa",
-    "odds": -395,
-    "won": true,
+    "fight": "Bilal Hasan vs Luis Gurule",
+    "pick": "Bilal Hasan",
+    "odds": -1050,
+    "won": false,
     "method": "DEC",
-    "units": 0.25,
+    "units": -1.0,
     "moved_toward": true
    },
    {
@@ -215,72 +255,22 @@
    },
    {
     "date": "2026-11-14",
-    "fight": "Bilal Hasan vs Luis Gurule",
-    "pick": "Bilal Hasan",
-    "odds": -1050,
-    "won": false,
-    "method": "DEC",
-    "units": -1.0,
-    "moved_toward": true
-   },
-   {
-    "date": "2026-11-07",
-    "fight": "Seokhyeon Ko vs Wellington Turman",
-    "pick": "Seokhyeon Ko",
-    "odds": -650,
+    "fight": "Jared Gordon vs Melquizael Costa",
+    "pick": "Melquizael Costa",
+    "odds": -395,
     "won": true,
     "method": "DEC",
-    "units": 0.15,
+    "units": 0.25,
     "moved_toward": true
    },
    {
-    "date": "2026-11-07",
-    "fight": "Mantas Kondratavicius vs Andre Petroski",
-    "pick": "Mantas Kondratavicius",
-    "odds": -310,
-    "won": false,
-    "method": "KO",
-    "units": -1.0,
-    "moved_toward": true
-   },
-   {
-    "date": "2026-11-07",
-    "fight": "Austin Bashi vs Carlos Calderon",
-    "pick": "Austin Bashi",
-    "odds": -675,
-    "won": true,
-    "method": "SUB",
-    "units": 0.15,
-    "moved_toward": true
-   },
-   {
-    "date": "2026-11-07",
-    "fight": "Jose Delano vs Murtazali Magomedov",
-    "pick": "Murtazali Magomedov",
-    "odds": 102,
+    "date": "2026-11-14",
+    "fight": "Alatengheili vs Juan Diaz",
+    "pick": "Juan Diaz",
+    "odds": -485,
     "won": true,
     "method": "DEC",
-    "units": 1.02,
-    "moved_toward": false
-   },
-   {
-    "date": "2026-11-07",
-    "fight": "Karine Silva vs Gabriella Fernandes",
-    "pick": "Karine Silva",
-    "odds": -238,
-    "won": true,
-    "method": "DEC",
-    "units": 0.42,
-    "moved_toward": true
-   },
-   {
-    "date": "2026-11-07",
-    "fight": "Gabriel Loren\u00e7o vs Thomas Petersen",
-    "pick": "Gabriel Loren\u00e7o",
-    "odds": 136,
-    "won": false,
-    "method": "KO",
-    "units": -1.0,
+    "units": 0.21,
     "moved_toward": true
    },
    {
@@ -304,13 +294,63 @@
     "moved_toward": true
    },
    {
-    "date": "2026-10-31",
-    "fight": "Zach Reese vs Mickey Gall",
-    "pick": "Zach Reese",
-    "odds": -440,
+    "date": "2026-11-07",
+    "fight": "Gabriel Loren\u00e7o vs Thomas Petersen",
+    "pick": "Gabriel Loren\u00e7o",
+    "odds": 136,
+    "won": false,
+    "method": "KO",
+    "units": -1.0,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Karine Silva vs Gabriella Fernandes",
+    "pick": "Karine Silva",
+    "odds": -238,
     "won": true,
     "method": "DEC",
-    "units": 0.23,
+    "units": 0.42,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Jose Delano vs Murtazali Magomedov",
+    "pick": "Murtazali Magomedov",
+    "odds": 102,
+    "won": true,
+    "method": "DEC",
+    "units": 1.02,
+    "moved_toward": false
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Austin Bashi vs Carlos Calderon",
+    "pick": "Austin Bashi",
+    "odds": -675,
+    "won": true,
+    "method": "SUB",
+    "units": 0.15,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Mantas Kondratavicius vs Andre Petroski",
+    "pick": "Mantas Kondratavicius",
+    "odds": -310,
+    "won": false,
+    "method": "KO",
+    "units": -1.0,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-11-07",
+    "fight": "Seokhyeon Ko vs Wellington Turman",
+    "pick": "Seokhyeon Ko",
+    "odds": -650,
+    "won": true,
+    "method": "DEC",
+    "units": 0.15,
     "moved_toward": true
    },
    {
@@ -325,6 +365,16 @@
    },
    {
     "date": "2026-10-31",
+    "fight": "Renato Moicano vs Tom Nolan",
+    "pick": "Renato Moicano",
+    "odds": -130,
+    "won": false,
+    "method": "KO",
+    "units": -1.0,
+    "moved_toward": true
+   },
+   {
+    "date": "2026-10-31",
     "fight": "Lucia Szabov\u00e1 vs Tainara Lisboa",
     "pick": "Lucia Szabov\u00e1",
     "odds": -700,
@@ -335,12 +385,12 @@
    },
    {
     "date": "2026-10-31",
-    "fight": "Renato Moicano vs Tom Nolan",
-    "pick": "Renato Moicano",
-    "odds": -130,
-    "won": false,
-    "method": "KO",
-    "units": -1.0,
+    "fight": "Zach Reese vs Mickey Gall",
+    "pick": "Zach Reese",
+    "odds": -440,
+    "won": true,
+    "method": "DEC",
+    "units": 0.23,
     "moved_toward": true
    }
   ]

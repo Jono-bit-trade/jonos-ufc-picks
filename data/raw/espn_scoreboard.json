@@ -507,8 +507,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -537,12 +537,13 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "14-3-0"
+         "summary": "14-4-0"
         }
        ]
       },
@@ -551,7 +552,7 @@
        "uid": "s:3301~a:5080723",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "John Mitchell",
         "displayName": "John Mitchell",
@@ -564,29 +565,31 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "11-3-0"
+         "summary": "12-3-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 230.0,
+      "displayClock": "3:50",
+      "period": 1,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -594,6 +597,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26956",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26957",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26955",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26954",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26953",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26952",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26951",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26974",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26973",
+       "type": {
+        "id": "4",
+        "text": "Staredown"
+       }
+      },
+      {
+       "id": "26972",
+       "type": {
+        "id": "3",
+        "text": "Tale of the tape"
+       }
       }
      ],
      "format": {
@@ -633,8 +708,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -650,7 +725,7 @@
        "uid": "s:3301~a:5213352",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Diyar Nurgozhay",
         "displayName": "Diyar Nurgozhay",
@@ -663,12 +738,13 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "12-2-0"
+         "summary": "13-2-0"
         }
        ]
       },
@@ -690,29 +766,31 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "8-2-0"
+         "summary": "8-3-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 24.0,
+      "displayClock": "0:24",
+      "period": 2,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -720,6 +798,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "26958",
+       "type": {
+        "id": "21",
+        "text": "Unofficial Winner Kotko"
+       }
+      },
+      {
+       "id": "26959",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "26992",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "26991",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26990",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "26989",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "26988",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "26987",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "26986",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "26985",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -759,8 +909,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -789,12 +939,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 79.0,
+         "displayValue": "79.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 26.0,
+           "displayValue": "26",
+           "period": 0
+          },
+          {
+           "value": 26.0,
+           "displayValue": "26",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "15-6-0"
+         "summary": "15-7-0"
         }
        ]
       },
@@ -803,7 +978,7 @@
        "uid": "s:3301~a:5157806",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Dom Mar Fan",
         "displayName": "Dom Mar Fan",
@@ -816,29 +991,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 89.0,
+         "displayValue": "89.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "9-3-0"
+         "summary": "10-3-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -846,6 +1047,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27027",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27026",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27025",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27024",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27023",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27022",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27021",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27020",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27019",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27018",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
       }
      ],
      "format": {
@@ -885,8 +1158,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -915,12 +1188,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 82.0,
+         "displayValue": "82.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "23-8-0"
+         "summary": "23-9-0"
         }
        ]
       },
@@ -929,7 +1227,7 @@
        "uid": "s:3301~a:4394753",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Tahir Abdullayev",
         "displayName": "Tahir Abdullayev",
@@ -942,29 +1240,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 89.0,
+         "displayValue": "89.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "20-3-0"
+         "summary": "21-3-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -972,6 +1296,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27041",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27040",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27039",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27038",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27037",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27036",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27035",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27034",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27033",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27032",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
       }
      ],
      "format": {
@@ -1011,8 +1407,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1028,7 +1424,7 @@
        "uid": "s:3301~a:4684848",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Amir Albazi",
         "displayName": "Amir Albazi",
@@ -1041,12 +1437,13 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "17-3-0"
+         "summary": "18-3-0"
         }
        ]
       },
@@ -1068,29 +1465,31 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "17-5-0"
+         "summary": "17-6-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 274.0,
+      "displayClock": "4:34",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1098,6 +1497,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27100",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27099",
+       "type": {
+        "id": "20",
+        "text": "Unofficial Winner Submission"
+       }
+      },
+      {
+       "id": "27098",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27097",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27096",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "27095",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27094",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27093",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27092",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27091",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -1137,8 +1608,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1167,12 +1638,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 83.0,
+         "displayValue": "83.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "15-3-0"
+         "summary": "15-4-0"
         }
        ]
       },
@@ -1181,7 +1677,7 @@
        "uid": "s:3301~a:5212856",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Tallison Teixeira",
         "displayName": "Tallison Teixeira",
@@ -1194,29 +1690,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 88.0,
+         "displayValue": "88.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "9-2-0"
+         "summary": "10-2-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1224,6 +1746,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27112",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27111",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27110",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27109",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27108",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27107",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "27106",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27105",
+       "type": {
+        "id": "11",
+        "text": "Round Unpause"
+       }
+      },
+      {
+       "id": "27104",
+       "type": {
+        "id": "8",
+        "text": "Pause Reason Low Blow"
+       }
+      },
+      {
+       "id": "27103",
+       "type": {
+        "id": "6",
+        "text": "Round Pause"
+       }
       }
      ],
      "format": {
@@ -1263,8 +1857,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1293,12 +1887,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 84.0,
+         "displayValue": "84.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "7-1-0"
+         "summary": "7-2-0"
         }
        ]
       },
@@ -1307,7 +1926,7 @@
        "uid": "s:3301~a:5307799",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Santiago Luna",
         "displayName": "Santiago Luna",
@@ -1320,29 +1939,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 87.0,
+         "displayValue": "87.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "8-1-0"
+         "summary": "9-1-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 10:00 AM EST",
-       "shortDetail": "11/21 - 10:00 AM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1350,6 +1995,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27124",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27123",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27122",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27121",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27067",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "27066",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27120",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "27119",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27118",
+       "type": {
+        "id": "17",
+        "text": "Knockdown"
+       }
+      },
+      {
+       "id": "27117",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -1389,8 +2106,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1419,12 +2136,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 81.0,
+         "displayValue": "81.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "18-10-0"
+         "summary": "18-11-0"
         }
        ]
       },
@@ -1433,7 +2175,7 @@
        "uid": "s:3301~a:4684776",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Ikram Aliskerov",
         "displayName": "Ikram Aliskerov",
@@ -1446,29 +2188,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 90.0,
+         "displayValue": "90.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "18-2-0"
+         "summary": "19-2-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 1:00 PM EST",
-       "shortDetail": "11/21 - 1:00 PM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1476,6 +2244,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27170",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27149",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27148",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27147",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27146",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "27145",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27144",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27143",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27142",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27141",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -1515,8 +2355,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1532,7 +2372,7 @@
        "uid": "s:3301~a:2613374",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Kyoji Horiguchi",
         "displayName": "Kyoji Horiguchi",
@@ -1545,12 +2385,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 89.0,
+         "displayValue": "89.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "36-6-0"
+         "summary": "37-6-0"
         }
        ]
       },
@@ -1572,29 +2437,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 82.0,
+         "displayValue": "82.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "24-3-0"
+         "summary": "24-4-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 1:00 PM EST",
-       "shortDetail": "11/21 - 1:00 PM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1602,6 +2493,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27196",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27195",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27194",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27193",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27192",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "27191",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27190",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27169",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27168",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27167",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -1641,8 +2604,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1671,12 +2634,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 81.0,
+         "displayValue": "81.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "16-5-0"
+         "summary": "16-6-0"
         }
        ]
       },
@@ -1685,7 +2673,7 @@
        "uid": "s:3301~a:3109135",
        "type": "athlete",
        "order": 1,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Dan Hooker",
         "displayName": "Dan Hooker",
@@ -1698,29 +2686,55 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 90.0,
+         "displayValue": "90.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "24-15-0"
+         "summary": "25-15-0"
         }
        ]
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 1:00 PM EST",
-       "shortDetail": "11/21 - 1:00 PM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1728,6 +2742,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27227",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27226",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27225",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27224",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27223",
+       "type": {
+        "id": "16",
+        "text": "Submission Attempt"
+       }
+      },
+      {
+       "id": "27222",
+       "type": {
+        "id": "13",
+        "text": "Takedown"
+       }
+      },
+      {
+       "id": "27221",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27220",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27219",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27218",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -1767,8 +2853,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1797,12 +2883,37 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 82.0,
+         "displayValue": "82.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 28.0,
+           "displayValue": "28",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          },
+          {
+           "value": 27.0,
+           "displayValue": "27",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
          "abbreviation": "TOT",
          "type": "total",
-         "summary": "26-5-0"
+         "summary": "26-6-0"
         }
        ]
       },
@@ -1811,7 +2922,7 @@
        "uid": "s:3301~a:5145681",
        "type": "athlete",
        "order": 2,
-       "winner": false,
+       "winner": true,
        "athlete": {
         "fullName": "Kevin Vallejos",
         "displayName": "Kevin Vallejos",
@@ -1824,6 +2935,31 @@
          ]
         }
        },
+       "linescores": [
+        {
+         "value": 89.0,
+         "displayValue": "89.0",
+         "period": 0,
+         "linescores": [
+          {
+           "value": 29.0,
+           "displayValue": "29",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          },
+          {
+           "value": 30.0,
+           "displayValue": "30",
+           "period": 0
+          }
+         ]
+        }
+       ],
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1835,18 +2971,19 @@
       }
      ],
      "status": {
-      "clock": 0.0,
-      "displayClock": "-",
-      "period": 0,
+      "clock": 300.0,
+      "displayClock": "5:00",
+      "period": 3,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
-       "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 1:00 PM EST",
-       "shortDetail": "11/21 - 1:00 PM EST"
-      }
+       "id": "3",
+       "name": "STATUS_FINAL",
+       "state": "post",
+       "completed": true,
+       "description": "Final",
+       "detail": "Final",
+       "shortDetail": "Final"
+      },
+      "featured": false
      },
      "broadcasts": [
       {
@@ -1854,6 +2991,78 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27261",
+       "type": {
+        "id": "22",
+        "text": "Unofficial Winner Decision"
+       }
+      },
+      {
+       "id": "27260",
+       "type": {
+        "id": "23",
+        "text": "Results"
+       }
+      },
+      {
+       "id": "27259",
+       "type": {
+        "id": "19",
+        "text": "Fight Over"
+       }
+      },
+      {
+       "id": "27258",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
+      {
+       "id": "27257",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27256",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27243",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27255",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27254",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
+      },
+      {
+       "id": "27253",
+       "type": {
+        "id": "12",
+        "text": "Takedown Attempt"
+       }
       }
      ],
      "format": {
@@ -1893,8 +3102,8 @@
      },
      "timeValid": true,
      "neutralSite": false,
-     "playByPlayAvailable": false,
-     "recent": false,
+     "playByPlayAvailable": true,
+     "recent": true,
      "venue": {
       "id": "11560",
       "fullName": "ABHA Arena",
@@ -1923,6 +3132,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1950,6 +3160,7 @@
          ]
         }
        },
+       "statistics": [],
        "records": [
         {
          "name": "overall",
@@ -1965,13 +3176,13 @@
       "displayClock": "-",
       "period": 0,
       "type": {
-       "id": "1",
-       "name": "STATUS_SCHEDULED",
-       "state": "pre",
+       "id": "139",
+       "name": "STATUS_FIGHTERS_WALKING",
+       "state": "in",
        "completed": false,
-       "description": "Scheduled",
-       "detail": "Sat, November 21st at 1:00 PM EST",
-       "shortDetail": "11/21 - 1:00 PM EST"
+       "description": "Walkouts",
+       "detail": "Walkouts",
+       "shortDetail": "Walkouts"
       }
      },
      "broadcasts": [
@@ -1980,6 +3191,22 @@
        "names": [
         "Paramount+"
        ]
+      }
+     ],
+     "details": [
+      {
+       "id": "27245",
+       "type": {
+        "id": "2",
+        "text": "Walkout"
+       }
+      },
+      {
+       "id": "27244",
+       "type": {
+        "id": "1",
+        "text": "Fight Open"
+       }
       }
      ],
      "format": {
@@ -2013,13 +3240,26 @@
     {
      "language": "en-US",
      "rel": [
+      "live",
+      "desktop",
+      "event"
+     ],
+     "href": "https://www.espn.com/mma/fightcenter/_/id/600061665",
+     "text": "Gamecast",
+     "shortText": "Gamecast",
+     "isExternal": false,
+     "isPremium": false
+    },
+    {
+     "language": "en-US",
+     "rel": [
       "summary",
       "desktop",
       "event"
      ],
      "href": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc",
-     "text": "Gamecast",
-     "shortText": "Gamecast",
+     "text": "FightCenter",
+     "shortText": "FightCenter",
      "isExternal": false,
      "isPremium": false
     }
@@ -2036,13 +3276,13 @@
    ],
    "status": {
     "type": {
-     "id": "1",
-     "name": "STATUS_SCHEDULED",
-     "state": "pre",
+     "id": "2",
+     "name": "STATUS_IN_PROGRESS",
+     "state": "in",
      "completed": false,
-     "description": "Scheduled",
-     "detail": "Scheduled",
-     "shortDetail": "Scheduled"
+     "description": "In Progress",
+     "detail": "In Progress",
+     "shortDetail": "In Progress"
     }
    }
   }
