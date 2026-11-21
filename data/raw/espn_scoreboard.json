@@ -3172,17 +3172,17 @@
       }
      ],
      "status": {
-      "clock": 198.0,
-      "displayClock": "3:18",
-      "period": 1,
+      "clock": 296.0,
+      "displayClock": "4:56",
+      "period": 2,
       "type": {
        "id": "31",
        "name": "STATUS_IN_PROGRESS_2",
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R1, 3:18",
-       "shortDetail": "R1, 3:18"
+       "detail": "R2, 4:56",
+       "shortDetail": "R2, 4:56"
       }
      },
      "broadcasts": [
@@ -3194,6 +3194,20 @@
       }
      ],
      "details": [
+      {
+       "id": "27270",
+       "type": {
+        "id": "5",
+        "text": "Round Start"
+       }
+      },
+      {
+       "id": "27262",
+       "type": {
+        "id": "18",
+        "text": "Round End"
+       }
+      },
       {
        "id": "27249",
        "type": {
