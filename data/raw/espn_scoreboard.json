@@ -3172,8 +3172,8 @@
       }
      ],
      "status": {
-      "clock": 296.0,
-      "displayClock": "4:56",
+      "clock": 8.0,
+      "displayClock": "0:08",
       "period": 2,
       "type": {
        "id": "31",
@@ -3181,8 +3181,8 @@
        "state": "in",
        "completed": false,
        "description": "In Progress",
-       "detail": "R2, 4:56",
-       "shortDetail": "R2, 4:56"
+       "detail": "R2, 0:08",
+       "shortDetail": "R2, 0:08"
       }
      },
      "broadcasts": [
