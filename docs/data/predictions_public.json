@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T20:28Z",
+ "updated": "2026-11-21T20:37Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -211,7 +211,7 @@
    "segment": "",
    "start": "2026-11-21T18:00Z",
    "state": "in",
-   "status": "Walkouts",
+   "status": "R1, 3:18",
    "result": null,
    "rating_a": 1773,
    "rating_b": 1755,
@@ -274,7 +274,7 @@
    "a_id": "3031559",
    "b_id": "5145681",
    "record_a": "26-6-0",
-   "record_b": "18-1-0",
+   "record_b": "19-1-0",
    "experts": {
     "picks_a": 4,
     "picks_b": 13,
