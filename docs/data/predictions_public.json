@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T21:06Z",
+ "updated": "2026-11-21T22:08Z",
  "event": "UFC Fight Night: Proch\u00e1zka vs. Stirling",
  "date": "2026-11-21",
  "location": "Doha, Qatar",
@@ -45,15 +45,24 @@
     "high_b": 4,
     "url": null,
     "win_a": 2,
-    "win_b": 0,
+    "win_b": 1,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
      },
      {
@@ -61,26 +70,17 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "High",
-      "method": "Decision",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "TheWeasle",
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -88,8 +88,8 @@
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -97,8 +97,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -106,8 +106,8 @@
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -115,8 +115,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -124,8 +124,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "159-91",
-      "units": -3.7,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -133,8 +133,8 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -142,8 +142,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -151,8 +151,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -160,8 +160,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -169,8 +169,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -178,8 +178,8 @@
       "side": "b",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -187,8 +187,8 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
       "winning": false
      },
      {
@@ -196,8 +196,8 @@
       "side": "b",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -287,15 +287,24 @@
     "high_b": 3,
     "url": null,
     "win_a": 2,
-    "win_b": 0,
+    "win_b": 1,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "SplitAces_",
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
      },
      {
@@ -303,26 +312,17 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "DFS By The Numbers",
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -330,8 +330,8 @@
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -339,8 +339,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -348,8 +348,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "159-91",
-      "units": -3.7,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -357,8 +357,8 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -366,8 +366,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -375,8 +375,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -384,8 +384,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -393,8 +393,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -402,8 +402,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -411,8 +411,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -420,8 +420,8 @@
       "side": "b",
       "conf": "Low",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
       "winning": false
      },
      {
@@ -429,8 +429,8 @@
       "side": "b",
       "conf": "Low",
       "method": null,
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -438,8 +438,8 @@
       "side": "b",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -528,16 +528,25 @@
     "high_a": 5,
     "high_b": 0,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 1,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
      },
      {
@@ -545,26 +554,17 @@
       "side": "b",
       "conf": "Low",
       "method": null,
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "The MMA Guru",
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "159-91",
-      "units": -3.7,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -572,8 +572,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -581,8 +581,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -590,8 +590,8 @@
       "side": "a",
       "conf": "High",
       "method": null,
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -599,8 +599,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -608,17 +608,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "99-59",
-      "units": -3.75,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -626,8 +617,17 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -635,8 +635,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -644,8 +644,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -653,8 +653,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -662,8 +662,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -671,8 +671,8 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -680,8 +680,8 @@
       "side": "a",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -772,16 +772,25 @@
     "high_a": 9,
     "high_b": 1,
     "url": null,
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "SplitAces_",
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
      },
      {
@@ -789,26 +798,17 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "TheWeasle",
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -816,17 +816,8 @@
       "side": "a",
       "conf": "High",
       "method": null,
-      "record": "159-91",
-      "units": -3.7,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "216-117",
-      "units": -6.93,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -834,8 +825,17 @@
       "side": "a",
       "conf": "High",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -843,8 +843,8 @@
       "side": "b",
       "conf": "High",
       "method": "Decision",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -852,8 +852,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -861,8 +861,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -870,8 +870,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -879,8 +879,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -888,8 +888,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -897,8 +897,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -906,8 +906,8 @@
       "side": "a",
       "conf": "Low",
       "method": "Decision",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -915,8 +915,8 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -924,8 +924,8 @@
       "side": "a",
       "conf": "Low",
       "method": "Decision",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -1009,16 +1009,25 @@
     "high_a": 1,
     "high_b": 5,
     "url": null,
-    "win_a": 0,
+    "win_a": 1,
     "win_b": 2,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "Bedtime MMA",
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
      },
      {
@@ -1026,26 +1035,17 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "TheWeasle",
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -1053,8 +1053,8 @@
       "side": "b",
       "conf": "High",
       "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -1062,8 +1062,8 @@
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -1071,8 +1071,8 @@
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -1080,8 +1080,8 @@
       "side": "b",
       "conf": "High",
       "method": "Decision",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -1089,8 +1089,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "159-91",
-      "units": -3.7,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -1098,17 +1098,8 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "b",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -1116,8 +1107,17 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -1125,8 +1125,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -1134,8 +1134,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -1143,8 +1143,8 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -1152,8 +1152,8 @@
       "side": "a",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -1161,8 +1161,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -1246,16 +1246,25 @@
     "high_a": 9,
     "high_b": 0,
     "url": null,
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "SplitAces_",
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
      },
      {
@@ -1263,26 +1272,17 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "TheWeasle",
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -1290,8 +1290,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -1299,8 +1299,8 @@
       "side": "a",
       "conf": "High",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -1308,8 +1308,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -1317,8 +1317,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -1326,8 +1326,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -1335,8 +1335,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -1344,8 +1344,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -1353,26 +1353,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "159-91",
-      "units": -3.7,
-      "winning": false
-     },
-     {
-      "name": "Artem MMA",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -1380,8 +1362,26 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -1389,8 +1389,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -1398,8 +1398,8 @@
       "side": "a",
       "conf": "Low",
       "method": "Decision",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -1483,7 +1483,7 @@
     "high_a": 9,
     "high_b": 0,
     "url": null,
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
      {
@@ -1491,17 +1491,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "213-123",
-      "units": 4.16,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
      },
      {
@@ -1509,17 +1500,26 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "228-123",
+      "units": 18.8,
+      "winning": true
      },
      {
       "name": "TheWeasle",
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -1527,8 +1527,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -1536,8 +1536,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -1545,8 +1545,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -1554,8 +1554,8 @@
       "side": "a",
       "conf": "High",
       "method": null,
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -1563,8 +1563,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -1572,17 +1572,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "196-135",
-      "units": -29.64,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "159-91",
-      "units": -3.7,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -1590,8 +1581,17 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -1599,8 +1599,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -1608,8 +1608,8 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
       "winning": false
      },
      {
@@ -1617,8 +1617,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -1626,8 +1626,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -1635,8 +1635,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -1720,16 +1720,25 @@
     "high_a": 1,
     "high_b": 2,
     "url": null,
-    "win_a": 0,
+    "win_a": 1,
     "win_b": 2,
     "analysts": [
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
      {
       "name": "SplitAces_",
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
      },
      {
@@ -1737,26 +1746,17 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "High",
-      "method": "Decision",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
      },
      {
       "name": "TheWeasle",
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -1764,17 +1764,8 @@
       "side": "b",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "b",
-      "conf": "Med",
-      "method": null,
-      "record": "159-91",
-      "units": -3.7,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -1782,8 +1773,17 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -1791,8 +1791,8 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -1800,8 +1800,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -1809,8 +1809,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -1818,8 +1818,8 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -1827,8 +1827,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -1836,8 +1836,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -1845,8 +1845,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -1854,8 +1854,8 @@
       "side": "b",
       "conf": "Low",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
       "winning": false
      },
      {
@@ -1863,8 +1863,8 @@
       "side": "a",
       "conf": "Low",
       "method": "Decision",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -1872,8 +1872,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -1957,7 +1957,7 @@
     "high_a": 8,
     "high_b": 0,
     "url": null,
-    "win_a": 2,
+    "win_a": 3,
     "win_b": 0,
     "analysts": [
      {
@@ -1965,17 +1965,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
-      "winning": true
-     },
-     {
-      "name": "SplitAces_",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "218-129",
+      "units": 0.57,
       "winning": true
      },
      {
@@ -1983,26 +1974,26 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "209-113",
-      "units": -0.25,
-      "winning": false
+      "record": "216-117",
+      "units": 0.14,
+      "winning": true
+     },
+     {
+      "name": "SplitAces_",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "228-123",
+      "units": 18.8,
+      "winning": true
      },
      {
       "name": "TheWeasle",
       "side": "a",
       "conf": "High",
       "method": "Submission",
-      "record": "109-54",
-      "units": -1.26,
-      "winning": false
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "High",
-      "method": null,
-      "record": "159-91",
-      "units": -3.7,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -2010,8 +2001,17 @@
       "side": "a",
       "conf": "High",
       "method": "Submission",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "High",
+      "method": null,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -2019,8 +2019,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -2028,8 +2028,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -2037,17 +2037,8 @@
       "side": "a",
       "conf": "High",
       "method": "Decision",
-      "record": "196-135",
-      "units": -29.64,
-      "winning": false
-     },
-     {
-      "name": "Broke by Decision",
-      "side": "a",
-      "conf": "Med",
-      "method": "Decision",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -2055,8 +2046,17 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
+      "winning": false
+     },
+     {
+      "name": "Broke by Decision",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -2064,8 +2064,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Submission",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -2073,8 +2073,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -2082,8 +2082,8 @@
       "side": "a",
       "conf": "Med",
       "method": "Decision",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -2091,8 +2091,8 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -2100,8 +2100,8 @@
       "side": "b",
       "conf": "Low",
       "method": null,
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -2109,8 +2109,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
@@ -2195,15 +2195,24 @@
     "high_b": 0,
     "url": null,
     "win_a": 0,
-    "win_b": 2,
+    "win_b": 3,
     "analysts": [
      {
       "name": "Bedtime MMA",
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
+      "winning": true
+     },
+     {
+      "name": "Lucrative James",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "216-117",
+      "units": 0.14,
       "winning": true
      },
      {
@@ -2211,8 +2220,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
      },
      {
@@ -2220,17 +2229,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "190-113",
-      "units": -15.6,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "b",
-      "conf": "Med",
-      "method": "Submission",
-      "record": "209-113",
-      "units": -0.25,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -2238,8 +2238,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -2247,8 +2247,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "159-91",
-      "units": -3.7,
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -2256,8 +2256,8 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "212-121",
-      "units": -6.2,
+      "record": "217-126",
+      "units": -8.21,
       "winning": false
      },
      {
@@ -2265,8 +2265,8 @@
       "side": "b",
       "conf": "Med",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
       "winning": false
      },
      {
@@ -2274,8 +2274,8 @@
       "side": "b",
       "conf": "Med",
       "method": "Decision",
-      "record": "188-119",
-      "units": -11.47,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -2283,8 +2283,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -2292,8 +2292,8 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -2301,8 +2301,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
       "winning": false
      },
      {
@@ -2310,8 +2310,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "216-117",
-      "units": -6.93,
+      "record": "221-122",
+      "units": -9.31,
       "winning": false
      },
      {
@@ -2319,8 +2319,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -2328,8 +2328,8 @@
       "side": "b",
       "conf": "Low",
       "method": "Decision",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -2337,8 +2337,8 @@
       "side": "a",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      },
      {
@@ -2346,8 +2346,8 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      }
     ]
@@ -2437,7 +2437,7 @@
     "high_a": 3,
     "high_b": 0,
     "url": null,
-    "win_a": 1,
+    "win_a": 2,
     "win_b": 1,
     "analysts": [
      {
@@ -2445,8 +2445,17 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "213-123",
-      "units": 4.16,
+      "record": "218-129",
+      "units": 0.57,
+      "winning": true
+     },
+     {
+      "name": "Lucrative James",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "216-117",
+      "units": 0.14,
       "winning": true
      },
      {
@@ -2454,26 +2463,26 @@
       "side": "b",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "225-115",
-      "units": 25.3,
+      "record": "228-123",
+      "units": 18.8,
       "winning": true
-     },
-     {
-      "name": "The MMA Guru",
-      "side": "a",
-      "conf": "High",
-      "method": "KO/TKO",
-      "record": "159-91",
-      "units": -3.7,
-      "winning": false
      },
      {
       "name": "FALSE PROFIT",
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "99-59",
-      "units": -3.75,
+      "record": "105-64",
+      "units": -5.33,
+      "winning": false
+     },
+     {
+      "name": "The MMA Guru",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "164-97",
+      "units": -6.87,
       "winning": false
      },
      {
@@ -2481,17 +2490,8 @@
       "side": "a",
       "conf": "High",
       "method": "KO/TKO",
-      "record": "188-119",
-      "units": -11.47,
-      "winning": false
-     },
-     {
-      "name": "Lucrative James",
-      "side": "a",
-      "conf": "Med",
-      "method": "KO/TKO",
-      "record": "209-113",
-      "units": -0.25,
+      "record": "195-123",
+      "units": -10.17,
       "winning": false
      },
      {
@@ -2499,8 +2499,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "109-54",
-      "units": -1.26,
+      "record": "115-59",
+      "units": -2.88,
       "winning": false
      },
      {
@@ -2508,8 +2508,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "43-29",
-      "units": -7.53,
+      "record": "49-34",
+      "units": -9.35,
       "winning": false
      },
      {
@@ -2517,8 +2517,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "211-120",
-      "units": -15.25,
+      "record": "217-125",
+      "units": -17.09,
       "winning": false
      },
      {
@@ -2526,8 +2526,8 @@
       "side": "b",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "190-113",
-      "units": -15.6,
+      "record": "195-119",
+      "units": -18.46,
       "winning": false
      },
      {
@@ -2535,8 +2535,8 @@
       "side": "a",
       "conf": "Med",
       "method": "KO/TKO",
-      "record": "206-122",
-      "units": -22.44,
+      "record": "213-126",
+      "units": -22.32,
       "winning": false
      },
      {
@@ -2544,8 +2544,8 @@
       "side": "a",
       "conf": "Med",
       "method": null,
-      "record": "196-135",
-      "units": -29.64,
+      "record": "201-141",
+      "units": -33.07,
       "winning": false
      },
      {
@@ -2553,8 +2553,8 @@
       "side": "a",
       "conf": "Low",
       "method": null,
-      "record": "199-132",
-      "units": -10.5,
+      "record": "206-136",
+      "units": -9.08,
       "winning": false
      },
      {
@@ -2562,8 +2562,8 @@
       "side": "a",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "193-118",
-      "units": -13.43,
+      "record": "201-121",
+      "units": -10.2,
       "winning": false
      },
      {
@@ -2571,8 +2571,8 @@
       "side": "a",
       "conf": "Low",
       "method": "KO/TKO",
-      "record": "208-114",
-      "units": -13.98,
+      "record": "215-118",
+      "units": -12.77,
       "winning": false
      }
     ]
