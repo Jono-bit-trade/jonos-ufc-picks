@@ -14,7 +14,7 @@ import json, os, datetime as dt
 import numpy as np
 import pandas as pd
 from common import path, SITE, no_vig, payout, to_american
-from config import EDGE, BIG_EDGE, TRAIN_FROM, MARKET_BLEND, FEATURE_GROUPS, LEARNER
+from config import EDGE, BIG_EDGE, TRAIN_FROM, MARKET_BLEND, FEATURE_GROUPS, LEARNER, OUR_PICKS_MAX_FAVORITE
 from features import build, CORE, FORM, CONTEXT, STYLE
 from model import GROUPS, WinModel, MethodModel, MethodByWinner
 from get_odds import attach, lines, norm, snapshot
@@ -660,6 +660,19 @@ def main():
                 up.at[fid, "pulled"], up.at[fid, "moved_against"] = q["pulled"], True
             elif not isinstance(up.at[fid, "our_pick"], str):
                 up.at[fid, "pulled"], up.at[fid, "moved_against"] = None, False
+    # value picks follow two of our pick rules (from Nov 22, 2026; earlier logged value picks stay as they were):
+    # none at -600 or shorter, and none on the other fighter from our pick, which read as a contradiction on the card
+    def _vp_ok(r):
+        v = r["pick"]
+        if not isinstance(v, str):
+            return None
+        o = r["odds_a"] if v == r["a"] else r["odds_b"]
+        if OUR_PICKS_MAX_FAVORITE is not None and pd.notna(o) and o < OUR_PICKS_MAX_FAVORITE:
+            return None
+        if isinstance(r["our_pick"], str) and r["our_pick"] != v:
+            return None
+        return v
+    up["pick"] = up.apply(_vp_ok, axis=1)
     if not log.empty:
         lg = log.set_index("fight_id")
         frozen = up.index[started & up.index.isin(lg.index)]

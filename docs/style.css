@@ -2127,3 +2127,6 @@ details.stage-note[open] summary{margin-bottom:4px}
 .lp-r.won{color:#6fd68b}.lp-r.lost{color:#ff8a83}
 .lp-none{color:#5b606b}
 .lp-same{color:#9aa1ad;font-size:14px}
+.bout .meta .edge-up{color:#6fd68b;font-weight:600}
+.status .posted{font-size:13px;color:#9aa1ad;margin-left:4px}
+@media (max-width:640px){#view .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}#view .stats .stat{margin:0}}

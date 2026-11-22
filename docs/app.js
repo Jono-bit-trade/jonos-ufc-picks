@@ -1579,9 +1579,14 @@ function eventsSummary(mr, year) {
 }
 
 async function viewEvent(s) {
-  const [e] = await Promise.all([get(`events/${s}.json`), loadGrap()]);
+  const [e, L] = await Promise.all([get(`events/${s}.json`), get("ledger.json").catch(() => null), loadGrap()]);
   if (!e) return `<h1>Card not found</h1><div class="empty">That card isn't in the history. <a href="#/events">See all events</a></div>`;
+  // since launch: where each pick was posted and where the line closed
+  const led = {}; for (const r of (L && L.rows) || []) if (r.date === e.date) led[[r.a, r.b].sort().join("|")] = r;
   const rows = e.bouts.map((b, i) => {
+    const lr = led[[b.a, b.b].sort().join("|")];
+    const moved = lr && lr.our_pick && lr.our_first_odds != null && lr.our_odds != null && lr.our_first_odds !== lr.our_odds
+      ? `<span class="posted" title="The price when we first posted the pick, and the price at fight time">Posted ${odds(lr.our_first_odds)}, closed ${odds(lr.our_odds)}</span>` : "";
     const won = b.winner === "a" ? b.a : b.winner === "b" ? b.b : null;
     const mp = b.model_pick, vp = b.value_pick;
     const call = !mp ? "" : `${tierTag(mp.tier || tierOf(b.final_p_a), true)}<span class="tick ${mp.right ? "won" : "lost"}">Model${mp.lean ? " (expert lean)" : ""} ${mp.right ? "✓" : "✗"} ${mp.units != null ? units(mp.units) : ""}</span>`;
@@ -1591,18 +1596,20 @@ async function viewEvent(s) {
       : "") + (!vp ? "" : op && vp.side === op.side ? `<span class="vtag" title="Also the value pick: our chance beat the line by more than 3 points">Value</span>`
         : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
-    const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
-      <div class="meta">${flagOf(sl, true)}${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
+    const side = (n, sl, id, o, mp, w, ln) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
+      <div class="meta">${flagOf(sl, true)}${odds(o)}${ln != null ? ` · line ${pct(ln)}` : ""}${mp != null ? ` · <span class="${ln != null && mp - ln > 0.03 ? "edge-up" : ""}">ours ${pct(mp)}</span>` : ""}</div></div></div>`;
+    const fp = b.final_p_a ?? b.model_p_a;
     const graded = op || mp;   // our pick if we made one, otherwise the model's pick
     const ring = graded && graded.right != null ? (graded.right ? " ring-won" : " ring-lost") : "";
     return `<article data-href="${fightLink(i, s)}" tabindex="0" title="Open the fight analysis" class="bout slim tap${i === 0 ? " main" : ""}${ring}">
-      <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${upset}</div>
-      <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, b.model_p_a, b.winner === "a")}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, b.model_p_a == null ? null : 1 - b.model_p_a, b.winner === "b")}</div>
+      <div class="status"><span class="final">${esc(b.weight_class)}</span>${b.finish ? `${esc(b.finish)}${b.round ? `, round ${b.round}` : ""}` : b.winner === "draw" ? "Draw" : b.winner === "nc" ? "No contest" : ""} ${call} ${val} ${moved} ${upset}</div>
+      <div class="pair">${side(b.a, b.a_slug, b.a_id, b.odds_a, fp, b.winner === "a", b.line_p_a)}<span class="vs sm">VS</span>${side(b.b, b.b_slug, b.b_id, b.odds_b, fp == null ? null : 1 - fp, b.winner === "b", b.line_p_a == null ? null : 1 - b.line_p_a)}</div>
       ${expertBar(b.experts, b.a, b.b, b.winner)}
     </article>`;
   }).join("");
   return `<p><a href="#/events">← All events</a></p><h1>${esc(e.name)}</h1>
     <p class="where">${dateLong(e.date)}${e.location ? ", " + esc(e.location) : ""}</p>
+    <p class="note ev-key">Under each fighter: the closing price, the line's chance with the bookmaker's cut removed, and our chance at fight time. Green means we were 3+ points above the line.</p>
     ${e.record && e.record.locked && e.record.our_bets ? `<div class="share-row"><button class="pill" type="button" onclick="shareResultsImage('${esc(s)}')">Download results image</button><span>Square image of our picks and results on this card, for X and Instagram.</span></div>` : ""}
     ${e.record && e.record.picks ? `<div class="stats">
       <div class="stat"><b>${e.record.our_bets ? `${e.record.our_won}/${e.record.our_bets}` : "–"}</b><span>our picks won</span></div>
