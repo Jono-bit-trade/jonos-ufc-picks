@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T20:41Z",
+ "updated": "2026-11-22T21:07Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -44,7 +44,7 @@
     "handle_b": 0.54,
     "bets_a": 0.86,
     "bets_b": 0.14,
-    "at": "2026-11-22T20:40Z"
+    "at": "2026-11-22T21:07Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -96,6 +96,11 @@
      "t": "2026-11-22T20:41Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-22T21:07Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "edge_a": -0.025,
@@ -140,7 +145,7 @@
     "handle_b": 0.96,
     "bets_a": 0.63,
     "bets_b": 0.37,
-    "at": "2026-11-22T20:40Z"
+    "at": "2026-11-22T21:07Z"
    },
    "why": [
     "Our chance 65% vs the line's 61% (4 points of value)"
@@ -192,6 +197,11 @@
     },
     {
      "t": "2026-11-22T20:41Z",
+     "a": -175.0,
+     "b": 150.0
+    },
+    {
+     "t": "2026-11-22T21:07Z",
      "a": -175.0,
      "b": 150.0
     }
