@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T14:54Z",
+ "updated": "2026-11-22T20:41Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -40,11 +40,11 @@
    "record_b": "17-1-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.44,
-    "handle_b": 0.56,
-    "bets_a": 0.87,
-    "bets_b": 0.13,
-    "at": "2026-11-21T23:55Z"
+    "handle_a": 0.46,
+    "handle_b": 0.54,
+    "bets_a": 0.86,
+    "bets_b": 0.14,
+    "at": "2026-11-22T20:40Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -59,16 +59,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.438,
-   "p_a": 0.571,
+   "p_a": 0.575,
    "model_pick": "Israel Adesanya",
    "tier": "Low",
-   "fair_odds_a": -133,
-   "fair_odds_b": 133,
-   "market_p_a": 0.593,
-   "odds_a": -162.0,
-   "odds_b": 136.0,
-   "best_a": -162.0,
-   "best_b": 136.0,
+   "fair_odds_a": -135,
+   "fair_odds_b": 135,
+   "market_p_a": 0.6,
+   "odds_a": -166.0,
+   "odds_b": 140.0,
+   "best_a": -166.0,
+   "best_b": 140.0,
    "open_a": -155.0,
    "open_b": 130.0,
    "books": 1.0,
@@ -77,8 +77,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -162.0,
-     "b": 136.0
+     "a": -166.0,
+     "b": 140.0
     }
    ],
    "line_history": [
@@ -91,9 +91,14 @@
      "t": "2026-11-22T14:54Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-22T20:41Z",
+     "a": -166.0,
+     "b": 140.0
     }
    ],
-   "edge_a": -0.023,
+   "edge_a": -0.025,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -103,19 +108,19 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.519,
-    "KO": 0.351,
+    "DEC": 0.52,
+    "KO": 0.35,
     "SUB": 0.13
    },
    "how": {
     "a": {
-     "DEC": 0.323,
-     "KO": 0.162,
-     "SUB": 0.085
+     "DEC": 0.325,
+     "KO": 0.164,
+     "SUB": 0.086
     },
     "b": {
-     "DEC": 0.196,
-     "KO": 0.189,
+     "DEC": 0.195,
+     "KO": 0.187,
      "SUB": 0.044
     }
    }
@@ -133,9 +138,9 @@
    "splits": {
     "handle_a": 0.04,
     "handle_b": 0.96,
-    "bets_a": 0.65,
-    "bets_b": 0.35,
-    "at": "2026-11-21T23:55Z"
+    "bets_a": 0.63,
+    "bets_b": 0.37,
+    "at": "2026-11-22T20:40Z"
    },
    "why": [
     "Our chance 65% vs the line's 61% (4 points of value)"
@@ -182,6 +187,11 @@
     },
     {
      "t": "2026-11-22T14:54Z",
+     "a": -175.0,
+     "b": 150.0
+    },
+    {
+     "t": "2026-11-22T20:41Z",
      "a": -175.0,
      "b": 150.0
     }

@@ -6,11 +6,11 @@
   "name": "DraftKings",
   "priority": 1
  },
- "details": "I. Adesanya -162",
+ "details": "I. Adesanya -166",
  "awayAthleteOdds": {
   "favorite": false,
   "underdog": true,
-  "moneyLine": 136,
+  "moneyLine": 140,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -24,12 +24,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 2.36,
-    "displayValue": "34/25",
-    "alternateDisplayValue": "+136",
-    "decimal": 2.36,
-    "fraction": "34/25",
-    "american": "+136"
+    "value": 2.4,
+    "displayValue": "7/5",
+    "alternateDisplayValue": "+140",
+    "decimal": 2.4,
+    "fraction": "7/5",
+    "american": "+140"
    }
   },
   "athlete": {
@@ -39,7 +39,7 @@
  "homeAthleteOdds": {
   "favorite": true,
   "underdog": false,
-  "moneyLine": -162,
+  "moneyLine": -166,
   "open": {
    "favorite": false,
    "moneyLine": {
@@ -53,12 +53,12 @@
   },
   "current": {
    "moneyLine": {
-    "value": 1.61,
-    "displayValue": "50/81",
-    "alternateDisplayValue": "-162",
-    "decimal": 1.61,
-    "fraction": "50/81",
-    "american": "-162"
+    "value": 1.6,
+    "displayValue": "50/83",
+    "alternateDisplayValue": "-166",
+    "decimal": 1.6,
+    "fraction": "50/83",
+    "american": "-166"
    }
   },
   "athlete": {
