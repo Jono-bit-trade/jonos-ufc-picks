@@ -1588,7 +1588,8 @@ async function viewEvent(s) {
     const op = b.our_pick;
     const val = (b.expert_lean ? `<span class="lean">Expert lean: ${esc(b.expert_lean === "a" ? b.a : b.b)}</span>` : "")
       + (!op && b.passed ? `<span class="lean passed" title="The line moved more than 1 point against this side between open and close, so we passed.">Passed: line moved against ${esc(b.passed === "a" ? b.a : b.b)}</span>` : "") + (op ? `<span class="vpick ours ${op.push ? "push" : op.right ? "won" : "lost"}"${op.push ? ` title="${b.winner === "nc" ? "No contest" : "Draw"}: stake back, not counted as a win or a loss."` : ""}>Our pick: ${esc(op.side === "a" ? b.a : b.b)} ${odds(op.odds)} ${op.push ? "· push" : `${op.right ? "✓" : "✗"} ${units(op.units)}`}</span>`
-      : !vp ? "" : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
+      : "") + (!vp ? "" : op && vp.side === op.side ? `<span class="vtag" title="Also the value pick: our chance beat the line by more than 3 points">Value</span>`
+        : `<span class="vpick value ${vp.right ? "won" : "lost"}">Value pick: ${esc(vp.side === "a" ? b.a : b.b)} ${odds(vp.odds)} ${vp.right ? "✓" : "✗"} ${units(vp.units)}</span>`);
     const upset = won && b.line_p_a != null && ((b.winner === "a") !== (b.line_p_a > .5)) ? `<span class="news">Upset</span>` : "";
     const side = (n, sl, id, o, mp, w) => `<div class="side ${w ? "w" : ""}">${photo(id, n, "sm")}<div>${fighterLink(n, sl)}${w ? ` <b class="win">Winner</b>` : ""} ${grapChips(sl)}
       <div class="meta">${flagOf(sl, true)}${odds(o)}${mp != null ? ` · model ${pct(mp)}` : ""}</div></div></div>`;
@@ -2264,12 +2265,44 @@ function recentForm(rr) {
   </section>`;
 }
 
+// every pick since the site went public, card by card: our picks and value picks, with results
+function livePicks(rows, idx, show) {
+  const R = (rows || []).filter(r => r.our_pick || r.value_pick);
+  if (!R.length) return "";
+  const ev = {}; for (const e of idx || []) ev[e.date] = e;
+  const sum = (xs, k) => xs.reduce((a, r) => a + (r[k] || 0), 0);
+  const push = r => r.result === "draw" || r.result === "nc";
+  const ours = R.filter(r => r.our_pick && r.winner && !push(r)), vals = R.filter(r => r.value_pick && r.winner && !push(r));
+  const ow = ours.filter(r => r.winner === r.our_pick).length, vw = vals.filter(r => r.winner === r.value_pick).length;
+  const res = (nm, u, r) => !r.winner && !push(r) ? `<span class="lp-r">Pending</span>` : push(r) ? `<span class="lp-r">Push</span>`
+    : `<span class="lp-r ${r.winner === nm ? "won" : "lost"}">${r.winner === nm ? "Won" : "Lost"} ${units(u)}</span>`;
+  const cell = (nm, o, extra, u, r) => nm ? `<b>${esc(nm)}</b> ${odds(o)}${extra}${res(nm, u, r)}` : `<span class="lp-none">–</span>`;
+  const keep = r => show === "value" ? r.value_pick : show === "ours" ? r.our_pick : true;
+  const dates = [...new Set(R.map(r => r.date))].sort().reverse();
+  const chip = (k, t) => `<a class="chip${show === k ? " on" : ""}" href="#/record?show=${k}">${t}</a>`;
+  return `<section class="livepicks"><h2>Every pick since ${esc(dateLong(dates[dates.length - 1]))}</h2>
+    <p class="lp-sum">Our picks <b>${ow}-${ours.length - ow}</b> <span class="${sum(ours, "our_staked_units") >= 0 ? "won" : "lost"}">${units(sum(ours, "our_staked_units"))}</span> at suggested stakes
+      · Value picks <b>${vw}-${vals.length - vw}</b> <span class="${sum(vals, "value_units") >= 0 ? "won" : "lost"}">${units(sum(vals, "value_units"))}</span> at 1u each</p>
+    <div class="chips">${chip("all", "All")}${chip("ours", "Our picks")}${chip("value", "Value picks")}</div>
+    ${dates.map(d => { const rs = R.filter(r => r.date === d && keep(r)); if (!rs.length) return "";
+      const e = ev[d];
+      return `<div class="lp-card"><h3>${e ? `<a href="#/event/${esc(e.slug)}">${esc(e.name)}</a>` : "UFC"} <span>${esc(dateLong(d))}</span></h3>
+        <div class="tablewrap"><table class="lp-t"><thead><tr><th>Fight</th>${show !== "value" ? "<th>Our pick</th>" : ""}${show !== "ours" ? "<th>Value pick</th>" : ""}</tr></thead><tbody>
+        ${rs.map(r => `<tr><td class="lp-f">${esc(r.a.split(" ").slice(-1)[0])} vs ${esc(r.b.split(" ").slice(-1)[0])}</td>
+          ${show !== "value" ? `<td>${cell(r.our_pick, r.our_odds, r.stake ? ` · ${r.stake}u` : "", r.our_staked_units, r)}</td>` : ""}
+          ${show !== "ours" ? `<td>${show === "all" && r.value_pick && r.value_pick === r.our_pick ? `<span class="lp-same">Same as our pick</span>${res(r.value_pick, r.value_units, r)}` : cell(r.value_pick, r.value_odds, "", r.value_units, r)}</td>` : ""}</tr>`).join("")}
+        </tbody></table></div></div>`; }).join("")}
+  </section>`;
+}
+
 async function viewRecord(q) {
   const [L, mr, rr] = await Promise.all([get("ledger.json", true), get("model_record.json"), get("record_rows.json", true)]);
   const tf = q && q.get("tf") || "ytd";
   const rows = L && L.rows ? L.rows : [];
+  const idx = await get("events/index.json").catch(() => null);
   return `<h1>Record</h1>
     ${recentForm(rr)}
+    ${livePicks(rows, idx, q && q.get("show") || "all")}
     ${vsLine(mr)}
     ${mr ? `<h2>Our picks vs. the betting line, ${mr.from || 2020} on</h2>${unitsChart(mr.curve, lineCurve(rr))}
 ` : ""}

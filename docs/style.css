@@ -2107,3 +2107,23 @@ details.stage-note[open] summary{margin-bottom:4px}
   .close-cta::after{-webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);mask-image:linear-gradient(180deg,#000,transparent 80%)}}
 .about-photo{height:220px;margin:18px 0 22px;border-radius:4px;border:1px solid #26282e;background:linear-gradient(90deg,rgba(13,14,18,.85),rgba(13,14,18,.15)),var(--ph-about) center 35%/cover no-repeat;filter:grayscale(1) contrast(1.1)}
 @media (max-width:700px){.about-photo{height:150px}}
+
+/* every pick since launch (Record page) */
+.livepicks{margin:8px 0 28px}
+.livepicks h2{margin-bottom:6px}
+.lp-sum{color:#b9bfca;margin:0 0 12px;font-size:15px}
+.lp-sum b{color:#fff}
+.livepicks .chips{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+.livepicks .chip{padding:5px 12px;border:1px solid #343844;border-radius:999px;color:#c9ced8;text-decoration:none;font-size:14px}
+.livepicks .chip.on{background:var(--ink);color:#111;border-color:var(--ink)}
+.lp-card{margin:0 0 16px}
+.lp-card h3{font-size:16px;margin:0 0 6px}
+.lp-card h3 a{color:#fff;text-decoration:none}
+.lp-card h3 span{color:#8b93a2;font-weight:500;font-size:14px;margin-left:6px}
+.lp-t td,.lp-t th{padding:7px 10px;vertical-align:top}
+.lp-t td b{color:#fff}
+.lp-f{color:#9aa1ad;white-space:nowrap}
+.lp-r{display:block;font-size:13px;color:#8b93a2}
+.lp-r.won{color:#6fd68b}.lp-r.lost{color:#ff8a83}
+.lp-none{color:#5b606b}
+.lp-same{color:#9aa1ad;font-size:14px}
