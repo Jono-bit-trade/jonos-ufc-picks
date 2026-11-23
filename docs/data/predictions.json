@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T00:28Z",
+ "updated": "2026-11-23T19:22Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -59,11 +59,11 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.438,
-   "p_a": 0.59,
+   "p_a": 0.589,
    "model_pick": "Israel Adesanya",
    "tier": "Medium",
-   "fair_odds_a": -144,
-   "fair_odds_b": 144,
+   "fair_odds_a": -143,
+   "fair_odds_b": 143,
    "market_p_a": 0.622,
    "odds_a": -185.0,
    "odds_b": 154.0,
@@ -106,6 +106,11 @@
      "t": "2026-11-23T00:28Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-11-23T19:22Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "edge_a": -0.033,
@@ -124,7 +129,7 @@
    },
    "how": {
     "a": {
-     "DEC": 0.334,
+     "DEC": 0.333,
      "KO": 0.168,
      "SUB": 0.088
     },
@@ -167,7 +172,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.626,
-   "p_a": 0.638,
+   "p_a": 0.637,
    "model_pick": "Ian Machado Garry",
    "tier": "Medium",
    "fair_odds_a": -176,
@@ -214,9 +219,14 @@
      "t": "2026-11-23T00:28Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-23T19:22Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
-   "edge_a": 0.034,
+   "edge_a": 0.033,
    "pick": "Ian Machado Garry",
    "our_pick": "Ian Machado Garry",
    "bet_to": -170,

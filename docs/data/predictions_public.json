@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T00:28Z",
+ "updated": "2026-11-23T19:22Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -99,6 +99,11 @@
      "t": "2026-11-23T00:28Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-11-23T19:22Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "locked": true,
@@ -141,7 +146,7 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.626,
-   "p_a": 0.638,
+   "p_a": 0.637,
    "model_pick": "Ian Machado Garry",
    "tier": "Medium",
    "fair_odds_a": -176,
@@ -188,9 +193,14 @@
      "t": "2026-11-23T00:28Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-23T19:22Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
-   "edge_a": 0.034,
+   "edge_a": 0.033,
    "pick": "Ian Machado Garry",
    "our_pick": "Ian Machado Garry",
    "bet_to": -170,
