@@ -52,7 +52,7 @@ let COUNTRY = {}, RANK = {}, FAV = {};
 const METHOD = "EDGE Rating";
 // confidence tier from our chance for the favored side: High 70%+, Medium 58-70%, Low under 58%
 const tierOf = p => p == null ? null : Math.max(p, 1 - p) >= 0.70 ? "High" : Math.max(p, 1 - p) >= 0.58 ? "Medium" : "Low";
-const tierTag = (t, short) => t ? `<span class="tier t-${t.toLowerCase()}" title="${t} confidence: our chance ${t === "High" ? "70%+" : t === "Medium" ? "58-70%" : "under 58%"}. See accuracy by tier on the Record page.">${short ? t.slice(0, t === "Medium" ? 3 : 4) : t + " confidence"}</span>` : "";
+const tierTag = (t, short) => t ? `<span class="tier t-${t.toLowerCase()}" title="${t} confidence: our chance ${t === "High" ? "70%+" : t === "Medium" ? "58-70%" : "under 58%"}. See accuracy by tier on the Record page.">${t}${short ? "" : " confidence"}</span>` : "";
 // Liked fighters (docs/favorites.json): fighters Jono keeps seeing great performances from. A gold star by the name everywhere it links; not a pick, never graded
 // current UFC champions (from the official rankings): a gold CHAMP tag by the name everywhere it links
 const champTag = s => RANK[s] && RANK[s].rank === 0 ? `<span class="champtag" title="Current UFC ${esc(RANK[s].div)} champion">Champ</span>` : "";
@@ -736,7 +736,7 @@ async function viewCard() {
     <section class="feat solo cardhero">${featMain(p, first, true)}</section>
     ${p.take_preview ? `<section class="take-prev"><b>Jono's preview</b><p>${esc(p.take_preview)}</p></section>` : ""}
     <div class="cardgrid"><div class="cg-main">
-    <div class="stage-wide">${stageNote(p)}</div>
+    ${p.fights.some(f => f.our_pick) || p.gated && p.locked_count ? "" : `<div class="stage-wide">${stageNote(p)}</div>`}
     ${cardToggle()}
     ${(() => { const only = picksOnly(), keep = f => !only || f.our_pick || f.pick || f.locked;
       const fs = p.fights.map((f, i) => [f, i]).filter(([f]) => keep(f));
@@ -1228,9 +1228,8 @@ function featMain(p, start, onCard) {
       <span class="ft-p"><b title="Our chance. Line: the sportsbook's chance with their cut taken out.">${m.hidden ? lockIcon : ours + "%"}</b><small>Line ${ln == null ? "–" : (s === "a" ? pct(ln) : (100 - Math.round(100 * m.market_p_a)) + "%")} · ${odds(m["odds_" + s])}</small></span></a>`; };
   return `    <div class="ft-main">
       <div class="ft-show">
-        <span class="ft-k">${onCard && p.fights.some(f => f.state && f.state !== "pre") ? "Fight night" : "Next card"}</span>
-        <${onCard ? "h1" : "h2"} class="ft-ev">${(() => { const mm = String(ev).match(/^(UFC)\s+(.*)$/i); return mm ? `${esc(mm[1])} <em>${esc(mm[2])}</em>` : esc(ev); })()}</${onCard ? "h1" : "h2"}>
-        ${sub ? `<p class="ft-main-ev">${esc(sub)}</p>` : ""}
+        <span class="ft-k">${onCard && p.fights.some(f => f.state && f.state !== "pre") ? "Fight night" : "Next card"}${sub ? ` · ${esc(ev)}` : ""}</span>
+        <${onCard ? "h1" : "h2"} class="ft-ev ft-match">${esc(sub || ev)}</${onCard ? "h1" : "h2"}>
         <div class="ft-facts"><span><small>Date</small><b>${new Date(p.date + "T12:00:00").toLocaleDateString(undefined, {weekday: "short", month: "short", day: "numeric"})}</b></span>
           ${p.location ? `<span><small>Where</small><b>${esc(p.location.split(",").slice(0, 2).join(","))}</b></span>` : ""}
           ${start ? `<span class="cd"><small>Starts in</small><b>${esc(countdown(start).replace(/^In /, ""))}</b></span>` : ""}</div>
@@ -2260,7 +2259,7 @@ function recentForm(rr) {
     return `<a class="rf-chip ${c.u > 0.005 ? "won" : c.u < -0.005 ? "lost" : ""}" href="#/events" title="${esc(dateLong(d))}: ${c.w}-${c.l}, ${units(c.u)}"><b>${c.w}-${c.l}</b><span>${units(Math.round(c.u * 10) / 10)}</span><small>${new Date(d + "T12:00").toLocaleDateString(undefined, {month: "short", day: "numeric"})}</small></a>`; }).join("");
   const ms = Object.keys(months).sort().slice(-12), mx = Math.max(1, ...ms.map(m => Math.abs(months[m])));
   const W = 1100, H = 170, mid = H / 2, bw = W / ms.length;
-  const bars = ms.map((m, i) => { const v = months[m], h = Math.abs(v) / mx * (mid - 18), x = i * bw + bw * 0.18, w = bw * 0.64;
+  const bars = ms.map((m, i) => { const v = months[m], h = Math.abs(v) / mx * (mid - 28), x = i * bw + bw * 0.18, w = bw * 0.64;
     return `<g><rect x="${x.toFixed(1)}" y="${(v >= 0 ? mid - h : mid).toFixed(1)}" width="${w.toFixed(1)}" height="${Math.max(1, h).toFixed(1)}" rx="3" class="${v >= 0 ? "pos" : "neg"}"><title>${m}: ${units(Math.round(v * 10) / 10)}</title></rect>
       <text x="${(x + w / 2).toFixed(1)}" y="${(v >= 0 ? mid - h - 5 : mid + h + 13).toFixed(1)}" class="rf-v">${units(Math.round(v * 10) / 10).replace("u", "")}</text>
       <text x="${(x + w / 2).toFixed(1)}" y="${H - 2}" class="rf-m">${new Date(m + "-15T12:00").toLocaleDateString(undefined, {month: "short"})}</text></g>`; }).join("");
@@ -2296,8 +2295,8 @@ function livePicks(rows, idx, show) {
       return `<div class="lp-card"><h3>${e ? `<a href="#/event/${esc(e.slug)}">${esc(e.name)}</a>` : "UFC"} <span>${esc(dateLong(d))}</span></h3>
         <div class="tablewrap"><table class="lp-t"><thead><tr><th>Fight</th>${show !== "value" ? "<th>Our pick</th>" : ""}${show !== "ours" ? "<th>Value pick</th>" : ""}</tr></thead><tbody>
         ${rs.map(r => `<tr><td class="lp-f">${esc(r.a.split(" ").slice(-1)[0])} vs ${esc(r.b.split(" ").slice(-1)[0])}</td>
-          ${show !== "value" ? `<td>${cell(r.our_pick, r.our_odds, r.stake ? ` · ${r.stake}u` : "", r.our_staked_units, r)}</td>` : ""}
-          ${show !== "ours" ? `<td>${show === "all" && r.value_pick && r.value_pick === r.our_pick ? `<span class="lp-same">Same as our pick</span>${res(r.value_pick, r.value_units, r)}` : cell(r.value_pick, r.value_odds, "", r.value_units, r)}</td>` : ""}</tr>`).join("")}
+          ${show !== "value" ? `<td data-l="Our pick">${cell(r.our_pick, r.our_odds, r.stake ? ` · ${r.stake}u` : "", r.our_staked_units, r)}</td>` : ""}
+          ${show !== "ours" ? `<td data-l="Value pick">${show === "all" && r.value_pick && r.value_pick === r.our_pick ? `<span class="lp-same">Same as our pick</span>${res(r.value_pick, r.value_units, r)}` : cell(r.value_pick, r.value_odds, "", r.value_units, r)}</td>` : ""}</tr>`).join("")}
         </tbody></table></div></div>`; }).join("")}
   </section>`;
 }
