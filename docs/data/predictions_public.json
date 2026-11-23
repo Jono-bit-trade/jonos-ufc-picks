@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T21:07Z",
+ "updated": "2026-11-23T00:28Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -40,11 +40,11 @@
    "record_b": "17-1-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.46,
-    "handle_b": 0.54,
+    "handle_a": 0.48,
+    "handle_b": 0.52,
     "bets_a": 0.86,
     "bets_b": 0.14,
-    "at": "2026-11-22T21:07Z"
+    "at": "2026-11-23T00:28Z"
    },
    "weight_class": "Middleweight",
    "rounds": 5,
@@ -57,11 +57,11 @@
    "rating_b": 1709,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.6,
-   "odds_a": -166.0,
-   "odds_b": 140.0,
-   "best_a": -166.0,
-   "best_b": 140.0,
+   "market_p_a": 0.622,
+   "odds_a": -185.0,
+   "odds_b": 154.0,
+   "best_a": -185.0,
+   "best_b": 154.0,
    "open_a": -155.0,
    "open_b": 130.0,
    "books": 1.0,
@@ -70,8 +70,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -166.0,
-     "b": 140.0
+     "a": -185.0,
+     "b": 154.0
     }
    ],
    "line_history": [
@@ -94,9 +94,14 @@
      "t": "2026-11-22T21:07Z",
      "a": -166.0,
      "b": 140.0
+    },
+    {
+     "t": "2026-11-23T00:28Z",
+     "a": -185.0,
+     "b": 154.0
     }
    ],
-   "locked": false,
+   "locked": true,
    "hidden": true,
    "our_pick": null,
    "pick": null,
@@ -115,14 +120,14 @@
    "record_b": "30-1-0",
    "experts": null,
    "splits": {
-    "handle_a": 0.04,
-    "handle_b": 0.96,
-    "bets_a": 0.63,
-    "bets_b": 0.37,
-    "at": "2026-11-22T21:07Z"
+    "handle_a": 0.03,
+    "handle_b": 0.97,
+    "bets_a": 0.62,
+    "bets_b": 0.38,
+    "at": "2026-11-23T00:28Z"
    },
    "why": [
-    "Our chance 65% vs the line's 61% (4 points of value)"
+    "Our chance 64% vs the line's 60% (4 points of value)"
    ],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -136,16 +141,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.626,
-   "p_a": 0.648,
+   "p_a": 0.638,
    "model_pick": "Ian Machado Garry",
    "tier": "Medium",
-   "fair_odds_a": -184,
-   "fair_odds_b": 184,
-   "market_p_a": 0.614,
-   "odds_a": -175.0,
-   "odds_b": 150.0,
-   "best_a": -175.0,
-   "best_b": 150.0,
+   "fair_odds_a": -176,
+   "fair_odds_b": 176,
+   "market_p_a": 0.604,
+   "odds_a": -170.0,
+   "odds_b": 142.0,
+   "best_a": -170.0,
+   "best_b": 142.0,
    "open_a": -170.0,
    "open_b": 142.0,
    "books": 1.0,
@@ -154,8 +159,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -175.0,
-     "b": 150.0
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "line_history": [
@@ -178,12 +183,17 @@
      "t": "2026-11-22T21:07Z",
      "a": -175.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-23T00:28Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": 0.034,
    "pick": "Ian Machado Garry",
    "our_pick": "Ian Machado Garry",
-   "bet_to": -175,
+   "bet_to": -170,
    "stake": 0.75,
    "expert_lean": null,
    "check_news": false,
@@ -193,20 +203,20 @@
     "odds": -170.0
    },
    "method": {
-    "DEC": 0.478,
-    "KO": 0.337,
-    "SUB": 0.186
+    "DEC": 0.476,
+    "KO": 0.334,
+    "SUB": 0.19
    },
    "how": {
     "a": {
-     "DEC": 0.349,
-     "KO": 0.269,
+     "DEC": 0.343,
+     "KO": 0.265,
      "SUB": 0.03
     },
     "b": {
-     "DEC": 0.129,
-     "KO": 0.068,
-     "SUB": 0.156
+     "DEC": 0.133,
+     "KO": 0.07,
+     "SUB": 0.16
     }
    },
    "sample": true
@@ -677,5 +687,5 @@
  "final": false,
  "final_at": "2026-12-05T14:07Z",
  "gated": true,
- "locked_count": 0
+ "locked_count": 1
 }
