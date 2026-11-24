@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T19:01Z",
+ "updated": "2026-11-24T23:27Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -77,11 +77,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.16,
-    "handle_b": 0.84,
-    "bets_a": 0.84,
-    "bets_b": 0.16,
-    "at": "2026-11-24T16:26Z"
+    "handle_a": 0.15,
+    "handle_b": 0.85,
+    "bets_a": 0.82,
+    "bets_b": 0.18,
+    "at": "2026-11-24T23:27Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -173,6 +173,11 @@
      "t": "2026-11-24T19:01Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": -170.0,
+     "b": 142.0
     }
    ],
    "edge_a": -0.027,
@@ -250,11 +255,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.03,
-    "handle_b": 0.97,
-    "bets_a": 0.6,
-    "bets_b": 0.4,
-    "at": "2026-11-24T16:26Z"
+    "handle_a": 0.04,
+    "handle_b": 0.96,
+    "bets_a": 0.62,
+    "bets_b": 0.38,
+    "at": "2026-11-24T23:27Z"
    },
    "why": [
     "Our chance 65% vs the line's 62% (3 points of value)"
@@ -348,6 +353,11 @@
      "t": "2026-11-24T19:01Z",
      "a": -180.0,
      "b": 150.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "edge_a": 0.033,
@@ -427,7 +437,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.0,
+    "handle_b": 1.0,
+    "bets_a": 0.0,
+    "bets_b": 1.0,
+    "at": "2026-11-24T23:27Z"
+   },
    "why": [],
    "weight_class": "Heavyweight",
    "rounds": 3,
@@ -478,6 +494,11 @@
      "t": "2026-11-24T19:01Z",
      "a": 275.0,
      "b": -345.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": 275.0,
+     "b": -345.0
     }
    ],
    "edge_a": -0.013,
@@ -516,13 +537,50 @@
    "b_id": "5109762",
    "record_a": "14-0-0",
    "record_b": "12-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 0,
+    "high_a": 2,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 1.0,
     "handle_b": 0.0,
     "bets_a": 1.0,
     "bets_b": 0.0,
-    "at": "2026-11-24T16:26Z"
+    "at": "2026-11-24T23:27Z"
    },
    "why": [
     "Our chance 65% vs the line's 57% (8 points of value)",
@@ -576,6 +634,11 @@
     },
     {
      "t": "2026-11-24T19:01Z",
+     "a": -148.0,
+     "b": 124.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
      "a": -148.0,
      "b": 124.0
     }
@@ -708,6 +771,11 @@
      "t": "2026-11-24T19:01Z",
      "a": 164.0,
      "b": -198.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": 164.0,
+     "b": -198.0
     }
    ],
    "edge_a": 0.055,
@@ -784,7 +852,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.0,
+    "handle_b": 1.0,
+    "bets_a": 0.0,
+    "bets_b": 1.0,
+    "at": "2026-11-24T23:27Z"
+   },
    "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -833,6 +907,11 @@
     },
     {
      "t": "2026-11-24T19:01Z",
+     "a": 245.0,
+     "b": -305.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
      "a": 245.0,
      "b": -305.0
     }
@@ -911,7 +990,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 0.0,
+    "handle_b": 1.0,
+    "bets_a": 0.0,
+    "bets_b": 1.0,
+    "at": "2026-11-24T23:27Z"
+   },
    "why": [
     "Our chance 67% vs the line's 63% (4 points of value)"
    ],
@@ -962,6 +1047,11 @@
     },
     {
      "t": "2026-11-24T19:01Z",
+     "a": -192.0,
+     "b": 160.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
      "a": -192.0,
      "b": 160.0
     }
@@ -1199,6 +1289,11 @@
      "t": "2026-11-24T19:01Z",
      "a": -118.0,
      "b": -102.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": -118.0,
+     "b": -102.0
     }
    ],
    "edge_a": -0.027,
@@ -1385,7 +1480,7 @@
     "handle_b": 1.0,
     "bets_a": 0.0,
     "bets_b": 1.0,
-    "at": "2026-11-24T16:26Z"
+    "at": "2026-11-24T23:27Z"
    },
    "why": [
     "Our chance 59% vs the line's 55% (4 points of value)",
@@ -1438,6 +1533,11 @@
     },
     {
      "t": "2026-11-24T19:01Z",
+     "a": -135.0,
+     "b": 114.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
      "a": -135.0,
      "b": 114.0
     }
@@ -1519,7 +1619,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
+    "at": "2026-11-24T23:27Z"
+   },
    "why": [],
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -1568,6 +1674,11 @@
     },
     {
      "t": "2026-11-24T19:01Z",
+     "a": 120.0,
+     "b": -142.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
      "a": 120.0,
      "b": -142.0
     }
@@ -1646,7 +1757,13 @@
      }
     ]
    },
-   "splits": null,
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
+    "at": "2026-11-24T23:27Z"
+   },
    "why": [],
    "weight_class": "Bantamweight",
    "rounds": 3,
@@ -1697,6 +1814,11 @@
      "t": "2026-11-24T19:01Z",
      "a": -148.0,
      "b": 124.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": -148.0,
+     "b": 124.0
     }
    ],
    "edge_a": 0.022,
@@ -1735,8 +1857,51 @@
    "b_id": "5110006",
    "record_a": "21-5-0",
    "record_b": "17-6-0",
-   "experts": null,
-   "splits": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 0,
+    "high_a": 0,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     }
+    ]
+   },
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
+    "at": "2026-11-24T23:27Z"
+   },
    "why": [],
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -1750,16 +1915,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.394,
-   "p_a": 0.579,
+   "p_a": 0.57,
    "model_pick": "Mateusz Rebecki",
    "tier": "Low",
-   "fair_odds_a": -137,
-   "fair_odds_b": 137,
-   "market_p_a": 0.572,
-   "odds_a": -148.0,
-   "odds_b": 124.0,
-   "best_a": -148.0,
-   "best_b": 124.0,
+   "fair_odds_a": -132,
+   "fair_odds_b": 132,
+   "market_p_a": 0.563,
+   "odds_a": -142.0,
+   "odds_b": 120.0,
+   "best_a": -142.0,
+   "best_b": 120.0,
    "open_a": -148.0,
    "open_b": 124.0,
    "books": 1.0,
@@ -1768,8 +1933,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -148.0,
-     "b": 124.0
+     "a": -142.0,
+     "b": 120.0
     }
    ],
    "line_history": [
@@ -1787,6 +1952,11 @@
      "t": "2026-11-24T19:01Z",
      "a": -148.0,
      "b": 124.0
+    },
+    {
+     "t": "2026-11-24T23:27Z",
+     "a": -142.0,
+     "b": 120.0
     }
    ],
    "edge_a": 0.006,
@@ -1800,19 +1970,19 @@
    "posted": null,
    "method": {
     "DEC": 0.526,
-    "KO": 0.297,
-    "SUB": 0.177
+    "KO": 0.298,
+    "SUB": 0.176
    },
    "how": {
     "a": {
-     "DEC": 0.302,
-     "KO": 0.154,
-     "SUB": 0.123
+     "DEC": 0.297,
+     "KO": 0.152,
+     "SUB": 0.121
     },
     "b": {
-     "DEC": 0.224,
-     "KO": 0.143,
-     "SUB": 0.054
+     "DEC": 0.229,
+     "KO": 0.146,
+     "SUB": 0.055
     }
    }
   }
