@@ -497,6 +497,132 @@
    },
    "competitions": [
     {
+     "id": "401936473",
+     "uid": "s:3301~l:3321~e:600062700~c:401936473",
+     "date": "2026-12-05T15:00Z",
+     "endDate": "2026-12-05T15:00Z",
+     "type": {
+      "id": "986",
+      "abbreviation": "Lightweight"
+     },
+     "timeValid": true,
+     "neutralSite": false,
+     "playByPlayAvailable": false,
+     "recent": false,
+     "venue": {
+      "id": "11170",
+      "fullName": "ANB Arena",
+      "address": {
+       "city": "Riyadh",
+       "country": "Saudi Arabia"
+      },
+      "indoor": true
+     },
+     "competitors": [
+      {
+       "id": "4689965",
+       "uid": "s:3301~a:4689965",
+       "type": "athlete",
+       "order": 1,
+       "winner": false,
+       "athlete": {
+        "fullName": "Mateusz R\u0119becki",
+        "displayName": "Mateusz R\u0119becki",
+        "shortName": "M. R\u0119becki",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/pol.png",
+         "alt": "Poland",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "21-5-0"
+        }
+       ]
+      },
+      {
+       "id": "5110006",
+       "uid": "s:3301~a:5110006",
+       "type": "athlete",
+       "order": 2,
+       "winner": false,
+       "athlete": {
+        "fullName": "Elves Brener",
+        "displayName": "Elves Brener",
+        "shortName": "E. Brener",
+        "flag": {
+         "href": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+         "alt": "Brazil",
+         "rel": [
+          "country-flag"
+         ]
+        }
+       },
+       "records": [
+        {
+         "name": "overall",
+         "abbreviation": "TOT",
+         "type": "total",
+         "summary": "17-6-0"
+        }
+       ]
+      }
+     ],
+     "status": {
+      "clock": 0.0,
+      "displayClock": "-",
+      "period": 0,
+      "type": {
+       "id": "1",
+       "name": "STATUS_SCHEDULED",
+       "state": "pre",
+       "completed": false,
+       "description": "Scheduled",
+       "detail": "Sat, December 5th at 10:00 AM EST",
+       "shortDetail": "12/5 - 10:00 AM EST"
+      }
+     },
+     "broadcasts": [
+      {
+       "market": "national",
+       "names": [
+        "Paramount+"
+       ]
+      }
+     ],
+     "format": {
+      "regulation": {
+       "periods": 3
+      }
+     },
+     "startDate": "2026-12-05T15:00Z",
+     "broadcast": "Paramount+",
+     "geoBroadcasts": [
+      {
+       "type": {
+        "id": "4",
+        "shortName": "Streaming"
+       },
+       "market": {
+        "id": "1",
+        "type": "National"
+       },
+       "media": {
+        "shortName": "Paramount+"
+       },
+       "lang": "en",
+       "region": "us"
+      }
+     ],
+     "highlights": []
+    },
+    {
      "id": "401933606",
      "uid": "s:3301~l:3321~e:600062700~c:401933606",
      "date": "2026-12-05T15:00Z",

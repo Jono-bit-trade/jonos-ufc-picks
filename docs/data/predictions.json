@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T01:37Z",
+ "updated": "2026-11-24T04:26Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-12-05T15:00Z",
-   "bouts": 6,
+   "bouts": 7,
    "tv": [
     "Paramount+"
    ]
@@ -77,11 +77,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.47,
-    "handle_b": 0.53,
-    "bets_a": 0.84,
-    "bets_b": 0.16,
-    "at": "2026-11-24T01:37Z"
+    "handle_a": 0.48,
+    "handle_b": 0.52,
+    "bets_a": 0.85,
+    "bets_b": 0.15,
+    "at": "2026-11-24T04:26Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -151,6 +151,11 @@
     },
     {
      "t": "2026-11-24T01:37Z",
+     "a": -162.0,
+     "b": 136.0
+    },
+    {
+     "t": "2026-11-24T04:26Z",
      "a": -162.0,
      "b": 136.0
     }
@@ -232,9 +237,9 @@
    "splits": {
     "handle_a": 0.03,
     "handle_b": 0.97,
-    "bets_a": 0.61,
-    "bets_b": 0.39,
-    "at": "2026-11-24T01:37Z"
+    "bets_a": 0.6,
+    "bets_b": 0.4,
+    "at": "2026-11-24T04:26Z"
    },
    "why": [
     "Our chance 65% vs the line's 62% (3 points of value)"
@@ -306,6 +311,11 @@
     },
     {
      "t": "2026-11-24T01:37Z",
+     "a": -180.0,
+     "b": 150.0
+    },
+    {
+     "t": "2026-11-24T04:26Z",
      "a": -180.0,
      "b": 150.0
     }
@@ -1455,6 +1465,74 @@
      "DEC": 0.249,
      "KO": 0.176,
      "SUB": 0.045
+    }
+   }
+  },
+  {
+   "a": "Mateusz Rebecki",
+   "b": "Elves Brener",
+   "a_slug": "mateusz-rebecki",
+   "b_slug": "elves-brener",
+   "a_id": "4689965",
+   "b_id": "5110006",
+   "record_a": "21-5-0",
+   "record_b": "17-6-0",
+   "experts": null,
+   "splits": null,
+   "why": [],
+   "weight_class": "Lightweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-12-05T15:00Z",
+   "state": "pre",
+   "status": "Sat, December 5th at 10:00 AM EST",
+   "result": null,
+   "rating_a": 1582,
+   "rating_b": 1569,
+   "debut_a": false,
+   "debut_b": false,
+   "p_model_a": 0.394,
+   "p_a": 0.394,
+   "model_pick": "Elves Brener",
+   "tier": "Medium",
+   "fair_odds_a": 154,
+   "fair_odds_b": -154,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "best_book_a": null,
+   "best_book_b": null,
+   "book_prices": [],
+   "line_history": [],
+   "edge_a": null,
+   "pick": null,
+   "our_pick": null,
+   "bet_to": null,
+   "stake": null,
+   "expert_lean": null,
+   "check_news": false,
+   "moved_against": false,
+   "posted": null,
+   "method": {
+    "DEC": 0.528,
+    "KO": 0.311,
+    "SUB": 0.161
+   },
+   "how": {
+    "a": {
+     "DEC": 0.206,
+     "KO": 0.105,
+     "SUB": 0.084
+    },
+    "b": {
+     "DEC": 0.322,
+     "KO": 0.206,
+     "SUB": 0.078
     }
    }
   }
