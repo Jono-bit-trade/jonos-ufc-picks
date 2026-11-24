@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T04:26Z",
+ "updated": "2026-11-24T14:48Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -314,14 +314,6 @@
    "record": "14-5"
   },
   {
-   "fighter": "Dustin Poirier",
-   "rating": 1795,
-   "rd": 91,
-   "last_fight": "2025-07-19",
-   "division": "Lightweight",
-   "record": "22-9"
-  },
-  {
    "fighter": "Joe Pyfer",
    "rating": 1795,
    "rd": 117,
@@ -330,20 +322,28 @@
    "record": "7-1"
   },
   {
-   "fighter": "Zhang Weili",
-   "rating": 1795,
-   "rd": 104,
-   "last_fight": "2025-11-15",
-   "division": "Women's Flyweight",
-   "record": "10-3"
-  },
-  {
    "fighter": "Kevin Vallejos",
    "rating": 1795,
    "rd": 131,
    "last_fight": "2026-11-21",
    "division": "Featherweight",
    "record": "5-0"
+  },
+  {
+   "fighter": "Dustin Poirier",
+   "rating": 1795,
+   "rd": 91,
+   "last_fight": "2025-07-19",
+   "division": "Lightweight",
+   "record": "22-9"
+  },
+  {
+   "fighter": "Zhang Weili",
+   "rating": 1795,
+   "rd": 104,
+   "last_fight": "2025-11-15",
+   "division": "Women's Flyweight",
+   "record": "10-3"
   },
   {
    "fighter": "Lerone Murphy",
@@ -370,20 +370,20 @@
    "record": "18-7"
   },
   {
-   "fighter": "Amanda Nunes",
-   "rating": 1791,
-   "rd": 104,
-   "last_fight": "2026-11-14",
-   "division": "Women's Bantamweight",
-   "record": "16-3"
-  },
-  {
    "fighter": "Mike Malott",
    "rating": 1791,
    "rd": 112,
    "last_fight": "2026-10-17",
    "division": "Welterweight",
    "record": "8-1"
+  },
+  {
+   "fighter": "Amanda Nunes",
+   "rating": 1791,
+   "rd": 104,
+   "last_fight": "2026-11-14",
+   "division": "Women's Bantamweight",
+   "record": "16-3"
   },
   {
    "fighter": "Grant Dawson",
@@ -620,20 +620,20 @@
      "record": "4-0"
     },
     {
-     "fighter": "Jamahal Hill",
-     "rating": 1680,
-     "rd": 109,
-     "last_fight": "2025-06-21",
-     "division": "Light Heavyweight",
-     "record": "7-4"
-    },
-    {
      "fighter": "Volkan Oezdemir",
      "rating": 1680,
      "rd": 101,
      "last_fight": "2025-11-22",
      "division": "Light Heavyweight",
      "record": "9-7"
+    },
+    {
+     "fighter": "Jamahal Hill",
+     "rating": 1680,
+     "rd": 109,
+     "last_fight": "2025-06-21",
+     "division": "Light Heavyweight",
+     "record": "7-4"
     },
     {
      "fighter": "Bogdan Guskov",

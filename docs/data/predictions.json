@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T04:26Z",
+ "updated": "2026-11-24T14:48Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -77,11 +77,11 @@
     ]
    },
    "splits": {
-    "handle_a": 0.48,
-    "handle_b": 0.52,
-    "bets_a": 0.85,
-    "bets_b": 0.15,
-    "at": "2026-11-24T04:26Z"
+    "handle_a": 0.16,
+    "handle_b": 0.84,
+    "bets_a": 0.84,
+    "bets_b": 0.16,
+    "at": "2026-11-24T14:47Z"
    },
    "why": [],
    "weight_class": "Middleweight",
@@ -96,16 +96,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.438,
-   "p_a": 0.57,
+   "p_a": 0.581,
    "model_pick": "Israel Adesanya",
-   "tier": "Low",
-   "fair_odds_a": -133,
-   "fair_odds_b": 133,
-   "market_p_a": 0.593,
-   "odds_a": -162.0,
-   "odds_b": 136.0,
-   "best_a": -162.0,
-   "best_b": 136.0,
+   "tier": "Medium",
+   "fair_odds_a": -138,
+   "fair_odds_b": 138,
+   "market_p_a": 0.609,
+   "odds_a": -175.0,
+   "odds_b": 145.0,
+   "best_a": -175.0,
+   "best_b": 145.0,
    "open_a": -155.0,
    "open_b": 130.0,
    "books": 1.0,
@@ -114,8 +114,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -162.0,
-     "b": 136.0
+     "a": -175.0,
+     "b": 145.0
     }
    ],
    "line_history": [
@@ -158,9 +158,14 @@
      "t": "2026-11-24T04:26Z",
      "a": -162.0,
      "b": 136.0
+    },
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -175.0,
+     "b": 145.0
     }
    ],
-   "edge_a": -0.023,
+   "edge_a": -0.029,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -170,20 +175,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.519,
-    "KO": 0.351,
+    "DEC": 0.52,
+    "KO": 0.349,
     "SUB": 0.13
    },
    "how": {
     "a": {
-     "DEC": 0.323,
-     "KO": 0.162,
-     "SUB": 0.085
+     "DEC": 0.328,
+     "KO": 0.165,
+     "SUB": 0.087
     },
     "b": {
-     "DEC": 0.197,
-     "KO": 0.189,
-     "SUB": 0.044
+     "DEC": 0.192,
+     "KO": 0.184,
+     "SUB": 0.043
     }
    }
   },
@@ -239,7 +244,7 @@
     "handle_b": 0.97,
     "bets_a": 0.6,
     "bets_b": 0.4,
-    "at": "2026-11-24T04:26Z"
+    "at": "2026-11-24T14:47Z"
    },
    "why": [
     "Our chance 65% vs the line's 62% (3 points of value)"
@@ -316,6 +321,11 @@
     },
     {
      "t": "2026-11-24T04:26Z",
+     "a": -180.0,
+     "b": 150.0
+    },
+    {
+     "t": "2026-11-24T14:48Z",
      "a": -180.0,
      "b": 150.0
     }
@@ -411,24 +421,36 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.275,
-   "p_a": 0.275,
+   "p_a": 0.243,
    "model_pick": "Mario Pinto",
    "tier": "High",
-   "fair_odds_a": 264,
-   "fair_odds_b": -264,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
+   "fair_odds_a": 311,
+   "fair_odds_b": -311,
+   "market_p_a": 0.256,
+   "odds_a": 275.0,
+   "odds_b": -345.0,
+   "best_a": 275.0,
+   "best_b": -345.0,
+   "open_a": 275.0,
+   "open_b": -345.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 275.0,
+     "b": -345.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": 275.0,
+     "b": -345.0
+    }
+   ],
+   "edge_a": -0.013,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -438,20 +460,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.315,
-    "KO": 0.566,
-    "SUB": 0.119
+    "DEC": 0.31,
+    "KO": 0.576,
+    "SUB": 0.114
    },
    "how": {
     "a": {
-     "DEC": 0.119,
-     "KO": 0.091,
-     "SUB": 0.065
+     "DEC": 0.105,
+     "KO": 0.08,
+     "SUB": 0.058
     },
     "b": {
-     "DEC": 0.196,
-     "KO": 0.475,
-     "SUB": 0.054
+     "DEC": 0.205,
+     "KO": 0.496,
+     "SUB": 0.056
     }
    }
   },
@@ -465,8 +487,18 @@
    "record_a": "14-0-0",
    "record_b": "12-2-0",
    "experts": null,
-   "splits": null,
-   "why": [],
+   "splits": {
+    "handle_a": 1.0,
+    "handle_b": 0.0,
+    "bets_a": 1.0,
+    "bets_b": 0.0,
+    "at": "2026-11-24T14:47Z"
+   },
+   "why": [
+    "Our chance 65% vs the line's 57% (8 points of value)",
+    "Opponent is back from a 15+ month layoff (those fighters win less than priced)",
+    "Rated 101 points higher"
+   ],
    "weight_class": "Featherweight",
    "rounds": 3,
    "segment": "",
@@ -479,47 +511,62 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.625,
-   "p_a": 0.625,
+   "p_a": 0.653,
    "model_pick": "Luke Riley",
    "tier": "Medium",
-   "fair_odds_a": -167,
-   "fair_odds_b": 167,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
+   "fair_odds_a": -188,
+   "fair_odds_b": 188,
+   "market_p_a": 0.572,
+   "odds_a": -148.0,
+   "odds_b": 124.0,
+   "best_a": -148.0,
+   "best_b": 124.0,
+   "open_a": -148.0,
+   "open_b": 124.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -148.0,
+     "b": 124.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -148.0,
+     "b": 124.0
+    }
+   ],
+   "edge_a": 0.081,
+   "pick": "Luke Riley",
+   "our_pick": "Luke Riley",
+   "bet_to": -185,
+   "stake": 1.5,
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
-   "posted": null,
+   "posted": {
+    "at": "2026-11-24T14:48Z",
+    "odds": -148.0
+   },
    "method": {
-    "DEC": 0.455,
-    "KO": 0.371,
-    "SUB": 0.174
+    "DEC": 0.452,
+    "KO": 0.379,
+    "SUB": 0.169
    },
    "how": {
     "a": {
-     "DEC": 0.26,
-     "KO": 0.3,
-     "SUB": 0.065
+     "DEC": 0.271,
+     "KO": 0.313,
+     "SUB": 0.068
     },
     "b": {
-     "DEC": 0.195,
-     "KO": 0.071,
-     "SUB": 0.109
+     "DEC": 0.181,
+     "KO": 0.066,
+     "SUB": 0.101
     }
    }
   },
@@ -584,25 +631,37 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.436,
-   "p_a": 0.436,
+   "p_a": 0.396,
    "model_pick": "Islam Dulatov",
-   "tier": "Low",
-   "fair_odds_a": 129,
-   "fair_odds_b": -129,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
+   "tier": "Medium",
+   "fair_odds_a": 153,
+   "fair_odds_b": -153,
+   "market_p_a": 0.343,
+   "odds_a": 180.0,
+   "odds_b": -218.0,
+   "best_a": 180.0,
+   "best_b": -218.0,
+   "open_a": 180.0,
+   "open_b": -218.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 180.0,
+     "b": -218.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": 180.0,
+     "b": -218.0
+    }
+   ],
+   "edge_a": 0.053,
+   "pick": "Levan Chokheli",
    "our_pick": null,
    "bet_to": null,
    "stake": null,
@@ -617,14 +676,14 @@
    },
    "how": {
     "a": {
-     "DEC": 0.152,
-     "KO": 0.187,
-     "SUB": 0.097
+     "DEC": 0.138,
+     "KO": 0.17,
+     "SUB": 0.088
     },
     "b": {
-     "DEC": 0.195,
-     "KO": 0.248,
-     "SUB": 0.121
+     "DEC": 0.209,
+     "KO": 0.266,
+     "SUB": 0.13
     }
    }
   },
@@ -689,25 +748,37 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.797,
-   "p_a": 0.797,
-   "model_pick": "Mairon Santos",
-   "tier": "High",
-   "fair_odds_a": -393,
-   "fair_odds_b": 393,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
+   "p_a": 0.323,
+   "model_pick": "Akbar Abdullaev",
+   "tier": "Medium",
+   "fair_odds_a": 210,
+   "fair_odds_b": -210,
+   "market_p_a": 0.278,
+   "odds_a": 245.0,
+   "odds_b": -305.0,
+   "best_a": 245.0,
+   "best_b": -305.0,
+   "open_a": 245.0,
+   "open_b": -305.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 245.0,
+     "b": -305.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": 245.0,
+     "b": -305.0
+    }
+   ],
+   "edge_a": 0.045,
+   "pick": "Mairon Santos",
    "our_pick": null,
    "bet_to": null,
    "stake": null,
@@ -716,20 +787,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.5,
-    "KO": 0.327,
-    "SUB": 0.173
+    "DEC": 0.503,
+    "KO": 0.299,
+    "SUB": 0.198
    },
    "how": {
     "a": {
-     "DEC": 0.397,
-     "KO": 0.27,
-     "SUB": 0.13
+     "DEC": 0.161,
+     "KO": 0.109,
+     "SUB": 0.053
     },
     "b": {
-     "DEC": 0.102,
-     "KO": 0.057,
-     "SUB": 0.043
+     "DEC": 0.342,
+     "KO": 0.19,
+     "SUB": 0.145
     }
    }
   },
@@ -781,7 +852,9 @@
     ]
    },
    "splits": null,
-   "why": [],
+   "why": [
+    "Our chance 67% vs the line's 63% (4 points of value)"
+   ],
    "weight_class": "Light Heavyweight",
    "rounds": 3,
    "segment": "",
@@ -794,47 +867,62 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.636,
-   "p_a": 0.636,
+   "p_a": 0.665,
    "model_pick": "Magomed Tuchalov",
    "tier": "Medium",
-   "fair_odds_a": -175,
-   "fair_odds_b": 175,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
+   "fair_odds_a": -199,
+   "fair_odds_b": 199,
+   "market_p_a": 0.631,
+   "odds_a": -192.0,
+   "odds_b": 160.0,
+   "best_a": -192.0,
+   "best_b": 160.0,
+   "open_a": -192.0,
+   "open_b": 160.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -192.0,
+     "b": 160.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -192.0,
+     "b": 160.0
+    }
+   ],
+   "edge_a": 0.034,
+   "pick": "Magomed Tuchalov",
+   "our_pick": "Magomed Tuchalov",
+   "bet_to": -195,
+   "stake": 0.75,
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
-   "posted": null,
+   "posted": {
+    "at": "2026-11-24T14:48Z",
+    "odds": -192.0
+   },
    "method": {
-    "DEC": 0.377,
-    "KO": 0.508,
-    "SUB": 0.115
+    "DEC": 0.376,
+    "KO": 0.51,
+    "SUB": 0.114
    },
    "how": {
     "a": {
-     "DEC": 0.229,
-     "KO": 0.339,
-     "SUB": 0.069
+     "DEC": 0.239,
+     "KO": 0.354,
+     "SUB": 0.072
     },
     "b": {
-     "DEC": 0.149,
-     "KO": 0.169,
-     "SUB": 0.046
+     "DEC": 0.137,
+     "KO": 0.156,
+     "SUB": 0.042
     }
    }
   },
@@ -1004,24 +1092,36 @@
    "debut_a": false,
    "debut_b": true,
    "p_model_a": 0.543,
-   "p_a": 0.543,
-   "model_pick": "Uran Satybaldiev",
+   "p_a": 0.473,
+   "model_pick": "Ivan Gnizditskiy",
    "tier": "Low",
-   "fair_odds_a": -119,
-   "fair_odds_b": 119,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
+   "fair_odds_a": 112,
+   "fair_odds_b": -112,
+   "market_p_a": 0.5,
+   "odds_a": -110.0,
+   "odds_b": -110.0,
+   "best_a": -110.0,
+   "best_b": -110.0,
+   "open_a": -110.0,
+   "open_b": -110.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -110.0,
+     "b": -110.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -110.0,
+     "b": -110.0
+    }
+   ],
+   "edge_a": -0.027,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1031,20 +1131,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.387,
-    "KO": 0.451,
-    "SUB": 0.162
+    "DEC": 0.388,
+    "KO": 0.459,
+    "SUB": 0.153
    },
    "how": {
     "a": {
-     "DEC": 0.207,
-     "KO": 0.218,
-     "SUB": 0.119
+     "DEC": 0.18,
+     "KO": 0.189,
+     "SUB": 0.104
     },
     "b": {
-     "DEC": 0.181,
-     "KO": 0.233,
-     "SUB": 0.043
+     "DEC": 0.209,
+     "KO": 0.269,
+     "SUB": 0.049
     }
    }
   },
@@ -1200,8 +1300,17 @@
      }
     ]
    },
-   "splits": null,
-   "why": [],
+   "splits": {
+    "handle_a": 0.0,
+    "handle_b": 1.0,
+    "bets_a": 0.0,
+    "bets_b": 1.0,
+    "at": "2026-11-24T14:47Z"
+   },
+   "why": [
+    "Our chance 59% vs the line's 55% (4 points of value)",
+    "Rated 196 points higher"
+   ],
    "weight_class": "Bantamweight",
    "rounds": 3,
    "segment": "",
@@ -1214,47 +1323,62 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.697,
-   "p_a": 0.697,
+   "p_a": 0.594,
    "model_pick": "Pavel Andrusca",
    "tier": "Medium",
-   "fair_odds_a": -230,
-   "fair_odds_b": 230,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
-   "pick": null,
-   "our_pick": null,
-   "bet_to": null,
-   "stake": null,
+   "fair_odds_a": -146,
+   "fair_odds_b": 146,
+   "market_p_a": 0.551,
+   "odds_a": -135.0,
+   "odds_b": 114.0,
+   "best_a": -135.0,
+   "best_b": 114.0,
+   "open_a": -130.0,
+   "open_b": 110.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -135.0,
+     "b": 114.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -135.0,
+     "b": 114.0
+    }
+   ],
+   "edge_a": 0.043,
+   "pick": "Pavel Andrusca",
+   "our_pick": "Pavel Andrusca",
+   "bet_to": -140,
+   "stake": 0.75,
    "expert_lean": null,
    "check_news": false,
    "moved_against": false,
-   "posted": null,
+   "posted": {
+    "at": "2026-11-24T14:48Z",
+    "odds": -135.0
+   },
    "method": {
-    "DEC": 0.413,
-    "KO": 0.391,
-    "SUB": 0.196
+    "DEC": 0.409,
+    "KO": 0.403,
+    "SUB": 0.187
    },
    "how": {
     "a": {
-     "DEC": 0.294,
-     "KO": 0.248,
-     "SUB": 0.155
+     "DEC": 0.251,
+     "KO": 0.212,
+     "SUB": 0.132
     },
     "b": {
-     "DEC": 0.119,
-     "KO": 0.143,
-     "SUB": 0.041
+     "DEC": 0.159,
+     "KO": 0.191,
+     "SUB": 0.055
     }
    }
   },
@@ -1319,24 +1443,36 @@
    "debut_a": true,
    "debut_b": false,
    "p_model_a": 0.358,
-   "p_a": 0.358,
+   "p_a": 0.436,
    "model_pick": "Matthieu Letho Duclos",
-   "tier": "Medium",
-   "fair_odds_a": 179,
-   "fair_odds_b": -179,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
+   "tier": "Low",
+   "fair_odds_a": 130,
+   "fair_odds_b": -130,
+   "market_p_a": 0.437,
+   "odds_a": 120.0,
+   "odds_b": -142.0,
+   "best_a": 120.0,
+   "best_b": -142.0,
+   "open_a": 120.0,
+   "open_b": -142.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": 120.0,
+     "b": -142.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": 120.0,
+     "b": -142.0
+    }
+   ],
+   "edge_a": -0.001,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1346,20 +1482,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.391,
-    "KO": 0.406,
-    "SUB": 0.204
+    "DEC": 0.393,
+    "KO": 0.398,
+    "SUB": 0.209
    },
    "how": {
     "a": {
-     "DEC": 0.148,
-     "KO": 0.123,
-     "SUB": 0.088
+     "DEC": 0.18,
+     "KO": 0.149,
+     "SUB": 0.106
     },
     "b": {
-     "DEC": 0.243,
-     "KO": 0.283,
-     "SUB": 0.116
+     "DEC": 0.213,
+     "KO": 0.249,
+     "SUB": 0.102
     }
    }
   },
@@ -1424,24 +1560,36 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.53,
-   "p_a": 0.53,
+   "p_a": 0.594,
    "model_pick": "Abdul Hussein",
-   "tier": "Low",
-   "fair_odds_a": -113,
-   "fair_odds_b": 113,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
+   "tier": "Medium",
+   "fair_odds_a": -147,
+   "fair_odds_b": 147,
+   "market_p_a": 0.572,
+   "odds_a": -148.0,
+   "odds_b": 124.0,
+   "best_a": -148.0,
+   "best_b": 124.0,
+   "open_a": -148.0,
+   "open_b": 124.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -148.0,
+     "b": 124.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -148.0,
+     "b": 124.0
+    }
+   ],
+   "edge_a": 0.022,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1451,20 +1599,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.451,
-    "KO": 0.327,
-    "SUB": 0.222
+    "DEC": 0.441,
+    "KO": 0.321,
+    "SUB": 0.238
    },
    "how": {
     "a": {
-     "DEC": 0.202,
-     "KO": 0.151,
-     "SUB": 0.178
+     "DEC": 0.226,
+     "KO": 0.17,
+     "SUB": 0.199
     },
     "b": {
-     "DEC": 0.249,
-     "KO": 0.176,
-     "SUB": 0.045
+     "DEC": 0.215,
+     "KO": 0.152,
+     "SUB": 0.039
     }
    }
   },
@@ -1492,24 +1640,36 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.394,
-   "p_a": 0.394,
-   "model_pick": "Elves Brener",
-   "tier": "Medium",
-   "fair_odds_a": 154,
-   "fair_odds_b": -154,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "edge_a": null,
+   "p_a": 0.579,
+   "model_pick": "Mateusz Rebecki",
+   "tier": "Low",
+   "fair_odds_a": -137,
+   "fair_odds_b": 137,
+   "market_p_a": 0.572,
+   "odds_a": -148.0,
+   "odds_b": 124.0,
+   "best_a": -148.0,
+   "best_b": 124.0,
+   "open_a": -148.0,
+   "open_b": 124.0,
+   "books": 1.0,
+   "best_book_a": "DraftKings",
+   "best_book_b": "DraftKings",
+   "book_prices": [
+    {
+     "book": "DraftKings",
+     "a": -148.0,
+     "b": 124.0
+    }
+   ],
+   "line_history": [
+    {
+     "t": "2026-11-24T14:48Z",
+     "a": -148.0,
+     "b": 124.0
+    }
+   ],
+   "edge_a": 0.006,
    "pick": null,
    "our_pick": null,
    "bet_to": null,
@@ -1519,20 +1679,20 @@
    "moved_against": false,
    "posted": null,
    "method": {
-    "DEC": 0.528,
-    "KO": 0.311,
-    "SUB": 0.161
+    "DEC": 0.526,
+    "KO": 0.297,
+    "SUB": 0.177
    },
    "how": {
     "a": {
-     "DEC": 0.206,
-     "KO": 0.105,
-     "SUB": 0.084
+     "DEC": 0.302,
+     "KO": 0.154,
+     "SUB": 0.123
     },
     "b": {
-     "DEC": 0.322,
-     "KO": 0.206,
-     "SUB": 0.078
+     "DEC": 0.224,
+     "KO": 0.143,
+     "SUB": 0.054
     }
    }
   }
