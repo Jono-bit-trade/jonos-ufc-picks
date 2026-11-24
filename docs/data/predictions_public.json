@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T19:22Z",
+ "updated": "2026-11-24T01:37Z",
  "event": "UFC Fight Night: Adesanya vs Magomedov",
  "date": "2026-12-05",
  "location": "Riyadh, Saudi Arabia",
@@ -14,7 +14,7 @@
   {
    "segment": "Prelims",
    "start": "2026-12-05T15:00Z",
-   "bouts": 7,
+   "bouts": 6,
    "tv": [
     "Paramount+"
    ]
@@ -22,7 +22,7 @@
   {
    "segment": "Main card",
    "start": "2026-12-05T18:00Z",
-   "bouts": 6,
+   "bouts": 7,
    "tv": [
     "Paramount+"
    ]
@@ -38,13 +38,50 @@
    "b_id": "4421784",
    "record_a": "24-6-0",
    "record_b": "17-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 1,
+    "high_a": 1,
+    "high_b": 1,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Low",
+      "method": "Decision",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
-    "handle_a": 0.48,
-    "handle_b": 0.52,
-    "bets_a": 0.86,
-    "bets_b": 0.14,
-    "at": "2026-11-23T00:28Z"
+    "handle_a": 0.47,
+    "handle_b": 0.53,
+    "bets_a": 0.84,
+    "bets_b": 0.16,
+    "at": "2026-11-24T01:37Z"
    },
    "weight_class": "Middleweight",
    "rounds": 5,
@@ -57,11 +94,11 @@
    "rating_b": 1709,
    "debut_a": false,
    "debut_b": false,
-   "market_p_a": 0.622,
-   "odds_a": -185.0,
-   "odds_b": 154.0,
-   "best_a": -185.0,
-   "best_b": 154.0,
+   "market_p_a": 0.593,
+   "odds_a": -162.0,
+   "odds_b": 136.0,
+   "best_a": -162.0,
+   "best_b": 136.0,
    "open_a": -155.0,
    "open_b": 130.0,
    "books": 1.0,
@@ -70,8 +107,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -185.0,
-     "b": 154.0
+     "a": -162.0,
+     "b": 136.0
     }
    ],
    "line_history": [
@@ -104,9 +141,14 @@
      "t": "2026-11-23T19:22Z",
      "a": -185.0,
      "b": 154.0
+    },
+    {
+     "t": "2026-11-24T01:37Z",
+     "a": -162.0,
+     "b": 136.0
     }
    ],
-   "locked": true,
+   "locked": false,
    "hidden": true,
    "our_pick": null,
    "pick": null,
@@ -123,16 +165,53 @@
    "b_id": "4275020",
    "record_a": "17-2-0",
    "record_b": "30-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 1,
+    "high_a": 0,
+    "high_b": 1,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Decision",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     }
+    ]
+   },
    "splits": {
     "handle_a": 0.03,
     "handle_b": 0.97,
-    "bets_a": 0.62,
-    "bets_b": 0.38,
-    "at": "2026-11-23T00:28Z"
+    "bets_a": 0.61,
+    "bets_b": 0.39,
+    "at": "2026-11-24T01:37Z"
    },
    "why": [
-    "Our chance 64% vs the line's 60% (4 points of value)"
+    "Our chance 65% vs the line's 62% (3 points of value)"
    ],
    "weight_class": "Welterweight",
    "rounds": 3,
@@ -146,16 +225,16 @@
    "debut_a": false,
    "debut_b": false,
    "p_model_a": 0.626,
-   "p_a": 0.637,
+   "p_a": 0.65,
    "model_pick": "Ian Machado Garry",
    "tier": "Medium",
-   "fair_odds_a": -176,
-   "fair_odds_b": 176,
-   "market_p_a": 0.604,
-   "odds_a": -170.0,
-   "odds_b": 142.0,
-   "best_a": -170.0,
-   "best_b": 142.0,
+   "fair_odds_a": -186,
+   "fair_odds_b": 186,
+   "market_p_a": 0.616,
+   "odds_a": -180.0,
+   "odds_b": 150.0,
+   "best_a": -180.0,
+   "best_b": 150.0,
    "open_a": -170.0,
    "open_b": 142.0,
    "books": 1.0,
@@ -164,8 +243,8 @@
    "book_prices": [
     {
      "book": "DraftKings",
-     "a": -170.0,
-     "b": 142.0
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "line_history": [
@@ -198,12 +277,17 @@
      "t": "2026-11-23T19:22Z",
      "a": -170.0,
      "b": 142.0
+    },
+    {
+     "t": "2026-11-24T01:37Z",
+     "a": -180.0,
+     "b": 150.0
     }
    ],
    "edge_a": 0.033,
    "pick": "Ian Machado Garry",
    "our_pick": "Ian Machado Garry",
-   "bet_to": -170,
+   "bet_to": -180,
    "stake": 0.75,
    "expert_lean": null,
    "check_news": false,
@@ -213,20 +297,20 @@
     "odds": -170.0
    },
    "method": {
-    "DEC": 0.476,
-    "KO": 0.334,
-    "SUB": 0.19
+    "DEC": 0.478,
+    "KO": 0.337,
+    "SUB": 0.185
    },
    "how": {
     "a": {
-     "DEC": 0.343,
-     "KO": 0.265,
+     "DEC": 0.35,
+     "KO": 0.27,
      "SUB": 0.03
     },
     "b": {
-     "DEC": 0.133,
-     "KO": 0.07,
-     "SUB": 0.16
+     "DEC": 0.128,
+     "KO": 0.067,
+     "SUB": 0.155
     }
    },
    "sample": true
@@ -240,7 +324,44 @@
    "b_id": "5218817",
    "record_a": "18-7-0",
    "record_b": "13-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 2,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Heavyweight",
    "rounds": 3,
@@ -316,6 +437,85 @@
    "expert_lean": null
   },
   {
+   "a": "Levan Chokheli",
+   "b": "Islam Dulatov",
+   "a_slug": "levan-chokheli",
+   "b_slug": "islam-dulatov",
+   "a_id": "4867651",
+   "b_id": "5212748",
+   "record_a": "15-3-0",
+   "record_b": "12-1-0",
+   "experts": {
+    "picks_a": 1,
+    "picks_b": 2,
+    "high_a": 1,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     }
+    ]
+   },
+   "splits": null,
+   "weight_class": "Welterweight",
+   "rounds": 3,
+   "segment": "",
+   "start": "2026-12-05T18:00Z",
+   "state": "pre",
+   "status": "Sat, December 5th at 1:00 PM EST",
+   "result": null,
+   "rating_a": 1579,
+   "rating_b": 1580,
+   "debut_a": false,
+   "debut_b": false,
+   "market_p_a": null,
+   "odds_a": null,
+   "odds_b": null,
+   "best_a": null,
+   "best_b": null,
+   "open_a": null,
+   "open_b": null,
+   "books": null,
+   "best_book_a": null,
+   "best_book_b": null,
+   "book_prices": [],
+   "line_history": [],
+   "locked": false,
+   "hidden": true,
+   "our_pick": null,
+   "pick": null,
+   "stake": null,
+   "why": null,
+   "expert_lean": null
+  },
+  {
    "a": "Mairon Santos",
    "b": "Akbar Abdullaev",
    "a_slug": "mairon-santos",
@@ -324,7 +524,44 @@
    "b_id": "5210077",
    "record_a": "18-1-0",
    "record_b": "14-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 3,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "High",
+      "method": null,
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Lightweight",
    "rounds": 3,
@@ -366,7 +603,44 @@
    "b_id": "3994033",
    "record_a": "7-0-0",
    "record_b": "20-12-1",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 0,
+    "high_a": 0,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Light Heavyweight",
    "rounds": 3,
@@ -408,7 +682,44 @@
    "b_id": "3896934",
    "record_a": "15-9-2",
    "record_b": "17-5-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 1,
+    "high_a": 0,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Submission",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "Med",
+      "method": null,
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Flyweight",
    "rounds": 3,
@@ -450,7 +761,44 @@
    "b_id": "5292007",
    "record_a": "9-1-0",
    "record_b": "7-0-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 3,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Light Heavyweight",
    "rounds": 3,
@@ -492,7 +840,44 @@
    "b_id": "4275043",
    "record_a": "14-3-0",
    "record_b": "19-7-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 3,
+    "picks_b": 0,
+    "high_a": 2,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Decision",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "Decision",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -534,7 +919,44 @@
    "b_id": "5345640",
    "record_a": "9-0-0",
    "record_b": "12-2-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 1,
+    "high_a": 2,
+    "high_b": 1,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "Artem MMA",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "Submission",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Bantamweight",
    "rounds": 3,
@@ -576,7 +998,44 @@
    "b_id": "5013686",
    "record_a": "8-1-0",
    "record_b": "11-3-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 0,
+    "picks_b": 3,
+    "high_a": 0,
+    "high_b": 1,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "b",
+      "conf": "High",
+      "method": "KO/TKO",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "b",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Low",
+      "method": "KO/TKO",
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Middleweight",
    "rounds": 3,
@@ -618,7 +1077,44 @@
    "b_id": "5236383",
    "record_a": "16-2-0",
    "record_b": "15-1-0",
-   "experts": null,
+   "experts": {
+    "picks_a": 2,
+    "picks_b": 1,
+    "high_a": 1,
+    "high_b": 0,
+    "url": null,
+    "win_a": 0,
+    "win_b": 0,
+    "analysts": [
+     {
+      "name": "MMA Experts",
+      "side": "a",
+      "conf": "High",
+      "method": "Submission",
+      "record": "201-141",
+      "units": -33.07,
+      "winning": false
+     },
+     {
+      "name": "Artem MMA",
+      "side": "b",
+      "conf": "Med",
+      "method": null,
+      "record": "221-122",
+      "units": -9.31,
+      "winning": false
+     },
+     {
+      "name": "DFS By The Numbers",
+      "side": "a",
+      "conf": "Med",
+      "method": "KO/TKO",
+      "record": "213-126",
+      "units": -22.32,
+      "winning": false
+     }
+    ]
+   },
    "splits": null,
    "weight_class": "Bantamweight",
    "rounds": 3,
@@ -650,52 +1146,10 @@
    "stake": null,
    "why": null,
    "expert_lean": null
-  },
-  {
-   "a": "Levan Chokheli",
-   "b": "Islam Dulatov",
-   "a_slug": "levan-chokheli",
-   "b_slug": "islam-dulatov",
-   "a_id": "4867651",
-   "b_id": "5212748",
-   "record_a": "15-3-0",
-   "record_b": "12-1-0",
-   "experts": null,
-   "splits": null,
-   "weight_class": "Welterweight",
-   "rounds": 3,
-   "segment": "",
-   "start": "2026-12-05T15:00Z",
-   "state": "pre",
-   "status": "Sat, December 5th at 10:00 AM EST",
-   "result": null,
-   "rating_a": 1579,
-   "rating_b": 1580,
-   "debut_a": false,
-   "debut_b": false,
-   "market_p_a": null,
-   "odds_a": null,
-   "odds_b": null,
-   "best_a": null,
-   "best_b": null,
-   "open_a": null,
-   "open_b": null,
-   "books": null,
-   "best_book_a": null,
-   "best_book_b": null,
-   "book_prices": [],
-   "line_history": [],
-   "locked": false,
-   "hidden": true,
-   "our_pick": null,
-   "pick": null,
-   "stake": null,
-   "why": null,
-   "expert_lean": null
   }
  ],
  "final": false,
  "final_at": "2026-12-05T14:07Z",
  "gated": true,
- "locked_count": 1
+ "locked_count": 0
 }

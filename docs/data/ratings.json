@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T19:22Z",
+ "updated": "2026-11-24T01:37Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -28,7 +28,7 @@
   {
    "fighter": "Ilia Topuria",
    "rating": 1894,
-   "rd": 112,
+   "rd": 113,
    "last_fight": "2026-06-14",
    "division": "Lightweight",
    "record": "9-1"
@@ -116,7 +116,7 @@
   {
    "fighter": "Merab Dvalishvili",
    "rating": 1842,
-   "rd": 93,
+   "rd": 94,
    "last_fight": "2026-10-24",
    "division": "Bantamweight",
    "record": "14-4"
@@ -909,7 +909,7 @@
     {
      "fighter": "Ilia Topuria",
      "rating": 1894,
-     "rd": 112,
+     "rd": 113,
      "last_fight": "2026-06-14",
      "division": "Lightweight",
      "record": "9-1"
@@ -1098,7 +1098,7 @@
     {
      "fighter": "Pat Sabatini",
      "rating": 1739,
-     "rd": 110,
+     "rd": 111,
      "last_fight": "2026-05-09",
      "division": "Featherweight",
      "record": "9-2"
@@ -1167,7 +1167,7 @@
     {
      "fighter": "Merab Dvalishvili",
      "rating": 1842,
-     "rd": 93,
+     "rd": 94,
      "last_fight": "2026-10-24",
      "division": "Bantamweight",
      "record": "14-4"
