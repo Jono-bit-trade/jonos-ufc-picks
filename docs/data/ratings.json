@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T23:27Z",
+ "updated": "2026-11-25T03:18Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -566,7 +566,7 @@
     {
      "fighter": "Paulo Costa",
      "rating": 1763,
-     "rd": 107,
+     "rd": 108,
      "last_fight": "2026-04-11",
      "division": "Light Heavyweight",
      "record": "8-4"
@@ -1308,7 +1308,7 @@
     {
      "fighter": "Kyoji Horiguchi",
      "rating": 1745,
-     "rd": 112,
+     "rd": 113,
      "last_fight": "2026-11-21",
      "division": "Flyweight",
      "record": "10-2"
@@ -1433,7 +1433,7 @@
     {
      "fighter": "Bia Mesquita",
      "rating": 1712,
-     "rd": 141,
+     "rd": 142,
      "last_fight": "2026-11-14",
      "division": "Women's Bantamweight",
      "record": "4-0"
