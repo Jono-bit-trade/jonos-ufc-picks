@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-24",
+ "run_at": "2026-11-25",
  "best": {
   "features": "core+form",
   "learner": "logistic"
@@ -50,16 +50,16 @@
   {
    "features": "all",
    "learner": "boost",
-   "log_loss": 0.6591,
+   "log_loss": 0.6593,
    "brier": 0.2334,
-   "accuracy": 0.6109
+   "accuracy": 0.6096
   },
   {
    "features": "all",
    "learner": "blend",
-   "log_loss": 0.6517,
-   "brier": 0.2299,
-   "accuracy": 0.6184
+   "log_loss": 0.6519,
+   "brier": 0.23,
+   "accuracy": 0.618
   }
  ],
  "stage2": [
