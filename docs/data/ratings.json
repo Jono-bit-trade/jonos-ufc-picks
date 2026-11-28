@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T22:46Z",
+ "updated": "2026-11-28T02:09Z",
  "fighters": [
   {
    "fighter": "Islam Makhachev",
@@ -236,7 +236,7 @@
   {
    "fighter": "Sean O'Malley",
    "rating": 1810,
-   "rd": 99,
+   "rd": 100,
    "last_fight": "2026-06-14",
    "division": "Bantamweight",
    "record": "12-3"
@@ -574,7 +574,7 @@
     {
      "fighter": "Reinier de Ridder",
      "rating": 1741,
-     "rd": 118,
+     "rd": 119,
      "last_fight": "2026-08-22",
      "division": "Light Heavyweight",
      "record": "5-2"
@@ -1175,7 +1175,7 @@
     {
      "fighter": "Sean O'Malley",
      "rating": 1810,
-     "rd": 99,
+     "rd": 100,
      "last_fight": "2026-06-14",
      "division": "Bantamweight",
      "record": "12-3"
@@ -1574,7 +1574,7 @@
     {
      "fighter": "Jasmine Jasudavicius",
      "rating": 1730,
-     "rd": 101,
+     "rd": 102,
      "last_fight": "2026-10-17",
      "division": "Women's Flyweight",
      "record": "10-3"
